@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "include": ["src/**/*", "../../typings/**/*", "rollup.config.js"],
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declarationDir": "./dist",
+    "composite": true,
+    "baseUrl": "."
+  }
+}

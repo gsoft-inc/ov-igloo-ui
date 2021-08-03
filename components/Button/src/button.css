@@ -1,0 +1,14 @@
+.ids-btn {
+  padding: 8px 16px;
+  color: #fff;
+  background: #1053ff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 32px;
+}
+
+.ids-btn:hover {
+  cursor: pointer;
+  background: #0c46d0;
+}

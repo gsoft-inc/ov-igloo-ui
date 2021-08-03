@@ -1,0 +1,32 @@
+{
+  "name": "@igloo-ui/button",
+  "version": "0.0.0",
+  "main": "dist/Button.js",
+  "module": "dist/Button.js",
+  "types": "dist/Button.d.ts",
+  "styles": "dist/button.css",
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "author": "Groupe Officevibe Inc.",
+  "contributors": [
+    "Franck franck.gaudin@gsoft.com"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist",
+    "src",
+    "!*theme.*",
+    "!*.test.*",
+    "!__snapshots__",
+    "!__tests__"
+  ],
+  "devDependencies": {},
+  "dependencies": {}
+}

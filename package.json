@@ -1,25 +1,86 @@
 {
-  "name": "@igloo-ui",
-  "version": "0.0.0",
-  "description": "Our design system",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gsoft-inc/ov-igloo-ui.git"
-  },
-  "keywords": [
-    "igloo-ui",
-    "components",
-    "officevibe",
-    "react"
-  ],
+  "name": "@igloo-ui/monorepo",
+  "private": true,
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
   "author": "Groupe Officevibe Inc.",
+  "contributors": [
+    "Franck franck.gaudin@gsoft.com"
+  ],
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/gsoft-inc/ov-igloo-ui/issues"
+  "scripts": {
+    "build": "lerna run build",
+    "test": "jest",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --fix --ext .ts,.tsx",
+    "lint:style": "stylelint **/*.css",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
-  "homepage": "https://github.com/gsoft-inc/ov-igloo-ui#readme"
+  "workspaces": [
+    "components/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@rollup/plugin-commonjs": "20.0.0",
+    "@rollup/plugin-eslint": "8.0.1",
+    "@rollup/plugin-json": "4.1.0",
+    "@rollup/plugin-node-resolve": "13.0.4",
+    "@storybook/addon-actions": "^6.3.6",
+    "@storybook/addon-essentials": "^6.3.6",
+    "@storybook/addon-links": "^6.3.6",
+    "@storybook/react": "^6.3.6",
+    "@types/enzyme": "3.10.9",
+    "@types/jest": "26.0.24",
+    "@types/node": "16.4.10",
+    "@types/react": "17.0.15",
+    "@typescript-eslint/eslint-plugin": "4.29.0",
+    "@typescript-eslint/parser": "4.29.0",
+    "babel-loader": "^8.2.2",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.6",
+    "eslint": "7.32.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-react": "7.24.0",
+    "husky": "3.1.0",
+    "jest": "27.0.6",
+    "lerna": "4.0.0",
+    "lint-staged": "9.5.0",
+    "postcss": "8.3.6",
+    "prettier": "2.3.2",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "rollup": "2.55.1",
+    "rollup-plugin-cleanup": "3.2.1",
+    "rollup-plugin-postcss": "4.0.0",
+    "rollup-plugin-styles": "3.14.1",
+    "rollup-plugin-typescript2": "0.30.0",
+    "stylelint": "13.13.1",
+    "stylelint-config-standard": "22.0.0",
+    "ts-jest": "27.0.4",
+    "typescript": "4.3.5"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": true
+  },
+  "lint-staged": {
+    "*.{js,json,css,md,ts,tsx,jsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest-junit": {
+    "outputDirectory": "./coverage/target/surefire-reports"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {}
 }
