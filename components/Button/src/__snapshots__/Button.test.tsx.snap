@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render a label 1`] = `ShallowWrapper {}`;
+exports[`Button Component It should render a primary appearance 1`] = `ShallowWrapper {}`;
