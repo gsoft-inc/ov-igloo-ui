@@ -27,6 +27,8 @@
     "!__snapshots__",
     "!__tests__"
   ],
-  "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "@igloo-ui/tokens": "^0.1.1",
+    "classnames": "^2.3.1"
+  }
 }

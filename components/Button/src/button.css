@@ -1,14 +1,115 @@
+@import '~@igloo-ui/tokens/dist/variables.css';
+@import '~@igloo-ui/tokens/dist/fonts.css';
+
+:root {
+  --white: #ffffff;
+
+  /* Size */
+  --btn-size-text: var(--font-size-4);
+  --btn-size-height: var(--space-6);
+  --btn-size-padding-x: var(--space-3);
+  --btn-border-radius: var(--border-radius-sm);
+
+  /* Font */
+  --btn-font-family: var(--primary-font-family);
+  --btn-font-size: var(--font-size-4);
+  --btn-font-weight: var(--font-weight-medium);
+
+  /* color */
+  --btn-color-background: var(--electric-blue-500);
+  --btn-color-background--hover: var(--electric-blue-600);
+  --btn-color-background--disabled: var(--electric-blue-300);
+  --btn-color-text: var(--white);
+  --btn-color-border: transparant;
+  --btn-color-border--hover: var(--electric-blue-500);
+  --btn-color-border--disabled: var(--electric-blue-300);
+}
+
 .ids-btn {
-  padding: 8px 16px;
-  color: #fff;
-  background: #1053ff;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  font-size: 14px;
-  height: 32px;
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  color: var(--btn-color-text);
+  background: var(--btn-color-background);
+  border: 1px solid var(--btn-color-border);
+  border-radius: var(--btn-border-radius);
+  height: var(--btn-size-height);
+  padding: 0 var(--btn-size-padding-x);
 }
 
 .ids-btn:hover {
   cursor: pointer;
-  background: #0c46d0;
+  border-color: var(--btn-color-border--hover);
+  background: var(--btn-color-background--hover);
+}
+
+.ids-btn:disabled {
+  pointer-events: none;
+  user-select: none;
+  border-color: var(--btn-color-border--disabled);
+  background: var(--btn-color-background--disabled);
+}
+
+.ids-btn--small {
+  --btn-font-size: var(--font-size-3);
+  --btn-size-height: var(--space-5);
+}
+
+.ids-btn--secondary {
+  --btn-color-text: var(--grey-800);
+  --btn-color-background: var(--white);
+  --btn-color-border: var(--grey-300);
+}
+
+.ids-btn--secondary:hover,
+.ids-btn.ids-btn--active:hover {
+  --btn-color-text: var(--grey-800);
+  --btn-color-background--hover: var(--white);
+  --btn-color-border--hover: var(--grey-600);
+}
+
+.ids-btn--secondary:disabled {
+  --btn-color-text: var(--grey-600);
+  --btn-color-background--disabled: var(--grey-300);
+  --btn-color-border--disabled: var(--grey-300);
+}
+
+.ids-btn.ids-btn--active {
+  --btn-color-text: var(--electric-blue-500);
+  --btn-color-background: var(--electric-blue-50);
+  --btn-color-border: var(--electric-blue-500);
+}
+
+.ids-btn--danger {
+  --btn-color-text: var(--white);
+  --btn-color-background: var(--coral-500);
+  --btn-color-border: var(--coral-500);
+}
+
+.ids-btn--danger:hover {
+  --btn-color-background--hover: var(--coral-600);
+  --btn-color-border--hover: var(--coral-600);
+}
+
+.ids-btn--danger:disabled {
+  --btn-color-background--disabled: var(--coral-200);
+  --btn-color-border--disabled: var(--coral-200);
+}
+
+.ids-btn--ghost {
+  --btn-color-text: var(--electric-blue-500);
+  --btn-color-background: transparant;
+  --btn-color-border: transparant;
+}
+
+.ids-btn--ghost:hover {
+  --btn-color-text: var(--electric-blue-600);
+  --btn-color-background--hover: transparant;
+  --btn-color-border--hover: transparant;
+}
+
+.ids-btn--ghost:disabled {
+  --btn-color-text: var(--electric-blue-300);
+  --btn-color-background--disabled: transparant;
+  --btn-color-border--disabled: transparant;
 }
