@@ -1,103 +1,118 @@
-import * as React from 'react';
+import React from 'react';
+
 import { Meta } from '@storybook/react';
 
-import Button from './Button';
+import Plus from '@igloo-ui/icons/dist/Plus';
+
+import Button, { Props } from './Button';
 
 export default {
   title: 'Components/Button',
   component: Button,
-  decorators: [
-    (Story) => (
-      <div style={{ padding: '3rem' }}>
-        <Story />
-      </div>
-    ),
-  ],
 } as Meta;
 
-// eslint-disable-next-line react/prop-types
-const Grid: React.FunctionComponent = ({ children }): JSX.Element => (
-  <div className="isb-grid">{children}</div>
+interface TemplateProps {
+  appearance?: string;
+  payload: { base: Props[]; disabled: Props[]; active: Props[] };
+}
+
+const Template = ({
+  appearance,
+  payload,
+}: TemplateProps): React.ReactElement => {
+  const componentState = Object.keys(payload);
+  const { base, disabled } = payload;
+
+  const component = componentState.map((state, index) => {
+    const isDisabled = state === 'disabled';
+    const datas = isDisabled ? disabled : base;
+
+    const list = datas.map((p, i) => {
+      const label = p.children !== undefined ? p.children : 'Send';
+      return (
+        <Button
+          active={state === 'active'}
+          appearance={appearance}
+          disabled={isDisabled}
+          key={i.toString()}
+          {...p}
+        >
+          {label}
+        </Button>
+      );
+    });
+
+    const title =
+      state === 'base'
+        ? 'Default'
+        : state.charAt(0).toUpperCase() + state.slice(1);
+
+    return (
+      <section className="isb-section" key={index.toString()}>
+        <h2>{title}</h2>
+        <div className="isb-section__content">{list}</div>
+      </section>
+    );
+  });
+
+  return <>{component}</>;
+};
+
+const buttonState = [
+  { size: 'small' },
+  {
+    size: 'small',
+    iconLeading: <Plus size="small" />,
+    children: 'New feedback',
+  },
+  {
+    size: 'small',
+    iconTrailing: <Plus size="small" />,
+    children: 'New feedback',
+  },
+  { size: 'medium' },
+  {
+    size: 'medium',
+    iconLeading: <Plus size="small" />,
+    children: 'New feedback',
+  },
+  {
+    size: 'medium',
+    iconTrailing: <Plus size="small" />,
+    children: 'New feedback',
+  },
+];
+
+export const Primary = (): React.ReactElement => (
+  <Template payload={{ base: buttonState, disabled: buttonState }} />
 );
 
-export const BasicUsage = (): React.ReactElement => (
-  <>
-    <h1>Buttons</h1>
-    <section className="isb-section">
-      <h2 className="isb-section__title">Primary</h2>
-      <Grid>
-        <h3 className="isb-section__subtitle">Default</h3>
-        <Button dataTest="test" size="small">
-          Click me
-        </Button>
-        <Button>Click me</Button>
-        <h3 className="isb-section__subtitle">Disabled</h3>
-        <Button disabled size="small">
-          Click me
-        </Button>
-        <Button disabled>Click me</Button>
-      </Grid>
-    </section>
-
-    <section className="isb-section">
-      <h2 className="isb-section__title">Secondary</h2>
-      <Grid>
-        <h3 className="isb-section__subtitle">Default</h3>
-        <Button appearance="secondary" size="small">
-          Click me
-        </Button>
-        <Button appearance="secondary">Click me</Button>
-        <h3 className="isb-section__subtitle">Disabled</h3>
-        <Button appearance="secondary" disabled size="small">
-          Click me
-        </Button>
-        <Button appearance="secondary" disabled>
-          Click me
-        </Button>
-        <h3 className="isb-section__subtitle">Actived</h3>
-        <Button appearance="secondary" active size="small">
-          Click me
-        </Button>
-        <Button appearance="secondary" active>
-          Click me
-        </Button>
-      </Grid>
-    </section>
-
-    <section className="isb-section">
-      <h2 className="isb-section__title">Danger</h2>
-      <Grid>
-        <h3 className="isb-section__subtitle">Default</h3>
-        <Button appearance="danger" size="small">
-          Click me
-        </Button>
-        <Button appearance="danger">Click me</Button>
-        <h3 className="isb-section__subtitle">Disabled</h3>
-        <Button appearance="danger" disabled size="small">
-          Click me
-        </Button>
-        <Button appearance="danger" disabled>
-          Click me
-        </Button>
-      </Grid>
-    </section>
-
-    <section className="isb-section">
-      <h2 className="isb-section__title">Ghost</h2>
-      <Grid>
-        <h3 className="isb-section__subtitle">Default</h3>
-        <Button appearance="ghost" size="small">
-          Click me
-        </Button>
-        <Button appearance="ghost">Click me</Button>
-        <h3 className="isb-section__subtitle">Disabled</h3>
-        <Button appearance="ghost" disabled size="small">
-          Click me
-        </Button>
-        <Button appearance="ghost" disabled>
-          Click me
-        </Button>
-      </Grid>
-    </section>
-  </>
+export const Secondary = (): React.ReactElement => (
+  <Template
+    appearance="secondary"
+    payload={{ base: buttonState, disabled: buttonState, active: buttonState }}
+  />
 );
+
+export const Premium = (): React.ReactElement => (
+  <Template
+    appearance="premium"
+    payload={{ base: buttonState, disabled: buttonState }}
+  />
+);
+
+export const Danger = (): React.ReactElement => (
+  <Template
+    appearance="danger"
+    payload={{ base: buttonState, disabled: buttonState }}
+  />
+);
+
+export const Ghost = (): React.ReactElement => (
+  <Template
+    appearance="ghost"
+    payload={{ base: buttonState, disabled: buttonState }}
+  />
+);
+
+// export const Primary: React.VFC<Props> = () => <Button>Button</Button>;

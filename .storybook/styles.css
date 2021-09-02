@@ -6,24 +6,15 @@ body,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.isb-grid {
-  max-width: 30rem;
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  column-gap: 1.6rem;
-  row-gap: 2.4rem;
+.isb-section__content {
+  display: flex;
 }
 
-.isb-section:not(:last-child) {
-  margin-bottom: 3.2rem;
+.isb-section__content > * {
+  margin-left: var(--space-3);
 }
 
 .isb-section__title {
   font-weight: var(--font-weight-regular);
   color: var(--grey-800);
-}
-
-.isb-section__subtitle {
-  font-weight: var(--font-weight-regular);
-  color: var(--grey-600);
 }
