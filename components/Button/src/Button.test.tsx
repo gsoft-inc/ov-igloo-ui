@@ -1,6 +1,12 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
-import { shallow } from 'enzyme';
-import { findByTestAttr } from '../../../utils';
+import { shallow, mount } from 'enzyme';
+import Plus from '@igloo-ui/icons/dist/Plus';
+
+// import { findByTestAttr } from '../../../utils';
+
 import Button from './Button';
 
 const setUp = (props = {}) => {
@@ -21,11 +27,40 @@ describe('Button Component', (): void => {
 
   test('It should render without errors', (): void => {
     // console.log(component.debug());
-    const wrapper = findByTestAttr(component, 'ids-btn');
+    const wrapper = component.find('button');
     expect(wrapper.length).toBe(1);
   });
 
+  test('It should render a button with icon', (): void => {
+    // console.log(component.debug());
+    const button = mount(
+      <Button iconLeading={<Plus size="small" />}>Click me</Button>
+    );
+    expect(button.find('svg').length).toBe(1);
+  });
+
   test('It should render a primary appearance', (): void => {
-    expect(component).toMatchSnapshot();
+    const button = setUp();
+    expect(button).toMatchSnapshot();
+  });
+
+  test('It should render a secondary appearance', (): void => {
+    const button = setUp({ appearance: 'secondary' });
+    expect(button).toMatchSnapshot();
+  });
+
+  test('It should render a premium appearance', (): void => {
+    const button = setUp({ appearance: 'premium' });
+    expect(button).toMatchSnapshot();
+  });
+
+  test('It should render a danger appearance', (): void => {
+    const button = setUp({ appearance: 'danger' });
+    expect(button).toMatchSnapshot();
+  });
+
+  test('It should render a ghost appearance', (): void => {
+    const button = setUp({ appearance: 'ghost' });
+    expect(button).toMatchSnapshot();
   });
 });
