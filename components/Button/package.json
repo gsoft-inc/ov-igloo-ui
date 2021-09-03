@@ -5,6 +5,9 @@
   "module": "dist/Button.js",
   "types": "dist/Button.d.ts",
   "styles": "dist/button.css",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "storybook": "start-storybook -p 6006",
