@@ -1,6 +1,9 @@
 {
   "packages": ["packages/*", "components/*"],
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.2",
   "npmClient": "yarn",
-  "useWorkspaces": true
+  "useWorkspaces": true,
+  "publishConfig": {
+    "access": "public"
+  }
 }
