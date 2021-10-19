@@ -31,6 +31,7 @@
     "!__tests__"
   ],
   "dependencies": {
+    "@igloo-ui/icons": "^0.3.0",
     "@igloo-ui/tokens": "^0.1.1"
   }
 }
