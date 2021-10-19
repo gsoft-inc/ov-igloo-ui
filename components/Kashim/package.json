@@ -14,7 +14,7 @@
     "build-storybook": "build-storybook"
   },
   "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
-  "author": "Groupe Officevibe Inc.",
+  "author": "Officevibe Inc.",
   "contributors": [
     "Franck franck.gaudin@gsoft.com"
   ],
