@@ -1,5 +1,5 @@
 module.exports = {
-  roots: ['<rootDir>/components/', '<rootDir>/packages/'],
+  roots: ['<rootDir>/components/'],
   setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
   coverageDirectory: '<rootDir>/coverage/',
   collectCoverageFrom: ['<rootDir>/components/*/src/**/*.{js,jsx,ts,tsx}'],

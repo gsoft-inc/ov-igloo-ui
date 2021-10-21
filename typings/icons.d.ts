@@ -1,4 +1,7 @@
-declare module '@igloo-ui/icons/dist/Plus';
-declare module '@igloo-ui/icons/dist/Calendar';
-declare module '@igloo-ui/icons/dist/RemoveCalendar';
-declare module '@igloo-ui/icons/dist/Edit';
+declare module '@igloo-ui/icons/dist/Star' {
+  export default function Start(props: {
+    width?: number;
+    height?: number;
+    fill?: string;
+  }): JSX.Element;
+}
