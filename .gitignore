@@ -1,5 +1,4 @@
-# Local Netlify folder
-.netlify
+.DS_Store
 
 # Logs
 logs
@@ -26,8 +25,10 @@ lib-cov
 coverage
 *.lcov
 
-# nyc test coverage
+# test coverage
 .nyc_output
+coverage/
+junit.xml
 
 # Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
@@ -121,6 +122,13 @@ dist
 .pnp.*
 
 # library build output
-build
-lib
+report
+commonjs/
+module/
+target/
+build/
+lib/
 storybook-static
+
+# TS
+tsconfig.tsbuildinfo
