@@ -3,7 +3,12 @@ import typescript from 'rollup-plugin-typescript2';
 import cleanup from 'rollup-plugin-cleanup';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
+
+const SCOPE = '@igloo-ui';
+const DIST = './dist';
+const FORMAT = 'es';
 
 function capitalize(string) {
   return string[0].toUpperCase() + string.slice(1);
@@ -12,8 +17,7 @@ function capitalize(string) {
 function handleName(name) {
   if (!name) return null;
 
-  const scope = '@igloo-ui';
-  const component = capitalize(name.replace(`${scope}/`, ''));
+  const component = capitalize(name.replace(`${SCOPE}/`, ''));
   const style = component.toLowerCase();
 
   return {
@@ -25,37 +29,34 @@ function handleName(name) {
 function injectCssImport(file) {
   return {
     name: 'plugin-css-import',
-    renderChunk: function (code) {
+    renderChunk(code) {
       return {
-        code: `import './${file}'\n${code}`,
+        code: `import './${file}';\n${code}`,
         map: { mappings: '' },
       };
     },
   };
 }
 
-export function createRollupConfig(distDir, name, format) {
-  const { component, style } = handleName(name);
+export function createRollupConfig(packageName) {
+  const { component, style } = handleName(packageName);
 
   return {
     input: path.resolve(__dirname, `./src/${component}.tsx`),
     output: {
-      file: path.resolve(distDir, `${component}.js`),
-      format,
+      file: path.resolve(DIST, `${component}.js`),
+      format: FORMAT,
       name: component,
       sourcemap: true,
     },
     external: ['react'],
     plugins: [
       postcss({
-        extract: path.resolve(distDir, `${style}.css`),
+        extract: path.resolve(DIST, `${style}.css`),
         minimize: true,
       }),
       resolve(),
-      commonjs({
-        exclude: 'node_modules',
-        ignoreGlobal: true,
-      }),
+      json(),
       typescript({
         useTsconfigDeclarationDir: true,
         tsconfigOverride: {
@@ -63,6 +64,10 @@ export function createRollupConfig(distDir, name, format) {
         },
         clean: true,
         tsconfig: path.resolve(__dirname, './tsconfig.json'),
+      }),
+      commonjs({
+        exclude: 'node_modules',
+        ignoreGlobal: true,
       }),
       injectCssImport(`${style}.css`),
       cleanup({

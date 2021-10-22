@@ -1,17 +1,12 @@
 {
-  "name": "@igloo-ui/button",
-  "version": "0.0.1-alpha.0",
-  "main": "dist/Button.js",
-  "module": "dist/Button.js",
-  "types": "dist/Button.d.ts",
-  "styles": "dist/button.css",
+  "name": "@igloo-ui/kashim",
+  "version": "0.0.0",
+  "main": "dist/Kashim.js",
+  "module": "dist/Kashim.js",
+  "types": "dist/Kashim.d.ts",
+  "styles": "dist/kashim.css",
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "build": "rollup -c rollup.config.js",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
   },
   "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
   "author": "Officevibe Inc.",
@@ -31,7 +26,7 @@
     "!__tests__"
   ],
   "dependencies": {
-    "@igloo-ui/tokens": "^0.1.1",
-    "classnames": "^2.3.1"
+    "@igloo-ui/icons": "^0.4.0",
+    "@igloo-ui/tokens": "^0.1.1"
   }
 }

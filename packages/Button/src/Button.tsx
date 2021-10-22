@@ -8,7 +8,7 @@ export interface Props extends React.ComponentPropsWithoutRef<'button'> {
   children?: React.ReactNode;
   // Disabled the button, the user cannot click on them
   disabled?: boolean;
-  // Sets the button in a active state
+  // Sets the button in a active state
   active?: boolean;
   // Changes the size of button, giving more or less padding
   size?: 'small' | 'medium';
