@@ -24,9 +24,13 @@
   --btn-color-border: var(--electric-blue-500);
   --btn-color-border--hover: var(--electric-blue-500);
   --btn-color-border--disabled: var(--electric-blue-300);
+
+  /* focus */
+  /* --btn-color--focus: var(--electric-blue-500) 0px 1.5px 0px 0px; */
 }
 
 .ids-btn {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,10 +45,33 @@
   padding: 0 var(--btn-size-padding-x);
 }
 
+.ids-btn::after {
+  content: '';
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  border-radius: var(--border-radius-md);
+  top: -0.3rem;
+  left: -0.3rem;
+  right: -0.3rem;
+  bottom: -0.3rem;
+  z-index: var(--z-index-10);
+  transition: box-shadow 0.1s linear;
+}
+
 .ids-btn:hover {
   cursor: pointer;
   border-color: var(--btn-color-border--hover);
   background: var(--btn-color-background--hover);
+}
+
+.ids-btn:focus {
+  outline: 0;
+}
+
+.ids-btn:focus::after {
+  outline: 0;
+  box-shadow: 0 0 0 1.5px var(--electric-blue-500);
 }
 
 .ids-btn:disabled {
