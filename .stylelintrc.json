@@ -2,6 +2,7 @@
   "extends": "stylelint-config-standard",
   "ignoreFiles": ["**/dist/*.css"],
   "rules": {
+    "string-quotes": "single",
     "selector-class-pattern": [
       "^[a-zA-Z][a-zA-Z0-9-_]*$",
       {
