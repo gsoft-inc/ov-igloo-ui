@@ -13,7 +13,7 @@
   --ids-btn-height-small: var(--space-5);
   --ids-btn-padding: var(--space-3);
   --ids-btn-border-radius: var(--border-radius-sm);
-  --ids-btn-icon-color: currenColor;
+  --ids-btn-icon-color: currencolor;
   --ids-btn-icon-padding: var(--space-1);
   --ids-btn-z-index: var(--z-index-10);
   --ids-btn-focus-position: -0.3rem;
