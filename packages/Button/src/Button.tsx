@@ -71,7 +71,7 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
     [`ids-btn--${appearance}`]: appearance !== 'primary',
   });
 
-  const renderContent = (): unknown => {
+  const renderContent = (): JSX.Element => {
     if (loading) {
       return <div className="ids-loader" />;
     }
