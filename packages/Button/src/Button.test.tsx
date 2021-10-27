@@ -5,8 +5,6 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Plus from '@igloo-ui/icons/dist/Plus';
 
-// import { findByTestAttr } from '../../../utils';
-
 import Button from './Button';
 
 const setUp = (props = {}) => {
@@ -26,13 +24,11 @@ describe('Button Component', (): void => {
   });
 
   test('It should render without errors', (): void => {
-    // console.log(component.debug());
     const wrapper = component.find('button');
     expect(wrapper.length).toBe(1);
   });
 
   test('It should render a button with icon', (): void => {
-    // console.log(component.debug());
     const button = mount(
       <Button iconLeading={<Plus size="small" />}>Click me</Button>
     );

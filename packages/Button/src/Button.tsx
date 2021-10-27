@@ -41,6 +41,7 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
     iconLeading,
     iconTrailing,
     intercomTarget,
+    className,
     ...rest
   } = props;
 
@@ -48,15 +49,14 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
   const hasIconTrailing = iconTrailing !== undefined;
   const hasIcon = hasIconLeading || hasIconTrailing;
 
-  const classes = classNames(
-    'ids-btn',
-    size === 'small' && 'ids-btn--small',
-    active && 'ids-btn--active',
-    appearance !== 'primary' && `ids-btn--${appearance}`,
-    hasIcon && 'has-icon',
-    hasIconLeading && 'has-icon--leading',
-    hasIconTrailing && 'has-icon--trailing'
-  );
+  const classes = classNames('ids-btn', className, {
+    'ids-btn--small': size === 'small',
+    'ids-btn--active': active,
+    'has-icon': hasIcon,
+    'has-icon-leading': hasIconLeading,
+    'has-icon-trailing': hasIconTrailing,
+    [`ids-btn--${appearance}`]: appearance !== 'primary',
+  });
 
   return (
     <button
