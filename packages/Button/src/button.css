@@ -91,13 +91,17 @@
   background: var(--ids-btn-background-primary-hover);
 }
 
-.ids-btn:focus {
+.ids-btn:focus,
+.ids-btn:focus::after {
   outline: 0;
 }
 
 .ids-btn:focus::after {
-  outline: 0;
   box-shadow: var(--ids-btn-shadow);
+}
+
+.ids-btn:focus:not(:focus-visible)::after {
+  box-shadow: none;
 }
 
 .ids-btn:disabled {
