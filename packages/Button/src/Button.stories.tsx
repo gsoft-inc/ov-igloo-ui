@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react';
 
 import Plus from '@igloo-ui/icons/dist/Plus';
 
-import Button, { Props } from './Button';
+import Button, { Props, Appearance } from './Button';
 
 export default {
   title: 'Components/Button',
@@ -12,7 +12,7 @@ export default {
 } as Meta;
 
 interface TemplateProps {
-  appearance?: string;
+  appearance?: Appearance;
   payload: { base: Props[]; disabled: Props[]; active: Props[] };
 }
 

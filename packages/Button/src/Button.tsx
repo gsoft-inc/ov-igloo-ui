@@ -3,6 +3,14 @@ import classNames from 'classnames';
 
 import './button.css';
 
+export type Appearance =
+  | 'primary'
+  | 'secondary'
+  | 'premium'
+  | 'ghost'
+  | 'danger';
+export type Size = 'small' | 'medium';
+
 export interface Props extends React.ComponentPropsWithoutRef<'button'> {
   // The content to dispaly inside the button
   children?: React.ReactNode;
@@ -11,9 +19,9 @@ export interface Props extends React.ComponentPropsWithoutRef<'button'> {
   // Sets the button in a active state
   active?: boolean;
   // Changes the size of button, giving more or less padding
-  size?: 'small' | 'medium';
+  size?: Size;
   // Button appearance
-  appearance?: 'primary' | 'secondary' | 'premium' | 'ghost' | 'danger';
+  appearance?: Appearance;
   // Add a data-test tag for automated tests
   dataTest?: string;
   // Icon to display to the left of button content
