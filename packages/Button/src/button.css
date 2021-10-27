@@ -54,10 +54,9 @@
   --ids-btn-text-ghost-hover: var(--electric-blue-600);
   --ids-btn-text-ghost-disabled: var(--electric-blue-300);
   --ids-btn-background-ghost: transparant;
-
   --ids-loader-size: 1.2rem;
-  --ids-loader-border: 2px solid rgba(255, 255, 255, 0.3);
-  --ids-loader-border-ghost: 2px solid rgba(16, 83, 255, 0.3);
+  --ids-loader-border: 2px solid rgb(255 255 255 / 30%);
+  --ids-loader-border-ghost: 2px solid rgb(16 83 255 / 30%);
   --ids-loader-primary: var(--white);
   --ids-loader-secondary: var(--grey-800);
   --ids-loader-secondary-disabled: var(--grey-600);
@@ -84,7 +83,6 @@
   border-radius: 50%;
   animation: spin 750ms infinite linear;
 }
-
 
 .ids-btn {
   position: relative;
@@ -150,6 +148,11 @@
   height: var(--ids-btn-height-small);
 }
 
+.ids-btn--ghost .ids-loader {
+  border: var(--ids-loader-border-ghost);
+  border-left-color: var(--ids-loader-ghost);
+}
+
 .ids-btn--secondary {
   color: var(--ids-btn-text-secondary);
   background: var(--ids-btn-background-secondary);
@@ -166,10 +169,6 @@
   border: 1px solid var(--ids-btn-border-secondary-disabled);
 }
 
-.ids-btn--secondary:disabled .ids-loader {
-  border-left-color: var(--ids-loader-secondary-disabled);
-}
-
 .ids-btn--secondary:active,
 .ids-btn--secondary.ids-btn--active {
   color: var(--ids-btn-text-secondary-active);
@@ -181,7 +180,6 @@
 .ids-btn--secondary.ids-btn--active .ids-loader {
   border-left-color: var(--ids-loader-secondary-active);
 }
-
 
 .ids-btn--secondary:hover,
 .ids-btn--secondary:hover:active,
@@ -220,11 +218,6 @@
   background: var(--ids-btn-background-ghost);
 }
 
-.ids-btn--ghost .ids-loader {
-  border: var(--ids-loader-border-ghost);
-  border-left-color: var(--ids-loader-ghost);
-}
-
 .ids-btn--ghost:hover {
   color: var(--ids-btn-text-ghost-hover);
   background: var(--ids-btn-background-ghost);
@@ -250,4 +243,3 @@
 .has-icon--trailing .ids-icon {
   padding-left: var(--ids-btn-icon-padding);
 }
-
