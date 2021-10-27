@@ -1,5 +1,5 @@
-@import '~@igloo-ui/tokens/dist/variables.css';
-@import '~@igloo-ui/tokens/dist/fonts.css';
+@import "~@igloo-ui/tokens/dist/variables.css";
+@import "~@igloo-ui/tokens/dist/fonts.css";
 
 :root {
   --white: #fff;
@@ -73,7 +73,7 @@
 }
 
 .ids-btn::after {
-  content: '';
+  content: "";
   position: absolute;
   display: block;
   pointer-events: none;
