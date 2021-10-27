@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import './button.css';
+import { loadavg } from 'os';
 
 export type Appearance =
   | 'primary'
@@ -18,6 +19,8 @@ export interface Props extends React.ComponentPropsWithoutRef<'button'> {
   disabled?: boolean;
   // Sets the button in a active state
   active?: boolean;
+  // Replaces button text with a spinner while a background action is being performed
+  loading?: boolean;
   // Changes the size of button, giving more or less padding
   size?: Size;
   // Button appearance
@@ -41,6 +44,7 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
     children,
     disabled = false,
     active = false,
+    loading = false,
     size = 'medium',
     appearance = 'primary',
     type = 'button',
@@ -60,11 +64,26 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
   const classes = classNames('ids-btn', className, {
     'ids-btn--small': size === 'small',
     'ids-btn--active': active,
+    'ids-btn--loading': loading,
     'has-icon': hasIcon,
     'has-icon-leading': hasIconLeading,
     'has-icon-trailing': hasIconTrailing,
     [`ids-btn--${appearance}`]: appearance !== 'primary',
   });
+
+  const renderContent = (): unknown => {
+    if (loading) {
+      return <div className="ids-loader" />;
+    }
+
+    return (
+      <>
+        {hasIconLeading && iconLeading}
+        {children}
+        {hasIconTrailing && iconTrailing}
+      </>
+    );
+  };
 
   return (
     <button
@@ -76,9 +95,7 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
       onClick={onClick}
       {...rest}
     >
-      {hasIconLeading && iconLeading}
-      {children}
-      {hasIconTrailing && iconTrailing}
+      {renderContent()}
     </button>
   );
 };

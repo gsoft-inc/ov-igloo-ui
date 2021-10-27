@@ -70,6 +70,11 @@ const buttonState = [
     iconTrailing: <Plus size="small" />,
     children: 'New feedback',
   },
+  {
+    size: 'small',
+    children: 'New feedback',
+    loading: true,
+  },
   { size: 'medium' },
   {
     size: 'medium',
@@ -80,6 +85,11 @@ const buttonState = [
     size: 'medium',
     iconTrailing: <Plus size="small" />,
     children: 'New feedback',
+  },
+  {
+    size: 'medium',
+    children: 'New feedback',
+    loading: true,
   },
 ];
 

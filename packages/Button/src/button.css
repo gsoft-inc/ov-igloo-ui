@@ -54,7 +54,37 @@
   --ids-btn-text-ghost-hover: var(--electric-blue-600);
   --ids-btn-text-ghost-disabled: var(--electric-blue-300);
   --ids-btn-background-ghost: transparant;
+
+  --ids-loader-size: 1.2rem;
+  --ids-loader-border: 2px solid rgba(255, 255, 255, 0.3);
+  --ids-loader-border-ghost: 2px solid rgba(16, 83, 255, 0.3);
+  --ids-loader-primary: var(--white);
+  --ids-loader-secondary: var(--grey-800);
+  --ids-loader-secondary-disabled: var(--grey-600);
+  --ids-loader-secondary-active: var(--electric-blue-500);
+  --ids-loader-ghost: var(--electric-blue-500);
+  --ids-loader-ghost-disabled: var(--electric-blue-300);
 }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ids-loader {
+  width: var(--ids-loader-size);
+  height: var(--ids-loader-size);
+  border: var(--ids-loader-border);
+  border-left-color: var(--ids-loader-primary);
+  border-radius: 50%;
+  animation: spin 750ms infinite linear;
+}
+
 
 .ids-btn {
   position: relative;
@@ -110,6 +140,11 @@
   background: var(--ids-btn-background-primary-disabled);
 }
 
+.ids-btn.ids-btn--loading {
+  pointer-events: none;
+  user-select: none;
+}
+
 .ids-btn--small {
   font-size: var(--ids-btn-font-size-small);
   height: var(--ids-btn-height-small);
@@ -121,10 +156,18 @@
   border: 1px solid var(--ids-btn-border-secondary);
 }
 
+.ids-btn--secondary .ids-loader {
+  border-left-color: var(--ids-loader-secondary);
+}
+
 .ids-btn--secondary:disabled {
   color: var(--ids-btn-text-secondary-disabled);
   background: var(--ids-btn-background-secondary-disabled);
   border: 1px solid var(--ids-btn-border-secondary-disabled);
+}
+
+.ids-btn--secondary:disabled .ids-loader {
+  border-left-color: var(--ids-loader-secondary-disabled);
 }
 
 .ids-btn--secondary:active,
@@ -133,6 +176,12 @@
   background: var(--ids-btn-background-secondary-active);
   border: 1px solid var(--ids-btn-border-secondary-active);
 }
+
+.ids-btn--secondary:active .ids-loader,
+.ids-btn--secondary.ids-btn--active .ids-loader {
+  border-left-color: var(--ids-loader-secondary-active);
+}
+
 
 .ids-btn--secondary:hover,
 .ids-btn--secondary:hover:active,
@@ -171,6 +220,11 @@
   background: var(--ids-btn-background-ghost);
 }
 
+.ids-btn--ghost .ids-loader {
+  border: var(--ids-loader-border-ghost);
+  border-left-color: var(--ids-loader-ghost);
+}
+
 .ids-btn--ghost:hover {
   color: var(--ids-btn-text-ghost-hover);
   background: var(--ids-btn-background-ghost);
@@ -179,6 +233,10 @@
 .ids-btn--ghost:disabled {
   color: var(--ids-btn-text-ghost-disabled);
   background: var(--ids-btn-background-ghost);
+}
+
+.ids-btn--ghost:disabled .ids-loader {
+  border-left-color: var(--ids-loader-ghost-disabled);
 }
 
 .has-icon .ids-icon {
@@ -192,3 +250,4 @@
 .has-icon--trailing .ids-icon {
   padding-left: var(--ids-btn-icon-padding);
 }
+
