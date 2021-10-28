@@ -2,7 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import './button.css';
-import { loadavg } from 'os';
 
 export type Appearance =
   | 'primary'
