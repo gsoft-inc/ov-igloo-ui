@@ -31,6 +31,8 @@ export interface Props extends React.ComponentPropsWithoutRef<'button'> {
   iconLeading?: React.ReactNode;
   // Icon to display to the right of button content
   iconTrailing?: React.ReactNode;
+  // Display only the icon in mobile
+  showOnlyIconOnMobile?: boolean;
   // Callback when clicked
   onClick?: () => void;
   // Optional prop to specify the type of the Button
@@ -52,6 +54,7 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
     dataTest,
     iconLeading,
     iconTrailing,
+    showOnlyIconOnMobile,
     intercomTarget,
     className,
     ...rest
@@ -65,9 +68,10 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
     'ids-btn--small': size === 'small',
     'ids-btn--active': active,
     'ids-btn--loading': loading,
+    'ids-btn--mobile': showOnlyIconOnMobile,
     'has-icon': hasIcon,
-    'has-icon-leading': hasIconLeading,
-    'has-icon-trailing': hasIconTrailing,
+    'has-icon--leading': hasIconLeading,
+    'has-icon--trailing': hasIconTrailing,
     [`ids-btn--${appearance}`]: appearance !== 'primary',
   });
 
@@ -79,7 +83,11 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
     return (
       <>
         {hasIconLeading && iconLeading}
-        {children}
+        {showOnlyIconOnMobile ? (
+          <span className="ids-btn__label">{children}</span>
+        ) : (
+          children
+        )}
         {hasIconTrailing && iconTrailing}
       </>
     );

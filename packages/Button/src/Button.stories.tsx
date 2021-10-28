@@ -124,5 +124,3 @@ export const Ghost = (): React.ReactElement => (
     payload={{ base: buttonState, disabled: buttonState }}
   />
 );
-
-// export const Primary: React.VFC<Props> = () => <Button>Button</Button>;
