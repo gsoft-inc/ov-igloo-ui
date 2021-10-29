@@ -2,10 +2,8 @@ name: CI - Canary
 
 on:
   push:
-    branches:
-      - '!*'
     tags:
-      - '**'
+      - '*'
 jobs:
   lint_and_test:
     if: ${{ startsWith(github.ref, 'refs/tags/@igloo-ui/**') }}
