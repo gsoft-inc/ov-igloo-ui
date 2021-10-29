@@ -3,7 +3,7 @@ name: CI - Canary
 on:
   push:
     tags:
-      - '@igloo-ui/**'
+      - '*'
 
 jobs:
   lint_and_test:
