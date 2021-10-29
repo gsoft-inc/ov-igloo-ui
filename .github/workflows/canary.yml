@@ -2,7 +2,8 @@ name: CI - Canary
 
 on:
   push:
-    tags: [*]
+    tags:
+      - '*'
     branches:
       - 'canary/**'
 jobs:
