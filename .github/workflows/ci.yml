@@ -1,9 +1,11 @@
 name: CI
 
 on:
+  push:
+    branches-ignore:
+      - 'canary/**'
   pull_request:
     branches: [main]
-    branches-ignore: 'canary/**'
 
 jobs:
   lint_and_test:
