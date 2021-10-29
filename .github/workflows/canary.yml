@@ -1,0 +1,13 @@
+name: CI - Canary
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  lint_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Lint
+        uses: actions/checkout@v2
