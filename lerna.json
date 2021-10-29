@@ -1,12 +1,19 @@
 {
-  "packages": ["packages/*", "components/*"],
-  "version": "0.0.1-alpha.2",
+  "packages": ["packages/*"],
+  "version": "independent",
   "npmClient": "yarn",
   "useWorkspaces": true,
+  "command": {
+    "version": {
+      "message": "chore(release): publish",
+      "allowBranch": ["main", "canary/*"]
+    }
+  },
   "ignoreChanges": [
     "**/*.test.tsx",
     "**/*.stories.tsx",
     "**/__snapshots__/**",
-    "**/*.md"
+    "**/*.md",
+    "**/Kashim/**"
   ]
 }

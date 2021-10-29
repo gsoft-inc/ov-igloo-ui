@@ -15,7 +15,8 @@
     "lint:style": "stylelint '**/*.css'",
     "fix:style": "stylelint '**/*.css' --fix",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "release": "npx lerna version"
   },
   "workspaces": [
     "components/*",
