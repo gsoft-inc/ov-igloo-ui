@@ -6,7 +6,7 @@ on:
       - 'canary/**'
 jobs:
   prod-check:
-    if: ${{ github.ref == 'refs/heads/canary/**' }}
+    # if: ${{ github.ref == 'refs/heads/canary/**' }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "Deploying to production server on branch $GITHUB_REF"
