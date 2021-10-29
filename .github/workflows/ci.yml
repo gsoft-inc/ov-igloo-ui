@@ -26,3 +26,17 @@ jobs:
       - run: yarn lint
       - run: yarn lint:style
       - run: yarn test
+
+  build:
+    needs: [lint_and_test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          registry: https://registry.npmjs.org/
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
