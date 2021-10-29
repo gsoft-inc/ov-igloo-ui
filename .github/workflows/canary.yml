@@ -1,13 +1,12 @@
 name: CI - Canary
 
 on:
-  release:
-    types: [created]
-
+  push:
+    branches:
+      - 'canary/**'
 jobs:
-  lint_and_test:
+  prod-check:
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
-
     steps:
-      - name: Lint
-        uses: actions/checkout@v2
+      - run: echo "Deploying to production server on branch $GITHUB_REF"
