@@ -5,6 +5,7 @@
   "module": "dist/Kashim.js",
   "types": "dist/Kashim.d.ts",
   "styles": "dist/kashim.css",
+  "private": "true",
   "publishConfig": {
     "access": "public"
   },
