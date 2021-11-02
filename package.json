@@ -16,7 +16,7 @@
     "fix:style": "stylelint '**/*.css' --fix",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "publish-ci": "lerna publish from-package -y --no-verify-access"
+    "publish-ci": "npx lerna publish from-package -y --no-verify-access"
   },
   "workspaces": [
     "components/*",
