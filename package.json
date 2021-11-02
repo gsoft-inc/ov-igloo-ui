@@ -15,7 +15,8 @@
     "lint:style": "stylelint '**/*.css'",
     "fix:style": "stylelint '**/*.css' --fix",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "publish-ci": "lerna publish from-package -y --no-verify-access"
   },
   "workspaces": [
     "components/*",
@@ -23,6 +24,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.14.8",
+    "@changesets/cli": "2.17.0",
     "@rollup/plugin-commonjs": "20.0.0",
     "@rollup/plugin-eslint": "8.0.1",
     "@rollup/plugin-json": "4.1.0",
