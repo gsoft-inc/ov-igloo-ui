@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/kashim",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "dist/Kashim.js",
   "module": "dist/Kashim.js",
   "types": "dist/Kashim.d.ts",
