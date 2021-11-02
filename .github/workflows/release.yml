@@ -1,0 +1,12 @@
+name: release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build_release:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "build release test"
