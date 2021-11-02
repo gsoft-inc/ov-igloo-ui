@@ -8,11 +8,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "build": "rollup -c rollup.config.js",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
-  },
   "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
   "author": "Officevibe Inc.",
   "contributors": [
@@ -31,7 +26,7 @@
     "!__tests__"
   ],
   "dependencies": {
-    "@igloo-ui/icons": "^0.3.0",
+    "@igloo-ui/icons": "^0.4.0",
     "@igloo-ui/tokens": "^0.1.1"
   }
 }

@@ -4,7 +4,7 @@
     // Monorepo support
     "baseUrl": ".",
     "paths": {
-      "@igloo/*": ["components/*/src", "packages/*/src"]
+      "@igloo/*": ["packages/*/src"]
     }
   }
 }

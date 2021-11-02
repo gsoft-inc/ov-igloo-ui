@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component It should render a danger appearance 1`] = `ShallowWrapper {}`;
+
+exports[`Button Component It should render a ghost appearance 1`] = `ShallowWrapper {}`;
+
+exports[`Button Component It should render a premium appearance 1`] = `ShallowWrapper {}`;
+
+exports[`Button Component It should render a primary appearance 1`] = `ShallowWrapper {}`;
+
+exports[`Button Component It should render a secondary appearance 1`] = `ShallowWrapper {}`;

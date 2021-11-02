@@ -10,7 +10,6 @@ Included with this repo:
 
 - ...
 
-
 ## 🚀 Usage
 
 To use a component from this repo you will first need to install the component into your project.
