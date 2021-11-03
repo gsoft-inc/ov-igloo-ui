@@ -18,12 +18,7 @@
     "react": ">= 16.8.6"
   },
   "files": [
-    "dist",
-    "src",
-    "!*theme.*",
-    "!*.test.*",
-    "!__snapshots__",
-    "!__tests__"
+    "dist"
   ],
   "dependencies": {
     "@igloo-ui/tokens": "^0.1.1",
