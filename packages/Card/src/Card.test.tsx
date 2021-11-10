@@ -13,6 +13,12 @@ describe('Card', () => {
     expect(wrapper.length).toBe(1);
   });
 
+  test('It should render a small size', (): void => {
+    const card = shallow(<Card size="small">Hello world</Card>);
+    const wrapper = card.find('.ids-card--small');
+    expect(wrapper.length).toBe(1);
+  });
+
   test('It should render a snapshot', () => {
     expect(component).toMatchSnapshot();
   });
