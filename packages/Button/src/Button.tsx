@@ -12,7 +12,7 @@ export type Appearance =
 export type Size = 'small' | 'medium';
 
 export interface Props extends React.ComponentPropsWithoutRef<'button'> {
-  // The content to dispaly inside the button
+  // The content to display inside the button
   children?: React.ReactNode;
   // Disabled the button, the user cannot click on them
   disabled?: boolean;
