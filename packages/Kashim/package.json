@@ -19,12 +19,7 @@
     "react": ">= 16.8.6"
   },
   "files": [
-    "dist",
-    "src",
-    "!*theme.*",
-    "!*.test.*",
-    "!__snapshots__",
-    "!__tests__"
+    "dist"
   ],
   "dependencies": {
     "@igloo-ui/icons": "^0.4.0",
