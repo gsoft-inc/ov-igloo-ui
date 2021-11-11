@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.2
+
+### Patch Changes
+
+- c290c9a: remove `src` folder from the package
+
 ## 0.1.1
 
 ### Patch Changes
