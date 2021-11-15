@@ -11,6 +11,10 @@ export default {
 
 const cardContent = 'Lorem ipsum dolor';
 
+export const Playground: React.VFC<unknown> = (args) => (
+  <Card {...args}>Playground card</Card>
+);
+
 export const Standard: React.VFC<unknown> = () => (
   <>
     <section className="isb-section">
