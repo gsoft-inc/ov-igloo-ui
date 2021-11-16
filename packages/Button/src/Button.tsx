@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import './button.css';
+import './button.scss';
 
 export type Appearance =
   | 'primary'

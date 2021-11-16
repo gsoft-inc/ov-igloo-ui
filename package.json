@@ -66,6 +66,7 @@
     "rollup-plugin-postcss": "4.0.0",
     "rollup-plugin-styles": "3.14.1",
     "rollup-plugin-typescript2": "0.30.0",
+    "sass": "1.43.4",
     "stylelint": "14.0.1",
     "stylelint-config-standard": "23.0.0",
     "ts-jest": "27.0.4",
