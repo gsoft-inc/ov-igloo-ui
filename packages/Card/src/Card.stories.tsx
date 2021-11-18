@@ -29,5 +29,9 @@ export const Standard: React.VFC<unknown> = () => (
       <h2>Small</h2>
       <Card size="small">{cardContent}</Card>
     </section>
+    <section className="isb-section">
+      <h2>Xsmall</h2>
+      <Card size="xsmall">{cardContent}</Card>
+    </section>
   </>
 );

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import './card.css';
 
-export type Size = 'small' | 'medium' | 'large';
+export type Size = 'xsmall' | 'small' | 'medium' | 'large';
 export interface CardProps extends React.ComponentProps<'div'> {
   // The content to display inside the card
   children: React.ReactNode;

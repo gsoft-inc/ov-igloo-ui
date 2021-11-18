@@ -17,6 +17,9 @@
 
   /* Small */
   --ids-card-padding-small: var(--space-3);
+
+  /* xSmall */
+  --ids-card-padding-xsmall: 0;
 }
 
 .ids-card {
@@ -34,4 +37,8 @@
 
 .ids-card--small {
   padding: var(--ids-card-padding-small);
+}
+
+.ids-card--xsmall {
+  padding: var(--ids-card-padding-xsmall);
 }
