@@ -20,7 +20,7 @@ export interface EllipsisProps {
 const Ellipsis: React.FunctionComponent<EllipsisProps> = (
   props: EllipsisProps
 ) => {
-  const { children } = props;
+  const { children, className, containerClassName, title } = props;
 
   const parentElement = useRef<HTMLDivElement>(null);
   const element = useRef<HTMLDivElement>(null);
@@ -31,12 +31,12 @@ const Ellipsis: React.FunctionComponent<EllipsisProps> = (
 
   return (
     <div
-      className={classNames('ids-ellipsis', props.containerClassName)}
-      title={props.title}
+      className={classNames('ids-ellipsis', containerClassName)}
+      title={title}
       ref={parentElement}
     >
       <div
-        className={classNames('ids-ellipsis__content', props.className)}
+        className={classNames('ids-ellipsis__content', className)}
         ref={element}
       >
         {children}
