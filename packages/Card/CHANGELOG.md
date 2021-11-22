@@ -12,5 +12,5 @@
   | name     | description                                                                       |
   | -------- | --------------------------------------------------------------------------------- |
   | children | The content to display inside the component                                       |
-  |  size    |  Changes the size of card, giving more or less padding `small`, `medium`, `large` |
+  |  size    |  Changes the size of card, giving more or less padding `xsmall`, `small`, `medium`, `large` |
   | dataTest |  Add a data-test tag for automated tests                                          |
