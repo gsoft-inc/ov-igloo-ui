@@ -1,4 +1,4 @@
-# @igloo-ui/COMPONENT_NAME
+# @igloo-ui/ellipsis
 
 Welcome to my `Ellipsis` component.
 

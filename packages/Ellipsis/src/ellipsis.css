@@ -2,18 +2,12 @@
 @import "~@igloo-ui/tokens/dist/fonts.css";
 
 .ids-ellipsis {
-  display: block;
   overflow: hidden;
   white-space: nowrap;
 }
 
 .ids-ellipsis__content {
-  display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-.ids-ellipsis .ids-icon {
-  margin-right: var(--space-1);
 }
