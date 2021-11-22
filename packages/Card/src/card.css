@@ -1,0 +1,44 @@
+@import "~@igloo-ui/tokens/dist/variables.css";
+@import "~@igloo-ui/tokens/dist/fonts.css";
+
+:root {
+  --white: #fff;
+
+  /* Default */
+  --ids-card-font-family: var(--primary-font-family);
+  --ids-card-font-size: var(--font-size-4);
+  --ids-card-background: var(--white);
+  --ids-card-padding: var(--space-5);
+  --ids-card-shadow: 0 1px 6px rgb(35 48 67 / 10%);
+  --ids-card-radius: var(--border-radius-sm);
+
+  /* Medium */
+  --ids-card-padding-medium: var(--space-4);
+
+  /* Small */
+  --ids-card-padding-small: var(--space-3);
+
+  /* xSmall */
+  --ids-card-padding-xsmall: 0;
+}
+
+.ids-card {
+  font-family: var(--ids-card-font-family);
+  padding: var(--ids-card-padding);
+  background: var(--ids-card-background);
+  font-size: var(--ids-card-font-size);
+  box-shadow: var(--ids-card-shadow);
+  border-radius: var(--ids-card-radius);
+}
+
+.ids-card--medium {
+  padding: var(--ids-card-padding-medium);
+}
+
+.ids-card--small {
+  padding: var(--ids-card-padding-small);
+}
+
+.ids-card--xsmall {
+  padding: var(--ids-card-padding-xsmall);
+}

@@ -1,10 +1,10 @@
 {
-  "name": "@igloo-ui/kashim",
+  "name": "@igloo-ui/card",
   "version": "0.0.1",
-  "main": "dist/Kashim.js",
-  "module": "dist/Kashim.js",
-  "types": "dist/Kashim.d.ts",
-  "styles": "dist/kashim.css",
+  "main": "dist/card.js",
+  "module": "dist/card.js",
+  "types": "dist/card.d.ts",
+  "styles": "dist/card.css",
   "private": "true",
   "publishConfig": {
     "access": "public"
@@ -22,6 +22,7 @@
     "dist"
   ],
   "dependencies": {
-    "@igloo-ui/tokens": "^0.1.1"
+    "@igloo-ui/tokens": "^0.1.1",
+    "classnames": "^2.3.1"
   }
 }
