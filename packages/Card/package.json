@@ -5,7 +5,6 @@
   "module": "dist/card.js",
   "types": "dist/card.d.ts",
   "styles": "dist/card.css",
-  "private": "true",
   "publishConfig": {
     "access": "public"
   },
