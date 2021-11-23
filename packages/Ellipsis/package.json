@@ -1,0 +1,27 @@
+{
+  "name": "@igloo-ui/ellipsis",
+  "version": "0.0.1",
+  "main": "dist/Ellipsis.js",
+  "module": "dist/Ellipsis.js",
+  "types": "dist/Ellipsis.d.ts",
+  "styles": "dist/Ellipsis.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "author": "Officevibe Inc.",
+  "contributors": [
+    "Sylvester sylvester.vuong@gsoft.com"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@igloo-ui/tokens": "^0.1.1",
+    "classnames": "^2.3.1"
+  }
+}
