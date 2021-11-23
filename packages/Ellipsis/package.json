@@ -5,7 +5,6 @@
   "module": "dist/Ellipsis.js",
   "types": "dist/Ellipsis.d.ts",
   "styles": "dist/Ellipsis.css",
-  "private": "true",
   "publishConfig": {
     "access": "public"
   },
