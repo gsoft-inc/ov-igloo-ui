@@ -6,7 +6,8 @@
   "command": {
     "version": {
       "message": "chore(release): publish",
-      "allowBranch": ["main", "canary/*"]
+      "allowBranch": ["main", "canary/*"],
+      "registry": "https://registry.npmjs.org"
     }
   },
   "ignoreChanges": [
