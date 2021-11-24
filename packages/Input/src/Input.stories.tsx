@@ -9,43 +9,49 @@ export default {
   component: Input,
 } as Meta;
 
+const inputPlacehoder = 'ex: Lorem ipsum dolor';
+
 export const Standard: React.VFC<unknown> = () => (
   <>
     <section className="isb-section">
       <h2>Default</h2>
-      <Input placeholder="ex: John" />
+      <Input placeholder={inputPlacehoder} />
     </section>
     <section className="isb-section">
       <h2>Small</h2>
-      <Input placeholder="ex: John" inputSize="Small" />
+      <Input placeholder={inputPlacehoder} inputSize="Small" />
     </section>
     <section className="isb-section">
       <h2>Disabled</h2>
-      <Input placeholder="ex: John" disabled={true} />
+      <Input placeholder={inputPlacehoder} disabled={true} />
     </section>
     <section className="isb-section">
       <h2>Readonly</h2>
-      <Input placeholder="ex: John" readOnly={true} />
+      <Input placeholder={inputPlacehoder} readOnly={true} />
     </section>
     <section className="isb-section">
       <h2>Focus</h2>
-      <Input placeholder="ex: John" className="focus" />
+      <Input placeholder={inputPlacehoder} className="focus" />
     </section>
     <section className="isb-section">
       <h2>Error</h2>
-      <Input placeholder="ex: John" className="error" />
+      <Input placeholder={inputPlacehoder} className="error" />
     </section>
     <section className="isb-section">
       <h2>Text</h2>
-      <Input placeholder="ex: John" value={'John Doe'} />
+      <Input placeholder={inputPlacehoder} value={'John Doe'} />
     </section>
     <section className="isb-section">
       <h2>Password</h2>
-      <Input type="password" value={'this is a good password!'} />
+      <Input
+        type="password"
+        placeholder="Password"
+        value={'this is a good password!'}
+      />
     </section>
     <section className="isb-section">
       <h2>Number</h2>
-      <Input type="number" value={123456789} />
+      <Input type="number" placeholder="123" value={123456789} />
     </section>
   </>
 );
