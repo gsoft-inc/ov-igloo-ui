@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import './card.css';
+import './card.scss';
 
 export type Size = 'xsmall' | 'small' | 'medium' | 'large';
 export interface CardProps extends React.ComponentProps<'div'> {

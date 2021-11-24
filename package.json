@@ -10,6 +10,7 @@
   "scripts": {
     "build": "lerna exec -- rollup -c rollup.config.js",
     "test": "jest",
+    "clean": "npx lerna exec -- rm -rf ./dist",
     "lint": "eslint . --ext .ts,.tsx --quiet",
     "lint:fix": "eslint . --ext .ts,.tsx --fix --quiet",
     "lint:style": "stylelint '**/*.css'",
