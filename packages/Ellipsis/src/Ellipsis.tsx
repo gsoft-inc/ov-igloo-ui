@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import cx from 'classnames';
 
-import './ellipsis.css';
+import './ellipsis.scss';
 
 export interface EllipsisProps extends React.ComponentProps<'div'> {
   // The content to display inside the ellipsis
