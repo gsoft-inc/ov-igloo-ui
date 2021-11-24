@@ -17,7 +17,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepublish-ci": "yarn build",
-    "publish-ci": "npx lerna publish from-package -y --no-verify-access"
+    "publish-ci": "npx lerna publish from-package -y"
   },
   "workspaces": [
     "components/*",

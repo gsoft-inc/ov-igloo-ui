@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ellipsis It should render standard 1`] = `ShallowWrapper {}`;
+
+exports[`Ellipsis It should render with a title 1`] = `ShallowWrapper {}`;
