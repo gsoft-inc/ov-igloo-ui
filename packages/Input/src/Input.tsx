@@ -17,13 +17,21 @@ export type InputSize = 'Small' | 'Medium';
 export type InputType = 'email' | 'text' | 'password' | 'number';
 
 export interface InputProps extends React.ComponentPropsWithRef<'input'> {
+  // Add class names to the surrounding DOM container.
   className?: string;
+  // Form.ValidatedField state. "Error" if has error, otherwise null.
   state?: string;
+  // Specifies the type to display
   type?: InputType;
+  // Input size.
   inputSize?: InputSize;
+  // Specifies the value inside the input.
   value?: any;
+  // True if you need the input to be focus on page load.
   autoFocus?: boolean;
+  // True if you need the input to be readonly.
   readOnly?: boolean;
+  // Function called when a key is pressed.
   onKeyPress?: (e: any) => void;
 }
 
@@ -69,7 +77,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       // Firefox doesn't support type="number", so here's a workaround
       // Input type="number" on Chrome supports "+", "-", "," et "."
       if (type === 'number') {
-        const charCode = e.charCode;
+        const { charCode } = e.charCode;
 
         if (
           charCode !== KeyCodes.Comma &&
