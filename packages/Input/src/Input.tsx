@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import classNames from 'classnames';
+import cx from 'classnames';
 
 import './input.css';
 
@@ -49,7 +49,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       ...rest
     } = props;
 
-    const classes = classNames(
+    const classes = cx(
       'ids-input',
       className,
       `ids-input--${inputSize && inputSize.toLowerCase()}`,
