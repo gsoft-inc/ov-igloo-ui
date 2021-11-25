@@ -35,8 +35,6 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   onKeyPress?: (e: any) => void;
 }
 
-// const Input: React.FunctionComponent<InputProps> = (props: InputProps, ref: React.RefObject<HTMLInputElement>) => {
-// const Input: React.FunctionComponent<InputProps> = React.forwardRef<HTMLInputElement, InputProps>((props: InputProps, ref: React.ForwardedRef<any>) => {
 const Input: React.FunctionComponent<InputProps> = React.forwardRef(
   (props: InputProps, ref: React.Ref<any>) => {
     const {
@@ -61,11 +59,12 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       }
     );
 
-    // useEffect(() => {
-    //   if (autoFocus && ref && ref.current) {
-    //       ref.current.focus();
-    //   }
-    // }, []);
+    useEffect(() => {
+      const refObject = ref as React.RefObject<HTMLInputElement>;
+      if (autoFocus && refObject && refObject.current) {
+        refObject.current.focus();
+      }
+    }, []);
 
     const handleOnKeyDown = (e: any) => {
       if (onKeyPress) {
