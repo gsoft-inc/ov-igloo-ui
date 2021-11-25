@@ -12,7 +12,7 @@ const KeyCodes = {
   Zero: 48,
 };
 
-export type InputSize = 'Small' | 'Medium';
+export type InputSize = 'small' | 'medium';
 
 export type InputType = 'email' | 'text' | 'password' | 'number';
 
@@ -119,7 +119,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
 
 Input.defaultProps = {
   type: 'text',
-  inputSize: 'Medium',
+  inputSize: 'medium',
 };
 
 export default Input;

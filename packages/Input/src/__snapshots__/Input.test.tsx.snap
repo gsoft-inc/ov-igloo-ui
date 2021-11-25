@@ -1,3 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Input It should render a number type 1`] = `ShallowWrapper {}`;
+
+exports[`Input It should render a password type 1`] = `ShallowWrapper {}`;
+
 exports[`Input It should render a snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`Input It should render a text type 1`] = `ShallowWrapper {}`;
+
+exports[`Input It should render an email type 1`] = `ShallowWrapper {}`;
