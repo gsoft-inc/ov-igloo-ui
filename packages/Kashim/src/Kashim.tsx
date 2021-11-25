@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import './kashim.css';
+import './kashim.scss';
 
 export interface KashimProps extends React.ComponentProps<'div'> {
   children: React.ReactNode;
