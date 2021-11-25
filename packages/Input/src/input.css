@@ -2,7 +2,7 @@
 @import "~@igloo-ui/tokens/dist/fonts.css";
 
 :root {
-  --white: #FFFFFF;
+  --white: #fff;
 
   /* Default */
   --ids-input-font-family: var(--primary-font-family);
@@ -26,29 +26,23 @@
 
 .ids-input {
   width: 100%;
-
   padding-left: var(--ids-input-padding);
-
   font-size: var(--ids-input-font-size);
   font-family: var(--ids-input-font-family);
   line-height: var(--ids-input-line-height);
-
   background-color: var(--white);
   border-color: var(--grey-300);
   border-style: solid;
   border-width: 0.1rem;
   border-radius: var(--ids-input-border-radius);
-
-  -moz-appearance:textfield;
-
+  appearance: textfield;
   transition: border-color 200ms ease 0s;
 }
 
 .ids-input--small {
   height: var(--ids-input-height-small);
-
   font-weight: var(--ids-input-font-weight-small);
-  font-size: var( --ids-input-font-size-small);
+  font-size: var(--ids-input-font-size-small);
   font-style: var(--ids-input-font-style-small);
   font-stretch: var(--ids-input-font-stretch-small);
   line-height: var(--ids-line-height-smal);
@@ -59,7 +53,7 @@
   height: var(--ids-input-height-medium);
 }
 
-.ids-input[type=password] {
+.ids-input[type="password"] {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -73,22 +67,25 @@
   color: var(--grey-400);
 }
 
-.ids-input::-webkit-inner-spin-button, .input::-webkit-outer-spin-button {
+.ids-input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
   margin: 0;
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 .ids-input:hover {
   border-color: var(--grey-500);
 }
 
-.ids-input:focus, .ids-input.focus {
+.ids-input:focus,
+.ids-input.focus {
   border-color: var(--electric-blue-500);
   outline: 0;
   outline-offset: 0;
 }
 
-.ids-input:disabled, .ids-input--readonly {
+.ids-input:disabled,
+.ids-input--readonly {
   color: var(--grey-600);
   background-color: var(--grey-200);
   border-color: var(--grey-200);
