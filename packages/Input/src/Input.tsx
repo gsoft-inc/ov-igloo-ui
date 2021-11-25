@@ -64,6 +64,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       if (autoFocus && refObject && refObject.current) {
         refObject.current.focus();
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleOnKeyDown = (e: any) => {
