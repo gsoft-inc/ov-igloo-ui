@@ -9,53 +9,56 @@ const KeyCodes = {
   Nine: 57,
   Period: 46,
   Plus: 43,
-  Zero: 48,
+  Zero: 48
 };
 
-export type InputSize = 'small' | 'medium';
+export type InputSize = 'small';
 
 export type InputType = 'email' | 'text' | 'password' | 'number';
 
 export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   // Add class names to the surrounding DOM container.
   className?: string;
-  // Form.ValidatedField state. "Error" if has error, otherwise null.
-  state?: string;
+  // Form.ValidatedField state. True if has error.
+  error?: boolean;
   // Specifies the type to display
   type?: InputType;
   // Input size.
   inputSize?: InputSize;
   // Specifies the value inside the input.
-  value?: any;
+  value?: string | number;
   // True if you need the input to be focus on page load.
   autoFocus?: boolean;
   // True if you need the input to be readonly.
   readOnly?: boolean;
   // Function called when a key is pressed.
   onKeyPress?: (e: any) => void;
+  // Add a data-test tag for automated tests
+  dataTest?: string;
 }
 
 const Input: React.FunctionComponent<InputProps> = React.forwardRef(
   (props: InputProps, ref: React.Ref<any>) => {
     const {
       className,
-      state,
-      type,
+      error,
+      type = 'text',
       inputSize,
       value,
       autoFocus,
       readOnly,
       onKeyPress,
+      dataTest,
       ...rest
     } = props;
 
     const classes = cx(
       'ids-input',
       className,
-      `ids-input--${inputSize && inputSize.toLowerCase()}`,
+      inputSize && 'ids-input--' + inputSize.toLowerCase(),
       {
-        [(state || '').toLowerCase()]: !!state,
-        'ids-input--readonly': readOnly,
+        error: error,
+        'ids-input--readonly': readOnly
       }
     );
 
@@ -89,12 +92,14 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
         } else if (
           (charCode === KeyCodes.Comma || charCode === KeyCodes.Period) &&
           value &&
+          typeof value === 'string' &&
           (value.indexOf(',') !== -1 || value.indexOf('.') !== -1)
         ) {
           e.preventDefault();
         } else if (
           (charCode === KeyCodes.Minus || charCode === KeyCodes.Plus) &&
           value &&
+          typeof value === 'string' &&
           (value.indexOf('-') !== -1 || value.indexOf('+') !== -1)
         ) {
           e.preventDefault();
@@ -115,10 +120,5 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
     );
   }
 );
-
-Input.defaultProps = {
-  type: 'text',
-  inputSize: 'medium',
-};
 
 export default Input;

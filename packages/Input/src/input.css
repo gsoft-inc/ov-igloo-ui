@@ -5,7 +5,9 @@
   --white: #fff;
 
   /* Default */
+  --ids-input-height: var(--space-6);
   --ids-input-font-family: var(--primary-font-family);
+  --ids-input-font-weight: var(--font-weight-regular);
   --ids-input-padding: var(--space-3);
   --ids-input-font-size: var(--font-size-4);
   --ids-input-line-height: var(--space-4);
@@ -13,44 +15,51 @@
 
   /* Small */
   --ids-input-height-small: var(--space-5);
-  --ids-input-font-weight: var(--font-weight-regular);
   --ids-input-font-size-small: var(--font-size-3);
-  --ids-input-font-style-small: var(--font-weight-regular);
-  --ids-input-font-stretch-small: var(--font-weight-regular);
-  --ids-line-height-small: var(--line-height-xxl);
-  --ids-letter-spacing-small: var(--font-weight-regular);
+  --ids-input-line-height-small: var(--line-height-xxl);
+  --ids-input-letter-spacing-small: var(--font-weight-regular);
 
-  /* Medium */
- --ids-input-height: var(--space-6);
+  /* Placeholder */
+  --ids-input-color-placeholder: var(--grey-400);
+
+  /* Hover */
+  --ids-input-border-color-hover: var(--grey-500);
+
+  /* Focus */
+  --ids-input-border-color-focus: var(--electric-blue-500);
+
+  /* Readonly */
+  --ids-input-color-readonly: var(--grey-500);
+  --ids-input-background-color-readonly: var(--grey-250);
+  --ids-input-border-color-readonly: var(--grey-250);
+
+  /* Error */
+  --ids-input-border-color-error: var(--coral-500);
 }
 
 .ids-input {
+  height: var(--ids-input-height);
   width: 100%;
   padding: 0 var(--ids-input-padding);
   font-size: var(--ids-input-font-size);
   font-family: var(--ids-input-font-family);
+  font-weight: var(--ids-input-font-weight);
   line-height: var(--ids-input-line-height);
   background-color: var(--white);
   border: 1px solid  var(--grey-300);
   border-style: solid;
   border-width: 0.1rem;
   border-radius: var(--ids-input-border-radius);
+  box-sizing: border-box;
   appearance: textfield;
   transition: border-color 200ms ease 0s;
 }
 
 .ids-input--small {
   height: var(--ids-input-height-small);
-  font-weight: var(--ids-input-font-weight-small);
   font-size: var(--ids-input-font-size-small);
-  font-style: var(--ids-input-font-style-small);
-  font-stretch: var(--ids-input-font-stretch-small);
-  line-height: var(--ids-line-height-small);
-  letter-spacing: var(--ids-letter-spacing-small);
-}
-
-.ids-input--medium {
-  height: var(--ids-input-height-medium);
+  line-height: var(--ids-input-line-height-small);
+  letter-spacing: var(--ids-input-letter-spacing-small);
 }
 
 .ids-input[type="password"] {
@@ -64,7 +73,7 @@
 }
 
 .ids-input::placeholder {
-  color: var(--grey-400);
+  color: var(--ids-input-color-placeholder);
 }
 
 .ids-input::-webkit-inner-spin-button,
@@ -74,21 +83,21 @@
 }
 
 .ids-input:hover {
-  border-color: var(--grey-500);
+  border-color: var(--ids-input-border-color-hover);
 }
 
 .ids-input:focus,
 .ids-input.focus {
-  border-color: var(--electric-blue-500);
+  border-color: var(--ids-input-border-color-focus);
   outline: 0;
   outline-offset: 0;
 }
 
 .ids-input:disabled,
 .ids-input--readonly {
-  color: var(--grey-600);
-  background-color: var(--grey-200);
-  border-color: var(--grey-200);
+  color: var(--ids-input-color-readonly);
+  background-color: var(--ids-input-background-color-readonly);
+  border-color: var(--ids-input-border-color-readonly);
   cursor: not-allowed;
 }
 
@@ -97,5 +106,5 @@
 }
 
 .ids-input.error {
-  border-color: var(--coral-500);
+  border-color: var(--ids-input-border-color-error);
 }
