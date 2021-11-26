@@ -107,7 +107,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
         ref={ref}
         className={classes}
         type={type}
-        value={value || ''}
+        value={value}
         readOnly={readOnly}
         onKeyPress={handleOnKeyDown}
         {...rest}

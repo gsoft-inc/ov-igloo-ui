@@ -13,7 +13,7 @@
 
   /* Small */
   --ids-input-height-small: var(--space-5);
-  --ids-input-font-weight-small: var(--font-weight-regular);
+  --ids-input-font-weight: var(--font-weight-regular);
   --ids-input-font-size-small: var(--font-size-3);
   --ids-input-font-style-small: var(--font-weight-regular);
   --ids-input-font-stretch-small: var(--font-weight-regular);
@@ -21,17 +21,17 @@
   --ids-letter-spacing-small: var(--font-weight-regular);
 
   /* Medium */
-  --ids-input-height-medium: var(--space-6);
+ --ids-input-height: var(--space-6);
 }
 
 .ids-input {
   width: 100%;
-  padding-left: var(--ids-input-padding);
+  padding: 0 var(--ids-input-padding);
   font-size: var(--ids-input-font-size);
   font-family: var(--ids-input-font-family);
   line-height: var(--ids-input-line-height);
   background-color: var(--white);
-  border-color: var(--grey-300);
+  border: 1px solid  var(--grey-300);
   border-style: solid;
   border-width: 0.1rem;
   border-radius: var(--ids-input-border-radius);
@@ -45,7 +45,7 @@
   font-size: var(--ids-input-font-size-small);
   font-style: var(--ids-input-font-style-small);
   font-stretch: var(--ids-input-font-stretch-small);
-  line-height: var(--ids-line-height-smal);
+  line-height: var(--ids-line-height-small);
   letter-spacing: var(--ids-letter-spacing-small);
 }
 
