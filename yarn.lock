@@ -1535,6 +1535,14 @@
     classnames "^2.3.1"
     html-react-parser "^1.2.7"
 
+"@igloo-ui/icons@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@igloo-ui/icons/-/icons-0.6.2.tgz#0b2535d0ef8d1c68bc44973ac0faf2b5f63adf9a"
+  integrity sha512-lDSAdZKGfyLDZymvoUgqtsdHTPunrq5CgKc/Vd5k4Gc59bSjMBI67NljKDIqtYv0zXB9YnhrTbeg92M3Ua4YBw==
+  dependencies:
+    classnames "^2.3.1"
+    html-react-parser "^1.2.7"
+
 "@igloo-ui/tokens@^0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-0.1.1.tgz#56bddb36067e73e661e427a1b815a18b70dddfa8"
@@ -12126,6 +12134,14 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
+
+next-transpile-modules@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-9.0.0.tgz#133b1742af082e61cc76b02a0f12ffd40ce2bf90"
+  integrity sha512-VCNFOazIAnXn1hvgYYSTYMnoWgKgwlYh4lm1pKbSfiB3kj5ZYLcKVhfh3jkPOg1cnd9DP+pte9yCUocdPEUBTQ==
+  dependencies:
+    enhanced-resolve "^5.7.0"
+    escalade "^3.1.1"
 
 next@12.0.4:
   version "12.0.4"

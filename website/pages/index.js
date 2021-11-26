@@ -1,17 +1,33 @@
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Igloo</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/igloo.svg" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to Igloo DS</h1>
+      <header>
+        <h1>Igloo</h1>
+        <p>
+          Igloo gives a collection of React components for building Officevibe
+        </p>
+      </header>
+      <main>
+        <Link href="/tokens">
+          <a>Tokens</a>
+        </Link>
+        <Link href="/tokens">
+          <a>Icons</a>
+        </Link>
+        <Link href="/tokens">
+          <a>Components</a>
+        </Link>
       </main>
+      <footer>
+        <a href="https://officevibe.com">officevibe.com</a>
+      </footer>
     </div>
   );
 }
