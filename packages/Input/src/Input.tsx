@@ -31,8 +31,8 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   autoFocus?: boolean;
   // True if you need the input to be readonly.
   readOnly?: boolean;
-  // Function called when a key is pressed.
-  onKeyPress?: (e: any) => void;
+  // Function called when the value changes.
+  onChange?: (e: any) => void;
   // Add a data-test tag for automated tests
   dataTest?: string;
 }
@@ -47,7 +47,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       value,
       autoFocus,
       readOnly,
-      onKeyPress,
+      onChange,
       dataTest,
       ...rest
     } = props;
@@ -69,9 +69,9 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       }
     }, [ref, autoFocus]);
 
-    const handleOnKeyDown = (e: any) => {
-      if (onKeyPress) {
-        onKeyPress(e);
+    const handleOnChange = (e: any) => {
+      if (onChange) {
+        onChange(e);
 
         return;
       }
@@ -114,7 +114,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
         type={type}
         value={value}
         readOnly={readOnly}
-        onKeyPress={handleOnKeyDown}
+        onChange={handleOnChange}
         data-test={dataTest}
         {...rest}
       />
