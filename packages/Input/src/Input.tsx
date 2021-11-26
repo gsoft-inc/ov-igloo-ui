@@ -9,7 +9,7 @@ const KeyCodes = {
   Nine: 57,
   Period: 46,
   Plus: 43,
-  Zero: 48
+  Zero: 48,
 };
 
 export type InputSize = 'small';
@@ -55,10 +55,10 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
     const classes = cx(
       'ids-input',
       className,
-      inputSize && 'ids-input--' + inputSize.toLowerCase(),
+      inputSize && `ids-input--${inputSize}`,
+      error,
       {
-        error: error,
-        'ids-input--readonly': readOnly
+        'ids-input--readonly': readOnly,
       }
     );
 
@@ -115,6 +115,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
         value={value}
         readOnly={readOnly}
         onKeyPress={handleOnKeyDown}
+        data-test={dataTest}
         {...rest}
       />
     );
