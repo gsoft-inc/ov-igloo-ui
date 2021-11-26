@@ -2,8 +2,6 @@
 @import '~@igloo-ui/tokens/dist/fonts.css';
 
 :root {
-  --white: #fff;
-
   /* Default */
   --ids-btn-font-family: var(--primary-font-family);
   --ids-btn-font-size: var(--font-size-4);
@@ -21,7 +19,7 @@
   --ids-btn-shadow: 0 0 0 1.5px var(--electric-blue-500);
 
   /* Primary */
-  --ids-btn-text-primary: var(--white);
+  --ids-btn-text-primary: var(--samoyed);
   --ids-btn-border-primary: transparent;
   --ids-btn-background-primary: var(--electric-blue-500);
   --ids-btn-background-primary-hover: var(--electric-blue-600);
@@ -34,18 +32,18 @@
   --ids-btn-border-secondary: var(--grey-300);
   --ids-btn-border-secondary-hover: var(--grey-600);
   --ids-btn-border-secondary-active: var(--electric-blue-500);
-  --ids-btn-background-secondary: var(--white);
+  --ids-btn-background-secondary: var(--samoyed);
   --ids-btn-background-secondary-active: var(--electric-blue-50);
   --ids-btn-background-secondary-disabled: var(--grey-300);
 
   /* Premium */
-  --ids-btn-text-premium: var(--white);
+  --ids-btn-text-premium: var(--samoyed);
   --ids-btn-background-premium: var(--dandelion-500);
   --ids-btn-background-premium-hover: var(--dandelion-600);
   --ids-btn-background-premium-disabled: var(--dandelion-200);
 
   /* Danger */
-  --ids-btn-text-danger: var(--white);
+  --ids-btn-text-danger: var(--samoyed);
   --ids-btn-background-danger: var(--coral-500);
   --ids-btn-background-danger-hover: var(--coral-600);
   --ids-btn-background-danger-disabled: var(--coral-200);
@@ -58,7 +56,7 @@
   --ids-loader-size: 1.2rem;
   --ids-loader-border: 2px solid rgb(255 255 255 / 30%);
   --ids-loader-border-ghost: 2px solid rgb(16 83 255 / 30%);
-  --ids-loader-primary: var(--white);
+  --ids-loader-primary: var(--samoyed);
   --ids-loader-secondary: var(--grey-800);
   --ids-loader-secondary-disabled: var(--grey-600);
   --ids-loader-secondary-active: var(--electric-blue-500);
