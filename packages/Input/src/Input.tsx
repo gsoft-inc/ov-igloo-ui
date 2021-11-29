@@ -3,6 +3,8 @@ import cx from 'classnames';
 
 import './input.css';
 
+const baseClassName = 'ids-input';
+
 const KeyCodes = {
   Comma: 44,
   Minus: 45,
@@ -11,8 +13,6 @@ const KeyCodes = {
   Plus: 43,
   Zero: 48,
 };
-
-export type InputSize = 'small';
 
 export type InputType = 'email' | 'text' | 'password' | 'number';
 
@@ -23,8 +23,8 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   error?: boolean;
   // Specifies the type to display
   type?: InputType;
-  // Input size.
-  inputSize?: InputSize;
+  // True for a compact appearance.
+  isCompact?: boolean;
   // Specifies the value inside the input.
   value?: string | number;
   // True if you need the input to be focus on page load.
@@ -43,7 +43,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       className,
       error,
       type = 'text',
-      inputSize,
+      isCompact,
       value,
       autoFocus,
       readOnly,
@@ -52,15 +52,11 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       ...rest
     } = props;
 
-    const classes = cx(
-      'ids-input',
-      className,
-      inputSize && `ids-input--${inputSize}`,
-      {
-        'ids-input--error': error,
-        'ids-input--readonly': readOnly,
-      }
-    );
+    const classes = cx('ids-input', className, {
+      'ids-input--compact': isCompact,
+      'ids-input--error': error,
+      'ids-input--readonly': readOnly,
+    });
 
     useEffect(() => {
       const refObject = ref as React.RefObject<HTMLInputElement>;

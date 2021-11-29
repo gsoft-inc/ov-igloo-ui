@@ -59,7 +59,7 @@
   margin: var(--ids-input-margin);
 }
 
-.ids-input--small {
+.ids-input--compact {
   height: var(--ids-input-height-small);
   font-size: var(--ids-input-font-size-small);
   line-height: var(--ids-input-line-height-small);
