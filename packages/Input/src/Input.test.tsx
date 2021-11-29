@@ -12,7 +12,7 @@ const setUp = (props = {}) => {
 };
 
 describe('Input', () => {
-  test('It should render without errors', () => {
+  test('It should render without errors', (): void => {
     const input = setUp();
     const wrapper = input.find('.ids-input');
     expect(wrapper.length).toBe(1);
@@ -30,7 +30,7 @@ describe('Input', () => {
     expect(wrapper.length).toBe(1);
   });
 
-  test('It should render a snapshot', () => {
+  test('It should render a snapshot', (): void => {
     const input = setUp();
     expect(input).toMatchSnapshot();
   });
@@ -48,7 +48,7 @@ describe('Input', () => {
   test('It should render a password type', (): void => {
     const input = setUp({
       type: 'password',
-      value: 'this is a great password!'
+      value: 'this is a great password!',
     });
     expect(input).toMatchSnapshot();
   });
