@@ -19,8 +19,8 @@ describe('Input', () => {
   });
 
   test('It should render a small size', (): void => {
-    const input = setUp({ inputSize: 'small' });
-    const wrapper = input.find('.ids-input--small');
+    const input = setUp({ isCompact: true });
+    const wrapper = input.find('.ids-input--compact');
     expect(wrapper.length).toBe(1);
   });
 
