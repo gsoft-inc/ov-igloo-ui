@@ -2,6 +2,8 @@
 @import "~@igloo-ui/tokens/dist/fonts.css";
 
 :root {
+  --white: #fff;
+
   /* Default */
   --ids-input-height: var(--space-6);
   --ids-input-font-family: var(--primary-font-family);
@@ -11,7 +13,7 @@
   --ids-input-line-height: var(--space-4);
   --ids-input-border-radius: var(--border-radius-sm);
   --ids-input-border-color: var(--grey-300);
-  --ids-input-background: var(--samoyed);
+  --ids-input-background: var(--white);
   --ids-input-margin: var(--space-1) var(--space-0);
 
   /* Compact */
@@ -27,7 +29,14 @@
   --ids-input-border-color-hover: var(--grey-500);
 
   /* Focus */
-  --ids-input-border-color-focus: var(--electric-blue-500);
+  --ids-input-border-color-focus: var(--electric-blue-600);
+  --ids-input-border-radius-focus: var(--border-radius-md);
+  --ids-input-box-shadow-inner-color-focus: var(--white);
+  --ids-input-box-shadow-outer-color-focus: var(--grey-300);
+
+  /* Active */
+  --ids-input-border-color-active: var(--electric-blue-500);
+  --ids-input-border-radius-active: var(--border-radius-sm);
 
   /* Readonly */
   --ids-input-color-readonly: var(--grey-500);
@@ -88,9 +97,22 @@
 
 .ids-input:focus,
 .ids-input.focus {
-  border-color: var(--ids-input-border-color-focus);
+  border: 1.5px solid var(--ids-input-border-color-focus);
+  border-radius: var(--ids-input-border-radius-focus);
   outline: 0;
   outline-offset: 0;
+  box-shadow:
+    inset 0 0 0 1px var(--ids-input-box-shadow-inner-color-focus),
+    inset 0 0 0 2px var(--ids-input-box-shadow-outer-color-focus);
+}
+
+.ids-input:active,
+.ids-input.active {
+  border: 1px solid var(--ids-input-border-color-active);
+  border-radius: var(--ids-input-border-radius-active);
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: none;
 }
 
 .ids-input:disabled,

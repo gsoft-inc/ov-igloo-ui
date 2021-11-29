@@ -30,6 +30,10 @@ export const Standard: React.VFC<unknown> = () => (
       <Input placeholder={inputPlacehoder} readOnly={true} />
     </section>
     <section className="isb-section">
+      <h2>Active</h2>
+      <Input placeholder={inputPlacehoder} className="active" />
+    </section>
+    <section className="isb-section">
       <h2>Focus</h2>
       <Input placeholder={inputPlacehoder} className="focus" />
     </section>
