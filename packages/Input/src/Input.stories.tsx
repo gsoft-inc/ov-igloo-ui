@@ -18,7 +18,7 @@ export const Standard: React.VFC<unknown> = () => (
       <Input placeholder={inputPlacehoder} />
     </section>
     <section className="isb-section">
-      <h2>Small</h2>
+      <h2>Compact</h2>
       <Input placeholder={inputPlacehoder} isCompact={true} />
     </section>
     <section className="isb-section">
