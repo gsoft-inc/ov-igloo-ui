@@ -113,6 +113,6 @@
   cursor: default;
 }
 
-.ids-input.error {
+.ids-input--error {
   border-color: var(--ids-input-border-color-error);
 }

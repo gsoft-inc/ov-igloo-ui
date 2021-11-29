@@ -35,7 +35,7 @@ export const Standard: React.VFC<unknown> = () => (
     </section>
     <section className="isb-section">
       <h2>Error</h2>
-      <Input placeholder={inputPlacehoder} className="error" />
+      <Input placeholder={inputPlacehoder} error={true} />
     </section>
     <section className="isb-section">
       <h2>Text</h2>

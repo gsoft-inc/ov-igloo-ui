@@ -56,8 +56,8 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       'ids-input',
       className,
       inputSize && `ids-input--${inputSize}`,
-      error,
       {
+        'ids-input--error': error,
         'ids-input--readonly': readOnly,
       }
     );
