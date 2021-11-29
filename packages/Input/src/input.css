@@ -14,11 +14,11 @@
   --ids-input-background: var(--samoyed);
   --ids-input-margin: var(--space-1) var(--space-0);
 
-  /* Small */
-  --ids-input-height-small: var(--space-5);
-  --ids-input-font-size-small: var(--font-size-3);
-  --ids-input-line-height-small: var(--line-height-xxl);
-  --ids-input-letter-spacing-small: var(--font-weight-regular);
+  /* Compact */
+  --ids-input-height-compact: var(--space-5);
+  --ids-input-font-size-compact: var(--font-size-3);
+  --ids-input-line-height-compact: var(--line-height-xxl);
+  --ids-input-letter-spacing-compact: var(--font-weight-regular);
 
   /* Placeholder */
   --ids-input-color-placeholder: var(--grey-400);
@@ -52,18 +52,14 @@
   box-sizing: border-box;
   appearance: textfield;
   transition: border-color 200ms ease 0s;
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
   margin: var(--ids-input-margin);
 }
 
 .ids-input--compact {
-  height: var(--ids-input-height-small);
-  font-size: var(--ids-input-font-size-small);
-  line-height: var(--ids-input-line-height-small);
-  letter-spacing: var(--ids-input-letter-spacing-small);
+  height: var(--ids-input-height-compact);
+  font-size: var(--ids-input-font-size-compact);
+  line-height: var(--ids-input-line-height-compact);
+  letter-spacing: var(--ids-input-letter-spacing-compact);
 }
 
 .ids-input[type="password"] {
