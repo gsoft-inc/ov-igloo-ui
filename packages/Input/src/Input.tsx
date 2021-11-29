@@ -3,8 +3,6 @@ import cx from 'classnames';
 
 import './input.css';
 
-const baseClassName = 'ids-input';
-
 const KeyCodes = {
   Comma: 44,
   Minus: 45,
