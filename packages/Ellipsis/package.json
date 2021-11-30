@@ -1,17 +1,17 @@
 {
-  "name": "@igloo-ui/button",
-  "version": "0.1.2",
-  "main": "dist/Button.js",
-  "module": "dist/Button.js",
-  "types": "dist/Button.d.ts",
-  "styles": "dist/button.css",
+  "name": "@igloo-ui/ellipsis",
+  "version": "0.1.0",
+  "main": "dist/Ellipsis.js",
+  "module": "dist/Ellipsis.js",
+  "types": "dist/Ellipsis.d.ts",
+  "styles": "dist/Ellipsis.css",
   "publishConfig": {
     "access": "public"
   },
   "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
   "author": "Officevibe Inc.",
   "contributors": [
-    "Franck franck.gaudin@gsoft.com"
+    "Sylvester sylvester.vuong@gsoft.com"
   ],
   "license": "Apache-2.0",
   "peerDependencies": {
@@ -23,8 +23,5 @@
   "dependencies": {
     "@igloo-ui/tokens": "^1.0.0",
     "classnames": "^2.3.1"
-  },
-  "devDependencies": {
-    "@igloo-ui/icons": "^0.6.2"
   }
 }

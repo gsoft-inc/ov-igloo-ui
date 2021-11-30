@@ -1,0 +1,12 @@
+@import '~@igloo-ui/tokens/dist/base10/variables.css';
+
+.ids-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ids-ellipsis__content {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
