@@ -99,6 +99,10 @@
 
 .ids-input:focus,
 .ids-input.focus {
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: 0 0 0 2px var(--ids-input-box-shadow-inner-color-focus), 0 0 0 3.5px var(--ids-input-box-shadow-outer-color-focus);
+}
   border: 1.5px solid var(--ids-input-border-color-focus);
   border-radius: var(--ids-input-border-radius-focus);
   outline: 0;
