@@ -42,6 +42,10 @@ export const Standard: React.VFC<unknown> = () => (
       <Input placeholder={inputPlacehoder} error={true} />
     </section>
     <section className="isb-section">
+      <h2>Error Focus</h2>
+      <Input placeholder={inputPlacehoder} error={true} className="focus" />
+    </section>
+    <section className="isb-section">
       <h2>Text</h2>
       <Input placeholder={inputPlacehoder} value={'John Doe'} />
     </section>

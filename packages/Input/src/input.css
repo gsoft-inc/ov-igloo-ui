@@ -93,6 +93,10 @@
   border-color: var(--ids-input-border-color-hover);
 }
 
+.ids-input--error {
+  border-color: var(--ids-input-border-color-error);
+}
+
 .ids-input:focus,
 .ids-input.focus {
   border: 1.5px solid var(--ids-input-border-color-focus);
@@ -102,6 +106,13 @@
   box-shadow:
     inset 0 0 0 1.5px var(--ids-input-box-shadow-inner-color-focus),
     inset 0 0 0 2.5px var(--ids-input-box-shadow-outer-color-focus);
+}
+
+.ids-input--error:focus,
+.ids-input--error.focus {
+  box-shadow:
+    inset 0 0 0 1.5px var(--ids-input-box-shadow-inner-color-focus),
+    inset 0 0 0 2.5px var(--ids-input-border-color-error);
 }
 
 .ids-input:active,
@@ -123,19 +134,4 @@
 
 .ids-input--readonly {
   cursor: default;
-}
-
-.ids-input--error {
-  border-color: var(--ids-input-border-color-error);
-}
-
-.ids-input--error:focus,
-.ids-input--error.focus {
-  border: 1.5px solid var(--ids-input-border-color-focus);
-  border-radius: var(--ids-input-border-radius-focus);
-  outline: 0;
-  outline-offset: 0;
-  box-shadow:
-    inset 0 0 0 1.5px var(--ids-input-box-shadow-inner-color-focus),
-    inset 0 0 0 2.5px var(--ids-input-border-color-error);
 }
