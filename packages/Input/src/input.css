@@ -27,10 +27,8 @@
   --ids-input-border-color-hover: var(--grey-500);
 
   /* Focus */
-  --ids-input-border-color-focus: var(--electric-blue-600);
-  --ids-input-border-radius-focus: var(--border-radius-md);
   --ids-input-box-shadow-inner-color-focus: var(--samoyed);
-  --ids-input-box-shadow-outer-color-focus: var(--grey-300);
+  --ids-input-box-shadow-outer-color-focus: var(--electric-blue-600);
 
   /* Active */
   --ids-input-border-color-active: var(--electric-blue-500);
@@ -101,22 +99,9 @@
 .ids-input.focus {
   outline: 0;
   outline-offset: 0;
-  box-shadow: 0 0 0 2px var(--ids-input-box-shadow-inner-color-focus), 0 0 0 3.5px var(--ids-input-box-shadow-outer-color-focus);
-}
-  border: 1.5px solid var(--ids-input-border-color-focus);
-  border-radius: var(--ids-input-border-radius-focus);
-  outline: 0;
-  outline-offset: 0;
   box-shadow:
-    inset 0 0 0 1.5px var(--ids-input-box-shadow-inner-color-focus),
-    inset 0 0 0 2.5px var(--ids-input-box-shadow-outer-color-focus);
-}
-
-.ids-input--error:focus,
-.ids-input--error.focus {
-  box-shadow:
-    inset 0 0 0 1.5px var(--ids-input-box-shadow-inner-color-focus),
-    inset 0 0 0 2.5px var(--ids-input-border-color-error);
+    0 0 0 2px var(--ids-input-box-shadow-inner-color-focus),
+    0 0 0 3.5px var(--ids-input-box-shadow-outer-color-focus);
 }
 
 .ids-input:active,
