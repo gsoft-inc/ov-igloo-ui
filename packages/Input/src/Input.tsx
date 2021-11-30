@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import cx from 'classnames';
 
-import './input.css';
+import './input.scss';
 
 const KeyCodes = {
   Comma: 44,
