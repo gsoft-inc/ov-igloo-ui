@@ -1,19 +1,19 @@
-# @igloo-ui/COMPONENT_NAME
+# @igloo-ui/Toaster
 
-Welcome to my `COMPONENT_NAME` component.
+Welcome to my `Toaster` component.
 
 ## Installation
 
 ```sh
-npm i @igloo-ui/COMPONENT_NAME
+npm i @igloo-ui/Toaster
 # or with yarn
-yarn add @igloo-ui/COMPONENT_NAME
+yarn add @igloo-ui/Toaster
 ```
 
 Then to use the component in your code just import it!
 
 ```js
-import COMPONENT_NAME from '@igloo-ui/COMPONENT_NAME';
+import Toaster, { toaster } from '@igloo-ui/Toaster';
 // and with css-modules
-import '@igloo-ui/COMPONENT_NAME/dist/COMPONENT_NAME.css';
+import '@igloo-ui/Toaster/dist/toaster.css';
 ```
