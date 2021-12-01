@@ -10,5 +10,15 @@ export default {
 } as Meta;
 
 export const Standard: React.VFC<unknown> = () => (
-  <Toaster>Dummy starter component</Toaster>
+  <Toaster>Success message</Toaster>
+);
+
+export const Error: React.VFC<unknown> = () => (
+  <Toaster error>Error message</Toaster>
+);
+
+export const LongDescription: React.VFC<unknown> = () => (
+  <Toaster>
+    Aenean ultrices sapien vitae dolor mollis, a ullamcorper est commodo
+  </Toaster>
 );
