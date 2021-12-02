@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/input",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "dist/Input.js",
   "module": "dist/Input.js",
   "types": "dist/Input.d.ts",
