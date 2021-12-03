@@ -1,0 +1,35 @@
+@import '../variables.scss';
+
+.io-card {
+  font-size: $fs-4;
+  border-radius: $br-1;
+  padding: $size-2;
+
+  color: $c-white;
+  background: $c-black;
+
+  &__content {
+    padding-top: $size-2;
+    line-height: 1.5;
+  }
+
+  &__title.io-title {
+    color: inherit;
+  }
+
+  &__description {
+    font-size: $fs-5;
+    margin: $size-0 0 0;
+  }
+}
+
+.io-card--inline {
+  display: flex;
+  padding: 0;
+  color: $c-black;
+  background: $c-white;
+
+  .io-card__content {
+    padding: 0 $size-2;
+  }
+}

@@ -1,0 +1,21 @@
+@import '../variables';
+
+.io-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: $fs-6;
+  text-align: center;
+
+  border-radius: $size-1;
+  height: $size-2;
+  padding: 0 $size-1;
+  background: $c-grey;
+
+  &--ready {
+    background: $c-green;
+  }
+
+  &--beta {
+    background: $c-yellow;
+  }
+}

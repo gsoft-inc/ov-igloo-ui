@@ -1,0 +1,29 @@
+@import 'variables';
+
+.io-nav {
+  font-size: $fs-4;
+
+  &__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item:not(:first-child) {
+    margin-left: $size-2;
+  }
+
+  &__link:hover {
+    text-decoration: underline;
+  }
+
+  &__item--icon {
+    display: flex;
+    align-items: center;
+
+    span {
+      display: none;
+    }
+  }
+}
