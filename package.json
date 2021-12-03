@@ -8,7 +8,7 @@
   ],
   "license": "Apache-2.0",
   "scripts": {
-    "build": "lerna exec -- rollup -c rollup.config.js",
+    "build": "lerna exec --ignore docs -- rollup -c rollup.config.js ",
     "test": "jest",
     "clean": "npx lerna exec -- rm -rf ./dist",
     "lint": "eslint . --ext .ts,.tsx --quiet",
@@ -16,7 +16,7 @@
     "lint:style": "stylelint '**/*.scss'",
     "fix:style": "stylelint '**/*.scss' --fix",
     "doc:start": "lerna exec --scope docs 'yarn dev'",
-    "doc:build": "lerna exec --scope docs 'yarn build'",
+    "doc:build": "lerna exec --scope docs 'yarn build' && build-storybook -o ./website/out/storybook",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepublish-ci": "yarn build",
