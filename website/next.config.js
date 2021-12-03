@@ -2,7 +2,6 @@ const withTM = require('next-transpile-modules')(['@igloo-ui/icons']);
 const path = require('path');
 
 module.exports = withTM({
-  distDir: 'out',
   reactStrictMode: true,
   target: 'serverless',
   sassOptions: {
