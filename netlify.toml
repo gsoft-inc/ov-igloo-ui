@@ -1,0 +1,10 @@
+
+[build]
+  command = "next build website"
+  publish = "website/out"
+
+[dev]
+  command = "next dev website"
+  
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
