@@ -1,10 +1,7 @@
 
 [build]
-  command = "next build website"
-  publish = "website/out"
-
-[dev]
-  command = "next dev website"
+  command = "yarn doc:build"
+  publish = "out"
   
 [[plugins]]
   package = "@netlify/plugin-nextjs"
