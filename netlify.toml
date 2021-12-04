@@ -1,5 +1,6 @@
 
 [build]
+  base="website"
   command = "yarn doc:build"
   publish = "out"
   
