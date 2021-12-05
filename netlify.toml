@@ -2,6 +2,10 @@
 [build]
   command = "yarn doc:build"
   publish = "website/.next"
+
+[[redirects]]
+  from = "/components"
+  to = "/storybook"
   
 [[plugins]]
   package = "@netlify/plugin-nextjs"
