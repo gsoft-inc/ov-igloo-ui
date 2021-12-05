@@ -6,7 +6,7 @@ import github from '../svg/github.svg';
 export const navigation = {
   TOKENS: '/tokens',
   ICONS: '/icons',
-  COMPONENTS: '/components',
+  COMPONENTS: '/storybook',
 };
 
 const nav = [
