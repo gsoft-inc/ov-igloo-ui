@@ -6,4 +6,13 @@ module.exports = withTM({
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  async redirects() {
+    return [
+      {
+        source: '/components',
+        destination: '/storybook',
+        permanent: true,
+      },
+    ];
+  },
 });

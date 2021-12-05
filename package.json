@@ -16,7 +16,7 @@
     "lint:style": "stylelint '**/*.scss'",
     "fix:style": "stylelint '**/*.scss' --fix",
     "doc:start": "lerna exec --scope docs 'yarn dev'",
-    "doc:build": "lerna exec --scope docs 'yarn build'",
+    "doc:build": "lerna exec --scope docs 'yarn build' &&  yarn build-storybook -o ./website/.next/storybook",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepublish-ci": "yarn build",
