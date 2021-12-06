@@ -1,7 +1,7 @@
 import Tag from '../components/Tag';
 
 export default function RoadMap({ data }) {
-  const listItems = data.map((item) => {
+  const listItems = data.map((item, index) => {
     if (item.length < 2) {
       return;
     }
@@ -23,7 +23,7 @@ export default function RoadMap({ data }) {
     }
 
     return (
-      <li className="io-list__item">
+      <li key={index.toString()} className="io-list__item">
         {component} <Tag appearance={appearance}>{tag}</Tag>
       </li>
     );

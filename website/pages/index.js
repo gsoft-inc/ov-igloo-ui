@@ -7,7 +7,7 @@ import Card from '../components/Card';
 import Title from '../components/Title';
 import RoadMap from '../components/Roadmap';
 
-import brand from '../svg/brand.svg';
+import brand from '../../assets/brand.svg';
 import iconToken from '../svg/token.svg';
 import iconIcon from '../svg/icon.svg';
 import iconComponent from '../svg/component.svg';
