@@ -34,7 +34,7 @@ export default function Home() {
       <main>
         <div className="io-hero">
           <Title className="io-hero__title" as="h1" level={1}>
-            Igloo helps us to create a great experience for Officevibe
+            Igloo helps us create a great experience for Officevibe
           </Title>
         </div>
         <section className="io-section">
