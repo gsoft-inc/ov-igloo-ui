@@ -9,12 +9,13 @@
   --ids-toaster-font-size: var(--font-size-5);
   --ids-toaster-font-weight: var(--font-weight-bold);
   --ids-toaster-text: var(--grey-800);
-  --ids-toaster-padding: var(--space-3) var(--space-2) var(--space-3)
+  --ids-toaster-padding:
+    var(--space-3) var(--space-2) var(--space-3)
     calc(var(--space-3) + var(--ids-toaster-status-width));
   --ids-toaster-margin: var(--space-3) auto;
   --ids-toaster-max-width: 60rem;
   --ids-toaster-border-radius: var(--border-radius-sm);
-  --ids-toaster-shadow: 0 0.4rem 1rem 0.4rem rgba(35, 48, 67, 0.1);
+  --ids-toaster-shadow: 0 0.4rem 1rem 0.4rem rgb(35 48 67 / 10%);
   --ids-toaster-background: var(--white);
   --ids-toaster-icon-margin: var(--space-3);
   --ids-toaster-status-width: var(--space-1);
@@ -83,9 +84,10 @@
 
   &__text {
     display: block;
-    margin-left: calc(
-      var(--ids-toaster-status-icon-size) + var(--ids-toaster-icon-margin)
-    );
+    margin-left:
+      calc(
+        var(--ids-toaster-status-icon-size) + var(--ids-toaster-icon-margin)
+      );
   }
 
   &__btn {
