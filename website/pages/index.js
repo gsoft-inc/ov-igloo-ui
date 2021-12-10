@@ -44,6 +44,7 @@ export default function Home() {
 
           <div className="io-section__content">
             <Card
+              className="io-card--token"
               icon={<Image src={iconToken} />}
               title="Tokens"
               description="Are visual values that construct the foundational pieces of our products"
@@ -51,6 +52,7 @@ export default function Home() {
               featureFlag
             />
             <Card
+              className="io-card--icons"
               icon={<Image src={iconIcon} />}
               title="Icons"
               description="Help assist users in finding certain actions on a page"
@@ -58,6 +60,7 @@ export default function Home() {
               featureFlag
             />
             <Card
+              className="io-card--components"
               icon={<Image src={iconComponent} />}
               title="Components"
               description="A set of React components for building the interfaces of our products"

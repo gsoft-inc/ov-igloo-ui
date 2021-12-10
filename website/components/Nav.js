@@ -27,11 +27,11 @@ const nav = [
 ];
 
 export default function Nav() {
-  const navList = nav.map((item) => {
+  const navList = nav.map((item, index) => {
     const navItem = item.featurFlag ? (
       item.label
     ) : (
-      <Link href={item.link}>
+      <Link key={index.toString()} href={item.link}>
         <a className="io-nav__link">{item.label}</a>
       </Link>
     );

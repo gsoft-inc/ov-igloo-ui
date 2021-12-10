@@ -124,3 +124,9 @@ export const Ghost = (): React.ReactElement => (
     payload={{ base: buttonState, disabled: buttonState }}
   />
 );
+
+export const Test: React.VFC<unknown> = () => (
+  <Button>
+    Aenean ultrices sapien vitae dolor mollis, a ullamcorper est commodo !!!!
+  </Button>
+);
