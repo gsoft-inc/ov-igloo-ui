@@ -13,7 +13,12 @@ export default {
 
 interface TemplateProps {
   appearance?: Appearance;
-  payload: { base: Props[]; disabled: Props[]; active: Props[] };
+  payload: {
+    base: Props[];
+    disabled: Props[];
+    active: Props[];
+    focus: Props[];
+  };
 }
 
 const Template = ({
@@ -25,6 +30,7 @@ const Template = ({
 
   const component = componentState.map((state, index) => {
     const isDisabled = state === 'disabled';
+    const isFocus = state === 'focus';
     const datas = isDisabled ? disabled : base;
 
     const list = datas.map((p, i) => {
@@ -32,6 +38,7 @@ const Template = ({
       return (
         <Button
           active={state === 'active'}
+          className={isFocus ? 'focus' : ''}
           appearance={appearance}
           disabled={isDisabled}
           key={i.toString()}
@@ -94,33 +101,45 @@ const buttonState = [
 ];
 
 export const Primary = (): React.ReactElement => (
-  <Template payload={{ base: buttonState, disabled: buttonState }} />
+  <Template
+    payload={{
+      base: buttonState,
+      disabled: buttonState,
+      active: buttonState,
+      focus: buttonState,
+    }}
+  />
 );
 
 export const Secondary = (): React.ReactElement => (
   <Template
     appearance="secondary"
-    payload={{ base: buttonState, disabled: buttonState, active: buttonState }}
+    payload={{
+      base: buttonState,
+      disabled: buttonState,
+      active: buttonState,
+      focus: buttonState,
+    }}
   />
 );
 
 export const Premium = (): React.ReactElement => (
   <Template
     appearance="premium"
-    payload={{ base: buttonState, disabled: buttonState }}
+    payload={{ base: buttonState, disabled: buttonState, focus: buttonState }}
   />
 );
 
 export const Danger = (): React.ReactElement => (
   <Template
     appearance="danger"
-    payload={{ base: buttonState, disabled: buttonState }}
+    payload={{ base: buttonState, disabled: buttonState, focus: buttonState }}
   />
 );
 
 export const Ghost = (): React.ReactElement => (
   <Template
     appearance="ghost"
-    payload={{ base: buttonState, disabled: buttonState }}
+    payload={{ base: buttonState, disabled: buttonState, focus: buttonState }}
   />
 );

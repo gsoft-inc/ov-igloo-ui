@@ -37,10 +37,12 @@
   --ids-btn-background-secondary-disabled: var(--grey-300);
 
   /* Premium */
-  --ids-btn-text-premium: var(--samoyed);
-  --ids-btn-background-premium: var(--dandelion-500);
-  --ids-btn-background-premium-hover: var(--dandelion-600);
-  --ids-btn-background-premium-disabled: var(--dandelion-200);
+  --ids-btn-text-premium: var(--grey-800);
+  --ids-btn-text-premium-disabled: var(--grey-600);
+  --ids-btn-outline-premium: var(--electric-blue-500);
+  --ids-btn-background-premium: var(--dandelion-100);
+  --ids-btn-background-premium-hover: var(--dandelion-200);
+  --ids-btn-background-premium-disabled: var(--dandelion-50);
 
   /* Danger */
   --ids-btn-text-danger: var(--samoyed);
@@ -57,6 +59,8 @@
   --ids-loader-border: 2px solid rgb(255 255 255 / 30%);
   --ids-loader-border-ghost: 2px solid rgb(16 83 255 / 30%);
   --ids-loader-primary: var(--samoyed);
+  --ids-loader-premium: var(--grey-800);
+  --ids-loader-premium-disabled: var(--grey-600);
   --ids-loader-secondary: var(--grey-800);
   --ids-loader-secondary-disabled: var(--grey-600);
   --ids-loader-secondary-active: var(--electric-blue-500);
@@ -120,15 +124,19 @@
 }
 
 .ids-btn:focus,
-.ids-btn:focus::after {
+.ids-btn.focus,
+.ids-btn:focus::after,
+.ids-btn.focus::after {
   outline: 0;
 }
 
-.ids-btn:focus::after {
+.ids-btn:focus::after,
+.ids-btn.focus::after {
   box-shadow: var(--ids-btn-shadow);
 }
 
-.ids-btn:focus:not(:focus-visible)::after {
+.ids-btn:focus:not(:focus-visible)::after,
+.ids-btn.focus:not(:focus-visible)::after {
   box-shadow: none;
 }
 
@@ -139,6 +147,11 @@
 }
 
 .ids-btn.ids-btn--loading {
+  pointer-events: none;
+  user-select: none;
+}
+
+.ids-btn.ids-btn--active {
   pointer-events: none;
   user-select: none;
 }
@@ -190,6 +203,7 @@
 }
 
 .ids-btn--premium {
+  color: var(--ids-btn-text-premium);
   background: var(--ids-btn-background-premium);
 }
 
@@ -197,8 +211,24 @@
   background: var(--ids-btn-background-premium-hover);
 }
 
+.ids-btn--premium .ids-loader {
+  border-left-color: var(--ids-loader-premium);
+}
+
 .ids-btn--premium:disabled {
+  color: var(--ids-btn-text-premium-disabled);
   background: var(--ids-btn-background-premium-disabled);
+}
+
+.ids-btn--premium:disabled .ids-loader {
+  border-left-color: var(--ids-loader-premium-disabled);
+}
+
+.ids-btn--premium:focus:not(.ids-btn--loading),
+.ids-btn--premium.focus:not(.ids-btn--loading) {
+  outline: 2px solid var(--ids-btn-outline-premium);
+  outline-offset: 2px;
+  background: var(--ids-btn-background-premium-hover);
 }
 
 .ids-btn--danger {
