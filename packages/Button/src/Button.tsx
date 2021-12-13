@@ -38,6 +38,8 @@ export interface Props extends React.ComponentPropsWithoutRef<'button'> {
   type?: 'button' | 'reset' | 'submit';
   // Add a data-intercom-target with unique id to link a components to a Product Tour step.
   intercomTarget?: string;
+  // Add a specific class to the button
+  className?: string;
 }
 
 const Button: React.FunctionComponent<Props> = (props: Props) => {
@@ -85,7 +87,7 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
         {showOnlyIconOnMobile ? (
           <span className="ids-btn__label">{children}</span>
         ) : (
-          children
+          <span>{children}</span>
         )}
         {hasIconTrailing && iconTrailing}
       </>
@@ -99,6 +101,7 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
       data-test={dataTest}
       data-intercom-target={intercomTarget}
       type={type}
+      title={children?.toString()}
       onClick={onClick}
       {...rest}
     >

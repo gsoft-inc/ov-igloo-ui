@@ -104,6 +104,13 @@
   padding: 0 var(--ids-btn-padding);
 }
 
+.ids-btn > span {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .ids-btn::after {
   content: '';
   position: absolute;

@@ -69,6 +69,11 @@ const buttonState = [
   { size: 'small' },
   {
     size: 'small',
+    children: 'Overflowing text',
+    className: 'isb-element__thin',
+  },
+  {
+    size: 'small',
     iconLeading: <Plus size="small" />,
     children: 'New feedback',
   },
@@ -83,6 +88,11 @@ const buttonState = [
     loading: true,
   },
   { size: 'medium' },
+  {
+    size: 'medium',
+    children: 'Overflowing text',
+    className: 'isb-element__thin',
+  },
   {
     size: 'medium',
     iconLeading: <Plus size="small" />,
