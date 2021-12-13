@@ -48,21 +48,28 @@ export const Playground: React.VFC<unknown> = () => {
       >
         Error
       </Button>
-      <Toaster />
+      <Toaster iconDescription="describes the close button" />
     </div>
   );
 };
 
 export const Standard: React.VFC<unknown> = () => (
-  <Toast toast={{ ...mockToast, type: 'success' }} />
+  <Toast
+    iconDescription="describes the close button"
+    toast={{ ...mockToast, type: 'success' }}
+  />
 );
 
 export const Error: React.VFC<unknown> = () => (
-  <Toast toast={{ ...mockToast, type: 'error' }} />
+  <Toast
+    iconDescription="describes the close button"
+    toast={{ ...mockToast, type: 'error' }}
+  />
 );
 
 export const LongDescription: React.VFC<unknown> = () => (
   <Toast
+    iconDescription="describes the close button"
     toast={{
       ...mockToast,
       type: 'success',

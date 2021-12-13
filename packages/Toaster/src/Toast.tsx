@@ -10,10 +10,11 @@ import Close from '@igloo-ui/icons/dist/Close';
 export interface ToastProps extends React.ComponentProps<'div'> {
   toast?: HotToast;
   close?: () => void;
+  iconDescription?: string;
 }
 
 const Toast: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
-  const { toast, close, className, ...rest } = props;
+  const { toast, iconDescription, close, className, ...rest } = props;
 
   if (!toast) {
     return null;
@@ -37,7 +38,11 @@ const Toast: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
         {statusIcon}
         <span className="ids-toaster__text">{toast.message}</span>
       </div>
-      <button className="ids-toaster__btn" onClick={close}>
+      <button
+        onClick={close}
+        className="ids-toaster__btn"
+        aria-label={iconDescription}
+      >
         <Close className="ids-toaster__close" />
       </button>
     </div>

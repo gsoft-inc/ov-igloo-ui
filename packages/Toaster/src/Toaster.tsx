@@ -5,10 +5,12 @@ import Toast from './Toast';
 
 import './toaster.scss';
 
-export type ToastProps = React.ComponentProps<'div'>;
+export interface ToastProps extends React.ComponentProps<'div'> {
+  iconDescription?: 'string';
+}
 
 const Toaster: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
-  const { className, ...rest } = props;
+  const { iconDescription, className, ...rest } = props;
   const { toasts } = useToaster();
 
   return (
@@ -21,6 +23,7 @@ const Toaster: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
             toast={t}
             close={() => toast.dismiss(t.id)}
             className={className}
+            iconDescription={iconDescription}
             {...rest}
           />
         ))}
