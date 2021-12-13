@@ -17,6 +17,7 @@
   --ids-btn-z-index: var(--z-index-10);
   --ids-btn-focus-position: -0.3rem;
   --ids-btn-shadow: 0 0 0 1.5px var(--electric-blue-500);
+  --ids-btn-outline: var(--electric-blue-500);
 
   /* Primary */
   --ids-btn-text-primary: var(--samoyed);
@@ -38,8 +39,7 @@
 
   /* Premium */
   --ids-btn-text-premium: var(--grey-800);
-  --ids-btn-text-premium-disabled: var(--grey-600);
-  --ids-btn-outline-premium: var(--electric-blue-500);
+  --ids-btn-text-premium-disabled: var(--grey-500);
   --ids-btn-background-premium: var(--dandelion-100);
   --ids-btn-background-premium-hover: var(--dandelion-200);
   --ids-btn-background-premium-disabled: var(--dandelion-50);
@@ -125,6 +125,8 @@
   transition: box-shadow 0.1s linear;
 }
 
+.ids-btn:focus,
+.ids-btn.focus,
 .ids-btn:hover {
   cursor: pointer;
   background: var(--ids-btn-background-primary-hover);
@@ -137,9 +139,10 @@
   outline: 0;
 }
 
-.ids-btn:focus::after,
-.ids-btn.focus::after {
-  box-shadow: var(--ids-btn-shadow);
+.ids-btn:disabled {
+  pointer-events: none;
+  user-select: none;
+  background: var(--ids-btn-background-primary-disabled);
 }
 
 .ids-btn:focus:not(:focus-visible)::after,
@@ -147,10 +150,10 @@
   box-shadow: none;
 }
 
-.ids-btn:disabled {
-  pointer-events: none;
-  user-select: none;
-  background: var(--ids-btn-background-primary-disabled);
+.ids-btn:focus:not(.ids-btn--loading),
+.ids-btn.focus:not(.ids-btn--loading) {
+  outline: 2px solid var(--ids-btn-outline);
+  outline-offset: 2px;
 }
 
 .ids-btn.ids-btn--loading {
@@ -213,7 +216,11 @@
   border: 1px solid var(--ids-btn-border-secondary-active);
 }
 
+.ids-btn--secondary:focus,
+.ids-btn--secondary.focus,
 .ids-btn--secondary:hover,
+.ids-btn--secondary:focus:active,
+.ids-btn--secondary.focus:active,
 .ids-btn--secondary:hover:active,
 .ids-btn--secondary.ids-btn--active:hover {
   color: var(--ids-btn-text-secondary-hover);
@@ -226,6 +233,8 @@
   background: var(--ids-btn-background-premium);
 }
 
+.ids-btn--premium:focus,
+.ids-btn--premium.focus,
 .ids-btn--premium:hover {
   background: var(--ids-btn-background-premium-hover);
 }
@@ -235,17 +244,12 @@
   background: var(--ids-btn-background-premium-disabled);
 }
 
-.ids-btn--premium:focus:not(.ids-btn--loading),
-.ids-btn--premium.focus:not(.ids-btn--loading) {
-  outline: 2px solid var(--ids-btn-outline-premium);
-  outline-offset: 2px;
-  background: var(--ids-btn-background-premium-hover);
-}
-
 .ids-btn--danger {
   background: var(--ids-btn-background-danger);
 }
 
+.ids-btn--danger:focus,
+.ids-btn--danger.focus,
 .ids-btn--danger:hover {
   background: var(--ids-btn-background-danger-hover);
 }
@@ -259,6 +263,8 @@
   background: var(--ids-btn-background-ghost);
 }
 
+.ids-btn--ghost:focus,
+.ids-btn--ghost.focus,
 .ids-btn--ghost:hover {
   color: var(--ids-btn-text-ghost-hover);
   background: var(--ids-btn-background-ghost);
