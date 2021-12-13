@@ -38,11 +38,11 @@ const Template = ({
       return (
         <Button
           active={state === 'active'}
-          className={isFocus ? 'focus' : ''}
           appearance={appearance}
           disabled={isDisabled}
           key={i.toString()}
           {...p}
+          className={isFocus ? 'focus ' + p.className : p.className}
         >
           {label}
         </Button>

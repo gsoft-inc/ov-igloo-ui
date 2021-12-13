@@ -158,6 +158,32 @@
   user-select: none;
 }
 
+.ids-btn--ghost .ids-loader {
+  border: var(--ids-loader-border-ghost);
+  border-left-color: var(--ids-loader-ghost);
+}
+
+.ids-btn--premium .ids-loader {
+  border-left-color: var(--ids-loader-premium);
+}
+
+.ids-btn--secondary .ids-loader {
+  border-left-color: var(--ids-loader-secondary);
+}
+
+.ids-btn--secondary:active .ids-loader,
+.ids-btn--secondary.ids-btn--active .ids-loader {
+  border-left-color: var(--ids-loader-secondary-active);
+}
+
+.ids-btn--premium:disabled .ids-loader {
+  border-left-color: var(--ids-loader-premium-disabled);
+}
+
+.ids-btn--ghost:disabled .ids-loader {
+  border-left-color: var(--ids-loader-ghost-disabled);
+}
+
 .ids-btn.ids-btn--active {
   pointer-events: none;
   user-select: none;
@@ -168,19 +194,10 @@
   height: var(--ids-btn-height-small);
 }
 
-.ids-btn--ghost .ids-loader {
-  border: var(--ids-loader-border-ghost);
-  border-left-color: var(--ids-loader-ghost);
-}
-
 .ids-btn--secondary {
   color: var(--ids-btn-text-secondary);
   background: var(--ids-btn-background-secondary);
   border: 1px solid var(--ids-btn-border-secondary);
-}
-
-.ids-btn--secondary .ids-loader {
-  border-left-color: var(--ids-loader-secondary);
 }
 
 .ids-btn--secondary:disabled {
@@ -194,11 +211,6 @@
   color: var(--ids-btn-text-secondary-active);
   background: var(--ids-btn-background-secondary-active);
   border: 1px solid var(--ids-btn-border-secondary-active);
-}
-
-.ids-btn--secondary:active .ids-loader,
-.ids-btn--secondary.ids-btn--active .ids-loader {
-  border-left-color: var(--ids-loader-secondary-active);
 }
 
 .ids-btn--secondary:hover,
@@ -218,17 +230,9 @@
   background: var(--ids-btn-background-premium-hover);
 }
 
-.ids-btn--premium .ids-loader {
-  border-left-color: var(--ids-loader-premium);
-}
-
 .ids-btn--premium:disabled {
   color: var(--ids-btn-text-premium-disabled);
   background: var(--ids-btn-background-premium-disabled);
-}
-
-.ids-btn--premium:disabled .ids-loader {
-  border-left-color: var(--ids-loader-premium-disabled);
 }
 
 .ids-btn--premium:focus:not(.ids-btn--loading),
@@ -263,10 +267,6 @@
 .ids-btn--ghost:disabled {
   color: var(--ids-btn-text-ghost-disabled);
   background: var(--ids-btn-background-ghost);
-}
-
-.ids-btn--ghost:disabled .ids-loader {
-  border-left-color: var(--ids-loader-ghost-disabled);
 }
 
 .has-icon .ids-icon {
