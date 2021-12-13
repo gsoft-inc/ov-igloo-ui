@@ -1,28 +1,26 @@
-@import '~@igloo-ui/tokens/dist/variables.css';
+@import '~@igloo-ui/tokens/dist/base10/variables.css';
 @import '~@igloo-ui/tokens/dist/fonts.css';
 
 :root {
-  --white: #fff;
-
   /* Default */
   --ids-toaster-font-family: var(--primary-font-family);
   --ids-toaster-font-size: var(--font-size-5);
   --ids-toaster-font-weight: var(--font-weight-bold);
   --ids-toaster-text: var(--grey-800);
-  --ids-toaster-padding:
-    var(--space-3) var(--space-2) var(--space-3)
+  --ids-toaster-padding: var(--space-3) var(--space-2) var(--space-3)
     calc(var(--space-3) + var(--ids-toaster-status-width));
   --ids-toaster-margin: var(--space-3) auto;
   --ids-toaster-max-width: 60rem;
   --ids-toaster-border-radius: var(--border-radius-sm);
-  --ids-toaster-shadow: 0 0.4rem 1rem 0.4rem rgb(35 48 67 / 10%);
-  --ids-toaster-background: var(--white);
+  --ids-toaster-shadow: var(--shadow-12);
+  --ids-toaster-background: var(--samoyed);
   --ids-toaster-icon-margin: var(--space-3);
   --ids-toaster-status-width: var(--space-1);
   --ids-toaster-status-color: var(--seaweed-400);
   --ids-toaster-status-icon-size: var(--space-4);
   --ids-toaster-close-color: var(--grey-500);
-  --ids-toaster-close-size: var(--space-4);
+  --ids-toaster-close-size: var(--space-5);
+  --ids-toaster-close-radius: var(--border-radius-sm);
 
   /* Error */
   --ids-toaster-status-color-error: var(--coral-300);
@@ -84,21 +82,21 @@
 
   &__text {
     display: block;
-    margin-left:
-      calc(
-        var(--ids-toaster-status-icon-size) + var(--ids-toaster-icon-margin)
-      );
+    margin-left: calc(
+      var(--ids-toaster-status-icon-size) + var(--ids-toaster-icon-margin)
+    );
   }
 
   &__btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: var(--ids-toaster-close-size);
+    height: var(--ids-toaster-close-size);
+    padding: 0;
     background: transparent;
     border: 1px solid transparent;
-    border-radius: 4px;
+    border-radius: var(--ids-toaster-close-radius);
     color: var(--ids-toaster-close-color);
 
     &:hover {
@@ -108,6 +106,12 @@
 
     &:focus {
       box-shadow: 0 0 0 2px var(--samoyed), 0 0 0 3.5px var(--electric-blue-600);
+      outline: 0;
+    }
+
+    &:focus:not(:focus-visible) {
+      outline: 0;
+      box-shadow: none;
     }
   }
 
