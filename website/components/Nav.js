@@ -1,38 +1,26 @@
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
+import cx from 'classnames';
 
 import github from '../svg/github.svg';
 
-export const navigation = {
-  TOKENS: '/tokens',
-  ICONS: '/icons',
-  COMPONENTS: '/storybook',
-};
+export default function Nav({ items }) {
+  const { asPath } = useRouter();
 
-const nav = [
-  {
-    link: navigation.TOKENS,
-    label: 'Tokens',
-    featurFlag: true,
-  },
-  {
-    link: navigation.ICONS,
-    label: 'Icons',
-    featurFlag: true,
-  },
-  {
-    link: navigation.COMPONENTS,
-    label: 'Components',
-  },
-];
-
-export default function Nav() {
-  const navList = nav.map((item, index) => {
+  const navList = items.map((item, index) => {
     const navItem = item.featurFlag ? (
       item.label
     ) : (
       <Link key={index.toString()} href={item.link}>
-        <a className="io-nav__link">{item.label}</a>
+        <a
+          className={cx(
+            'io-nav__link',
+            cx(asPath === item.link && 'is-active')
+          )}
+        >
+          {item.label}
+        </a>
       </Link>
     );
 

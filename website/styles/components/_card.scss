@@ -30,6 +30,7 @@ a {
     transition: box-shadow 150ms ease-in-out, transform 200ms ease-in-out,
       -webkit-transform 150ms ease-in-out;
     box-shadow: 0 0 0 0 $card-shadow-yellow;
+    height: 100%;
 
     &::after {
       position: absolute;
@@ -78,6 +79,7 @@ a {
 
   .io-card--inline {
     box-shadow: none;
+    height: auto;
 
     &:hover {
       transform: none;
