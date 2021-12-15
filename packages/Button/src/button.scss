@@ -17,7 +17,6 @@
   --ids-btn-z-index: var(--z-index-10);
   --ids-btn-focus-position: -0.3rem;
   --ids-btn-shadow: 0 0 0 1.5px var(--electric-blue-500);
-  --ids-btn-outline: var(--electric-blue-500);
 
   /* Primary */
   --ids-btn-text-primary: var(--samoyed);
@@ -111,32 +110,11 @@
   text-overflow: ellipsis;
 }
 
-.ids-btn::after {
-  content: '';
-  position: absolute;
-  display: block;
-  pointer-events: none;
-  border-radius: var(--ids-btn-border-radius);
-  top: var(--ids-btn-focus-position);
-  left: var(--ids-btn-focus-position);
-  right: var(--ids-btn-focus-position);
-  bottom: var(--ids-btn-focus-position);
-  z-index: var(--ids-btn-z-index);
-  transition: box-shadow 0.1s linear;
-}
-
 .ids-btn:focus,
 .ids-btn.focus,
 .ids-btn:hover {
   cursor: pointer;
   background: var(--ids-btn-background-primary-hover);
-}
-
-.ids-btn:focus,
-.ids-btn.focus,
-.ids-btn:focus::after,
-.ids-btn.focus::after {
-  outline: 0;
 }
 
 .ids-btn:disabled {
@@ -145,15 +123,13 @@
   background: var(--ids-btn-background-primary-disabled);
 }
 
-.ids-btn:focus:not(:focus-visible)::after,
-.ids-btn.focus:not(:focus-visible)::after {
-  box-shadow: none;
-}
+.ids-btn:focus,
+.ids-btn.focus {
+  outline: 0;
 
-.ids-btn:focus:not(.ids-btn--loading),
-.ids-btn.focus:not(.ids-btn--loading) {
-  outline: 2px solid var(--ids-btn-outline);
-  outline-offset: 2px;
+  &:not(.ids-btn--loading) {
+    box-shadow: var(--focus);
+  }
 }
 
 .ids-btn.ids-btn--loading {
