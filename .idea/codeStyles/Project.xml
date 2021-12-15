@@ -1,0 +1,23 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <TypeScriptCodeStyleSettings version="0">
+      <option name="SPACE_WITHIN_ARRAY_INITIALIZER_BRACKETS" value="true" />
+      <option name="PREFER_AS_TYPE_CAST" value="true" />
+      <option name="SPACES_WITHIN_IMPORTS" value="true" />
+      <option name="SPACES_WITHIN_INTERPOLATION_EXPRESSIONS" value="true" />
+    </TypeScriptCodeStyleSettings>
+    <codeStyleSettings language="JavaScript">
+      <option name="RIGHT_MARGIN" value="80" />
+      <option name="BLOCK_COMMENT_ADD_SPACE" value="true" />
+    </codeStyleSettings>
+    <codeStyleSettings language="TypeScript">
+      <option name="RIGHT_MARGIN" value="80" />
+      <option name="BLOCK_COMMENT_ADD_SPACE" value="true" />
+      <indentOptions>
+        <option name="INDENT_SIZE" value="2" />
+        <option name="CONTINUATION_INDENT_SIZE" value="2" />
+        <option name="TAB_SIZE" value="2" />
+      </indentOptions>
+    </codeStyleSettings>
+  </code_scheme>
+</component>
