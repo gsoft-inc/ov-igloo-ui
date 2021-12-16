@@ -24,7 +24,11 @@ export default function Nav({ items }) {
       </Link>
     );
 
-    return <li className="io-nav__item">{navItem}</li>;
+    return (
+      <li key={index.toString()} className="io-nav__item">
+        {navItem}
+      </li>
+    );
   });
 
   return (

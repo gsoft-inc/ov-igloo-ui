@@ -39,8 +39,8 @@ export default function Icons() {
           Getting started
         </Title>
         <p>
-          To install @igloo-ui/icons in your project, you will need to run the
-          following command using{' '}
+          To install <Code inline>@igloo-ui/icons</Code> in your project, you
+          will need to run the following command using{' '}
           <a href="npmjs.org" target="_blank">
             npm:
           </a>
@@ -52,9 +52,9 @@ export default function Icons() {
           Usage
         </Title>
         <p>
-          This package support the following sizes: 16, 24, and 32 pixels. You
-          can import an icon component into your project by referring to its
-          name:
+          This package support the following sizes: <Code inline>16</Code>,{' '}
+          <Code inline>24</Code>, and <Code inline>32</Code> pixels. You can
+          import an icon component into your project by referring to its name:
         </p>
         <Code language="jsx">
           {`import Alert from '@igloo-ui/icons/dist/Alert';${'\n'}<Alert size="small" /> // 16px${'\n'}<Alert size="medium" /> // 24px${'\n'}<Alert size="large" /> // 32px`}

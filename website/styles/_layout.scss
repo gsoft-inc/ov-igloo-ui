@@ -24,6 +24,10 @@
 .io-section {
   margin: $size-10 0;
 
+  a {
+    text-decoration: underline;
+  }
+
   &__content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -84,15 +88,4 @@
   display: inline-block;
   line-height: 0;
   height: auto;
-}
-
-.io-code {
-  display: block;
-  font-size: $fs-5;
-  font-family: monospace;
-  margin: $size-2 0;
-
-  + .io-title {
-    margin-top: $size-4;
-  }
 }
