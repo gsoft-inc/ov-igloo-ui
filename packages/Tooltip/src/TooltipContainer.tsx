@@ -32,6 +32,11 @@ const TooltipContainer: React.FunctionComponent<TooltipContainerProps> = (
       }
     : undefined;
 
+  const position = {
+    left,
+    top,
+  };
+
   const containerClasses = classNames(
     'tooltip__container',
     `tooltip__container--${relativePosition}`
@@ -39,7 +44,7 @@ const TooltipContainer: React.FunctionComponent<TooltipContainerProps> = (
   const contentClasses = classNames('tooltip__content', className);
 
   return (
-    <div className={containerClasses} {...rest}>
+    <div className={containerClasses} {...rest} style={position}>
       <div className={contentClasses}>
         <div style={contentStyles}>{children}</div>
       </div>

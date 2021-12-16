@@ -28,12 +28,6 @@ export interface TooltipStates {
 }
 
 class TooltipComponent extends PureComponent {
-  private readonly targetElement: React.RefObject<HTMLDivElement>;
-
-  private readonly tooltipElement: React.RefObject<HTMLDivElement>;
-
-  private interval: ReturnType<typeof setInterval>;
-
   constructor(props: TooltipProps) {
     super(props);
 
@@ -64,6 +58,19 @@ class TooltipComponent extends PureComponent {
     this.interval = setInterval(this.updatePositionIfVisible, 500);
   }
 
+  public componentDidUpdate(prevProps: TooltipProps): void {
+    const { children, content } = this.props as TooltipProps;
+
+    if (prevProps.children !== children) {
+      // height might change and arrow needs repositioning
+      this.updatePositionIfVisible();
+    }
+
+    if (prevProps.content !== content) {
+      this.updateContentWidth();
+    }
+  }
+
   public componentWillUnmount(): void {
     window.removeEventListener('scroll', this.updatePositionIfVisible);
     window.removeEventListener('resize', this.updatePositionIfVisible);
@@ -75,19 +82,8 @@ class TooltipComponent extends PureComponent {
       );
     }
 
-    clearInterval(this.interval);
-  }
-
-  public componentDidUpdate(prevProps: TooltipProps): void {
-    const { children, content } = this.props as TooltipProps;
-
-    if (prevProps.children !== children) {
-      // height might change and arrow needs repositioning
-      this.updatePositionIfVisible();
-    }
-
-    if (prevProps.content !== content) {
-      this.updateContentWidth();
+    if (this.interval != null) {
+      clearInterval(this.interval);
     }
   }
 
@@ -105,6 +101,12 @@ class TooltipComponent extends PureComponent {
     this.updatePosition();
     this.setState((s: TooltipStates) => ({ isVisible: !s.isVisible }));
   };
+
+  private readonly targetElement: React.RefObject<HTMLDivElement>;
+
+  private readonly tooltipElement: React.RefObject<HTMLDivElement>;
+
+  private interval: ReturnType<typeof setInterval> | undefined;
 
   public updatePositionIfVisible = (): void => {
     const { isVisible } = this.state as TooltipStates;
