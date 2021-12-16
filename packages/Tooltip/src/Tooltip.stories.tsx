@@ -47,26 +47,31 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
 };
 
 const tooltipStates: TooltipProps[] = [
-  {
-    children: 'Top',
-    position: 'top',
-  },
+  // {
+  //   children: 'Top',
+  //   content: 'Topier',
+  //   position: 'top',
+  // },
   {
     children: 'Right',
+    content: 'Rightier jkrnkjgn jkdrhjg kjrdhjkgh jkdrhkj',
     position: 'right',
   },
-  {
-    children: 'Bottom',
-    position: 'bottom',
-  },
-  {
-    children: 'Left',
-    position: 'left',
-  },
-  {
-    children: 'No Arrow',
-    arrowVisible: false,
-  },
+  // {
+  //   children: 'Bottom',
+  //   content: 'Bottomier',
+  //   position: 'bottom',
+  // },
+  // {
+  //   children: 'Left',
+  //   content: 'Leftier',
+  //   position: 'left',
+  // },
+  // {
+  //   children: 'No Arrow',
+  //   content: 'No Arrowier',
+  //   arrowVisible: false,
+  // },
 ];
 
 export const Tooltips = (): React.ReactElement => (
