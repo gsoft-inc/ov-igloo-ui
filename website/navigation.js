@@ -8,7 +8,6 @@ export const nav = [
   {
     link: link.TOKENS,
     label: 'Tokens',
-    featurFlag: true,
   },
   {
     link: link.ICONS,

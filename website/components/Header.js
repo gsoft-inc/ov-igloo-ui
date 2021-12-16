@@ -6,12 +6,14 @@ import brand from '../svg/brand.svg';
 export default function Header({ children }) {
   return (
     <header className="io-header">
-      <Link href="/">
-        <a className="io-link-icon" href="/">
-          <Image src={brand} />
-        </a>
-      </Link>
-      {children}
+      <div className="io-header__content">
+        <Link href="/">
+          <a className="io-link-icon" href="/">
+            <Image src={brand} />
+          </a>
+        </Link>
+        {children}
+      </div>
     </header>
   );
 }

@@ -7,10 +7,21 @@
 }
 
 .io-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: $size-2 0;
+  position: fixed;
+  width: 100%;
+  padding: $size-2 0;
+  top: 0;
+  left: 0;
+  background: $c-white;
+  z-index: 10;
+
+  &__content {
+    max-width: 50rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .io-hero {
@@ -23,10 +34,6 @@
 
 .io-section {
   margin: $size-10 0;
-
-  a {
-    text-decoration: underline;
-  }
 
   &__content {
     display: grid;
@@ -50,6 +57,10 @@
     column-gap: $size-3;
   }
 
+  &--hasAside {
+    grid-template-columns: 1fr 30rem 1fr;
+  }
+
   &--tight {
     margin-left: auto;
     margin-right: auto;
@@ -58,6 +69,12 @@
 
   p {
     font-size: $fs-4;
+  }
+}
+
+.io-container {
+  a {
+    text-decoration: underline;
   }
 }
 
@@ -81,6 +98,16 @@
     &:not(:first-child) {
       margin-top: $size-1;
     }
+  }
+}
+
+.io-aside {
+  margin-top: $size-8;
+}
+
+.io-tokens {
+  &__list {
+    margin-top: $size-10;
   }
 }
 

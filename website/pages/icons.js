@@ -3,6 +3,7 @@ import pkg from '@igloo-ui/icons/package.json';
 import Display from '../components/Display';
 import Title from '../components/Title';
 import Code from '../components/Code';
+import Tag from '../components/Tag';
 
 import iconIcon from '../svg/icon.svg';
 
@@ -29,10 +30,13 @@ export default function Icons() {
 
   return (
     <>
-      <section className="io-section io-section--tight">
+      <section className="io-section io-section--tight io-container">
         <Display icon={iconIcon}>
           <div className="io-display__content">
-            Icons <span className="io-tag io-display__tag">v{pkg.version}</span>
+            Icons{' '}
+            <Tag appearance="ghost" className="io-display__tag">
+              v{pkg.version}
+            </Tag>
           </div>
         </Display>
         <Title level={2} as="h2">

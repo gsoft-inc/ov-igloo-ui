@@ -29,12 +29,11 @@ export default function Home() {
 
         <div className="io-section__content">
           <Card
-            className="io-card--token"
+            className="io-card--tokens"
             icon={<Image src={iconToken} />}
             title="Tokens"
             description="Are visual values that construct the foundational pieces of our products"
             link={link.TOKENS}
-            featureFlag
           />
           <Card
             className="io-card--icons"

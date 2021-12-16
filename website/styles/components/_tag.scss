@@ -18,4 +18,9 @@
   &--beta {
     background: $c-yellow;
   }
+
+  &--ghost {
+    border: 1px solid $c-grey;
+    background: transparent;
+  }
 }
