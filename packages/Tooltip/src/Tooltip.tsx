@@ -9,7 +9,7 @@ export type Position = 'top' | 'right' | 'bottom' | 'left';
 export interface TooltipProps extends React.ComponentProps<'div'> {
   children: string | React.ReactNode;
   tooltipClassName?: string;
-  // content?: React.ReactNode;
+  content?: React.ReactNode;
   position?: Position;
   appearance?: Appearance;
   maxWidth?: number;
@@ -22,6 +22,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
 ) => {
   const {
     children,
+    content,
     tooltipClassName,
     position = 'top',
     appearance = 'dark',
@@ -32,14 +33,23 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     ...rest
   } = props;
 
-  const classes = classNames('ids-tooltip', className, {
+  const classes = classNames('ids-tooltip__container', className);
+
+  const tooltipClasses = classNames('ids-tooltip', tooltipClassName, {
     [`ids-tooltip--${position}`]: true,
     'has-arrow': arrowVisible,
     'ids-tooltip-dark': appearance === 'dark',
   });
 
+  const tooltipStyle = {
+    maxWidth: `${maxWidth}px`,
+  };
+
   return (
-    <div className={classes} {...rest}>
+    <div className={classes}>
+      <div className={tooltipClasses} style={tooltipStyle} {...rest}>
+        {content}
+      </div>
       {children}
     </div>
   );
