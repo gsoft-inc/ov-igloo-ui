@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import * as Icon from '@igloo-ui/icons/iconsList';
 import pkg from '@igloo-ui/icons/package.json';
 import Display from '../components/Display';
@@ -8,16 +9,40 @@ import Tag from '../components/Tag';
 import iconIcon from '../svg/icon.svg';
 
 export default function Icons() {
+  const [size, setSize] = useState('medium');
+
+  function handleSizeChange(event) {
+    setSize(event.currentTarget.value);
+  }
+
+  useEffect(() => {
+    let iconSize;
+    switch (size) {
+      case 'small':
+        iconSize = '16px';
+        break;
+
+      case 'medium':
+        iconSize = '24px';
+        break;
+
+      case 'large':
+        iconSize = '32px';
+        break;
+    }
+    document.body.style.setProperty('--icon-size', iconSize);
+  }, [size]);
+
   const list = Icon.iconName;
 
-  const IconsList = () => {
+  const IconsList = ({ size }) => {
     return list.map((icon, index) => {
       const IconComponent = Icon[icon];
       return (
         <div key={index.toString()} className="io-icon">
           <div className="io-icon__content">
             <div className="io-icon__svg">
-              <IconComponent size="medium" />
+              <IconComponent size={size} />
             </div>
             <div className="io-icon__name" title={icon}>
               {icon}
@@ -65,8 +90,44 @@ export default function Icons() {
         </Code>
       </section>
       <section className="io-section">
+        <div className="io-options">
+          Choose a size:
+          <label htmlFor="16">
+            <input
+              onChange={handleSizeChange}
+              type="radio"
+              id="16"
+              value="small"
+              name="size"
+              checked={size === 'small'}
+            />
+            16px
+          </label>
+          <label htmlFor="24">
+            <input
+              onChange={handleSizeChange}
+              type="radio"
+              id="24"
+              value="medium"
+              name="size"
+              checked={size === 'medium'}
+            />
+            24px
+          </label>
+          <label htmlFor="32">
+            <input
+              onChange={handleSizeChange}
+              type="radio"
+              id="32"
+              value="large"
+              name="size"
+              checked={size === 'large'}
+            />
+            32px
+          </label>
+        </div>
         <div className="io-section__content io-section__content--icon">
-          <IconsList />
+          <IconsList size={size} />
         </div>
       </section>
     </>
