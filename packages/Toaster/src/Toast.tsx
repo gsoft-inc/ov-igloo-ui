@@ -10,11 +10,27 @@ import Close from '@igloo-ui/icons/dist/Close';
 export interface ToastProps extends React.ComponentProps<'div'> {
   toast?: HotToast;
   close?: () => void;
+  className?: string;
   iconDescription?: string;
 }
 
 const Toast: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
   const { toast, iconDescription, close, className, ...rest } = props;
+
+  const [isShown, setIsShown] = React.useState(false);
+
+  const toastRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsShown(true);
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+      setIsShown(false);
+    };
+  }, []);
 
   if (!toast) {
     return null;
@@ -30,10 +46,11 @@ const Toast: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
 
   const classes = cx('ids-toaster', className, {
     'ids-toaster--error': error,
+    'ids-toaster--shown': isShown && toast.visible,
   });
 
   return (
-    <div {...toast.ariaProps} className={classes} {...rest}>
+    <div {...toast.ariaProps} ref={toastRef} className={classes} {...rest}>
       <div className="ids-toaster__content">
         {statusIcon}
         <span className="ids-toaster__text">{toast.message}</span>
@@ -48,5 +65,4 @@ const Toast: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
     </div>
   );
 };
-
 export default Toast;

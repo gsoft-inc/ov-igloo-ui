@@ -45,7 +45,17 @@
   padding: var(--ids-toaster-padding);
   margin: var(--ids-toaster-margin);
   box-shadow: var(--ids-toaster-shadow);
+
   box-sizing: border-box;
+
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.35s ease-out;
+
+  &--shown {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   &::before {
     position: absolute;

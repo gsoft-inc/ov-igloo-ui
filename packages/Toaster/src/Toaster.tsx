@@ -1,4 +1,5 @@
 import * as React from 'react';
+import cx from 'classnames';
 import toast, { useToaster } from 'react-hot-toast';
 
 import Toast from './Toast';
@@ -15,18 +16,21 @@ const Toaster: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
 
   return (
     <div className="ids-toaster__overlay">
-      {toasts
-        .filter((t) => t.visible)
-        .map((t) => (
+      {toasts.map((t) => {
+        return (
           <Toast
             key={t.id}
+            id={t.id}
             toast={t}
             close={() => toast.dismiss(t.id)}
-            className={className}
+            className={cx(className, {
+              'ids-toaster__visible': t.visible,
+            })}
             iconDescription={iconDescription}
             {...rest}
           />
-        ))}
+        );
+      })}
     </div>
   );
 };
