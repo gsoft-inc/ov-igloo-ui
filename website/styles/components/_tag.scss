@@ -3,11 +3,11 @@
 .io-tag {
   display: inline-flex;
   align-items: center;
-  font-size: $fs-6;
+  font-size: $fs-5;
   text-align: center;
 
   border-radius: $size-1;
-  height: $size-2;
+  min-height: $size-2;
   padding: 0 $size-1;
   background: $c-grey;
 
@@ -20,6 +20,7 @@
   }
 
   &--ghost {
+    line-height: 1.5;
     border: 1px solid $c-grey;
     background: transparent;
   }

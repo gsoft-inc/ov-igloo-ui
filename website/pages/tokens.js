@@ -11,13 +11,15 @@ export default function Tokens(props) {
   const { data, categories } = props;
 
   const tokensList = categories.map((key) => {
-    const token = data.filter((obj) => Object.keys(obj).toString() === key);
+    const token = data.default.filter(
+      (obj) => Object.keys(obj).toString() === key
+    );
     return <TokenList key={key} data={token[0][key]} title={key} />;
   });
 
-  const tokensNav = categories.map((category) => {
+  const tokensNav = categories.map((category, index) => {
     return (
-      <li>
+      <li key={index.toString()}>
         <a href={`#${category}`}>{category}</a>
       </li>
     );
@@ -58,6 +60,21 @@ export default function Tokens(props) {
           <Code language="jsx">
             {`// Fonts${'\n'}@import '@igloo-ui/tokens/dist/_fonts.scss';${'\n'}// SCSS${'\n'}@import '@igloo-ui/tokens/dist/_variables.scss';${'\n'}// CSS${'\n'}@import '@igloo-ui/tokens/dist/_colors.scss';${'\n'}`}
           </Code>
+          <Title level={3} as="h3">
+            Base 10 support
+          </Title>
+          <p>
+            If your project uses the mathematical trick of basing the value of{' '}
+            <Code inline>1rem</Code> equals <Code inline>10px</Code>, there is
+            also an <strong>base10</strong> output within the dist folder of
+            this package.
+          </p>
+          <p>In CSS, you can import the files by doing:</p>
+          <Code>@import '~@igloo-ui/tokens/dist/base10/variables.css';</Code>
+
+          <div className="io-options">
+            <button className="io-options__btn">base 10</button>
+          </div>
           <div className="io-tokens__list">{tokensList}</div>
         </div>
       </div>
@@ -66,19 +83,23 @@ export default function Tokens(props) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(
-    'https://raw.githubusercontent.com/gsoft-inc/ov-igloo-tokens/main/docs/base10/tokens.json'
-  );
-  const data = await res.json();
-  const categories = data.map((obj) => Object.keys(obj)).flat(1);
+  const fetcher = (path) =>
+    fetch(
+      `https://raw.githubusercontent.com/gsoft-inc/ov-igloo-tokens/main${path}`
+    ).then((res) => res.json());
 
-  if (!data) {
+  const tokens = await fetcher('/docs/tokens.json');
+  const tokensBase10 = await fetcher('/docs/base10/tokens.json');
+
+  const categories = tokens.map((obj) => Object.keys(obj)).flat(1);
+
+  if (!tokens || !tokensBase10) {
     return {
       notFound: true,
     };
   }
 
   return {
-    props: { data, categories }, // will be passed to the page component as props
+    props: { data: { default: tokens, base10: tokensBase10 }, categories }, // will be passed to the page component as props
   };
 }

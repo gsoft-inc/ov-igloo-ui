@@ -1,0 +1,16 @@
+@import '../variables';
+
+.io-options {
+  margin: $size-8 0 $size-5 * -1 0;
+  padding: $size-3 $size-2;
+  border-radius: $br-1;
+  box-shadow: 0 0.1rem 0.6rem 0 rgba(35, 48, 67, 0.1);
+
+  &__btn {
+    padding: $size-1 $size-2;
+    border: 0;
+    border-radius: $br-2;
+    color: $c-white;
+    background: $c-black;
+  }
+}

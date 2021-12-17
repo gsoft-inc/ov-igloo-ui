@@ -1,7 +1,7 @@
 @import '../variables';
 
 .io-tokens__table {
-  font-size: $fs-6;
+  font-size: $fs-4;
   width: 100%;
   margin: $size-3 0 $size-8 0;
 
@@ -14,12 +14,13 @@
   }
 
   td {
+    font-size: $fs-5;
     border: 0;
     border-top: 1px solid $c-grey;
   }
 
   td:first-child {
-    width: 11rem;
+    width: 40%;
   }
 
   th:last-child,
