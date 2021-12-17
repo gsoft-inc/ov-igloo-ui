@@ -13,7 +13,7 @@
   /* Theme */
   --ids-tooltip-text: var(--grey-800);
   --ids-tooltip-background: var(--samoyed);
-  --ids-tooltip-shadow: var(--shadow-6);
+  --ids-tooltip-shadow: var(--shadow-12);
 }
 
 .ids-tooltip {
@@ -48,7 +48,8 @@
   &--top {
     text-align: center;
     bottom: calc(100% + var(--ids-tooltip-spacing));
-    left: -150%;
+    left: 50%;
+    transform: translateX(-50%);
 
     &.has-arrow::after {
       top: 100%;
@@ -60,7 +61,8 @@
   &--right {
     text-align: left;
     left: calc(100% + var(--ids-tooltip-spacing));
-    top: -50%;
+    top: 50%;
+    transform: translateY(-50%);
 
     &.has-arrow::after {
       top: calc(50% - var(--ids-tooltip-arrow-size));
@@ -72,7 +74,8 @@
   &--bottom {
     text-align: center;
     top: calc(100% + var(--ids-tooltip-spacing));
-    left: -75%;
+    left: 50%;
+    transform: translateX(-50%);
 
     &.has-arrow::after {
       bottom: 100%;
@@ -84,7 +87,8 @@
   &--left {
     text-align: right;
     right: calc(100% + var(--ids-tooltip-spacing));
-    bottom: -50%;
+    top: 50%;
+    transform: translateY(-50%);
 
     &.has-arrow::after {
       top: calc(50% - var(--ids-tooltip-arrow-size));

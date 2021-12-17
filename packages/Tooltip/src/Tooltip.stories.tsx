@@ -22,14 +22,25 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
     const datas = isDark ? dark : light;
 
     const list = datas.map((p, i) => {
+      const displayContainerStyle = {
+        order: i,
+        flexGrow: 1,
+        padding: 80,
+        border: '1px solid black',
+        fontSize: '14px',
+        maxWidth: 60,
+      };
+
       return (
-        <Tooltip
-          appearance={state === 'dark' ? 'dark' : 'light'}
-          key={i.toString()}
-          {...p}
-        >
-          {p.children}
-        </Tooltip>
+        <div style={displayContainerStyle}>
+          <Tooltip
+            appearance={state === 'dark' ? 'dark' : 'light'}
+            key={i.toString()}
+            {...p}
+          >
+            {p.children}
+          </Tooltip>
+        </div>
       );
     });
 
@@ -47,31 +58,31 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
 };
 
 const tooltipStates: TooltipProps[] = [
-  // {
-  //   children: 'Top',
-  //   content: 'Topier',
-  //   position: 'top',
-  // },
+  {
+    children: 'Top',
+    content: 'lorem ipsum dolor',
+    position: 'top',
+  },
   {
     children: 'Right',
-    content: 'Rightier jkrnkjgn jkdrhjg kjrdhjkgh jkdrhkj',
+    content: 'lorem ipsum dolor',
     position: 'right',
   },
-  // {
-  //   children: 'Bottom',
-  //   content: 'Bottomier',
-  //   position: 'bottom',
-  // },
-  // {
-  //   children: 'Left',
-  //   content: 'Leftier',
-  //   position: 'left',
-  // },
-  // {
-  //   children: 'No Arrow',
-  //   content: 'No Arrowier',
-  //   arrowVisible: false,
-  // },
+  {
+    children: 'Bottom',
+    content: 'lorem ipsum dolor',
+    position: 'bottom',
+  },
+  {
+    children: 'Left',
+    content: 'lorem ipsum dolor',
+    position: 'left',
+  },
+  {
+    children: 'No Arrow',
+    content: 'lorem ipsum dolor',
+    arrowVisible: false,
+  },
 ];
 
 export const Tooltips = (): React.ReactElement => (

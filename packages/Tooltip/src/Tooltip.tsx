@@ -303,12 +303,12 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
   };
 
   return (
-    <div className={classes}>
+    <span className={classes}>
       <div className={tooltipClasses} style={tooltipStyle} {...rest}>
         {content}
       </div>
       {children}
-    </div>
+    </span>
   );
 };
 
