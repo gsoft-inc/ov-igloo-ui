@@ -22,6 +22,8 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
     const components = isDark ? dark : light;
 
     const list = components.map((p, i) => {
+      if (!isDark && i > 5) return;
+
       const displayContainerStyle = {
         order: i,
         padding: 20,
@@ -54,6 +56,20 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
   return <>{component}</>;
 };
 
+const demoReactComponent = (
+  <div>
+    <h2>lorem ipsum dolor</h2>
+    <iframe
+      width="200"
+      height="113"
+      src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+      title="YouTube video player"
+      frameBorder="0"
+      allow="autoplay"
+    ></iframe>
+  </div>
+);
+
 const tooltipStates: TooltipProps[] = [
   {
     children: 'Default',
@@ -83,6 +99,12 @@ const tooltipStates: TooltipProps[] = [
     children: 'No Arrow',
     content: 'lorem ipsum dolor',
     arrowVisible: false,
+  },
+  {
+    children: 'With ReactComponent',
+    content: demoReactComponent,
+    arrowVisible: true,
+    position: 'bottom',
   },
 ];
 
