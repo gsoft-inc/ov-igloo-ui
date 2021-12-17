@@ -11,7 +11,7 @@ export default function Tokens(props) {
   const { data, categories } = props;
 
   const tokensList = categories.map((key) => {
-    const token = data.default.filter(
+    const token = data.base10.filter(
       (obj) => Object.keys(obj).toString() === key
     );
     return <TokenList key={key} data={token[0][key]} title={key} />;
@@ -72,9 +72,6 @@ export default function Tokens(props) {
           <p>In CSS, you can import the files by doing:</p>
           <Code>@import '~@igloo-ui/tokens/dist/base10/variables.css';</Code>
 
-          <div className="io-options">
-            <button className="io-options__btn">base 10</button>
-          </div>
           <div className="io-tokens__list">{tokensList}</div>
         </div>
       </div>

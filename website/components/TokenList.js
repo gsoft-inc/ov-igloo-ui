@@ -31,13 +31,13 @@ export default function Table({ data, title }) {
         break;
       case 'fontSize':
         preview = {
-          style: { fontSize: value },
+          style: { fontSize: `${parseFloat(value) / 1.6}rem` },
           className: 'io-preview--fonts',
         };
         break;
       case 'lineHeight':
         preview = {
-          style: { lineHeight: value },
+          style: { lineHeight: `${parseFloat(value) / 1.6}` },
           className: 'io-preview--fonts io-preview--lineHeight',
         };
         break;
@@ -63,7 +63,7 @@ export default function Table({ data, title }) {
         break;
       case 'spacing':
         preview = {
-          style: { width: value },
+          style: { width: `${parseFloat(value) / 1.6}rem` },
           className: 'io-preview--space',
         };
         break;

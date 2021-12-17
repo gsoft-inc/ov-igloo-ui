@@ -12,5 +12,9 @@
     border-radius: $br-2;
     color: $c-white;
     background: $c-black;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
