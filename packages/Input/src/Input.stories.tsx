@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Meta } from '@storybook/react';
+import Search from '@igloo-ui/icons/dist/Search';
 
 import Input from './Input';
 
@@ -19,15 +20,27 @@ export const Standard: React.VFC<unknown> = () => (
     </section>
     <section className="isb-section">
       <h2>Compact</h2>
-      <Input placeholder={inputPlacehoder} isCompact={true} />
+      <Input placeholder={inputPlacehoder} isCompact />
+    </section>
+    <section className="isb-section">
+      <h2>With icon</h2>
+      <Input placeholder={inputPlacehoder} prefixIcon={<Search />} />
+    </section>
+    <section className="isb-section">
+      <h2>Compact with icon</h2>
+      <Input
+        placeholder={inputPlacehoder}
+        prefixIcon={<Search size="small" />}
+        isCompact
+      />
     </section>
     <section className="isb-section">
       <h2>Disabled</h2>
-      <Input placeholder={inputPlacehoder} disabled={true} />
+      <Input placeholder={inputPlacehoder} disabled />
     </section>
     <section className="isb-section">
       <h2>Readonly</h2>
-      <Input placeholder={inputPlacehoder} readOnly={true} />
+      <Input placeholder={inputPlacehoder} readOnly />
     </section>
     <section className="isb-section">
       <h2>Active</h2>
@@ -39,11 +52,11 @@ export const Standard: React.VFC<unknown> = () => (
     </section>
     <section className="isb-section">
       <h2>Error</h2>
-      <Input placeholder={inputPlacehoder} error={true} />
+      <Input placeholder={inputPlacehoder} error />
     </section>
     <section className="isb-section">
       <h2>Error Focus</h2>
-      <Input placeholder={inputPlacehoder} error={true} className="focus" />
+      <Input placeholder={inputPlacehoder} error className="focus" />
     </section>
     <section className="isb-section">
       <h2>Text</h2>
@@ -59,7 +72,7 @@ export const Standard: React.VFC<unknown> = () => (
     </section>
     <section className="isb-section">
       <h2>Number</h2>
-      <Input type="number" placeholder="123" value={123456789} />
+      <Input type="number" placeholder="123" defaultValue={123456789} />
     </section>
   </>
 );

@@ -33,6 +33,8 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   onChange?: (e: any) => void;
   // Add a data-test tag for automated tests
   dataTest?: string;
+  // Use a prefix for add a icon before the input text
+  prefixIcon?: React.ReactNode;
 }
 
 const Input: React.FunctionComponent<InputProps> = React.forwardRef(
@@ -47,6 +49,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       readOnly,
       onChange,
       dataTest,
+      prefixIcon,
       ...rest
     } = props;
 
@@ -54,6 +57,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       'ids-input--compact': isCompact,
       'ids-input--error': error,
       'ids-input--readonly': readOnly,
+      'ids-input--prefixIcon': prefixIcon,
     });
 
     useEffect(() => {
@@ -101,17 +105,32 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       }
     };
 
-    return (
+    const inputRender = (
       <input
         ref={ref}
         className={classes}
         type={type}
-        value={value}
+        defaultValue={value}
         readOnly={readOnly}
         onChange={handleOnChange}
         data-test={dataTest}
         {...rest}
       />
+    );
+
+    return prefixIcon ? (
+      <div className="ids-input__wrapper">
+        <span
+          className={cx('ids-input__asset', {
+            'ids-input__asset--compact': isCompact,
+          })}
+        >
+          {prefixIcon}
+        </span>
+        {inputRender}
+      </div>
+    ) : (
+      inputRender
     );
   }
 );
