@@ -1,6 +1,8 @@
 @import '~@igloo-ui/tokens/dist/base10/variables.css';
 @import '~@igloo-ui/tokens/dist/fonts.css';
 
+@import "./animations";
+
 :root {
   /* Default */
   --ids-tooltip-font-family: var(--primary-font-family);
@@ -13,7 +15,7 @@
   /* Theme */
   --ids-tooltip-text: var(--grey-800);
   --ids-tooltip-background: var(--samoyed);
-  --ids-tooltip-shadow: var(--shadow-12);
+  --ids-tooltip-shadow: var(--shadow-6);
 }
 
 .ids-tooltip {
@@ -25,6 +27,8 @@
   color: var(--ids-tooltip-text);
   background-color: var(--ids-tooltip-background);
   box-shadow: var(--ids-tooltip-shadow);
+
+  @include animation(0.3s, ids-tooltip-fadeIn);
 
   &__container {
     position: relative;

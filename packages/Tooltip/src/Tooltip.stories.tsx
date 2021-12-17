@@ -19,15 +19,18 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
 
   const component = componentState.map((state, index) => {
     const isDark = state === 'dark';
-    const datas = isDark ? dark : light;
+    const components = isDark ? dark : light;
 
-    const list = datas.map((p, i) => {
+    const list = components.map((p, i) => {
       const displayContainerStyle = {
         order: i,
-        padding: 80,
-        border: '1px solid black',
+        padding: 82,
+        border: `1px solid ${isDark ? '#422539' : '#fff6ec'}`,
         fontSize: '14px',
         maxWidth: 60,
+        backgroundColor: `${isDark ? '#fff6ec' : '#422539'}`,
+        color: `${isDark ? '#422539' : '#fff6ec'}`,
+        borderRadius: '8px',
       };
 
       return (
