@@ -24,7 +24,6 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
     const list = datas.map((p, i) => {
       const displayContainerStyle = {
         order: i,
-        flexGrow: 1,
         padding: 80,
         border: '1px solid black',
         fontSize: '14px',
@@ -32,9 +31,9 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
       };
 
       return (
-        <div style={displayContainerStyle}>
+        <div style={displayContainerStyle} key={i.toString()}>
           <Tooltip
-            appearance={state === 'dark' ? 'dark' : 'light'}
+            appearance={isDark ? 'dark' : 'light'}
             key={i.toString()}
             {...p}
           >
@@ -58,6 +57,10 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
 };
 
 const tooltipStates: TooltipProps[] = [
+  {
+    children: 'Default',
+    content: 'lorem ipsum dolor',
+  },
   {
     children: 'Top',
     content: 'lorem ipsum dolor',
