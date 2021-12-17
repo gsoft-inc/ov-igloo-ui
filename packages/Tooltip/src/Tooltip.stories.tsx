@@ -24,13 +24,8 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
     const list = components.map((p, i) => {
       const displayContainerStyle = {
         order: i,
-        padding: 82,
-        border: `1px solid ${isDark ? '#422539' : '#fff6ec'}`,
-        fontSize: '14px',
-        maxWidth: 60,
-        backgroundColor: `${isDark ? '#fff6ec' : '#422539'}`,
-        color: `${isDark ? '#422539' : '#fff6ec'}`,
-        borderRadius: '8px',
+        padding: 20,
+        fontSize: '18px',
       };
 
       return (
@@ -65,22 +60,22 @@ const tooltipStates: TooltipProps[] = [
     content: 'lorem ipsum dolor',
   },
   {
-    children: 'Top',
+    children: 'On Top',
     content: 'lorem ipsum dolor',
     position: 'top',
   },
   {
-    children: 'Right',
+    children: 'On the right',
     content: 'lorem ipsum dolor',
     position: 'right',
   },
   {
-    children: 'Bottom',
+    children: 'Underneath',
     content: 'lorem ipsum dolor',
     position: 'bottom',
   },
   {
-    children: 'Left',
+    children: 'On the left',
     content: 'lorem ipsum dolor',
     position: 'left',
   },

@@ -6,6 +6,7 @@
 :root {
   /* Default */
   --ids-tooltip-font-family: var(--primary-font-family);
+  --ids-tooltip-font-size: 12px;
   --ids-tooltip-padding: var(--space-2) var(--space-3);
   --ids-tooltip-border-radius: var(--border-radius-sm);
   --ids-tooltip-z-index: var(--z-index-max);
@@ -15,11 +16,12 @@
   /* Theme */
   --ids-tooltip-text: var(--grey-800);
   --ids-tooltip-background: var(--samoyed);
-  --ids-tooltip-shadow: var(--shadow-6);
+  --ids-tooltip-shadow: var(--shadow-12);
 }
 
 .ids-tooltip {
   font-family: var(--ids-btn-font-family);
+  font-size: var( --ids-tooltip-font-size);
   position: absolute;
   padding: var(--ids-tooltip-padding);
   border-radius: var(--ids-tooltip-border-radius);
@@ -27,11 +29,18 @@
   color: var(--ids-tooltip-text);
   background-color: var(--ids-tooltip-background);
   box-shadow: var(--ids-tooltip-shadow);
+  pointer-events: none;
+  user-select: none;
+  width: max-content;
 
   @include animation(0.3s, ids-tooltip-fadeIn);
 
   &__container {
     position: relative;
+  }
+
+  &__content {
+    font-size: var(--ids-tooltip-font-size);
   }
 
   &-dark {
