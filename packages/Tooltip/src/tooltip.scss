@@ -33,7 +33,7 @@
   user-select: none;
   width: max-content;
 
-  @include animation(0.3s, ids-tooltip-fadeIn);
+  @include animation(0.2s, ids-tooltip-fadeIn);
 
   &__container {
     position: relative;
