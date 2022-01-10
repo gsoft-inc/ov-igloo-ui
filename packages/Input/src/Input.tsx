@@ -28,7 +28,7 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   // True if you need the input to be focus on page load.
   autoFocus?: boolean;
   // True if you need the input to be readonly.
-  readOnly?: boolean;
+  disabled?: boolean;
   // Function called when the value changes.
   onChange?: (e: any) => void;
   // Add a data-test tag for automated tests
@@ -46,7 +46,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       isCompact,
       value,
       autoFocus,
-      readOnly,
+      disabled,
       onChange,
       dataTest,
       prefixIcon,
@@ -56,7 +56,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
     const classes = cx('ids-input', className, {
       'ids-input--compact': isCompact,
       'ids-input--error': error,
-      'ids-input--readonly': readOnly,
+      'ids-input--disabled': disabled,
       'ids-input--prefixIcon': prefixIcon,
     });
 
@@ -111,7 +111,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
         className={classes}
         type={type}
         defaultValue={value}
-        readOnly={readOnly}
+        readOnly={disabled}
         onChange={handleOnChange}
         data-test={dataTest}
         {...rest}

@@ -1,5 +1,15 @@
 ---
-'@igloo-ui/input': patch
+'@igloo-ui/input': major
 ---
 
-Add options for passing a Icon on the input
+BRAKING CHANGE
+
+- Replace `readOnly` props by `disabled`
+
+New Features
+
+- Add options for passing a Icon on the input
+
+Update
+
+- Upgrade tokens version

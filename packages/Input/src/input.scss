@@ -25,8 +25,7 @@
   --ids-input-color-prefix-compact: var(--grey-800);
   --ids-input-width-prefix: var(--space-7);
   --ids-input-width-prefix-compact: var(--space-6);
-  --ids-input-padding-prefix:
-    var(--space-2) var(--space-2) var(--space-2)
+  --ids-input-padding-prefix: var(--space-2) var(--space-2) var(--space-2)
     var(--space-3);
 
   /* Placeholder */
@@ -35,18 +34,13 @@
   /* Hover */
   --ids-input-border-color-hover: var(--grey-500);
 
-  /* Focus */
-  --ids-input-box-shadow-inner-color-focus: var(--samoyed);
-  --ids-input-box-shadow-outer-color-focus: var(--electric-blue-600);
-
   /* Active */
   --ids-input-border-color-active: var(--electric-blue-500);
-  --ids-input-border-radius-active: var(--border-radius-sm);
 
-  /* Readonly */
-  --ids-input-color-readonly: var(--grey-500);
-  --ids-input-background-readonly: var(--grey-250);
-  --ids-input-border-color-readonly: var(--grey-250);
+  /* disabled */
+  --ids-input-color-disabled: var(--grey-500);
+  --ids-input-background-disabled: var(--grey-250);
+  --ids-input-border-color-disabled: var(--grey-250);
 
   /* Error */
   --ids-input-border-color-error: var(--coral-500);
@@ -126,40 +120,37 @@
   appearance: none;
 }
 
-.ids-input:hover {
-  border-color: var(--ids-input-border-color-hover);
-}
-
 .ids-input--error {
   border-color: var(--ids-input-border-color-error);
 }
 
 .ids-input:focus,
-.ids-input.focus {
+.ids-input.focus,
+.ids-input:active,
+.ids-input.active {
   outline: 0;
   outline-offset: 0;
-  box-shadow:
-    0 0 0 2px var(--ids-input-box-shadow-inner-color-focus),
-    0 0 0 3.5px var(--ids-input-box-shadow-outer-color-focus);
+}
+
+.ids-input:focus,
+.ids-input.focus {
+  box-shadow: var(--focus);
 }
 
 .ids-input:active,
 .ids-input.active {
   border: 1px solid var(--ids-input-border-color-active);
-  border-radius: var(--ids-input-border-radius-active);
-  outline: 0;
-  outline-offset: 0;
   box-shadow: none;
 }
 
 .ids-input:disabled,
-.ids-input--readonly {
-  color: var(--ids-input-color-readonly);
-  background-color: var(--ids-input-background-readonly);
-  border-color: var(--ids-input-border-color-readonly);
+.ids-input--disabled {
+  color: var(--ids-input-color-disabled);
+  background-color: var(--ids-input-background-disabled);
+  border-color: var(--ids-input-border-color-disabled);
   cursor: not-allowed;
 }
 
-.ids-input--readonly {
+.ids-input--disabled {
   cursor: default;
 }

@@ -5,6 +5,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Input from './Input';
+import Search from '@igloo-ui/icons/dist/Search';
 
 const setUp = (props = {}) => {
   const component = shallow(<Input dataTest="ids-input" {...props} />);
@@ -56,5 +57,11 @@ describe('Input', () => {
   test('It should render a number type', (): void => {
     const input = setUp({ type: 'number', value: 12345 });
     expect(input).toMatchSnapshot();
+  });
+
+  test('It should render a input with prefix icon', (): void => {
+    const input = setUp({ prefixIcon: <Search size="small" /> });
+    const wrapper = input.find('.ids-input--prefixIcon');
+    expect(wrapper.length).toBe(1);
   });
 });
