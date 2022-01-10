@@ -13,7 +13,6 @@ export interface TooltipProps extends React.ComponentProps<'div'> {
   position?: Position;
   appearance?: Appearance;
   maxWidth?: number;
-  spacing?: number;
   arrowVisible?: boolean;
   active?: boolean;
 }
@@ -28,7 +27,6 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     position = 'top',
     appearance = 'dark',
     maxWidth = 200,
-    spacing = 8,
     arrowVisible = true,
     className,
     ...rest
@@ -36,13 +34,16 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
 
   const classes = classNames('ids-tooltip__container', className);
 
-  const [active, setActive] = useState<boolean>(false);
-
-  const tooltipClasses = classNames('ids-tooltip', tooltipClassName, {
+  const defaultTooltipClasses = classNames('ids-tooltip', tooltipClassName, {
     [`ids-tooltip--${position}`]: true,
     'has-arrow': arrowVisible,
     'ids-tooltip-dark': appearance === 'dark',
   });
+
+  const [active, setActive] = useState<boolean>(false);
+  const [tooltipClasses, setTooltipClasses] = useState<string>(
+    defaultTooltipClasses
+  );
 
   const tooltipElement = useRef<HTMLDivElement>(null);
 
@@ -55,18 +56,26 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
 
     setTimeout(() => {
       if (tooltipElement != null && tooltipElement.current) {
-        console.log(
-          `Should be at : ${GetVisiblePosition(
-            tooltipElement.current.getBoundingClientRect(),
-            position
-          )}`
+        const visiblePosition = GetVisiblePosition(
+          tooltipElement.current.getBoundingClientRect(),
+          position
+        );
+
+        setTooltipClasses(
+          classNames('ids-tooltip', tooltipClassName, {
+            [`ids-tooltip--${visiblePosition}`]: true,
+            'has-arrow': arrowVisible,
+            'ids-tooltip-dark': appearance === 'dark',
+          })
         );
       }
-    }, 100);
+    }, 0);
   };
 
   const onMouseLeaveHandle = (): void => {
     setActive(false);
+
+    setTooltipClasses(defaultTooltipClasses);
   };
 
   return (

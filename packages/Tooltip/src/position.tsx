@@ -27,22 +27,31 @@ const hasPlaceAtRight = (domRect: DOMRect): boolean => {
   );
 };
 
-const isNotFittingOnTop = (domRect: DOMRect, position: Position): boolean => {
+const isNotFittingOnTopButFitOnBottom = (
+  domRect: DOMRect,
+  position: Position
+): boolean => {
   return !hasPlaceAtTop(domRect, position) && hasPlaceAtBottom(domRect);
 };
 
-const isNotFittingOnRight = (domRect: DOMRect, position: Position): boolean => {
+const isNotFittingOnRightButFitOnLeft = (
+  domRect: DOMRect,
+  position: Position
+): boolean => {
   return !hasPlaceAtRight(domRect) && hasPlaceAtLeft(domRect, position);
 };
 
-const isNotFittingOnBottom = (
+const isNotFittingOnBottomButFitTop = (
   domRect: DOMRect,
   position: Position
 ): boolean => {
   return !hasPlaceAtBottom(domRect) && hasPlaceAtTop(domRect, position);
 };
 
-const isNotFittingOnLeft = (domRect: DOMRect, position: Position): boolean => {
+const isNotFittingOnLeftButFitRight = (
+  domRect: DOMRect,
+  position: Position
+): boolean => {
   return !hasPlaceAtLeft(domRect, position) && hasPlaceAtRight(domRect);
 };
 
@@ -52,13 +61,21 @@ export const GetVisiblePosition = (
 ): Position => {
   switch (position) {
     case 'top':
-      return isNotFittingOnTop(domRect, position) ? 'bottom' : 'top';
+      return isNotFittingOnTopButFitOnBottom(domRect, position)
+        ? 'bottom'
+        : 'top';
     case 'right':
-      return isNotFittingOnRight(domRect, position) ? 'left' : 'right';
+      return isNotFittingOnRightButFitOnLeft(domRect, position)
+        ? 'left'
+        : 'right';
     case 'bottom':
-      return isNotFittingOnBottom(domRect, position) ? 'top' : 'bottom';
+      return isNotFittingOnBottomButFitTop(domRect, position)
+        ? 'top'
+        : 'bottom';
     case 'left':
-      return isNotFittingOnLeft(domRect, position) ? 'right' : 'left';
+      return isNotFittingOnLeftButFitRight(domRect, position)
+        ? 'right'
+        : 'left';
     default:
       return 'top';
   }
