@@ -26,8 +26,8 @@ describe('Input', () => {
   });
 
   test('It should render a readonly', (): void => {
-    const input = setUp({ readOnly: true });
-    const wrapper = input.find('.ids-input--readonly');
+    const input = setUp({ disabled: true });
+    const wrapper = input.find('.ids-input--disabled');
     expect(wrapper.length).toBe(1);
   });
 
