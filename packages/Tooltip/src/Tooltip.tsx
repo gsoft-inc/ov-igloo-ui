@@ -46,6 +46,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
   );
 
   const tooltipElement = useRef<HTMLDivElement>(null);
+  const parentElement = useRef<HTMLDivElement>(null);
 
   const tooltipStyle = {
     maxWidth: `${maxWidth}px`,
@@ -55,9 +56,10 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     setActive(true);
 
     setTimeout(() => {
-      if (tooltipElement != null && tooltipElement.current) {
+      if (tooltipElement?.current && parentElement?.current) {
         const visiblePosition = GetVisiblePosition(
           tooltipElement.current.getBoundingClientRect(),
+          parentElement.current.getBoundingClientRect(),
           position
         );
 
@@ -81,6 +83,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
   return (
     <span
       className={classes}
+      ref={parentElement}
       onMouseEnter={onMouseEnterHandle}
       onMouseLeave={onMouseLeaveHandle}
     >

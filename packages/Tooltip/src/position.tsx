@@ -1,79 +1,125 @@
+const { documentElement } = document;
+
 export type Position = 'top' | 'right' | 'bottom' | 'left';
 
-const hasPlaceAtTop = (domRect: DOMRect, position: Position): boolean => {
+const hasPlaceAtTop = (
+  tooltipDomRect: DOMRect,
+  position: Position
+): boolean => {
   return (
-    (position === 'top' && domRect.top >= 0) || domRect.top >= domRect.height
+    (position === 'top' && tooltipDomRect.top >= 0) ||
+    tooltipDomRect.top >= tooltipDomRect.height
   );
 };
 
-const hasPlaceAtLeft = (domRect: DOMRect, position: Position): boolean => {
+const hasPlaceAtLeft = (
+  tooltipDomRect: DOMRect,
+  position: Position
+): boolean => {
   return (
-    (position === 'left' && domRect.left >= 0) || domRect.left >= domRect.width
+    (position === 'left' && tooltipDomRect.left >= 0) ||
+    tooltipDomRect.left >= tooltipDomRect.width
   );
 };
 
-const hasPlaceAtBottom = (domRect: DOMRect): boolean => {
+const hasPlaceAtBottom = (
+  tooltipDomRect: DOMRect,
+  parentDomRect: DOMRect
+): boolean => {
+  const clientHeight = window.innerHeight || documentElement.clientHeight;
+
+  return tooltipDomRect.height <= clientHeight - parentDomRect.bottom;
+};
+
+const hasPlaceAtRight = (
+  tooltipDomRect: DOMRect,
+  parentDomRect: DOMRect
+): boolean => {
+  const clientWidth = window.innerWidth || documentElement.clientWidth;
+
+  return tooltipDomRect.width <= clientWidth - parentDomRect.right;
+};
+
+const isNotFittingOnTopButCanOnBottom = (
+  tooltipDomRect: DOMRect,
+  parentDomRect: DOMRect,
+  position: Position
+): boolean => {
   return (
-    domRect.bottom > domRect.height &&
-    domRect.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight)
+    !hasPlaceAtTop(tooltipDomRect, position) &&
+    hasPlaceAtBottom(tooltipDomRect, parentDomRect)
   );
 };
 
-const hasPlaceAtRight = (domRect: DOMRect): boolean => {
+const isNotFittingOnRightButCanOnLeft = (
+  tooltipDomRect: DOMRect,
+  parentDomRect: DOMRect,
+  position: Position
+): boolean => {
   return (
-    domRect.right > domRect.width &&
-    domRect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    !hasPlaceAtRight(tooltipDomRect, parentDomRect) &&
+    hasPlaceAtLeft(tooltipDomRect, position)
   );
 };
 
-const isNotFittingOnTopButFitOnBottom = (
-  domRect: DOMRect,
+const isNotFittingOnBottomButCanOnTop = (
+  tooltipDomRect: DOMRect,
+  parentDomRect: DOMRect,
   position: Position
 ): boolean => {
-  return !hasPlaceAtTop(domRect, position) && hasPlaceAtBottom(domRect);
+  return (
+    !hasPlaceAtBottom(tooltipDomRect, parentDomRect) &&
+    hasPlaceAtTop(tooltipDomRect, position)
+  );
 };
 
-const isNotFittingOnRightButFitOnLeft = (
-  domRect: DOMRect,
+const isNotFittingOnLeftButCanOnRight = (
+  tooltipDomRect: DOMRect,
+  parentDomRect: DOMRect,
   position: Position
 ): boolean => {
-  return !hasPlaceAtRight(domRect) && hasPlaceAtLeft(domRect, position);
-};
-
-const isNotFittingOnBottomButFitTop = (
-  domRect: DOMRect,
-  position: Position
-): boolean => {
-  return !hasPlaceAtBottom(domRect) && hasPlaceAtTop(domRect, position);
-};
-
-const isNotFittingOnLeftButFitRight = (
-  domRect: DOMRect,
-  position: Position
-): boolean => {
-  return !hasPlaceAtLeft(domRect, position) && hasPlaceAtRight(domRect);
+  return (
+    !hasPlaceAtLeft(tooltipDomRect, position) &&
+    hasPlaceAtRight(tooltipDomRect, parentDomRect)
+  );
 };
 
 export const GetVisiblePosition = (
-  domRect: DOMRect,
+  tooltipDomRect: DOMRect,
+  parentDomRect: DOMRect,
   position: Position
 ): Position => {
   switch (position) {
     case 'top':
-      return isNotFittingOnTopButFitOnBottom(domRect, position)
+      return isNotFittingOnTopButCanOnBottom(
+        tooltipDomRect,
+        parentDomRect,
+        position
+      )
         ? 'bottom'
         : 'top';
     case 'right':
-      return isNotFittingOnRightButFitOnLeft(domRect, position)
+      return isNotFittingOnRightButCanOnLeft(
+        tooltipDomRect,
+        parentDomRect,
+        position
+      )
         ? 'left'
         : 'right';
     case 'bottom':
-      return isNotFittingOnBottomButFitTop(domRect, position)
+      return isNotFittingOnBottomButCanOnTop(
+        tooltipDomRect,
+        parentDomRect,
+        position
+      )
         ? 'top'
         : 'bottom';
     case 'left':
-      return isNotFittingOnLeftButFitRight(domRect, position)
+      return isNotFittingOnLeftButCanOnRight(
+        tooltipDomRect,
+        parentDomRect,
+        position
+      )
         ? 'right'
         : 'left';
     default:
