@@ -46,7 +46,7 @@ const isNotFittingOnLeft = (domRect: DOMRect, position: Position): boolean => {
   return !hasPlaceAtLeft(domRect, position) && hasPlaceAtRight(domRect);
 };
 
-export const GetVisiblePositionInViewPort = (
+export const GetVisiblePosition = (
   domRect: DOMRect,
   position: Position
 ): Position => {

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
-import { Position, GetVisiblePositionInViewPort } from './position';
+import { Position, GetVisiblePosition } from './position';
 
 import './tooltip.scss';
 
@@ -56,7 +56,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     setTimeout(() => {
       if (tooltipElement != null && tooltipElement.current) {
         console.log(
-          `Should be at : ${GetVisiblePositionInViewPort(
+          `Should be at : ${GetVisiblePosition(
             tooltipElement.current.getBoundingClientRect(),
             position
           )}`
