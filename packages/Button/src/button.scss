@@ -131,7 +131,9 @@
     box-shadow: var(--focus);
   }
 }
-
+.ids-btn:focus:not(:focus-visible) {
+  box-shadow: none;
+}
 .ids-btn.ids-btn--loading {
   pointer-events: none;
   user-select: none;
