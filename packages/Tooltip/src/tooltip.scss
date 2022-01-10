@@ -1,7 +1,6 @@
 @import '~@igloo-ui/tokens/dist/base10/variables.css';
 @import '~@igloo-ui/tokens/dist/fonts.css';
-
-@import "./animations";
+@import './animations';
 
 :root {
   /* Default */
@@ -21,7 +20,7 @@
 
 .ids-tooltip {
   font-family: var(--ids-btn-font-family);
-  font-size: var( --ids-tooltip-font-size);
+  font-size: var(--ids-tooltip-font-size);
   position: absolute;
   padding: var(--ids-tooltip-padding);
   border-radius: var(--ids-tooltip-border-radius);
@@ -32,8 +31,7 @@
   pointer-events: none;
   user-select: none;
   width: max-content;
-
-  @include animation(0.2s, ids-tooltip-fadeIn);
+  animation: ids-tooltip-fadein 0.2s;
 
   &__container {
     position: relative;

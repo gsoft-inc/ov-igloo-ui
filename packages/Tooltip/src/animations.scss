@@ -1,34 +1,9 @@
-@mixin keyframe ($animationName) {
-  @keyframes #{$animationName} {
-    @content;
+@keyframes ids-tooltip-fadein {
+  0% {
+    opacity: 0;
   }
 
-  @-webkit-keyframes #{$animationName} {
-    @content;
+  100% {
+    opacity: 1;
   }
-
-  @-moz-keyframes #{$animationName} {
-    @content;
-  }
-
-  @-ms-keyframes #{$animationName} {
-    @content;
-  }
-
-  @-o-keyframes #{$animationName} {
-    @content;
-  }
-}
-
-@include keyframe(ids-tooltip-fadeIn) {
-  0% {opacity:0;}
-  100% {opacity:1;}
-}
-
-@mixin animation ($duration, $animation: ids-tooltip-fadeIn) {
-  animation: $animation $duration;
-  -webkit-animation: $animation $duration;
-  -moz-animation: $animation $duration;
-  -o-animation: $animation $duration;
-  -ms-animation: $animation $duration;
 }
