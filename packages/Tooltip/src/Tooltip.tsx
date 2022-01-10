@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
+import { Position, GetVisiblePositionInViewPort } from './position';
 
 import './tooltip.scss';
 
 export type Appearance = 'dark' | 'light';
-export type Position = 'top' | 'right' | 'bottom' | 'left';
 
 export interface TooltipProps extends React.ComponentProps<'div'> {
   children: string | React.ReactNode;
@@ -44,12 +44,25 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     'ids-tooltip-dark': appearance === 'dark',
   });
 
+  const tooltipElement = useRef<HTMLDivElement>(null);
+
   const tooltipStyle = {
     maxWidth: `${maxWidth}px`,
   };
 
   const onMouseEnterHandle = (): void => {
     setActive(true);
+
+    setTimeout(() => {
+      if (tooltipElement != null && tooltipElement.current) {
+        console.log(
+          `Should be at : ${GetVisiblePositionInViewPort(
+            tooltipElement.current.getBoundingClientRect(),
+            position
+          )}`
+        );
+      }
+    }, 100);
   };
 
   const onMouseLeaveHandle = (): void => {
@@ -64,6 +77,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     >
       <div
         className={tooltipClasses}
+        ref={tooltipElement}
         style={tooltipStyle}
         hidden={!active}
         {...rest}
