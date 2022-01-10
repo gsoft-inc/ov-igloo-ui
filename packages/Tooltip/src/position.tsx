@@ -4,22 +4,16 @@ export type Position = 'top' | 'right' | 'bottom' | 'left';
 
 const hasPlaceAtTop = (
   tooltipDomRect: DOMRect,
-  position: Position
+  parentDomRect: DOMRect
 ): boolean => {
-  return (
-    (position === 'top' && tooltipDomRect.top >= 0) ||
-    tooltipDomRect.top >= tooltipDomRect.height
-  );
+  return parentDomRect.top >= tooltipDomRect.height;
 };
 
 const hasPlaceAtLeft = (
   tooltipDomRect: DOMRect,
-  position: Position
+  parentDomRect: DOMRect
 ): boolean => {
-  return (
-    (position === 'left' && tooltipDomRect.left >= 0) ||
-    tooltipDomRect.left >= tooltipDomRect.width
-  );
+  return parentDomRect.left >= tooltipDomRect.width;
 };
 
 const hasPlaceAtBottom = (
@@ -42,44 +36,40 @@ const hasPlaceAtRight = (
 
 const isNotFittingOnTopButCanOnBottom = (
   tooltipDomRect: DOMRect,
-  parentDomRect: DOMRect,
-  position: Position
+  parentDomRect: DOMRect
 ): boolean => {
   return (
-    !hasPlaceAtTop(tooltipDomRect, position) &&
+    !hasPlaceAtTop(tooltipDomRect, parentDomRect) &&
     hasPlaceAtBottom(tooltipDomRect, parentDomRect)
   );
 };
 
 const isNotFittingOnRightButCanOnLeft = (
   tooltipDomRect: DOMRect,
-  parentDomRect: DOMRect,
-  position: Position
+  parentDomRect: DOMRect
 ): boolean => {
   return (
     !hasPlaceAtRight(tooltipDomRect, parentDomRect) &&
-    hasPlaceAtLeft(tooltipDomRect, position)
+    hasPlaceAtLeft(tooltipDomRect, parentDomRect)
   );
 };
 
 const isNotFittingOnBottomButCanOnTop = (
   tooltipDomRect: DOMRect,
-  parentDomRect: DOMRect,
-  position: Position
+  parentDomRect: DOMRect
 ): boolean => {
   return (
     !hasPlaceAtBottom(tooltipDomRect, parentDomRect) &&
-    hasPlaceAtTop(tooltipDomRect, position)
+    hasPlaceAtTop(tooltipDomRect, parentDomRect)
   );
 };
 
 const isNotFittingOnLeftButCanOnRight = (
   tooltipDomRect: DOMRect,
-  parentDomRect: DOMRect,
-  position: Position
+  parentDomRect: DOMRect
 ): boolean => {
   return (
-    !hasPlaceAtLeft(tooltipDomRect, position) &&
+    !hasPlaceAtLeft(tooltipDomRect, parentDomRect) &&
     hasPlaceAtRight(tooltipDomRect, parentDomRect)
   );
 };
@@ -91,35 +81,19 @@ export const GetVisiblePosition = (
 ): Position => {
   switch (position) {
     case 'top':
-      return isNotFittingOnTopButCanOnBottom(
-        tooltipDomRect,
-        parentDomRect,
-        position
-      )
+      return isNotFittingOnTopButCanOnBottom(tooltipDomRect, parentDomRect)
         ? 'bottom'
         : 'top';
     case 'right':
-      return isNotFittingOnRightButCanOnLeft(
-        tooltipDomRect,
-        parentDomRect,
-        position
-      )
+      return isNotFittingOnRightButCanOnLeft(tooltipDomRect, parentDomRect)
         ? 'left'
         : 'right';
     case 'bottom':
-      return isNotFittingOnBottomButCanOnTop(
-        tooltipDomRect,
-        parentDomRect,
-        position
-      )
+      return isNotFittingOnBottomButCanOnTop(tooltipDomRect, parentDomRect)
         ? 'top'
         : 'bottom';
     case 'left':
-      return isNotFittingOnLeftButCanOnRight(
-        tooltipDomRect,
-        parentDomRect,
-        position
-      )
+      return isNotFittingOnLeftButCanOnRight(tooltipDomRect, parentDomRect)
         ? 'right'
         : 'left';
     default:
