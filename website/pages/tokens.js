@@ -1,3 +1,8 @@
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import cx from 'classnames';
+
+import Link from 'next/link';
 import pkg from '@igloo-ui/tokens/package.json';
 import Display from '../components/Display';
 import Title from '../components/Title';
@@ -9,18 +14,48 @@ import iconToken from '../svg/token.svg';
 
 export default function Tokens(props) {
   const { data, categories } = props;
+  const { asPath } = useRouter();
+
+  const [activeLink, setActiveLink] = useState();
+  const [baseToken, setBaseToken] = useState('10');
+  const [styleToken, setStyleToken] = useState('scss');
+
+  const handleTokenChange = (event) => {
+    setBaseToken(event.currentTarget.value);
+  };
+
+  const handleStyleChange = (event) => {
+    setStyleToken(event.currentTarget.value);
+  };
+
+  useEffect(() => {
+    setActiveLink(window.location.hash);
+  }, [asPath]);
 
   const tokensList = categories.map((key) => {
-    const token = data.base10.filter(
+    const dataType = baseToken === '10' ? 'base10' : 'default';
+
+    const token = data[dataType].filter(
       (obj) => Object.keys(obj).toString() === key
     );
-    return <TokenList key={key} data={token[0][key]} title={key} />;
+    return (
+      <TokenList
+        key={key}
+        data={token[0][key]}
+        title={key}
+        options={{ base: baseToken, style: styleToken }}
+      />
+    );
   });
 
   const tokensNav = categories.map((category, index) => {
     return (
       <li key={index.toString()}>
-        <a href={`#${category}`}>{category}</a>
+        <Link href={`/tokens#${category}`}>
+          <a className={cx(activeLink === `#${category}` && 'is-active')}>
+            {category}
+          </a>
+        </Link>
       </li>
     );
   });
@@ -72,7 +107,34 @@ export default function Tokens(props) {
           <p>In CSS, you can import the files by doing:</p>
           <Code>@import '~@igloo-ui/tokens/dist/base10/variables.css';</Code>
 
-          <div className="io-tokens__list">{tokensList}</div>
+          <div className="io-tokens__list">
+            <div className="io-options io-options--large">
+              <Title level={3} as="h3" className="io-options__title">
+                Options
+              </Title>
+              <select
+                className="io-select"
+                value={styleToken}
+                onChange={handleStyleChange}
+              >
+                <option selected value="scss">
+                  scss
+                </option>
+                <option value="css">css</option>
+              </select>
+              <select
+                className="io-select"
+                value={baseToken}
+                onChange={handleTokenChange}
+              >
+                <option selected value="10">
+                  base 10
+                </option>
+                <option value="16">base 16</option>
+              </select>
+            </div>
+            {tokensList}
+          </div>
         </div>
       </div>
     </>

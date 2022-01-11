@@ -6,7 +6,7 @@
   box-sizing: border-box;
 
   &:hover {
-    box-shadow: rgba(0, 0, 0, 0.6) 0px 0 1px 0px;
+    box-shadow: rgb(0 0 0 / 0.6) 0 0 1px 0;
   }
 
   &__content {
@@ -21,6 +21,7 @@
   &__svg {
     display: flex;
     flex: 1 1 4rem;
+
     > * {
       margin: auto;
     }

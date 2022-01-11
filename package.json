@@ -13,7 +13,7 @@
     "clean": "npx lerna exec -- rm -rf ./dist",
     "lint": "eslint . --ext .ts,.tsx --quiet",
     "lint:fix": "eslint . --ext .ts,.tsx --fix --quiet",
-    "lint:style": "stylelint '**/*.scss'",
+    "lint:style": "stylelint '**/*.scss' ",
     "fix:style": "stylelint '**/*.scss' --fix",
     "doc:start": "lerna exec --scope docs 'yarn dev'",
     "doc:build": "lerna exec --scope docs 'yarn build' &&  yarn build-storybook -o ./website/.next/storybook",

@@ -1,33 +1,36 @@
-@use 'sass:color';
-@import '../variables.scss';
+@use "sass:color";
+
+@import "../variables.scss";
 
 $card-effect-size: $size-2;
 
-$card-shadow-yellow: rgba(
-  color.red($c-yellow),
-  color.green($c-yellow),
-  color.blue($c-yellow),
+$card-shadow-yellow: rgb(
+  color.red($c-yellow)
+  color.green($c-yellow)
+  color.blue($c-yellow) /
   var(--alpha, 0)
 );
 
-$card-shadow-green: rgba(
-  color.red($c-green),
-  color.green($c-green),
-  color.blue($c-green),
+$card-shadow-green: rgb(
+  color.red($c-green)
+  color.green($c-green)
+  color.blue($c-green) /
   var(--alpha, 0)
 );
 
-$card-shadow-pink: rgba(
-  color.red($c-pink),
-  color.green($c-pink),
-  color.blue($c-pink),
+$card-shadow-pink: rgb(
+  color.red($c-pink)
+  color.green($c-pink)
+  color.blue($c-pink) /
   var(--alpha, 0)
 );
 
 // interactive card
 a {
   .io-card {
-    transition: box-shadow 150ms ease-in-out, transform 200ms ease-in-out,
+    transition:
+      box-shadow 150ms ease-in-out,
+      transform 200ms ease-in-out,
       -webkit-transform 150ms ease-in-out;
     box-shadow: 0 0 0 0 $card-shadow-yellow;
     height: 100%;
@@ -37,7 +40,7 @@ a {
       right: 0;
       bottom: 0;
       display: block;
-      content: '';
+      content: "";
       width: 100%;
       height: 100%;
       background: transparent;
@@ -46,6 +49,7 @@ a {
 
     &:hover {
       --alpha: 1;
+
       transform: translate($card-effect-size * -1, $card-effect-size * -1);
       box-shadow: $card-effect-size $card-effect-size 0 0 $card-shadow-yellow;
 
@@ -57,6 +61,7 @@ a {
 
     .io-card--components {
       box-shadow: 0 0 0 0 $card-shadow-yellow;
+
       &:hover {
         box-shadow: $card-effect-size $card-effect-size 0 0 $card-shadow-yellow;
       }
@@ -64,6 +69,7 @@ a {
 
     &.io-card--tokens {
       box-shadow: 0 0 0 0 $card-shadow-green;
+
       &:hover {
         box-shadow: $card-effect-size $card-effect-size 0 0 $card-shadow-green;
       }
@@ -71,6 +77,7 @@ a {
 
     &.io-card--icons {
       box-shadow: 0 0 0 0 $card-shadow-pink;
+
       &:hover {
         box-shadow: $card-effect-size $card-effect-size 0 0 $card-shadow-pink;
       }
