@@ -18,3 +18,7 @@ body,
   font-weight: var(--font-weight-regular);
   color: var(--grey-800);
 }
+
+.isb-element__thin {
+  max-width: 100px;
+}
