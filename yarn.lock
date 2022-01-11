@@ -1497,6 +1497,11 @@
   resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-1.0.0.tgz#f702d0bb6cf60d6a8e9eb63b860df13b5c3ee9c2"
   integrity sha512-AUKqx+mX+Hq3qIwXmsKhO8gefFTJkDvrw8XHgb9W1i+tDZgTqMj87ySoY28zidm4ny71VzuspBLrgyBhtZFS7A==
 
+"@igloo-ui/tokens@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-1.1.0.tgz#72ab7d5ad36d82cf67abd8a28b946199df75e1dd"
+  integrity sha512-u4vfVC+Xmtpcw8VnU/obZuPQYzDs5pYi3j5RQw2J//oKWHwbEQ1tL1epXXqriQR76LiXuoyEosxz0FjxOzKwwA==
+
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"
