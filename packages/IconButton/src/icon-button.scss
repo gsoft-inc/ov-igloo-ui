@@ -31,7 +31,7 @@
   padding: 0;
 
   svg {
-    margin: -1px; // Center the svg since there is a 1px border for ids-btn
+    display: block;
   }
 
   &--xsmall {
@@ -74,5 +74,9 @@
 
   &--active {
     color: var(--ids-icon-btn-ghost-active);
+  }
+
+  > span {
+    margin: -1px; // Since there is a 1px border for ids-btn
   }
 }
