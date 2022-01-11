@@ -1,0 +1,126 @@
+@import '~@igloo-ui/tokens/dist/base10/variables.css';
+@import '~@igloo-ui/tokens/dist/fonts.css';
+
+:root {
+  /* Default */
+  --ids-input-height: var(--space-6);
+  --ids-input-font-family: var(--primary-font-family);
+  --ids-input-font-weight: var(--font-weight-regular);
+  --ids-input-padding: var(--space-3);
+  --ids-input-font-size: var(--font-size-4);
+  --ids-input-line-height: var(--space-4);
+  --ids-input-border-radius: var(--border-radius-sm);
+  --ids-input-border-color: var(--grey-300);
+  --ids-input-background: var(--samoyed);
+  --ids-input-margin: var(--space-1) var(--space-0);
+
+  /* Compact */
+  --ids-input-height-compact: var(--space-5);
+  --ids-input-font-size-compact: var(--font-size-3);
+  --ids-input-line-height-compact: var(--line-height-xxl);
+  --ids-input-letter-spacing-compact: var(--font-weight-regular);
+
+  /* Placeholder */
+  --ids-input-color-placeholder: var(--grey-400);
+
+  /* Hover */
+  --ids-input-border-color-hover: var(--grey-500);
+
+  /* Focus */
+  --ids-input-box-shadow-inner-color-focus: var(--samoyed);
+  --ids-input-box-shadow-outer-color-focus: var(--electric-blue-600);
+
+  /* Active */
+  --ids-input-border-color-active: var(--electric-blue-500);
+  --ids-input-border-radius-active: var(--border-radius-sm);
+
+  /* Readonly */
+  --ids-input-color-readonly: var(--grey-500);
+  --ids-input-background-readonly: var(--grey-250);
+  --ids-input-border-color-readonly: var(--grey-250);
+
+  /* Error */
+  --ids-input-border-color-error: var(--coral-500);
+}
+
+.ids-input {
+  height: var(--ids-input-height);
+  width: 100%;
+  padding: 0 var(--ids-input-padding);
+  font-size: var(--ids-input-font-size);
+  font-family: var(--ids-input-font-family);
+  font-weight: var(--ids-input-font-weight);
+  line-height: var(--ids-input-line-height);
+  background-color: var(--ids-input-background);
+  border: 1px solid  var(--ids-input-border-color);
+  border-radius: var(--ids-input-border-radius);
+  box-sizing: border-box;
+  appearance: textfield;
+  transition: border-color 200ms ease 0s;
+  margin: var(--ids-input-margin);
+}
+
+.ids-input--compact {
+  height: var(--ids-input-height-compact);
+  font-size: var(--ids-input-font-size-compact);
+  line-height: var(--ids-input-line-height-compact);
+  letter-spacing: var(--ids-input-letter-spacing-compact);
+}
+
+.ids-input[type='password'] {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ids-input::-ms-clear {
+  display: none;
+}
+
+.ids-input::placeholder {
+  color: var(--ids-input-color-placeholder);
+}
+
+.ids-input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.ids-input:hover {
+  border-color: var(--ids-input-border-color-hover);
+}
+
+.ids-input--error {
+  border-color: var(--ids-input-border-color-error);
+}
+
+.ids-input:focus,
+.ids-input.focus {
+  outline: 0;
+  outline-offset: 0;
+  box-shadow:
+    0 0 0 2px var(--ids-input-box-shadow-inner-color-focus),
+    0 0 0 3.5px var(--ids-input-box-shadow-outer-color-focus);
+}
+
+.ids-input:active,
+.ids-input.active {
+  border: 1px solid var(--ids-input-border-color-active);
+  border-radius: var(--ids-input-border-radius-active);
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: none;
+}
+
+.ids-input:disabled,
+.ids-input--readonly {
+  color: var(--ids-input-color-readonly);
+  background-color: var(--ids-input-background-readonly);
+  border-color: var(--ids-input-border-color-readonly);
+  cursor: not-allowed;
+}
+
+.ids-input--readonly {
+  cursor: default;
+}

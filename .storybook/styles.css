@@ -1,4 +1,4 @@
-@import '~@igloo-ui/tokens/dist/variables.css';
+@import '~@igloo-ui/tokens/dist/base10/variables.css';
 
 body,
 .sb-show-main {
@@ -17,4 +17,8 @@ body,
 .isb-section__title {
   font-weight: var(--font-weight-regular);
   color: var(--grey-800);
+}
+
+.isb-element__thin {
+  max-width: 100px;
 }
