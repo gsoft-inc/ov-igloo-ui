@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 .io-code {
   display: block;
@@ -23,5 +23,24 @@
 
   &--light {
     background: transparent;
+  }
+
+  &--copy {
+    display: flex;
+    align-items: center;
+    gap: $size-1;
+
+    .io-btn-copy {
+      opacity: 0;
+      transform: translateX(-50%);
+      transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+    }
+
+    &:hover {
+      .io-btn-copy {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
   }
 }

@@ -75,7 +75,7 @@ export default function Table({ data, title, options }) {
     return (
       <tr key={index.toString()}>
         <td>
-          <Code inline light>
+          <Code inline light copy>
             {style === 'scss' ? `$${token}` : `--${token}`}
           </Code>
         </td>
