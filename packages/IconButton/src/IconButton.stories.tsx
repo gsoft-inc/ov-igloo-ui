@@ -6,6 +6,7 @@ import IconButton from './IconButton';
 import { Props, Appearance } from '@igloo-ui/button';
 
 import Plus from '@igloo-ui/icons/dist/Plus';
+import Settings from '@igloo-ui/icons/dist/Settings';
 
 export default {
   title: 'Components/IconButton',
@@ -75,12 +76,12 @@ const buttonState = [
   },
   {
     buttonSize: 'small',
-    icon: <Plus size="small" />,
+    icon: <Settings size="small" />,
     theme: 'round',
   },
   {
     buttonSize: 'medium',
-    icon: <Plus size="small" />,
+    icon: <Settings size="small" />,
     theme: 'round',
   },
 ];

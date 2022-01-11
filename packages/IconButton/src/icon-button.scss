@@ -5,7 +5,6 @@
   /* Default */
   --ids-icon-btn-height: var(--space-5);
   --ids-icon-btn-width: var(--space-5);
-  --ids-icon-btn-padding: var(--space-0);
 
   /* XSmall */
   --ids-icon-btn-height-xsmall: var(--space-3);
@@ -24,13 +23,16 @@
   --ids-icon-btn-ghost-hover: var(--grey-900);
   --ids-icon-btn-ghost-disabled: var(--grey-300);
   --ids-icon-btn-ghost-active: var(--electric-blue-500);
-  --ids-icon-btn-background-ghost: transparant;
 }
 
 .ids-icon-btn {
   width: var(--ids-icon-btn-width);
   height: var(--ids-icon-btn-height);
-  padding: var(--ids-icon-btn-padding);
+  padding: 0;
+
+  svg {
+    margin: -1px; // Center the svg since there is a 1px border for ids-btn
+  }
 
   &--xsmall {
     width: var(--ids-icon-btn-width-xsmall);

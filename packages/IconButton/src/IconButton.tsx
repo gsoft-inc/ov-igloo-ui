@@ -15,7 +15,7 @@ export interface IconButtonProps
   /** Add class names to the surrounding DOM container. */
   className?: string;
   /** Icon React node to represent the value of the button */
-  icon?: React.ReactNode;
+  icon: React.ReactNode;
   /** Callback function that will be called when the user clicks on the button.
    * @returns {void}
    */
@@ -49,7 +49,7 @@ const IconButton: React.FunctionComponent<IconButtonProps> = (
 
   var classWithSize = buttonSize ? `ids-icon-btn--${buttonSize}` : '';
 
-  const iconButtonClassName = cx(
+  const classes = cx(
     'ids-icon-btn',
     `ids-icon-btn--${theme}`,
     classWithSize,
@@ -57,7 +57,7 @@ const IconButton: React.FunctionComponent<IconButtonProps> = (
   );
 
   return (
-    <Button className={iconButtonClassName} {...props}>
+    <Button className={classes} {...props}>
       {icon}
     </Button>
   );
