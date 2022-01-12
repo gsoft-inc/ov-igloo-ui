@@ -30,6 +30,8 @@ export interface IconButtonProps
   tooltip?: string;
   /** The button's theme */
   theme?: Theme;
+  // Add a data-test tag for automated tests
+  dataTest?: string;
 }
 
 const IconButton: React.FunctionComponent<IconButtonProps> = (
@@ -45,6 +47,7 @@ const IconButton: React.FunctionComponent<IconButtonProps> = (
     buttonSize = 'medium',
     tooltip,
     theme = 'default',
+    dataTest,
     ...rest
   } = props;
 

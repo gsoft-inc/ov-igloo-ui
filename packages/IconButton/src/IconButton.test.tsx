@@ -3,17 +3,30 @@
  */
 import React from 'react';
 import { shallow } from 'enzyme';
+import Plus from '@igloo-ui/icons/dist/Plus';
+import Button from '@igloo-ui/button';
 
 import IconButton from './IconButton';
 
-// describe('IconButton', () => {
-//   const component = shallow(<IconButton>Hello world</IconButton>);
-//   test('It should render without errors', () => {
-//     const wrapper = component.find('.ids-icon-button');
-//     expect(wrapper.length).toBe(1);
-//   });
+const setUp = (props = {}) => {
+  const component = shallow(
+    <IconButton
+      icon={<Plus size="small" />}
+      dataTest="ids-icon-btn"
+      {...props}
+    />
+  );
+  return component;
+};
 
-//   test('It should render a snapshot', () => {
-//     expect(component).toMatchSnapshot();
-//   });
-// });
+describe('IconButton Component', (): void => {
+  let component: any;
+  beforeEach(() => {
+    component = setUp();
+  });
+
+  test('It should render without errors', (): void => {
+    const wrapper = component.find('button');
+    expect(wrapper.length).toBe(1);
+  });
+});

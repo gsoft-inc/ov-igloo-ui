@@ -5,4 +5,5 @@ module.exports = {
   ...base,
   name,
   displayName: name,
+  moduleDirectories: ['node_modules', '<rootDir>/src'],
 };
