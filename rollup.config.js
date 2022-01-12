@@ -5,13 +5,15 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
+import camelcase from 'camelcase';
 
 const SCOPE = '@igloo-ui';
 const DIST = './dist';
 const FORMAT = 'es';
 
 function capitalize(string) {
-  return string[0].toUpperCase() + string.slice(1);
+  return camelcase(string, { pascalCase: true });
+  // return string[0].toUpperCase() + string.slice(1);
 }
 
 function handleName(name) {
