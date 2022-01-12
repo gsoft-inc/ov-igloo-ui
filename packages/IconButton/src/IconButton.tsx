@@ -45,6 +45,7 @@ const IconButton: React.FunctionComponent<IconButtonProps> = (
     buttonSize = 'medium',
     tooltip,
     theme = 'default',
+    ...rest
   } = props;
 
   var classWithSize = buttonSize ? `ids-icon-btn--${buttonSize}` : '';
@@ -57,7 +58,7 @@ const IconButton: React.FunctionComponent<IconButtonProps> = (
   );
 
   return (
-    <Button className={classes} {...props}>
+    <Button className={classes} {...rest}>
       {icon}
     </Button>
   );
