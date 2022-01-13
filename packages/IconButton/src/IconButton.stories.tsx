@@ -37,8 +37,9 @@ const Template = ({
           appearance={appearance}
           disabled={isDisabled}
           key={i.toString()}
-          {...p}
+          icon={<Plus size="small" />}
           className={isFocus ? 'focus ' + p.className : p.className}
+          {...p}
         />
       );
     });
@@ -61,28 +62,24 @@ const Template = ({
 
 const buttonState = [
   {
-    buttonSize: 'xsmall',
-    icon: <Plus size="small" />,
+    size: 'xsmall',
   },
   {
-    buttonSize: 'small',
-    icon: <Plus size="small" />,
+    size: 'small',
   },
   {
-    buttonSize: 'medium',
-    icon: <Plus size="small" />,
+    size: 'medium',
   },
   {
-    buttonSize: 'large',
-    icon: <Plus size="small" />,
+    size: 'large',
   },
   {
-    buttonSize: 'small',
+    size: 'small',
     icon: <Settings size="small" />,
     theme: 'round',
   },
   {
-    buttonSize: 'medium',
+    size: 'medium',
     icon: <Settings size="small" />,
     theme: 'round',
   },
