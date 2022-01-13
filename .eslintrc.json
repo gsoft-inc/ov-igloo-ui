@@ -51,7 +51,7 @@
         "project": "packages/*/tsconfig.json"
       }
     },
-    "import/ignore": ["node_modules/(?!(@igloo-ui/*)/)"]
+    "import/ignore": ["(?!(@igloo-ui/*)/)"]
   },
   "ignorePatterns": [
     "dist",
