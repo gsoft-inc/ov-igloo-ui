@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 .io-nav {
   font-size: $fs-3;
@@ -41,7 +41,8 @@
   font-size: $fs-4;
   line-height: 2;
 
-  a:hover {
+  a:hover,
+  a.is-active {
     text-decoration: underline;
   }
 }

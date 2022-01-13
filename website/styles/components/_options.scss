@@ -1,10 +1,23 @@
 @import '../variables';
 
 .io-options {
+  display: flex;
+  align-items: center;
+  gap: $size-1;
   margin: $size-8 0 $size-3;
   padding: $size-3 $size-2;
   border-radius: $br-1;
-  box-shadow: 0 0.1rem 0.6rem 0 rgba(35, 48, 67, 0.1);
+  box-shadow: 0 0.1rem 0.6rem 0 rgb(35 48 67 / 10%);
+
+  &--large {
+    margin-left: -$size-4;
+    margin-right: -$size-4;
+  }
+
+  .io-options__title {
+    margin: 0;
+    font-weight: 700;
+  }
 
   > * {
     margin-left: $size-1;
@@ -21,4 +34,12 @@
       cursor: pointer;
     }
   }
+}
+
+.io-select {
+  font-size: $fs-4;
+  border: 1px solid $c-grey;
+  border-radius: 0.25rem;
+  padding: $size-0;
+  background: $c-white;
 }

@@ -1,11 +1,10 @@
-@import '../variables';
+@import "../variables";
 
 .io-tag {
   display: inline-flex;
   align-items: center;
   font-size: $fs-5;
   text-align: center;
-
   border-radius: $size-1;
   min-height: $size-2;
   padding: 0 $size-1;

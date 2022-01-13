@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 .io-tokens__table {
   font-size: $fs-4;
@@ -30,6 +30,7 @@
 
   td:last-child {
     width: 8rem;
+
     > * {
       float: right;
     }
@@ -46,6 +47,7 @@
 
 .io-preview {
   font-size: $fs-3;
+
   &--fonts {
     width: auto;
     height: auto;

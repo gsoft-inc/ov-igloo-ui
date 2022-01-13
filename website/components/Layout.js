@@ -14,7 +14,7 @@ export default function Layout({ children }) {
         <Header>
           <Nav items={nav} />
         </Header>
-        <main>{children}</main>
+        <main className="io-main">{children}</main>
       </div>
     </>
   );

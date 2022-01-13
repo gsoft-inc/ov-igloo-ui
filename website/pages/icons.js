@@ -91,7 +91,9 @@ export default function Icons() {
       </section>
       <section className="io-section">
         <div className="io-options">
-          Choose a size:
+          <Title level={3} as="h3" className="io-options__title">
+            Sizes
+          </Title>
           <label htmlFor="16">
             <input
               onChange={handleSizeChange}

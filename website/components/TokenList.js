@@ -3,12 +3,15 @@ import cx from 'classnames';
 import Title from './Title';
 import Code from './Code';
 
-export default function Table({ data, title }) {
+export default function Table({ data, title, options }) {
   const renderTableBody = data.map((d, index) => {
     const token = Object.keys(d);
     const value = d[token];
 
+    const { base, style } = options;
+
     let preview = {};
+    const size = base === '10' ? `${parseFloat(value) / 1.6}rem` : value;
 
     switch (title) {
       case 'color':
@@ -31,13 +34,13 @@ export default function Table({ data, title }) {
         break;
       case 'fontSize':
         preview = {
-          style: { fontSize: `${parseFloat(value) / 1.6}rem` },
+          style: { fontSize: size },
           className: 'io-preview--fonts',
         };
         break;
       case 'lineHeight':
         preview = {
-          style: { lineHeight: `${parseFloat(value) / 1.6}` },
+          style: { lineHeight: size },
           className: 'io-preview--fonts io-preview--lineHeight',
         };
         break;
@@ -63,7 +66,7 @@ export default function Table({ data, title }) {
         break;
       case 'spacing':
         preview = {
-          style: { width: `${parseFloat(value) / 1.6}rem` },
+          style: { width: size },
           className: 'io-preview--space',
         };
         break;
@@ -72,8 +75,8 @@ export default function Table({ data, title }) {
     return (
       <tr key={index.toString()}>
         <td>
-          <Code inline light>
-            {token}
+          <Code inline light copy>
+            {style === 'scss' ? `$${token}` : `--${token}`}
           </Code>
         </td>
         <td>{value}</td>

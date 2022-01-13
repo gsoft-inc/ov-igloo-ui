@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 .io-layout {
   width: 100%;
@@ -9,7 +9,7 @@
 .io-header {
   position: fixed;
   width: 100%;
-  padding: $size-2 0;
+  padding: $size-2 $size-2;
   top: 0;
   left: 0;
   background: $c-white;
@@ -22,13 +22,28 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  @media (min-width: $breakpoint-large) {
+    padding: $size-2 0;
+  }
+}
+
+.io-main {
+  width: 100%;
+  padding: 0 $size-2;
+
+  @media (min-width: $breakpoint-large) {
+    padding: 0;
+  }
 }
 
 .io-hero {
   margin: $size-10 + 2.5rem 0 $size-10 0;
 
-  &__title {
-    max-width: 60%;
+  @media (min-width: $breakpoint-medium) {
+    &__title {
+      max-width: 60%;
+    }
   }
 }
 
@@ -37,8 +52,12 @@
 
   &__content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: $size-3;
+    // column-gap: $size-3;
+    gap: $size-3;
+
+    @media (min-width: $breakpoint-medium) {
+      grid-template-columns: repeat(3, 1fr);
+    }
 
     &--flex {
       display: flex;
@@ -53,12 +72,21 @@
 
   &--grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    column-gap: $size-3;
+    gap: $size-8;
+
+    @media (min-width: $breakpoint-medium) {
+      gap: $size-3;
+      grid-template-columns: 2fr 1fr;
+    }
   }
 
   &--hasAside {
-    grid-template-columns: 1fr $layout-sm 1fr;
+    display: block;
+
+    @media (min-width: $breakpoint-medium) {
+      display: grid;
+      grid-template-columns: 1fr $layout-sm 1fr;
+    }
   }
 
   &--tight {
@@ -102,7 +130,12 @@
 }
 
 .io-aside {
+  display: none;
   margin-top: $size-8;
+
+  @media (min-width: $breakpoint-medium) {
+    display: block;
+  }
 }
 
 .io-tokens {
