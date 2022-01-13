@@ -46,12 +46,12 @@
     "import/parsers": {
       "@typescript-eslint/parser": [".ts", ".tsx"]
     },
+    "import/internal-regex": ["^@igloo-ui/"],
     "import/resolver": {
       "typescript": {
         "project": "packages/*/tsconfig.json"
       }
-    },
-    "import/ignore": ["@igloo-ui/*"]
+    }
   },
   "ignorePatterns": [
     "dist",
