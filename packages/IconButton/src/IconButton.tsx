@@ -5,17 +5,17 @@ import Button from '@igloo-ui/button';
 
 import './icon-button.scss';
 
-export type ButtonSize = 'xsmall' | 'small' | 'medium' | 'large';
+export type Size = 'xsmall' | 'small' | 'medium' | 'large';
 export type Theme = 'default' | 'round' | 'light';
 
 export interface IconButtonProps
   extends React.ComponentPropsWithoutRef<'button'> {
-  // The content to display inside the button
+  /** The content to display inside the button */
   children?: React.ReactNode;
   /** Add class names to the surrounding DOM container. */
   className?: string;
   /** Icon React node to represent the value of the button */
-  icon?: React.ReactNode;
+  icon: React.ReactNode;
   /** Callback function that will be called when the user clicks on the button.
    * @returns {void}
    */
@@ -25,12 +25,12 @@ export interface IconButtonProps
   /** True if the control is waiting and shows a loading state. The user cannot click on the button */
   isLoading?: boolean;
   /** Button size */
-  buttonSize?: ButtonSize;
+  size?: Size;
   /** Add a tooltip value on hover action of the button . */
   tooltip?: string;
   /** The button's theme */
   theme?: Theme;
-  // Add a data-test tag for automated tests
+  /** Add a data-test tag for automated tests */
   dataTest?: string;
 }
 
@@ -44,19 +44,17 @@ const IconButton: React.FunctionComponent<IconButtonProps> = (
     onClick,
     disabled = false,
     isLoading = false,
-    buttonSize = 'medium',
+    size = 'medium',
     tooltip,
     theme = 'default',
     dataTest,
     ...rest
   } = props;
 
-  var classWithSize = buttonSize ? `ids-icon-btn--${buttonSize}` : '';
-
   const classes = cx(
     'ids-icon-btn',
     `ids-icon-btn--${theme}`,
-    classWithSize,
+    `ids-icon-btn--${size}`,
     className
   );
 

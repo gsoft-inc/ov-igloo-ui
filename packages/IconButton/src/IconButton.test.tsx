@@ -4,7 +4,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Plus from '@igloo-ui/icons/dist/Plus';
-import Button from '@igloo-ui/button';
 
 import IconButton from './IconButton';
 
