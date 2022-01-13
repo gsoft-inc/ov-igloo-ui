@@ -6,7 +6,7 @@ import Button from '@igloo-ui/button';
 import './icon-button.scss';
 
 export type Size = 'xsmall' | 'small' | 'medium' | 'large';
-export type Theme = 'default' | 'round' | 'light';
+export type Theme = 'default' | 'round';
 
 export interface IconButtonProps
   extends React.ComponentPropsWithoutRef<'button'> {
