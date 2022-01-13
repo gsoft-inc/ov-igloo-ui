@@ -12,8 +12,7 @@ export default function Card({
   className,
   featureFlag,
 }) {
-  const hasAction =
-    typeof link === 'string' && link !== undefined && !featureFlag;
+  const hasAction = typeof link === 'string' && !featureFlag;
 
   const card = (
     <div className={cx('io-card', className, { 'io-card--inline': inline })}>

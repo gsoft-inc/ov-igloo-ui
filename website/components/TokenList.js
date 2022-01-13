@@ -4,9 +4,9 @@ import Title from './Title';
 import Code from './Code';
 
 export default function Table({ data, title, options }) {
-  const renderTableBody = data.map((d, index) => {
-    const token = Object.keys(d);
-    const value = d[token];
+  const renderTableBody = data.map((token, index) => {
+    const property = Object.keys(token);
+    const value = token[property];
 
     const { base, style } = options;
 
@@ -76,7 +76,7 @@ export default function Table({ data, title, options }) {
       <tr key={index.toString()}>
         <td>
           <Code inline light copy>
-            {style === 'scss' ? `$${token}` : `--${token}`}
+            {style === 'scss' ? `$${property}` : `--${property}`}
           </Code>
         </td>
         <td>{value}</td>

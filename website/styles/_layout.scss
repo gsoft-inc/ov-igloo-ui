@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 .io-layout {
   width: 100%;
@@ -52,7 +52,6 @@
 
   &__content {
     display: grid;
-    // column-gap: $size-3;
     gap: $size-3;
 
     @media (min-width: $breakpoint-medium) {

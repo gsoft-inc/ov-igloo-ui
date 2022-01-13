@@ -18,7 +18,7 @@ export default function RoadMap({ data }) {
         break;
 
       default:
-        appearance - undefined;
+        appearance = undefined;
         break;
     }
 
