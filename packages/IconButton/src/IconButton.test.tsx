@@ -26,7 +26,7 @@ describe('IconButton Component', (): void => {
   });
 
   test('It should render without errors', (): void => {
-    const wrapper = component.find('button');
+    const wrapper = component.find('.ids-icon-btn');
     expect(wrapper.length).toBe(1);
   });
 });
