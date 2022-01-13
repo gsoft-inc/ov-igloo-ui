@@ -50,7 +50,8 @@
       "typescript": {
         "project": "packages/*/tsconfig.json"
       }
-    }
+    },
+    "import/ignore": ["node_modules/(?!(@igloo-ui/*)/)"]
   },
   "ignorePatterns": [
     "dist",
