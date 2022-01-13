@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.3
+
+### Patch Changes
+
+- 31593ad: Change Premium button color and focus, how buttons handle overflow, how active button handle hover and some tweaks to the dev tooling on Windows.
+
 ## 0.1.2
 
 ### Patch Changes
