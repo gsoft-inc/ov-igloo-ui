@@ -10,8 +10,6 @@ export type Theme = 'default' | 'round';
 
 export interface IconButtonProps
   extends React.ComponentPropsWithoutRef<'button'> {
-  /** The content to display inside the button */
-  children?: React.ReactNode;
   /** Add class names to the surrounding DOM container. */
   className?: string;
   /** Icon React node to represent the value of the button */
@@ -22,12 +20,8 @@ export interface IconButtonProps
   onClick?: () => void;
   /** True if the control is disabled and shows a disabled state. The user cannot click on the button */
   disabled?: boolean;
-  /** True if the control is waiting and shows a loading state. The user cannot click on the button */
-  isLoading?: boolean;
   /** Button size */
   size?: Size;
-  /** Add a tooltip value on hover action of the button . */
-  tooltip?: string;
   /** The button's theme */
   theme?: Theme;
   /** Add a data-test tag for automated tests */
@@ -38,14 +32,11 @@ const IconButton: React.FunctionComponent<IconButtonProps> = (
   props: IconButtonProps
 ) => {
   const {
-    children,
     className,
     icon,
     onClick,
     disabled = false,
-    isLoading = false,
     size = 'medium',
-    tooltip,
     theme = 'default',
     dataTest,
     ...rest
@@ -59,7 +50,7 @@ const IconButton: React.FunctionComponent<IconButtonProps> = (
   );
 
   return (
-    <Button className={classes} {...rest}>
+    <Button className={classes} onClick={onClick} disabled={disabled} {...rest}>
       {icon}
     </Button>
   );
