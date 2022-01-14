@@ -1,0 +1,24 @@
+@import '../variables.scss';
+
+$btn-size: 2rem;
+$btn-radius: 0.25rem;
+$btn-text: $c-black;
+$btn-background: $c-white;
+$btn-border: #e5e5e5;
+
+.io-btn-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $btn-text;
+  background: $btn-background;
+  border: 1px solid $btn-border;
+  width: $btn-size;
+  height: $btn-size;
+  padding: 0;
+  border-radius: $btn-radius;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
