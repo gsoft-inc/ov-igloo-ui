@@ -41,10 +41,6 @@ export const Standard: React.VFC = () => (
       <Input placeholder={inputPlacehoder} error />
     </section>
     <section className="isb-section">
-      <h2>Error Focus</h2>
-      <Input placeholder={inputPlacehoder} error className="focus" />
-    </section>
-    <section className="isb-section">
       <h2>Text</h2>
       <Input placeholder={inputPlacehoder} value={'John Doe'} />
     </section>
@@ -79,18 +75,14 @@ export const WithPrefix: React.VFC = () => (
     </section>
     <section className="isb-section">
       <h2>Disabled</h2>
-      <Input
-        placeholder={inputPlacehoder}
-        disabled
-        prefixIcon={<Search size="small" />}
-      />
+      <Input placeholder={inputPlacehoder} disabled prefixIcon={<Search />} />
     </section>
     <section className="isb-section">
       <h2>Active</h2>
       <Input
         placeholder={inputPlacehoder}
         className="active"
-        prefixIcon={<Search size="small" />}
+        prefixIcon={<Search />}
       />
     </section>
     <section className="isb-section">
@@ -98,25 +90,12 @@ export const WithPrefix: React.VFC = () => (
       <Input
         placeholder={inputPlacehoder}
         className="focus"
-        prefixIcon={<Search size="small" />}
+        prefixIcon={<Search />}
       />
     </section>
     <section className="isb-section">
       <h2>Error</h2>
-      <Input
-        placeholder={inputPlacehoder}
-        error
-        prefixIcon={<Search size="small" />}
-      />
-    </section>
-    <section className="isb-section">
-      <h2>Error Focus</h2>
-      <Input
-        placeholder={inputPlacehoder}
-        error
-        className="focus"
-        prefixIcon={<Search size="small" />}
-      />
+      <Input placeholder={inputPlacehoder} error prefixIcon={<Search />} />
     </section>
   </>
 );
