@@ -1,0 +1,150 @@
+@import 'variables';
+
+.io-layout {
+  width: 100%;
+  max-width: $layout;
+  margin: 0 auto;
+}
+
+.io-header {
+  position: fixed;
+  width: 100%;
+  padding: $size-2 $size-2;
+  top: 0;
+  left: 0;
+  background: $c-white;
+  z-index: 10;
+
+  &__content {
+    max-width: $layout;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media (min-width: $breakpoint-large) {
+    padding: $size-2 0;
+  }
+}
+
+.io-main {
+  width: 100%;
+  padding: 0 $size-2;
+
+  @media (min-width: $breakpoint-large) {
+    padding: 0;
+  }
+}
+
+.io-hero {
+  margin: $size-10 + 2.5rem 0 $size-10 0;
+
+  @media (min-width: $breakpoint-medium) {
+    &__title {
+      max-width: 60%;
+    }
+  }
+}
+
+.io-section {
+  margin: $size-10 0;
+
+  &__content {
+    display: grid;
+    gap: $size-3;
+
+    @media (min-width: $breakpoint-medium) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &--flex {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &--icon {
+      grid-template-columns: repeat(auto-fill, minmax(calc(100% / 7), 1fr));
+      grid-gap: 0;
+    }
+  }
+
+  &--grid {
+    display: grid;
+    gap: $size-8;
+
+    @media (min-width: $breakpoint-medium) {
+      gap: $size-3;
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  &--hasAside {
+    display: block;
+
+    @media (min-width: $breakpoint-medium) {
+      display: grid;
+      grid-template-columns: 1fr $layout-sm 1fr;
+    }
+  }
+
+  &--tight {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $layout-sm;
+  }
+
+  p {
+    font-size: $fs-3;
+  }
+}
+
+.io-container {
+  a {
+    text-decoration: underline;
+  }
+}
+
+.io-contact {
+  > *:not(:first-child) {
+    display: block;
+    margin-top: $size-3;
+  }
+}
+
+.io-list {
+  font-size: $fs-4;
+  list-style: none;
+  margin: $size-2 0 0;
+  padding: 0;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:first-child) {
+      margin-top: $size-1;
+    }
+  }
+}
+
+.io-aside {
+  display: none;
+  margin-top: $size-8;
+
+  @media (min-width: $breakpoint-medium) {
+    display: block;
+  }
+}
+
+.io-tokens {
+  &__list {
+    margin-top: $size-10;
+  }
+}
+
+.io-link-icon {
+  display: inline-block;
+  line-height: 0;
+  height: auto;
+}
