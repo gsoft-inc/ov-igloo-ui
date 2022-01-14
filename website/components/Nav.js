@@ -9,9 +9,7 @@ export default function Nav({ items }) {
   const { asPath } = useRouter();
 
   const navList = items.map((item, index) => {
-    const navItem = item.featurFlag ? (
-      item.label
-    ) : (
+    const navItem = (
       <Link key={index.toString()} href={item.link}>
         <a
           className={cx(
