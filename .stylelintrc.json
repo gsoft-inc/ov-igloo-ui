@@ -1,6 +1,6 @@
 {
   "extends": "stylelint-config-standard",
-  "ignoreFiles": ["**/dist/*.css", "website/**/*.scss"],
+  "ignoreFiles": ["**/dist/*.css"],
   "customSyntax": "postcss-scss",
   "rules": {
     "string-quotes": "single",
