@@ -1,14 +1,15 @@
 # @igloo-ui/input
 
 ## 0.1.0
+
 ### Minor Changes
 
 - 8e6a4ec: ## Input component
-  
+
   The Input component specifies an input field where the user can enter data.
-  
+
   ### Component API
-  
+
   | name      | description                                          |
   | --------- | ---------------------------------------------------- |
   | type      | Specifies the type to display                        |
