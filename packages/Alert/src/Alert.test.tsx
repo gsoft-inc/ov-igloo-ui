@@ -7,7 +7,7 @@ import { shallow } from 'enzyme';
 import Alert from './Alert';
 
 describe('Alert', () => {
-  const component = shallow(<Alert>Hello world</Alert>);
+  const component = shallow(<Alert type="none">Hello world</Alert>);
   test('It should render without errors', () => {
     const wrapper = component.find('.ids-alert');
     expect(wrapper.length).toBe(1);

@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Meta } from '@storybook/react';
 import Button from '@igloo-ui/button';
-import Icon from '@igloo-ui/icons/dist/Plus';
 
 import Alert, { AlertProps, Type, Style } from './Alert';
 

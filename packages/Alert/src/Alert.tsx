@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import Close from '@igloo-ui/icons/dist/Close';
 
 import './alert.scss';
 
@@ -50,7 +51,7 @@ const renderDismissButton = (onDismissClick?: () => void): JSX.Element => {
   // TODO add icon close
   return (
     <button className="ids-alert__dismiss-button" onClick={onDismissClick}>
-      <i />
+      <Close size="small" />
     </button>
   );
 };
