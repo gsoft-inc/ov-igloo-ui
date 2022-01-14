@@ -4,7 +4,7 @@
   "main": "dist/Tooltip.js",
   "module": "dist/Tooltip.js",
   "types": "dist/Tooltip.d.ts",
-  "styles": "dist/Tooltip.css",
+  "styles": "dist/tooltip.css",
   "publishConfig": {
     "access": "public"
   },

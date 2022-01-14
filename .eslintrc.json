@@ -21,7 +21,6 @@
   },
   "plugins": ["react", "@typescript-eslint", "react-hooks"],
   "rules": {
-    "linebreak-style": "off",
     "no-use-before-define": "off",
     "no-shadow": "off",
     "max-len": ["warn", { "code": 80 }],

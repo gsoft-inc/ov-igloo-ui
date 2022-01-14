@@ -4,10 +4,34 @@ import { Meta } from '@storybook/react';
 
 import Tooltip, { TooltipProps } from './Tooltip';
 
+const tooltipContent = 'Lorem ipsum dolor';
+
 export default {
   title: 'Components/Tooltip',
   component: Tooltip,
+  argTypes: {
+    content: {
+      control: 'text',
+      defaultValue: tooltipContent,
+    },
+  },
 } as Meta;
+
+export const Playground: React.VFC<TooltipProps> = (args) => {
+  const displayContainerStyle = {
+    paddingTop: 40,
+    paddingBottom: 40,
+    paddingRight: 50,
+    paddingLeft: 60,
+    fontSize: '18px',
+  };
+
+  return (
+    <div style={displayContainerStyle} key="0">
+      <Tooltip {...args}>Playground tooltip</Tooltip>
+    </div>
+  );
+};
 
 interface TemplateProps {
   payload: { dark: TooltipProps[]; light: TooltipProps[] };
@@ -21,7 +45,7 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
     const isDark = state === 'dark';
     const components = isDark ? dark : light;
 
-    const list = components.map((p, i) => {
+    const list = components.map((tooltipProps, i) => {
       const displayContainerStyle = {
         order: i,
         padding: 20,
@@ -33,9 +57,9 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
           <Tooltip
             appearance={isDark ? 'dark' : 'light'}
             key={i.toString()}
-            {...p}
+            {...tooltipProps}
           >
-            {p.children}
+            {tooltipProps.children}
           </Tooltip>
         </div>
       );
@@ -71,31 +95,31 @@ const demoReactComponent = (
 const tooltipStates: TooltipProps[] = [
   {
     children: 'Default',
-    content: 'lorem ipsum dolor',
+    content: tooltipContent,
   },
   {
     children: 'On Top',
-    content: 'lorem ipsum dolor',
+    content: tooltipContent,
     position: 'top',
   },
   {
     children: 'On the right',
-    content: 'lorem ipsum dolor',
+    content: tooltipContent,
     position: 'right',
   },
   {
     children: 'Underneath',
-    content: 'lorem ipsum dolor',
+    content: tooltipContent,
     position: 'bottom',
   },
   {
     children: 'On the left',
-    content: 'lorem ipsum dolor',
+    content: tooltipContent,
     position: 'left',
   },
   {
     children: 'No Arrow',
-    content: 'lorem ipsum dolor',
+    content: tooltipContent,
     arrowVisible: false,
   },
   {
@@ -105,6 +129,6 @@ const tooltipStates: TooltipProps[] = [
   },
 ];
 
-export const Tooltips = (): React.ReactElement => (
+export const Standard = (): React.ReactElement => (
   <Template payload={{ dark: tooltipStates, light: tooltipStates }} />
 );

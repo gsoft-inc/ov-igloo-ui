@@ -13,9 +13,9 @@
   --ids-tooltip-spacing: 8px;
 
   /* Theme */
-  --ids-tooltip-text: var(--grey-800);
-  --ids-tooltip-background: var(--samoyed);
-  --ids-tooltip-shadow: var(--shadow-12);
+  --ids-tooltip-text: var(--samoyed);
+  --ids-tooltip-background: var(--grey-800);
+  --ids-tooltip-shadow: none;
 }
 
 .ids-tooltip {
@@ -37,14 +37,10 @@
     position: relative;
   }
 
-  &__content {
-    font-size: var(--ids-tooltip-font-size);
-  }
-
-  &-dark {
-    --ids-tooltip-text: var(--samoyed);
-    --ids-tooltip-background: var(--grey-800);
-    --ids-tooltip-shadow: none;
+  &-light {
+    --ids-tooltip-text: var(--grey-800);
+    --ids-tooltip-background: var(--samoyed);
+    --ids-tooltip-shadow: var(--shadow-12);
   }
 
   &.has-arrow::after {

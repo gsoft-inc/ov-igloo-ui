@@ -13,7 +13,7 @@ yarn add @igloo-ui/tooltip
 Then to use the component in your code just import it!
 
 ```js
-import COMPONENT_NAME from '@igloo-ui/tooltip';
+import Tooltip from '@igloo-ui/tooltip';
 // and with css-modules
 import '@igloo-ui/tooltip/dist/tooltip.css';
 ```

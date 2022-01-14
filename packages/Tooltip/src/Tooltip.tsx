@@ -37,7 +37,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
   const defaultTooltipClasses = classNames('ids-tooltip', tooltipClassName, {
     [`ids-tooltip--${position}`]: true,
     'has-arrow': arrowVisible,
-    'ids-tooltip-dark': appearance === 'dark',
+    'ids-tooltip-light': appearance === 'light',
   });
 
   const [active, setActive] = useState<boolean>(false);
@@ -67,7 +67,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
           classNames('ids-tooltip', tooltipClassName, {
             [`ids-tooltip--${visiblePosition}`]: true,
             'has-arrow': arrowVisible,
-            'ids-tooltip-dark': appearance === 'dark',
+            'ids-tooltip-light': appearance === 'light',
           })
         );
       }
