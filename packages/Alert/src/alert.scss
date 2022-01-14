@@ -1,0 +1,122 @@
+@import '~@igloo-ui/tokens/dist/base10/variables.css';
+@import '~@igloo-ui/tokens/dist/fonts.css';
+
+:root {
+  /* Default */
+  --ids-alert-font-family: var(--primary-font-family);
+  --ids-alert-font-size: var(--font-size-4);
+
+  --ids-alert-title-font-weight: var(--font-weight-semi-bold);
+  --ids-alert-padding: var(--space-3); // TODO Verify 16 px
+  --ids-alert-flex-gap: var(--space-3); // TODO Verify 16 px
+  --ids-alert-border-radius: var(--border-radius-sm); // TODO validate 4 px
+  --ids-alert-box-shadow: var(--shadow-6);
+  --ids-alert-background-color-light: var(--samoyed);
+  --ids-alert-background-color-darker: var(--grey-100);
+
+  /* Announcement */
+  --ids-alert-color-announcement: var(--seaweed-500);
+
+  /* Info */
+  --ids-alert-color-info: var(--sky-100);
+
+  /* Premium */
+  --ids-alert-color-premium: var(--dandelion-300);
+
+  /* Promo */
+  --ids-alert-color-promo: var(--dandelion-300);
+
+  /* Success */
+  --ids-alert-color-success: var(--seaweed-500);
+
+  /* Warning */
+  --ids-alert-color-warning: var(--creamsicle-200);
+}
+
+.ids-alert {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: var(--ids-alert-flex-gap);
+
+  font-family: var(--ids-alert-font-family);
+  padding: var(--ids-alert-padding);
+
+  /* Types */
+  &--announcement {
+    border-left-color: var(--ids-alert-color-announcement);
+  }
+
+  &--info {
+    border-left-color: var(--ids-alert-color-info);
+  }
+
+  &--premium {
+    border-left-color: var(--ids-alert-color-premium);
+  }
+
+  &--promo {
+    border-left-color: var(--ids-alert-color-promo);
+  }
+
+  &--success {
+    border-left-color: var(--ids-alert-color-success);
+  }
+
+  &--warning {
+    border-left-color: var(--ids-alert-color-warning);
+  }
+
+  /* Styles */
+  &--card {
+    background-color: var(--ids-alert-background-color-light);
+    border-radius: var(--ids-alert-border-radius);
+    box-shadow: var(--ids-alert-box-shadow);
+  }
+
+  &--inline {
+    background-color: var(--ids-alert-background-color-darker);
+  }
+
+  &--horizontal {
+    background-color: var(--ids-alert-background-color-darker);
+  }
+
+  /* Components */
+  &__dismiss-button {
+    order: 99;
+    flex: 0 0 auto;
+
+    i {
+
+    }
+  }
+
+  &__icon {
+    order: 0;
+    flex: 0 0 auto;
+
+    &--medium-centered {
+
+    }
+
+    &--small-top {
+
+    }
+
+    i {
+
+    }
+  }
+
+  &__content {
+    order: 1;
+    flex: 1 1 auto;
+
+    .alert-title {
+      font-weight: var(--ids-alert-title-font-weight);
+    }
+  }
+}

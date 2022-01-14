@@ -1484,6 +1484,14 @@
   resolved "https://registry.yarnpkg.com/@hutson/parse-repository-url/-/parse-repository-url-3.0.2.tgz#98c23c950a3d9b6c8f0daed06da6c3af06981340"
   integrity sha512-H9XAx3hc0BQHY6l+IFSWHDySypcXsvsuLhgYLUGywmJ5pswRVQJUHpOsobnLYp2ZUaUlKiKDrgWWhosOwAEM8Q==
 
+"@igloo-ui/button@latest":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@igloo-ui/button/-/button-0.1.3.tgz#394be440da11cee25d95c2d0110c157f174c5a0c"
+  integrity sha512-mUeKdxijqG8y08n1mp53PBDMpIbum64055fzllXdBVxd3eKd247QbJnYyehrN7hsSgaSnxj8rHUtvmMLizRIXQ==
+  dependencies:
+    "@igloo-ui/tokens" "^1.1.0"
+    classnames "^2.3.1"
+
 "@igloo-ui/icons@^0.6.2":
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/@igloo-ui/icons/-/icons-0.6.2.tgz#0b2535d0ef8d1c68bc44973ac0faf2b5f63adf9a"
