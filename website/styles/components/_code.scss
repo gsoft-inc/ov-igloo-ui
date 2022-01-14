@@ -1,0 +1,46 @@
+@import '../variables';
+
+.io-code {
+  display: block;
+  font-size: $fs-5;
+  font-family: monospace;
+  margin: $size-2 0;
+
+  + .io-title {
+    margin-top: $size-4;
+  }
+
+  &--inline {
+    display: inline-block;
+    font-family: monospace;
+    font-size: $fs-5;
+    color: $c-code;
+    line-height: 2;
+    background: rgb(175, 184, 193, 0.25);
+    padding: 0 $size-1;
+    border-radius: $br-2;
+  }
+
+  &--light {
+    background: transparent;
+  }
+
+  &--copy {
+    display: flex;
+    align-items: center;
+    gap: $size-1;
+
+    .io-btn-copy {
+      opacity: 0;
+      transform: translateX(-50%);
+      transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+    }
+
+    &:hover {
+      .io-btn-copy {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+}
