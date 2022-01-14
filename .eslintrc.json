@@ -62,6 +62,7 @@
     "**/*.test.tsx",
     "**/*.stories.tsx",
     "*.css",
-    "*.svg"
+    "*.svg",
+    "website"
   ]
 }
