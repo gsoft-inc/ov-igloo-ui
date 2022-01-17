@@ -1,6 +1,16 @@
 import React, { RefObject, useRef } from 'react';
+import HTMLReactParser from 'html-react-parser';
 import classNames from 'classnames';
+
 import Close from '@igloo-ui/icons/dist/Close';
+import {
+  TadaIcon,
+  InfoIcon,
+  CrownIcon,
+  PromoIcon,
+  SuccessIcon,
+  WarningIcon,
+} from './svgs';
 
 import './alert.scss';
 
@@ -34,7 +44,11 @@ export interface AlertProps extends React.ComponentProps<'div'> {
   onDismissClick?: () => void;
 }
 
-const renderIcon = (style: Style, iconStyle: IconStyle): JSX.Element => {
+const renderIcon = (
+  style: Style,
+  iconStyle: IconStyle,
+  type: Type
+): JSX.Element => {
   const classes = classNames('ids-alert__icon', {
     [`ids-alert__icon--${style}`]: true,
     [`ids-alert__icon--${iconStyle}`]: true,
@@ -42,7 +56,12 @@ const renderIcon = (style: Style, iconStyle: IconStyle): JSX.Element => {
 
   return (
     <div className={classes}>
-      <i />
+      {type === 'announcement' && HTMLReactParser(TadaIcon)}
+      {type === 'info' && HTMLReactParser(InfoIcon)}
+      {type === 'premium' && HTMLReactParser(CrownIcon)}
+      {type === 'promo' && HTMLReactParser(PromoIcon)}
+      {type === 'success' && HTMLReactParser(SuccessIcon)}
+      {type === 'warning' && HTMLReactParser(WarningIcon)}
     </div>
   );
 };
@@ -56,9 +75,9 @@ const renderDismissButton = (
       onDismissClick();
     }
 
-    if (ref && ref.current && ref.current.style) {
-      ref.current.style.display = 'none';
-    }
+    // if (ref && ref.current && ref.current.style) {
+    //   ref.current.style.display = 'none';
+    // }
   };
 
   return (
@@ -89,7 +108,9 @@ const Alert: React.FunctionComponent<AlertProps> = (props: AlertProps) => {
 
   return (
     <div className={classes} ref={parentElement} {...rest}>
-      {alertStyle !== 'horizontal' && renderIcon(alertStyle, iconStyle)}
+      {alertStyle !== 'horizontal' &&
+        type !== 'none' &&
+        renderIcon(alertStyle, iconStyle, type)}
       <div className="ids-alert__content">{children}</div>
       {isDismissible && renderDismissButton(parentElement, onDismissClick)}
     </div>

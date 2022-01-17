@@ -30,7 +30,7 @@
   --ids-alert-color-premium: var(--dandelion-300);
 
   /* Promo */
-  --ids-alert-color-promo: var(--dandelion-300);
+  --ids-alert-color-promo: var(--sky-100);
 
   /* Success */
   --ids-alert-color-success: var(--seaweed-500);
@@ -55,48 +55,48 @@
   &--announcement {
     border-left-color: var(--ids-alert-color-announcement);
 
-    .ids-alert__icon {
-      background-color: var(--ids-alert-color-announcement);
+    #ids-alert-icon-circle {
+      fill: var(--ids-alert-color-announcement);
     }
   }
 
   &--info {
     border-left-color: var(--ids-alert-color-info);
 
-    .ids-alert__icon {
-      background-color: var(--ids-alert-color-info);
+    #ids-alert-icon-circle {
+      fill: var(--ids-alert-color-info);
     }
   }
 
   &--premium {
     border-left-color: var(--ids-alert-color-premium);
 
-    .ids-alert__icon {
-      background-color: var(--ids-alert-color-premium);
+    #ids-alert-icon-circle {
+      fill: var(--ids-alert-color-premium);
     }
   }
 
   &--promo {
     border-left-color: var(--ids-alert-color-promo);
 
-    .ids-alert__icon {
-      background-color: var(--ids-alert-color-promo);
+    #ids-alert-icon-circle {
+      fill: var(--ids-alert-color-promo);
     }
   }
 
   &--success {
     border-left-color: var(--ids-alert-color-success);
 
-    .ids-alert__icon {
-      background-color: var(--ids-alert-color-success);
+    #ids-alert-icon-circle {
+      fill: var(--ids-alert-color-success);
     }
   }
 
   &--warning {
     border-left-color: var(--ids-alert-color-warning);
 
-    .ids-alert__icon {
-      background-color: var(--ids-alert-color-warning);
+    #ids-alert-icon-circle {
+      fill: var(--ids-alert-color-warning);
     }
   }
 
@@ -138,22 +138,26 @@
     flex: 0 0 auto;
     border-radius: 50%;
 
-    &--medium-centered {
-      height: var(--ids-alert-icon-size-medium);
-      width: var(--ids-alert-icon-size-medium);
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
 
+    &--medium-centered {
       align-self: center;
+
+      svg {
+        height: var(--ids-alert-icon-size-medium);
+        width: var(--ids-alert-icon-size-medium);
+      }
     }
 
     &--small-top {
-      height: var(--ids-alert-icon-size-small);
-      width: var(--ids-alert-icon-size-small);
-
       align-self: flex-start;
-    }
 
-    i {
-
+      svg {
+        height: var(--ids-alert-icon-size-small);
+        width: var(--ids-alert-icon-size-small);
+      }
     }
   }
 
