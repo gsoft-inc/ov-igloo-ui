@@ -32,14 +32,20 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
 
   const classes = classNames('ids-tooltip__container', className);
 
-  const defaultTooltipClasses = classNames('ids-tooltip', tooltipClassName, {
-    [`ids-tooltip--${position}`]: true,
-    'ids-tooltip--light': appearance === 'light',
-  });
+  const defaultTooltipClasses = (visiblePosition: Position): string => {
+    return classNames(
+      'ids-tooltip',
+      tooltipClassName,
+      `ids-tooltip--${visiblePosition}`,
+      {
+        'ids-tooltip--light': appearance === 'light',
+      }
+    );
+  };
 
   const [active, setActive] = useState<boolean>(false);
   const [tooltipClasses, setTooltipClasses] = useState<string>(
-    defaultTooltipClasses
+    defaultTooltipClasses(position)
   );
 
   const tooltipElement = useRef<HTMLDivElement>(null);
@@ -60,12 +66,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
           position
         );
 
-        setTooltipClasses(
-          classNames('ids-tooltip', tooltipClassName, {
-            [`ids-tooltip--${visiblePosition}`]: true,
-            'ids-tooltip--light': appearance === 'light',
-          })
-        );
+        setTooltipClasses(defaultTooltipClasses(visiblePosition));
       }
     }, 0);
   };
@@ -73,7 +74,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
   const onMouseLeaveHandle = (): void => {
     setActive(false);
 
-    setTooltipClasses(defaultTooltipClasses);
+    setTooltipClasses(defaultTooltipClasses(position));
   };
 
   return (
