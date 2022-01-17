@@ -39,6 +39,7 @@
       { "ts": "never", "tsx": "never" }
     ],
     "import/prefer-default-export": "off",
+    "import/no-unresolved": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   },
@@ -46,6 +47,7 @@
     "import/parsers": {
       "@typescript-eslint/parser": [".ts", ".tsx"]
     },
+    "import/internal-regex": ["^@igloo-ui/"],
     "import/resolver": {
       "typescript": {
         "project": "packages/*/tsconfig.json"
