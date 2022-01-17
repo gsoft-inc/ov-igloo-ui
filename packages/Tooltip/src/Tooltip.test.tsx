@@ -7,8 +7,7 @@ import { shallow } from 'enzyme';
 import Tooltip, { TooltipProps } from './Tooltip';
 
 const setUp = (props: TooltipProps) => {
-  const component = shallow(<Tooltip {...props}>tooltip</Tooltip>);
-  return component;
+  return shallow(<Tooltip {...props}>tooltip</Tooltip>);
 };
 
 describe('Tooltip', () => {
@@ -56,15 +55,15 @@ describe('Tooltip', () => {
 
   test('It should render using light theme', (): void => {
     const tooltip = setUp({ appearance: 'light', children: 'children' });
-    const bubble = tooltip.find('.ids-tooltip-dark');
+    const bubble = tooltip.find('.ids-tooltip-light');
 
-    expect(bubble.length).toBe(0);
+    expect(bubble.length).toBe(1);
   });
 
   test('It should render using dark theme', (): void => {
     const tooltip = setUp({ appearance: 'dark', children: 'children' });
-    const bubble = tooltip.find('.ids-tooltip-dark');
+    const bubble = tooltip.find('.ids-tooltip-light');
 
-    expect(bubble.length).toBe(1);
+    expect(bubble.length).toBe(0);
   });
 });
