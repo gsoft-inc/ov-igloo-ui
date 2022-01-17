@@ -13,7 +13,6 @@ const FORMAT = 'es';
 
 function capitalize(string) {
   return camelcase(string, { pascalCase: true });
-  // return string[0].toUpperCase() + string.slice(1);
 }
 
 function handleName(name) {

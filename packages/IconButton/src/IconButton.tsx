@@ -6,7 +6,6 @@ import Button from '@igloo-ui/button';
 import './icon-button.scss';
 
 export type Size = 'xsmall' | 'small' | 'medium' | 'large';
-export type Theme = 'default' | 'round';
 
 export interface IconButtonProps
   extends React.ComponentPropsWithoutRef<'button'> {
@@ -22,8 +21,8 @@ export interface IconButtonProps
   disabled?: boolean;
   /** Button size */
   size?: Size;
-  /** The button's theme */
-  theme?: Theme;
+  /** True for rounded corners */
+  rounded?: boolean;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
 }
@@ -37,17 +36,14 @@ const IconButton: React.FunctionComponent<IconButtonProps> = (
     onClick,
     disabled = false,
     size = 'medium',
-    theme = 'default',
+    rounded = false,
     dataTest,
     ...rest
   } = props;
 
-  const classes = cx(
-    'ids-icon-btn',
-    `ids-icon-btn--${theme}`,
-    `ids-icon-btn--${size}`,
-    className
-  );
+  const classes = cx('ids-icon-btn', `ids-icon-btn--${size}`, className, {
+    'ids-icon-btn--round': rounded,
+  });
 
   return (
     <Button className={classes} onClick={onClick} disabled={disabled} {...rest}>
