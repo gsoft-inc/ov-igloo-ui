@@ -55,14 +55,14 @@ describe('Tooltip', () => {
 
   test('It should render using light theme', (): void => {
     const tooltip = setUp({ appearance: 'light', children: 'children' });
-    const bubble = tooltip.find('.ids-tooltip-light');
+    const bubble = tooltip.find('.ids-tooltip--light');
 
     expect(bubble.length).toBe(1);
   });
 
   test('It should render using dark theme', (): void => {
     const tooltip = setUp({ appearance: 'dark', children: 'children' });
-    const bubble = tooltip.find('.ids-tooltip-light');
+    const bubble = tooltip.find('.ids-tooltip--light');
 
     expect(bubble.length).toBe(0);
   });

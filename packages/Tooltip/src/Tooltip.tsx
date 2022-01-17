@@ -7,13 +7,12 @@ import './tooltip.scss';
 export type Appearance = 'dark' | 'light';
 
 export interface TooltipProps extends React.ComponentProps<'div'> {
-  children: string | React.ReactNode;
+  children: React.ReactNode;
   tooltipClassName?: string;
   content?: React.ReactNode;
   position?: Position;
   appearance?: Appearance;
   maxWidth?: number;
-  arrowVisible?: boolean;
   active?: boolean;
 }
 
@@ -27,7 +26,6 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     position = 'top',
     appearance = 'dark',
     maxWidth = 200,
-    arrowVisible = true,
     className,
     ...rest
   } = props;
@@ -36,8 +34,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
 
   const defaultTooltipClasses = classNames('ids-tooltip', tooltipClassName, {
     [`ids-tooltip--${position}`]: true,
-    'has-arrow': arrowVisible,
-    'ids-tooltip-light': appearance === 'light',
+    'ids-tooltip--light': appearance === 'light',
   });
 
   const [active, setActive] = useState<boolean>(false);
@@ -66,8 +63,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
         setTooltipClasses(
           classNames('ids-tooltip', tooltipClassName, {
             [`ids-tooltip--${visiblePosition}`]: true,
-            'has-arrow': arrowVisible,
-            'ids-tooltip-light': appearance === 'light',
+            'ids-tooltip--light': appearance === 'light',
           })
         );
       }

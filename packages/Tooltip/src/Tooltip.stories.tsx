@@ -118,11 +118,6 @@ const tooltipStates: TooltipProps[] = [
     position: 'left',
   },
   {
-    children: 'No Arrow',
-    content: tooltipContent,
-    arrowVisible: false,
-  },
-  {
     children: 'With ReactComponent',
     content: demoReactComponent,
     position: 'bottom',
