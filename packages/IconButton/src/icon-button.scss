@@ -5,6 +5,7 @@
   /* Default */
   --ids-icon-btn-height: var(--space-5);
   --ids-icon-btn-width: var(--space-5);
+  --ids-icon-btn-active: var(--electric-blue-500);
 
   /* XSmall */
   --ids-icon-btn-height-xsmall: var(--space-3);
@@ -22,7 +23,6 @@
   --ids-icon-btn-ghost: var(--grey-500);
   --ids-icon-btn-ghost-hover: var(--grey-900);
   --ids-icon-btn-ghost-disabled: var(--grey-300);
-  --ids-icon-btn-ghost-active: var(--electric-blue-500);
 }
 
 .ids-icon-btn {
@@ -61,20 +61,20 @@
     &--ghost {
       color: var(--ids-icon-btn-ghost);
       background: var(--ids-icon-btn-background-ghost);
-  
+
       &:hover {
         color: var(--ids-icon-btn-ghost-hover);
       }
-  
+
       &:disabled {
         color: var(--ids-icon-btn-ghost-disabled);
       }
     }
-  
+
     &--active {
-      color: var(--ids-icon-btn-ghost-active);
+      color: var(--ids-icon-btn-active);
     }
-  
+
     > span {
       margin: -1px; // Since there is a 1px border for ids-btn
     }
