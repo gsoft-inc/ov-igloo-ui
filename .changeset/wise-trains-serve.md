@@ -15,5 +15,5 @@ Add IconButton component to create buttons with an SVG icon inside it.
 | onClick   | Callback function that will be called when the user clicks on the button.                       |
 | disabled  | True if the control is disabled and shows a disabled state. The user cannot click on the button |
 | size      | Button size                                                                                     |
-| theme     | The button's theme                                                                              |
+| rounded   | True for rounded corners                                                                        |
 | dataTest  | Add a data-test tag for automated tests                                                         |
