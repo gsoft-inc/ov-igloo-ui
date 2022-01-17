@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { RefObject, useRef } from 'react';
 import classNames from 'classnames';
 import Close from '@igloo-ui/icons/dist/Close';
 
@@ -47,11 +47,23 @@ const renderIcon = (style: Style, iconStyle: IconStyle): JSX.Element => {
   );
 };
 
-const renderDismissButton = (onDismissClick?: () => void): JSX.Element => {
-  // TODO add icon close
+const renderDismissButton = (
+  ref: RefObject<HTMLDivElement>,
+  onDismissClick?: () => void
+): JSX.Element => {
+  const action = (): void => {
+    if (onDismissClick) {
+      onDismissClick();
+    }
+
+    if (ref && ref.current && ref.current.style) {
+      ref.current.style.display = 'none';
+    }
+  };
+
   return (
     <button className="ids-alert__dismiss-button" onClick={onDismissClick}>
-      <Close size="small" />
+      <Close size="small" fill="color: #838B95" />
     </button>
   );
 };
@@ -73,11 +85,13 @@ const Alert: React.FunctionComponent<AlertProps> = (props: AlertProps) => {
     [`ids-alert--${type}`]: type !== 'none',
   });
 
+  const parentElement = useRef<HTMLDivElement>(null);
+
   return (
-    <div className={classes} {...rest}>
+    <div className={classes} ref={parentElement} {...rest}>
       {alertStyle !== 'horizontal' && renderIcon(alertStyle, iconStyle)}
       <div className="ids-alert__content">{children}</div>
-      {isDismissible && renderDismissButton(onDismissClick)}
+      {isDismissible && renderDismissButton(parentElement, onDismissClick)}
     </div>
   );
 };

@@ -18,22 +18,25 @@ interface TemplateProps {
 
 const Template = ({ payload }: TemplateProps): React.ReactElement => {
   const componentStyle = Object.keys(payload);
-  const { card, inline, horizontal } = payload;
 
-  const component = componentStyle.map((type, index) => {
-    const list = component.map((preview, previewIndex) => {
+  const component = componentStyle.map((style, index) => {
+    const list = payload[style as Style].map((preview, previewIndex) => {
       const displayContainerStyle = {
         order: previewIndex,
       };
 
       return (
         <div style={displayContainerStyle} key={previewIndex.toString()}>
-          <Alert key={previewIndex.toString()} {...preview} />
+          <Alert
+            key={previewIndex.toString()}
+            alertStyle={style as Style}
+            {...preview}
+          />
         </div>
       );
     });
 
-    const title = type.charAt(0).toUpperCase() + type.slice(1);
+    const title = style.charAt(0).toUpperCase() + style.slice(1);
 
     return (
       <section className="isb-section" key={index.toString()}>
@@ -76,10 +79,22 @@ const alertProps = (type: Type): AlertProps[] => {
     {
       children: demoWithCallToActionReactComponent,
       type,
+      iconStyle: 'medium-centered',
     },
     {
       children: demoWithoutCallToActionReactComponent,
       type,
+      iconStyle: 'medium-centered',
+    },
+    {
+      children: demoWithCallToActionReactComponent,
+      type,
+      iconStyle: 'small-top',
+    },
+    {
+      children: demoWithoutCallToActionReactComponent,
+      type,
+      iconStyle: 'small-top',
     },
   ];
 };
