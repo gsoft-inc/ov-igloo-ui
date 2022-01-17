@@ -1,0 +1,28 @@
+{
+  "name": "@igloo-ui/tooltip",
+  "version": "0.0.1",
+  "main": "dist/Tooltip.js",
+  "module": "dist/Tooltip.js",
+  "types": "dist/Tooltip.d.ts",
+  "styles": "dist/tooltip.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "author": "Officevibe Inc.",
+  "contributors": [
+    "Franck franck.gaudin@gsoft.com",
+    "Alexande alexandre.beaudoin@gsoft.com"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@igloo-ui/tokens": "^1.0.0",
+    "classnames": "^2.3.1"
+  }
+}
