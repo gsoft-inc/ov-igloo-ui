@@ -13,7 +13,7 @@ yarn add @igloo-ui/icon-button
 Then to use the component in your code just import it!
 
 ```js
-import icon-button from '@igloo-ui/icon-button';
+import IconButton from '@igloo-ui/IconButton';
 // and with css-modules
-import '@igloo-ui/icon-button/dist/icon-button.css';
+import '@igloo-ui/icon-button/dist/iconbutton.css';
 ```
