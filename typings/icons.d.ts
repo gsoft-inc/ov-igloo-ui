@@ -24,3 +24,21 @@ declare module '@igloo-ui/icons/dist/RemoveSolid' {
 declare module '@igloo-ui/icons/dist/Close' {
   export default function Close(props: iconsProps): JSX.Element;
 }
+
+declare module '@igloo-ui/icons/dist/Settings' {
+  export default function Start(props: {
+    width?: number;
+    height?: number;
+    fill?: string;
+    size?: 'small' | 'medium' | 'large';
+  }): JSX.Element;
+}
+
+declare module '@igloo-ui/icons/dist/Search' {
+  export default function Start(props: {
+    width?: number;
+    height?: number;
+    fill?: string;
+    size?: 'small' | 'medium' | 'large';
+  }): JSX.Element;
+}
