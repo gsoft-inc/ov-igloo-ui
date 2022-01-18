@@ -34,6 +34,7 @@
     "@babel/preset-react": "7.16.7",
     "@babel/preset-typescript": "7.16.7",
     "@changesets/cli": "2.17.0",
+    "@netlify/plugin-nextjs": "4.2.0",
     "@rollup/plugin-commonjs": "20.0.0",
     "@rollup/plugin-eslint": "8.0.1",
     "@rollup/plugin-json": "4.1.0",

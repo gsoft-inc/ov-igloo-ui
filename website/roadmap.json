@@ -2,8 +2,11 @@
   ["Tokens", "ready"],
   ["Icons", "ready"],
   ["Ellipsis", "ready"],
-  ["Button", "beta"],
-  ["Card", "beta"],
-  ["Input", "beta"],
-  ["Toaster", "wip"]
+  ["Button", "ready"],
+  ["Card", "ready"],
+  ["Input", "ready"],
+  ["Tooltip", "ready"],
+  ["IconButton", "ready"],
+  ["Toaster", "wip"],
+  ["Alert", "wip"]
 ]
