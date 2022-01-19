@@ -98,16 +98,11 @@ const renderAlertActionButton = (
     return <></>;
   }
 
-  if (style === 'horizontal') {
-    return (
-      <a onClick={onAlertActionClick} className="ids-alert__link">
-        {alertActionText}
-      </a>
-    );
-  }
-
   return (
-    <Button appearance="secondary" onClick={onAlertActionClick}>
+    <Button
+      appearance={style === 'horizontal' ? 'ghost' : 'secondary'}
+      onClick={onAlertActionClick}
+    >
       {alertActionText}
     </Button>
   );

@@ -2,102 +2,136 @@ import React from 'react';
 
 import { Meta } from '@storybook/react';
 
-import Alert, { AlertProps, Type, Style } from './Alert';
+import Alert, { AlertProps, Type } from './Alert';
 
 export default {
   title: 'Components/Alert',
   component: Alert,
 } as Meta;
 
-interface TemplateProps {
-  payload: {
-    [key in Style]: AlertProps[];
-  };
+interface Templates {
+  payload: TemplateProperties[];
 }
 
-const Template = ({ payload }: TemplateProps): React.ReactElement => {
-  const componentStyle = Object.keys(payload);
+interface TemplateProperties {
+  title: string;
+  alertProperties: AlertProps;
+}
 
-  const component = componentStyle.map((style, index) => {
-    const list = payload[style as Style].map((preview, previewIndex) => {
-      const displayContainerStyle = {
-        order: previewIndex,
-        width: '100%',
-      };
+const Template = ({ payload }: Templates): React.ReactElement => {
+  const components = payload.map(({ title, alertProperties }, index) => {
+    console.log(
+      `Title: ${title}; Properties: ${alertProperties}; Index ${index}`
+    );
 
-      return (
-        <div className="isb-section__content">
-          <div style={displayContainerStyle} key={previewIndex.toString()}>
-            <Alert
-              key={previewIndex.toString()}
-              alertStyle={style as Style}
-              {...preview}
-            />
-          </div>
-        </div>
-      );
-    });
-
-    const title = style.charAt(0).toUpperCase() + style.slice(1);
+    const displayContainerStyle = {
+      order: index,
+      width: '100%',
+      maxWidth: 900,
+    };
 
     return (
       <section className="isb-section" key={index.toString()}>
         <h2>{title}</h2>
-        {list}
+        <div className="isb-section__content">
+          <div style={displayContainerStyle} key={index.toString()}>
+            <Alert key={index.toString()} {...alertProperties} />
+          </div>
+        </div>
       </section>
     );
   });
 
-  return <>{component}</>;
+  return <>{components}</>;
 };
+
+const demoTitleText: string = 'Lorem ipsum dolor sit amet';
+
+const demoText: string =
+  'Praesent fringilla, magna in scelerisque tristique, turpis mi pharetra lectus, blandit varius sapien dolor nec arcu. Praesent tempus, purus vel rutrum vestibulum, metus nisl vestibulum purus, vel feugiat augue diam vel eros.';
+
+const demoButtonText: string = 'Vivamus id elit';
 
 const demoAlertWithTitle: React.ReactNode = (
   <>
-    <p className="alert-title">Lorem ipsum dolor sit amet</p>
-    <p>
-      Praesent fringilla, magna in scelerisque tristique, turpis mi pharetra
-      lectus, blandit varius sapien dolor nec arcu. Praesent tempus, purus vel
-      rutrum vestibulum, metus nisl vestibulum purus, vel feugiat augue diam vel
-      eros.
-    </p>
+    <p className="alert-title">{demoTitleText}</p>
+    <p>{demoText}</p>
   </>
 );
 
-const alertProps = (type: Type): AlertProps[] => {
+const demoAlertWithoutTitle: React.ReactNode = <p>{demoText}</p>;
+
+const alertStyles = (type: Type): TemplateProperties[] => {
   return [
     {
-      children: demoAlertWithTitle,
-      type,
-      iconStyle: 'medium-centered',
-      onAlertActionClick: () => alert('Action!'),
-      alertActionText: 'Vivamus id elit',
+      title: 'Card',
+      alertProperties: {
+        children: demoAlertWithTitle,
+        type,
+      },
     },
     {
-      children: demoAlertWithTitle,
-      type,
-      iconStyle: 'medium-centered',
+      title: 'Card + Button',
+      alertProperties: {
+        children: demoAlertWithTitle,
+        type,
+        onAlertActionClick: () => alert('Action!'),
+        alertActionText: demoButtonText,
+      },
     },
     {
-      children: demoAlertWithTitle,
-      type,
-      iconStyle: 'small-top',
-      onAlertActionClick: () => alert('Action!'),
-      alertActionText: 'Vivamus id elit',
+      title: 'Inline',
+      alertProperties: {
+        children: demoAlertWithTitle,
+        type,
+        alertStyle: 'inline',
+      },
     },
     {
-      children: demoAlertWithTitle,
-      type,
-      iconStyle: 'small-top',
+      title: 'Inline + Button',
+      alertProperties: {
+        children: demoAlertWithTitle,
+        type,
+        alertStyle: 'inline',
+        onAlertActionClick: () => alert('Action!'),
+        alertActionText: demoButtonText,
+      },
+    },
+    {
+      title: 'Horizontal',
+      alertProperties: {
+        children: demoAlertWithoutTitle,
+        type,
+        alertStyle: 'horizontal',
+      },
+    },
+    {
+      title: 'Horizontal + Button',
+      alertProperties: {
+        children: demoAlertWithoutTitle,
+        type,
+        alertStyle: 'horizontal',
+        onAlertActionClick: () => alert('Action!'),
+        alertActionText: demoButtonText,
+      },
+    },
+    {
+      title: 'Not Dismissible',
+      alertProperties: {
+        children: demoAlertWithTitle,
+        type,
+        isDismissible: false,
+      },
+    },
+    {
+      title: 'Small-Top Icon',
+      alertProperties: {
+        children: demoAlertWithTitle,
+        type,
+        iconStyle: 'small-top',
+      },
     },
   ];
-};
-
-const alertStyles = (type: Type): { [key in Style]: AlertProps[] } => {
-  return {
-    card: alertProps(type),
-    inline: alertProps(type),
-    horizontal: alertProps(type),
-  };
 };
 
 export const Announcement = (): React.ReactElement => (
