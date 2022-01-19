@@ -2,6 +2,7 @@ import React, { RefObject, useRef, useState } from 'react';
 import HTMLReactParser from 'html-react-parser';
 import classNames from 'classnames';
 
+import Button from '@igloo-ui/button';
 import Close from '@igloo-ui/icons/dist/Close';
 import {
   TadaIcon,
@@ -42,6 +43,8 @@ export interface AlertProps extends React.ComponentProps<'div'> {
   isDismissible?: boolean;
   // Action on alert dismiss click
   onDismissClick?: () => void;
+  onAlertActionClick?: () => void;
+  alertActionText?: string;
 }
 
 const renderIcon = (
@@ -81,8 +84,32 @@ const renderDismissButton = (
 
   return (
     <button className="ids-alert__dismiss-button" onClick={action}>
-      <Close size="small" fill="color: #838B95" />
+      <Close size="small" fill="#838B95" />
     </button>
+  );
+};
+
+const renderAlertActionButton = (
+  style: Style,
+  alertActionText?: string,
+  onAlertActionClick?: () => void
+): JSX.Element => {
+  if (alertActionText == null || onAlertActionClick == null) {
+    return <></>;
+  }
+
+  if (style === 'horizontal') {
+    return (
+      <a onClick={onAlertActionClick} className="ids-alert__link">
+        {alertActionText}
+      </a>
+    );
+  }
+
+  return (
+    <Button appearance="secondary" onClick={onAlertActionClick}>
+      {alertActionText}
+    </Button>
   );
 };
 
@@ -95,6 +122,8 @@ const Alert: React.FunctionComponent<AlertProps> = (props: AlertProps) => {
     iconStyle = 'medium-centered',
     isDismissible = true,
     onDismissClick,
+    onAlertActionClick,
+    alertActionText,
     ...rest
   } = props;
 
@@ -113,7 +142,14 @@ const Alert: React.FunctionComponent<AlertProps> = (props: AlertProps) => {
           type !== 'none' &&
           renderIcon(alertStyle, iconStyle, type)}
 
-        <div className="ids-alert__content">{children}</div>
+        <div className="ids-alert__body">
+          <div className="ids-alert__content">{children}</div>
+          {renderAlertActionButton(
+            alertStyle,
+            alertActionText,
+            onAlertActionClick
+          )}
+        </div>
 
         {isDismissible &&
           renderDismissButton(parentElement, setShow, onDismissClick)}

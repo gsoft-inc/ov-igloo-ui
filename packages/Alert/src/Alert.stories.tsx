@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Meta } from '@storybook/react';
-import Button from '@igloo-ui/button';
 
 import Alert, { AlertProps, Type, Style } from './Alert';
 
@@ -23,15 +22,18 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
     const list = payload[style as Style].map((preview, previewIndex) => {
       const displayContainerStyle = {
         order: previewIndex,
+        width: '100%',
       };
 
       return (
-        <div style={displayContainerStyle} key={previewIndex.toString()}>
-          <Alert
-            key={previewIndex.toString()}
-            alertStyle={style as Style}
-            {...preview}
-          />
+        <div className="isb-section__content">
+          <div style={displayContainerStyle} key={previewIndex.toString()}>
+            <Alert
+              key={previewIndex.toString()}
+              alertStyle={style as Style}
+              {...preview}
+            />
+          </div>
         </div>
       );
     });
@@ -41,7 +43,7 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
     return (
       <section className="isb-section" key={index.toString()}>
         <h2>{title}</h2>
-        <div className="isb-section__content">{list}</div>
+        {list}
       </section>
     );
   });
@@ -49,20 +51,7 @@ const Template = ({ payload }: TemplateProps): React.ReactElement => {
   return <>{component}</>;
 };
 
-const demoWithCallToActionReactComponent: React.ReactNode = (
-  <>
-    <p className="alert-title">Lorem ipsum dolor sit amet</p>
-    <p>
-      Praesent fringilla, magna in scelerisque tristique, turpis mi pharetra
-      lectus, blandit varius sapien dolor nec arcu. Praesent tempus, purus vel
-      rutrum vestibulum, metus nisl vestibulum purus, vel feugiat augue diam vel
-      eros.
-    </p>
-    <Button appearance="secondary">Vivamus id elit</Button>
-  </>
-);
-
-const demoWithoutCallToActionReactComponent: React.ReactNode = (
+const demoAlertWithTitle: React.ReactNode = (
   <>
     <p className="alert-title">Lorem ipsum dolor sit amet</p>
     <p>
@@ -77,22 +66,26 @@ const demoWithoutCallToActionReactComponent: React.ReactNode = (
 const alertProps = (type: Type): AlertProps[] => {
   return [
     {
-      children: demoWithCallToActionReactComponent,
+      children: demoAlertWithTitle,
+      type,
+      iconStyle: 'medium-centered',
+      onAlertActionClick: () => alert('Action!'),
+      alertActionText: 'Vivamus id elit',
+    },
+    {
+      children: demoAlertWithTitle,
       type,
       iconStyle: 'medium-centered',
     },
     {
-      children: demoWithoutCallToActionReactComponent,
-      type,
-      iconStyle: 'medium-centered',
-    },
-    {
-      children: demoWithCallToActionReactComponent,
+      children: demoAlertWithTitle,
       type,
       iconStyle: 'small-top',
+      onAlertActionClick: () => alert('Action!'),
+      alertActionText: 'Vivamus id elit',
     },
     {
-      children: demoWithoutCallToActionReactComponent,
+      children: demoAlertWithTitle,
       type,
       iconStyle: 'small-top',
     },
