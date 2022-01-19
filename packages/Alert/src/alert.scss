@@ -5,7 +5,6 @@
   /* Default */
   --ids-alert-font-family: var(--primary-font-family);
   --ids-alert-font-size: var(--font-size-4);
-
   --ids-alert-title-font-weight: var(--font-weight-semi-bold);
   --ids-alert-padding: var(--space-3); // TODO Verify 16 px
   --ids-alert-flex-gap: var(--space-3); // TODO Verify 16 px
@@ -16,7 +15,6 @@
   --ids-alert-border-left-width: 6px;
   --ids-alert-text-color-title: var(--black);
   --ids-alert-text-color-body: var(--grey-600);
-
   --ids-alert-icon-size-small: 26px;
   --ids-alert-icon-size-medium: 40px;
 
@@ -119,7 +117,6 @@
   &__dismiss-button {
     order: 99;
     flex: 0 0 auto;
-
     padding: 0;
     font-size: 0;
     background-color: transparent;

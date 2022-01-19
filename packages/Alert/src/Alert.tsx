@@ -1,4 +1,4 @@
-import React, { RefObject, useRef } from 'react';
+import React, { RefObject, useRef, useState } from 'react';
 import HTMLReactParser from 'html-react-parser';
 import classNames from 'classnames';
 
@@ -68,6 +68,7 @@ const renderIcon = (
 
 const renderDismissButton = (
   ref: RefObject<HTMLDivElement>,
+  setShow: (show: boolean) => void,
   onDismissClick?: () => void
 ): JSX.Element => {
   const action = (): void => {
@@ -75,13 +76,11 @@ const renderDismissButton = (
       onDismissClick();
     }
 
-    // if (ref && ref.current && ref.current.style) {
-    //   ref.current.style.display = 'none';
-    // }
+    setShow(false);
   };
 
   return (
-    <button className="ids-alert__dismiss-button" onClick={onDismissClick}>
+    <button className="ids-alert__dismiss-button" onClick={action}>
       <Close size="small" fill="color: #838B95" />
     </button>
   );
@@ -105,16 +104,24 @@ const Alert: React.FunctionComponent<AlertProps> = (props: AlertProps) => {
   });
 
   const parentElement = useRef<HTMLDivElement>(null);
+  const [show, setShow] = useState(true);
 
-  return (
-    <div className={classes} ref={parentElement} {...rest}>
-      {alertStyle !== 'horizontal' &&
-        type !== 'none' &&
-        renderIcon(alertStyle, iconStyle, type)}
-      <div className="ids-alert__content">{children}</div>
-      {isDismissible && renderDismissButton(parentElement, onDismissClick)}
-    </div>
-  );
+  if (show) {
+    return (
+      <div className={classes} ref={parentElement} {...rest}>
+        {alertStyle !== 'horizontal' &&
+          type !== 'none' &&
+          renderIcon(alertStyle, iconStyle, type)}
+
+        <div className="ids-alert__content">{children}</div>
+
+        {isDismissible &&
+          renderDismissButton(parentElement, setShow, onDismissClick)}
+      </div>
+    );
+  }
+
+  return <></>;
 };
 
 export default Alert;
