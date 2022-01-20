@@ -78,6 +78,7 @@
 }
 
 .ids-loader {
+  position: absolute;
   width: var(--ids-loader-size);
   height: var(--ids-loader-size);
   border: var(--ids-loader-border);
@@ -101,13 +102,17 @@
   width: 100%;
   height: var(--ids-btn-height);
   padding: 0 var(--ids-btn-padding);
-}
 
-.ids-btn > span {
-  min-width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  > .is-hidden {
+    visibility: hidden;
+  }
+
+  > span {
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 
 .ids-btn:focus,
@@ -139,6 +144,12 @@
 .ids-btn.ids-btn--loading {
   pointer-events: none;
   user-select: none;
+
+  &.has-icon {
+    svg {
+      visibility: hidden;
+    }
+  }
 }
 
 .ids-btn--ghost .ids-loader {
