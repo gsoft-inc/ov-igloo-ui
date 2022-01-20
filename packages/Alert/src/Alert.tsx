@@ -3,6 +3,7 @@ import HTMLReactParser from 'html-react-parser';
 import classNames from 'classnames';
 
 import Button from '@igloo-ui/button';
+import IconButton from '@igloo-ui/icon-button';
 import Close from '@igloo-ui/icons/dist/Close';
 import {
   TadaIcon,
@@ -43,7 +44,9 @@ export interface AlertProps extends React.ComponentProps<'div'> {
   isDismissible?: boolean;
   // Action on alert dismiss click
   onDismissClick?: () => void;
+  // Action on alert button click
   onAlertActionClick?: () => void;
+  // Text on alert button
   alertActionText?: string;
 }
 
@@ -83,9 +86,14 @@ const renderDismissButton = (
   };
 
   return (
-    <button className="ids-alert__dismiss-button" onClick={action}>
-      <Close size="small" fill="#838B95" />
-    </button>
+    <IconButton
+      appearance="ghost"
+      className="ids-alert__dismiss-button"
+      type="button"
+      size="xsmall"
+      icon={<Close size="small" />}
+      onClick={action}
+    />
   );
 };
 

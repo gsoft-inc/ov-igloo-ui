@@ -134,6 +134,10 @@ const alertStyles = (type: Type): TemplateProperties[] => {
   ];
 };
 
+export const Playground: React.VFC<AlertProps> = (args) => (
+  <Alert {...args}>Playground</Alert>
+);
+
 export const Announcement = (): React.ReactElement => (
   <Template payload={alertStyles('announcement')} />
 );

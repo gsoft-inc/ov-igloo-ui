@@ -1,0 +1,16 @@
+@mixin ids-alert-mixin-decoration($color) {
+  border-left-color: $color;
+
+  svg circle:first-child {
+    fill: $color;
+  }
+}
+
+@mixin ids-alert-mixin-icon-position-size($alignSelf, $size) {
+  align-self: $alignSelf;
+
+  svg {
+    height: $size;
+    width: $size;
+  }
+}

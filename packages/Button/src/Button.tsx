@@ -11,12 +11,12 @@ export type Appearance =
   | 'danger';
 export type Size = 'small' | 'medium';
 
-export interface Props extends React.ComponentPropsWithoutRef<'button'> {
+export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   // The content to display inside the button
   children?: React.ReactNode;
   // Disabled the button, the user cannot click on them
   disabled?: boolean;
-  // Sets the button in a active state
+  // Sets the button in an active state
   active?: boolean;
   // Replaces button text with a spinner while a background action is being performed
   loading?: boolean;
@@ -36,13 +36,13 @@ export interface Props extends React.ComponentPropsWithoutRef<'button'> {
   onClick?: () => void;
   // Optional prop to specify the type of the Button
   type?: 'button' | 'reset' | 'submit';
-  // Add a data-intercom-target with unique id to link a components to a Product Tour step.
+  // Add a data-intercom-target with unique id to link a components to a Product Tour step
   intercomTarget?: string;
   // Add a specific class to the button
   className?: string;
 }
 
-const Button: React.FunctionComponent<Props> = (props: Props) => {
+const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
   const {
     children,
     disabled = false,
