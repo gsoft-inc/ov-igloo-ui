@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.5
+
+### Patch Changes
+
+- 8450a04: Fix resizing effect when loading is complete
+
 ## 0.1.4
 
 ### Patch Changes
