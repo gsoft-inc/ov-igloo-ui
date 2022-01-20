@@ -4,7 +4,7 @@
   "main": "dist/IconButton.js",
   "module": "dist/IconButton.js",
   "types": "dist/IconButton.d.ts",
-  "styles": "dist/icon-button.css",
+  "styles": "dist/iconbutton.css",
   "publishConfig": {
     "access": "public"
   },
