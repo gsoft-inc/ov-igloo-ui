@@ -1,5 +1,11 @@
 # @igloo-ui/icon-button
 
+## 0.1.2
+
+### Patch Changes
+
+- ec6cef7: Component IconButton: Fix styles naming in package and adjust README
+
 ## 0.1.1
 
 ### Patch Changes
