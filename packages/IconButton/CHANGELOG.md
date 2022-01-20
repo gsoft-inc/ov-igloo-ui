@@ -1,14 +1,23 @@
 # @igloo-ui/icon-button
 
+## 0.1.1
+
+### Patch Changes
+
+- 2da8010: Fix render of elements with the css var --grey-{...}
+- Updated dependencies [2da8010]
+  - @igloo-ui/button@0.1.4
+
 ## 0.1.0
+
 ### Minor Changes
 
 - 3af2f78: ## IconButton component
-  
+
   Add IconButton component to create buttons with an SVG icon inside it.
-  
+
   ### Component API
-  
+
   | name      | description                                                                                     |
   | --------- | ----------------------------------------------------------------------------------------------- |
   | className | Add class names to the surrounding DOM container.                                               |
