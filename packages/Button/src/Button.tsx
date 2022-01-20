@@ -2,7 +2,6 @@ import * as React from 'react';
 import cx from 'classnames';
 
 import './button.scss';
-import { loadavg } from 'os';
 
 export type Appearance =
   | 'primary'
@@ -84,7 +83,7 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
         {showOnlyIconOnMobile ? (
           <span
             className={cx('ids-btn__label', {
-              'is--hidden': loading,
+              'is-hidden': loading,
             })}
           >
             {children}
