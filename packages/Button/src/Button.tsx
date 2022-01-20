@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import cx from 'classnames';
 
 import './button.scss';
 
@@ -65,7 +65,7 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
   const hasIconTrailing = iconTrailing !== undefined;
   const hasIcon = hasIconLeading || hasIconTrailing;
 
-  const classes = classNames('ids-btn', className, {
+  const classes = cx('ids-btn', className, {
     'ids-btn--small': size === 'small',
     'ids-btn--active': active,
     'ids-btn--loading': loading,
@@ -77,17 +77,25 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
   });
 
   const renderContent = (): JSX.Element => {
-    if (loading) {
-      return <div className="ids-loader" />;
-    }
-
     return (
       <>
         {hasIconLeading && iconLeading}
         {showOnlyIconOnMobile ? (
-          <span className="ids-btn__label">{children}</span>
+          <span
+            className={cx('ids-btn__label', {
+              'is-hidden': loading,
+            })}
+          >
+            {children}
+          </span>
         ) : (
-          <span>{children}</span>
+          <span
+            className={cx({
+              'is-hidden': loading,
+            })}
+          >
+            {children}
+          </span>
         )}
         {hasIconTrailing && iconTrailing}
       </>
@@ -105,6 +113,7 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
       onClick={onClick}
       {...rest}
     >
+      {loading && <div className="ids-loader" />}
       {renderContent()}
     </button>
   );

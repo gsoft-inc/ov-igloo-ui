@@ -110,6 +110,10 @@ const buttonState = [
   },
 ];
 
+export const Playground: React.VFC<unknown> = (args) => (
+  <Button {...args}>Playground button</Button>
+);
+
 export const Primary = (): React.ReactElement => (
   <Template
     payload={{
@@ -152,10 +156,4 @@ export const Ghost = (): React.ReactElement => (
     appearance="ghost"
     payload={{ base: buttonState, disabled: buttonState, focus: buttonState }}
   />
-);
-
-export const Test: React.VFC<unknown> = () => (
-  <Button>
-    Aenean ultrices sapien vitae dolor mollis, a ullamcorper est commodo !!!!
-  </Button>
 );
