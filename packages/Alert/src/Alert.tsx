@@ -130,10 +130,14 @@ const Alert: React.FunctionComponent<AlertProps> = (props: AlertProps) => {
     ...rest
   } = props;
 
-  const classes = classNames('ids-alert', className, {
-    [`ids-alert--${alertStyle}`]: true,
-    [`ids-alert--${type}`]: type !== 'none',
-  });
+  const classes = classNames(
+    'ids-alert',
+    `ids-alert--${alertStyle}`,
+    className,
+    {
+      [`ids-alert--${type}`]: type !== 'none',
+    }
+  );
 
   const parentElement = useRef<HTMLDivElement>(null);
   const [show, setShow] = useState(true);
