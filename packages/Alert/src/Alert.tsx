@@ -30,23 +30,23 @@ export type Style = 'card' | 'inline' | 'horizontal';
 export type IconStyle = 'medium-centered' | 'small-top';
 
 export interface AlertProps extends React.ComponentProps<'div'> {
-  // The content to display inside the alert
+  /** The content to display inside the Alert */
   children?: React.ReactNode;
-  // Change the type of the alert
+  /** Change the type of the Alert */
   type: Type;
-  // Change how the alert is displayed
+  /** Change how the Alert is displayed */
   alertStyle?: Style;
-  // Change how the icon in the alert display
+  /** Change how the icon in the Alert display */
   iconStyle?: IconStyle;
-  // Add a specific class to the alert
+  /** Add a specific class to the Alert */
   className?: string;
-  // Set if the alert can be closed by the user
+  /** Set if the Alert can be closed by the user */
   isDismissible?: boolean;
-  // Action on alert dismiss click
+  /** Action on Alert dismiss click */
   onDismissClick?: () => void;
-  // Action on alert button click
+  /** Action on Alert button click */
   onAlertActionClick?: () => void;
-  // Text on alert button
+  /** Text on Alert button */
   alertActionText?: string;
 }
 
