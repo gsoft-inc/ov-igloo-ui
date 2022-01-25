@@ -7,8 +7,7 @@
   --ids-toaster-font-size: var(--font-size-5);
   --ids-toaster-font-weight: var(--font-weight-bold);
   --ids-toaster-text: var(--grey-800);
-  --ids-toaster-padding:
-    var(--space-3) var(--space-2) var(--space-3)
+  --ids-toaster-padding: var(--space-3) var(--space-2) var(--space-3)
     calc(var(--space-3) + var(--ids-toaster-status-width));
   --ids-toaster-gap: var(--space-3);
   --ids-toaster-max-width: 60rem;
@@ -74,6 +73,9 @@
   }
 
   &__content {
+    display: flex;
+    align-items: center;
+    gap: var(---ids-toaster-gap);
     width: calc(100% - var(--ids-toaster-close-size));
   }
 
@@ -81,14 +83,6 @@
     color: var(--ids-toaster-status-color);
     margin-right: var(--ids-toaster-icon-margin);
     float: left;
-  }
-
-  &__text {
-    display: block;
-    margin-left:
-      calc(
-        var(--ids-toaster-status-icon-size) + var(--ids-toaster-icon-margin)
-      );
   }
 
   &__btn {

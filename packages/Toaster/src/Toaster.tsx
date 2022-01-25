@@ -7,11 +7,14 @@ import Toast from './Toast';
 import './toaster.scss';
 
 export interface ToastProps extends React.ComponentProps<'div'> {
+  /** Add a aria-label to describe the close button  */
   iconDescription?: 'string';
+  /** Add a data-test tag for automated tests */
+  dataTest?: string;
 }
 
 const Toaster: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
-  const { iconDescription, className, ...rest } = props;
+  const { iconDescription, className, dataTest, ...rest } = props;
   const { toasts } = useToaster();
 
   const [remove, setRemove] = React.useState<boolean>(false);
@@ -51,7 +54,7 @@ const Toaster: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
   };
 
   return (
-    <div ref={toasterRef} className="ids-toaster__overlay">
+    <div ref={toasterRef} className="ids-toaster__overlay" data-test={dataTest}>
       {toasts.map((t) => {
         return (
           <Toast
