@@ -7,7 +7,8 @@
   --ids-toaster-font-size: var(--font-size-5);
   --ids-toaster-font-weight: var(--font-weight-bold);
   --ids-toaster-text: var(--grey-800);
-  --ids-toaster-padding: var(--space-3) var(--space-2) var(--space-3)
+  --ids-toaster-padding:
+    var(--space-3) var(--space-2) var(--space-3)
     calc(var(--space-3) + var(--ids-toaster-status-width));
   --ids-toaster-gap: var(--space-3);
   --ids-toaster-max-width: 60rem;
@@ -33,7 +34,6 @@
   position: fixed;
   inset: var(--space-3) 0 auto 0;
   pointer-events: none;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,9 +56,7 @@
   border-radius: var(--ids-toaster-border-radius);
   padding: var(--ids-toaster-padding);
   box-shadow: var(--ids-toaster-shadow);
-
   box-sizing: border-box;
-
   will-change: transform;
   animation: fade-in 0.3s ease, slide-in 0.3s ease;
 
@@ -87,9 +85,10 @@
 
   &__text {
     display: block;
-    margin-left: calc(
-      var(--ids-toaster-status-icon-size) + var(--ids-toaster-icon-margin)
-    );
+    margin-left:
+      calc(
+        var(--ids-toaster-status-icon-size) + var(--ids-toaster-icon-margin)
+      );
   }
 
   &__btn {
