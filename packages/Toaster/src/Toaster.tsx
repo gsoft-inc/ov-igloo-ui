@@ -14,17 +14,53 @@ const Toaster: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
   const { iconDescription, className, ...rest } = props;
   const { toasts } = useToaster();
 
+  const [remove, setRemove] = React.useState<boolean>(false);
+
+  const toasterRef = React.useRef<HTMLDivElement>(null);
+  const lastToastRef = React.useRef<number | null>(null);
+
+  const flip = (size: number): void => {
+    if (lastToastRef.current && size) {
+      const invert = lastToastRef.current - size;
+
+      toasterRef.current?.animate(
+        [
+          { transform: `translateY(${invert}px)` },
+          { transform: `translateY(0)` },
+        ],
+        {
+          duration: 150,
+          easing: 'ease-out',
+        }
+      );
+    }
+
+    lastToastRef.current = size;
+  };
+
+  React.useLayoutEffect(() => {
+    if (toasterRef.current) {
+      flip(toasterRef.current?.offsetHeight);
+    }
+  }, [toasts]);
+
+  const handleClose = (id: string): void => {
+    setRemove(true);
+    toast.dismiss(id);
+    setRemove(false);
+  };
+
   return (
-    <div className="ids-toaster__overlay">
+    <div ref={toasterRef} className="ids-toaster__overlay">
       {toasts.map((t) => {
         return (
           <Toast
             key={t.id}
             id={t.id}
             toast={t}
-            close={() => toast.dismiss(t.id)}
+            close={() => handleClose(t.id)}
             className={cx(className, {
-              'ids-toaster__visible': t.visible,
+              'ids-toaster__hidden': remove,
             })}
             iconDescription={iconDescription}
             {...rest}

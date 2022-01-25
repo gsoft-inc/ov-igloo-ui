@@ -9,7 +9,7 @@
   --ids-toaster-text: var(--grey-800);
   --ids-toaster-padding: var(--space-3) var(--space-2) var(--space-3)
     calc(var(--space-3) + var(--ids-toaster-status-width));
-  --ids-toaster-margin: var(--space-3) auto;
+  --ids-toaster-gap: var(--space-3);
   --ids-toaster-max-width: 60rem;
   --ids-toaster-border-radius: var(--border-radius-sm);
   --ids-toaster-shadow: var(--shadow-12);
@@ -29,12 +29,24 @@
   --ids-toaster-overlay-padding: 0 var(--space-3);
 }
 
+.ids-toaster__overlay {
+  position: fixed;
+  inset: var(--space-3) 0 auto 0;
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ids-toaster-gap);
+}
+
 .ids-toaster {
   position: relative;
   pointer-events: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   max-width: var(--ids-toaster-max-width);
   font-family: var(--ids-toaster-font-family);
   font-size: var(--ids-toaster-font-size);
@@ -43,19 +55,12 @@
   background: var(--ids-toaster-background);
   border-radius: var(--ids-toaster-border-radius);
   padding: var(--ids-toaster-padding);
-  margin: var(--ids-toaster-margin);
   box-shadow: var(--ids-toaster-shadow);
 
   box-sizing: border-box;
 
-  transform: translateY(-100%);
-  opacity: 0;
-  transition: all 0.35s ease-out;
-
-  &--shown {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  will-change: transform;
+  animation: fade-in 0.3s ease, slide-in 0.3s ease;
 
   &::before {
     position: absolute;
@@ -68,16 +73,6 @@
     background: var(--ids-toaster-status-color);
     border-top-left-radius: var(--ids-toaster-border-radius);
     border-bottom-left-radius: var(--ids-toaster-border-radius);
-  }
-
-  &__overlay {
-    position: absolute;
-    pointer-events: none;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: var(--ids-toaster-overlay-padding);
-    box-sizing: border-box;
   }
 
   &__content {
@@ -129,6 +124,10 @@
     color: inherit;
   }
 
+  &__hidden {
+    animation: fade-out 0.15s ease;
+  }
+
   &--error {
     &::before {
       background: var(--ids-toaster-status-color-error);
@@ -137,6 +136,24 @@
     .ids-toaster__icon {
       color: var(--ids-toaster-status-color-error);
     }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(var(--_travel-distance, -64px));
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
   }
 }
 

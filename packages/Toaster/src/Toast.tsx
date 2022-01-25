@@ -17,20 +17,7 @@ export interface ToastProps extends React.ComponentProps<'div'> {
 const Toast: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
   const { toast, iconDescription, close, className, ...rest } = props;
 
-  const [isShown, setIsShown] = React.useState(false);
-
   const toastRef = React.useRef<HTMLDivElement>(null);
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsShown(true);
-    }, 500);
-
-    return () => {
-      clearTimeout(timer);
-      setIsShown(false);
-    };
-  }, []);
 
   if (!toast) {
     return null;
@@ -46,7 +33,6 @@ const Toast: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
 
   const classes = cx('ids-toaster', className, {
     'ids-toaster--error': error,
-    'ids-toaster--shown': isShown && toast.visible,
   });
 
   return (
