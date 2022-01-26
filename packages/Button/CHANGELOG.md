@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.6
+
+### Patch Changes
+
+- 0df8530: Rename Props to ButtonProps
+
 ## 0.1.5
 
 ### Patch Changes
