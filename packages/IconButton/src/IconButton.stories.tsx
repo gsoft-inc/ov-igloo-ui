@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Meta } from '@storybook/react';
 
-import IconButton from './IconButton';
-import { Props, Appearance } from '@igloo-ui/button';
+import IconButton, { IconButtonProps } from './IconButton';
+import { Appearance } from '@igloo-ui/button';
 
 import Plus from '@igloo-ui/icons/dist/Plus';
 import Settings from '@igloo-ui/icons/dist/Settings';
@@ -15,7 +15,12 @@ export default {
 
 interface TemplateProps {
   appearance?: Appearance;
-  payload: { base: Props[]; disabled: Props[]; active: Props[] };
+  payload: {
+    base: IconButtonProps[];
+    disabled: IconButtonProps[];
+    active?: IconButtonProps[];
+    focus: IconButtonProps[];
+  };
 }
 
 const Template = ({
@@ -28,16 +33,15 @@ const Template = ({
   const component = componentState.map((state, index) => {
     const isDisabled = state === 'disabled';
     const isFocus = state === 'focus';
-    const datas = isDisabled ? disabled : base;
+    const iconButtonProps = isDisabled ? disabled : base;
 
-    const list = datas.map((p, i) => {
+    const list = iconButtonProps.map((p, i) => {
       return (
         <IconButton
           active={state === 'active'}
           appearance={appearance}
           disabled={isDisabled}
           key={i.toString()}
-          icon={<Plus size="small" />}
           className={isFocus ? 'focus ' + p.className : p.className}
           {...p}
         />
@@ -60,28 +64,32 @@ const Template = ({
   return <>{component}</>;
 };
 
-const buttonState = [
+const buttonState: IconButtonProps[] = [
   {
     size: 'xsmall',
+    icon: <Plus size="small" />,
   },
   {
     size: 'small',
+    icon: <Plus size="small" />,
   },
   {
     size: 'medium',
+    icon: <Plus size="small" />,
   },
   {
     size: 'large',
+    icon: <Plus size="small" />,
   },
   {
     size: 'small',
     icon: <Settings size="small" />,
-    theme: 'round',
+    rounded: true,
   },
   {
     size: 'medium',
     icon: <Settings size="small" />,
-    theme: 'round',
+    rounded: true,
   },
 ];
 
