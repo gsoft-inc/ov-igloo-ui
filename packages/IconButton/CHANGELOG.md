@@ -1,5 +1,11 @@
 # @igloo-ui/icon-button
 
+## 0.2.0
+
+### Minor Changes
+
+- bd0ece1: Change IconButtonProps extends to use ButtonProps
+
 ## 0.1.2
 
 ### Patch Changes
