@@ -1,5 +1,15 @@
 @import 'variables';
 
+:root {
+  --ico-columns: calc(100% / 4);
+}
+
+@media (min-width: $breakpoint-medium) {
+  :root {
+    --ico-columns: calc(100% / 7);
+  }
+}
+
 .io-layout {
   width: 100%;
   max-width: $layout;
@@ -8,47 +18,44 @@
 
 .io-header {
   position: fixed;
+  inset: 0 0 auto 0;
+  display: flex;
+  align-items: center;
   width: 100%;
+  min-height: $navbar;
   padding: $size-2 $size-2;
-  top: 0;
-  left: 0;
   background: $c-white;
+  box-shadow: 0.5px 1.6px 1.6px hsl(0deg 0% 0% / 0.15);
   z-index: 10;
 
   &__content {
     max-width: $layout;
+    width: 100%;
+    padding: 0 $size-2;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-
-  @media (min-width: $breakpoint-large) {
-    padding: $size-2 0;
-  }
 }
 
 .io-main {
   width: 100%;
-  padding: 0 $size-2;
-
-  @media (min-width: $breakpoint-large) {
-    padding: 0;
-  }
+  padding: ($navbar + $size-6) $size-2 0;
 }
 
 .io-hero {
-  margin: $size-10 + 2.5rem 0 $size-10 0;
+  margin: $size-10 0 $size-10 + $size-6 0;
 
   @media (min-width: $breakpoint-medium) {
     &__title {
-      max-width: 60%;
+      max-width: 80%;
     }
   }
 }
 
 .io-section {
-  margin: $size-10 0;
+  margin-bottom: $size-8;
 
   &__content {
     display: grid;
@@ -64,7 +71,7 @@
     }
 
     &--icon {
-      grid-template-columns: repeat(auto-fill, minmax(calc(100% / 7), 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(var(--ico-columns), 1fr));
       grid-gap: 0;
     }
   }
@@ -92,10 +99,6 @@
     margin-left: auto;
     margin-right: auto;
     max-width: $layout-sm;
-  }
-
-  p {
-    font-size: $fs-3;
   }
 }
 
@@ -130,7 +133,7 @@
 
 .io-aside {
   display: none;
-  margin-top: $size-8;
+  margin-top: $size-8 + $size-8;
 
   @media (min-width: $breakpoint-medium) {
     display: block;
@@ -143,8 +146,15 @@
   }
 }
 
-.io-link-icon {
-  display: inline-block;
-  line-height: 0;
-  height: auto;
+.io-link {
+  &-icon {
+    display: inline-block;
+    line-height: 0;
+    height: $size-3;
+    width: $size-3;
+  }
+
+  &-brand {
+    width: auto;
+  }
 }

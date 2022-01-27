@@ -8,7 +8,7 @@ export default function Header({ children }) {
     <header className="io-header">
       <div className="io-header__content">
         <Link href="/">
-          <a className="io-link-icon" href="/">
+          <a className="io-link-icon io-link-brand" href="/">
             <Image src={brand} />
           </a>
         </Link>

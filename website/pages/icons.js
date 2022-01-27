@@ -91,7 +91,7 @@ export default function Icons() {
       </section>
       <section className="io-section">
         <div className="io-options">
-          <Title level={3} as="h3" className="io-options__title">
+          <Title level={4} as="h3" className="io-options__title">
             Sizes
           </Title>
           <label htmlFor="16">
