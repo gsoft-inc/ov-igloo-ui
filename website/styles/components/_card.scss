@@ -1,36 +1,27 @@
-@use "sass:color";
+@use 'sass:color';
 
-@import "../variables.scss";
+@import '../variables.scss';
 
 $card-effect-size: $size-2;
 
 $card-shadow-yellow: rgb(
-  color.red($c-yellow)
-  color.green($c-yellow)
-  color.blue($c-yellow) /
-  var(--alpha, 0)
+  color.red($c-yellow) color.green($c-yellow) color.blue($c-yellow) /
+    var(--alpha, 0)
 );
 
 $card-shadow-green: rgb(
-  color.red($c-green)
-  color.green($c-green)
-  color.blue($c-green) /
-  var(--alpha, 0)
+  color.red($c-green) color.green($c-green) color.blue($c-green) /
+    var(--alpha, 0)
 );
 
 $card-shadow-pink: rgb(
-  color.red($c-pink)
-  color.green($c-pink)
-  color.blue($c-pink) /
-  var(--alpha, 0)
+  color.red($c-pink) color.green($c-pink) color.blue($c-pink) / var(--alpha, 0)
 );
 
 // interactive card
 a {
   .io-card {
-    transition:
-      box-shadow 150ms ease-in-out,
-      transform 200ms ease-in-out,
+    transition: box-shadow 150ms ease-in-out, transform 200ms ease-in-out,
       -webkit-transform 150ms ease-in-out;
     box-shadow: 0 0 0 0 $card-shadow-yellow;
     height: 100%;
@@ -40,7 +31,7 @@ a {
       right: 0;
       bottom: 0;
       display: block;
-      content: "";
+      content: '';
       width: 100%;
       height: 100%;
       background: transparent;
@@ -84,6 +75,14 @@ a {
     }
   }
 
+  .io-card--components,
+  .io-card--tokens,
+  .io-card--icons {
+    display: flex;
+    vertical-align: center;
+    gap: $size-3;
+  }
+
   .io-card--inline {
     box-shadow: none;
     height: auto;
@@ -103,8 +102,15 @@ a {
   color: $c-white;
   background: $c-black;
 
+  @media (min-width: $breakpoint-medium) {
+    padding: $size-3;
+  }
+
+  &__img {
+    max-width: $size-8;
+  }
+
   &__content {
-    padding-top: $size-2;
     line-height: 1.5;
     z-index: 100;
   }
@@ -114,7 +120,6 @@ a {
   }
 
   &__description {
-    font-size: $fs-5;
     margin: $size-0 0 0;
   }
 }
@@ -124,6 +129,15 @@ a {
   padding: 0;
   color: $c-black;
   background: $c-white;
+
+  .io-card__title {
+    font-size: var(--fs-300);
+    margin-bottom: 0;
+  }
+
+  .io-card__description {
+    font-size: var(--fs-100);
+  }
 
   .io-card__content {
     padding: 0 $size-2;

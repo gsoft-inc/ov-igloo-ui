@@ -109,7 +109,7 @@ export default function Tokens(props) {
 
           <div className="io-tokens__list">
             <div className="io-options io-options--large">
-              <Title level={3} as="h3" className="io-options__title">
+              <Title level={4} as="h3" className="io-options__title">
                 Options
               </Title>
               <select

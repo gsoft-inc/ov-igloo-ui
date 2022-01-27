@@ -23,28 +23,28 @@ export default function Home() {
         </Title>
       </div>
       <section className="io-section">
-        <Title level={2} as="h2">
+        <Title level={3} as="h2">
           Resources
         </Title>
 
         <div className="io-section__content">
           <Card
             className="io-card--tokens"
-            icon={<Image src={iconToken} />}
+            icon={<Image layout="fixed" src={iconToken} />}
             title="Tokens"
             description="Are visual values that construct the foundational pieces of our products"
             link={link.TOKENS}
           />
           <Card
             className="io-card--icons"
-            icon={<Image src={iconIcon} />}
+            icon={<Image layout="fixed" src={iconIcon} />}
             title="Icons"
             description="Help assist users in finding certain actions on a page"
             link={link.ICONS}
           />
           <Card
             className="io-card--components"
-            icon={<Image src={iconComponent} />}
+            icon={<Image layout="fixed" src={iconComponent} />}
             title="Components"
             description="A set of React components for building the interfaces of our products"
             link={link.COMPONENTS}
@@ -69,7 +69,7 @@ export default function Home() {
           />
         </div>
         <div className="io-roadMap">
-          <Title as="h3" level={3}>
+          <Title as="h3" level={4}>
             Coming next
           </Title>
           <RoadMap data={roadMap} />

@@ -2,7 +2,7 @@
 
 .io-icon {
   color: $c-black;
-  font-size: $fs-6;
+  font-size: var(--fs-050, --fs-100);
   box-sizing: border-box;
 
   &:hover {

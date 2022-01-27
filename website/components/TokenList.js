@@ -89,7 +89,7 @@ export default function Table({ data, title, options }) {
               preview.className
             )}
           >
-            <span className="io-preview__text">Aa</span>
+            <span className="io-preview__text">Ag</span>
           </div>
         </td>
       </tr>
@@ -98,7 +98,7 @@ export default function Table({ data, title, options }) {
   return (
     <>
       <div id={title} className="io-tokens__header">
-        <Title level={2} as="h2">
+        <Title level={4} as="h2">
           {title}
         </Title>
       </div>
