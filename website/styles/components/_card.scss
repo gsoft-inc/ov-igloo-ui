@@ -5,17 +5,24 @@
 $card-effect-size: $size-2;
 
 $card-shadow-yellow: rgb(
-  color.red($c-yellow) color.green($c-yellow) color.blue($c-yellow) /
-    var(--alpha, 0)
+  color.red($c-yellow),
+  color.green($c-yellow),
+  color.blue($c-yellow),
+  var(--alpha, 0)
 );
 
 $card-shadow-green: rgb(
-  color.red($c-green) color.green($c-green) color.blue($c-green) /
-    var(--alpha, 0)
+  color.red($c-green),
+  color.green($c-green),
+  color.blue($c-green),
+  var(--alpha, 0)
 );
 
 $card-shadow-pink: rgb(
-  color.red($c-pink) color.green($c-pink) color.blue($c-pink) / var(--alpha, 0)
+  color.red($c-pink),
+  color.green($c-pink),
+  color.blue($c-pink),
+  var(--alpha, 0)
 );
 
 // interactive card
