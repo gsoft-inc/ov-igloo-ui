@@ -81,6 +81,10 @@ a {
     display: flex;
     vertical-align: center;
     gap: $size-3;
+
+    @media (min-width: $breakpoint-medium) {
+      flex-direction: column;
+    }
   }
 
   .io-card--inline {
@@ -117,6 +121,7 @@ a {
 
   &__title.io-title {
     color: inherit;
+    margin-bottom: 0;
   }
 
   &__description {
