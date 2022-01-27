@@ -3,6 +3,7 @@ import cx from 'classnames';
 
 import { Toast as HotToast } from 'react-hot-toast';
 
+import IconButton from '@igloo-ui/icon-button';
 import SuccessSolid from '@igloo-ui/icons/dist/SuccessSolid';
 import RemoveSolid from '@igloo-ui/icons/dist/RemoveSolid';
 import Close from '@igloo-ui/icons/dist/Close';
@@ -41,13 +42,13 @@ const Toast: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
         {statusIcon}
         <span className="ids-toaster__text">{toast.message}</span>
       </div>
-      <button
+
+      <IconButton
         onClick={close}
-        className="ids-toaster__btn"
+        appearance="ghost"
         aria-label={iconDescription}
-      >
-        <Close className="ids-toaster__close" />
-      </button>
+        icon={<Close className="ids-toaster__close" />}
+      />
     </div>
   );
 };
