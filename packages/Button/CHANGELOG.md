@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.1.6
+
+### Patch Changes
+
+- 0df8530: Rename Props to ButtonProps
+
+## 0.1.5
+
+### Patch Changes
+
+- 8450a04: Fix resizing effect when loading is complete
+
+## 0.1.4
+
+### Patch Changes
+
+- 2da8010: Fix render of elements with the css var --grey-{...}
+
 ## 0.1.3
 
 ### Patch Changes

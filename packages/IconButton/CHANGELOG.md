@@ -1,5 +1,25 @@
 # @igloo-ui/icon-button
 
+## 0.2.0
+
+### Minor Changes
+
+- bd0ece1: Change IconButtonProps extends to use ButtonProps
+
+## 0.1.2
+
+### Patch Changes
+
+- ec6cef7: Component IconButton: Fix styles naming in package and adjust README
+
+## 0.1.1
+
+### Patch Changes
+
+- 2da8010: Fix render of elements with the css var --grey-{...}
+- Updated dependencies [2da8010]
+  - @igloo-ui/button@0.1.4
+
 ## 0.1.0
 
 ### Minor Changes
