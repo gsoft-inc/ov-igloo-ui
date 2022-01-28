@@ -64,6 +64,8 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
   const hasIconLeading = iconLeading !== undefined;
   const hasIconTrailing = iconTrailing !== undefined;
   const hasIcon = hasIconLeading || hasIconTrailing;
+  const childrenIsAString =
+    typeof children === 'string' || children instanceof String;
 
   const classes = cx('ids-btn', className, {
     'ids-btn--small': size === 'small',
@@ -109,7 +111,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
       data-test={dataTest}
       data-intercom-target={intercomTarget}
       type={type}
-      title={children?.toString()}
+      title={childrenIsAString ? children?.toString() : ''}
       onClick={onClick}
       {...rest}
     >
