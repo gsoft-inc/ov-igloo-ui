@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.7
+
+### Patch Changes
+
+- ae0a0a5: Fixed the case where the content of the Button is not text, but that we tried to display the object in the title property.
+
 ## 0.1.6
 
 ### Patch Changes
