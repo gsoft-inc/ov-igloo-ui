@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toaster It should render error 1`] = `
+<Toast
+  toast={
+    Object {
+      "ariaProps": Object {
+        "aria-live": "polite",
+        "role": "status",
+      },
+      "createdAt": 1639075944871,
+      "duration": 5000,
+      "id": "1",
+      "message": "Successfully toasted!",
+      "pauseDuration": 0,
+      "position": "top-center",
+      "style": Object {},
+      "type": "error",
+      "visible": true,
+    }
+  }
+/>
+`;
+
+exports[`Toaster It should render success 1`] = `
+<Toast
+  toast={
+    Object {
+      "ariaProps": Object {
+        "aria-live": "polite",
+        "role": "status",
+      },
+      "createdAt": 1639075944871,
+      "duration": 5000,
+      "id": "1",
+      "message": "Successfully toasted!",
+      "pauseDuration": 0,
+      "position": "top-center",
+      "style": Object {},
+      "type": "success",
+      "visible": true,
+    }
+  }
+/>
+`;
