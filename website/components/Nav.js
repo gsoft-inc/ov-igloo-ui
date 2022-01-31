@@ -38,7 +38,7 @@ export default function Nav({ items }) {
             className="io-link-icon"
             href="https://github.com/gsoft-inc/ov-igloo-ui"
           >
-            <Image src={github} />
+            <Image src={github} layout="responsive" />
             <span>Github</span>
           </a>
         </li>

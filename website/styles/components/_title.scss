@@ -1,4 +1,4 @@
-@import "../variables";
+@import '../variables';
 
 .io-title {
   line-height: 1.35;
@@ -6,17 +6,14 @@
   margin: 0;
 
   &--level1 {
-    font-size: $fs-1;
+    font-size: var(--fs-display);
   }
 
   &--level2 {
-    font-size: $fs-2;
-    margin-bottom: $size-2;
+    font-size: var(--fs-600);
   }
 
   &--level3 {
-    font-size: $fs-3;
-    font-weight: 800;
-    margin-bottom: $size-0;
+    font-size: var(--fs-400);
   }
 }

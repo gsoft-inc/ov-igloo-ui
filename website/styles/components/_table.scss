@@ -1,7 +1,7 @@
-@import "../variables";
+@import '../variables';
 
 .io-tokens__table {
-  font-size: $fs-4;
+  font-size: var(--fs-100);
   width: 100%;
   margin: $size-3 0 $size-8 0;
 
@@ -14,7 +14,7 @@
   }
 
   td {
-    font-size: $fs-5;
+    font-size: var(--fs-100);
     border: 0;
     border-top: 1px solid $c-grey;
   }
@@ -46,7 +46,7 @@
 }
 
 .io-preview {
-  font-size: $fs-3;
+  font-size: var(--fs-300);
 
   &--fonts {
     width: auto;

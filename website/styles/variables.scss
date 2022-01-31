@@ -10,8 +10,9 @@ $size-8: 4rem;
 $size-9: 4.5rem;
 $size-10: 5rem;
 
-$layout: 60rem;
-$layout-sm: 40rem;
+$layout: 80rem;
+$layout-sm: 50rem;
+$navbar: 4rem;
 
 $fs-1: 2rem;
 $fs-2: 1.5rem;
@@ -34,5 +35,6 @@ $c-grey-light: #eff1f5;
 $c-code: #a04ece;
 $c-code-bg: #a186ff;
 
-$breakpoint-medium: 48rem;
-$breakpoint-large: 60rem;
+$breakpoint-small: 40rem;
+$breakpoint-medium: 60rem;
+$breakpoint-large: 80rem;

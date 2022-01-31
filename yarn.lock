@@ -2389,6 +2389,23 @@
   resolved "https://registry.yarnpkg.com/@hutson/parse-repository-url/-/parse-repository-url-3.0.2.tgz#98c23c950a3d9b6c8f0daed06da6c3af06981340"
   integrity sha512-H9XAx3hc0BQHY6l+IFSWHDySypcXsvsuLhgYLUGywmJ5pswRVQJUHpOsobnLYp2ZUaUlKiKDrgWWhosOwAEM8Q==
 
+"@igloo-ui/button@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@igloo-ui/button/-/button-0.1.6.tgz#be28d58eba21b932b23148ffb7f0e1ca31c16275"
+  integrity sha512-pNiptZilbqmKNg2sKbxLoNKgah/hgAO1vbLEsA8ZAWwZ5eCuqQeTX/h4iEOrMn+Uyb7oLunYvY44OdF8D/5w5w==
+  dependencies:
+    "@igloo-ui/tokens" "^1.1.0"
+    classnames "^2.3.1"
+
+"@igloo-ui/icon-button@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@igloo-ui/icon-button/-/icon-button-0.2.0.tgz#51ed53f828e5cfca053fbcd7e85762f29824aa68"
+  integrity sha512-ATBsGiUaYJr2lwx45Zg57T1xNyttH9QT84iHzXzq8HcaOeVYEZ4XcY/LCnbwrZ2Udcxk8FHH9++TAwmOBA9T8A==
+  dependencies:
+    "@igloo-ui/button" "^0.1.6"
+    "@igloo-ui/tokens" "^1.1.0"
+    classnames "^2.3.1"
+
 "@igloo-ui/icons@^0.6.2":
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/@igloo-ui/icons/-/icons-0.6.2.tgz#0b2535d0ef8d1c68bc44973ac0faf2b5f63adf9a"
@@ -2397,7 +2414,7 @@
     classnames "^2.3.1"
     html-react-parser "^1.2.7"
 
-"@igloo-ui/icons@^0.6.5":
+"@igloo-ui/icons@^0.6.3", "@igloo-ui/icons@^0.6.5":
   version "0.6.5"
   resolved "https://registry.yarnpkg.com/@igloo-ui/icons/-/icons-0.6.5.tgz#a729e7b59cd19191a42590a860c0c4fd48566362"
   integrity sha512-PZO+imTZs0MS47G37f229YztJIpMQUZ20igYH+o9PaiZlvE+IaHORG64HtnTinHdH9X+6lsAEbvBlhsZlNRoDQ==
@@ -4936,10 +4953,24 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-dom@^17.0.11":
+  version "17.0.11"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.11.tgz#e1eadc3c5e86bdb5f7684e00274ae228e7bcc466"
+  integrity sha512-f96K3k+24RaLGVu/Y2Ng3e1EbZ8/cVJvypZWd7cy0ofCBaf2lcM46xNhycMZ2xGwbBjRql7hOlZ+e2WlJ5MH3Q==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-syntax-highlighter@11.0.5":
   version "11.0.5"
   resolved "https://registry.yarnpkg.com/@types/react-syntax-highlighter/-/react-syntax-highlighter-11.0.5.tgz#0d546261b4021e1f9d85b50401c0a42acb106087"
   integrity sha512-VIOi9i2Oj5XsmWWoB72p3KlZoEbdRAcechJa8Ztebw7bDl2YmR+odxIqhtJGp1q2EozHs02US+gzxJ9nuf56qg==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-transition-group@^4.4.4":
+  version "4.4.4"
+  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.4.tgz#acd4cceaa2be6b757db61ed7b432e103242d163e"
+  integrity sha512-7gAPz7anVK5xzbeQW9wFBDg7G++aPLAFY0QaSMOou9rJZpbuI58WAuJrgu+qR92l61grlnCUe7AFX8KGahAgug==
   dependencies:
     "@types/react" "*"
 
@@ -10342,6 +10373,11 @@ globrex@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/globrex/-/globrex-0.1.2.tgz#dd5d9ec826232730cd6793a5e33a9302985e6098"
   integrity sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==
+
+goober@^2.0.35:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/goober/-/goober-2.1.7.tgz#5b1e742a9c7014ba8586a49f2df18d539410e679"
+  integrity sha512-aCR8u3A/tTgSrZAHfJObhYC0xgdKoYm4GvE/UFmxmzgvj3TSF+3oFYWtmJ459WBewjOIoEsoOG81sDs1rn+W5w==
 
 good-listener@^1.2.2:
   version "1.2.2"
@@ -16096,6 +16132,13 @@ react-helmet-async@^1.0.7:
     prop-types "^15.7.2"
     react-fast-compare "^3.2.0"
     shallowequal "^1.1.0"
+
+react-hot-toast@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-hot-toast/-/react-hot-toast-2.1.1.tgz#56409ab406b534e9e58274cf98d80355ba0fdda0"
+  integrity sha512-Odrp4wue0fHh0pOfZt5H+9nWCMtqs3wdlFSzZPp7qsxfzmbE26QmGWIh6hG43CukiPeOjA8WQhBJU8JwtWvWbQ==
+  dependencies:
+    goober "^2.0.35"
 
 react-inspector@^5.1.0:
   version "5.1.1"

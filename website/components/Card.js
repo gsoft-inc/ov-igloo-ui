@@ -18,7 +18,7 @@ export default function Card({
     <div className={cx('io-card', className, { 'io-card--inline': inline })}>
       <div className="io-card__img">{icon}</div>
       <div className="io-card__content">
-        <Title as="h3" level={3} className="io-card__title">
+        <Title as="h3" level={inline ? 4 : 3} className="io-card__title">
           {title}
         </Title>
         <p className="io-card__description">{description}</p>
