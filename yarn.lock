@@ -2389,23 +2389,6 @@
   resolved "https://registry.yarnpkg.com/@hutson/parse-repository-url/-/parse-repository-url-3.0.2.tgz#98c23c950a3d9b6c8f0daed06da6c3af06981340"
   integrity sha512-H9XAx3hc0BQHY6l+IFSWHDySypcXsvsuLhgYLUGywmJ5pswRVQJUHpOsobnLYp2ZUaUlKiKDrgWWhosOwAEM8Q==
 
-"@igloo-ui/button@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@igloo-ui/button/-/button-0.1.6.tgz#be28d58eba21b932b23148ffb7f0e1ca31c16275"
-  integrity sha512-pNiptZilbqmKNg2sKbxLoNKgah/hgAO1vbLEsA8ZAWwZ5eCuqQeTX/h4iEOrMn+Uyb7oLunYvY44OdF8D/5w5w==
-  dependencies:
-    "@igloo-ui/tokens" "^1.1.0"
-    classnames "^2.3.1"
-
-"@igloo-ui/icon-button@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@igloo-ui/icon-button/-/icon-button-0.2.0.tgz#51ed53f828e5cfca053fbcd7e85762f29824aa68"
-  integrity sha512-ATBsGiUaYJr2lwx45Zg57T1xNyttH9QT84iHzXzq8HcaOeVYEZ4XcY/LCnbwrZ2Udcxk8FHH9++TAwmOBA9T8A==
-  dependencies:
-    "@igloo-ui/button" "^0.1.6"
-    "@igloo-ui/tokens" "^1.1.0"
-    classnames "^2.3.1"
-
 "@igloo-ui/icons@^0.6.2":
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/@igloo-ui/icons/-/icons-0.6.2.tgz#0b2535d0ef8d1c68bc44973ac0faf2b5f63adf9a"
