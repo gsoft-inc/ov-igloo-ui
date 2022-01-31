@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 1.0.2
+
+### Patch Changes
+
+- 519f009: Uncontrolled input bugfix
+
 ## 1.0.1
 
 ### Patch Changes
