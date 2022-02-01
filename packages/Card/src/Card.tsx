@@ -5,11 +5,11 @@ import './card.scss';
 
 export type Size = 'xsmall' | 'small' | 'medium' | 'large';
 export interface CardProps extends React.ComponentProps<'div'> {
-  // The content to display inside the card
+  /** The content to display inside the card */
   children: React.ReactNode;
-  // Changes the size of card, giving more or less padding
+  /**  Changes the size of card, giving more or less padding */
   size?: Size;
-  // Add a data-test tag for automated tests
+  /** Add a data-test tag for automated tests */
   dataTest?: string;
 }
 

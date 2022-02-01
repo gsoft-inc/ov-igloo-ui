@@ -4,13 +4,13 @@ import cx from 'classnames';
 import './ellipsis.scss';
 
 export interface EllipsisProps extends React.ComponentProps<'div'> {
-  // The content to display inside the ellipsis
+  /** The content to display inside the ellipsis */
   children: React.ReactNode;
-  // Add a className for the ellipsis content div
+  /** Add a className for the ellipsis content div */
   className?: string;
-  // Add a className for the ellipsis container div
+  /** Add a className for the ellipsis container div */
   containerClassName?: string;
-  // Add a title to the ellipsis
+  /** Add a title to the ellipsis */
   title?: string;
 }
 
