@@ -31,8 +31,6 @@ const Template = ({ payload }: Templates): React.ReactElement => {
 
     const displayContainerStyle = {
       order: index,
-      width: '100%',
-      maxWidth: 900,
     };
 
     return (
