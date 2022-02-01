@@ -1,8 +1,16 @@
+const glob = require('glob');
 const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
+const appDirectory = path.resolve(__dirname, '../');
+
+const getStories = () =>
+  glob.sync(`${appDirectory}/packages/**/*!(Kashim).stories.@(js|jsx|ts|tsx)`, {
+    ignore: `${appDirectory}/packages/**/Kashim.stories.@(js|jsx|ts|tsx)`,
+  });
+
 module.exports = {
-  stories: ['../packages/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: async (list) => [...list, ...getStories()],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',

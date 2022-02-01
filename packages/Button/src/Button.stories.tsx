@@ -4,11 +4,16 @@ import { Meta } from '@storybook/react';
 
 import Plus from '@igloo-ui/icons/dist/Plus';
 
+import readme from '../README.md';
+
 import Button, { ButtonProps, Appearance } from './Button';
 
 export default {
   title: 'Components/Button',
   component: Button,
+  parameters: {
+    description: readme,
+  },
 } as Meta;
 
 interface TemplateProps {
