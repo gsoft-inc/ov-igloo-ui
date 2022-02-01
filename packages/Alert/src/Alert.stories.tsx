@@ -2,11 +2,16 @@ import React from 'react';
 
 import { Meta } from '@storybook/react';
 
+import readme from '../README.md';
+
 import Alert, { AlertProps, Type } from './Alert';
 
 export default {
   title: 'Components/Alert',
   component: Alert,
+  parameters: {
+    description: readme,
+  },
 } as Meta;
 
 interface Templates {
