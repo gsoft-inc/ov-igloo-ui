@@ -7,6 +7,7 @@
   ["Input", "ready"],
   ["Tooltip", "ready"],
   ["IconButton", "ready"],
-  ["Toaster", "wip"],
-  ["Alert", "wip"]
+  ["Toaster", "ready"],
+  ["Alert", "wip"],
+  ["Link", "wip"]
 ]
