@@ -28,6 +28,7 @@
 
   /* Overlay */
   --ids-toaster-overlay-padding: 0 var(--space-3);
+  --ids-toaster-z-index: var(--z-index-max);
 }
 
 .ids-toaster__overlay {
@@ -38,6 +39,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--ids-toaster-gap);
+  z-index: var(--ids-toaster-z-index);
 }
 
 .ids-toaster {

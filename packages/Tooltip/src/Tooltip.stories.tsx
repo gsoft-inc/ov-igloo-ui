@@ -4,11 +4,16 @@ import { Meta } from '@storybook/react';
 
 import Tooltip, { TooltipProps } from './Tooltip';
 
+import readme from '../README.md';
+
 const tooltipContent = 'Lorem ipsum dolor';
 
 export default {
   title: 'Components/Tooltip',
   component: Tooltip,
+  parameters: {
+    description: readme,
+  },
   argTypes: {
     content: {
       control: 'text',

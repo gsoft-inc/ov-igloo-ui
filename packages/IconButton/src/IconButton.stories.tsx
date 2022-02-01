@@ -8,9 +8,14 @@ import { Appearance } from '@igloo-ui/button';
 import Plus from '@igloo-ui/icons/dist/Plus';
 import Settings from '@igloo-ui/icons/dist/Settings';
 
+import readme from '../README.md';
+
 export default {
   title: 'Components/IconButton',
   component: IconButton,
+  parameters: {
+    description: readme,
+  },
 } as Meta;
 
 interface TemplateProps {
