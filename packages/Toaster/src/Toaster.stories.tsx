@@ -6,9 +6,14 @@ import Button from '@igloo-ui/button';
 import Toaster, { toaster } from './Toaster';
 import Toast from './Toast';
 
+import readme from '../README.md';
+
 export default {
   title: 'Components/Toaster',
   component: Toaster,
+  parameters: {
+    description: readme,
+  },
 } as Meta;
 
 const mockToast = {

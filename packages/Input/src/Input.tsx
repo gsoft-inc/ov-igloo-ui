@@ -15,25 +15,25 @@ const KeyCodes = {
 export type InputType = 'email' | 'text' | 'password' | 'number';
 
 export interface InputProps extends React.ComponentPropsWithRef<'input'> {
-  // Add class names to the surrounding DOM container.
+  /** Add class names to the surrounding DOM container. */
   className?: string;
-  // Form.ValidatedField state. True if has error.
+  /** Form.ValidatedField state. True if has error. */
   error?: boolean;
-  // Specifies the type to display
+  /**  Specifies the type to display */
   type?: InputType;
-  // True for a compact appearance.
+  /** True for a compact appearance. */
   isCompact?: boolean;
-  // Specifies the value inside the input.
+  /** Specifies the value inside the input. */
   value?: string | number;
-  // True if you need the input to be focus on page load.
+  /** True if you need the input to be focus on page load. */
   autoFocus?: boolean;
-  // True if you need the input to be readonly.
+  /** True if you need the input to be readonly. */
   disabled?: boolean;
-  // Function called when the value changes.
+  /** Function called when the value changes. */
   onChange?: (e: any) => void;
-  // Add a data-test tag for automated tests
+  /** Add a data-test tag for automated tests */
   dataTest?: string;
-  // Use a prefix for add a icon before the input text
+  /** Use a prefix for add a icon before the input text */
   prefixIcon?: React.ReactNode;
 }
 

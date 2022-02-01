@@ -5,9 +5,14 @@ import Search from '@igloo-ui/icons/dist/Search';
 
 import Input from './Input';
 
+import readme from '../README.md';
+
 export default {
   title: 'Components/Input',
   component: Input,
+  parameters: {
+    description: readme,
+  },
 } as Meta;
 
 const inputPlacehoder = 'ex: Lorem ipsum dolor';

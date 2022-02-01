@@ -7,12 +7,19 @@ import './tooltip.scss';
 export type Appearance = 'dark' | 'light';
 
 export interface TooltipProps extends React.ComponentProps<'div'> {
+  /** The target button, text, svg etc.. of the Tooltip. */
   children: React.ReactNode;
+  /** Add a specific class to the tooltip */
   tooltipClassName?: string;
+  /** The content to display inside the tooltip */
   content?: React.ReactNode;
+  /** The position the tooltip is on. */
   position?: Position;
+  /** The appearance of the tooltip. */
   appearance?: Appearance;
+  /** The max with of the tooltip */
   maxWidth?: number;
+  /** When True, manually show the Tooltip. */
   active?: boolean;
 }
 
