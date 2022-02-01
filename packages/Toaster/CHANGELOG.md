@@ -1,5 +1,11 @@
 # @igloo-ui/toaster
 
+## 0.1.1
+
+### Patch Changes
+
+- 699d989: Position the toaster above the others with z-index
+
 ## 0.1.0
 
 ### Minor Changes

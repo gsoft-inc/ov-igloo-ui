@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Meta } from '@storybook/react';
 
+import readme from '../README.md';
+
 import Ellipsis from './Ellipsis';
 
 const ellipsisContent =
@@ -10,6 +12,9 @@ const ellipsisContent =
 export default {
   title: 'Components/Ellipsis',
   component: Ellipsis,
+  parameters: {
+    description: readme,
+  },
 } as Meta;
 
 export const Standard: React.VFC<unknown> = () => (

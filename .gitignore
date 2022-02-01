@@ -130,7 +130,6 @@ commonjs/
 module/
 target/
 build/
-lib/
 storybook-static
 
 # TS

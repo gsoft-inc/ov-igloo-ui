@@ -2,11 +2,16 @@ import React from 'react';
 
 import { Meta } from '@storybook/react';
 
+import readme from '../README.md';
+
 import Card from './Card';
 
 export default {
   title: 'Components/Card',
   component: Card,
+  parameters: {
+    description: readme,
+  },
 } as Meta;
 
 const cardContent = 'Lorem ipsum dolor';
