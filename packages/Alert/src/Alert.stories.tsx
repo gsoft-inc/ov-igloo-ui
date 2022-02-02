@@ -4,13 +4,19 @@ import { Meta } from '@storybook/react';
 
 import readme from '../README.md';
 
-import Alert, { AlertProps, Type } from './Alert';
+import Alert, { AlertButton, AlertProps, Type } from './Alert';
 
 export default {
   title: 'Components/Alert',
   component: Alert,
   parameters: {
     description: readme,
+  },
+  argTypes: {
+    message: {
+      control: 'text',
+      defaultValue: 'Lorem ipsum dolor sit amet',
+    },
   },
 } as Meta;
 
@@ -37,9 +43,11 @@ const Template = ({ payload }: Templates): React.ReactElement => {
       <section className="isb-section" key={index.toString()}>
         <h2>{title}</h2>
         <div className="isb-section__content">
-          <div style={displayContainerStyle} key={index.toString()}>
-            <Alert key={index.toString()} {...alertProperties} />
-          </div>
+          <Alert
+            style={displayContainerStyle}
+            key={index.toString()}
+            {...alertProperties}
+          />
         </div>
       </section>
     );
@@ -53,85 +61,75 @@ const demoTitleText: string = 'Lorem ipsum dolor sit amet';
 const demoText: string =
   'Praesent fringilla, magna in scelerisque tristique, turpis mi pharetra lectus, blandit varius sapien dolor nec arcu. Praesent tempus, purus vel rutrum vestibulum, metus nisl vestibulum purus, vel feugiat augue diam vel eros.';
 
-const demoButtonText: string = 'Vivamus id elit';
+const demoButton: AlertButton = {
+  label: 'Vivamus id elit',
+  onClick: () => alert('Action!'),
+};
 
-const demoAlertWithTitle: React.ReactNode = (
-  <>
-    <p className="alert-title">{demoTitleText}</p>
-    <p>{demoText}</p>
-  </>
-);
-
-const demoAlertWithoutTitle: React.ReactNode = <p>{demoText}</p>;
+const demoAlertMessage: React.ReactNode = <p>{demoText}</p>;
 
 const alertStyles = (type: Type): TemplateProperties[] => {
   return [
     {
       title: 'Card',
       alertProperties: {
-        children: demoAlertWithTitle,
+        title: demoTitleText,
+        message: demoAlertMessage,
         type,
       },
     },
     {
       title: 'Card + Button',
       alertProperties: {
-        children: demoAlertWithTitle,
+        title: demoTitleText,
+        message: demoAlertMessage,
         type,
-        onAlertActionClick: () => alert('Action!'),
-        alertActionText: demoButtonText,
+        button: demoButton,
       },
     },
     {
       title: 'Inline',
       alertProperties: {
-        children: demoAlertWithTitle,
+        title: demoTitleText,
+        message: demoAlertMessage,
         type,
-        alertStyle: 'inline',
+        appearance: 'inline',
       },
     },
     {
       title: 'Inline + Button',
       alertProperties: {
-        children: demoAlertWithTitle,
+        title: demoTitleText,
+        message: demoAlertMessage,
         type,
-        alertStyle: 'inline',
-        onAlertActionClick: () => alert('Action!'),
-        alertActionText: demoButtonText,
+        appearance: 'inline',
+        button: demoButton,
       },
     },
     {
       title: 'Horizontal',
       alertProperties: {
-        children: demoAlertWithoutTitle,
+        title: demoTitleText,
         type,
-        alertStyle: 'horizontal',
+        appearance: 'horizontal',
       },
     },
     {
       title: 'Horizontal + Button',
       alertProperties: {
-        children: demoAlertWithoutTitle,
+        title: demoTitleText,
         type,
-        alertStyle: 'horizontal',
-        onAlertActionClick: () => alert('Action!'),
-        alertActionText: demoButtonText,
+        appearance: 'horizontal',
+        button: demoButton,
       },
     },
     {
-      title: 'Not Dismissible',
+      title: 'Not Closable',
       alertProperties: {
-        children: demoAlertWithTitle,
+        title: demoTitleText,
+        message: demoAlertMessage,
         type,
-        isDismissible: false,
-      },
-    },
-    {
-      title: 'Small-Top Icon',
-      alertProperties: {
-        children: demoAlertWithTitle,
-        type,
-        iconStyle: 'small-top',
+        closable: false,
       },
     },
   ];
@@ -163,8 +161,4 @@ export const Success = (): React.ReactElement => (
 
 export const Warning = (): React.ReactElement => (
   <Template payload={alertStyles('warning')} />
-);
-
-export const None = (): React.ReactElement => (
-  <Template payload={alertStyles('none')} />
 );

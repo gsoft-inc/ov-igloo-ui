@@ -70,7 +70,7 @@ const Template = ({
   return <>{component}</>;
 };
 
-const buttonState = [
+const buttonState: ButtonProps[] = [
   { size: 'small' },
   {
     size: 'small',
@@ -145,20 +145,35 @@ export const Secondary = (): React.ReactElement => (
 export const Premium = (): React.ReactElement => (
   <Template
     appearance="premium"
-    payload={{ base: buttonState, disabled: buttonState, focus: buttonState }}
+    payload={{
+      base: buttonState,
+      disabled: buttonState,
+      active: buttonState,
+      focus: buttonState,
+    }}
   />
 );
 
 export const Danger = (): React.ReactElement => (
   <Template
     appearance="danger"
-    payload={{ base: buttonState, disabled: buttonState, focus: buttonState }}
+    payload={{
+      base: buttonState,
+      disabled: buttonState,
+      active: buttonState,
+      focus: buttonState,
+    }}
   />
 );
 
 export const Ghost = (): React.ReactElement => (
   <Template
     appearance="ghost"
-    payload={{ base: buttonState, disabled: buttonState, focus: buttonState }}
+    payload={{
+      base: buttonState,
+      disabled: buttonState,
+      active: buttonState,
+      focus: buttonState,
+    }}
   />
 );

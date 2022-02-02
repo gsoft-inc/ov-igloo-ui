@@ -1,5 +1,4 @@
 import React, { RefObject, useRef, useState } from 'react';
-import HTMLReactParser from 'html-react-parser';
 import classNames from 'classnames';
 
 import Button from '@igloo-ui/button';
@@ -22,52 +21,56 @@ export type Type =
   | 'premium'
   | 'promo'
   | 'success'
-  | 'warning'
-  | 'none';
+  | 'warning';
 
-export type Style = 'card' | 'inline' | 'horizontal';
+export type Appearance = 'card' | 'inline' | 'horizontal';
 
 export type IconStyle = 'medium-centered' | 'small-top';
 
+export interface AlertButton {
+  label: string;
+  onClick: () => void;
+}
+
 export interface AlertProps extends React.ComponentProps<'div'> {
+  /** The title of the alert */
+  title?: string;
   /** The content to display inside the Alert */
-  children?: React.ReactNode;
+  message?: React.ReactNode;
   /** Change the type of the Alert */
   type: Type;
-  /** Change how the Alert is displayed */
-  alertStyle?: Style;
-  /** Change how the icon in the Alert display */
-  iconStyle?: IconStyle;
+  /** Change the Alert appearance */
+  appearance?: Appearance;
   /** Add a specific class to the Alert */
   className?: string;
   /** Set if the Alert can be closed by the user */
-  isDismissible?: boolean;
-  /** Action on Alert dismiss click */
-  onDismissClick?: () => void;
-  /** Action on Alert button click */
-  onAlertActionClick?: () => void;
-  /** Text on Alert button */
-  alertActionText?: string;
+  closable?: boolean;
+  /** Action on Alert close button click */
+  onClose?: () => void;
+  /** Alert button */
+  button?: AlertButton;
+  /** Add a data-test tag for automated tests */
+  dataTest?: string;
 }
 
 const renderIcon = (
-  style: Style,
-  iconStyle: IconStyle,
+  style: Appearance,
+  hasButton: boolean,
   type: Type
 ): JSX.Element => {
-  const classes = classNames('ids-alert__icon', {
-    [`ids-alert__icon--${style}`]: true,
-    [`ids-alert__icon--${iconStyle}`]: true,
+  const classes = classNames('ids-alert__icon', `ids-alert__icon--${style}`, {
+    'ids-alert__icon--small-top': hasButton,
+    'ids-alert__icon--medium-centered': !hasButton,
   });
 
   return (
     <div className={classes}>
-      {type === 'announcement' && HTMLReactParser(TadaIcon)}
-      {type === 'info' && HTMLReactParser(InfoIcon)}
-      {type === 'premium' && HTMLReactParser(CrownIcon)}
-      {type === 'promo' && HTMLReactParser(PromoIcon)}
-      {type === 'success' && HTMLReactParser(SuccessIcon)}
-      {type === 'warning' && HTMLReactParser(WarningIcon)}
+      {type === 'announcement' && <TadaIcon />}
+      {type === 'info' && <InfoIcon />}
+      {type === 'premium' && <CrownIcon />}
+      {type === 'promo' && <PromoIcon />}
+      {type === 'success' && <SuccessIcon />}
+      {type === 'warning' && <WarningIcon />}
     </div>
   );
 };
@@ -90,76 +93,80 @@ const renderDismissButton = (
       appearance="ghost"
       className="ids-alert__dismiss-button"
       type="button"
-      size="xsmall"
-      icon={<Close size="small" />}
+      size="medium"
+      icon={<Close size="medium" />}
       onClick={action}
     />
   );
 };
 
 const renderAlertActionButton = (
-  style: Style,
-  alertActionText?: string,
-  onAlertActionClick?: () => void
+  style: Appearance,
+  button?: AlertButton
 ): JSX.Element => {
-  if (alertActionText == null || onAlertActionClick == null) {
+  if (button == null || button.onClick == null || button.label == null) {
     return <></>;
   }
+
+  const customHorizontalStyle = {
+    margin: '-10px 0',
+  };
 
   return (
     <Button
       appearance={style === 'horizontal' ? 'ghost' : 'secondary'}
-      onClick={onAlertActionClick}
+      style={style === 'horizontal' ? customHorizontalStyle : {}}
+      onClick={button.onClick}
     >
-      {alertActionText}
+      {button.label}
     </Button>
   );
 };
 
 const Alert: React.FunctionComponent<AlertProps> = (props: AlertProps) => {
   const {
-    className,
-    children,
+    title,
+    message,
     type,
-    alertStyle = 'card',
-    iconStyle = 'medium-centered',
-    isDismissible = true,
-    onDismissClick,
-    onAlertActionClick,
-    alertActionText,
+    appearance = 'card',
+    className,
+    closable = true,
+    onClose,
+    button,
+    dataTest,
     ...rest
   } = props;
 
   const classes = classNames(
     'ids-alert',
-    `ids-alert--${alertStyle}`,
-    className,
-    {
-      [`ids-alert--${type}`]: type !== 'none',
-    }
+    `ids-alert--${appearance}`,
+    `ids-alert--${type}`,
+    className
   );
 
   const parentElement = useRef<HTMLDivElement>(null);
   const [show, setShow] = useState(true);
+  const hasButton = button !== undefined;
 
   if (show) {
     return (
-      <div className={classes} ref={parentElement} {...rest}>
-        {alertStyle !== 'horizontal' &&
-          type !== 'none' &&
-          renderIcon(alertStyle, iconStyle, type)}
+      <div
+        className={classes}
+        ref={parentElement}
+        data-test={dataTest}
+        {...rest}
+      >
+        {appearance !== 'horizontal' && renderIcon(appearance, hasButton, type)}
 
         <div className="ids-alert__body">
-          <div className="ids-alert__content">{children}</div>
-          {renderAlertActionButton(
-            alertStyle,
-            alertActionText,
-            onAlertActionClick
-          )}
+          <p className="ids-alert__title">{title}</p>
+          <div className="ids-alert__content">{message}</div>
+          {hasButton && renderAlertActionButton(appearance, button)}
         </div>
 
-        {isDismissible &&
-          renderDismissButton(parentElement, setShow, onDismissClick)}
+        {closable &&
+          appearance !== 'horizontal' &&
+          renderDismissButton(parentElement, setShow, onClose)}
       </div>
     );
   }

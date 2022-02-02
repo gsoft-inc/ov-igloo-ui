@@ -4,7 +4,7 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 
-import Alert, { Type, AlertProps, Style } from './Alert';
+import Alert, { Type, AlertProps, Appearance } from './Alert';
 
 const setup = (props: AlertProps) => {
   return shallow(<Alert {...props}>Hello world</Alert>);
@@ -33,7 +33,7 @@ describe('Alert', () => {
     expect(findWarning.length === 1).toBe(type === 'warning');
   };
 
-  const expectTpBeOfStyle = (alert: ShallowWrapper, style: Style) => {
+  const expectTpBeOfStyle = (alert: ShallowWrapper, style: Appearance) => {
     const findCard = alert.find('.ids-alert--card');
     const findInline = alert.find('.ids-alert--inline');
     const findHorizontal = alert.find('.ids-alert--horizontal');
@@ -44,12 +44,12 @@ describe('Alert', () => {
   };
 
   test('It should render without errors', () => {
-    const wrapper = component('none').find('.ids-alert');
+    const wrapper = component('info').find('.ids-alert');
     expect(wrapper.length).toBe(1);
   });
 
   test('It should render a snapshot', () => {
-    expect(component('none')).toMatchSnapshot();
+    expect(component('info')).toMatchSnapshot();
   });
 
   test('It should render an alert with type "announcement"', () => {
@@ -88,59 +88,53 @@ describe('Alert', () => {
     expectToBeOfType(alert, 'warning');
   });
 
-  test('It should render an alert with type "none"', () => {
-    const alert = component('none');
-
-    expectToBeOfType(alert, 'none');
-  });
-
   test('It should render by default an alert with a dismiss button', () => {
-    const alert = setup({ type: 'none' });
+    const alert = setup({ type: 'info' });
     const findDismissButton = alert.find('.ids-alert__dismiss-button');
 
     expect(findDismissButton.length).toBe(1);
   });
 
   test('It should render an alert with a dismiss button', () => {
-    const alert = setup({ type: 'none', isDismissible: true });
+    const alert = setup({ type: 'info', closable: true });
     const findDismissButton = alert.find('.ids-alert__dismiss-button');
 
     expect(findDismissButton.length).toBe(1);
   });
 
   test('It should render an alert without a dismiss button', () => {
-    const alert = setup({ type: 'none', isDismissible: false });
+    const alert = setup({ type: 'info', closable: false });
     const findDismissButton = alert.find('.ids-alert__dismiss-button');
 
     expect(findDismissButton.length).toBe(0);
   });
 
   test('It should render by default a Card style alert', () => {
-    const alert = setup({ type: 'none' });
+    const alert = setup({ type: 'info' });
 
     expectTpBeOfStyle(alert, 'card');
   });
 
   test('It should render a Card style alert', () => {
-    const alert = setup({ type: 'none', alertStyle: 'card' });
+    const alert = setup({ type: 'info', appearance: 'card' });
 
     expectTpBeOfStyle(alert, 'card');
   });
 
   test('It should render a Inline style alert', () => {
-    const alert = setup({ type: 'none', alertStyle: 'inline' });
+    const alert = setup({ type: 'info', appearance: 'inline' });
 
     expectTpBeOfStyle(alert, 'inline');
   });
 
   test('It should render a Horizontal style alert', () => {
-    const alert = setup({ type: 'none', alertStyle: 'horizontal' });
+    const alert = setup({ type: 'info', appearance: 'horizontal' });
 
     expectTpBeOfStyle(alert, 'horizontal');
   });
 
   test('It should render an Alert without action button', () => {
-    const alert = setup({ type: 'none', alertStyle: 'card' });
+    const alert = setup({ type: 'info', appearance: 'card' });
     const findActionButton = alert.find('Button');
 
     expect(findActionButton.length).toBe(0);
@@ -149,11 +143,13 @@ describe('Alert', () => {
   test('It should render an Alert with action button', () => {
     const buttonText = 'Supercalifragilisticexpialidocious';
     const alert = setup({
-      type: 'none',
-      alertStyle: 'card',
-      alertActionText: buttonText,
-      onAlertActionClick: () => {
-        console.log(buttonText);
+      type: 'info',
+      appearance: 'card',
+      button: {
+        label: buttonText,
+        onClick: () => {
+          console.log(buttonText);
+        },
       },
     });
     const findActionButton = alert.find('Button');
@@ -165,7 +161,7 @@ describe('Alert', () => {
   test('It should render a Card Alert with an icon', () => {
     const alert = setup({
       type: 'success',
-      alertStyle: 'card',
+      appearance: 'card',
     });
     const findIcon = alert.find('.ids-alert__icon');
 
@@ -175,7 +171,7 @@ describe('Alert', () => {
   test('It should render a Inline Alert with an icon', () => {
     const alert = setup({
       type: 'success',
-      alertStyle: 'inline',
+      appearance: 'inline',
     });
     const findIcon = alert.find('.ids-alert__icon');
 
@@ -185,7 +181,7 @@ describe('Alert', () => {
   test('It should render a Horizontal Alert without an icon', () => {
     const alert = setup({
       type: 'success',
-      alertStyle: 'horizontal',
+      appearance: 'horizontal',
     });
     const findIcon = alert.find('.ids-alert__icon');
 
@@ -195,7 +191,7 @@ describe('Alert', () => {
   test('It should render an Alert by default with a medium icon', () => {
     const alert = setup({
       type: 'success',
-      alertStyle: 'card',
+      appearance: 'card',
     });
     const findIcon = alert.find('.ids-alert__icon--medium-centered');
 
@@ -205,8 +201,7 @@ describe('Alert', () => {
   test('It should render an Alert with a medium icon', () => {
     const alert = setup({
       type: 'success',
-      alertStyle: 'card',
-      iconStyle: 'medium-centered',
+      appearance: 'card',
     });
     const findIcon = alert.find('.ids-alert__icon--medium-centered');
 
@@ -216,8 +211,13 @@ describe('Alert', () => {
   test('It should render an Alert with a small icon', () => {
     const alert = setup({
       type: 'success',
-      alertStyle: 'card',
-      iconStyle: 'small-top',
+      appearance: 'card',
+      button: {
+        label: 'label',
+        onClick: () => {
+          console.log('onClick');
+        },
+      },
     });
     const findIcon = alert.find('.ids-alert__icon--small-top');
 
