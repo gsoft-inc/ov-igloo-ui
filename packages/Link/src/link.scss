@@ -1,0 +1,50 @@
+@import '~@igloo-ui/tokens/dist/base10/variables.css';
+@import '~@igloo-ui/tokens/dist/fonts.css';
+
+:root {
+  /* Default */
+  --ids-link-font-family: var(--primary-font-family);
+  --ids-link-font-size-small: var(--font-size-3); // Todo Validate size
+  --ids-link-font-size-medium: var(--font-size-4);
+
+  /* Primary */
+  --ids-link-color-primary: var(--electric-blue-500);
+
+  /* Secondary */
+  --ids-link-color-secondary: var(--grey-600);
+
+  /* Warning */
+  --ids-link-color-warning: var(--coral-500);
+}
+
+.ids-link {
+  text-decoration: none;
+  font-family: var(--ids-link-font-family);
+
+  /* Themes */
+  &--primary {
+    color: var(--ids-link-color-primary);
+  }
+
+  &--secondary {
+    color: var(--ids-link-color-secondary);
+  }
+
+  &--warning {
+    color: var(--ids-link-color-warning);
+  }
+
+  /* Sizes */
+  &--small {
+    font-size: var(--ids-link-font-size-small);
+  }
+
+  &--medium {
+    font-size: var(--ids-link-font-size-medium);
+  }
+
+  /* Components */
+  &__icon {
+
+  }
+}
