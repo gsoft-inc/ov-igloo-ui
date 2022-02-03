@@ -19,7 +19,6 @@ describe('Alert', () => {
     const findAnnouncement = alert.find('.ids-alert--announcement');
     const findInfo = alert.find('.ids-alert--info');
     const findPremium = alert.find('.ids-alert--premium');
-    const findPromo = alert.find('.ids-alert--promo');
     const findSuccess = alert.find('.ids-alert--success');
     const findWarning = alert.find('.ids-alert--warning');
 
@@ -28,7 +27,6 @@ describe('Alert', () => {
     expect(findAnnouncement.length === 1).toBe(type === 'announcement');
     expect(findInfo.length === 1).toBe(type === 'info');
     expect(findPremium.length === 1).toBe(type === 'premium');
-    expect(findPromo.length === 1).toBe(type === 'promo');
     expect(findSuccess.length === 1).toBe(type === 'success');
     expect(findWarning.length === 1).toBe(type === 'warning');
   };
@@ -68,12 +66,6 @@ describe('Alert', () => {
     const alert = component('premium');
 
     expectToBeOfType(alert, 'premium');
-  });
-
-  test('It should render an alert with type "promo"', () => {
-    const alert = component('promo');
-
-    expectToBeOfType(alert, 'promo');
   });
 
   test('It should render an alert with type "success"', () => {

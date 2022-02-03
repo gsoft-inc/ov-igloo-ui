@@ -8,20 +8,13 @@ import {
   TadaIcon,
   InfoIcon,
   CrownIcon,
-  PromoIcon,
   SuccessIcon,
   WarningIcon,
 } from './svgs';
 
 import './alert.scss';
 
-export type Type =
-  | 'announcement'
-  | 'info'
-  | 'premium'
-  | 'promo'
-  | 'success'
-  | 'warning';
+export type Type = 'announcement' | 'info' | 'premium' | 'success' | 'warning';
 
 export type Appearance = 'card' | 'inline' | 'horizontal';
 
@@ -68,7 +61,6 @@ const renderIcon = (
       {type === 'announcement' && <TadaIcon />}
       {type === 'info' && <InfoIcon />}
       {type === 'premium' && <CrownIcon />}
-      {type === 'promo' && <PromoIcon />}
       {type === 'success' && <SuccessIcon />}
       {type === 'warning' && <WarningIcon />}
     </div>
@@ -147,6 +139,7 @@ const Alert: React.FunctionComponent<AlertProps> = (props: AlertProps) => {
   const parentElement = useRef<HTMLDivElement>(null);
   const [show, setShow] = useState(true);
   const hasButton = button !== undefined;
+  const canBeClose = closable && appearance !== 'horizontal';
 
   if (show) {
     return (
@@ -164,9 +157,7 @@ const Alert: React.FunctionComponent<AlertProps> = (props: AlertProps) => {
           {hasButton && renderAlertActionButton(appearance, button)}
         </div>
 
-        {closable &&
-          appearance !== 'horizontal' &&
-          renderDismissButton(parentElement, setShow, onClose)}
+        {canBeClose && renderDismissButton(parentElement, setShow, onClose)}
       </div>
     );
   }

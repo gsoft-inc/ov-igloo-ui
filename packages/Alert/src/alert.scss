@@ -29,9 +29,6 @@
   /* Premium */
   --ids-alert-color-premium: var(--dandelion-300);
 
-  /* Promo */
-  --ids-alert-color-promo: var(--sky-100);
-
   /* Success */
   --ids-alert-color-success: var(--seaweed-500);
 
@@ -65,10 +62,6 @@
     @include ids-alert-mixin-decoration(var(--ids-alert-color-premium));
   }
 
-  &--promo {
-    @include ids-alert-mixin-decoration(var(--ids-alert-color-promo));
-  }
-
   &--success {
     @include ids-alert-mixin-decoration(var(--ids-alert-color-success));
   }
@@ -93,6 +86,12 @@
   &__dismiss-button {
     order: 99;
     flex: 0 0 auto;
+
+    @media screen and (max-width: 600px) {
+      &.ids-btn {
+        display: none;
+      }
+    }
   }
 
   &__icon {

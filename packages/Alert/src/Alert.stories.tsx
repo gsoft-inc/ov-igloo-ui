@@ -136,7 +136,11 @@ const alertStyles = (type: Type): TemplateProperties[] => {
 };
 
 export const Playground: React.VFC<AlertProps> = (args) => (
-  <Alert {...args}>Playground</Alert>
+  <section className="isb-section" key={'1'}>
+    <div className="isb-section__content">
+      <Alert {...args}>Playground</Alert>
+    </div>
+  </section>
 );
 
 export const Announcement = (): React.ReactElement => (
@@ -149,10 +153,6 @@ export const Info = (): React.ReactElement => (
 
 export const Premium = (): React.ReactElement => (
   <Template payload={alertStyles('premium')} />
-);
-
-export const Promo = (): React.ReactElement => (
-  <Template payload={alertStyles('promo')} />
 );
 
 export const Success = (): React.ReactElement => (
