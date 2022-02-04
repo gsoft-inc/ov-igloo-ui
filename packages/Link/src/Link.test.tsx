@@ -7,7 +7,7 @@ import { shallow } from 'enzyme';
 import Link from './Link';
 
 describe('Link', () => {
-  const component = shallow(<Link>Hello world</Link>);
+  const component = shallow(<Link to="#">Hello world</Link>);
   test('It should render without errors', () => {
     const wrapper = component.find('.ids-link');
     expect(wrapper.length).toBe(1);

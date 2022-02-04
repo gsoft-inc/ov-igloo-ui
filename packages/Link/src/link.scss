@@ -44,7 +44,16 @@
   }
 
   /* Components */
-  &__icon {
+}
 
-  }
+.has-icon .ids-icon {
+  color: var(--ids-btn-icon-color);
+}
+
+.has-icon--leading .ids-icon {
+  margin-right: var(--ids-btn-icon-margin);
+}
+
+.has-icon--trailing .ids-icon {
+  margin-left: var(--ids-btn-icon-margin);
 }
