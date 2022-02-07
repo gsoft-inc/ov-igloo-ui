@@ -45,6 +45,11 @@
   padding: var(--ids-alert-padding);
   width: 100%;
 
+  /* External component override */
+  .ids-btn {
+    width: auto;
+  }
+
   /* Types */
   &--announcement {
     @include ids-alert-mixin-decoration(var(--ids-alert-color-announcement));
@@ -132,10 +137,5 @@
   &__content {
     flex: 1 1 auto;
     color: var(--ids-alert-text-color-body);
-  }
-
-  /* External component override */
-  .ids-btn {
-    width: auto;
   }
 }
