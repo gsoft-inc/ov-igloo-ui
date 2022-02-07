@@ -83,7 +83,7 @@ const renderDismissButton = (
   return (
     <IconButton
       appearance="ghost"
-      className="ids-alert__dismiss-button"
+      className="ids-alert__dismiss-btn"
       type="button"
       size="medium"
       icon={<Close size="medium" />}
@@ -100,14 +100,9 @@ const renderAlertActionButton = (
     return <></>;
   }
 
-  const customHorizontalStyle = {
-    margin: '-10px 0',
-  };
-
   return (
     <Button
       appearance={style === 'horizontal' ? 'ghost' : 'secondary'}
-      style={style === 'horizontal' ? customHorizontalStyle : {}}
       onClick={button.onClick}
     >
       {button.label}
@@ -162,7 +157,7 @@ const Alert: React.FunctionComponent<AlertProps> = (props: AlertProps) => {
     );
   }
 
-  return <></>;
+  return null;
 };
 
 export default Alert;

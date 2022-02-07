@@ -38,10 +38,6 @@
 
 .ids-alert {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: flex-start;
   gap: var(--ids-alert-flex-gap-component);
   border-left: var(--ids-alert-border-left-width) solid transparent;
   font-size: var(--ids-alert-font-size);
@@ -83,8 +79,7 @@
   }
 
   /* Components */
-  &__dismiss-button {
-    order: 99;
+  &__dismiss-btn {
     flex: 0 0 auto;
 
     @media screen and (max-width: 600px) {
@@ -95,8 +90,6 @@
   }
 
   &__icon {
-    order: 0;
-    flex: 0 0 auto;
     font-size: 0;
 
     @media screen and (max-width: 600px) {
@@ -113,19 +106,10 @@
   }
 
   &__body {
-    order: 1;
     display: flex;
     gap: 0 30px;
     width: 100%;
     align-self: center;
-  }
-
-  &--card &__body {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  &--inline &__body {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -133,18 +117,25 @@
   &--horizontal &__body {
     flex-direction: row;
     align-items: center;
+
+    > .ids-btn {
+      margin: -10px 0;
+    }
   }
 
   &__title {
     font-weight: var(--ids-alert-title-font-weight);
     color: var(--ids-alert-text-color-title);
-    flex: 0 0 auto;
     margin: 0;
   }
 
   &__content {
     flex: 1 1 auto;
-    display: block;
     color: var(--ids-alert-text-color-body);
+  }
+
+  /* External component override */
+  .ids-btn {
+    width: auto;
   }
 }

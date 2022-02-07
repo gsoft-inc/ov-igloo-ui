@@ -82,21 +82,21 @@ describe('Alert', () => {
 
   test('It should render by default an alert with a dismiss button', () => {
     const alert = setup({ type: 'info' });
-    const findDismissButton = alert.find('.ids-alert__dismiss-button');
+    const findDismissButton = alert.find('.ids-alert__dismiss-btn');
 
     expect(findDismissButton.length).toBe(1);
   });
 
   test('It should render an alert with a dismiss button', () => {
     const alert = setup({ type: 'info', closable: true });
-    const findDismissButton = alert.find('.ids-alert__dismiss-button');
+    const findDismissButton = alert.find('.ids-alert__dismiss-btn');
 
     expect(findDismissButton.length).toBe(1);
   });
 
   test('It should render an alert without a dismiss button', () => {
     const alert = setup({ type: 'info', closable: false });
-    const findDismissButton = alert.find('.ids-alert__dismiss-button');
+    const findDismissButton = alert.find('.ids-alert__dismiss-btn');
 
     expect(findDismissButton.length).toBe(0);
   });
