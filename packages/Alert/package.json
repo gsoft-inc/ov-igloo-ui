@@ -1,0 +1,30 @@
+{
+  "name": "@igloo-ui/alert",
+  "version": "0.0.1",
+  "main": "dist/Alert.js",
+  "module": "dist/Alert.js",
+  "types": "dist/Alert.d.ts",
+  "styles": "dist/alert.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "author": "Officevibe Inc.",
+  "contributors": [
+    "alexandre.beaudoin@gsoft.com"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@igloo-ui/tokens": "^1.0.0",
+    "@igloo-ui/icons": "^0.6.5",
+    "@igloo-ui/button": "^0.1.6",
+    "@igloo-ui/icon-button": "^0.2.0",
+    "classnames": "^2.3.1"
+  }
+}
