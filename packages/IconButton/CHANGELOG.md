@@ -1,5 +1,11 @@
 # @igloo-ui/icon-button
 
+## 0.2.1
+
+### Patch Changes
+
+- 0d8e80e: Remove useless background property already specified in button
+
 ## 0.2.0
 
 ### Minor Changes
