@@ -1,6 +1,8 @@
 import * as React from 'react';
 import cx from 'classnames';
 
+import { useLink } from '@react-aria/link';
+
 import './link.scss';
 
 export type Appearance =
@@ -14,77 +16,88 @@ export type Size = 'small' | 'medium';
 export interface LinkProps extends React.ComponentPropsWithoutRef<'a'> {
   /** The content to display inside the link */
   children?: React.ReactNode;
-  /** Set the size of the link */
+  /** Changes the size of link, giving more or less padding */
   size?: Size;
-  /** Set the theme for the link */
+  /** Link appearance */
   appearance?: Appearance;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
-  /** Icon React node to be displayed before the text value of the link */
-  iconLeading?: React.ReactNode;
-  /** Icon React node to be displayed after the text value of the link */
-  iconTrailing?: React.ReactNode;
-  /** True if we want only show the icon in mobile or tablet size (< medium) */
-  showOnlyIconOnMobile?: boolean;
-  /** A string representation of the Link location, created by concatenating the location's pathname, search, and hash properties */
-  to: string;
-  /** Unique id used in Intercom to link a components to a Product Tour step */
-  intercomTarget?: string;
-  /** The target attribute specifies a window or a frame where the linked document is loaded */
-  target?: string;
-  /** Add class names to the surrounding DOM container */
+  /** Add a specific class to the button */
   className?: string;
-  // /** True if the link is disabled */
-  // disabled: boolean;
 }
 
 const Link: React.FunctionComponent<LinkProps> = (props: LinkProps) => {
   const {
     children,
-    size = 'small',
+    size = 'medium',
     appearance = 'primary',
     dataTest,
-    iconLeading,
-    iconTrailing,
-    showOnlyIconOnMobile,
-    to,
-    intercomTarget,
-    target,
     className,
     ...rest
   } = props;
 
-  const hasIconLeading = iconLeading !== undefined;
-  const hasIconTrailing = iconTrailing !== undefined;
-  const hasIcon = hasIconLeading || hasIconTrailing;
-
-  const classes = cx(
-    'ids-link',
-    className,
-    `ids-link--${appearance}`,
-    `ids-link--${size}`,
-    {
-      'has-icon': hasIcon,
-      'has-icon--leading': hasIconLeading,
-      'has-icon--trailing': hasIconTrailing,
-      'ids-link--mobile': showOnlyIconOnMobile,
+  const getWrappedElement = (
+    children: string | React.ReactElement | React.ReactNode
+  ): React.ReactElement => {
+    if (typeof children === 'string') {
+      return <span>{children}</span>;
     }
+
+    if (React.isValidElement(children)) {
+      return React.Children.only(children);
+    }
+
+    return <></>;
+  };
+
+  const classes = cx('ids-link', className, {
+    'ids-link--small': size === 'small',
+    [`ids-link--${appearance}`]: appearance !== 'primary',
+  });
+
+  const ref = React.useRef();
+  const { linkProps } = useLink(
+    {
+      ...rest,
+      elementType: typeof children === 'string' ? 'span' : 'a',
+    },
+    ref
   );
 
-  return (
-    <a
-      href={to}
-      target={target}
-      className={classes}
-      data-test={dataTest}
-      data-intercom-target={intercomTarget}
-      {...rest}
-    >
-      {hasIconLeading && iconLeading}
-      {children}
-      {hasIconTrailing && iconTrailing}
-    </a>
-  );
+  return React.cloneElement(getWrappedElement(children), {
+    ...linkProps,
+    className: classes,
+    'data-test': dataTest,
+    ref,
+    ...rest,
+  });
+
+  // const classes = cx(
+  //   'ids-link',
+  //   className,
+  //   `ids-link--${appearance}`,
+  //   `ids-link--${size}`,
+  //   {
+  //     'has-icon': hasIcon,
+  //     'has-icon--leading': hasIconLeading,
+  //     'has-icon--trailing': hasIconTrailing,
+  //     'ids-link--mobile': showOnlyIconOnMobile,
+  //   }
+  // );
+  // return (
+  //   <a
+  //     href={to}
+  //     target={target}
+  //     className={classes}
+  //     data-test={dataTest}
+  //     data-intercom-target={intercomTarget}
+  //     {...rest}
+  //   >
+  //     {hasIconLeading && iconLeading}
+  //     {children}
+  //     {hasIconTrailing && iconTrailing}
+  //   </a>
+  // );
 };
 
 export default Link;

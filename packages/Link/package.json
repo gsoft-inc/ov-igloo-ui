@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/link",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "main": "dist/Link.js",
   "module": "dist/Link.js",
   "types": "dist/Link.d.ts",
@@ -11,6 +11,7 @@
   "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
   "author": "Officevibe Inc.",
   "contributors": [
+    "Franck franck.gaudin@gsoft.com",
     "Alexandre alexandre.beaudoin@gsoft.com"
   ],
   "license": "Apache-2.0",
@@ -22,6 +23,7 @@
   ],
   "dependencies": {
     "@igloo-ui/tokens": "^1.0.0",
+    "@react-aria/link": "^3.2.0",
     "classnames": "^2.3.1"
   }
 }
