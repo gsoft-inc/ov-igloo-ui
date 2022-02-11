@@ -26,19 +26,9 @@ declare module '@igloo-ui/icons/dist/Close' {
 }
 
 declare module '@igloo-ui/icons/dist/Settings' {
-  export default function Start(props: {
-    width?: number;
-    height?: number;
-    fill?: string;
-    size?: 'small' | 'medium' | 'large';
-  }): JSX.Element;
+  export default function Settings(props: iconsProps): JSX.Element;
 }
 
 declare module '@igloo-ui/icons/dist/Search' {
-  export default function Start(props: {
-    width?: number;
-    height?: number;
-    fill?: string;
-    size?: 'small' | 'medium' | 'large';
-  }): JSX.Element;
+  export default function Search(props: iconsProps): JSX.Element;
 }

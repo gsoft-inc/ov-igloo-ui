@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 0.0.4
+
+### Patch Changes
+
+- 56816b9: Replace the background color by `--electric-blue-900`
+
 ## 0.0.3
 
 ### Patch Changes

@@ -1,17 +1,17 @@
 {
-  "name": "@igloo-ui/icon-button",
-  "version": "0.2.1",
-  "main": "dist/IconButton.js",
-  "module": "dist/IconButton.js",
-  "types": "dist/IconButton.d.ts",
-  "styles": "dist/iconbutton.css",
+  "name": "@igloo-ui/alert",
+  "version": "0.1.0",
+  "main": "dist/Alert.js",
+  "module": "dist/Alert.js",
+  "types": "dist/Alert.d.ts",
+  "styles": "dist/alert.css",
   "publishConfig": {
     "access": "public"
   },
   "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
   "author": "Officevibe Inc.",
   "contributors": [
-    "sylvester.vuong@gsoft.com"
+    "alexandre.beaudoin@gsoft.com"
   ],
   "license": "Apache-2.0",
   "peerDependencies": {
@@ -21,11 +21,10 @@
     "dist"
   ],
   "dependencies": {
-    "@igloo-ui/tokens": "^1.1.0",
+    "@igloo-ui/tokens": "^1.0.0",
+    "@igloo-ui/icons": "^0.6.5",
     "@igloo-ui/button": "^0.1.6",
+    "@igloo-ui/icon-button": "^0.2.1",
     "classnames": "^2.3.1"
-  },
-  "devDependencies": {
-    "@igloo-ui/icons": "^0.6.5"
   }
 }
