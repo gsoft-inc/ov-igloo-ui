@@ -4,8 +4,8 @@ import { Meta } from '@storybook/react';
 
 import readme from '../README.md';
 
-import Link, { LinkProps } from './Link';
-// import Plus from '@igloo-ui/icons/dist/Plus';
+import Link from './Link';
+import Plus from '@igloo-ui/icons/dist/Plus';
 
 export default {
   title: 'Components/Link',
@@ -15,177 +15,84 @@ export default {
   },
 } as Meta;
 
-export const String = () => (
-  <Link
-    onClick={() => console.log('Test')}
-    appearance="primary"
-    size="small"
-    dataTest="link-ids"
-  >
-    Button
-  </Link>
-);
-export const Anchor = () => (
-  <Link appearance="primary" size="small" dataTest="link-ids">
-    <a href="#">Button</a>
+export const Overview: React.VFC = (args) => (
+  <Link {...args}>
+    <a href="#">Read more</a>
   </Link>
 );
 
-// interface TemplateProperties {
-//   appearance?: Appearance;
-//   payload: {
-//     base: LinkProps[];
-//     active: LinkProps[];
-//     focus: LinkProps[];
-//   };
-// }
+export const Appearances: React.VFC = () => (
+  <>
+    <Link appearance="primary">
+      <a href="#">Primary</a>
+    </Link>
+    <Link appearance="secondary">
+      <a href="#">Secondary</a>
+    </Link>
+    <Link appearance="premium">
+      <a href="#">Premium</a>
+    </Link>
+    <Link appearance="danger">
+      <a href="#">Danger</a>
+    </Link>
+    <Link appearance="ghost">
+      <a href="#">Gost</a>
+    </Link>
+  </>
+);
 
-// const Template = ({
-//   appearance,
-//   payload,
-// }: TemplateProperties): React.ReactElement => {
-//   const componentState = Object.keys(payload);
-//   const { base, active, focus } = payload;
+export const Disabled: React.VFC = () => (
+  <>
+    <Link disabled appearance="primary">
+      <a href="#">Primary</a>
+    </Link>
+    <Link disabled appearance="secondary">
+      <a href="#">Secondary</a>
+    </Link>
+    <Link disabled appearance="premium">
+      <a href="#">Premium</a>
+    </Link>
+    <Link disabled appearance="danger">
+      <a href="#">Danger</a>
+    </Link>
+    <Link disabled appearance="ghost">
+      <a href="#">Gost</a>
+    </Link>
+  </>
+);
 
-//   const component = componentState.map((state, index) => {
-//     const isFocus = state === 'focus';
-//     const datas =
-//       state === 'focus' ? focus : state === 'active' ? active : base;
+export const States: React.VFC = () => (
+  <>
+    <Link appearance="secondary">
+      <a href="#">Regular</a>
+    </Link>
+    <Link appearance="secondary" className="ids-link--active">
+      <a href="#">Active</a>
+    </Link>
+    <Link appearance="secondary" className="focus">
+      <a href="#">Focus</a>
+    </Link>
+  </>
+);
 
-//     const list = datas.map((p, i) => {
-//       const label = p.children !== undefined ? p.children : 'Link';
+export const Sizes: React.VFC = () => (
+  <>
+    <Link size="medium">
+      <a href="#">Medium</a>
+    </Link>
+    <Link size="small">
+      <a href="#">Small</a>
+    </Link>
+  </>
+);
 
-//       return (
-//         <Link
-//           appearance={appearance}
-//           key={i.toString()}
-//           {...p}
-//           className={isFocus ? 'focus ' + p.className : p.className}
-//         >
-//           {label}
-//         </Link>
-//       );
-//     });
-
-//     const title =
-//       state === 'base'
-//         ? 'Default'
-//         : state.charAt(0).toUpperCase() + state.slice(1);
-
-//     return (
-//       <section className="isb-section" key={index.toString()}>
-//         <h2>{title}</h2>
-//         <div className="isb-section__content">{list}</div>
-//       </section>
-//     );
-//   });
-
-//   return <>{component}</>;
-// };
-
-// const linkFakeDestination = '#';
-
-// const linkState: LinkProps[] = [
-//   {
-//     size: 'small',
-//     to: linkFakeDestination,
-//   },
-//   {
-//     size: 'small',
-//     children: 'Overflowing text',
-//     className: 'isb-element__thin',
-//     to: linkFakeDestination,
-//   },
-//   {
-//     size: 'small',
-//     iconLeading: <Plus size="small" />,
-//     children: 'New feedback',
-//     to: linkFakeDestination,
-//   },
-//   {
-//     size: 'small',
-//     iconTrailing: <Plus size="small" />,
-//     children: 'New feedback',
-//     to: linkFakeDestination,
-//   },
-//   {
-//     size: 'medium',
-//     to: linkFakeDestination,
-//   },
-//   {
-//     size: 'medium',
-//     children: 'Overflowing text',
-//     className: 'isb-element__thin',
-//     to: linkFakeDestination,
-//   },
-//   {
-//     size: 'medium',
-//     iconLeading: <Plus size="small" />,
-//     children: 'New feedback',
-//     to: linkFakeDestination,
-//   },
-//   {
-//     size: 'medium',
-//     iconTrailing: <Plus size="small" />,
-//     children: 'New feedback',
-//     to: linkFakeDestination,
-//   },
-// ];
-
-// export const Playground: React.VFC<LinkProps> = (args) => (
-//   <Link {...args}>Playground link</Link>
-// );
-
-// export const Primary = (): React.ReactElement => (
-//   <Template
-//     payload={{
-//       base: linkState,
-//       active: linkState,
-//       focus: linkState,
-//     }}
-//   />
-// );
-
-// export const Secondary = (): React.ReactElement => (
-//   <Template
-//     appearance="secondary"
-//     payload={{
-//       base: linkState,
-//       active: linkState,
-//       focus: linkState,
-//     }}
-//   />
-// );
-
-// export const Premium = (): React.ReactElement => (
-//   <Template
-//     appearance="premium"
-//     payload={{
-//       base: linkState,
-//       active: linkState,
-//       focus: linkState,
-//     }}
-//   />
-// );
-
-// export const Danger = (): React.ReactElement => (
-//   <Template
-//     appearance="danger"
-//     payload={{
-//       base: linkState,
-//       active: linkState,
-//       focus: linkState,
-//     }}
-//   />
-// );
-
-// export const Ghost = (): React.ReactElement => (
-//   <Template
-//     appearance="ghost"
-//     payload={{
-//       base: linkState,
-//       active: linkState,
-//       focus: linkState,
-//     }}
-//   />
-// );
+export const Icons: React.VFC = () => (
+  <>
+    <Link iconLeading={<Plus size="small" />}>
+      <a href="#">Left icon</a>
+    </Link>
+    <Link iconTrailing={<Plus size="small" />}>
+      <a href="#">Right icon</a>
+    </Link>
+  </>
+);
