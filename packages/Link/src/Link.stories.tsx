@@ -12,17 +12,38 @@ export default {
   component: Link,
   parameters: {
     description: readme,
+    controls: {
+      exclude: ['onClick'],
+    },
+    docs: {
+      source: {
+        type: 'auto',
+      },
+    },
   },
-} as Meta;
+  argTypes: {
+    size: { table: { defaultValue: { summary: 'medium' } } },
+    appearance: {
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
+    },
+    onClick: {
+      action: 'dynamic',
+    },
+  },
+} as Meta<typeof Link>;
 
-export const Overview: React.VFC = (args) => (
-  <Link {...args}>
-    <a href="#">Read more</a>
-  </Link>
-);
+export const Overview = (args: any) => {
+  return (
+    <Link {...args}>
+      <a href="#">Read more</a>
+    </Link>
+  );
+};
 
 export const Appearances: React.VFC = () => (
-  <>
+  <section className="isb-section__content">
     <Link appearance="primary">
       <a href="#">Primary</a>
     </Link>
@@ -38,11 +59,11 @@ export const Appearances: React.VFC = () => (
     <Link appearance="ghost">
       <a href="#">Gost</a>
     </Link>
-  </>
+  </section>
 );
 
 export const Disabled: React.VFC = () => (
-  <>
+  <section className="isb-section__content">
     <Link disabled appearance="primary">
       <a href="#">Primary</a>
     </Link>
@@ -58,11 +79,11 @@ export const Disabled: React.VFC = () => (
     <Link disabled appearance="ghost">
       <a href="#">Gost</a>
     </Link>
-  </>
+  </section>
 );
 
 export const States: React.VFC = () => (
-  <>
+  <section className="isb-section__content">
     <Link appearance="secondary">
       <a href="#">Regular</a>
     </Link>
@@ -72,27 +93,27 @@ export const States: React.VFC = () => (
     <Link appearance="secondary" className="focus">
       <a href="#">Focus</a>
     </Link>
-  </>
+  </section>
 );
 
 export const Sizes: React.VFC = () => (
-  <>
+  <section className="isb-section__content">
     <Link size="medium">
       <a href="#">Medium</a>
     </Link>
     <Link size="small">
       <a href="#">Small</a>
     </Link>
-  </>
+  </section>
 );
 
 export const Icons: React.VFC = () => (
-  <>
+  <section className="isb-section__content">
     <Link iconLeading={<Plus size="small" />}>
       <a href="#">Left icon</a>
     </Link>
     <Link iconTrailing={<Plus size="small" />}>
       <a href="#">Right icon</a>
     </Link>
-  </>
+  </section>
 );

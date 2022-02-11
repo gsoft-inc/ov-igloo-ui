@@ -21,6 +21,13 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  viewMode: 'docs',
+  previewTabs: {
+    'storybook/docs/panel': {
+      index: -1,
+    },
+    canvas: { title: 'Playground' },
+  },
   docs: {
     page: () => {
       const context = React.useContext(DocsContext);
