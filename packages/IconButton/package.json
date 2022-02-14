@@ -21,8 +21,8 @@
     "dist"
   ],
   "dependencies": {
-    "@igloo-ui/tokens": "^1.1.0",
     "@igloo-ui/button": "^0.1.6",
+    "@igloo-ui/tokens": "^1.1.0",
     "classnames": "^2.3.1"
   },
   "devDependencies": {
