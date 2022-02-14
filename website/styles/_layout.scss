@@ -1,0 +1,160 @@
+@import 'variables';
+
+:root {
+  --ico-columns: calc(100% / 4);
+}
+
+@media (min-width: $breakpoint-medium) {
+  :root {
+    --ico-columns: calc(100% / 7);
+  }
+}
+
+.io-layout {
+  width: 100%;
+  max-width: $layout;
+  margin: 0 auto;
+}
+
+.io-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: $navbar;
+  padding: $size-2 $size-2;
+  background: $c-white;
+  box-shadow: 0.5px 1.6px 1.6px hsl(0deg 0% 0% / 0.15);
+  z-index: 10;
+
+  &__content {
+    max-width: $layout;
+    width: 100%;
+    padding: 0 $size-2;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.io-main {
+  width: 100%;
+  padding: ($navbar + $size-6) $size-2 0;
+}
+
+.io-hero {
+  margin: $size-10 0 $size-10 + $size-6 0;
+
+  @media (min-width: $breakpoint-medium) {
+    &__title {
+      max-width: 80%;
+    }
+  }
+}
+
+.io-section {
+  margin-bottom: $size-8;
+
+  &__content {
+    display: grid;
+    gap: $size-3;
+
+    @media (min-width: $breakpoint-medium) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &--flex {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &--icon {
+      grid-template-columns: repeat(auto-fill, minmax(var(--ico-columns), 1fr));
+      grid-gap: 0;
+    }
+  }
+
+  &--grid {
+    display: grid;
+    gap: $size-8;
+
+    @media (min-width: $breakpoint-medium) {
+      gap: $size-3;
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  &--hasAside {
+    display: block;
+
+    @media (min-width: $breakpoint-medium) {
+      display: grid;
+      grid-template-columns: 1fr $layout-sm 1fr;
+    }
+  }
+
+  &--tight {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $layout-sm;
+  }
+}
+
+.io-container {
+  a {
+    text-decoration: underline;
+  }
+}
+
+.io-contact {
+  > *:not(:first-child) {
+    display: block;
+    margin-top: $size-3;
+  }
+}
+
+.io-list {
+  font-size: $fs-4;
+  list-style: none;
+  margin: $size-2 0 0;
+  padding: 0;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:first-child) {
+      margin-top: $size-1;
+    }
+  }
+}
+
+.io-aside {
+  display: none;
+  margin-top: $size-8 + $size-8;
+
+  @media (min-width: $breakpoint-medium) {
+    display: block;
+  }
+}
+
+.io-tokens {
+  &__list {
+    margin-top: $size-10;
+  }
+}
+
+.io-link {
+  &-icon {
+    display: inline-block;
+    line-height: 0;
+    height: $size-3;
+    width: $size-3;
+  }
+
+  &-brand {
+    width: auto;
+  }
+}

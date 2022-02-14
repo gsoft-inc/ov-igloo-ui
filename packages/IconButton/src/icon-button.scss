@@ -1,0 +1,81 @@
+@import '~@igloo-ui/tokens/dist/base10/variables.css';
+@import '~@igloo-ui/tokens/dist/fonts.css';
+
+:root {
+  /* Default */
+  --ids-icon-btn-height: var(--space-5);
+  --ids-icon-btn-width: var(--space-5);
+  --ids-icon-btn-active: var(--electric-blue-500);
+
+  /* XSmall */
+  --ids-icon-btn-height-xsmall: var(--space-3);
+  --ids-icon-btn-width-xsmall: var(--space-3);
+
+  /* Small */
+  --ids-icon-btn-height-small: var(--space-4);
+  --ids-icon-btn-width-small: var(--space-4);
+
+  /* Large */
+  --ids-icon-btn-height-large: var(--space-6);
+  --ids-icon-btn-width-large: var(--space-6);
+
+  /* Ghost */
+  --ids-icon-btn-ghost: var(--grey-500);
+  --ids-icon-btn-ghost-hover: var(--grey-900);
+  --ids-icon-btn-ghost-disabled: var(--grey-300);
+}
+
+.ids-icon-btn {
+  width: var(--ids-icon-btn-width);
+  height: var(--ids-icon-btn-height);
+  padding: 0;
+
+  svg {
+    display: block;
+  }
+
+  &--xsmall {
+    width: var(--ids-icon-btn-width-xsmall);
+    height: var(--ids-icon-btn-height-xsmall);
+  }
+
+  &--small {
+    width: var(--ids-icon-btn-width-small);
+    height: var(--ids-icon-btn-height-small);
+  }
+
+  &--large {
+    width: var(--ids-icon-btn-width-large);
+    height: var(--ids-icon-btn-height-large);
+  }
+
+  &--round {
+    border-radius: 50%;
+
+    &:focus::after {
+      border-radius: 50%;
+    }
+  }
+
+  &.ids-btn {
+    &--ghost {
+      color: var(--ids-icon-btn-ghost);
+
+      &:hover {
+        color: var(--ids-icon-btn-ghost-hover);
+      }
+
+      &:disabled {
+        color: var(--ids-icon-btn-ghost-disabled);
+      }
+    }
+
+    &--active {
+      color: var(--ids-icon-btn-active);
+    }
+
+    > span {
+      margin: -1px; // Since there is a 1px border for ids-btn
+    }
+  }
+}

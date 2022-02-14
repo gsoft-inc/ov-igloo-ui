@@ -1,0 +1,19 @@
+@import '../variables';
+
+.io-title {
+  line-height: 1.35;
+  color: $c-black;
+  margin: 0;
+
+  &--level1 {
+    font-size: var(--fs-display);
+  }
+
+  &--level2 {
+    font-size: var(--fs-600);
+  }
+
+  &--level3 {
+    font-size: var(--fs-400);
+  }
+}

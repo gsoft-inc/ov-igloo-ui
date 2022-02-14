@@ -115,6 +115,9 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
+# Jetbrains IDE
+.idea
+
 # yarn v2
 .yarn/cache
 .yarn/unplugged
@@ -128,7 +131,6 @@ commonjs/
 module/
 target/
 build/
-lib/
 storybook-static
 
 # TS

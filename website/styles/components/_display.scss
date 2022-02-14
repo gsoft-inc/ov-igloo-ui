@@ -1,0 +1,26 @@
+@import '../variables';
+
+.io-display {
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-700);
+  font-weight: 700;
+  margin-bottom: $size-8;
+  line-height: 1;
+
+  &__content {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__tag {
+    margin-left: $size-1;
+    margin-bottom: $size-0;
+  }
+
+  &__icon {
+    width: $size-5;
+    height: $size-5;
+    margin-right: $size-2;
+  }
+}

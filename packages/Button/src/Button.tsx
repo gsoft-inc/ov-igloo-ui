@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import cx from 'classnames';
 
 import './button.scss';
 
@@ -11,36 +11,38 @@ export type Appearance =
   | 'danger';
 export type Size = 'small' | 'medium';
 
-export interface Props extends React.ComponentPropsWithoutRef<'button'> {
-  // The content to display inside the button
+export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+  /** The content to display inside the button */
   children?: React.ReactNode;
-  // Disabled the button, the user cannot click on them
+  /** Disabled the button, the user cannot click on them */
   disabled?: boolean;
-  // Sets the button in a active state
+  /** Sets the button in an active state */
   active?: boolean;
-  // Replaces button text with a spinner while a background action is being performed
+  /** Replaces button text with a spinner while a background action is being performed */
   loading?: boolean;
-  // Changes the size of button, giving more or less padding
+  /** Changes the size of button, giving more or less padding */
   size?: Size;
-  // Button appearance
+  /** Button appearance */
   appearance?: Appearance;
-  // Add a data-test tag for automated tests
+  /** Add a data-test tag for automated tests */
   dataTest?: string;
-  // Icon to display to the left of button content
+  /** Icon to display to the left of button content */
   iconLeading?: React.ReactNode;
-  // Icon to display to the right of button content
+  /** Icon to display to the right of button content */
   iconTrailing?: React.ReactNode;
-  // Display only the icon in mobile
+  /** Display only the icon in mobile */
   showOnlyIconOnMobile?: boolean;
-  // Callback when clicked
+  /** Callback when clicked */
   onClick?: () => void;
-  // Optional prop to specify the type of the Button
+  /** Optional prop to specify the type of the Button */
   type?: 'button' | 'reset' | 'submit';
-  // Add a data-intercom-target with unique id to link a components to a Product Tour step.
+  /** Add a data-intercom-target with unique id to link a components to a Product Tour step */
   intercomTarget?: string;
+  /** Add a specific class to the button */
+  className?: string;
 }
 
-const Button: React.FunctionComponent<Props> = (props: Props) => {
+const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
   const {
     children,
     disabled = false,
@@ -62,8 +64,10 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
   const hasIconLeading = iconLeading !== undefined;
   const hasIconTrailing = iconTrailing !== undefined;
   const hasIcon = hasIconLeading || hasIconTrailing;
+  const childrenIsAString =
+    typeof children === 'string' || children instanceof String;
 
-  const classes = classNames('ids-btn', className, {
+  const classes = cx('ids-btn', className, {
     'ids-btn--small': size === 'small',
     'ids-btn--active': active,
     'ids-btn--loading': loading,
@@ -75,17 +79,25 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
   });
 
   const renderContent = (): JSX.Element => {
-    if (loading) {
-      return <div className="ids-loader" />;
-    }
-
     return (
       <>
         {hasIconLeading && iconLeading}
         {showOnlyIconOnMobile ? (
-          <span className="ids-btn__label">{children}</span>
+          <span
+            className={cx('ids-btn__label', {
+              'is-hidden': loading,
+            })}
+          >
+            {children}
+          </span>
         ) : (
-          children
+          <span
+            className={cx({
+              'is-hidden': loading,
+            })}
+          >
+            {children}
+          </span>
         )}
         {hasIconTrailing && iconTrailing}
       </>
@@ -99,9 +111,11 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
       data-test={dataTest}
       data-intercom-target={intercomTarget}
       type={type}
+      title={childrenIsAString ? children?.toString() : ''}
       onClick={onClick}
       {...rest}
     >
+      {loading && <div className="ids-loader" />}
       {renderContent()}
     </button>
   );

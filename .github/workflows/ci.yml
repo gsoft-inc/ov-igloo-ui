@@ -23,6 +23,7 @@ jobs:
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
       - run: yarn install --frozen-lockfile
+      - run: yarn build
       - run: yarn lint
       - run: yarn lint:style
       - run: yarn test

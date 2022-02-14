@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming';
-import logo from './brand.svg';
+import logo from '../../assets/brand.svg';
 
 export default create({
   base: 'light',
@@ -16,7 +16,7 @@ export default create({
   barTextColor: '#838B95',
   barSelectedColor: '#1053FF',
 
-  brandTitle: 'Officevibe',
-  brandUrl: 'https://officevibe.com/',
+  brandTitle: 'Igloo Design System',
+  brandUrl: '/',
   brandImage: logo,
 });

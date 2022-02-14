@@ -1,5 +1,35 @@
 # Change Log
 
+## 0.1.7
+
+### Patch Changes
+
+- ae0a0a5: Fixed the case where the content of the Button is not text, but that we tried to display the object in the title property.
+
+## 0.1.6
+
+### Patch Changes
+
+- 0df8530: Rename Props to ButtonProps
+
+## 0.1.5
+
+### Patch Changes
+
+- 8450a04: Fix resizing effect when loading is complete
+
+## 0.1.4
+
+### Patch Changes
+
+- 2da8010: Fix render of elements with the css var --grey-{...}
+
+## 0.1.3
+
+### Patch Changes
+
+- 31593ad: Change Premium button color and focus, how buttons handle overflow, how active button handle hover and some tweaks to the dev tooling on Windows.
+
 ## 0.1.2
 
 ### Patch Changes

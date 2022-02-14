@@ -4,16 +4,26 @@ import { Meta } from '@storybook/react';
 
 import Plus from '@igloo-ui/icons/dist/Plus';
 
-import Button, { Props, Appearance } from './Button';
+import readme from '../README.md';
+
+import Button, { ButtonProps, Appearance } from './Button';
 
 export default {
   title: 'Components/Button',
   component: Button,
+  parameters: {
+    description: readme,
+  },
 } as Meta;
 
 interface TemplateProps {
   appearance?: Appearance;
-  payload: { base: Props[]; disabled: Props[]; active: Props[] };
+  payload: {
+    base: ButtonProps[];
+    disabled: ButtonProps[];
+    active: ButtonProps[];
+    focus: ButtonProps[];
+  };
 }
 
 const Template = ({
@@ -25,6 +35,7 @@ const Template = ({
 
   const component = componentState.map((state, index) => {
     const isDisabled = state === 'disabled';
+    const isFocus = state === 'focus';
     const datas = isDisabled ? disabled : base;
 
     const list = datas.map((p, i) => {
@@ -36,6 +47,7 @@ const Template = ({
           disabled={isDisabled}
           key={i.toString()}
           {...p}
+          className={isFocus ? 'focus ' + p.className : p.className}
         >
           {label}
         </Button>
@@ -58,8 +70,13 @@ const Template = ({
   return <>{component}</>;
 };
 
-const buttonState = [
+const buttonState: ButtonProps[] = [
   { size: 'small' },
+  {
+    size: 'small',
+    children: 'Overflowing text',
+    className: 'isb-element__thin',
+  },
   {
     size: 'small',
     iconLeading: <Plus size="small" />,
@@ -78,6 +95,11 @@ const buttonState = [
   { size: 'medium' },
   {
     size: 'medium',
+    children: 'Overflowing text',
+    className: 'isb-element__thin',
+  },
+  {
+    size: 'medium',
     iconLeading: <Plus size="small" />,
     children: 'New feedback',
   },
@@ -93,34 +115,65 @@ const buttonState = [
   },
 ];
 
+export const Playground: React.VFC<unknown> = (args) => (
+  <Button {...args}>Playground button</Button>
+);
+
 export const Primary = (): React.ReactElement => (
-  <Template payload={{ base: buttonState, disabled: buttonState }} />
+  <Template
+    payload={{
+      base: buttonState,
+      disabled: buttonState,
+      active: buttonState,
+      focus: buttonState,
+    }}
+  />
 );
 
 export const Secondary = (): React.ReactElement => (
   <Template
     appearance="secondary"
-    payload={{ base: buttonState, disabled: buttonState, active: buttonState }}
+    payload={{
+      base: buttonState,
+      disabled: buttonState,
+      active: buttonState,
+      focus: buttonState,
+    }}
   />
 );
 
 export const Premium = (): React.ReactElement => (
   <Template
     appearance="premium"
-    payload={{ base: buttonState, disabled: buttonState }}
+    payload={{
+      base: buttonState,
+      disabled: buttonState,
+      active: buttonState,
+      focus: buttonState,
+    }}
   />
 );
 
 export const Danger = (): React.ReactElement => (
   <Template
     appearance="danger"
-    payload={{ base: buttonState, disabled: buttonState }}
+    payload={{
+      base: buttonState,
+      disabled: buttonState,
+      active: buttonState,
+      focus: buttonState,
+    }}
   />
 );
 
 export const Ghost = (): React.ReactElement => (
   <Template
     appearance="ghost"
-    payload={{ base: buttonState, disabled: buttonState }}
+    payload={{
+      base: buttonState,
+      disabled: buttonState,
+      active: buttonState,
+      focus: buttonState,
+    }}
   />
 );
