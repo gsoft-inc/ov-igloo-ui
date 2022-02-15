@@ -35,7 +35,7 @@ export interface LinkProps extends React.ComponentPropsWithoutRef<'a'> {
   /** Add a specific class to the link */
   className?: string;
   /** Callback when clicked
-   *  not to be used with an achore children
+   *  not to be used with an anchor children
    * */
   onClick?: () => void;
   /** Add a data-intercom-target with unique id

@@ -13,7 +13,7 @@
   --ids-link-padding: var(--space-3);
   --ids-link-padding-mobile: 1.2rem;
   --ids-link-border-radius: var(--border-radius-sm);
-  --ids-link-icon-color: currencolor;
+  --ids-link-icon-color: currentColor;
   --ids-link-icon-margin: 0;
   --ids-link-z-index: var(--z-index-10);
   --ids-link-focus-position: -0.3rem;
@@ -86,10 +86,6 @@
   white-space: nowrap;
   width: var(--ids-link-width);
   box-sizing: border-box;
-
-  &:hover {
-    cursor: pointer;
-  }
 
   &:focus,
   &.focus,

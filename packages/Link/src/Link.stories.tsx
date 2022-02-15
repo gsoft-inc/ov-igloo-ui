@@ -57,7 +57,7 @@ export const Appearances: React.VFC = () => (
       <a href="#">Danger</a>
     </Link>
     <Link appearance="ghost">
-      <a href="#">Gost</a>
+      <a href="#">Ghost</a>
     </Link>
   </section>
 );
@@ -77,7 +77,7 @@ export const Disabled: React.VFC = () => (
       <a href="#">Danger</a>
     </Link>
     <Link disabled appearance="ghost">
-      <a href="#">Gost</a>
+      <a href="#">Ghost</a>
     </Link>
   </section>
 );
