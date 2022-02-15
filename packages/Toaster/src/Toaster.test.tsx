@@ -2,12 +2,12 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
+import { screen } from '@testing-library/dom';
 import { Toast as HotToast } from 'react-hot-toast';
 
 import Toaster, { toaster } from './Toaster';
 import Toast from './Toast';
-import { debug } from 'console';
 
 const mockToast = {
   createdAt: 1639075944871,
@@ -25,7 +25,7 @@ const mockToast = {
 } as HotToast;
 
 describe('Toaster', () => {
-  const component = mount(
+  const { getByText } = render(
     <div>
       <button onClick={() => toaster.success('Successfully toasted!')}>
         Success
@@ -35,9 +35,9 @@ describe('Toaster', () => {
   );
 
   test('It should render without errors', () => {
-    component.find('button').simulate('click');
-    const wrapper = component.find('.ids-toaster');
-    expect(wrapper.length).toBe(1);
+    fireEvent.click(getByText('Success'));
+    const message = screen.getByText('Successfully toasted!');
+    expect(message).toBeInTheDocument();
   });
 
   test('It should render success', () => {
