@@ -1,5 +1,5 @@
-@import '@igloo-ui/tokens/dist/base10/variables.css';
-@import '@igloo-ui/tokens/dist/fonts.css';
+@import '~@igloo-ui/tokens/dist/base10/variables.css';
+@import '~@igloo-ui/tokens/dist/fonts.css';
 @import './mixins';
 
 :root {
@@ -102,11 +102,17 @@
     }
 
     &--medium-centered {
-      @include ids-alert-mixin-icon-position-size(center, var(--ids-alert-icon-size-medium));
+      @include ids-alert-mixin-icon-position-size(
+        center,
+        var(--ids-alert-icon-size-medium)
+      );
     }
 
     &--small-top {
-      @include ids-alert-mixin-icon-position-size(flex-start, var(--ids-alert-icon-size-small));
+      @include ids-alert-mixin-icon-position-size(
+        flex-start,
+        var(--ids-alert-icon-size-small)
+      );
     }
   }
 
