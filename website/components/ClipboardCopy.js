@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import cx from 'classnames';
 
 import { Copy, Check } from './icons';
 
-export default function ClipboardCopy({ textToCopy }) {
+export default function ClipboardCopy({ dark, textToCopy, className }) {
   const [isCopied, setIsCopied] = useState(false);
 
   async function copyTextToClipboard(text) {
@@ -26,8 +27,12 @@ export default function ClipboardCopy({ textToCopy }) {
       });
   }
 
+  const classes = cx('io-btn-copy', className, {
+    'io-btn-copy--dark': dark,
+  });
+
   return (
-    <button className="io-btn-copy" onClick={handleCopyClick}>
+    <button className={classes} onClick={handleCopyClick}>
       {isCopied ? <Check /> : <Copy />}
     </button>
   );
