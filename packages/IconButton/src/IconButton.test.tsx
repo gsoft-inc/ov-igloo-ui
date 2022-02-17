@@ -2,7 +2,8 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import Plus from '@igloo-ui/icons/dist/Plus';
 
 import IconButton from './IconButton';
@@ -44,8 +45,9 @@ describe('IconButton Component', (): void => {
   });
 
   test('It should render a button with icon', (): void => {
-    const iconButton = mount(<IconButton icon={<Plus size="small" />} />);
-    expect(iconButton.find('svg').length).toBe(1);
+    render(<IconButton icon={<Plus size="small" />} />);
+    const svg = document.getElementsByTagName('svg');
+    expect(svg.length).toBe(1);
   });
 
   test('It should render a primary appearance', (): void => {
