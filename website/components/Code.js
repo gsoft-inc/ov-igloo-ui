@@ -1,6 +1,6 @@
-import { CopyBlock, tomorrowNightEighties } from 'react-code-blocks';
 import cx from 'classnames';
 
+import Highlighter from './Highlighter';
 import ClipboardCopy from './ClipboardCopy';
 
 export default function Code({
@@ -22,14 +22,7 @@ export default function Code({
     </code>
   ) : (
     <span className="io-code">
-      <CopyBlock
-        text={children}
-        language={language}
-        theme={tomorrowNightEighties}
-        showLineNumbers={false}
-        wrapLines
-        codeBlock
-      />
+      <Highlighter language={language}>{children}</Highlighter>
     </span>
   );
 }

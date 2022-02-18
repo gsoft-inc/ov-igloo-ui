@@ -21,4 +21,10 @@ $btn-border: #e5e5e5;
   &:hover {
     cursor: pointer;
   }
+
+  &--dark {
+    color: $c-copy-text;
+    background: transparent;
+    border-color: $c-copy-border;
+  }
 }
