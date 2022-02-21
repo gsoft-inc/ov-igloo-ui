@@ -50,48 +50,22 @@ export const Appearances: React.VFC = () => (
     <Link appearance="secondary">
       <a href="#">Secondary</a>
     </Link>
-    <Link appearance="premium">
-      <a href="#">Premium</a>
-    </Link>
     <Link appearance="danger">
       <a href="#">Danger</a>
     </Link>
-    <Link appearance="ghost">
-      <a href="#">Ghost</a>
-    </Link>
   </section>
 );
 
-export const Disabled: React.VFC = () => (
+export const Underline: React.VFC = () => (
   <section className="isb-section__content">
-    <Link disabled appearance="primary">
+    <Link underline appearance="primary">
       <a href="#">Primary</a>
     </Link>
-    <Link disabled appearance="secondary">
+    <Link underline appearance="secondary">
       <a href="#">Secondary</a>
     </Link>
-    <Link disabled appearance="premium">
-      <a href="#">Premium</a>
-    </Link>
-    <Link disabled appearance="danger">
+    <Link underline appearance="danger">
       <a href="#">Danger</a>
-    </Link>
-    <Link disabled appearance="ghost">
-      <a href="#">Ghost</a>
-    </Link>
-  </section>
-);
-
-export const States: React.VFC = () => (
-  <section className="isb-section__content">
-    <Link appearance="secondary">
-      <a href="#">Regular</a>
-    </Link>
-    <Link appearance="secondary" className="ids-link--active">
-      <a href="#">Active</a>
-    </Link>
-    <Link appearance="secondary" className="focus">
-      <a href="#">Focus</a>
     </Link>
   </section>
 );
@@ -104,6 +78,9 @@ export const Sizes: React.VFC = () => (
     <Link size="small">
       <a href="#">Small</a>
     </Link>
+    <Link size="xsmall">
+      <a href="#">caption</a>
+    </Link>
   </section>
 );
 
@@ -112,6 +89,7 @@ export const Icons: React.VFC = () => (
     <Link iconLeading={<Plus size="small" />}>
       <a href="#">Left icon</a>
     </Link>
+
     <Link iconTrailing={<Plus size="small" />}>
       <a href="#">Right icon</a>
     </Link>
