@@ -2,7 +2,8 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import { shallow } from 'enzyme';
 import Plus from '@igloo-ui/icons/dist/Plus';
 
 import Link from './Link';
@@ -29,10 +30,9 @@ describe('Link Component', () => {
   });
 
   test('It should render a link with icon', (): void => {
-    const link = mount(
-      <Link iconLeading={<Plus size="small" />}>Click me</Link>
-    );
-    expect(link.find('svg').length).toBe(1);
+    render(<Link iconLeading={<Plus size="small" />}>Click me</Link>);
+    const svg = document.getElementsByTagName('svg');
+    expect(svg.length).toBe(1);
   });
 
   test('It should render a primary appearance', (): void => {
