@@ -1,5 +1,13 @@
 # @igloo-ui/icon-button
 
+## 0.2.2
+
+### Patch Changes
+
+- 1e1c6e5: Chore Update packages
+- Updated dependencies [1e1c6e5]
+  - @igloo-ui/button@0.1.8
+
 ## 0.2.1
 
 ### Patch Changes
