@@ -8,6 +8,7 @@
   ["Tooltip", "ready"],
   ["IconButton", "ready"],
   ["Toaster", "ready"],
-  ["Alert", "wip"],
-  ["Link", "wip"]
+  ["Alert", "ready"],
+  ["Checkbox", "ready"],
+  ["Hyperlink", "wip"]
 ]
