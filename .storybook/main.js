@@ -17,6 +17,7 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-google-analytics',
   ],
+  staticDirs: ['../assets'],
   webpackFinal: (config) => {
     config.resolve.plugins = [
       ...(config.resolve.plugins || []),
