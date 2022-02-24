@@ -46,11 +46,15 @@ export const Disabled: React.VFC<unknown> = () => (
       Label
     </Checkbox>
 
-    <Checkbox htmlFor="ids-checkbox-active" checked disabled>
+    <Checkbox htmlFor="ids-checkbox-disabled-active" checked disabled>
       Label
     </Checkbox>
 
-    <Checkbox htmlFor="ids-checkbox-active" indeterminate disabled>
+    <Checkbox
+      htmlFor="ids-checkbox-disabled-indeterminate"
+      indeterminate
+      disabled
+    >
       Label
     </Checkbox>
   </section>

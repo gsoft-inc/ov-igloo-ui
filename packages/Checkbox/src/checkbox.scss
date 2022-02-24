@@ -1,11 +1,6 @@
 @import '~@igloo-ui/tokens/dist/base10/variables.css';
 @import '~@igloo-ui/tokens/dist/fonts.css';
 
-/**
- * TODO:
- * améliorer l'animation
- */
-
 :root {
   /* Default */
   --ids-checkbox-font-family: var(--primary-font-family);
@@ -39,8 +34,8 @@
 }
 
 %indeterminate {
-  width: 4px;
-  border: 1.5px solid currentColor;
+  width: 6px;
+  border: 2px solid currentColor;
   border-top: 0;
   border-left: 0;
 }
