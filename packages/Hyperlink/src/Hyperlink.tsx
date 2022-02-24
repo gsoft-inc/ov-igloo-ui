@@ -3,12 +3,12 @@ import cx from 'classnames';
 
 import { useLink } from '@react-aria/link';
 
-import './link.scss';
+import './hyperlink.scss';
 
 export type Appearance = 'primary' | 'secondary' | 'danger';
 export type Size = 'xsmall' | 'small' | 'medium';
 
-export interface LinkProps extends React.ComponentPropsWithoutRef<'a'> {
+export interface HyperlinkProps extends React.ComponentPropsWithoutRef<'a'> {
   /** The content to display inside the link */
   children?: React.ReactNode;
   /** Changes the size of link, giving more or less padding */
@@ -31,7 +31,9 @@ export interface LinkProps extends React.ComponentPropsWithoutRef<'a'> {
   intercomTarget?: string;
 }
 
-const Link: React.FunctionComponent<LinkProps> = (props: LinkProps) => {
+const Hyperlink: React.FunctionComponent<HyperlinkProps> = (
+  props: HyperlinkProps
+) => {
   const {
     children,
     size = 'medium',
@@ -99,7 +101,6 @@ const Link: React.FunctionComponent<LinkProps> = (props: LinkProps) => {
   return React.cloneElement(getWrappedElement(children), {
     ...linkProps,
     className: classes,
-
     'data-test': dataTest,
     'data-intercom-target': intercomTarget,
     ref,
@@ -107,4 +108,4 @@ const Link: React.FunctionComponent<LinkProps> = (props: LinkProps) => {
   });
 };
 
-export default Link;
+export default Hyperlink;

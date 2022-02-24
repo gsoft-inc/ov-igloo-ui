@@ -6,18 +6,18 @@ import { render } from '@testing-library/react';
 import { shallow } from 'enzyme';
 import Plus from '@igloo-ui/icons/dist/Plus';
 
-import Link from './Link';
+import Hyperlink from './Hyperlink';
 
 const setUp = (props = {}) => {
   const component = shallow(
-    <Link dataTest="ids-link" {...props}>
+    <Hyperlink dataTest="ids-link" {...props}>
       Click me
-    </Link>
+    </Hyperlink>
   );
   return component;
 };
 
-describe('Link Component', () => {
+describe('Hyperlink Component', () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let component: any;
   beforeEach(() => {
@@ -29,34 +29,34 @@ describe('Link Component', () => {
     expect(wrapper.length).toBe(1);
   });
 
-  test('It should render a link with icon', (): void => {
-    render(<Link iconLeading={<Plus size="small" />}>Click me</Link>);
+  test('It should render a hyperlink with icon', (): void => {
+    render(<Hyperlink iconLeading={<Plus size="small" />}>Click me</Hyperlink>);
     const svg = document.getElementsByTagName('svg');
     expect(svg.length).toBe(1);
   });
 
   test('It should render a primary appearance', (): void => {
-    const link = setUp();
-    expect(link).toMatchSnapshot();
+    const hyperlink = setUp();
+    expect(hyperlink).toMatchSnapshot();
   });
 
   test('It should render a secondary appearance', (): void => {
-    const link = setUp({ appearance: 'secondary' });
-    expect(link).toMatchSnapshot();
+    const hyperlink = setUp({ appearance: 'secondary' });
+    expect(hyperlink).toMatchSnapshot();
   });
 
   test('It should render a premium appearance', (): void => {
-    const link = setUp({ appearance: 'premium' });
-    expect(link).toMatchSnapshot();
+    const hyperlink = setUp({ appearance: 'premium' });
+    expect(hyperlink).toMatchSnapshot();
   });
 
   test('It should render a danger appearance', (): void => {
-    const link = setUp({ appearance: 'danger' });
-    expect(link).toMatchSnapshot();
+    const hyperlink = setUp({ appearance: 'danger' });
+    expect(hyperlink).toMatchSnapshot();
   });
 
   test('It should render a ghost appearance', (): void => {
-    const link = setUp({ appearance: 'ghost' });
-    expect(link).toMatchSnapshot();
+    const hyperlink = setUp({ appearance: 'ghost' });
+    expect(hyperlink).toMatchSnapshot();
   });
 });

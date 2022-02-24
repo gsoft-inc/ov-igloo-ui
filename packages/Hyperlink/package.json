@@ -1,10 +1,10 @@
 {
-  "name": "@igloo-ui/link",
+  "name": "@igloo-ui/hyperlink",
   "version": "0.0.0",
-  "main": "dist/Link.js",
-  "module": "dist/Link.js",
-  "types": "dist/Link.d.ts",
-  "styles": "dist/link.css",
+  "main": "dist/Hyperlink.js",
+  "module": "dist/Hyperlink.js",
+  "types": "dist/Hyperlink.d.ts",
+  "styles": "dist/hyperlink.css",
   "publishConfig": {
     "access": "public"
   },

@@ -4,12 +4,12 @@ import { Meta } from '@storybook/react';
 
 import readme from '../README.md';
 
-import Link from './Link';
+import Hyperlink from './Hyperlink';
 import Plus from '@igloo-ui/icons/dist/Plus';
 
 export default {
-  title: 'Components/Link',
-  component: Link,
+  title: 'Components/Hyperlink',
+  component: Hyperlink,
   parameters: {
     description: readme,
     controls: {
@@ -32,66 +32,66 @@ export default {
       action: 'dynamic',
     },
   },
-} as Meta<typeof Link>;
+} as Meta<typeof Hyperlink>;
 
 export const Overview = (args: any) => {
   return (
-    <Link {...args}>
+    <Hyperlink {...args}>
       <a href="#">Read more</a>
-    </Link>
+    </Hyperlink>
   );
 };
 
 export const Appearances: React.VFC = () => (
   <section className="isb-section__content">
-    <Link appearance="primary">
+    <Hyperlink appearance="primary">
       <a href="#">Primary</a>
-    </Link>
-    <Link appearance="secondary">
+    </Hyperlink>
+    <Hyperlink appearance="secondary">
       <a href="#">Secondary</a>
-    </Link>
-    <Link appearance="danger">
+    </Hyperlink>
+    <Hyperlink appearance="danger">
       <a href="#">Danger</a>
-    </Link>
+    </Hyperlink>
   </section>
 );
 
 export const Underline: React.VFC = () => (
   <section className="isb-section__content">
-    <Link underline appearance="primary">
+    <Hyperlink underline appearance="primary">
       <a href="#">Primary</a>
-    </Link>
-    <Link underline appearance="secondary">
+    </Hyperlink>
+    <Hyperlink underline appearance="secondary">
       <a href="#">Secondary</a>
-    </Link>
-    <Link underline appearance="danger">
+    </Hyperlink>
+    <Hyperlink underline appearance="danger">
       <a href="#">Danger</a>
-    </Link>
+    </Hyperlink>
   </section>
 );
 
 export const Sizes: React.VFC = () => (
   <section className="isb-section__content">
-    <Link size="medium">
+    <Hyperlink size="medium">
       <a href="#">Medium</a>
-    </Link>
-    <Link size="small">
+    </Hyperlink>
+    <Hyperlink size="small">
       <a href="#">Small</a>
-    </Link>
-    <Link size="xsmall">
+    </Hyperlink>
+    <Hyperlink size="xsmall">
       <a href="#">caption</a>
-    </Link>
+    </Hyperlink>
   </section>
 );
 
 export const Icons: React.VFC = () => (
   <section className="isb-section__content">
-    <Link iconLeading={<Plus size="small" />}>
+    <Hyperlink iconLeading={<Plus size="small" />}>
       <a href="#">Left icon</a>
-    </Link>
+    </Hyperlink>
 
-    <Link iconTrailing={<Plus size="small" />}>
+    <Hyperlink iconTrailing={<Plus size="small" />}>
       <a href="#">Right icon</a>
-    </Link>
+    </Hyperlink>
   </section>
 );
