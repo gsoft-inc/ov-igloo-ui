@@ -115,7 +115,7 @@ const buttonState: ButtonProps[] = [
   },
 ];
 
-export const Playground: React.VFC<unknown> = (args) => (
+export const Playground: React.VFC<ButtonProps> = (args) => (
   <Button {...args}>Playground button</Button>
 );
 

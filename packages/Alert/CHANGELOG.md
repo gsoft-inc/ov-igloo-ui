@@ -1,6 +1,7 @@
 # @igloo-ui/alert
 
 ## 0.1.0
+
 ### Minor Changes
 
 - 489b353: Initial release
