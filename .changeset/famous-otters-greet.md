@@ -4,6 +4,7 @@
 '@igloo-ui/card': patch
 '@igloo-ui/checkbox': patch
 '@igloo-ui/ellipsis': patch
+'@igloo-ui/hyperlink': patch
 '@igloo-ui/icon-button': patch
 '@igloo-ui/input': patch
 '@igloo-ui/kashim': patch
