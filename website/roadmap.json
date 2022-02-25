@@ -10,5 +10,5 @@
   ["Toaster", "ready"],
   ["Alert", "ready"],
   ["Checkbox", "ready"],
-  ["Hyperlink", "wip"]
+  ["Hyperlink", "ready"]
 ]
