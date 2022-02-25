@@ -118,16 +118,16 @@
     animation: check-animation ease-out 0.25s 0.15s both;
   }
 
-  &:checked:disabled::after {
-    animation: none;
-  }
-
   &:indeterminate::after {
     @extend %indeterminate;
 
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  &:checked:disabled::after {
+    animation: none;
   }
 
   &:disabled:hover {
