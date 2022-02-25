@@ -23,5 +23,10 @@
   "dependencies": {
     "@igloo-ui/tokens": "^1.0.0",
     "classnames": "^2.3.1"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE >= 11"
+  ]
 }

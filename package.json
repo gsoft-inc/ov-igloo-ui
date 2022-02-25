@@ -54,6 +54,7 @@
     "@types/react": "17.0.33",
     "@typescript-eslint/eslint-plugin": "5.1.0",
     "@typescript-eslint/parser": "5.1.0",
+    "autoprefixer": "10.4.2",
     "babel-jest": "27.5.1",
     "babel-loader": "^8.2.2",
     "camelcase": "6.3.0",
@@ -75,6 +76,7 @@
     "lerna": "4.0.0",
     "lint-staged": "9.5.0",
     "postcss": "8.4.5",
+    "postcss-flexbugs-fixes": "5.0.2",
     "postcss-scss": "4.0.3",
     "prettier": "2.4.1",
     "react": "17.0.2",
@@ -110,5 +112,10 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE >= 11"
+  ]
 }

@@ -1,20 +1,20 @@
-@import '~@igloo-ui/tokens/dist/base10/variables.css';
+@import '~@igloo-ui/tokens/dist/base10/variables';
 @import '~@igloo-ui/tokens/dist/fonts.css';
 @import './animations';
 
 :root {
   /* Default */
-  --ids-tooltip-font-family: var(--primary-font-family);
-  --ids-tooltip-font-size: var(--font-size-2);
-  --ids-tooltip-padding: var(--space-2) var(--space-3);
-  --ids-tooltip-border-radius: var(--border-radius-sm);
-  --ids-tooltip-z-index: var(--z-index-max);
+  --ids-tooltip-font-family: #{$primary-font-family};
+  --ids-tooltip-font-size: #{$font-size-2};
+  --ids-tooltip-padding: #{$space-2} #{$space-3};
+  --ids-tooltip-border-radius: #{$border-radius-sm};
+  --ids-tooltip-z-index: #{$z-index-max};
   --ids-tooltip-arrow-size: 5px;
-  --ids-tooltip-spacing: var(--space-2);
+  --ids-tooltip-spacing: #{$space-2};
 
   /* Theme */
-  --ids-tooltip-text: var(--samoyed);
-  --ids-tooltip-background: var(--electric-blue-900);
+  --ids-tooltip-text: #{$samoyed};
+  --ids-tooltip-background: #{$electric-blue-900};
   --ids-tooltip-shadow: none;
 }
 

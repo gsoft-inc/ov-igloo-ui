@@ -7,6 +7,9 @@ import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
 import camelcase from 'camelcase';
 
+import autoprefixer from 'autoprefixer';
+import flexbugs from 'postcss-flexbugs-fixes';
+
 const SCOPE = '@igloo-ui';
 const DIST = './dist';
 const FORMAT = 'es';
@@ -53,6 +56,7 @@ export function createRollupConfig(packageName) {
     external: ['react'],
     plugins: [
       postcss({
+        plugins: [autoprefixer(), flexbugs()],
         extract: path.resolve(DIST, `${style}.css`),
         minimize: true,
       }),

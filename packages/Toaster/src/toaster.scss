@@ -1,34 +1,32 @@
-@import '~@igloo-ui/tokens/dist/base10/variables.css';
+@import '~@igloo-ui/tokens/dist/base10/variables';
 @import '~@igloo-ui/tokens/dist/fonts.css';
 
 :root {
   /* Default */
-  --ids-toaster-font-family: var(--primary-font-family);
-  --ids-toaster-font-size: var(--font-size-5);
-  --ids-toaster-font-weight: var(--font-weight-bold);
-  --ids-toaster-text: var(--grey-800);
-  --ids-toaster-padding:
-    var(--space-3) var(--space-2) var(--space-3)
-    calc(var(--space-3) + var(--ids-toaster-status-width));
-  --ids-toaster-gap: var(--space-3);
+  --ids-toaster-font-family: #{$primary-font-family};
+  --ids-toaster-font-size: #{$font-size-5};
+  --ids-toaster-font-weight: #{$font-weight-bold};
+  --ids-toaster-text: #{$grey-800};
+  --ids-toaster-padding: #{$space-3} #{$space-2} #{$space-3} calc(#{$space-3} + #{$space-1});
+  --ids-toaster-gap: #{$space-3};
   --ids-toaster-max-width: 60rem;
-  --ids-toaster-border-radius: var(--border-radius-sm);
-  --ids-toaster-shadow: var(--shadow-12);
-  --ids-toaster-background: var(--samoyed);
-  --ids-toaster-icon-margin: var(--space-3);
-  --ids-toaster-status-width: var(--space-1);
-  --ids-toaster-status-color: var(--seaweed-400);
-  --ids-toaster-status-icon-size: var(--space-4);
-  --ids-toaster-close-color: var(--grey-500);
-  --ids-toaster-close-size: var(--space-5);
-  --ids-toaster-close-radius: var(--border-radius-sm);
+  --ids-toaster-border-radius: #{$border-radius-sm};
+  --ids-toaster-shadow: #{$shadow-12};
+  --ids-toaster-background: #{$samoyed};
+  --ids-toaster-icon-margin: #{$space-3};
+  --ids-toaster-status-width: #{$space-1};
+  --ids-toaster-status-color: #{$seaweed-400};
+  --ids-toaster-status-icon-size: #{$space-4};
+  --ids-toaster-close-color: #{$grey-500};
+  --ids-toaster-close-size: #{$space-5};
+  --ids-toaster-close-radius: #{$border-radius-sm};
 
   /* Error */
-  --ids-toaster-status-color-error: var(--coral-300);
+  --ids-toaster-status-color-error: #{$coral-300};
 
   /* Overlay */
-  --ids-toaster-overlay-padding: 0 var(--space-3);
-  --ids-toaster-z-index: var(--z-index-max);
+  --ids-toaster-overlay-padding: 0 #{$space-3};
+  --ids-toaster-z-index: #{$z-index-max};
 }
 
 .ids-toaster__overlay {

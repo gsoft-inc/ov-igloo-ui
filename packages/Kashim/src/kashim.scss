@@ -1,14 +1,14 @@
-@import '~@igloo-ui/tokens/dist/base10/variables.css';
+@import '~@igloo-ui/tokens/dist/base10/variables';
 @import '~@igloo-ui/tokens/dist/fonts.css';
 
 .ids-kashim {
   display: flex;
   align-items: center;
-  font-size: var(--font-size-4);
-  padding: var(--space-3);
+  font-size: $font-size-4;
+  padding: $space-3;
   background: paleturquoise;
 }
 
 .ids-kashim .ids-icon {
-  margin-right: var(--space-1);
+  margin-right: $space-1;
 }
