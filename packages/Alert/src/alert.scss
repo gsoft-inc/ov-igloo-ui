@@ -1,39 +1,39 @@
-@import '~@igloo-ui/tokens/dist/base10/variables.css';
+@import '~@igloo-ui/tokens/dist/base10/variables';
 @import '~@igloo-ui/tokens/dist/fonts.css';
 @import './mixins';
 
 :root {
   /* Default */
-  --ids-alert-font-family: var(--primary-font-family);
-  --ids-alert-font-size: var(--font-size-4);
-  --ids-alert-title-font-weight: var(--font-weight-semi-bold);
-  --ids-alert-padding: var(--space-3);
-  --ids-alert-flex-gap-component: var(--space-4);
-  --ids-alert-border-radius: var(--border-radius-sm);
-  --ids-alert-box-shadow: var(--shadow-6);
-  --ids-alert-background-color-light: var(--samoyed);
-  --ids-alert-background-color-darker: var(--grey-100);
+  --ids-alert-font-family: #{$primary-font-family};
+  --ids-alert-font-size: #{$font-size-4};
+  --ids-alert-title-font-weight: #{$font-weight-semi-bold};
+  --ids-alert-padding: #{$space-3};
+  --ids-alert-flex-gap-component: #{$space-4};
+  --ids-alert-border-radius: #{$border-radius-sm};
+  --ids-alert-box-shadow: #{$shadow-6};
+  --ids-alert-background-color-light: #{$samoyed};
+  --ids-alert-background-color-darker: #{$grey-100};
   --ids-alert-border-left-width: 6px;
-  --ids-alert-text-color-title: var(--black);
-  --ids-alert-text-color-body: var(--grey-600);
+  --ids-alert-text-color-title: #{$black};
+  --ids-alert-text-color-body: #{$grey-600};
   --ids-alert-icon-size-small: 26px;
   --ids-alert-icon-size-medium: 40px;
-  --ids-alert-link-color: var(--electric-blue-500);
+  --ids-alert-link-color: #{$electric-blue-500};
 
   /* Announcement */
-  --ids-alert-color-announcement: var(--seaweed-500);
+  --ids-alert-color-announcement: #{$seaweed-500};
 
   /* Info */
-  --ids-alert-color-info: var(--sky-100);
+  --ids-alert-color-info: #{$sky-100};
 
   /* Premium */
-  --ids-alert-color-premium: var(--dandelion-300);
+  --ids-alert-color-premium: #{$dandelion-300};
 
   /* Success */
-  --ids-alert-color-success: var(--seaweed-500);
+  --ids-alert-color-success: #{$seaweed-500};
 
   /* Warning */
-  --ids-alert-color-warning: var(--creamsicle-200);
+  --ids-alert-color-warning: #{$creamsicle-200};
 }
 
 .ids-alert {

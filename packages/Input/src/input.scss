@@ -1,50 +1,48 @@
-@import '~@igloo-ui/tokens/dist/base10/variables.css';
+@import '~@igloo-ui/tokens/dist/base10/variables';
 @import '~@igloo-ui/tokens/dist/fonts.css';
 
 :root {
   /* Default */
-  --ids-input-height: var(--space-6);
-  --ids-input-font-family: var(--primary-font-family);
-  --ids-input-font-weight: var(--font-weight-regular);
-  --ids-input-padding: var(--space-3);
-  --ids-input-font-size: var(--font-size-4);
-  --ids-input-line-height: var(--space-4);
-  --ids-input-border-radius: var(--border-radius-sm);
-  --ids-input-border-color: var(--grey-300);
-  --ids-input-background: var(--samoyed);
-  --ids-input-margin: var(--space-1) var(--space-0);
+  --ids-input-height: #{$space-6};
+  --ids-input-font-family: #{$primary-font-family};
+  --ids-input-font-weight: #{$font-weight-regular};
+  --ids-input-padding: #{$space-3};
+  --ids-input-font-size: #{$font-size-4};
+  --ids-input-line-height: #{$space-4};
+  --ids-input-border-radius: #{$border-radius-sm};
+  --ids-input-border-color: #{$grey-300};
+  --ids-input-background: #{$samoyed};
+  --ids-input-margin: #{$space-1} #{$space-0};
 
   /* Compact */
-  --ids-input-height-compact: var(--space-5);
-  --ids-input-font-size-compact: var(--font-size-3);
-  --ids-input-line-height-compact: var(--line-height-xxl);
-  --ids-input-letter-spacing-compact: var(--font-weight-regular);
+  --ids-input-height-compact: #{$space-5};
+  --ids-input-font-size-compact: #{$font-size-3};
+  --ids-input-line-height-compact: #{$line-height-xxl};
+  --ids-input-letter-spacing-compact: #{$font-weight-regular};
 
   /* with icon */
-  --ids-input-color-prefix: var(--grey-400);
-  --ids-input-color-prefix-compact: var(--grey-800);
-  --ids-input-width-prefix: var(--space-7);
-  --ids-input-width-prefix-compact: var(--space-6);
-  --ids-input-padding-prefix:
-    var(--space-2) var(--space-2) var(--space-2)
-    var(--space-3);
+  --ids-input-color-prefix: #{$grey-400};
+  --ids-input-color-prefix-compact: #{$grey-800};
+  --ids-input-width-prefix: #{$space-7};
+  --ids-input-width-prefix-compact: #{$space-6};
+  --ids-input-padding-prefix: #{$space-2} #{$space-2} #{$space-2} #{$space-3};
 
   /* Placeholder */
-  --ids-input-color-placeholder: var(--grey-400);
+  --ids-input-color-placeholder: #{$grey-400};
 
   /* Hover */
-  --ids-input-border-color-hover: var(--grey-500);
+  --ids-input-border-color-hover: #{$grey-500};
 
   /* Active */
-  --ids-input-border-color-active: var(--electric-blue-500);
+  --ids-input-border-color-active: #{$electric-blue-500};
 
   /* disabled */
-  --ids-input-color-disabled: var(--grey-500);
-  --ids-input-background-disabled: var(--grey-250);
-  --ids-input-border-color-disabled: var(--grey-250);
+  --ids-input-color-disabled: #{$grey-500};
+  --ids-input-background-disabled: #{$grey-250};
+  --ids-input-border-color-disabled: #{$grey-250};
 
   /* Error */
-  --ids-input-border-color-error: var(--coral-500);
+  --ids-input-border-color-error: #{$coral-500};
 }
 
 .ids-input {

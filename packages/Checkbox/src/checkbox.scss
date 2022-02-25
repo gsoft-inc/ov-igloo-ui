@@ -1,24 +1,24 @@
-@import '~@igloo-ui/tokens/dist/base10/variables.css';
+@import '~@igloo-ui/tokens/dist/base10/variables';
 @import '~@igloo-ui/tokens/dist/fonts.css';
 
 :root {
   /* Default */
-  --ids-checkbox-font-family: var(--primary-font-family);
-  --ids-checkbox-font-weight: var(--font-weight-regular);
-  --ids-checkbox-font-size: var(--font-size-4);
-  --ids-checkbox-size: var(--font-size-3);
-  --ids-checkbox-radius: var(--border-radius-sm);
-  --ids-checkbox-check: var(--samoyed);
-  --ids-checkbox-margin: var(--space-2);
-  --ids-checkbox-text: var(--grey-800);
-  --ids-checkbox-text-disabled: var(--grey-600);
-  --ids-checkbox-background: var(--samoyed);
-  --ids-checkbox-background-disabled: var(--grey-200);
-  --ids-checkbox-background-checked: var(--electric-blue-500);
-  --ids-checkbox-background-checked-disabled: var(--grey-400);
-  --ids-checkbox-border: var(--grey-400);
-  --ids-checkbox-border-hover: var(--grey-800);
-  --ids-checkbox-border-checked: var(--electric-blue-500);
+  --ids-checkbox-font-family: #{$primary-font-family};
+  --ids-checkbox-font-weight: #{$font-weight-regular};
+  --ids-checkbox-font-size: #{$font-size-4};
+  --ids-checkbox-size: #{$font-size-3};
+  --ids-checkbox-radius: #{$border-radius-sm};
+  --ids-checkbox-check: #{$samoyed};
+  --ids-checkbox-margin: #{$space-2};
+  --ids-checkbox-text: #{$grey-800};
+  --ids-checkbox-text-disabled: #{$grey-600};
+  --ids-checkbox-background: #{$samoyed};
+  --ids-checkbox-background-disabled: #{$grey-200};
+  --ids-checkbox-background-checked: #{$electric-blue-500};
+  --ids-checkbox-background-checked-disabled: #{$grey-400};
+  --ids-checkbox-border: #{$grey-400};
+  --ids-checkbox-border-hover: #{$grey-800};
+  --ids-checkbox-border-checked: #{$electric-blue-500};
   --ids-checkbox-check-width: 4px;
   --ids-checkbox-check-height: 8px;
 }
@@ -116,6 +116,10 @@
     left: 2px;
     top: 7px;
     animation: check-animation ease-out 0.25s 0.15s both;
+  }
+
+  &:checked:disabled:after {
+    animation: none;
   }
 
   &:indeterminate::after {

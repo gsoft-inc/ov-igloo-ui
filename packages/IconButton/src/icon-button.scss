@@ -1,28 +1,28 @@
-@import '~@igloo-ui/tokens/dist/base10/variables.css';
+@import '~@igloo-ui/tokens/dist/base10/variables';
 @import '~@igloo-ui/tokens/dist/fonts.css';
 
 :root {
   /* Default */
-  --ids-icon-btn-height: var(--space-5);
-  --ids-icon-btn-width: var(--space-5);
-  --ids-icon-btn-active: var(--electric-blue-500);
+  --ids-icon-btn-height: #{$space-5};
+  --ids-icon-btn-width: #{$space-5};
+  --ids-icon-btn-active: #{$electric-blue-500};
 
   /* XSmall */
-  --ids-icon-btn-height-xsmall: var(--space-3);
-  --ids-icon-btn-width-xsmall: var(--space-3);
+  --ids-icon-btn-height-xsmall: #{$space-3};
+  --ids-icon-btn-width-xsmall: #{$space-3};
 
   /* Small */
-  --ids-icon-btn-height-small: var(--space-4);
-  --ids-icon-btn-width-small: var(--space-4);
+  --ids-icon-btn-height-small: #{$space-4};
+  --ids-icon-btn-width-small: #{$space-4};
 
   /* Large */
-  --ids-icon-btn-height-large: var(--space-6);
-  --ids-icon-btn-width-large: var(--space-6);
+  --ids-icon-btn-height-large: #{$space-6};
+  --ids-icon-btn-width-large: #{$space-6};
 
   /* Ghost */
-  --ids-icon-btn-ghost: var(--grey-500);
-  --ids-icon-btn-ghost-hover: var(--grey-900);
-  --ids-icon-btn-ghost-disabled: var(--grey-300);
+  --ids-icon-btn-ghost: #{$grey-500};
+  --ids-icon-btn-ghost-hover: #{$grey-900};
+  --ids-icon-btn-ghost-disabled: #{$grey-300};
 }
 
 .ids-icon-btn {

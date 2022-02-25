@@ -1,20 +1,20 @@
-@import '~@igloo-ui/tokens/dist/base10/variables.css';
+@import '~@igloo-ui/tokens/dist/base10/variables';
 @import '~@igloo-ui/tokens/dist/fonts.css';
 
 :root {
   /* Default */
-  --ids-card-font-family: var(--primary-font-family);
-  --ids-card-font-size: var(--font-size-4);
-  --ids-card-background: var(--samoyed);
-  --ids-card-padding: var(--space-5);
+  --ids-card-font-family: #{$primary-font-family};
+  --ids-card-font-size: #{$font-size-4};
+  --ids-card-background: #{$samoyed};
+  --ids-card-padding: #{$space-5};
   --ids-card-shadow: 0 1px 6px rgb(35 48 67 / 10%);
-  --ids-card-radius: var(--border-radius-sm);
+  --ids-card-radius: #{$border-radius-sm};
 
   /* Medium */
-  --ids-card-padding-medium: var(--space-4);
+  --ids-card-padding-medium: #{$space-4};
 
   /* Small */
-  --ids-card-padding-small: var(--space-3);
+  --ids-card-padding-small: #{$space-3};
 
   /* xSmall */
   --ids-card-padding-xsmall: 0;

@@ -27,5 +27,10 @@
   },
   "devDependencies": {
     "@igloo-ui/icons": "^0.6.5"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE >= 11"
+  ]
 }
