@@ -1,5 +1,11 @@
 # @igloo-ui/ellipsis
 
+## 0.1.1
+
+### Patch Changes
+
+- 4a256e3: IE11 compatibility
+
 ## 0.1.0
 
 ### Minor Changes
