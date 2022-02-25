@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.9
+
+### Patch Changes
+
+- 4a256e3: IE11 compatibility
+
 ## 0.1.8
 
 ### Patch Changes

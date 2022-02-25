@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/button",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "dist/Button.js",
   "module": "dist/Button.js",
   "types": "dist/Button.d.ts",

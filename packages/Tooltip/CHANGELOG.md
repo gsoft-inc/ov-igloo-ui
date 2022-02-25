@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 0.0.5
+
+### Patch Changes
+
+- 4a256e3: IE11 compatibility
+
 ## 0.0.4
 
 ### Patch Changes

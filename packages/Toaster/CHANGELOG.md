@@ -1,5 +1,13 @@
 # @igloo-ui/toaster
 
+## 0.1.3
+
+### Patch Changes
+
+- 4a256e3: IE11 compatibility
+- Updated dependencies [4a256e3]
+  - @igloo-ui/icon-button@0.2.3
+
 ## 0.1.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/card
 
+## 0.0.3
+
+### Patch Changes
+
+- 4a256e3: IE11 compatibility
+
 ## 0.0.2
 
 ### Patch Changes
