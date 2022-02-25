@@ -118,7 +118,7 @@
     animation: check-animation ease-out 0.25s 0.15s both;
   }
 
-  &:checked:disabled:after {
+  &:checked:disabled::after {
     animation: none;
   }
 
