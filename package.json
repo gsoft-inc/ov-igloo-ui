@@ -30,22 +30,22 @@
     "website"
   ],
   "devDependencies": {
-    "@babel/core": "7.16.7",
-    "@babel/preset-env": "7.16.8",
+    "@babel/core": "7.17.5",
+    "@babel/preset-env": "7.16.11",
     "@babel/preset-react": "7.16.7",
     "@babel/preset-typescript": "7.16.7",
-    "@changesets/cli": "2.17.0",
-    "@netlify/plugin-nextjs": "4.2.0",
+    "@changesets/cli": "2.21.0",
+    "@netlify/plugin-nextjs": "4.2.7",
     "@rollup/plugin-commonjs": "20.0.0",
     "@rollup/plugin-eslint": "8.0.1",
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "13.0.6",
-    "@storybook/addon-a11y": "6.4.17",
-    "@storybook/addon-actions": "^6.4.17",
-    "@storybook/addon-essentials": "^6.4.17",
+    "@storybook/addon-a11y": "6.4.19",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-google-analytics": "6.2.9",
-    "@storybook/addon-links": "^6.4.17",
-    "@storybook/react": "^6.4.17",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/react": "^6.4.19",
     "@testing-library/jest-dom": "5.16.2",
     "@testing-library/react": "12.1.2",
     "@types/enzyme": "3.10.10",
@@ -68,13 +68,13 @@
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "4.0.0",
-    "eslint-plugin-react": "^7.27.0",
+    "eslint-plugin-react": "^7.29.2",
     "eslint-plugin-react-hooks": "4.2.0",
     "eslint-plugin-storybook": "0.5.6",
     "husky": "3.1.0",
     "jest": "27.5.1",
     "lerna": "4.0.0",
-    "lint-staged": "9.5.0",
+    "lint-staged": "12.3.4",
     "postcss": "8.4.5",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-scss": "4.0.3",
@@ -92,7 +92,7 @@
     "stylelint": "14.0.1",
     "stylelint-config-standard-scss": "3.0.0",
     "ts-jest": "27.0.4",
-    "tsconfig-paths-webpack-plugin": "3.5.1",
+    "tsconfig-paths-webpack-plugin": "3.5.2",
     "typescript": "4.3.5"
   },
   "prettier": {
@@ -101,8 +101,7 @@
   },
   "lint-staged": {
     "*.{js,json,css,md,ts,tsx,jsx}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "jest-junit": {
