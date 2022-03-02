@@ -41,7 +41,8 @@
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "react/require-default-props": 0
   },
   "settings": {
     "import/parsers": {
