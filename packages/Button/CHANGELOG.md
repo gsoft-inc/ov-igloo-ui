@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.10
+
+### Patch Changes
+
+- 6d91ab6: Fix secondary button empty background on hover state
+
 ## 0.1.9
 
 ### Patch Changes
