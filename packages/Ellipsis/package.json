@@ -4,7 +4,7 @@
   "main": "dist/Ellipsis.js",
   "module": "dist/Ellipsis.js",
   "types": "dist/Ellipsis.d.ts",
-  "styles": "dist/Ellipsis.css",
+  "styles": "dist/ellipsis.css",
   "publishConfig": {
     "access": "public"
   },
