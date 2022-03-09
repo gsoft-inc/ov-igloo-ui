@@ -1,5 +1,11 @@
 # @igloo-ui/ellipsis
 
+## 0.1.2
+
+### Patch Changes
+
+- afdaa6b: Fix a lib import error with capital cases
+
 ## 0.1.1
 
 ### Patch Changes

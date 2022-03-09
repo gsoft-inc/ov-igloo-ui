@@ -1,5 +1,11 @@
 # docs
 
+## 0.0.5
+
+### Patch Changes
+
+- afdaa6b: Update icons package
+
 ## 0.0.4
 
 ### Patch Changes

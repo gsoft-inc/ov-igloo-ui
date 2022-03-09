@@ -1,5 +1,11 @@
 # @igloo-ui/card
 
+## 0.0.4
+
+### Patch Changes
+
+- afdaa6b: Fix a lib import error with capital cases
+
 ## 0.0.3
 
 ### Patch Changes
