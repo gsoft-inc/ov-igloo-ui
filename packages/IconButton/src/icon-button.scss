@@ -26,15 +26,15 @@
 }
 
 .ids-icon-btn {
-  width: var(--ids-icon-btn-width);
-  height: var(--ids-icon-btn-height);
-  padding: 0;
-
-  svg {
-    display: block;
-  }
-
   @at-root .ids-btn#{&} {
+    width: var(--ids-icon-btn-width);
+    height: var(--ids-icon-btn-height);
+    padding: 0;
+
+    svg {
+      display: block;
+    }
+
     &--xsmall {
       width: var(--ids-icon-btn-width-xsmall);
       height: var(--ids-icon-btn-height-xsmall);
