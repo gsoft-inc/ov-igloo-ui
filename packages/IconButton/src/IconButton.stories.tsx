@@ -23,6 +23,7 @@ export default {
     size: { table: { defaultValue: { summary: 'medium' } } },
     appearance: { table: { defaultValue: { summary: 'primary' } } },
     underline: { table: { defaultValue: { summary: false } } },
+    icon: { control: { type: null } },
   },
 } as ComponentMeta<typeof IconButton>;
 
@@ -45,15 +46,6 @@ export const Appearances = () => (
   </Section>
 );
 
-export const Sizes = () => (
-  <Section>
-    <IconButton size="xsmall" icon={<Plus size="small" />} />
-    <IconButton size="small" icon={<Plus size="small" />} />
-    <IconButton size="medium" icon={<Plus size="small" />} />
-    <IconButton size="large" icon={<Plus size="small" />} />
-  </Section>
-);
-
 export const Rounded = () => (
   <Section>
     <IconButton rounded appearance="primary" icon={<Settings size="small" />} />
@@ -68,7 +60,16 @@ export const Rounded = () => (
   </Section>
 );
 
-export const State = () => (
+export const Sizes = () => (
+  <Section>
+    <IconButton size="xsmall" icon={<Plus size="small" />} />
+    <IconButton size="small" icon={<Plus size="small" />} />
+    <IconButton size="medium" icon={<Plus size="small" />} />
+    <IconButton size="large" icon={<Plus size="small" />} />
+  </Section>
+);
+
+export const States = () => (
   <Section>
     <IconButton appearance="secondary" icon={<Plus size="small" />} />
     <IconButton disabled appearance="secondary" icon={<Plus size="small" />} />
