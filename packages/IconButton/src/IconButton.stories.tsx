@@ -19,6 +19,11 @@ export default {
       exclude: ['iconTrailing', 'iconLeading', 'showOnlyIconOnMobile'],
     },
   },
+  argTypes: {
+    size: { table: { defaultValue: { summary: 'medium' } } },
+    appearance: { table: { defaultValue: { summary: 'primary' } } },
+    underline: { table: { defaultValue: { summary: false } } },
+  },
 } as ComponentMeta<typeof IconButton>;
 
 const Template: ComponentStory<typeof IconButton> = (args) => (
@@ -27,7 +32,6 @@ const Template: ComponentStory<typeof IconButton> = (args) => (
 
 export const Overview = Template.bind({});
 Overview.args = {
-  appearance: 'primary',
   icon: <Plus />,
 };
 
