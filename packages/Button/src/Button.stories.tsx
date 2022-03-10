@@ -15,6 +15,14 @@ export default {
   parameters: {
     description: readme,
   },
+  argTypes: {
+    disabled: { table: { defaultValue: { summary: false } } },
+    active: { table: { defaultValue: { summary: false } } },
+    loading: { table: { defaultValue: { summary: false } } },
+    size: { table: { defaultValue: { summary: 'medium' } } },
+    appearance: { table: { defaultValue: { summary: 'primary' } } },
+    type: { table: { defaultValue: { summary: 'button' } } },
+  },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;

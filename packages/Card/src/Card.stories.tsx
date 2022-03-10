@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Meta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import Section from '@components/section';
 import readme from '../README.md';
 
 import Card from './Card';
@@ -12,31 +13,23 @@ export default {
   parameters: {
     description: readme,
   },
-} as Meta;
+  argTypes: {
+    size: { table: { defaultValue: { summary: 'large' } } },
+  },
+} as ComponentMeta<typeof Card>;
 
-const cardContent = 'Lorem ipsum dolor';
+const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
-export const Playground: React.VFC<unknown> = (args) => (
-  <Card {...args}>Playground card</Card>
-);
+export const Overview = Template.bind({});
+Overview.args = {
+  children: 'Overview card',
+};
 
-export const Standard: React.VFC<unknown> = () => (
-  <>
-    <section className="isb-section">
-      <h2>Large</h2>
-      <Card>{cardContent}</Card>
-    </section>
-    <section className="isb-section">
-      <h2>Medium</h2>
-      <Card size="medium">{cardContent}</Card>
-    </section>
-    <section className="isb-section">
-      <h2>Small</h2>
-      <Card size="small">{cardContent}</Card>
-    </section>
-    <section className="isb-section">
-      <h2>Xsmall</h2>
-      <Card size="xsmall">{cardContent}</Card>
-    </section>
-  </>
+export const Sizes = () => (
+  <Section column>
+    <Card size="xsmall">Xsmall card</Card>
+    <Card size="small">Small card</Card>
+    <Card size="medium">Medium card</Card>
+    <Card size="large">Large card</Card>
+  </Section>
 );
