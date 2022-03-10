@@ -1,5 +1,11 @@
 # @igloo-ui/icon-button
 
+## 0.2.4
+
+### Patch Changes
+
+- eceb176: Fix the size of icon-button when a button is on the project
+
 ## 0.2.3
 
 ### Patch Changes
