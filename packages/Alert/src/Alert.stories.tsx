@@ -14,6 +14,9 @@ export default {
     description: readme,
   },
   argTypes: {
+    title: {
+      control: 'text',
+    },
     message: {
       control: 'text',
     },
@@ -22,18 +25,20 @@ export default {
   },
 } as ComponentMeta<typeof Alert>;
 
+const mockContent = {
+  title: 'Title of the alert',
+  message: 'Alert message goes here',
+};
+
 const Template: ComponentStory<typeof Alert> = (args) => <Alert {...args} />;
 
 export const Overview = Template.bind({});
 Overview.args = {
-  message: 'Overview alert',
+  title: mockContent.title,
+  message: mockContent.message,
+  button: { label: 'Button', onClick: () => {} },
+  type: 'info',
   onClose: () => {},
-};
-
-const mockContent = {
-  title: 'Lorem ipsum dolor sit amet',
-  message:
-    'Praesent fringilla, magna in scelerisque tristique, turpis mi pharetra lectus, blandit varius sapien dolor nec arcu. Praesent tempus, purus vel rutrum vestibulum, metus nisl vestibulum purus, vel feugiat augue diam vel eros.',
 };
 
 export const Types = () => (
