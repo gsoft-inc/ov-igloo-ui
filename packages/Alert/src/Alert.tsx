@@ -103,6 +103,7 @@ const renderAlertActionButton = (
   return (
     <Button
       appearance={style === 'horizontal' ? 'ghost' : 'secondary'}
+      size="small"
       onClick={button.onClick}
     >
       {button.label}
@@ -134,7 +135,8 @@ const Alert: React.FunctionComponent<AlertProps> = (props: AlertProps) => {
   const parentElement = useRef<HTMLDivElement>(null);
   const [show, setShow] = useState(true);
   const hasButton = button !== undefined;
-  const canBeClose = closable && appearance !== 'horizontal';
+  const isHorizontal = appearance === 'horizontal';
+  const canBeClose = closable && !isHorizontal;
 
   if (show) {
     return (
@@ -144,11 +146,11 @@ const Alert: React.FunctionComponent<AlertProps> = (props: AlertProps) => {
         data-test={dataTest}
         {...rest}
       >
-        {appearance !== 'horizontal' && renderIcon(appearance, hasButton, type)}
+        {!isHorizontal && renderIcon(appearance, hasButton, type)}
 
         <div className="ids-alert__body">
           <p className="ids-alert__title">{title}</p>
-          <div className="ids-alert__content">{message}</div>
+          {!isHorizontal && <div className="ids-alert__content">{message}</div>}
           {hasButton && renderAlertActionButton(appearance, button)}
         </div>
 
