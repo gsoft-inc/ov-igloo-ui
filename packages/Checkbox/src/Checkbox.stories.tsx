@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Meta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import Section from '@components/section';
 import readme from '../README.md';
 
 import Checkbox from './Checkbox';
@@ -18,13 +19,14 @@ export default {
     disabled: { table: { defaultValue: { summary: false } } },
     indeterminate: { table: { defaultValue: { summary: false } } },
   },
-} as Meta<typeof Checkbox>;
+} as ComponentMeta<typeof Checkbox>;
 
-export const Overview = (args: typeof Checkbox) => (
-  <Checkbox htmlFor="ids-checkbox" {...args} />
+const Template: ComponentStory<typeof Checkbox> = (args) => (
+  <Checkbox {...args} />
 );
-
+export const Overview = Template.bind({});
 Overview.args = {
+  htmlFor: 'ids-checkbox',
   children: 'Label',
 };
 
@@ -41,7 +43,7 @@ export const Indeterminate: React.VFC<unknown> = () => (
 );
 
 export const Disabled: React.VFC<unknown> = () => (
-  <section className="isb-section__content">
+  <Section>
     <Checkbox htmlFor="ids-checkbox-disabled" disabled>
       Label
     </Checkbox>
@@ -57,5 +59,5 @@ export const Disabled: React.VFC<unknown> = () => (
     >
       Label
     </Checkbox>
-  </section>
+  </Section>
 );
