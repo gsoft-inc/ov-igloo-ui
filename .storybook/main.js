@@ -26,8 +26,6 @@ module.exports = {
       }),
     ];
 
-    console.log('dirname', __dirname);
-
     config.resolve.alias['@components'] = path.resolve(
       __dirname,
       './components'
