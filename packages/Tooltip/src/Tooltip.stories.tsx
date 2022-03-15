@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ComponentMeta } from '@storybook/react';
 
-import Tooltip from './Tooltip';
+import Tooltip, { TooltipProps } from './Tooltip';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -16,13 +16,18 @@ export default {
     description: readme,
   },
   argTypes: {
+    children: { control: 'text', defaultValue: 'Playground tooltip' },
     content: {
       control: 'text',
       defaultValue: tooltipContent,
     },
     position: { table: { defaultValue: { summary: 'top' } } },
     appearance: { table: { defaultValue: { summary: 'dark' } } },
-    maxWidth: { table: { defaultValue: { summary: 200 } } },
+    maxWidth: {
+      table: { defaultValue: { summary: 200 } },
+      control: 'number',
+      defaultValue: 200,
+    },
   },
   decorators: [
     (Story) => (
@@ -41,8 +46,8 @@ export default {
   ],
 } as ComponentMeta<typeof Tooltip>;
 
-export const Overview = () => (
-  <Tooltip content={tooltipContent}>Playground tooltip</Tooltip>
+export const Overview = (args: TooltipProps) => (
+  <Tooltip content={tooltipContent} {...args} />
 );
 
 export const Appearances = () => (

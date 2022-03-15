@@ -16,13 +16,22 @@ export default {
   parameters: {
     description: readme,
     controls: {
-      exclude: ['iconTrailing', 'iconLeading', 'showOnlyIconOnMobile'],
+      exclude: [
+        'iconTrailing',
+        'iconLeading',
+        'showOnlyIconOnMobile',
+        'underline',
+      ],
     },
   },
   argTypes: {
-    size: { table: { defaultValue: { summary: 'medium' } } },
+    size: {
+      table: { defaultValue: { summary: 'medium' } },
+      control: {
+        options: ['xsmall', 'small', 'medium', 'large'],
+      },
+    },
     appearance: { table: { defaultValue: { summary: 'primary' } } },
-    underline: { table: { defaultValue: { summary: false } } },
     icon: { control: { type: null } },
   },
 } as ComponentMeta<typeof IconButton>;
