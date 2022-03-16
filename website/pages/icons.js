@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import Fuse from 'fuse.js';
 
@@ -68,6 +69,9 @@ export default function Icons() {
 
   return (
     <>
+      <Head>
+        <title>Icons - Igloo</title>
+      </Head>
       <section className="io-section io-section--tight io-container">
         <Display icon={iconIcon}>
           <div className="io-display__content">
