@@ -60,8 +60,14 @@ export default function Icons() {
           No results for "{search}"
         </Title>
         <p>
-          Not finding an icon that you want? <a href="#">File an issue</a> and
-          suggest a new icon.
+          Not finding an icon that you want?{' '}
+          <a
+            href="https://github.com/gsoft-inc/ov-igloo-icons/issues/new"
+            target="_blank"
+          >
+            File an issue
+          </a>{' '}
+          and suggest a new icon.
         </p>
       </div>
     );
