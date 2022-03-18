@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
+import ReactDom from 'react-dom';
 import classNames from 'classnames';
-import { Position, GetVisiblePosition } from './position';
+import { Position, getVisiblePosition } from './position';
 
 import './tooltip.scss';
 
@@ -39,7 +40,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
 
   const classes = classNames('ids-tooltip__container', className);
 
-  const defaultTooltipClasses = (visiblePosition: Position): string => {
+  const defaultTooltipClasses = (visiblePosition: string): string => {
     return classNames(
       'ids-tooltip',
       tooltipClassName,
@@ -55,52 +56,52 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     defaultTooltipClasses(position)
   );
 
-  const tooltipElement = useRef<HTMLDivElement>(null);
-  const parentElement = useRef<HTMLDivElement>(null);
+  const tooltipRef = useRef<HTMLDivElement>(null);
+  const posRef = useRef({ x: 0, y: 0 });
 
   const tooltipStyle = {
     maxWidth: `${maxWidth}px`,
+    top: `${posRef.current.y}px`,
+    left: `${posRef.current.x}px`,
   };
 
-  const onMouseEnterHandle = (): void => {
+  const onMouseEnterHandle = (event: { currentTarget: HTMLElement }): void => {
     setActive(true);
 
-    setTimeout(() => {
-      if (tooltipElement?.current && parentElement?.current) {
-        const visiblePosition = GetVisiblePosition(
-          tooltipElement.current.getBoundingClientRect(),
-          parentElement.current.getBoundingClientRect(),
-          position
-        );
+    const tooltip = tooltipRef.current;
+    const parent = event.currentTarget;
 
-        setTooltipClasses(defaultTooltipClasses(visiblePosition));
-      }
-    }, 0);
+    if (tooltip) {
+      const { x, y, p } = getVisiblePosition(tooltip, parent, position);
+      setTooltipClasses(defaultTooltipClasses(p));
+      posRef.current = { x, y };
+    }
   };
 
   const onMouseLeaveHandle = (): void => {
     setActive(false);
-
-    setTooltipClasses(defaultTooltipClasses(position));
   };
+
+  const tooltip = ReactDom.createPortal(
+    <div
+      ref={tooltipRef}
+      className={classNames(tooltipClasses, { 'ids-tooltip--active': active })}
+      style={tooltipStyle}
+      {...rest}
+    >
+      {content}
+    </div>,
+    document.body
+  );
 
   return (
     <span
       className={classes}
-      ref={parentElement}
       onMouseEnter={onMouseEnterHandle}
       onMouseLeave={onMouseLeaveHandle}
     >
-      <div
-        className={tooltipClasses}
-        ref={tooltipElement}
-        style={tooltipStyle}
-        hidden={!active}
-        {...rest}
-      >
-        {content}
-      </div>
       {children}
+      {tooltip}
     </span>
   );
 };

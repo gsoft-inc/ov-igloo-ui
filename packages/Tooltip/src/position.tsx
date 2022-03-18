@@ -74,29 +74,57 @@ const isNotFittingOnLeftButCanOnRight = (
   );
 };
 
-export const GetVisiblePosition = (
-  tooltipDomRect: DOMRect,
-  parentDomRect: DOMRect,
+export const getVisiblePosition = (
+  tooltip: HTMLElement,
+  parent: HTMLElement,
   position: Position
-): Position => {
+): { x: number; y: number; p: string } => {
+  const border = 1;
+  const tooltipDomRect = tooltip.getBoundingClientRect();
+  const parentDomRect = parent.getBoundingClientRect();
+
+  const top = {
+    x: parentDomRect.left + (parent.offsetWidth - tooltip.offsetWidth) / 2,
+    y: parentDomRect.top - tooltip.offsetHeight + border,
+    p: 'top',
+  };
+
+  const bottom = {
+    x: parentDomRect.left + (parent.offsetWidth - tooltip.offsetWidth) / 2,
+    y: parentDomRect.bottom + border,
+    p: 'bottom',
+  };
+
+  const left = {
+    x: parentDomRect.left - tooltip.offsetWidth,
+    y: parentDomRect.top + (parent.offsetHeight - tooltip.offsetHeight) / 2,
+    p: 'left',
+  };
+
+  const right = {
+    x: parentDomRect.right - border,
+    y: parentDomRect.top + (parent.offsetHeight - tooltip.offsetHeight) / 2,
+    p: 'right',
+  };
+
   switch (position) {
     case 'top':
       return isNotFittingOnTopButCanOnBottom(tooltipDomRect, parentDomRect)
-        ? 'bottom'
-        : 'top';
+        ? bottom
+        : top;
     case 'right':
       return isNotFittingOnRightButCanOnLeft(tooltipDomRect, parentDomRect)
-        ? 'left'
-        : 'right';
+        ? left
+        : right;
     case 'bottom':
       return isNotFittingOnBottomButCanOnTop(tooltipDomRect, parentDomRect)
-        ? 'top'
-        : 'bottom';
+        ? top
+        : bottom;
     case 'left':
       return isNotFittingOnLeftButCanOnRight(tooltipDomRect, parentDomRect)
-        ? 'right'
-        : 'left';
+        ? right
+        : left;
     default:
-      return 'top';
+      return top;
   }
 };
