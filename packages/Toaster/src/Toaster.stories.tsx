@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
+import { ComponentMeta } from '@storybook/react';
 import { Toast as HotToast } from 'react-hot-toast';
 
 import Button from '@igloo-ui/button';
@@ -14,7 +14,19 @@ export default {
   parameters: {
     description: readme,
   },
-} as Meta;
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          display: 'flex',
+          padding: '2.4rem',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
+} as ComponentMeta<typeof Toaster>;
 
 const mockToast = {
   createdAt: 1639075944871,
@@ -31,14 +43,9 @@ const mockToast = {
   style: {},
 } as HotToast;
 
-export const Playground: React.VFC<unknown> = () => {
+export const Overview = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        padding: '2.4rem',
-      }}
-    >
+    <>
       <Button
         size="small"
         onClick={() => toaster.success('Successfully toasted!')}
@@ -54,25 +61,25 @@ export const Playground: React.VFC<unknown> = () => {
         Error
       </Button>
       <Toaster iconDescription="describes the close button" />
-    </div>
+    </>
   );
 };
 
-export const Standard: React.VFC<unknown> = () => (
+export const Standard = () => (
   <Toast
     iconDescription="describes the close button"
     toast={{ ...mockToast, type: 'success' }}
   />
 );
 
-export const Error: React.VFC<unknown> = () => (
+export const Error = () => (
   <Toast
     iconDescription="describes the close button"
     toast={{ ...mockToast, type: 'error' }}
   />
 );
 
-export const LongDescription: React.VFC<unknown> = () => (
+export const LongDescription = () => (
   <Toast
     iconDescription="describes the close button"
     toast={{

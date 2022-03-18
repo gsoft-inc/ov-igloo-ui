@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { Meta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Search from '@igloo-ui/icons/dist/Search';
 
 import Input from './Input';
 
+import Section from '@components/section';
 import readme from '../README.md';
 
 export default {
@@ -13,94 +14,47 @@ export default {
   parameters: {
     description: readme,
   },
-} as Meta;
+  argTypes: {
+    type: { table: { defaultValue: { summary: 'text' } } },
+  },
+} as ComponentMeta<typeof Input>;
 
 const inputPlacehoder = 'ex: Lorem ipsum dolor';
 
-export const Playground: React.VFC = (args) => <Input {...args} />;
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
+export const Overview = Template.bind({});
+Overview.args = {
+  placeholder: inputPlacehoder,
+};
 
-export const Standard: React.VFC = () => (
-  <>
-    <section className="isb-section">
-      <h2>Default</h2>
-      <Input placeholder={inputPlacehoder} />
-    </section>
-    <section className="isb-section">
-      <h2>Compact</h2>
-      <Input placeholder={inputPlacehoder} isCompact />
-    </section>
-    <section className="isb-section">
-      <h2>Disabled</h2>
-      <Input placeholder={inputPlacehoder} disabled />
-    </section>
-    <section className="isb-section">
-      <h2>Active</h2>
-      <Input placeholder={inputPlacehoder} className="active" />
-    </section>
-    <section className="isb-section">
-      <h2>Focus</h2>
-      <Input placeholder={inputPlacehoder} className="focus" />
-    </section>
-    <section className="isb-section">
-      <h2>Error</h2>
-      <Input placeholder={inputPlacehoder} error />
-    </section>
-    <section className="isb-section">
-      <h2>Text</h2>
-      <Input placeholder={inputPlacehoder} value={'John Doe'} />
-    </section>
-    <section className="isb-section">
-      <h2>Password</h2>
-      <Input
-        type="password"
-        placeholder="Password"
-        value={'this is a good password!'}
-      />
-    </section>
-    <section className="isb-section">
-      <h2>Number</h2>
-      <Input type="number" placeholder="123" defaultValue={123456789} />
-    </section>
-  </>
+export const Types = () => (
+  <Section column>
+    <Input type="text" placeholder="input type text" />
+    <Input type="password" value="this is a good password!" />
+    <Input type="number" value="0123456789" />
+  </Section>
 );
 
-export const WithPrefix: React.VFC = () => (
-  <>
-    <section className="isb-section">
-      <h2>Default</h2>
-      <Input placeholder={inputPlacehoder} prefixIcon={<Search />} />
-    </section>
-    <section className="isb-section">
-      <h2>Compact</h2>
-      <Input
-        placeholder={inputPlacehoder}
-        isCompact
-        prefixIcon={<Search size="small" />}
-      />
-    </section>
-    <section className="isb-section">
-      <h2>Disabled</h2>
-      <Input placeholder={inputPlacehoder} disabled prefixIcon={<Search />} />
-    </section>
-    <section className="isb-section">
-      <h2>Active</h2>
-      <Input
-        placeholder={inputPlacehoder}
-        className="active"
-        prefixIcon={<Search />}
-      />
-    </section>
-    <section className="isb-section">
-      <h2>Focus</h2>
-      <Input
-        placeholder={inputPlacehoder}
-        className="focus"
-        prefixIcon={<Search />}
-      />
-    </section>
-    <section className="isb-section">
-      <h2>Error</h2>
-      <Input placeholder={inputPlacehoder} error prefixIcon={<Search />} />
-    </section>
-  </>
+export const Sizes = () => (
+  <Section column>
+    <Input placeholder="Default" />
+    <Input isCompact placeholder="Compact" />
+  </Section>
+);
+export const States = () => (
+  <Section column>
+    <Input disabled placeholder="Disabled" />
+    <Input className="focus" placeholder="Active / Focus" />
+    <Input error placeholder="Error" />
+  </Section>
+);
+export const WithPrefix = () => (
+  <Section column>
+    <Input prefixIcon={<Search />} placeholder="Default" />
+    <Input
+      prefixIcon={<Search size="small" />}
+      isCompact
+      placeholder="Compact"
+    />
+  </Section>
 );

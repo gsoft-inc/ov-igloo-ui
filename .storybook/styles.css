@@ -6,12 +6,21 @@ body,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.isb-section__content {
+.isb-section {
   display: flex;
 }
 
-.isb-section__content > * {
+.isb-section > * {
   margin-left: var(--space-3);
+}
+
+.isb-section--column {
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.isb-section--column > * {
+  margin-left: 0;
 }
 
 .isb-section__title {
