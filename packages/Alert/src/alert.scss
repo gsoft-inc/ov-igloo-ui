@@ -5,7 +5,7 @@
 :root {
   /* Default */
   --ids-alert-font-family: #{$primary-font-family};
-  --ids-alert-font-size: #{$font-size-4};
+  --ids-alert-font-size: #{$font-size-3};
   --ids-alert-title-font-weight: #{$font-weight-semi-bold};
   --ids-alert-padding: #{$space-3};
   --ids-alert-flex-gap-component: #{$space-4};
@@ -38,12 +38,10 @@
 
 .ids-alert {
   display: flex;
-  gap: var(--ids-alert-flex-gap-component);
   border-left: var(--ids-alert-border-left-width) solid transparent;
   font-size: var(--ids-alert-font-size);
   font-family: var(--ids-alert-font-family);
   padding: var(--ids-alert-padding);
-  width: 100%;
 
   /* External component override */
   .ids-btn {
@@ -94,8 +92,43 @@
     }
   }
 
+  &__body {
+    display: flex;
+    flex: 1 1 100%;
+    align-self: center;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .ids-btn {
+      margin-top: 1.2rem;
+    }
+  }
+
+  &__content {
+    flex: 1 1 auto;
+    color: var(--ids-alert-text-color-body);
+  }
+
+  &__title {
+    font-weight: var(--ids-alert-title-font-weight);
+    color: var(--ids-alert-text-color-title);
+    margin: 0;
+
+    + .ids-alert__content {
+      margin-top: var(--space-1);
+    }
+  }
+
   &__icon {
     font-size: 0;
+
+    + .ids-alert__body {
+      margin-left: var(--ids-alert-flex-gap-component);
+
+      @media screen and (max-width: 600px) {
+        margin-left: 0;
+      }
+    }
 
     @media screen and (max-width: 600px) {
       display: none;
@@ -116,31 +149,16 @@
     }
   }
 
-  &__body {
-    display: flex;
-    width: 100%;
-    align-self: center;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   &--horizontal &__body {
     flex-direction: row;
     align-items: center;
 
-    > .ids-btn {
-      margin: -10px 0;
+    > .ids-alert__title {
+      flex: 1 1 auto;
     }
-  }
 
-  &__title {
-    font-weight: var(--ids-alert-title-font-weight);
-    color: var(--ids-alert-text-color-title);
-    margin: 0;
-  }
-
-  &__content {
-    flex: 1 1 auto;
-    color: var(--ids-alert-text-color-body);
+    > .ids-btn {
+      margin: 0;
+    }
   }
 }

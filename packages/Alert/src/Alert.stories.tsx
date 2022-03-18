@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { Meta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import Section from '@components/section';
 import readme from '../README.md';
 
-import Alert, { AlertButton, AlertProps, Type } from './Alert';
+import Alert from './Alert';
 
 export default {
   title: 'Components/Alert',
@@ -13,152 +14,98 @@ export default {
     description: readme,
   },
   argTypes: {
+    title: {
+      control: 'text',
+    },
     message: {
       control: 'text',
-      defaultValue: 'Lorem ipsum dolor sit amet',
     },
+    appearance: { table: { defaultValue: { summary: 'card' } } },
+    closable: { table: { defaultValue: { summary: true } } },
   },
-} as Meta;
+} as ComponentMeta<typeof Alert>;
 
-interface Templates {
-  payload: TemplateProperties[];
-}
-
-interface TemplateProperties {
-  title: string;
-  alertProperties: AlertProps;
-}
-
-const Template = ({ payload }: Templates): React.ReactElement => {
-  const components = payload.map(({ title, alertProperties }, index) => {
-    console.log(
-      `Title: ${title}; Properties: ${alertProperties}; Index ${index}`
-    );
-
-    const displayContainerStyle = {
-      order: index,
-    };
-
-    return (
-      <section className="isb-section" key={index.toString()}>
-        <h2>{title}</h2>
-        <div className="isb-section__content">
-          <Alert
-            style={displayContainerStyle}
-            key={index.toString()}
-            {...alertProperties}
-          />
-        </div>
-      </section>
-    );
-  });
-
-  return <>{components}</>;
+const mockContent = {
+  title: 'Title of the alert',
+  message: 'Alert message goes here',
 };
 
-const demoTitleText: string = 'Lorem ipsum dolor sit amet';
+const Template: ComponentStory<typeof Alert> = (args) => <Alert {...args} />;
 
-const demoText: string =
-  'Praesent fringilla, magna in scelerisque tristique, turpis mi pharetra lectus, blandit varius sapien dolor nec arcu. Praesent tempus, purus vel rutrum vestibulum, metus nisl vestibulum purus, vel feugiat augue diam vel eros.';
-
-const demoButton: AlertButton = {
-  label: 'Vivamus id elit',
-  onClick: () => alert('Action!'),
+export const Overview = Template.bind({});
+Overview.args = {
+  title: mockContent.title,
+  message: mockContent.message,
+  button: { label: 'Button', onClick: () => {} },
+  type: 'info',
+  onClose: () => {},
 };
 
-const demoAlertMessage: React.ReactNode = <p>{demoText}</p>;
-
-const alertStyles = (type: Type): TemplateProperties[] => {
-  return [
-    {
-      title: 'Card',
-      alertProperties: {
-        title: demoTitleText,
-        message: demoAlertMessage,
-        type,
-      },
-    },
-    {
-      title: 'Card + Button',
-      alertProperties: {
-        title: demoTitleText,
-        message: demoAlertMessage,
-        type,
-        button: demoButton,
-      },
-    },
-    {
-      title: 'Inline',
-      alertProperties: {
-        title: demoTitleText,
-        message: demoAlertMessage,
-        type,
-        appearance: 'inline',
-      },
-    },
-    {
-      title: 'Inline + Button',
-      alertProperties: {
-        title: demoTitleText,
-        message: demoAlertMessage,
-        type,
-        appearance: 'inline',
-        button: demoButton,
-      },
-    },
-    {
-      title: 'Horizontal',
-      alertProperties: {
-        title: demoTitleText,
-        type,
-        appearance: 'horizontal',
-      },
-    },
-    {
-      title: 'Horizontal + Button',
-      alertProperties: {
-        title: demoTitleText,
-        type,
-        appearance: 'horizontal',
-        button: demoButton,
-      },
-    },
-    {
-      title: 'Not Closable',
-      alertProperties: {
-        title: demoTitleText,
-        message: demoAlertMessage,
-        type,
-        closable: false,
-      },
-    },
-  ];
-};
-
-export const Playground: React.VFC<AlertProps> = (args) => (
-  <section className="isb-section" key={'1'}>
-    <div className="isb-section__content">
-      <Alert {...args}>Playground</Alert>
-    </div>
-  </section>
+export const Types = () => (
+  <Section column>
+    <Alert
+      type="announcement"
+      title="Announcement"
+      message={mockContent.message}
+    />
+    <Alert type="info" title="Info" message={mockContent.message} />
+    <Alert type="premium" title="Premium" message={mockContent.message} />
+    <Alert type="success" title="Success" message={mockContent.message} />
+    <Alert type="warning" title="Warning" message={mockContent.message} />
+  </Section>
 );
 
-export const Announcement = (): React.ReactElement => (
-  <Template payload={alertStyles('announcement')} />
+export const Appearances = () => (
+  <Section column>
+    <Alert
+      type="announcement"
+      appearance="card"
+      title="Card"
+      message={mockContent.message}
+    />
+    <Alert
+      type="announcement"
+      appearance="inline"
+      title="Inline"
+      message={mockContent.message}
+    />
+    <Alert type="announcement" appearance="horizontal" title="Horizontal" />
+  </Section>
 );
 
-export const Info = (): React.ReactElement => (
-  <Template payload={alertStyles('info')} />
+export const WithButton = () => (
+  <Section column>
+    <Alert
+      button={{ label: 'Button', onClick: () => {} }}
+      type="info"
+      appearance="card"
+      title={mockContent.title}
+      message={mockContent.message}
+    />
+    <Alert
+      button={{ label: 'Button', onClick: () => {} }}
+      type="info"
+      appearance="inline"
+      title={mockContent.title}
+      message={mockContent.message}
+    />
+    <Alert
+      button={{ label: 'Button', onClick: () => {} }}
+      type="info"
+      appearance="horizontal"
+      title={mockContent.title}
+    />
+  </Section>
 );
 
-export const Premium = (): React.ReactElement => (
-  <Template payload={alertStyles('premium')} />
-);
-
-export const Success = (): React.ReactElement => (
-  <Template payload={alertStyles('success')} />
-);
-
-export const Warning = (): React.ReactElement => (
-  <Template payload={alertStyles('warning')} />
+export const Closable = () => (
+  <Section column>
+    <Alert
+      closable={false}
+      button={{ label: 'Button', onClick: () => {} }}
+      type="premium"
+      title={mockContent.title}
+      message={mockContent.message}
+    />
+  </Section>
 );

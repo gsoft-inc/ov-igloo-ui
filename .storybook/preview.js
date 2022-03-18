@@ -12,6 +12,8 @@ import {
 
 import './styles.css';
 
+const devMode = process.env.NODE_ENV === 'development';
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -21,7 +23,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  viewMode: 'docs',
+  viewMode: devMode ? 'canvas' : 'docs',
   previewTabs: {
     'storybook/docs/panel': {
       index: -1,

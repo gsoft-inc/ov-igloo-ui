@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Meta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import Section from '@components/section';
 import readme from '../README.md';
 
 import Ellipsis from './Ellipsis';
@@ -15,17 +16,17 @@ export default {
   parameters: {
     description: readme,
   },
-} as Meta;
+  decorators: [
+    (Story) => (
+      <span style={{ fontSize: '1.6rem' }}>
+        <Story />
+      </span>
+    ),
+  ],
+} as ComponentMeta<typeof Ellipsis>;
 
-export const Standard: React.VFC<unknown> = () => (
-  <>
-    <section className="isb-section">
-      <h2>Default behaviour</h2>
-      <Ellipsis>{ellipsisContent}</Ellipsis>
-    </section>
-    <section className="isb-section">
-      <h2>With title</h2>
-      <Ellipsis title="This is a title">{ellipsisContent}</Ellipsis>
-    </section>
-  </>
+export const Overview = () => <Ellipsis>{ellipsisContent}</Ellipsis>;
+
+export const WithTitle = () => (
+  <Ellipsis title="This is a title">{ellipsisContent}</Ellipsis>
 );
