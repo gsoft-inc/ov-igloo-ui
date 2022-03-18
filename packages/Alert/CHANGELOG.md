@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.1.2
+
+### Patch Changes
+
+- 0c48abc: update UI
+
 ## 0.1.1
 
 ### Patch Changes
