@@ -1,19 +1,22 @@
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import Fuse from 'fuse.js';
+
 import * as Icon from '@igloo-ui/icons/iconsList';
 import pkg from '@igloo-ui/icons/package.json';
+
 import Display from '../components/Display';
 import Title from '../components/Title';
 import Code from '../components/Code';
 import Tag from '../components/Tag';
+import IconsList from '../components/IconsList';
+import IconsOptions from '../components/IconsOptions';
 
 import iconIcon from '../svg/icon.svg';
 
 export default function Icons() {
   const [size, setSize] = useState('medium');
-
-  function handleSizeChange(event) {
-    setSize(event.currentTarget.value);
-  }
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     let iconSize;
@@ -33,28 +36,48 @@ export default function Icons() {
     document.body.style.setProperty('--icon-size', iconSize);
   }, [size]);
 
-  const list = Icon.iconName;
+  function handleSizeChange(event) {
+    setSize(event.currentTarget.value);
+  }
 
-  const IconsList = ({ size }) => {
-    return list.map((icon, index) => {
-      const IconComponent = Icon[icon];
-      return (
-        <div key={index.toString()} className="io-icon">
-          <div className="io-icon__content">
-            <div className="io-icon__svg">
-              <IconComponent size={size} />
-            </div>
-            <div className="io-icon__name" title={icon}>
-              {icon}
-            </div>
-          </div>
-        </div>
-      );
-    });
+  function handleSearchChange(event) {
+    setSearch(event.currentTarget.value);
+  }
+
+  const options = {
+    includeScore: true,
+    threshold: 0.3,
+  };
+  const list = Icon.iconName;
+  const fuse = new Fuse(list, options);
+  const results = fuse.search(search);
+  const emptyResult = results.length === 0 && search !== '';
+
+  const EmptyResult = () => {
+    return (
+      <div className="io-empty">
+        <Title level={3} as="h4">
+          No results for "{search}"
+        </Title>
+        <p>
+          Not finding an icon that you want?{' '}
+          <a
+            href="https://github.com/gsoft-inc/ov-igloo-icons/issues/new"
+            target="_blank"
+          >
+            File an issue
+          </a>{' '}
+          and suggest a new icon.
+        </p>
+      </div>
+    );
   };
 
   return (
     <>
+      <Head>
+        <title>Icons - Igloo</title>
+      </Head>
       <section className="io-section io-section--tight io-container">
         <Display icon={iconIcon}>
           <div className="io-display__content">
@@ -89,49 +112,20 @@ export default function Icons() {
           {`import Alert from '@igloo-ui/icons/dist/Alert';${'\n'}<Alert size="small" /> // 16px${'\n'}<Alert size="medium" /> // 24px${'\n'}<Alert size="large" /> // 32px`}
         </Code>
       </section>
-      <section className="io-section">
-        <div className="io-options">
-          <Title level={4} as="h3" className="io-options__title">
-            Sizes
-          </Title>
-          <label htmlFor="16">
-            <input
-              onChange={handleSizeChange}
-              type="radio"
-              id="16"
-              value="small"
-              name="size"
-              checked={size === 'small'}
-            />
-            16px
-          </label>
-          <label htmlFor="24">
-            <input
-              onChange={handleSizeChange}
-              type="radio"
-              id="24"
-              value="medium"
-              name="size"
-              checked={size === 'medium'}
-            />
-            24px
-          </label>
-          <label htmlFor="32">
-            <input
-              onChange={handleSizeChange}
-              type="radio"
-              id="32"
-              value="large"
-              name="size"
-              checked={size === 'large'}
-            />
-            32px
-          </label>
-        </div>
-        <div className="io-section__content io-section__content--icon">
-          <IconsList size={size} />
-        </div>
-      </section>
+      <IconsList
+        list={list}
+        size={size}
+        search={results}
+        emptyResult={emptyResult ? <EmptyResult /> : null}
+        options={
+          <IconsOptions
+            search={search}
+            searchOnChange={handleSearchChange}
+            sizeOnChange={handleSizeChange}
+            size={size}
+          />
+        }
+      />
     </>
   );
 }

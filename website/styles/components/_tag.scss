@@ -8,7 +8,7 @@
   border-radius: $size-2;
   min-height: $size-2;
   padding: 0 $size-1;
-  background: $c-grey;
+  background: $c-grey-200;
 
   &--ready {
     color: $c-white;
@@ -21,7 +21,7 @@
 
   &--ghost {
     line-height: 1.5;
-    border: 1px solid $c-grey;
+    border: 1px solid $c-grey-300;
     background: transparent;
   }
 }

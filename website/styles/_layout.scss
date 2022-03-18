@@ -73,6 +73,7 @@
     &--icon {
       grid-template-columns: repeat(auto-fill, minmax(var(--ico-columns), 1fr));
       grid-gap: 0;
+      padding: $size-4;
     }
   }
 
@@ -99,6 +100,18 @@
     margin-left: auto;
     margin-right: auto;
     max-width: $layout-sm;
+  }
+
+  &--empty {
+    text-align: center;
+    margin-top: $size-8;
+    margin-bottom: $size-8;
+  }
+
+  &--icons {
+    background: $c-grey-100;
+    border-radius: $br-1;
+    margin: $size-10 0;
   }
 }
 
@@ -156,5 +169,14 @@
 
   &-brand {
     width: auto;
+  }
+}
+
+.io-empty {
+  padding: $size-4;
+  text-align: center;
+
+  a {
+    text-decoration: underline;
   }
 }

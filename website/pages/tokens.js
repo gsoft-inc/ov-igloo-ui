@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import cx from 'classnames';
@@ -62,6 +63,9 @@ export default function Tokens(props) {
 
   return (
     <>
+      <Head>
+        <title>Design tokens - Igloo</title>
+      </Head>
       <div className="io-section io-section--grid io-section--hasAside">
         <div className="io-aside">
           <ul className="io-subnav">{tokensNav}</ul>
