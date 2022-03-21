@@ -57,12 +57,12 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
   );
 
   const tooltipRef = useRef<HTMLDivElement>(null);
-  const posRef = useRef({ x: 0, y: 0 });
+  const positionRef = useRef({ x: 0, y: 0 });
 
   const tooltipStyle = {
     maxWidth: `${maxWidth}px`,
-    top: `${posRef.current.y}px`,
-    left: `${posRef.current.x}px`,
+    top: `${positionRef.current.y}px`,
+    left: `${positionRef.current.x}px`,
   };
 
   const onMouseEnterHandle = (event: { currentTarget: HTMLElement }): void => {
@@ -72,9 +72,13 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     const parent = event.currentTarget;
 
     if (tooltip) {
-      const { x, y, p } = getVisiblePosition(tooltip, parent, position);
-      setTooltipClasses(defaultTooltipClasses(p));
-      posRef.current = { x, y };
+      const { x, y, visiblePosition } = getVisiblePosition(
+        tooltip,
+        parent,
+        position
+      );
+      setTooltipClasses(defaultTooltipClasses(visiblePosition));
+      positionRef.current = { x, y };
     }
   };
 

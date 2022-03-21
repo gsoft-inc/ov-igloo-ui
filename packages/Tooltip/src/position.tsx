@@ -78,7 +78,7 @@ export const getVisiblePosition = (
   tooltip: HTMLElement,
   parent: HTMLElement,
   position: Position
-): { x: number; y: number; p: string } => {
+): { x: number; y: number; visiblePosition: string } => {
   const border = 1;
   const tooltipDomRect = tooltip.getBoundingClientRect();
   const parentDomRect = parent.getBoundingClientRect();
@@ -86,25 +86,25 @@ export const getVisiblePosition = (
   const top = {
     x: parentDomRect.left + (parent.offsetWidth - tooltip.offsetWidth) / 2,
     y: parentDomRect.top - tooltip.offsetHeight + border,
-    p: 'top',
+    visiblePosition: 'top',
   };
 
   const bottom = {
     x: parentDomRect.left + (parent.offsetWidth - tooltip.offsetWidth) / 2,
     y: parentDomRect.bottom + border,
-    p: 'bottom',
+    visiblePosition: 'bottom',
   };
 
   const left = {
     x: parentDomRect.left - tooltip.offsetWidth,
     y: parentDomRect.top + (parent.offsetHeight - tooltip.offsetHeight) / 2,
-    p: 'left',
+    visiblePosition: 'left',
   };
 
   const right = {
     x: parentDomRect.right - border,
     y: parentDomRect.top + (parent.offsetHeight - tooltip.offsetHeight) / 2,
-    p: 'right',
+    visiblePosition: 'right',
   };
 
   switch (position) {
