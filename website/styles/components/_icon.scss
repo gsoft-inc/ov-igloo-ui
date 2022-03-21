@@ -6,7 +6,9 @@
   box-sizing: border-box;
 
   &:hover {
-    box-shadow: rgba(0, 0, 0, 0.6) 0 0 1px 0;
+    background: $c-white;
+    border-radius: $br-1;
+    box-shadow: 0.15rem 0.25rem 0 0 $c-grey-200;
   }
 
   &__content {

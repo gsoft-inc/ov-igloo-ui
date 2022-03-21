@@ -16,7 +16,7 @@
   td {
     font-size: var(--fs-100);
     border: 0;
-    border-top: 1px solid $c-grey;
+    border-top: 1px solid $c-grey-200;
   }
 
   td:first-child {
@@ -42,7 +42,7 @@
   width: $size-5;
   height: $size-3;
   border-radius: $br-2;
-  background: $c-grey;
+  background: $c-grey-200;
 }
 
 .io-preview {
@@ -65,7 +65,7 @@
 
   &--lineHeight,
   &--border {
-    border: 1px solid $c-grey-dark;
+    border: 1px solid $c-grey-300;
   }
 
   &--empty,

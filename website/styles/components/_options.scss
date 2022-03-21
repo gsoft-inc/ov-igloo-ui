@@ -1,45 +1,120 @@
 @import '../variables';
 
 .io-options {
-  display: flex;
-  align-items: center;
+  background: $c-white;
+  display: grid;
   gap: $size-1;
-  margin: $size-8 0 $size-3;
+  grid-template-columns: 1fr;
+  align-items: center;
+  margin-bottom: $size-3;
   padding: $size-3 $size-2;
   border-radius: $br-1;
-  box-shadow: 0 0.1rem 0.6rem 0 rgba(35, 48, 67, 0.1);
+  border: 1px solid $c-grey-200;
+  box-shadow: 0 0.25rem 0 0 $c-grey-300;
+
+  @media (min-width: $breakpoint-small) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $breakpoint-medium) {
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__search {
+    grid-column: 1;
+
+    @media (min-width: $breakpoint-medium) {
+      grid-column: 2;
+    }
+  }
+
+  &__sizes {
+    margin: $size-2 auto 0;
+
+    @media (min-width: $breakpoint-small) {
+      margin: 0;
+      justify-self: flex-end;
+    }
+  }
 
   &--large {
     margin-left: -$size-4;
     margin-right: -$size-4;
+    display: flex;
   }
 
   .io-options__title {
     margin: 0;
     font-weight: 700;
   }
+}
 
-  > * {
-    margin-left: $size-1;
+.io-input {
+  position: relative;
+
+  > svg {
+    color: $c-grey-300;
+    position: absolute;
+    top: 50%;
+    left: $size-1;
+    transform: translate(0, -50%);
   }
 
-  &__btn {
-    padding: $size-1 $size-2;
-    border: 0;
-    border-radius: $br-2;
-    color: $c-white;
-    background: $c-black;
+  input {
+    width: 100%;
+    padding: $size-1 $size-2 $size-1 $size-4;
+    border: 1px solid $c-grey-200;
+    border-radius: $br-1;
+    font-size: $fs-3;
 
-    &:hover {
-      cursor: pointer;
+    &:focus {
+      outline: none;
+      border-color: $c-grey-300;
     }
   }
 }
 
 .io-select {
   font-size: $fs-4;
-  border: 1px solid $c-grey;
+  border: 1px solid $c-grey-300;
   border-radius: 0.25rem;
   padding: $size-0;
   background: $c-white;
+}
+
+.io-btn-group {
+  > label {
+    padding: $size-1 $size-2;
+    background: $c-white;
+    border: 1px solid $c-grey-200;
+    border-radius: $br-1;
+    color: $c-grey-300;
+  }
+
+  :checked + label {
+    background: $c-grey-400;
+    color: $c-white;
+  }
+
+  > label:nth-child(n + 3) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  > label:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  label:not(:first-child),
+  label:not(:first-child) {
+    margin-left: -1px;
+  }
+
+  .io-btn-check {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+  }
 }
