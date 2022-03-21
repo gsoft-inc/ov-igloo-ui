@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Meta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import Section from '@components/section';
 import readme from '../README.md';
 
 import Kashim from './Kashim';
@@ -12,8 +13,28 @@ export default {
   parameters: {
     description: readme,
   },
-} as Meta;
+} as ComponentMeta<typeof Kashim>;
 
-export const Standard: React.VFC<unknown> = () => (
-  <Kashim>Dummy starter component</Kashim>
-);
+const Template: ComponentStory<typeof Kashim> = (args) => <Kashim {...args} />;
+export const Overview = Template.bind({});
+Overview.args = {
+  children: 'Dummy starter component',
+};
+
+// export const Appearances = () => (
+//   <Section>
+//     ...
+//   </Section>
+// );
+
+// export const Sizes = () => (
+//   <Section>
+//     ...
+//   </Section>
+// );
+
+// export const State = () => (
+//   <Section>
+//     ...
+//   </Section>
+// );

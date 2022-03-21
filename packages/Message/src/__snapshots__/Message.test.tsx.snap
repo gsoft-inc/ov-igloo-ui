@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message It should render a default appearance 1`] = `ShallowWrapper {}`;
+
+exports[`Message It should render a error appearance 1`] = `ShallowWrapper {}`;
+
+exports[`Message It should render a waring appearance 1`] = `ShallowWrapper {}`;
