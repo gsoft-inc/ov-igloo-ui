@@ -31,9 +31,4 @@ describe('Message', () => {
     const message = setUp({ appearance: 'error' });
     expect(message).toMatchSnapshot();
   });
-
-  test('It should render a waring appearance', () => {
-    const message = setUp({ appearance: 'warning' });
-    expect(message).toMatchSnapshot();
-  });
 });
