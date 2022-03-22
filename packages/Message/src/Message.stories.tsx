@@ -13,9 +13,6 @@ export default {
   parameters: {
     description: readme,
   },
-  argTypes: {
-    appearance: { table: { defaultValue: { summary: 'default' } } },
-  },
 } as ComponentMeta<typeof Message>;
 
 const Template: ComponentStory<typeof Message> = (args) => (
@@ -25,13 +22,6 @@ const Template: ComponentStory<typeof Message> = (args) => (
 export const Overview = Template.bind({});
 Overview.args = {
   children: 'Information',
-  appearance: 'default',
 };
 
-export const Appearances = () => (
-  <Section>
-    <Message appearance="default">Default</Message>
-    <Message appearance="error">Error</Message>
-    <Message appearance="warning">Warning</Message>
-  </Section>
-);
+export const Error = () => <Message error>Error</Message>;

@@ -4,7 +4,7 @@
   "main": "dist/Message.js",
   "module": "dist/Message.js",
   "types": "dist/Message.d.ts",
-  "styles": "dist/Message.css",
+  "styles": "dist/message.css",
   "private": "true",
   "publishConfig": {
     "access": "public"

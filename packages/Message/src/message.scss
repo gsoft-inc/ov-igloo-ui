@@ -11,9 +11,6 @@
 
   /* Error */
   --ids-message-text-error: #{$coral-500};
-
-  /* Warning */
-  --ids-message-text-warning: #{$dandelion-500};
 }
 
 .ids-message {
@@ -27,10 +24,6 @@
 
   &--error {
     color: var(--ids-message-text-error);
-  }
-
-  &--warning {
-    color: var(--ids-message-text-warning);
   }
 
   > .ids-message__icon {

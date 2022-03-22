@@ -6,22 +6,20 @@ import './message.scss';
 
 export interface MessageProps extends React.ComponentProps<'div'> {
   children: React.ReactNode;
-  appearance?: 'default' | 'warning' | 'error';
+  error?: boolean;
 }
 
 const Message: React.FunctionComponent<MessageProps> = (
   props: MessageProps
 ) => {
-  const { children, appearance = 'default' } = props;
+  const { children, error } = props;
   const classes = cx('ids-message', {
-    [`ids-message--${appearance}`]: appearance !== 'default',
+    [`ids-message--error`]: error,
   });
-
-  const hasIcon = appearance !== 'default';
 
   return (
     <span className={classes}>
-      {hasIcon && <Alert className="ids-message__icon" size="small" />}
+      {error && <Alert className="ids-message__icon" size="small" />}
       {children}
     </span>
   );
