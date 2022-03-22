@@ -23,7 +23,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepublish-ci": "yarn build",
-    "publish-ci": "npx lerna publish from-package -y"
+    "publish-ci": "npx lerna publish from-package -y",
+    "bootstrap": "node utils/bootstrap/component.mjs"
   },
   "workspaces": [
     "packages/*",
@@ -75,6 +76,7 @@
     "jest": "27.5.1",
     "lerna": "4.0.0",
     "lint-staged": "12.3.4",
+    "pascalcase": "2.0.0",
     "postcss": "8.4.5",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-scss": "4.0.3",
@@ -93,7 +95,8 @@
     "stylelint-config-standard-scss": "3.0.0",
     "ts-jest": "27.0.4",
     "tsconfig-paths-webpack-plugin": "3.5.2",
-    "typescript": "4.3.5"
+    "typescript": "4.3.5",
+    "zx": "6.0.7"
   },
   "prettier": {
     "singleQuote": true,

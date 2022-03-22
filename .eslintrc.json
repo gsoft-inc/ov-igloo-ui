@@ -65,6 +65,7 @@
     "**/*.stories.tsx",
     "*.css",
     "*.svg",
+    "bootstrap",
     "website"
   ]
 }
