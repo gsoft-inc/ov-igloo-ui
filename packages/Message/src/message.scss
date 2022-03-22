@@ -8,8 +8,10 @@
   --ids-message-font-weight: #{$font-weight-regular};
   --ids-message-line-height: #{$line-height-xxl};
   --ids-message-text: #{$grey-800};
+
   /* Error */
   --ids-message-text-error: #{$coral-500};
+
   /* Warning */
   --ids-message-text-warning: #{$dandelion-500};
 }
