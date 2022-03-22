@@ -5,7 +5,6 @@
   "module": "dist/Message.js",
   "types": "dist/Message.d.ts",
   "styles": "dist/message.css",
-  "private": "true",
   "publishConfig": {
     "access": "public"
   },
