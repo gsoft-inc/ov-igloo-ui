@@ -65,7 +65,7 @@
   border: 1px solid var(--ids-radio-border);
   border-radius: 50%;
   background: var(--ids-radio-background);
-  box-sizing: content-box;
+  box-sizing: border-box;
   transition: background 0.05s ease-in-out;
 
   &:checked {
