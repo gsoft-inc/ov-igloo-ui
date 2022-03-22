@@ -32,3 +32,7 @@ declare module '@igloo-ui/icons/dist/Settings' {
 declare module '@igloo-ui/icons/dist/Search' {
   export default function Search(props: iconsProps): JSX.Element;
 }
+
+declare module '@igloo-ui/icons/dist/Alert' {
+  export default function Alert(props: iconsProps): JSX.Element;
+}
