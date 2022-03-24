@@ -24,7 +24,7 @@
     "build-storybook": "build-storybook",
     "prepublish-ci": "yarn build",
     "publish-ci": "npx lerna publish from-package -y",
-    "bootstrap": "node utils/bootstrap/component.mjs"
+    "bootstrap": "node utils/bootstrap/component.mjs && npx lerna bootstrap && yarn fix:all"
   },
   "workspaces": [
     "packages/*",

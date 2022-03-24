@@ -22,7 +22,6 @@ import {
 } from './helpers/template.mjs';
 
 await checkRequiredProgramsExist(['git', 'node', 'npx']);
-await checkGlobalGitSettings(['user.name', 'user.email']);
 
 async function promptForName() {
   const name = await question(
@@ -95,7 +94,6 @@ async function createFiles(component) {
   const pascalCaseName = pascalcase(component);
 
   cd(`packages/${component}`);
-  await $`mkdir src`;
 
   const readmeTemplate = getReadmeTemplate(component);
   const componentTemplate = getComponentTemplate(component);
@@ -139,9 +137,6 @@ const { packageName, componentName } = await getPackageName();
 const component = await creatingComponentFolder(componentName);
 await updatePackageJson(component);
 await createFiles(component);
-
-await $`yarn fix:style`;
-await $`npx lerna bootstrap`;
 
 // Successfully bootstrapped
 console.log(
