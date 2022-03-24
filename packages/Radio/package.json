@@ -4,7 +4,7 @@
   "main": "dist/Radio.js",
   "module": "dist/Radio.js",
   "types": "dist/Radio.d.ts",
-  "styles": "dist/radio.js",
+  "styles": "dist/radio.css",
   "publishConfig": {
     "access": "public"
   },
