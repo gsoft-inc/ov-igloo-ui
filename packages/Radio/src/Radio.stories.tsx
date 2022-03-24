@@ -45,8 +45,8 @@ export const Small: React.VFC<unknown> = () => (
   </Radio>
 );
 
-export const WithDescription: React.VFC<unknown> = () => (
-  <Radio htmlFor="ids-radio-description" description="Description">
+export const WithHelperText: React.VFC<unknown> = () => (
+  <Radio htmlFor="ids-radio-description" helperText="Description">
     Small
   </Radio>
 );

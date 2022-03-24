@@ -18,7 +18,8 @@ export interface RadioProps extends React.ComponentPropsWithRef<'input'> {
   checked?: boolean;
   /** Modifies the native disabled state of the native checkbox */
   disabled?: boolean;
-  description?: string;
+  /** The content to display to help users */
+  helperText?: string;
   /** Function called when the value changes. */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -31,7 +32,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.forwardRef(
       dataTest,
       htmlFor,
       onChange,
-      description,
+      helperText,
       small = false,
       checked = false,
       disabled = false,
@@ -62,7 +63,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.forwardRef(
     return (
       <span
         className={cx('ids-form-control', {
-          'has-description': description,
+          'has-description': helperText,
         })}
       >
         <input
@@ -79,8 +80,8 @@ const Radio: React.FunctionComponent<RadioProps> = React.forwardRef(
         {children && (
           <label className="ids-radio__label" htmlFor={htmlFor}>
             {children}
-            {description && (
-              <span className="ids-radio__description">{description}</span>
+            {helperText && (
+              <span className="ids-radio__description">{helperText}</span>
             )}
           </label>
         )}

@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render } from '@testing-library/react';
+import { findByRole, render } from '@testing-library/react';
 import { shallow } from 'enzyme';
 
 import Radio from './Radio';
@@ -24,17 +24,29 @@ describe('Radio', () => {
   });
 
   test('It should render without label', () => {
-    const { getByRole } = render(<Radio htmlFor="radio-test" />);
-    expect(getByRole('radio')).toBeInTheDocument();
+    render(<Radio htmlFor="radio-test" />);
+    const label = document.getElementsByTagName('label');
+    expect(label.length).toBe(0);
   });
 
   test('It should render a checked state', () => {
-    const radio = setUp({ checked: true });
-    expect(radio).toMatchSnapshot();
+    const { getByRole } = render(
+      <Radio htmlFor="radio-test-2" checked>
+        Label
+      </Radio>
+    );
+    const radio = getByRole('radio');
+    expect(radio).toBeChecked();
   });
 
   test('It should render a disabled state', () => {
-    const radio = setUp({ disabled: true });
-    expect(radio).toMatchSnapshot();
+    const { getByRole } = render(
+      <Radio htmlFor="radio-test-3" disabled>
+        Label
+      </Radio>
+    );
+    const radio = getByRole('radio');
+
+    expect(radio).toBeDisabled();
   });
 });

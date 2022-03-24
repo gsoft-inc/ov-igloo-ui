@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Radio It should render a checked state 1`] = `ShallowWrapper {}`;
-
-exports[`Radio It should render a disabled state 1`] = `ShallowWrapper {}`;

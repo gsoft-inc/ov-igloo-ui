@@ -21,7 +21,6 @@
   --ids-radio-background: #{$samoyed};
   --ids-radio-background-disabled: #{$grey-300};
   --ids-radio-background-checked: #{$electric-blue-500};
-  --ids-radio-background-checked-disabled: #{$grey-400};
 }
 
 %radio {
@@ -89,9 +88,8 @@
   }
 
   &:hover,
-  &:checked:hover,
-  &:indeterminate:hover {
-    border-color: var(--ids-checkbox-border-hover);
+  &:checked:hover {
+    border-color: var(--ids-radio-border-hover);
   }
 
   &:focus:not(:focus-visible) {
