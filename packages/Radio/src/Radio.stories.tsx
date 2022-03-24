@@ -13,6 +13,11 @@ export default {
   parameters: {
     description: readme,
   },
+  argTypes: {
+    disabled: { table: { defaultValue: { summary: false } } },
+    checked: { table: { defaultValue: { summary: false } } },
+    small: { table: { defaultValue: { summary: false } } },
+  },
 } as ComponentMeta<typeof Radio>;
 
 const Template: ComponentStory<typeof Radio> = (args) => <Radio {...args} />;
@@ -46,7 +51,7 @@ export const Small: React.VFC<unknown> = () => (
 );
 
 export const WithHelperText: React.VFC<unknown> = () => (
-  <Radio htmlFor="ids-radio-description" helperText="Description">
-    Small
+  <Radio htmlFor="ids-radio-description" helperText="Helper text">
+    Label
   </Radio>
 );

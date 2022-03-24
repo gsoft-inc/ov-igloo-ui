@@ -20,7 +20,7 @@ export interface RadioProps extends React.ComponentPropsWithRef<'input'> {
   disabled?: boolean;
   /** The content to display to help users */
   helperText?: string;
-  /** Function called when the value changes. */
+  /** Function called when the value changes */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
