@@ -1,0 +1,33 @@
+{
+  "name": "@igloo-ui/message",
+  "version": "0.0.0",
+  "main": "dist/Message.js",
+  "module": "dist/Message.js",
+  "types": "dist/Message.d.ts",
+  "styles": "dist/message.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "author": "Officevibe Inc.",
+  "contributors": [
+    "Franck franck.gaudin@gsoft.com"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@igloo-ui/icons": "^0.6.6",
+    "@igloo-ui/tokens": "^1.0.0",
+    "classnames": "^2.3.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE >= 11"
+  ]
+}
