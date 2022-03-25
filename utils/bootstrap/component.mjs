@@ -64,7 +64,7 @@ async function getPackageName() {
 }
 
 async function idendifyExistingComponent(component) {
-  const componentDirectory = path.resolve('packages/' + component);
+  const componentDirectory = path.resolve('packages/' + pascalcase(component));
   if (!(await fs.pathExists(componentDirectory))) {
     return false;
   }
@@ -93,7 +93,7 @@ async function createFiles(component) {
   $.verbose = false;
   const pascalCaseName = pascalcase(component);
 
-  cd(`packages/${component}`);
+  cd(`packages/${pascalCaseName}`);
 
   const readmeTemplate = getReadmeTemplate(component);
   const componentTemplate = getComponentTemplate(component);
@@ -116,7 +116,7 @@ async function updatePackageJson(component) {
   $.verbose = false;
 
   const pascalCaseName = pascalcase(component);
-  const packageJson = await readPackageJson(component);
+  const packageJson = await readPackageJson(pascalCaseName);
   packageJson.name = packageName;
   packageJson.version = '0.0.0';
   packageJson.main = `dist/${pascalCaseName}.js`;
@@ -127,7 +127,7 @@ async function updatePackageJson(component) {
   const author = await getAuthor();
   packageJson.contributors = [author];
 
-  await writePackageJson(component, packageJson);
+  await writePackageJson(pascalCaseName, packageJson);
 
   $.verbose = true;
 }
