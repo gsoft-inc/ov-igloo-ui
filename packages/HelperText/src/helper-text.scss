@@ -1,0 +1,32 @@
+@import '~@igloo-ui/tokens/dist/base10/variables';
+@import '~@igloo-ui/tokens/dist/fonts.css';
+
+:root {
+  /* Default */
+  --ids-helperText-font-family: #{$primary-font-family};
+  --ids-helperText-font-size: #{$font-size-3};
+  --ids-helperText-font-weight: #{$font-weight-regular};
+  --ids-helperText-line-height: #{$line-height-xxl};
+  --ids-helperText-text: #{$grey-800};
+
+  /* Error */
+  --ids-helperText-text-error: #{$coral-500};
+}
+
+.ids-helperText {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--ids-helperText-font-family);
+  font-size: var(--ids-helperText-font-size);
+  font-weight: var(--ids-helperText-font-weight);
+  line-height: var(--ids-helperText-line-height);
+  color: var(--ids-helperText-text);
+
+  &--error {
+    color: var(--ids-helperText-text-error);
+  }
+
+  > .ids-helperText__icon {
+    margin-right: $space-1;
+  }
+}
