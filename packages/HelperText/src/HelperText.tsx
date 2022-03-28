@@ -5,7 +5,9 @@ import Alert from '@igloo-ui/icons/dist/Alert';
 import './helper-text.scss';
 
 export interface HelperTextProps extends React.ComponentProps<'div'> {
+  /** The content to display inside the HelperText */
   children: React.ReactNode;
+  /** Changes the appearance of component */
   error?: boolean;
 }
 
