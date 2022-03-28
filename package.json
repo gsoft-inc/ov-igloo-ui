@@ -23,7 +23,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepublish-ci": "yarn build",
-    "publish-ci": "npx lerna publish from-package -y"
+    "publish-ci": "npx lerna publish from-package -y",
+    "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN"
   },
   "workspaces": [
     "packages/*",
@@ -59,6 +60,7 @@
     "babel-jest": "27.5.1",
     "babel-loader": "^8.2.2",
     "camelcase": "6.3.0",
+    "chromatic": "6.5.3",
     "css-loader": "5.2.7",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.6",
