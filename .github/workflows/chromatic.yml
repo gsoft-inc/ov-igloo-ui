@@ -1,8 +1,9 @@
 name: 'Chromatic'
 
-on: push:
-  branches-ignore:
-    - "^(main|changeset-release)$"
+on:
+  push:
+    branches-ignore:
+      - '^(main|changeset-release)$'
 
 jobs:
   chromatic-deployment:
