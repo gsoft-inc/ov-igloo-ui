@@ -4,31 +4,33 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Message from './Message';
+import HelperText from './HelperText';
 
 const setUp = (props = {}) => {
-  const component = shallow(<Message {...props}>Information message</Message>);
+  const component = shallow(
+    <HelperText {...props}>Information message</HelperText>
+  );
   return component;
 };
 
-describe('Message', () => {
+describe('HelperText', () => {
   let component: any;
   beforeEach(() => {
     component = setUp();
   });
 
   test('It should render without errors', () => {
-    const wrapper = component.find('.ids-message');
+    const wrapper = component.find('.ids-helperText');
     expect(wrapper.length).toBe(1);
   });
 
   test('It should render a default appearance', () => {
-    const message = setUp();
-    expect(message).toMatchSnapshot();
+    const helperText = setUp();
+    expect(helperText).toMatchSnapshot();
   });
 
   test('It should render a error appearance', () => {
-    const message = setUp({ appearance: 'error' });
-    expect(message).toMatchSnapshot();
+    const helperText = setUp({ appearance: 'error' });
+    expect(helperText).toMatchSnapshot();
   });
 });

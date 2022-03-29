@@ -23,7 +23,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepublish-ci": "yarn build",
-    "publish-ci": "npx lerna publish from-package -y"
+    "publish-ci": "npx lerna publish from-package -y",
+    "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN"
   },
   "workspaces": [
     "packages/*",
@@ -52,12 +53,14 @@
     "@types/jest": "27.4.0",
     "@types/node": "16.4.10",
     "@types/react": "17.0.33",
+    "@types/react-dom": "17.0.13",
     "@typescript-eslint/eslint-plugin": "5.1.0",
     "@typescript-eslint/parser": "5.1.0",
     "autoprefixer": "10.4.2",
     "babel-jest": "27.5.1",
     "babel-loader": "^8.2.2",
     "camelcase": "6.3.0",
+    "chromatic": "6.5.3",
     "css-loader": "5.2.7",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.6",

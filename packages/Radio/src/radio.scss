@@ -19,8 +19,9 @@
   --ids-radio-border-disabled: #{$grey-300};
   --ids-radio-border-checked: #{$electric-blue-500};
   --ids-radio-background: #{$samoyed};
-  --ids-radio-background-disabled: #{$grey-300};
+  --ids-radio-background-disabled: #{$grey-200};
   --ids-radio-background-checked: #{$electric-blue-500};
+  --ids-radio-background-disabled-checked: #{$grey-300};
 }
 
 %radio {
@@ -94,6 +95,10 @@
 
   &:focus:not(:focus-visible) {
     box-shadow: none;
+  }
+
+  &:disabled:checked {
+    background-color: var(--ids-radio-background-disabled-checked);
   }
 
   &:disabled:hover {

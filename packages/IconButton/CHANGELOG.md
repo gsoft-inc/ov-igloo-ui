@@ -1,5 +1,11 @@
 # @igloo-ui/icon-button
 
+## 0.2.5
+
+### Patch Changes
+
+- e8f201c: Rename the output file for css
+
 ## 0.2.4
 
 ### Patch Changes

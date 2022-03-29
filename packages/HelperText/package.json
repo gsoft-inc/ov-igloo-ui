@@ -1,10 +1,10 @@
 {
-  "name": "@igloo-ui/message",
-  "version": "0.1.0",
-  "main": "dist/Message.js",
-  "module": "dist/Message.js",
-  "types": "dist/Message.d.ts",
-  "styles": "dist/message.css",
+  "name": "@igloo-ui/helper-text",
+  "version": "0.2.0",
+  "main": "dist/HelperText.js",
+  "module": "dist/HelperText.js",
+  "types": "dist/HelperText.d.ts",
+  "styles": "dist/helper-text.css",
   "publishConfig": {
     "access": "public"
   },
