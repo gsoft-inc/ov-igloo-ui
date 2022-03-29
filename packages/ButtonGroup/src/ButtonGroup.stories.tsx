@@ -48,6 +48,16 @@ export const Appearances = () => (
   </Section>
 );
 
+export const Small = () => (
+  <Section>
+    <ButtonGroup
+      small
+      items={['Item 1', 'Item 2']}
+      onClick={(event) => console.log('selected item', event.currentTarget.id)}
+    />
+  </Section>
+);
+
 export const WhitIcons = () => (
   <Section>
     <ButtonGroup

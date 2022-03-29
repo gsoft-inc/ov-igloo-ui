@@ -7,6 +7,8 @@ type Event = React.MouseEvent<HTMLButtonElement>;
 
 export interface ButtonGroupProps extends React.ComponentProps<'button'> {
   items: React.ReactNode[] | string[];
+  /** Changes the size of button group  */
+  small?: boolean;
   disabled?: boolean;
   onClick?: (event: Event) => void;
 }
@@ -14,7 +16,7 @@ export interface ButtonGroupProps extends React.ComponentProps<'button'> {
 const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (
   props: ButtonGroupProps
 ) => {
-  const { items, onClick, disabled } = props;
+  const { items, small = false, onClick, disabled } = props;
   const [selected, setSelected] = React.useState(-1);
 
   const actionsList = items?.map((action, index) => {
@@ -41,7 +43,11 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (
     );
   });
 
-  return <div className="ids-btn-group">{actionsList}</div>;
+  return (
+    <div className={cx('ids-btn-group', { 'ids-btn-group--small': small })}>
+      {actionsList}
+    </div>
+  );
 };
 
 export default ButtonGroup;

@@ -10,7 +10,13 @@
 .ids-btn-group {
   font-family: var(--ids-button-group-font-family);
   font-size: var(--ids-button-group-font-size);
+  height: $space-6;
   color: $grey-800;
+  display: flex;
+
+  &--small {
+    height: $space-5;
+  }
 
   &__item {
     position: relative;
@@ -18,7 +24,8 @@
     border-width: 1px;
     border-style: solid;
     background-color: $samoyed;
-    padding: $space-2 $space-3;
+
+    padding: 0 $space-3;
     z-index: $z-index-0;
 
     &:active,
