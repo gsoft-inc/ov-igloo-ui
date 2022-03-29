@@ -21,8 +21,10 @@ function capitalize(string) {
 function handleName(name) {
   if (!name) return null;
 
-  const component = capitalize(name.replace(`${SCOPE}/`, ''));
-  const style = component.toLowerCase();
+  const componentName = name.replace(`${SCOPE}/`, '');
+
+  const component = capitalize(componentName);
+  const style = componentName;
 
   return {
     component,
