@@ -3,7 +3,9 @@ name: 'Chromatic'
 on:
   push:
     branches-ignore:
-      - '^(main|changeset-release)$'
+      - main
+      - dependabot/*
+      - changeset-release/*
 
 jobs:
   chromatic-deployment:
