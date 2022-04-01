@@ -10,12 +10,14 @@ export interface ButtonGroupItemProps extends React.ComponentProps<'button'> {
   disabled?: boolean;
   /** Callback funtion executed when a button is clicked. */
   onClick?: () => void;
+  /** Add a data-test tag for automated tests */
+  dataTest?: string;
 }
 
 const ButtonGroupItem: React.FunctionComponent<ButtonGroupItemProps> = (
   props: ButtonGroupItemProps
 ) => {
-  const { children, active, disabled, onClick } = props;
+  const { children, active, disabled, onClick, dataTest } = props;
 
   return (
     <button
@@ -23,6 +25,7 @@ const ButtonGroupItem: React.FunctionComponent<ButtonGroupItemProps> = (
         'is-disabled': disabled,
         'is-selected': active,
       })}
+      data-test={dataTest}
       onClick={onClick}
     >
       {children}

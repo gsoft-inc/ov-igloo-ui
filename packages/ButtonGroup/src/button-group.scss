@@ -5,93 +5,121 @@
   /* Default */
   --ids-button-group-font-family: #{$primary-font-family};
   --ids-button-group-font-size: #{$font-size-4};
+  --ids-button-group-text: #{$grey-800};
+  --ids-button-group-heigth: #{$space-6};
+  --ids-button-group-min-width: #{$space-10};
+  --ids-button-group-border: #{$grey-300};
+  --ids-button-group-border-hover: #{$grey-600};
+  --ids-button-group-border-width: 1px;
+  --ids-button-group-border-radius: #{$border-radius-sm};
+  --ids-button-group-background: #{$samoyed};
+  --ids-button-group-padding: 0 #{$space-3};
+  --ids-button-group-index: #{$z-index-0};
+  --ids-button-group-index-max: #{$z-index-max};
+  --ids-button-group-focus: 0 0 0 2px #{$electric-blue-600};
+
+  /* Selected */
+  --ids-button-group-border-selected: #{$electric-blue-500};
+  --ids-button-group-text-selected: #{$electric-blue-500};
+  --ids-button-group-background-selected: #{$electric-blue-50};
+  --ids-button-group-index-selected: #{$z-index-20};
+
+  /* Disabled */
+  --ids-button-group-border-disabled: #{$grey-300};
+  --ids-button-group-text-disabled: #{$grey-600};
+  --ids-button-group-background-disabled: #{$grey-300};
+
+  /* Variant */
+  --ids-button-group-padding-small: #{$space-1};
+  --ids-button-group-padding-compact: #{$space-2};
+  --ids-button-group-height-small: #{$space-5};
 }
 
 .ids-btn-group {
+  display: flex;
   font-family: var(--ids-button-group-font-family);
   font-size: var(--ids-button-group-font-size);
-  height: $space-6;
-  color: $grey-800;
-  display: flex;
-  min-width: 9.2rem;
+  color: var(--ids-button-group-text);
+  height: var(--ids-button-group-heigth);
+  min-width: var(--ids-button-group-min-width);
 }
 
 .ids-btn-group__item {
   font-size: inherit;
   position: relative;
-  border-color: $grey-300;
-  border-width: 1px;
   border-style: solid;
-  background-color: $samoyed;
+  border-color: var(--ids-button-group-border);
+  border-width: var(--ids-button-group-border-width);
+  background-color: var(--ids-button-group-background);
   margin: 0;
   padding: 0 $space-3;
-  z-index: $z-index-0;
+  z-index: var(--ids-button-group-index);
 
   &:active,
   &:hover,
   &:focus,
   &.is-selected {
-    z-index: $z-index-max;
+    z-index: var(--ids-button-group-index-max);
   }
 
   &:first-child {
-    border-top-left-radius: $border-radius-sm;
-    border-bottom-left-radius: $border-radius-sm;
+    border-top-left-radius: var(--ids-button-group-border-radius);
+    border-bottom-left-radius: var(--ids-button-group-border-radius);
   }
 
   &:last-child {
-    border-top-right-radius: $border-radius-sm;
-    border-bottom-right-radius: $border-radius-sm;
+    border-top-right-radius: var(--ids-button-group-border-radius);
+    border-bottom-right-radius: var(--ids-button-group-border-radius);
   }
 
   &:hover {
-    border-color: $grey-600;
+    border-color: var(--ids-button-group-border-hover);
     cursor: pointer;
   }
 
   &:focus {
     outline: 0;
-    box-shadow: 0 0 0 2px $electric-blue-600;
-  }
-
-  &:focus:not(:focus-visible) {
-    box-shadow: none;
-  }
-
-  &.is-selected {
-    border-color: $electric-blue-500;
-    color: $electric-blue-500;
-    background-color: $electric-blue-50;
-    z-index: $z-index-20;
-  }
-
-  &.is-disabled {
-    border-color: $grey-300;
-    background-color: $grey-300;
-    color: $grey-600;
-    pointer-events: none;
-    user-select: none;
+    box-shadow: var(--ids-button-group-focus);
   }
 
   &:not(:first-child) {
     margin-left: -1px;
   }
+
+  &.is-selected {
+    border-color: var(--ids-button-group-border-selected);
+    color: var(--ids-button-group-text-selected);
+    background-color: var(--ids-button-group-background-selected);
+    z-index: var(--ids-button-group-index-selected);
+  }
+
+  &.is-disabled {
+    border-color: var(--ids-button-group-border-disabled);
+    background-color: var(--ids-button-group-background-disabled);
+    color: var(--ids-button-group-text-disabled);
+    pointer-events: none;
+    user-select: none;
+  }
 }
 
 .ids-btn-group--compact {
   .ids-btn-group__item {
-    padding-left: $space-2;
-    padding-right: $space-2;
+    padding-left: var(--ids-button-group-padding-compact);
+    padding-right: var(--ids-button-group-padding-compact);
   }
 
   &.ids-btn-group--small {
     .ids-btn-group__item {
-      padding-left: $space-1;
-      padding-right: $space-1;
+      padding-left: var(--ids-button-group-padding-small);
+      padding-right: var(--ids-button-group-padding-small);
     }
   }
 }
 
 .ids-btn-group--small {
-  height: $space-5;
+  height: var(--ids-button-group-height-small);
+}
+
+.ids-btn-group__item:focus:not(:focus-visible) {
+  box-shadow: none;
 }

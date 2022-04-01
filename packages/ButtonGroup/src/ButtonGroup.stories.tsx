@@ -19,20 +19,10 @@ export default {
   parameters: {
     description: readme,
   },
-  decorators: [
-    (Story) => (
-      <div
-        style={{
-          paddingTop: 40,
-          paddingBottom: 40,
-          paddingRight: 50,
-          paddingLeft: 60,
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
+  argTypes: {
+    small: { table: { defaultValue: { summary: false } } },
+    compact: { table: { defaultValue: { summary: false } } },
+  },
 } as ComponentMeta<typeof ButtonGroup>;
 
 const Template: ComponentStory<any> = (args) => {
