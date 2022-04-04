@@ -5,6 +5,8 @@ import Alert from '@igloo-ui/icons/dist/Alert';
 import './helper-text.scss';
 
 export interface HelperTextProps extends React.ComponentProps<'div'> {
+  /** Add a specific class to the `HelperText` */
+  className?: string;
   /** The content to display inside the HelperText */
   children: React.ReactNode;
   /** Changes the appearance of component */
@@ -14,13 +16,13 @@ export interface HelperTextProps extends React.ComponentProps<'div'> {
 const HelperText: React.FunctionComponent<HelperTextProps> = (
   props: HelperTextProps
 ) => {
-  const { children, error } = props;
-  const classes = cx('ids-helperText', {
+  const { children, error, className, ...rest } = props;
+  const classes = cx('ids-helperText', className, {
     [`ids-helperText--error`]: error,
   });
 
   return (
-    <span className={classes}>
+    <span className={classes} {...rest}>
       {error && <Alert className="ids-helperText__icon" size="small" />}
       {children}
     </span>
