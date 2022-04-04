@@ -16,13 +16,13 @@ export interface HelperTextProps extends React.ComponentProps<'div'> {
 const HelperText: React.FunctionComponent<HelperTextProps> = (
   props: HelperTextProps
 ) => {
-  const { children, error, className } = props;
+  const { children, error, className, ...rest } = props;
   const classes = cx('ids-helperText', className, {
     [`ids-helperText--error`]: error,
   });
 
   return (
-    <span className={classes}>
+    <span className={classes} {...rest}>
       {error && <Alert className="ids-helperText__icon" size="small" />}
       {children}
     </span>
