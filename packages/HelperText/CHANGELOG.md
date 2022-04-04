@@ -1,5 +1,11 @@
 # @igloo-ui/message
 
+## 0.2.1
+
+### Patch Changes
+
+- ba109dd: add props for passing className to HelperText
+
 ## 0.2.0
 
 ### Minor Changes
