@@ -9,13 +9,13 @@ import Tree from '@igloo-ui/icons/dist/Tree';
 import Section from '@components/section';
 import readme from '../README.md';
 
-import ButtonGroup, { Item } from './ButtonGroup';
+import ButtonGroup, { ButtonItem } from './ButtonGroup';
 import { ButtonGroupItem } from './ButtonGroupItem.stories';
 
 export default {
   title: 'Components/ButtonGroup',
   component: ButtonGroup,
-  subcomponents: { Item },
+  subcomponents: { ButtonItem },
   parameters: {
     description: readme,
   },
@@ -63,27 +63,27 @@ export const Compact = () => {
   return (
     <Section>
       <ButtonGroup compact={false} small={false}>
-        <Item
+        <ButtonItem
           active={selected === '1'}
           disabled={false}
           onClick={() => setSelected('1')}
         >
           Label 1
-        </Item>
-        <Item
+        </ButtonItem>
+        <ButtonItem
           active={selected === '2'}
           disabled={false}
           onClick={() => setSelected('2')}
         >
           Label 2
-        </Item>
-        <Item
+        </ButtonItem>
+        <ButtonItem
           active={selected === '3'}
           disabled={false}
           onClick={() => setSelected('3')}
         >
           Label 3
-        </Item>
+        </ButtonItem>
       </ButtonGroup>
     </Section>
   );
@@ -92,8 +92,8 @@ export const Compact = () => {
 export const Small = () => (
   <Section>
     <ButtonGroup small>
-      <Item>Label 1</Item>
-      <Item>Label 2</Item>
+      <ButtonItem>Label 1</ButtonItem>
+      <ButtonItem>Label 2</ButtonItem>
     </ButtonGroup>
   </Section>
 );
@@ -101,39 +101,39 @@ export const Small = () => (
 export const WhitIcons = () => (
   <Section>
     <ButtonGroup compact>
-      <Item>
+      <ButtonItem>
         <UnorderedList />
-      </Item>
-      <Item>
+      </ButtonItem>
+      <ButtonItem>
         <Tree />
-      </Item>
+      </ButtonItem>
     </ButtonGroup>
 
     <ButtonGroup compact small>
-      <Item>
+      <ButtonItem>
         <UnorderedList />
-      </Item>
-      <Item>
+      </ButtonItem>
+      <ButtonItem>
         <Tree />
-      </Item>
+      </ButtonItem>
     </ButtonGroup>
 
     <ButtonGroup>
-      <Item>
+      <ButtonItem>
         <UnorderedList />
-      </Item>
-      <Item>
+      </ButtonItem>
+      <ButtonItem>
         <Tree />
-      </Item>
+      </ButtonItem>
     </ButtonGroup>
 
     <ButtonGroup small>
-      <Item>
+      <ButtonItem>
         <UnorderedList />
-      </Item>
-      <Item>
+      </ButtonItem>
+      <ButtonItem>
         <Tree />
-      </Item>
+      </ButtonItem>
     </ButtonGroup>
   </Section>
 );

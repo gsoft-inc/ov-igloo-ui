@@ -2,16 +2,16 @@ import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Item } from './ButtonGroup';
+import { ButtonItem } from './ButtonGroup';
 
 export default {
-  component: Item,
+  component: ButtonItem,
   argTypes: {
     active: { table: { defaultValue: { summary: false } } },
     disabled: { table: { defaultValue: { summary: false } } },
   },
-} as ComponentMeta<typeof Item>;
+} as ComponentMeta<typeof ButtonItem>;
 
-export const ButtonGroupItem: ComponentStory<typeof Item> = (args) => (
-  <Item {...args} />
+export const ButtonGroupItem: ComponentStory<typeof ButtonItem> = (args) => (
+  <ButtonItem {...args} />
 );
