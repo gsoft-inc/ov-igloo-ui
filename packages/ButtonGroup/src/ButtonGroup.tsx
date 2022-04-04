@@ -6,11 +6,11 @@ import './button-group.scss';
 import ButtonGroupItem from './ButtonGroupItem';
 
 export interface ButtonGroupProps {
-  /** Changes the padding of button group  */
+  /** Changes the padding of button group */
   compact?: boolean;
-  /** Changes the size of button group  */
+  /** Changes the size of button group */
   small?: boolean;
-  /** React node child representing the button content text or icon. */
+  /** React child node representing the button content text or icon */
   children: React.ReactNode;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
@@ -34,5 +34,5 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (
   );
 };
 
-export { ButtonGroupItem as Item };
+export { ButtonGroupItem as ButtonItem };
 export default ButtonGroup;

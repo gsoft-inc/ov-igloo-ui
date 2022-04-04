@@ -2,13 +2,13 @@ import * as React from 'react';
 import cx from 'classnames';
 
 export interface ButtonGroupItemProps extends React.ComponentProps<'button'> {
-  /** The content to display inside the button */
+  /** The content to display inside the `ButtonItem` */
   children: React.ReactNode | string;
-  /** Whether or not the button is active. */
+  /** Whether or not the `ButtonItem` is active */
   active?: boolean;
-  /** Disabled the button, the user cannot click on them */
+  /** Disabled the `ButtonItem`, the user cannot click on them */
   disabled?: boolean;
-  /** Callback funtion executed when a button is clicked. */
+  /** Callback function executed when a `ButtonItem` is clicked */
   onClick?: () => void;
   /** Add a data-test tag for automated tests */
   dataTest?: string;

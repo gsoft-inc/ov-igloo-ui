@@ -4,7 +4,7 @@
   "main": "dist/ButtonGroup.js",
   "module": "dist/ButtonGroup.js",
   "types": "dist/ButtonGroup.d.ts",
-  "styles": "dist/button-group.js",
+  "styles": "dist/button-group.css",
   "publishConfig": {
     "access": "public"
   },

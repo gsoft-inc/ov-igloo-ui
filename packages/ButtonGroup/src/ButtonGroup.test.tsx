@@ -4,16 +4,15 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import ButtonGroup, { Item } from './ButtonGroup';
-import { debug } from 'console';
+import ButtonGroup, { ButtonItem } from './ButtonGroup';
 
 describe('ButtonGroup', () => {
   const { getByTestId } = render(
     <ButtonGroup dataTest="button-group">
-      <Item active dataTest="button-group-1">
+      <ButtonItem active dataTest="button-group-1">
         Label 1
-      </Item>
-      <Item dataTest="button-group-2">Label 2</Item>
+      </ButtonItem>
+      <ButtonItem dataTest="button-group-2">Label 2</ButtonItem>
     </ButtonGroup>
   );
 
@@ -21,13 +20,13 @@ describe('ButtonGroup', () => {
     expect(getByTestId('button-group')).toBeInTheDocument();
   });
 
-  test('It should render active item', (): void => {
+  test('It should render active button item', (): void => {
     render(
       <ButtonGroup dataTest="button-group">
-        <Item active dataTest="button-group-1">
+        <ButtonItem active dataTest="button-group-1">
           Label 1
-        </Item>
-        <Item dataTest="button-group-2">Label 2</Item>
+        </ButtonItem>
+        <ButtonItem dataTest="button-group-2">Label 2</ButtonItem>
       </ButtonGroup>
     );
 
@@ -38,10 +37,10 @@ describe('ButtonGroup', () => {
   test('It should render a disabled state', () => {
     render(
       <ButtonGroup dataTest="button-group">
-        <Item disabled dataTest="button-group-1">
+        <ButtonItem disabled dataTest="button-group-1">
           Label 1
-        </Item>
-        <Item dataTest="button-group-2">Label 2</Item>
+        </ButtonItem>
+        <ButtonItem dataTest="button-group-2">Label 2</ButtonItem>
       </ButtonGroup>
     );
     const disabledItem = screen.getByTestId('button-group-1');
