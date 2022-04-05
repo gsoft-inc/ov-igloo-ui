@@ -1,0 +1,93 @@
+@import '~@igloo-ui/tokens/dist/base10/variables';
+@import '~@igloo-ui/tokens/dist/fonts.css';
+
+:root {
+  /* Default */
+  --ids-toggle-font-family: #{$primary-font-family};
+  --ids-toggle-font-size: #{$font-size-4};
+}
+
+%block {
+  content: '';
+  display: block;
+}
+
+%switch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0.2rem;
+  width: $space-3;
+  height: $space-3;
+  background: $samoyed;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  transition: all 300ms;
+}
+
+.ids-toggle {
+  font-family: var(--ids-toggle-font-family);
+  font-size: var(--ids-toggle-font-size);
+}
+
+.ids-toggle__label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:before {
+    @extend %block;
+    width: $space-6;
+    height: 2rem;
+    border-radius: 2rem;
+    background-color: $grey-300;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  &:after {
+    @extend %block;
+    @extend %switch;
+  }
+}
+
+.ids-toggle__input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+
+  &:checked + .ids-toggle__label {
+    &:before {
+      background-color: $electric-blue-500;
+    }
+
+    &:after {
+      left: calc($space-6 - $space-3 - 0.4rem);
+    }
+  }
+
+  &:focus + .ids-toggle__label {
+    &:before {
+      box-shadow: $focus;
+    }
+  }
+
+  &:disabled + .ids-toggle__label {
+    cursor: not-allowed;
+
+    &:before {
+      background-color: $grey-200;
+    }
+  }
+
+  &:checked:disabled + .ids-toggle__label {
+    &:before {
+      background-color: $electric-blue-300;
+    }
+  }
+}
+
+.ids-toggle__text {
+  padding-left: $space-2;
+}
