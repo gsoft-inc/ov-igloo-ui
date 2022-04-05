@@ -122,7 +122,7 @@ async function updatePackageJson(component) {
   packageJson.main = `dist/${pascalCaseName}.js`;
   packageJson.module = `dist/${pascalCaseName}.js`;
   packageJson.types = `dist/${pascalCaseName}.d.ts`;
-  packageJson.styles = `dist/${component}.js`;
+  packageJson.styles = `dist/${component}.css`;
 
   const author = await getAuthor();
   packageJson.contributors = [author];
