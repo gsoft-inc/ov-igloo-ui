@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 0.0.6
+
+### Patch Changes
+
+- 81f7d46: show tooltip on overflow content
+
 ## 0.0.5
 
 ### Patch Changes
