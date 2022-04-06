@@ -1,24 +1,24 @@
-@use '~@igloo-ui/tokens/dist/fonts.css';
-@import '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/fonts';
 
 :root {
   /* Default */
-  --ids-checkbox-font-family: #{$primary-font-family};
-  --ids-checkbox-font-weight: #{$font-weight-regular};
-  --ids-checkbox-font-size: #{$font-size-4};
-  --ids-checkbox-size: #{$font-size-3};
-  --ids-checkbox-radius: #{$border-radius-sm};
-  --ids-checkbox-check: #{$samoyed};
-  --ids-checkbox-margin: #{$space-2};
-  --ids-checkbox-text: #{$grey-800};
-  --ids-checkbox-text-disabled: #{$grey-600};
-  --ids-checkbox-background: #{$samoyed};
-  --ids-checkbox-background-disabled: #{$grey-200};
-  --ids-checkbox-background-checked: #{$electric-blue-500};
-  --ids-checkbox-background-checked-disabled: #{$grey-400};
-  --ids-checkbox-border: #{$grey-400};
-  --ids-checkbox-border-hover: #{$grey-800};
-  --ids-checkbox-border-checked: #{$electric-blue-500};
+  --ids-checkbox-font-family: #{variables.$primary-font-family};
+  --ids-checkbox-font-weight: #{variables.$font-weight-regular};
+  --ids-checkbox-font-size: #{variables.$font-size-4};
+  --ids-checkbox-size: #{variables.$font-size-3};
+  --ids-checkbox-radius: #{variables.$border-radius-sm};
+  --ids-checkbox-check: #{variables.$samoyed};
+  --ids-checkbox-margin: #{variables.$space-2};
+  --ids-checkbox-text: #{variables.$grey-800};
+  --ids-checkbox-text-disabled: #{variables.$grey-600};
+  --ids-checkbox-background: #{variables.$samoyed};
+  --ids-checkbox-background-disabled: #{variables.$grey-200};
+  --ids-checkbox-background-checked: #{variables.$electric-blue-500};
+  --ids-checkbox-background-checked-disabled: #{variables.$grey-400};
+  --ids-checkbox-border: #{variables.$grey-400};
+  --ids-checkbox-border-hover: #{variables.$grey-800};
+  --ids-checkbox-border-checked: #{variables.$electric-blue-500};
   --ids-checkbox-check-width: 4px;
   --ids-checkbox-check-height: 8px;
 }

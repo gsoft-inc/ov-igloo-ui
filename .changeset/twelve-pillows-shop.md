@@ -3,6 +3,7 @@
 '@igloo-ui/button': patch
 '@igloo-ui/card': patch
 '@igloo-ui/checkbox': patch
+'@igloo-ui/ellipsis': patch
 '@igloo-ui/helper-text': patch
 '@igloo-ui/hyperlink': patch
 '@igloo-ui/icon-button': patch

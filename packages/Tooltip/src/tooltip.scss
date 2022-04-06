@@ -1,19 +1,19 @@
-@use '~@igloo-ui/tokens/dist/fonts.css';
-@import '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/fonts';
 
 :root {
   /* Default */
-  --ids-tooltip-font-family: #{$primary-font-family};
-  --ids-tooltip-font-size: #{$font-size-2};
-  --ids-tooltip-padding: #{$space-2} #{$space-3};
-  --ids-tooltip-border-radius: #{$border-radius-sm};
-  --ids-tooltip-z-index: #{$z-index-max};
+  --ids-tooltip-font-family: #{variables.$primary-font-family};
+  --ids-tooltip-font-size: #{variables.$font-size-2};
+  --ids-tooltip-padding: #{variables.$space-2} #{variables.$space-3};
+  --ids-tooltip-border-radius: #{variables.$border-radius-sm};
+  --ids-tooltip-z-index: #{variables.$z-index-max};
   --ids-tooltip-arrow-size: 5px;
-  --ids-tooltip-spacing: #{$space-2};
+  --ids-tooltip-spacing: #{variables.$space-2};
 
   /* Theme */
-  --ids-tooltip-text: #{$samoyed};
-  --ids-tooltip-background: #{$electric-blue-900};
+  --ids-tooltip-text: #{variables.$samoyed};
+  --ids-tooltip-background: #{variables.$electric-blue-900};
   --ids-tooltip-shadow: none;
 }
 

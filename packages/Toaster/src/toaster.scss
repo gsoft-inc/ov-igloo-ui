@@ -1,32 +1,32 @@
-@use '~@igloo-ui/tokens/dist/fonts.css';
-@import '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/fonts';
 
 :root {
   /* Default */
-  --ids-toaster-font-family: #{$primary-font-family};
-  --ids-toaster-font-size: #{$font-size-5};
-  --ids-toaster-font-weight: #{$font-weight-bold};
-  --ids-toaster-text: #{$grey-800};
-  --ids-toaster-padding: #{$space-3} #{$space-2} #{$space-3} calc(#{$space-3} + #{$space-1});
-  --ids-toaster-gap: #{$space-3};
+  --ids-toaster-font-family: #{variables.$primary-font-family};
+  --ids-toaster-font-size: #{variables.$font-size-5};
+  --ids-toaster-font-weight: #{variables.$font-weight-bold};
+  --ids-toaster-text: #{variables.$grey-800};
+  --ids-toaster-padding: #{variables.$space-3} #{variables.$space-2} #{variables.$space-3} calc(#{variables.$space-3} + #{variables.$space-1});
+  --ids-toaster-gap: #{variables.$space-3};
   --ids-toaster-max-width: 60rem;
-  --ids-toaster-border-radius: #{$border-radius-sm};
-  --ids-toaster-shadow: #{$shadow-12};
-  --ids-toaster-background: #{$samoyed};
-  --ids-toaster-icon-margin: #{$space-3};
-  --ids-toaster-status-width: #{$space-1};
-  --ids-toaster-status-color: #{$seaweed-400};
-  --ids-toaster-status-icon-size: #{$space-4};
-  --ids-toaster-close-color: #{$grey-500};
-  --ids-toaster-close-size: #{$space-5};
-  --ids-toaster-close-radius: #{$border-radius-sm};
+  --ids-toaster-border-radius: #{variables.$border-radius-sm};
+  --ids-toaster-shadow: #{variables.$shadow-12};
+  --ids-toaster-background: #{variables.$samoyed};
+  --ids-toaster-icon-margin: #{variables.$space-3};
+  --ids-toaster-status-width: #{variables.$space-1};
+  --ids-toaster-status-color: #{variables.$seaweed-400};
+  --ids-toaster-status-icon-size: #{variables.$space-4};
+  --ids-toaster-close-color: #{variables.$grey-500};
+  --ids-toaster-close-size: #{variables.$space-5};
+  --ids-toaster-close-radius: #{variables.$border-radius-sm};
 
   /* Error */
-  --ids-toaster-status-color-error: #{$coral-300};
+  --ids-toaster-status-color-error: #{variables.$coral-300};
 
   /* Overlay */
-  --ids-toaster-overlay-padding: 0 #{$space-3};
-  --ids-toaster-z-index: #{$z-index-max};
+  --ids-toaster-overlay-padding: 0 #{variables.$space-3};
+  --ids-toaster-z-index: #{variables.$z-index-max};
 }
 
 .ids-toaster__overlay {

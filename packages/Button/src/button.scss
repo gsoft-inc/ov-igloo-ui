@@ -1,71 +1,71 @@
-@use '~@igloo-ui/tokens/dist/fonts.css';
-@import '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/fonts';
 
 :root {
   /* Default */
-  --ids-btn-font-family: #{$primary-font-family};
-  --ids-btn-font-size: #{$font-size-4};
-  --ids-btn-font-size-small: #{$font-size-3};
-  --ids-btn-font-weight: #{$font-weight-medium};
-  --ids-btn-height: #{$space-6};
-  --ids-btn-height-small: #{$space-5};
-  --ids-btn-padding: #{$space-3};
+  --ids-btn-font-family: #{variables.$primary-font-family};
+  --ids-btn-font-size: #{variables.$font-size-4};
+  --ids-btn-font-size-small: #{variables.$font-size-3};
+  --ids-btn-font-weight: #{variables.$font-weight-medium};
+  --ids-btn-height: #{variables.$space-6};
+  --ids-btn-height-small: #{variables.$space-5};
+  --ids-btn-padding: #{variables.$space-3};
   --ids-btn-padding-mobile: 1.2rem;
-  --ids-btn-border-radius: #{$border-radius-sm};
+  --ids-btn-border-radius: #{variables.$border-radius-sm};
   --ids-btn-icon-color: currencolor;
-  --ids-btn-icon-margin: #{$space-1};
-  --ids-btn-z-index: #{$z-index-10};
+  --ids-btn-icon-margin: #{variables.$space-1};
+  --ids-btn-z-index: #{variables.$z-index-10};
   --ids-btn-focus-position: -0.3rem;
-  --ids-btn-shadow: 0 0 0 1.5px #{$electric-blue-500};
+  --ids-btn-shadow: 0 0 0 1.5px #{variables.$electric-blue-500};
 
   /* Primary */
-  --ids-btn-text-primary: #{$samoyed};
+  --ids-btn-text-primary: #{variables.$samoyed};
   --ids-btn-border-primary: transparent;
-  --ids-btn-background-primary: #{$electric-blue-500};
-  --ids-btn-background-primary-hover: #{$electric-blue-600};
-  --ids-btn-background-primary-disabled: #{$electric-blue-300};
+  --ids-btn-background-primary: #{variables.$electric-blue-500};
+  --ids-btn-background-primary-hover: #{variables.$electric-blue-600};
+  --ids-btn-background-primary-disabled: #{variables.$electric-blue-300};
 
   /* Secondary */
-  --ids-btn-text-secondary: #{$grey-800};
-  --ids-btn-text-secondary-active: #{$electric-blue-500};
-  --ids-btn-text-secondary-disabled: #{$grey-600};
-  --ids-btn-border-secondary: #{$grey-300};
-  --ids-btn-border-secondary-hover: #{$grey-600};
-  --ids-btn-border-secondary-active: #{$electric-blue-500};
-  --ids-btn-background-secondary: #{$samoyed};
-  --ids-btn-background-secondary-hover: #{$samoyed};
-  --ids-btn-background-secondary-active: #{$electric-blue-50};
-  --ids-btn-background-secondary-disabled: #{$grey-300};
+  --ids-btn-text-secondary: #{variables.$grey-800};
+  --ids-btn-text-secondary-active: #{variables.$electric-blue-500};
+  --ids-btn-text-secondary-disabled: #{variables.$grey-600};
+  --ids-btn-border-secondary: #{variables.$grey-300};
+  --ids-btn-border-secondary-hover: #{variables.$grey-600};
+  --ids-btn-border-secondary-active: #{variables.$electric-blue-500};
+  --ids-btn-background-secondary: #{variables.$samoyed};
+  --ids-btn-background-secondary-hover: #{variables.$samoyed};
+  --ids-btn-background-secondary-active: #{variables.$electric-blue-50};
+  --ids-btn-background-secondary-disabled: #{variables.$grey-300};
 
   /* Premium */
-  --ids-btn-text-premium: #{$grey-800};
-  --ids-btn-text-premium-disabled: #{$grey-500};
-  --ids-btn-background-premium: #{$dandelion-100};
-  --ids-btn-background-premium-hover: #{$dandelion-200};
-  --ids-btn-background-premium-disabled: #{$dandelion-50};
+  --ids-btn-text-premium: #{variables.$grey-800};
+  --ids-btn-text-premium-disabled: #{variables.$grey-500};
+  --ids-btn-background-premium: #{variables.$dandelion-100};
+  --ids-btn-background-premium-hover: #{variables.$dandelion-200};
+  --ids-btn-background-premium-disabled: #{variables.$dandelion-50};
 
   /* Danger */
-  --ids-btn-text-danger: #{$samoyed};
-  --ids-btn-background-danger: #{$coral-500};
-  --ids-btn-background-danger-hover: #{$coral-600};
-  --ids-btn-background-danger-disabled: #{$coral-200};
+  --ids-btn-text-danger: #{variables.$samoyed};
+  --ids-btn-background-danger: #{variables.$coral-500};
+  --ids-btn-background-danger-hover: #{variables.$coral-600};
+  --ids-btn-background-danger-disabled: #{variables.$coral-200};
 
   /* Ghost */
-  --ids-btn-text-ghost: #{$electric-blue-500};
-  --ids-btn-text-ghost-hover: #{$electric-blue-600};
-  --ids-btn-text-ghost-disabled: #{$electric-blue-300};
+  --ids-btn-text-ghost: #{variables.$electric-blue-500};
+  --ids-btn-text-ghost-hover: #{variables.$electric-blue-600};
+  --ids-btn-text-ghost-disabled: #{variables.$electric-blue-300};
   --ids-btn-background-ghost: transparant;
   --ids-loader-size: 1.2rem;
   --ids-loader-border: 2px solid rgb(255 255 255 / 30%);
   --ids-loader-border-ghost: 2px solid rgb(16 83 255 / 30%);
-  --ids-loader-primary: #{$samoyed};
-  --ids-loader-premium: #{$grey-800};
-  --ids-loader-premium-disabled: #{$grey-600};
-  --ids-loader-secondary: #{$grey-800};
-  --ids-loader-secondary-disabled: #{$grey-600};
-  --ids-loader-secondary-active: #{$electric-blue-500};
-  --ids-loader-ghost: #{$electric-blue-500};
-  --ids-loader-ghost-disabled: #{$electric-blue-300};
+  --ids-loader-primary: #{variables.$samoyed};
+  --ids-loader-premium: #{variables.$grey-800};
+  --ids-loader-premium-disabled: #{variables.$grey-600};
+  --ids-loader-secondary: #{variables.$grey-800};
+  --ids-loader-secondary-disabled: #{variables.$grey-600};
+  --ids-loader-secondary-active: #{variables.$electric-blue-500};
+  --ids-loader-ghost: #{variables.$electric-blue-500};
+  --ids-loader-ghost-disabled: #{variables.$electric-blue-300};
 
   /* Calculate negative margin for  IE11 compatibility */
   --ids-loader-position: calc(-0.6rem - 1px);
