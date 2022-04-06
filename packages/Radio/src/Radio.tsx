@@ -33,9 +33,9 @@ const Radio: React.FunctionComponent<RadioProps> = React.forwardRef(
       htmlFor,
       onChange,
       helperText,
-      small = false,
-      checked = false,
-      disabled = false,
+      small,
+      checked,
+      disabled,
       ...rest
     } = props;
 

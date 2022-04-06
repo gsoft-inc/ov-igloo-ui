@@ -65,7 +65,6 @@ export const WithHelperText: React.VFC<unknown> = () => (
 
 export const Group: React.VFC<unknown> = () => {
   const [selected, setSelected] = useState('default', '');
-
   return (
     <Section>
       <Radio
