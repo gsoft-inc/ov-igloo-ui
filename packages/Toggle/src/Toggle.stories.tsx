@@ -36,3 +36,10 @@ export const Disabled = () => (
     <Toggle htmlFor="toggle-4" checked disabled />
   </Section>
 );
+
+export const WithHelperText = Template.bind({});
+WithHelperText.args = {
+  htmlFor: 'toggle-5',
+  children: 'Label',
+  helperText: 'This is a helper text',
+};

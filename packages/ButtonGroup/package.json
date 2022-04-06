@@ -1,10 +1,10 @@
 {
-  "name": "@igloo-ui/radio",
-  "version": "0.1.2",
-  "main": "dist/Radio.js",
-  "module": "dist/Radio.js",
-  "types": "dist/Radio.d.ts",
-  "styles": "dist/radio.css",
+  "name": "@igloo-ui/button-group",
+  "version": "0.1.0",
+  "main": "dist/ButtonGroup.js",
+  "module": "dist/ButtonGroup.js",
+  "types": "dist/ButtonGroup.d.ts",
+  "styles": "dist/button-group.css",
   "publishConfig": {
     "access": "public"
   },
@@ -24,12 +24,13 @@
     "@igloo-ui/tokens": "^1.0.0",
     "classnames": "^2.3.1"
   },
-  "devDependencies": {
-    "storybook-addon-state": "^1.0.3"
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "IE >= 11"
-  ]
+  ],
+  "devDependencies": {
+    "@igloo-ui/icons": "^0.6.6",
+    "@igloo-ui/tooltip": "^0.0.6"
+  }
 }

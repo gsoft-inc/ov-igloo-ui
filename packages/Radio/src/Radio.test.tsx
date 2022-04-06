@@ -31,7 +31,7 @@ describe('Radio', () => {
 
   test('It should render a checked state', () => {
     const { getByRole } = render(
-      <Radio htmlFor="radio-test-2" checked>
+      <Radio htmlFor="radio-test-2" checked onChange={() => {}}>
         Label
       </Radio>
     );

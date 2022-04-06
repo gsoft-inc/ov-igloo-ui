@@ -14,14 +14,18 @@ export interface ToggleProps extends React.ComponentProps<'input'> {
   htmlFor: string;
   /** Modifies true/false value of the toggle */
   checked?: boolean;
+  /** The content to display to help users */
+  helperText?: string;
   /** Function called when the value changes. */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Toggle: React.FunctionComponent<ToggleProps> = (props: ToggleProps) => {
-  const { children, className, dataTest, htmlFor, ...rest } = props;
+  const { children, className, dataTest, htmlFor, helperText, ...rest } = props;
 
-  const classes = cx('ids-toggle', className);
+  const classes = cx('ids-toggle', className, {
+    'ids-toggle--helperText': helperText,
+  });
   return (
     <div className={classes}>
       <input
@@ -32,7 +36,14 @@ const Toggle: React.FunctionComponent<ToggleProps> = (props: ToggleProps) => {
         {...rest}
       />
       <label className="ids-toggle__label" htmlFor={htmlFor}>
-        {children && <span className="ids-toggle__text">{children}</span>}
+        {children && (
+          <span className="ids-toggle__text">
+            {children}
+            {helperText && (
+              <span className="ids-toggle__description">{helperText}</span>
+            )}
+          </span>
+        )}
       </label>
     </div>
   );
