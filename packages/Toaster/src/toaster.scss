@@ -1,32 +1,33 @@
-@use '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
 :root {
   /* Default */
-  --ids-toaster-font-family: #{variables.$primary-font-family};
-  --ids-toaster-font-size: #{variables.$font-size-5};
-  --ids-toaster-font-weight: #{variables.$font-weight-bold};
-  --ids-toaster-text: #{variables.$grey-800};
-  --ids-toaster-padding: #{variables.$space-3} #{variables.$space-2} #{variables.$space-3} calc(#{variables.$space-3} + #{variables.$space-1});
-  --ids-toaster-gap: #{variables.$space-3};
+  --ids-toaster-font-family: #{tokens.$primary-font-family};
+  --ids-toaster-font-size: #{tokens.$font-size-5};
+  --ids-toaster-font-weight: #{tokens.$font-weight-bold};
+  --ids-toaster-text: #{tokens.$grey-800};
+  /* stylelint-disable max-line-length */
+  --ids-toaster-padding: #{tokens.$space-3} #{tokens.$space-2} #{tokens.$space-3} calc(#{tokens.$space-3} + #{tokens.$space-1});
+  --ids-toaster-gap: #{tokens.$space-3};
   --ids-toaster-max-width: 60rem;
-  --ids-toaster-border-radius: #{variables.$border-radius-sm};
-  --ids-toaster-shadow: #{variables.$shadow-12};
-  --ids-toaster-background: #{variables.$samoyed};
-  --ids-toaster-icon-margin: #{variables.$space-3};
-  --ids-toaster-status-width: #{variables.$space-1};
-  --ids-toaster-status-color: #{variables.$seaweed-400};
-  --ids-toaster-status-icon-size: #{variables.$space-4};
-  --ids-toaster-close-color: #{variables.$grey-500};
-  --ids-toaster-close-size: #{variables.$space-5};
-  --ids-toaster-close-radius: #{variables.$border-radius-sm};
+  --ids-toaster-border-radius: #{tokens.$border-radius-sm};
+  --ids-toaster-shadow: #{tokens.$shadow-12};
+  --ids-toaster-background: #{tokens.$samoyed};
+  --ids-toaster-icon-margin: #{tokens.$space-3};
+  --ids-toaster-status-width: #{tokens.$space-1};
+  --ids-toaster-status-color: #{tokens.$seaweed-400};
+  --ids-toaster-status-icon-size: #{tokens.$space-4};
+  --ids-toaster-close-color: #{tokens.$grey-500};
+  --ids-toaster-close-size: #{tokens.$space-5};
+  --ids-toaster-close-radius: #{tokens.$border-radius-sm};
 
   /* Error */
-  --ids-toaster-status-color-error: #{variables.$coral-300};
+  --ids-toaster-status-color-error: #{tokens.$coral-300};
 
   /* Overlay */
-  --ids-toaster-overlay-padding: 0 #{variables.$space-3};
-  --ids-toaster-z-index: #{variables.$z-index-max};
+  --ids-toaster-overlay-padding: 0 #{tokens.$space-3};
+  --ids-toaster-z-index: #{tokens.$z-index-max};
 }
 
 .ids-toaster__overlay {

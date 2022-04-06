@@ -1,39 +1,39 @@
-@use '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 @use 'mixins';
 
 :root {
   /* Default */
-  --ids-alert-font-family: #{variables.$primary-font-family};
-  --ids-alert-font-size: #{variables.$font-size-3};
-  --ids-alert-title-font-weight: #{variables.$font-weight-semi-bold};
-  --ids-alert-padding: #{variables.$space-3};
-  --ids-alert-flex-gap-component: #{variables.$space-4};
-  --ids-alert-border-radius: #{variables.$border-radius-sm};
-  --ids-alert-box-shadow: #{variables.$shadow-6};
-  --ids-alert-background-color-light: #{variables.$samoyed};
-  --ids-alert-background-color-darker: #{variables.$grey-100};
+  --ids-alert-font-family: #{tokens.$primary-font-family};
+  --ids-alert-font-size: #{tokens.$font-size-3};
+  --ids-alert-title-font-weight: #{tokens.$font-weight-semi-bold};
+  --ids-alert-padding: #{tokens.$space-3};
+  --ids-alert-flex-gap-component: #{tokens.$space-4};
+  --ids-alert-border-radius: #{tokens.$border-radius-sm};
+  --ids-alert-box-shadow: #{tokens.$shadow-6};
+  --ids-alert-background-color-light: #{tokens.$samoyed};
+  --ids-alert-background-color-darker: #{tokens.$grey-100};
   --ids-alert-border-left-width: 6px;
-  --ids-alert-text-color-title: #{variables.$black};
-  --ids-alert-text-color-body: #{variables.$grey-600};
+  --ids-alert-text-color-title: #{tokens.$black};
+  --ids-alert-text-color-body: #{tokens.$grey-600};
   --ids-alert-icon-size-small: 26px;
   --ids-alert-icon-size-medium: 40px;
-  --ids-alert-link-color: #{variables.$electric-blue-500};
+  --ids-alert-link-color: #{tokens.$electric-blue-500};
 
   /* Announcement */
-  --ids-alert-color-announcement: #{variables.$seaweed-500};
+  --ids-alert-color-announcement: #{tokens.$seaweed-500};
 
   /* Info */
-  --ids-alert-color-info: #{variables.$sky-100};
+  --ids-alert-color-info: #{tokens.$sky-100};
 
   /* Premium */
-  --ids-alert-color-premium: #{variables.$dandelion-300};
+  --ids-alert-color-premium: #{tokens.$dandelion-300};
 
   /* Success */
-  --ids-alert-color-success: #{variables.$seaweed-500};
+  --ids-alert-color-success: #{tokens.$seaweed-500};
 
   /* Warning */
-  --ids-alert-color-warning: #{variables.$creamsicle-200};
+  --ids-alert-color-warning: #{tokens.$creamsicle-200};
 }
 
 .ids-alert {

@@ -1,16 +1,16 @@
-@use '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
 :root {
   /* Default */
-  --ids-helper-font-family: #{variables.$primary-font-family};
-  --ids-helper-font-size: #{variables.$font-size-3};
-  --ids-helper-font-weight: #{variables.$font-weight-regular};
-  --ids-helper-line-height: #{variables.$line-height-xxl};
-  --ids-helper-text: #{variables.$grey-800};
+  --ids-helper-font-family: #{tokens.$primary-font-family};
+  --ids-helper-font-size: #{tokens.$font-size-3};
+  --ids-helper-font-weight: #{tokens.$font-weight-regular};
+  --ids-helper-line-height: #{tokens.$line-height-xxl};
+  --ids-helper-text: #{tokens.$grey-800};
 
   /* Error */
-  --ids-helper-text-text-error: #{variables.$coral-500};
+  --ids-helper-text-text-error: #{tokens.$coral-500};
 }
 
 .ids-helperText {
@@ -27,6 +27,6 @@
   }
 
   > .ids-helperText__icon {
-    margin-right: variables.$space-1;
+    margin-right: tokens.$space-1;
   }
 }

@@ -1,8 +1,8 @@
-@import '../variables';
+@use '../variables' as var;
 
 .io-title {
   line-height: 1.35;
-  color: $c-black;
+  color: var.$c-black;
   margin: 0;
 
   &--level1 {

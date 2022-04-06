@@ -1,22 +1,22 @@
-@import '../variables';
+@use '../variables' as var;
 
 .io-options {
-  background: $c-white;
+  background: var.$c-white;
   display: grid;
-  gap: $size-1;
+  gap: var.$size-1;
   grid-template-columns: 1fr;
   align-items: center;
-  margin-bottom: $size-3;
-  padding: $size-3 $size-2;
-  border-radius: $br-1;
-  border: 1px solid $c-grey-200;
-  box-shadow: 0 0.25rem 0 0 $c-grey-300;
+  margin-bottom: var.$size-3;
+  padding: var.$size-3 var.$size-2;
+  border-radius: var.$br-1;
+  border: 1px solid var.$c-grey-200;
+  box-shadow: 0 0.25rem 0 0 var.$c-grey-300;
 
-  @media (min-width: $breakpoint-small) {
+  @media (min-width: var.$breakpoint-small) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: $breakpoint-medium) {
+  @media (min-width: var.$breakpoint-medium) {
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -24,23 +24,23 @@
   &__search {
     grid-column: 1;
 
-    @media (min-width: $breakpoint-medium) {
+    @media (min-width: var.$breakpoint-medium) {
       grid-column: 2;
     }
   }
 
   &__sizes {
-    margin: $size-2 auto 0;
+    margin: var.$size-2 auto 0;
 
-    @media (min-width: $breakpoint-small) {
+    @media (min-width: var.$breakpoint-small) {
       margin: 0;
       justify-self: flex-end;
     }
   }
 
   &--large {
-    margin-left: -$size-4;
-    margin-right: -$size-4;
+    margin-left: -(var.$size-4);
+    margin-right: -(var.$size-4);
     display: flex;
   }
 
@@ -54,47 +54,47 @@
   position: relative;
 
   > svg {
-    color: $c-grey-300;
+    color: var.$c-grey-300;
     position: absolute;
     top: 50%;
-    left: $size-1;
+    left: var.$size-1;
     transform: translate(0, -50%);
   }
 
   input {
     width: 100%;
-    padding: $size-1 $size-2 $size-1 $size-4;
-    border: 1px solid $c-grey-200;
-    border-radius: $br-1;
-    font-size: $fs-3;
+    padding: var.$size-1 var.$size-2 var.$size-1 var.$size-4;
+    border: 1px solid var.$c-grey-200;
+    border-radius: var.$br-1;
+    font-size: var.$fs-3;
 
     &:focus {
       outline: none;
-      border-color: $c-grey-300;
+      border-color: var.$c-grey-300;
     }
   }
 }
 
 .io-select {
-  font-size: $fs-4;
-  border: 1px solid $c-grey-300;
+  font-size: var.$fs-4;
+  border: 1px solid var.$c-grey-300;
   border-radius: 0.25rem;
-  padding: $size-0;
-  background: $c-white;
+  padding: var.$size-0;
+  background: var.$c-white;
 }
 
 .io-btn-group {
   > label {
-    padding: $size-1 $size-2;
-    background: $c-white;
-    border: 1px solid $c-grey-200;
-    border-radius: $br-1;
-    color: $c-grey-300;
+    padding: var.$size-1 var.$size-2;
+    background: var.$c-white;
+    border: 1px solid var.$c-grey-200;
+    border-radius: var.$br-1;
+    color: var.$c-grey-300;
   }
 
   :checked + label {
-    background: $c-grey-400;
-    color: $c-white;
+    background: var.$c-grey-400;
+    color: var.$c-white;
   }
 
   > label:nth-child(n + 3) {

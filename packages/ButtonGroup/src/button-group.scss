@@ -1,37 +1,37 @@
-@import '~@igloo-ui/tokens/dist/base10/variables';
-@import '~@igloo-ui/tokens/dist/fonts.css';
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
 
 :root {
   /* Default */
-  --ids-button-group-font-family: #{$primary-font-family};
-  --ids-button-group-font-size: #{$font-size-4};
-  --ids-button-group-text: #{$grey-800};
-  --ids-button-group-heigth: #{$space-6};
-  --ids-button-group-min-width: #{$space-10};
-  --ids-button-group-border: #{$grey-300};
-  --ids-button-group-border-hover: #{$grey-600};
+  --ids-button-group-font-family: #{tokens.$primary-font-family};
+  --ids-button-group-font-size: #{tokens.$font-size-4};
+  --ids-button-group-text: #{tokens.$grey-800};
+  --ids-button-group-heigth: #{tokens.$space-6};
+  --ids-button-group-min-width: #{tokens.$space-10};
+  --ids-button-group-border: #{tokens.$grey-300};
+  --ids-button-group-border-hover: #{tokens.$grey-600};
   --ids-button-group-border-width: 1px;
-  --ids-button-group-border-radius: #{$border-radius-sm};
-  --ids-button-group-background: #{$samoyed};
-  --ids-button-group-index: #{$z-index-0};
-  --ids-button-group-index-max: #{$z-index-max};
-  --ids-button-group-focus: 0 0 0 2px #{$electric-blue-600};
+  --ids-button-group-border-radius: #{tokens.$border-radius-sm};
+  --ids-button-group-background: #{tokens.$samoyed};
+  --ids-button-group-index: #{tokens.$z-index-0};
+  --ids-button-group-index-max: #{tokens.$z-index-max};
+  --ids-button-group-focus: 0 0 0 2px #{tokens.$electric-blue-600};
 
   /* Selected */
-  --ids-button-group-border-selected: #{$electric-blue-500};
-  --ids-button-group-text-selected: #{$electric-blue-500};
-  --ids-button-group-background-selected: #{$electric-blue-50};
-  --ids-button-group-index-selected: #{$z-index-20};
+  --ids-button-group-border-selected: #{tokens.$electric-blue-500};
+  --ids-button-group-text-selected: #{tokens.$electric-blue-500};
+  --ids-button-group-background-selected: #{tokens.$electric-blue-50};
+  --ids-button-group-index-selected: #{tokens.$z-index-20};
 
   /* Disabled */
-  --ids-button-group-border-disabled: #{$grey-300};
-  --ids-button-group-text-disabled: #{$grey-600};
-  --ids-button-group-background-disabled: #{$grey-300};
+  --ids-button-group-border-disabled: #{tokens.$grey-300};
+  --ids-button-group-text-disabled: #{tokens.$grey-600};
+  --ids-button-group-background-disabled: #{tokens.$grey-300};
 
   /* Variant */
-  --ids-button-group-padding-small: #{$space-1};
-  --ids-button-group-padding-compact: #{$space-2};
-  --ids-button-group-height-small: #{$space-5};
+  --ids-button-group-padding-small: #{tokens.$space-1};
+  --ids-button-group-padding-compact: #{tokens.$space-2};
+  --ids-button-group-height-small: #{tokens.$space-5};
 }
 
 .ids-btn-group {
@@ -51,7 +51,7 @@
   border-width: var(--ids-button-group-border-width);
   background-color: var(--ids-button-group-background);
   margin: 0;
-  padding: 0 $space-3;
+  padding: 0 tokens.$space-3;
   z-index: var(--ids-button-group-index);
 
   &:active,

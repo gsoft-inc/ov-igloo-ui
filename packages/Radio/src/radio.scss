@@ -1,27 +1,27 @@
-@use '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
 :root {
   /* Default */
-  --ids-radio-font-family: #{variables.$primary-font-family};
-  --ids-radio-font-weight: #{variables.$font-weight-regular};
-  --ids-radio-font-size: #{variables.$font-size-4};
-  --ids-radio-font-size-small: #{variables.$font-size-3};
-  --ids-radio-font-size-description: #{variables.$font-size-3};
-  --ids-radio-text: #{variables.$grey-800};
-  --ids-radio-text-description: #{variables.$grey-600};
-  --ids-radio-margin: #{variables.$space-2};
-  --ids-radio-padding: #{variables.$space-1};
-  --ids-radio-size: #{variables.$font-size-4};
-  --ids-radio-check: #{variables.$samoyed};
-  --ids-radio-border: #{variables.$grey-400};
-  --ids-radio-border-hover: #{variables.$grey-800};
-  --ids-radio-border-disabled: #{variables.$grey-300};
-  --ids-radio-border-checked: #{variables.$electric-blue-500};
-  --ids-radio-background: #{variables.$samoyed};
-  --ids-radio-background-disabled: #{variables.$grey-200};
-  --ids-radio-background-checked: #{variables.$electric-blue-500};
-  --ids-radio-background-disabled-checked: #{variables.$grey-300};
+  --ids-radio-font-family: #{tokens.$primary-font-family};
+  --ids-radio-font-weight: #{tokens.$font-weight-regular};
+  --ids-radio-font-size: #{tokens.$font-size-4};
+  --ids-radio-font-size-small: #{tokens.$font-size-3};
+  --ids-radio-font-size-description: #{tokens.$font-size-3};
+  --ids-radio-text: #{tokens.$grey-800};
+  --ids-radio-text-description: #{tokens.$grey-600};
+  --ids-radio-margin: #{tokens.$space-2};
+  --ids-radio-padding: #{tokens.$space-1};
+  --ids-radio-size: #{tokens.$font-size-4};
+  --ids-radio-check: #{tokens.$samoyed};
+  --ids-radio-border: #{tokens.$grey-400};
+  --ids-radio-border-hover: #{tokens.$grey-800};
+  --ids-radio-border-disabled: #{tokens.$grey-300};
+  --ids-radio-border-checked: #{tokens.$electric-blue-500};
+  --ids-radio-background: #{tokens.$samoyed};
+  --ids-radio-background-disabled: #{tokens.$grey-200};
+  --ids-radio-background-checked: #{tokens.$electric-blue-500};
+  --ids-radio-background-disabled-checked: #{tokens.$grey-300};
 }
 
 %radio {

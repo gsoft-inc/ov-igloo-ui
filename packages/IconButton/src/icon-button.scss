@@ -1,28 +1,28 @@
-@use '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
 :root {
   /* Default */
-  --ids-icon-btn-height: #{variables.$space-5};
-  --ids-icon-btn-width: #{variables.$space-5};
-  --ids-icon-btn-active: #{variables.$electric-blue-500};
+  --ids-icon-btn-height: #{tokens.$space-5};
+  --ids-icon-btn-width: #{tokens.$space-5};
+  --ids-icon-btn-active: #{tokens.$electric-blue-500};
 
   /* XSmall */
-  --ids-icon-btn-height-xsmall: #{variables.$space-3};
-  --ids-icon-btn-width-xsmall: #{variables.$space-3};
+  --ids-icon-btn-height-xsmall: #{tokens.$space-3};
+  --ids-icon-btn-width-xsmall: #{tokens.$space-3};
 
   /* Small */
-  --ids-icon-btn-height-small: #{variables.$space-4};
-  --ids-icon-btn-width-small: #{variables.$space-4};
+  --ids-icon-btn-height-small: #{tokens.$space-4};
+  --ids-icon-btn-width-small: #{tokens.$space-4};
 
   /* Large */
-  --ids-icon-btn-height-large: #{variables.$space-6};
-  --ids-icon-btn-width-large: #{variables.$space-6};
+  --ids-icon-btn-height-large: #{tokens.$space-6};
+  --ids-icon-btn-width-large: #{tokens.$space-6};
 
   /* Ghost */
-  --ids-icon-btn-ghost: #{variables.$grey-500};
-  --ids-icon-btn-ghost-hover: #{variables.$grey-900};
-  --ids-icon-btn-ghost-disabled: #{variables.$grey-300};
+  --ids-icon-btn-ghost: #{tokens.$grey-500};
+  --ids-icon-btn-ghost-hover: #{tokens.$grey-900};
+  --ids-icon-btn-ghost-disabled: #{tokens.$grey-300};
 }
 
 .ids-icon-btn {

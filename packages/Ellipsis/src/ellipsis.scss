@@ -1,4 +1,4 @@
-@use '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 
 .ids-ellipsis {
   overflow: hidden;

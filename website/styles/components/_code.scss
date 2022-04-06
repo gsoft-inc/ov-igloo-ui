@@ -1,24 +1,24 @@
-@import '../variables';
+@use '../variables' as var;
 
 .io-code {
   display: block;
   font-size: var(--fs-100);
   font-family: monospace;
-  margin: $size-2 0;
+  margin: var.$size-2 0;
 
   + .io-title {
-    margin-top: $size-6;
+    margin-top: var.$size-6;
   }
 
   &--inline {
     display: inline-block;
     font-family: monospace;
     font-size: var(--fs-100);
-    color: $c-code;
+    color: var.$c-code;
     line-height: 2;
     background: rgb(175, 184, 193, 0.25);
-    padding: 0 $size-1;
-    border-radius: $br-2;
+    padding: 0 var.$size-1;
+    border-radius: var.$br-2;
   }
 
   &--light {
@@ -28,7 +28,7 @@
   &--copy {
     display: flex;
     align-items: center;
-    gap: $size-1;
+    gap: var.$size-1;
 
     .io-btn-copy {
       opacity: 0;

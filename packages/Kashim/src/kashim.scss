@@ -1,14 +1,14 @@
-@use '~@igloo-ui/tokens/dist/base10/variables';
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
 .ids-kashim {
   display: flex;
   align-items: center;
-  font-size: variables.$font-size-4;
-  padding: variables.$space-3;
+  font-size: tokens.$font-size-4;
+  padding: tokens.$space-3;
   background: paleturquoise;
 }
 
 .ids-kashim .ids-icon {
-  margin-right: variables.$space-1;
+  margin-right: tokens.$space-1;
 }
