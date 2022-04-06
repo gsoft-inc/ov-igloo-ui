@@ -6,6 +6,7 @@ import { ButtonItem } from './ButtonGroup';
 
 export default {
   component: ButtonItem,
+  excludeStories: /ButtonGroupItem/,
   argTypes: {
     active: { table: { defaultValue: { summary: false } } },
     disabled: { table: { defaultValue: { summary: false } } },
@@ -15,3 +16,6 @@ export default {
 export const ButtonGroupItem: ComponentStory<typeof ButtonItem> = (args) => (
   <ButtonItem {...args} />
 );
+ButtonGroupItem.args = {
+  children: 'Button 1',
+};
