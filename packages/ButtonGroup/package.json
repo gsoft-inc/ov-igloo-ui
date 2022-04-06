@@ -1,0 +1,36 @@
+{
+  "name": "@igloo-ui/button-group",
+  "version": "0.0.0",
+  "main": "dist/ButtonGroup.js",
+  "module": "dist/ButtonGroup.js",
+  "types": "dist/ButtonGroup.d.ts",
+  "styles": "dist/button-group.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "author": "Officevibe Inc.",
+  "contributors": [
+    "Franck franck.gaudin@gsoft.com"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@igloo-ui/tokens": "^1.0.0",
+    "classnames": "^2.3.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE >= 11"
+  ],
+  "devDependencies": {
+    "@igloo-ui/icons": "^0.6.6",
+    "@igloo-ui/tooltip": "^0.0.6"
+  }
+}
