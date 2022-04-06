@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import useState from 'storybook-addon-state';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -20,7 +21,13 @@ export default {
   },
 } as ComponentMeta<typeof Radio>;
 
-const Template: ComponentStory<typeof Radio> = (args) => <Radio {...args} />;
+const Template: ComponentStory<typeof Radio> = (args) => {
+  const [active, setActive] = useState('default', false);
+  return (
+    <Radio {...args} onChange={() => setActive(!active)} checked={active} />
+  );
+};
+
 export const Overview = Template.bind({});
 Overview.args = {
   htmlFor: 'ids-radio',
@@ -28,7 +35,7 @@ Overview.args = {
 };
 
 export const Checked: React.VFC<unknown> = () => (
-  <Radio htmlFor="ids-radio-active" checked>
+  <Radio htmlFor="ids-radio-active" checked onChange={() => {}}>
     Label
   </Radio>
 );
@@ -55,3 +62,35 @@ export const WithHelperText: React.VFC<unknown> = () => (
     Label
   </Radio>
 );
+
+export const Group: React.VFC<unknown> = () => {
+  const [selected, setSelected] = useState('default', '');
+  return (
+    <Section>
+      <Radio
+        name="group-exemple"
+        onChange={(event) => setSelected(event.currentTarget.id)}
+        checked={selected === 'ids-radio-group-1'}
+        htmlFor="ids-radio-group-1"
+      >
+        Option a
+      </Radio>
+      <Radio
+        name="group-exemple"
+        onChange={(event) => setSelected(event.currentTarget.id)}
+        checked={selected === 'ids-radio-group-2'}
+        htmlFor="ids-radio-group-2"
+      >
+        Option b
+      </Radio>
+      <Radio
+        name="group-exemple"
+        onChange={(event) => setSelected(event.currentTarget.id)}
+        checked={selected === 'ids-radio-group-3'}
+        htmlFor="ids-radio-group-3"
+      >
+        Option c
+      </Radio>
+    </Section>
+  );
+};

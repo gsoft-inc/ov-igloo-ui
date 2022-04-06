@@ -25,7 +25,7 @@ export interface RadioProps extends React.ComponentPropsWithRef<'input'> {
 }
 
 const Radio: React.FunctionComponent<RadioProps> = React.forwardRef(
-  (props: RadioProps, ref: React.Ref<HTMLInputElement | null>) => {
+  (props: RadioProps, ref: React.Ref<HTMLInputElement>) => {
     const {
       children,
       className,
@@ -33,28 +33,11 @@ const Radio: React.FunctionComponent<RadioProps> = React.forwardRef(
       htmlFor,
       onChange,
       helperText,
-      small = false,
-      checked = false,
-      disabled = false,
+      small,
+      checked,
+      disabled,
       ...rest
     } = props;
-
-    const [status, setStatus] = React.useState(checked);
-
-    const checkRef = React.useRef<HTMLInputElement>(null);
-    React.useImperativeHandle(ref, () => checkRef.current);
-
-    const handleOnChange = (
-      event: React.ChangeEvent<HTMLInputElement>
-    ): void => {
-      if (onChange) {
-        onChange(event);
-        return;
-      }
-
-      event.stopPropagation();
-      setStatus(!status);
-    };
 
     const classes = cx('ids-radio', className, {
       'ids-radio--small': small,
@@ -67,14 +50,14 @@ const Radio: React.FunctionComponent<RadioProps> = React.forwardRef(
         })}
       >
         <input
-          ref={checkRef}
+          ref={ref}
           id={htmlFor}
           className={classes}
           data-test={dataTest}
-          checked={status}
+          checked={checked}
           disabled={disabled}
           type="radio"
-          onChange={handleOnChange}
+          onChange={onChange}
           {...rest}
         />
         {children && (
