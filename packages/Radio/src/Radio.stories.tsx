@@ -35,7 +35,7 @@ Overview.args = {
 };
 
 export const Checked: React.VFC<unknown> = () => (
-  <Radio htmlFor="ids-radio-active" checked>
+  <Radio htmlFor="ids-radio-active" checked onChange={() => {}}>
     Label
   </Radio>
 );
