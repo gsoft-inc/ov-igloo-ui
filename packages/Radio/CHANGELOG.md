@@ -1,5 +1,11 @@
 # @igloo-ui/radio
 
+## 0.1.2
+
+### Patch Changes
+
+- dd88c10: fix error of onChange not working
+
 ## 0.1.1
 
 ### Patch Changes
