@@ -1,5 +1,11 @@
 # @igloo-ui/hyperlink
 
+## 0.1.3
+
+### Patch Changes
+
+- 574c7d8: Fix display of translation content
+
 ## 0.1.2
 
 ### Patch Changes
