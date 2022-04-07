@@ -1,5 +1,4 @@
 #! /usr/bin/env node
-
 import { $, cd, chalk, fs, question } from 'zx';
 
 import path from 'path';
@@ -9,7 +8,6 @@ import {
   readPackageJson,
   writePackageJson,
   checkRequiredProgramsExist,
-  checkGlobalGitSettings,
   copyTemplate,
 } from './helpers/index.mjs';
 
@@ -94,6 +92,8 @@ async function createFiles(component) {
   const pascalCaseName = pascalcase(component);
 
   cd(`packages/${pascalCaseName}`);
+
+  fs.mkdirSync('src');
 
   const readmeTemplate = getReadmeTemplate(component);
   const componentTemplate = getComponentTemplate(component);
