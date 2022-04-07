@@ -1,27 +1,27 @@
-@import '~@igloo-ui/tokens/dist/base10/variables';
-@import '~@igloo-ui/tokens/dist/fonts.css';
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
 
 :root {
   /* Default */
-  --ids-radio-font-family: #{$primary-font-family};
-  --ids-radio-font-weight: #{$font-weight-regular};
-  --ids-radio-font-size: #{$font-size-4};
-  --ids-radio-font-size-small: #{$font-size-3};
-  --ids-radio-font-size-description: #{$font-size-3};
-  --ids-radio-text: #{$grey-800};
-  --ids-radio-text-description: #{$grey-600};
-  --ids-radio-margin: #{$space-2};
-  --ids-radio-padding: #{$space-1};
-  --ids-radio-size: #{$font-size-4};
-  --ids-radio-check: #{$samoyed};
-  --ids-radio-border: #{$grey-400};
-  --ids-radio-border-hover: #{$grey-800};
-  --ids-radio-border-disabled: #{$grey-300};
-  --ids-radio-border-checked: #{$electric-blue-500};
-  --ids-radio-background: #{$samoyed};
-  --ids-radio-background-disabled: #{$grey-200};
-  --ids-radio-background-checked: #{$electric-blue-500};
-  --ids-radio-background-disabled-checked: #{$grey-300};
+  --ids-radio-font-family: #{tokens.$primary-font-family};
+  --ids-radio-font-weight: #{tokens.$font-weight-regular};
+  --ids-radio-font-size: #{tokens.$font-size-4};
+  --ids-radio-font-size-small: #{tokens.$font-size-3};
+  --ids-radio-font-size-description: #{tokens.$font-size-3};
+  --ids-radio-text: #{tokens.$grey-800};
+  --ids-radio-text-description: #{tokens.$grey-600};
+  --ids-radio-margin: #{tokens.$space-2};
+  --ids-radio-padding: #{tokens.$space-1};
+  --ids-radio-size: #{tokens.$font-size-4};
+  --ids-radio-check: #{tokens.$samoyed};
+  --ids-radio-border: #{tokens.$grey-400};
+  --ids-radio-border-hover: #{tokens.$grey-800};
+  --ids-radio-border-disabled: #{tokens.$grey-300};
+  --ids-radio-border-checked: #{tokens.$electric-blue-500};
+  --ids-radio-background: #{tokens.$samoyed};
+  --ids-radio-background-disabled: #{tokens.$grey-200};
+  --ids-radio-background-checked: #{tokens.$electric-blue-500};
+  --ids-radio-background-disabled-checked: #{tokens.$grey-300};
 }
 
 %radio {

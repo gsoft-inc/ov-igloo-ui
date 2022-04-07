@@ -1,27 +1,27 @@
-@import '~@igloo-ui/tokens/dist/base10/variables';
-@import '~@igloo-ui/tokens/dist/fonts.css';
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
 
 :root {
   /* Default */
-  --ids-link-font-family: #{$primary-font-family};
-  --ids-link-font-size: #{$font-size-4};
-  --ids-link-font-size-small: #{$font-size-3};
-  --ids-link-font-size-xsmall: #{$font-size-2};
-  --ids-link-font-weight: #{$font-weight-medium};
+  --ids-link-font-family: #{tokens.$primary-font-family};
+  --ids-link-font-size: #{tokens.$font-size-4};
+  --ids-link-font-size-small: #{tokens.$font-size-3};
+  --ids-link-font-size-xsmall: #{tokens.$font-size-2};
+  --ids-link-font-weight: #{tokens.$font-weight-medium};
   --ids-link-icon-color: currentColor;
-  --ids-link-icon-margin: #{$space-1};
+  --ids-link-icon-margin: #{tokens.$space-1};
 
   /* Primary */
-  --ids-link-text-primary: #{$electric-blue-500};
-  --ids-link-text-primary-hover: #{$electric-blue-600};
+  --ids-link-text-primary: #{tokens.$electric-blue-500};
+  --ids-link-text-primary-hover: #{tokens.$electric-blue-600};
 
   /* Secondary */
-  --ids-link-text-secondary: #{$grey-600};
-  --ids-link-text-secondary-hover: #{$grey-700};
+  --ids-link-text-secondary: #{tokens.$grey-600};
+  --ids-link-text-secondary-hover: #{tokens.$grey-700};
 
   /* Danger */
-  --ids-link-text-danger: #{$coral-500};
-  --ids-link-text-danger-hover: #{$coral-600};
+  --ids-link-text-danger: #{tokens.$coral-500};
+  --ids-link-text-danger-hover: #{tokens.$coral-600};
 }
 
 .ids-link {

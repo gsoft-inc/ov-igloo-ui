@@ -1,14 +1,14 @@
-@import '../variables';
+@use '../variables' as var;
 
 .io-icon {
-  color: $c-black;
+  color: var.$c-black;
   font-size: var(--fs-050, --fs-100);
   box-sizing: border-box;
 
   &:hover {
-    background: $c-white;
-    border-radius: $br-1;
-    box-shadow: 0.15rem 0.25rem 0 0 $c-grey-200;
+    background: var.$c-white;
+    border-radius: var.$br-1;
+    box-shadow: 0.15rem 0.25rem 0 0 var.$c-grey-200;
   }
 
   &__content {
@@ -36,7 +36,7 @@
     text-overflow: ellipsis;
     width: 100%;
     text-align: center;
-    padding: 0 $size-2;
+    padding: 0 var.$size-2;
     color: rgba($color: #000000, $alpha: 0.6);
   }
 

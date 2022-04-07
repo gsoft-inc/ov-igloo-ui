@@ -1,39 +1,39 @@
-@import '~@igloo-ui/tokens/dist/base10/variables';
-@import '~@igloo-ui/tokens/dist/fonts.css';
-@import './mixins';
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+@use 'mixins';
 
 :root {
   /* Default */
-  --ids-alert-font-family: #{$primary-font-family};
-  --ids-alert-font-size: #{$font-size-3};
-  --ids-alert-title-font-weight: #{$font-weight-semi-bold};
-  --ids-alert-padding: #{$space-3};
-  --ids-alert-flex-gap-component: #{$space-4};
-  --ids-alert-border-radius: #{$border-radius-sm};
-  --ids-alert-box-shadow: #{$shadow-6};
-  --ids-alert-background-color-light: #{$samoyed};
-  --ids-alert-background-color-darker: #{$grey-100};
+  --ids-alert-font-family: #{tokens.$primary-font-family};
+  --ids-alert-font-size: #{tokens.$font-size-3};
+  --ids-alert-title-font-weight: #{tokens.$font-weight-semi-bold};
+  --ids-alert-padding: #{tokens.$space-3};
+  --ids-alert-flex-gap-component: #{tokens.$space-4};
+  --ids-alert-border-radius: #{tokens.$border-radius-sm};
+  --ids-alert-box-shadow: #{tokens.$shadow-6};
+  --ids-alert-background-color-light: #{tokens.$samoyed};
+  --ids-alert-background-color-darker: #{tokens.$grey-100};
   --ids-alert-border-left-width: 6px;
-  --ids-alert-text-color-title: #{$black};
-  --ids-alert-text-color-body: #{$grey-600};
+  --ids-alert-text-color-title: #{tokens.$black};
+  --ids-alert-text-color-body: #{tokens.$grey-600};
   --ids-alert-icon-size-small: 26px;
   --ids-alert-icon-size-medium: 40px;
-  --ids-alert-link-color: #{$electric-blue-500};
+  --ids-alert-link-color: #{tokens.$electric-blue-500};
 
   /* Announcement */
-  --ids-alert-color-announcement: #{$seaweed-500};
+  --ids-alert-color-announcement: #{tokens.$seaweed-500};
 
   /* Info */
-  --ids-alert-color-info: #{$sky-100};
+  --ids-alert-color-info: #{tokens.$sky-100};
 
   /* Premium */
-  --ids-alert-color-premium: #{$dandelion-300};
+  --ids-alert-color-premium: #{tokens.$dandelion-300};
 
   /* Success */
-  --ids-alert-color-success: #{$seaweed-500};
+  --ids-alert-color-success: #{tokens.$seaweed-500};
 
   /* Warning */
-  --ids-alert-color-warning: #{$creamsicle-200};
+  --ids-alert-color-warning: #{tokens.$creamsicle-200};
 }
 
 .ids-alert {
@@ -50,23 +50,23 @@
 
   /* Types */
   &--announcement {
-    @include ids-alert-mixin-decoration(var(--ids-alert-color-announcement));
+    @include mixins.ids-alert-mixin-decoration(var(--ids-alert-color-announcement));
   }
 
   &--info {
-    @include ids-alert-mixin-decoration(var(--ids-alert-color-info));
+    @include mixins.ids-alert-mixin-decoration(var(--ids-alert-color-info));
   }
 
   &--premium {
-    @include ids-alert-mixin-decoration(var(--ids-alert-color-premium));
+    @include mixins.ids-alert-mixin-decoration(var(--ids-alert-color-premium));
   }
 
   &--success {
-    @include ids-alert-mixin-decoration(var(--ids-alert-color-success));
+    @include mixins.ids-alert-mixin-decoration(var(--ids-alert-color-success));
   }
 
   &--warning {
-    @include ids-alert-mixin-decoration(var(--ids-alert-color-warning));
+    @include mixins.ids-alert-mixin-decoration(var(--ids-alert-color-warning));
   }
 
   /* Styles */
@@ -135,14 +135,14 @@
     }
 
     &--medium-centered {
-      @include ids-alert-mixin-icon-position-size(
+      @include mixins.ids-alert-mixin-icon-position-size(
         center,
         var(--ids-alert-icon-size-medium)
       );
     }
 
     &--small-top {
-      @include ids-alert-mixin-icon-position-size(
+      @include mixins.ids-alert-mixin-icon-position-size(
         flex-start,
         var(--ids-alert-icon-size-small)
       );

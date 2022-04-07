@@ -1,4 +1,4 @@
-@import 'variables';
+@use 'variables' as var;
 
 :root {
   --fs-display: 3.125rem;
@@ -9,7 +9,7 @@
   --fs-100: 0.75rem;
 }
 
-@media (min-width: $breakpoint-medium) {
+@media (min-width: var.$breakpoint-medium) {
   :root {
     --fs-display: 3.75rem;
     --fs-700: 2.875rem;

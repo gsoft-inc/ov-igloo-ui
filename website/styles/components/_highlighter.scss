@@ -1,15 +1,15 @@
-@import '../variables';
+@use '../variables' as var;
 
 .io-highlighter {
   position: relative;
 
   &__syntax {
-    border-radius: $br-2;
-    padding: $size-2 !important;
+    border-radius: var.$br-2;
+    padding: var.$size-2 !important;
   }
 
   &__action {
     position: absolute;
-    inset: $size-1 $size-1 auto auto;
+    inset: var.$size-1 var.$size-1 auto auto;
   }
 }

@@ -1,27 +1,27 @@
 @use 'sass:color';
 
-@import '../variables.scss';
+@use '../variables' as var;
 
-$card-effect-size: $size-2;
+$card-effect-size: var.$size-2;
 
 $card-shadow-yellow: rgb(
-  color.red($c-yellow),
-  color.green($c-yellow),
-  color.blue($c-yellow),
+  color.red(var.$c-yellow),
+  color.green(var.$c-yellow),
+  color.blue(var.$c-yellow),
   var(--alpha, 0)
 );
 
 $card-shadow-green: rgb(
-  color.red($c-green),
-  color.green($c-green),
-  color.blue($c-green),
+  color.red(var.$c-green),
+  color.green(var.$c-green),
+  color.blue(var.$c-green),
   var(--alpha, 0)
 );
 
 $card-shadow-pink: rgb(
-  color.red($c-pink),
-  color.green($c-pink),
-  color.blue($c-pink),
+  color.red(var.$c-pink),
+  color.green(var.$c-pink),
+  color.blue(var.$c-pink),
   var(--alpha, 0)
 );
 
@@ -29,7 +29,7 @@ $card-shadow-pink: rgb(
 a {
   .io-card {
     transition: box-shadow 150ms ease-in-out, transform 200ms ease-in-out,
-      -webkit-transform 150ms ease-in-out;
+    -webkit-transform 150ms ease-in-out;
     box-shadow: 0 0 0 0 $card-shadow-yellow;
     height: 100%;
 
@@ -87,9 +87,9 @@ a {
   .io-card--icons {
     display: flex;
     vertical-align: center;
-    gap: $size-3;
+    gap: var.$size-3;
 
-    @media (min-width: $breakpoint-medium) {
+    @media (min-width: var.$breakpoint-medium) {
       flex-direction: column;
     }
   }
@@ -107,18 +107,18 @@ a {
 
 .io-card {
   position: relative;
-  font-size: $fs-4;
-  border-radius: $br-1;
-  padding: $size-2;
-  color: $c-white;
-  background: $c-black;
+  font-size: var.$fs-4;
+  border-radius: var.$br-1;
+  padding: var.$size-2;
+  color: var.$c-white;
+  background: var.$c-black;
 
-  @media (min-width: $breakpoint-medium) {
-    padding: $size-3;
+  @media (min-width: var.$breakpoint-medium) {
+    padding: var.$size-3;
   }
 
   &__img {
-    max-width: $size-8;
+    max-width: var.$size-8;
   }
 
   &__content {
@@ -132,15 +132,15 @@ a {
   }
 
   &__description {
-    margin: $size-0 0 0;
+    margin: var.$size-0 0 0;
   }
 }
 
 .io-card--inline {
   display: flex;
   padding: 0;
-  color: $c-black;
-  background: $c-white;
+  color: var.$c-black;
+  background: var.$c-white;
 
   .io-card__title {
     font-size: var(--fs-300);
@@ -152,6 +152,6 @@ a {
   }
 
   .io-card__content {
-    padding: 0 $size-2;
+    padding: 0 var.$size-2;
   }
 }

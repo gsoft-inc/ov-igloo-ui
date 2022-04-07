@@ -33,8 +33,20 @@ module.exports = {
 
     config.module.rules.push({
       test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
-      include: path.resolve(__dirname, '../'),
+      use: [
+        'style-loader',
+        'css-loader',
+        {
+          loader: 'sass-loader',
+          options: {
+            implementation: require('sass'),
+            sassOptions: {
+              loadPaths: [appDirectory],
+            },
+          },
+        },
+      ],
+      include: [appDirectory],
     });
 
     return config;

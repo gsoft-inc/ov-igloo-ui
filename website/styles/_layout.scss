@@ -1,10 +1,10 @@
-@import 'variables';
+@use 'variables' as var;
 
 :root {
   --ico-columns: calc(100% / 4);
 }
 
-@media (min-width: $breakpoint-medium) {
+@media (min-width: var.$breakpoint-medium) {
   :root {
     --ico-columns: calc(100% / 7);
   }
@@ -12,7 +12,7 @@
 
 .io-layout {
   width: 100%;
-  max-width: $layout;
+  max-width: var.$layout;
   margin: 0 auto;
 }
 
@@ -22,16 +22,16 @@
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: $navbar;
-  padding: $size-2 $size-2;
-  background: $c-white;
+  min-height: var.$navbar;
+  padding: var.$size-2 var.$size-2;
+  background: var.$c-white;
   box-shadow: 0.5px 1.6px 1.6px hsl(0deg 0% 0% / 0.15);
   z-index: 10;
 
   &__content {
-    max-width: $layout;
+    max-width: var.$layout;
     width: 100%;
-    padding: 0 $size-2;
+    padding: 0 var.$size-2;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -41,13 +41,13 @@
 
 .io-main {
   width: 100%;
-  padding: ($navbar + $size-6) $size-2 0;
+  padding: (var.$navbar + var.$size-6) var.$size-2 0;
 }
 
 .io-hero {
-  margin: $size-10 0 $size-10 + $size-6 0;
+  margin: var.$size-10 0 var.$size-10 + var.$size-6 0;
 
-  @media (min-width: $breakpoint-medium) {
+  @media (min-width: var.$breakpoint-medium) {
     &__title {
       max-width: 80%;
     }
@@ -55,13 +55,13 @@
 }
 
 .io-section {
-  margin-bottom: $size-8;
+  margin-bottom: var.$size-8;
 
   &__content {
     display: grid;
-    gap: $size-3;
+    gap: var.$size-3;
 
-    @media (min-width: $breakpoint-medium) {
+    @media (min-width: var.$breakpoint-medium) {
       grid-template-columns: repeat(3, 1fr);
     }
 
@@ -73,16 +73,16 @@
     &--icon {
       grid-template-columns: repeat(auto-fill, minmax(var(--ico-columns), 1fr));
       grid-gap: 0;
-      padding: $size-4;
+      padding: var.$size-4;
     }
   }
 
   &--grid {
     display: grid;
-    gap: $size-8;
+    gap: var.$size-8;
 
-    @media (min-width: $breakpoint-medium) {
-      gap: $size-3;
+    @media (min-width: var.$breakpoint-medium) {
+      gap: var.$size-3;
       grid-template-columns: 2fr 1fr;
     }
   }
@@ -90,28 +90,28 @@
   &--hasAside {
     display: block;
 
-    @media (min-width: $breakpoint-medium) {
+    @media (min-width: var.$breakpoint-medium) {
       display: grid;
-      grid-template-columns: 1fr $layout-sm 1fr;
+      grid-template-columns: 1fr var.$layout-sm 1fr;
     }
   }
 
   &--tight {
     margin-left: auto;
     margin-right: auto;
-    max-width: $layout-sm;
+    max-width: var.$layout-sm;
   }
 
   &--empty {
     text-align: center;
-    margin-top: $size-8;
-    margin-bottom: $size-8;
+    margin-top: var.$size-8;
+    margin-bottom: var.$size-8;
   }
 
   &--icons {
-    background: $c-grey-100;
-    border-radius: $br-1;
-    margin: $size-10 0;
+    background: var.$c-grey-100;
+    border-radius: var.$br-1;
+    margin: var.$size-10 0;
   }
 }
 
@@ -124,14 +124,14 @@
 .io-contact {
   > *:not(:first-child) {
     display: block;
-    margin-top: $size-3;
+    margin-top: var.$size-3;
   }
 }
 
 .io-list {
-  font-size: $fs-4;
+  font-size: var.$fs-4;
   list-style: none;
-  margin: $size-2 0 0;
+  margin: var.$size-2 0 0;
   padding: 0;
 
   &__item {
@@ -139,23 +139,23 @@
     justify-content: space-between;
 
     &:not(:first-child) {
-      margin-top: $size-1;
+      margin-top: var.$size-1;
     }
   }
 }
 
 .io-aside {
   display: none;
-  margin-top: $size-8 + $size-8;
+  margin-top: var.$size-8 + var.$size-8;
 
-  @media (min-width: $breakpoint-medium) {
+  @media (min-width: var.$breakpoint-medium) {
     display: block;
   }
 }
 
 .io-tokens {
   &__list {
-    margin-top: $size-10;
+    margin-top: var.$size-10;
   }
 }
 
@@ -163,8 +163,8 @@
   &-icon {
     display: inline-block;
     line-height: 0;
-    height: $size-3;
-    width: $size-3;
+    height: var.$size-3;
+    width: var.$size-3;
   }
 
   &-brand {
@@ -173,7 +173,7 @@
 }
 
 .io-empty {
-  padding: $size-4;
+  padding: var.$size-4;
   text-align: center;
 
   a {
