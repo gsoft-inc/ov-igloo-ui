@@ -62,7 +62,11 @@ const Hyperlink: React.FunctionComponent<HyperlinkProps> = (
   const getWrappedElement = (
     children: string | React.ReactElement | React.ReactNode
   ): React.ReactElement => {
-    if (typeof children === 'string') {
+    const isTranslation =
+      Array.isArray(children) &&
+      !children.some((item) => typeof item !== 'string');
+
+    if (typeof children === 'string' || isTranslation) {
       return (
         <span>
           {hasIconLeading && iconLeading}
