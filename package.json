@@ -78,6 +78,7 @@
     "jest": "27.5.1",
     "lerna": "4.0.0",
     "lint-staged": "12.3.4",
+    "pascalcase": "2.0.0",
     "postcss": "8.4.5",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-scss": "4.0.3",

@@ -1,0 +1,143 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-toggle-font-family: #{tokens.$primary-font-family};
+  --ids-toggle-font-size: #{tokens.$font-size-4};
+  --ids-toggle-text-padding: #{tokens.$space-2};
+  --ids-toggle-width: #{tokens.$space-6};
+  --ids-toggle-height: 2rem;
+  --ids-toggle-background: #{tokens.$grey-300};
+  --ids-toggle-transition: background-color 0.3s ease-in-out;
+  --ids-toggle-focus: #{tokens.$focus};
+  --ids-toggle-padding: #{tokens.$space-1};
+  --ids-toggle-font-size-description: #{tokens.$font-size-3};
+  --ids-toggle-text-description: #{tokens.$grey-600};
+
+  /* switch */
+  --ids-toggle-width-switch: #{tokens.$space-3};
+  --ids-toggle-height-switch: #{tokens.$space-3};
+  --ids-toggle-background-switch: #{tokens.$samoyed};
+  --ids-toggle-shadow-switch: 0 1px 3px 0 rgb(0 0 0 / 25%);
+
+  /* checked */
+  --ids-toggle-background-checked: #{tokens.$electric-blue-500};
+  --ids-toggle-position-checked:
+    calc(
+      var(--ids-toggle-width) - var(--ids-toggle-width-switch) - 0.4rem
+    );
+
+  /* disabled */
+  --ids-toggle-background-disabled: #{tokens.$grey-200};
+  --ids-toggle-background-checked-disabled: #{tokens.$electric-blue-300};
+}
+
+%block {
+  content: '';
+  display: block;
+}
+
+%switch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0.2rem;
+  width: var(--ids-toggle-width-switch);
+  height: var(--ids-toggle-height-switch);
+  background-color: var(--ids-toggle-background-switch);
+  border-radius: 50%;
+  box-shadow: var(--ids-toggle-shadow-switch);
+  transition: all 300ms;
+}
+
+.ids-toggle {
+  font-family: var(--ids-toggle-font-family);
+  font-size: var(--ids-toggle-font-size);
+}
+
+.ids-toggle__label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  &::before {
+    @extend %block;
+
+    width: var(--ids-toggle-width);
+    height: var(--ids-toggle-height);
+    border-radius: calc(var(--ids-toggle-height) / 2);
+    background-color: var(--ids-toggle-background);
+    transition: var(--ids-toggle-transition);
+  }
+
+  &::after {
+    @extend %block;
+    @extend %switch;
+  }
+}
+
+.ids-toggle__text {
+  padding-left: var(--ids-toggle-text-padding);
+}
+
+.ids-toggle--helperText {
+  .ids-toggle__label {
+    align-items: flex-start;
+  }
+
+  .ids-toggle__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ids-toggle__description {
+    padding-top: var(--ids-toggle-padding);
+    color: var(--ids-toggle-text-description);
+    font-size: var(--ids-toggle-font-size-description);
+  }
+}
+
+.ids-toggle__input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+
+  &:checked + .ids-toggle__label {
+    &::before {
+      background-color: var(--ids-toggle-background-checked);
+    }
+
+    &::after {
+      left: var(--ids-toggle-position-checked);
+    }
+  }
+
+  &:focus + .ids-toggle__label {
+    &::before {
+      box-shadow: var(--ids-toggle-focus);
+    }
+  }
+
+  &:disabled + .ids-toggle__label {
+    cursor: not-allowed;
+
+    &::before {
+      background-color: var(--ids-toggle-background-disabled);
+    }
+  }
+
+  &:checked:disabled + .ids-toggle__label {
+    &::before {
+      background-color: var(--ids-toggle-background-checked-disabled);
+    }
+  }
+
+  &:focus:not(:focus-visible) + .ids-toggle__label {
+    &::before {
+      box-shadow: none;
+    }
+  }
+}
