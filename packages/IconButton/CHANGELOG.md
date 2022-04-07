@@ -1,5 +1,13 @@
 # @igloo-ui/icon-button
 
+## 0.2.6
+
+### Patch Changes
+
+- 8c8686e: Change @import of font.css file for a @use in SASS files
+- Updated dependencies [8c8686e]
+  - @igloo-ui/button@0.1.11
+
 ## 0.2.5
 
 ### Patch Changes

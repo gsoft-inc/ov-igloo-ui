@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 0.0.7
+
+### Patch Changes
+
+- 8c8686e: Change @import of font.css file for a @use in SASS files
+
 ## 0.0.6
 
 ### Patch Changes

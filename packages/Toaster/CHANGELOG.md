@@ -1,5 +1,13 @@
 # @igloo-ui/toaster
 
+## 0.1.4
+
+### Patch Changes
+
+- 8c8686e: Change @import of font.css file for a @use in SASS files
+- Updated dependencies [8c8686e]
+  - @igloo-ui/icon-button@0.2.6
+
 ## 0.1.3
 
 ### Patch Changes

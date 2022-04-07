@@ -1,5 +1,11 @@
 # @igloo-ui/radio
 
+## 0.1.3
+
+### Patch Changes
+
+- 8c8686e: Change @import of font.css file for a @use in SASS files
+
 ## 0.1.2
 
 ### Patch Changes
