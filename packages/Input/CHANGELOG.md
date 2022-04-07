@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 1.0.4
+
+### Patch Changes
+
+- 8c8686e: Change @import of font.css file for a @use in SASS files
+
 ## 1.0.3
 
 ### Patch Changes

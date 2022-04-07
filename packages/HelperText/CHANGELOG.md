@@ -1,5 +1,11 @@
 # @igloo-ui/message
 
+## 0.2.2
+
+### Patch Changes
+
+- 8c8686e: Change @import of font.css file for a @use in SASS files
+
 ## 0.2.1
 
 ### Patch Changes

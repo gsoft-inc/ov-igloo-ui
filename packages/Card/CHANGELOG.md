@@ -1,5 +1,11 @@
 # @igloo-ui/card
 
+## 0.0.6
+
+### Patch Changes
+
+- 8c8686e: Change @import of font.css file for a @use in SASS files
+
 ## 0.0.5
 
 ### Patch Changes
