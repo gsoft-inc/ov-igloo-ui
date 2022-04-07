@@ -1,36 +1,35 @@
-@import '~@igloo-ui/tokens/dist/base10/variables';
-@import '~@igloo-ui/tokens/dist/fonts.css';
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
 
 :root {
   /* Default */
-  --ids-toggle-font-family: #{$primary-font-family};
-  --ids-toggle-font-size: #{$font-size-4};
-  --ids-toggle-text-padding: #{$space-2};
-  --ids-toggle-width: #{$space-6};
+  --ids-toggle-font-family: #{tokens.$primary-font-family};
+  --ids-toggle-font-size: #{tokens.$font-size-4};
+  --ids-toggle-text-padding: #{tokens.$space-2};
+  --ids-toggle-width: #{tokens.$space-6};
   --ids-toggle-height: 2rem;
-  --ids-toggle-background: #{$grey-300};
+  --ids-toggle-background: #{tokens.$grey-300};
   --ids-toggle-transition: background-color 0.3s ease-in-out;
-  --ids-toggle-focus: #{$focus};
-  --ids-toggle-padding: #{$space-1};
-  --ids-toggle-font-size-description: #{$font-size-3};
-  --ids-toggle-text-description: #{$grey-600};
+  --ids-toggle-focus: #{tokens.$focus};
+  --ids-toggle-padding: #{tokens.$space-1};
+  --ids-toggle-font-size-description: #{tokens.$font-size-3};
+  --ids-toggle-text-description: #{tokens.$grey-600};
 
   /* switch */
-  --ids-toggle-width-switch: #{$space-3};
-  --ids-toggle-height-switch: #{$space-3};
-  --ids-toggle-background-switch: #{$samoyed};
+  --ids-toggle-width-switch: #{tokens.$space-3};
+  --ids-toggle-height-switch: #{tokens.$space-3};
+  --ids-toggle-background-switch: #{tokens.$samoyed};
   --ids-toggle-shadow: 0 1px 3px 0 rgb(0 0 0 / 25%);
 
   /* checked */
-  --ids-toggle-background-checked: #{$electric-blue-500};
-  --ids-toggle-position-checked:
-    calc(
-      var(--ids-toggle-width) - var(--ids-toggle-width-switch) - 0.4rem
-    );
+  --ids-toggle-background-checked: #{tokens.$electric-blue-500};
+  --ids-toggle-position-checked: calc(
+    var(--ids-toggle-width) - var(--ids-toggle-width-switch) - 0.4rem
+  );
 
   /* disabled */
-  --ids-toggle-background-disabled: #{$grey-200};
-  --ids-toggle-background-checked-disabled: #{$electric-blue-300};
+  --ids-toggle-background-disabled: #{tokens.$grey-200};
+  --ids-toggle-background-checked-disabled: #{tokens.$electric-blue-300};
 }
 
 %block {

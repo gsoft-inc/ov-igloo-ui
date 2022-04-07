@@ -16,7 +16,7 @@ export interface ToggleProps extends React.ComponentProps<'input'> {
   checked?: boolean;
   /** The content to display to help users */
   helperText?: string;
-  /** Function called when the value changes. */
+  /** Function called when the value changes */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 

@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-// import { shallow } from 'enzyme';
 import { render } from '@testing-library/react';
 
 import Toggle from './Toggle';
@@ -24,14 +23,14 @@ describe('Toggle', () => {
     expect(getByText('Label')).toBeInTheDocument();
   });
 
-  test('it should render a checked state', () => {
+  test('It should render in a checked state', () => {
     const { getByTestId } = render(
       <Toggle dataTest="toggle-3" htmlFor="toggle-3" checked />
     );
     expect(getByTestId('toggle-3')).toBeChecked();
   });
 
-  test('it should render a disabled state', () => {
+  test('It should render in a disabled state', () => {
     const { getByTestId } = render(
       <Toggle dataTest="toggle-4" htmlFor="toggle-4" disabled />
     );
