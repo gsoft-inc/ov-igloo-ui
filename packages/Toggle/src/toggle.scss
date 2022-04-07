@@ -23,9 +23,10 @@
 
   /* checked */
   --ids-toggle-background-checked: #{tokens.$electric-blue-500};
-  --ids-toggle-position-checked: calc(
-    var(--ids-toggle-width) - var(--ids-toggle-width-switch) - 0.4rem
-  );
+  --ids-toggle-position-checked:
+    calc(
+      var(--ids-toggle-width) - var(--ids-toggle-width-switch) - 0.4rem
+    );
 
   /* disabled */
   --ids-toggle-background-disabled: #{tokens.$grey-200};
