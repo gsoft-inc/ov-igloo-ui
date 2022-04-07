@@ -1,5 +1,11 @@
 # @igloo-ui/card
 
+## 0.0.5
+
+### Patch Changes
+
+- bdb5d44: Fix padding on mobile
+
 ## 0.0.4
 
 ### Patch Changes

@@ -1,10 +1,10 @@
 {
   "name": "@igloo-ui/icon-button",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "main": "dist/IconButton.js",
   "module": "dist/IconButton.js",
   "types": "dist/IconButton.d.ts",
-  "styles": "dist/iconbutton.css",
+  "styles": "dist/icon-button.css",
   "publishConfig": {
     "access": "public"
   },

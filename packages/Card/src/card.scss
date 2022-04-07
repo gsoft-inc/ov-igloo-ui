@@ -6,7 +6,7 @@
   --ids-card-font-family: #{$primary-font-family};
   --ids-card-font-size: #{$font-size-4};
   --ids-card-background: #{$samoyed};
-  --ids-card-padding: #{$space-5};
+  --ids-card-padding: #{$space-3};
   --ids-card-shadow: 0 1px 6px rgb(35 48 67 / 10%);
   --ids-card-radius: #{$border-radius-sm};
 
@@ -29,14 +29,20 @@
   border-radius: var(--ids-card-radius);
 }
 
-.ids-card--medium {
-  padding: var(--ids-card-padding-medium);
-}
-
-.ids-card--small {
-  padding: var(--ids-card-padding-small);
-}
-
 .ids-card--xsmall {
   padding: var(--ids-card-padding-xsmall);
+}
+
+@media (min-width: $breakpoints-sm) {
+  :root {
+    --ids-card-padding: #{$space-5};
+  }
+
+  .ids-card--medium {
+    padding: var(--ids-card-padding-medium);
+  }
+
+  .ids-card--small {
+    padding: var(--ids-card-padding-small);
+  }
 }
