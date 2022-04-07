@@ -8,7 +8,6 @@
 '@igloo-ui/hyperlink': patch
 '@igloo-ui/icon-button': patch
 '@igloo-ui/input': patch
-'@igloo-ui/kashim': patch
 '@igloo-ui/radio': patch
 '@igloo-ui/toaster': patch
 '@igloo-ui/tooltip': patch
