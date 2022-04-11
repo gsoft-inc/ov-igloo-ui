@@ -24,7 +24,8 @@
     "build-storybook": "build-storybook",
     "prepublish-ci": "yarn build",
     "publish-ci": "npx lerna publish from-package -y",
-    "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN"
+    "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN",
+    "bootstrap": "node utils/bootstrap/component.mjs && npx lerna bootstrap && yarn fix:all"
   },
   "workspaces": [
     "packages/*",
@@ -99,7 +100,8 @@
     "stylelint-config-standard-scss": "3.0.0",
     "ts-jest": "27.0.4",
     "tsconfig-paths-webpack-plugin": "3.5.2",
-    "typescript": "4.3.5"
+    "typescript": "4.3.5",
+    "zx": "6.0.7"
   },
   "prettier": {
     "singleQuote": true,
