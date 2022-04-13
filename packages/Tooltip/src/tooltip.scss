@@ -9,6 +9,7 @@
   --ids-tooltip-border-radius: #{tokens.$border-radius-sm};
   --ids-tooltip-z-index: #{tokens.$z-index-max};
   --ids-tooltip-arrow-size: 5px;
+  --ids-tooltip-arrow-size-negatif: -5px;
   --ids-tooltip-spacing: #{tokens.$space-2};
 
   /* Theme */
@@ -59,7 +60,7 @@
 
   &--top {
     text-align: center;
-    transform: translateY(calc(var(--ids-tooltip-arrow-size) * -1));
+    transform: translateY(var(--ids-tooltip-arrow-size-negatif));
 
     &::after {
       top: 100%;
@@ -92,7 +93,7 @@
 
   &--left {
     text-align: right;
-    transform: translateX(calc(var(--ids-tooltip-arrow-size) * -1));
+    transform: translateX(var(--ids-tooltip-arrow-size-negatif));
 
     &::after {
       top: calc(50% - var(--ids-tooltip-arrow-size));
