@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 0.0.8
+
+### Patch Changes
+
+- 8ceb764: fix error with calc() on the transition of arrow
+
 ## 0.0.7
 
 ### Patch Changes
