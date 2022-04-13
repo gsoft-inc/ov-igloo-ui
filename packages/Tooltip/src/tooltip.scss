@@ -93,7 +93,7 @@
 
   &--left {
     text-align: right;
-    transform: translateX( var(--ids-tooltip-arrow-size-negatif));
+    transform: translateX(var(--ids-tooltip-arrow-size-negatif));
 
     &::after {
       top: calc(50% - var(--ids-tooltip-arrow-size));
