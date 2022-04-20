@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const prettier = require('prettier');
 const docgen = require('react-docgen-typescript');
+const glob = require('glob');
 
 const options = {
   propFilter: (prop) => {
@@ -18,12 +19,32 @@ const options = {
     return true;
   },
 };
+const directoryPath = path.join(process.cwd(), 'packages/**/src/*.tsx');
 
-// Parse a file for docgen info
-const componentInfo = docgen.parse('./packages/Button/src/Button.tsx', options);
-// console.log(componentInfo);
+const formatFilePath = (filePath) => {
+  if (!filePath) {
+    throw new Error('File path is not defined');
+  }
 
-function getType(type) {
+  return filePath.match(/packages.*/);
+};
+
+const getComponent = async () => {
+  const filesPath = glob.sync(directoryPath).filter((module) => {
+    return /\/[A-Z]\w*\.tsx$/.test(module);
+  });
+
+  return filesPath.map((file) => {
+    const name = path.basename(file).replace('.tsx', '');
+    const [filePath] = formatFilePath(file);
+    return {
+      name,
+      filePath,
+    };
+  });
+};
+
+const getType = (type) => {
   const handler = {
     enum: (type) =>
       type.value.map((item) => item.value.replace(/'/g, '')).join(' \\| '),
@@ -33,7 +54,7 @@ function getType(type) {
     return handler[type.name](type).replace(/\|/g, '');
   }
   return type.name.replace(/\|/g, '');
-}
+};
 
 const renderProp = (name, prop) => {
   const {
@@ -49,36 +70,60 @@ const renderProp = (name, prop) => {
   `;
 };
 
-const commentToMarkdown = (comments) => {
-  if (comments === undefined) {
-    return '';
-  }
-
-  const markdownInfo = comments.map((comment) => {
-    const { props } = comment;
-    // console.log(props);
-
-    return ` parameter props
-    |Attribute | type | default value | required | description|
-    | --- | --- | --- | --- | ---|
-    ${Object.keys(props)
-      .map((key) => renderProp(key, props[key]))
-      .join('')}
-    `;
+const writeFile = (data, output) => {
+  fs.writeFile(output, data, (err) => {
+    if (err) {
+      throw err;
+    }
   });
 
-  const content = prettier.format(markdownInfo[0], { parser: 'markdown' });
-
-  fs.writeFileSync(path.resolve('website/docs/button.mdx'), content);
-  // console.log(content);
+  const file = path.basename(output);
+  console.log(`${file} has been saved!`);
 };
 
-commentToMarkdown(componentInfo);
+const commentToMarkdown = (comments) => {
+  if (comments.length === 0) {
+    return;
+  }
 
-// const componentContent = JSON.stringify(result, null, 2);
-// fs.writeFile('./docs.json', componentContent, 'utf8', (err) => {
-//   if (err) {
-//     console.log(err);
-//   }
-//   console.log('The file has been saved!');
-// });
+  return comments.map((comment) => {
+    const { props, displayName } = comment;
+
+    const content = ` parameter props
+      |Attribute | type | default value | required | description|
+      | --- | --- | --- | --- | ---|
+      ${Object.keys(props)
+        .map((key) => renderProp(key, props[key]))
+        .join('')}
+      `;
+
+    const formattedContent = prettier.format(content, { parser: 'markdown' });
+
+    return { name: displayName, content: formattedContent };
+  });
+};
+
+const generateDoc = async () => {
+  const components = await getComponent();
+  const componentsName = components.map((component) => component.name);
+  const componentsPath = components.map((component) => component.filePath);
+
+  const componentsInfo = docgen.parse(componentsPath, options);
+  // const componentsInfo = docgen.parse('packages/Alert/src/Alert.tsx');
+  // console.log('componentsInfo', componentsInfo);
+  const mdxContent = commentToMarkdown(componentsInfo);
+
+  const BASE_PATH = 'website/docs/';
+
+  mdxContent.map((mdx) => {
+    const { name, content } = mdx;
+    const output = path.join(process.cwd(), BASE_PATH, `files/${name}.mdx`);
+    writeFile(content, output);
+  });
+
+  const content = JSON.stringify(componentsName);
+  const output = path.join(process.cwd(), BASE_PATH, `components.json`);
+  writeFile(content, output);
+};
+
+generateDoc().catch((error) => console.log('error', error));

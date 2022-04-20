@@ -6,12 +6,11 @@ import remarkGfm from 'remark-gfm';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 
-import { capitalize } from '../../utils/capitalize';
+import { docsFilePaths } from '../../utils/mdxUtils';
 
 export default function DocPage(props) {
   const { slug, source, frontMatter } = props;
 
-  // const component = capitalize(slug);
   const component = frontMatter.title;
 
   return (
@@ -31,7 +30,8 @@ export default function DocPage(props) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const docFilePath = path.join(process.cwd(), 'docs', `${params.slug}.mdx`);
+  const { slug } = params;
+  const docFilePath = path.join(process.cwd(), 'docs/files', `${slug}.mdx`);
   const source = fs.readFileSync(docFilePath);
 
   const { content, data } = matter(source);
@@ -54,12 +54,12 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  // const paths = postFilePaths
-  //   .map((path) => path.replace(/\.mdx?$/, ''))
-  //   .map((slug) => ({ params: { slug } }));
+  const paths = docsFilePaths
+    .map((path) => path.replace(/\.mdx?$/, ''))
+    .map((slug) => ({ params: { slug } }));
 
   return {
-    paths: ['/docs/button', { params: { slug: 'button' } }],
+    paths: paths,
     fallback: false,
   };
 };
