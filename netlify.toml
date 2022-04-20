@@ -1,11 +1,6 @@
-[build.environment]
-  NODE_VERSION = "16.9.0"
-
 [build]
   command = "yarn doc:build"
   publish = "website/.next"
 
-
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-
