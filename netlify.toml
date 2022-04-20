@@ -1,12 +1,9 @@
 [build.environment]
-  NODE_VERSION = "16.0.x"
+  NODE_VERSION = "16.9.0"
 
 [build]
   command = "yarn doc:build"
   publish = "website/.next"
-
-[context.deploy-preview]
-   environment = { NODE_VERSION = "16.x" }
 
 
 [[plugins]]
