@@ -89,9 +89,9 @@ export default function Tokens(props) {
               npm:
             </a>
           </p>
-          <Code language="bash">{`npm install @igloo-ui/icons`}</Code>
+          <Code language="bash">{`npm install @igloo-ui/tokens`}</Code>
           <p>If you prefer Yarn, </p>
-          <Code language="bash">{`yarn add @igloo-ui/icons`}</Code>
+          <Code language="bash">{`yarn add @igloo-ui/tokens`}</Code>
           <Title level={3} as="h3">
             Usage
           </Title>
