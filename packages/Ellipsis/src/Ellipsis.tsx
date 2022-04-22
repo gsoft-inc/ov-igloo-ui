@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import * as React from 'react';
 import cx from 'classnames';
 
 import './ellipsis.scss';
@@ -19,8 +19,8 @@ const Ellipsis: React.FunctionComponent<EllipsisProps> = (
 ) => {
   const { children, className, containerClassName, title } = props;
 
-  const parentElement = useRef<HTMLDivElement>(null);
-  const element = useRef<HTMLDivElement>(null);
+  const parentElement = React.useRef<HTMLDivElement>(null);
+  const element = React.useRef<HTMLDivElement>(null);
 
   return (
     <div

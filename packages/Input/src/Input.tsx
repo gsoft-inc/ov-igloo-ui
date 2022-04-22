@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import * as React from 'react';
 import cx from 'classnames';
 
 import './input.scss';
@@ -60,7 +60,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       'ids-input--prefixIcon': prefixIcon,
     });
 
-    useEffect(() => {
+    React.useEffect(() => {
       const refObject = ref as React.RefObject<HTMLInputElement>;
       if (autoFocus && refObject && refObject.current) {
         refObject.current.focus();

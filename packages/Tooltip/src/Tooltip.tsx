@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import * as React from 'react';
 import ReactDom from 'react-dom';
 import classNames from 'classnames';
 import { Position, getVisiblePosition } from './position';
@@ -51,13 +51,13 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     );
   };
 
-  const [active, setActive] = useState<boolean>(false);
-  const [tooltipClasses, setTooltipClasses] = useState<string>(
+  const [active, setActive] = React.useState<boolean>(false);
+  const [tooltipClasses, setTooltipClasses] = React.useState<string>(
     defaultTooltipClasses(position)
   );
 
-  const tooltipRef = useRef<HTMLDivElement>(null);
-  const positionRef = useRef({ x: 0, y: 0 });
+  const tooltipRef = React.useRef<HTMLDivElement>(null);
+  const positionRef = React.useRef({ x: 0, y: 0 });
 
   const tooltipStyle = {
     maxWidth: `${maxWidth}px`,
