@@ -89,9 +89,9 @@ const commentToMarkdown = (comments) => {
   return comments.map((comment) => {
     const { props, displayName } = comment;
 
-    const content = ` parameter props
-      |Attribute | type | default value | required | description|
-      | --- | --- | --- | --- | ---|
+    const content = `---\ntitle: ${displayName}\n---\n\n
+|Attribute | type | default value | required | description|
+| --- | --- | --- | --- | ---|
       ${Object.keys(props)
         .map((key) => renderProp(key, props[key]))
         .join('')}
@@ -109,11 +109,9 @@ const generateDoc = async () => {
   const componentsPath = components.map((component) => component.filePath);
 
   const componentsInfo = docgen.parse(componentsPath, options);
-  // const componentsInfo = docgen.parse('packages/Alert/src/Alert.tsx');
-  // console.log('componentsInfo', componentsInfo);
   const mdxContent = commentToMarkdown(componentsInfo);
 
-  const BASE_PATH = 'website/docs/';
+  const BASE_PATH = 'website/data/';
 
   mdxContent.map((mdx) => {
     const { name, content } = mdx;

@@ -1,5 +1,3 @@
-import { MDXRemote } from 'next-mdx-remote';
-
 export default function Components(props) {
   const { components } = props;
   const componentsList = components.map((component, index) => {
@@ -20,7 +18,7 @@ export default function Components(props) {
 }
 
 export const getStaticProps = async () => {
-  const components = require('../../docs/components.json');
+  const components = require('../../data/components.json');
   return {
     props: {
       components,
