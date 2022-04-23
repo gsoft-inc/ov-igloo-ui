@@ -1,0 +1,56 @@
+@use "base/colors" as color;
+
+// active color theme
+$active-theme: color.$light-theme;
+
+//space tokens
+$space-0: var(--space-0);
+$space-1: var(--space-1);
+$space-2: var(--space-2);
+$space-3: var(--space-3);
+$space-4: var(--space-4);
+$space-5: var(--space-5);
+$space-6: var(--space-6);
+$space-7: var(--space-7);
+$space-8: var(--space-8);
+$space-9: var(--space-9);
+$space-10: var(--space-10);
+
+//color tokens
+$grey-100: var(--neutral-100);
+$grey-200: var(--neutral-200);
+$grey-300: var(--neutral-300);
+$grey-400: var(--neutral-400);
+$grey-500: var(--neutral-500);
+$grey-600: var(--neutral-600);
+$grey-700: var(--neutral-700);
+$grey-800: var(--neutral-800);
+$grey-900: var(--neutral-900);
+$white: var(--neutral-0);
+$black: var(--neutral-1000);
+
+//radius tokens
+$radius-0: var(--space-0);
+
+// Semantic colors
+$text-color: $black;
+$bg-color: $white;
+$body-bg-color: $grey-100;
+
+$navbar-bg-color: $white;
+$navbar-color: $black;
+$navbar-min-height: var(--space-9);
+
+$menu-bg-color: $white;
+$menu-color: $black;
+$menu-border-color: $black;
+$menu-border: 1px solid $menu-border-color;
+$menu-text-size: var(--fs-300);
+$menu-radius: $radius-0;
+$menu-shadow: 0.5px 1.6px 1.6px rgb(0 0 0 / 15%);
+
+// Semantic font sizes
+$text-size: var(--fs-300);
+$text-size-small: var(--fs-100);
+
+$max-layout-width: 80rem;

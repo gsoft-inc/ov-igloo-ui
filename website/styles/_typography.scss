@@ -1,0 +1,32 @@
+@use 'tokens' as token;
+
+body {
+  line-height: 1.5;
+}
+
+.io-layout {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    // Help prevent overflow of long words/names/URLs
+    word-break: break-word;
+
+    // Optional, not supported for all languages:
+    hyphens: auto;
+
+    // Clear top margin
+    margin-top: 0;
+    margin-bottom: 0.65em;
+    line-height: calc(2px + 2ex + 2px);
+  }
+
+  p {
+    font-size: token.$text-size;
+  }
+
+  small {
+    font-size: token.$text-size-small;
+  }
+}

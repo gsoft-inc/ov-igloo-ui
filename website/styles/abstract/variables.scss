@@ -1,0 +1,45 @@
+@use '../tokens' as token;
+@use '../base/colors' as color;
+@use '../base/types' as fonts;
+@use '../base/sizes' as size;
+@use '../base/media-query' as media;
+@use '../abstract/function' as function;
+
+:root {
+  // Set the colors variables
+  @each $color-name, $values in token.$active-theme {
+    @each $shade-name, $shade-value in $values {
+      --#{$color-name}-#{$shade-name}: #{$shade-value};
+    }
+  }
+
+  // Dark/Light colors
+  @include color.colorSchem() {
+    @each $color-name, $values in color.$dark-theme {
+      @each $shade-name, $shade-value in $values {
+        --#{$color-name}-#{$shade-name}: #{$shade-value};
+      }
+    }
+  }
+
+  // Set the font-size variables
+  @each $screen-size, $font-size in fonts.$types {
+    @if $screen-size == small {
+      @each $size, $value in $font-size {
+        --fs-#{$size}: #{function.rebase($value)};
+      }
+    }
+    @else {
+      @include media.mq(medium) {
+        @each $size, $value in $font-size {
+          --fs-#{$size}: #{function.rebase($value)};
+        }
+      }
+    }
+  }
+
+  // Set the sizes
+  @each $size-name, $value in size.$spaces {
+    --space-#{$size-name}: #{function.rebase($value)};
+  }
+}

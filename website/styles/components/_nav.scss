@@ -1,45 +1,119 @@
-@use '../variables' as var;
+//@use '../variables' as var;
+@use "../tokens" as token;
 
 .io-nav {
-  font-size: var(--fs-300);
-  font-weight: 400;
-
   &__list {
+    justify-content: center;
     display: flex;
     list-style: none;
+    gap: token.$space-2;
     margin: 0;
     padding: 0;
   }
 
-  &__item:not(:first-child) {
-    margin-left: var.$size-2;
-  }
-
-  &__link:hover {
-    text-decoration: underline;
-  }
-
-  &__item--icon {
+  &__item {
     display: flex;
     align-items: center;
+    justify-content: center;
+    font-size: token.$menu-text-size;
+    background-color: token.$menu-bg-color;
+    color: token.$menu-color;
+    padding: token.$space-1 token.$space-2;
+    border: 1px solid transparent;
+    border-radius: token.$radius-0;
 
-    span {
-      display: none;
+    &:hover {
+      cursor: pointer;
+      border: token.$menu-border;
+      box-shadow: 2px 2px 0 token.$menu-border-color;
+    }
+
+    &.is-active {
+      font-weight: 700;
     }
   }
 }
 
-.io-subnav {
-  position: sticky;
-  top: var.$navbar + var.$size-3;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: var(--fs-300);
-  line-height: 2;
+.io-external-link {
+  justify-content: flex-end;
 
-  a:hover,
-  a.is-active {
-    text-decoration: underline;
+  &.io-nav__list {
+    gap: token.$space-1;
+  }
+
+  .io-nav__item {
+    padding: token.$space-1;
+  }
+
+  .is-hidden {
+    display: none;
   }
 }
+
+//.io-external-link {
+//  display: flex;
+//  gap: token.$space-2;
+//  list-style: none;
+//  margin: 0;
+//  padding: 0;
+//
+//  &__item {
+//    display: flex;
+//    align-items: center;
+//
+//    .io-link-icon {
+//      display: inline-flex;
+//      width: 16px;
+//      height: 16px;
+//    }
+//
+//    .is-hidden {
+//      display: none;
+//    }
+//
+//  }
+//}
+
+//.io-nav {
+//  font-size: var(--fs-300);
+//  font-weight: 400;
+//
+//  &__list {
+//    display: flex;
+//    list-style: none;
+//    margin: 0;
+//    padding: 0;
+//  }
+//
+//  &__item:not(:first-child) {
+//    margin-left: var.$size-2;
+//  }
+//
+//  &__link:hover {
+//    text-decoration: underline;
+//  }
+//
+//  &__item--icon {
+//    display: flex;
+//    align-items: center;
+//
+//    span {
+//      display: none;
+//    }
+//  }
+//}
+//
+//.io-subnav {
+//  position: sticky;
+//  top: var.$navbar + var.$size-3;
+//  list-style: none;
+//  margin: 0;
+//  padding: 0;
+//  font-size: var(--fs-300);
+//  line-height: 2;
+//
+//  a:hover,
+//  a.is-active {
+//    text-decoration: underline;
+//  }
+//}

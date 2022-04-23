@@ -1,0 +1,43 @@
+$light-theme: (
+  neutral: (
+    0: #ffffff,
+    100: #F8F9FA,
+    200: #E9ECEF,
+    300: #DEE2E6,
+    400: #CED4DA,
+    500: #ADB5BD,
+    600: #6C757D,
+    700: #495057,
+    800: #343A40,
+    900: #212529,
+    1000: #050506,
+  )
+);
+
+$dark-theme: (
+  neutral: (
+    0: #050506,
+    100: #212529,
+    200: #343A40,
+    300: #495057,
+    400: #6C757D,
+    500: #ADB5BD,
+    600: #CED4DA,
+    700: #DEE2E6,
+    800: #E9ECEF,
+    900: #F8F9FA,
+    1000: #ffffff,
+  )
+);
+
+@mixin colorSchem {
+  @media (prefers-color-scheme: dark) {
+    :root {
+      @content
+    }
+  };
+
+  [data-theme="dark"] {
+    @content
+  };
+}

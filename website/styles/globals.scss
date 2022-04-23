@@ -1,9 +1,12 @@
+@use 'abstract/variables';
+@use 'tokens' as token;
+
 @use 'components';
 @use 'layout';
-@use 'typo';
+@use 'typography';
 
 html {
-  font-size: 16px;
+  font-size: 10px;
   scroll-behavior: smooth;
 }
 
@@ -14,6 +17,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   text-rendering: optimizeLegibility;
+  background: token.$bg-color;
+  color: token.$text-color;
 }
 
 a {
