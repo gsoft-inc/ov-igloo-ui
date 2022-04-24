@@ -1,14 +1,20 @@
 //@use '../variables' as var;
 @use "../tokens" as token;
+@use "../base/media-query" as media;
 
 .io-nav {
   &__list {
-    justify-content: center;
+    justify-content: flex-end;
     display: flex;
     list-style: none;
-    gap: token.$space-2;
+    gap: token.$space-0;
     margin: 0;
     padding: 0;
+
+    @include media.mq(medium) {
+      justify-content: center;
+      gap: token.$space-2;
+    }
   }
 
   &__item {
@@ -18,9 +24,13 @@
     font-size: token.$menu-text-size;
     background-color: token.$menu-bg-color;
     color: token.$menu-color;
-    padding: token.$space-1 token.$space-2;
+    padding: token.$space-1;
     border: 1px solid transparent;
     border-radius: token.$radius-0;
+
+    @include media.mq(medium) {
+      padding-inline: token.$space-2;
+    }
 
     &:hover {
       cursor: pointer;
@@ -35,7 +45,12 @@
 }
 
 .io-external-link {
+  display: none;
   justify-content: flex-end;
+
+  @include media.mq(medium) {
+    display: flex;
+  }
 
   &.io-nav__list {
     gap: token.$space-1;
