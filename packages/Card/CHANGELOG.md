@@ -30,7 +30,7 @@
 
 - fa1a096: ## Card component
 
-  Cards are used a the background that contains elements of a parent ensemble.
+  Cards are used as a visual container for a subgroup of elements in a parent container.
 
   ### Component API
 
