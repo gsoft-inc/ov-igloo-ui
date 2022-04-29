@@ -34,7 +34,7 @@ export interface ModalProps extends OverlayProps, AriaDialogProps {
   onClose?: () => void;
   /** The content for the aria-label on the close button */
   closeBtnAriaLabel?: string;
-  //** Remove the default padding and the title from the modal */
+  //* * Remove the default padding and the title from the modal */
   withSpace?: boolean;
 }
 
