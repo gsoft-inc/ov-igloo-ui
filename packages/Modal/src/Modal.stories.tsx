@@ -82,7 +82,7 @@ export const Sizes = () => {
           isClosable
           isOpen={showModal}
           // @ts-ignore
-          size={open}
+          size={show}
           closeButtonLabel={`Close`}
           onClose={() => setShow('')}
         >
