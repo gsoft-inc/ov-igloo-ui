@@ -18,13 +18,23 @@ import './modal.scss';
 export type Size = 'small' | 'medium' | 'large' | 'xlarge';
 
 export interface ModalProps extends OverlayProps, AriaDialogProps {
+  /** The content to display inside the modal */
   children: React.ReactNode;
+  /** Add a specific class to the modal */
   className?: string;
+  /** Changes the modal width */
   size?: Size;
+  /** The content for the title of the modal */
   title?: string;
+  /** Render the close button */
   isClosable?: boolean;
+  /** Whether the modal is open or not */
+  isOpen: boolean;
+  /** Handler that is called when the overlay should close. */
   onClose?: () => void;
-  closeButtonLabel?: string;
+  /** The content for the aria-label on the close button */
+  closeBtnAriaLabel?: string;
+  //** Remove the default padding and the title from the modal */
   withSpace?: boolean;
 }
 
@@ -32,7 +42,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
   const {
     children,
     className,
-    closeButtonLabel,
+    closeBtnAriaLabel,
     title,
     onClose,
     isClosable,
@@ -54,21 +64,23 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
 
   const modal = (
     <div className="ids-overlay" {...underlayProps}>
-      <div {...overlayProps} {...dialogProps} ref={ref} className={classes}>
-        <div className="ids-modal__header">
-          {title && <h5 className="ids-modal__title">{title}</h5>}
-          {isClosable && (
-            <IconButton
-              size="small"
-              className="ids-modal__close"
-              onClick={onClose}
-              appearance="ghost"
-              aria-label={closeButtonLabel}
-              icon={<Close />}
-            />
-          )}
+      <div className="ids-modal__container">
+        <div {...overlayProps} {...dialogProps} ref={ref} className={classes}>
+          <div className="ids-modal__header">
+            {title && <h5 className="ids-modal__title">{title}</h5>}
+            {isClosable && (
+              <IconButton
+                size="small"
+                className="ids-modal__close"
+                onClick={onClose}
+                appearance="ghost"
+                aria-label={closeBtnAriaLabel}
+                icon={<Close />}
+              />
+            )}
+          </div>
+          <div className="ids-modal__content">{children}</div>
         </div>
-        <div className="ids-modal__content">{children}</div>
       </div>
     </div>
   );

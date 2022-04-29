@@ -27,7 +27,7 @@ describe('Modal', () => {
 
   test('It should render the close button', () => {
     render(
-      <Modal isOpen isClosable closeButtonLabel="close">
+      <Modal isOpen isClosable closeBtnAriaLabel="close">
         Modal content
       </Modal>
     );

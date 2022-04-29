@@ -17,6 +17,9 @@ export default {
   parameters: {
     description: readme,
   },
+  argTypes: {
+    size: { table: { defaultValue: { summary: 'small' } } },
+  },
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = (args) => {
@@ -83,7 +86,7 @@ export const Sizes = () => {
           isOpen={showModal}
           // @ts-ignore
           size={show}
-          closeButtonLabel={`Close`}
+          closeBtnAriaLabel={`Close`}
           onClose={() => setShow('')}
         >
           Modal content

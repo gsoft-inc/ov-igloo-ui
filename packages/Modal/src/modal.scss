@@ -7,6 +7,7 @@
   --ids-modal-background: #{tokens.$samoyed};
   --ids-modal-text: #{tokens.$black};
   --ids-modal-padding: #{tokens.$space-3};
+  --ids-modal-safe-area: #{tokens.$space-0};
   --ids-modal-index: #{tokens.$z-index-max};
   --ids-modal-shadow: none;
   --ids-modal-radius: 0;
@@ -43,6 +44,8 @@
     --ids-modal-close-margin: #{tokens.$space-0};
     --ids-modal-close-align: flex-end;
     --ids-modal-padding: #{tokens.$space-5};
+    --ids-modal-safe-area: #{tokens.$space-3};
+    --ids-modal-safe-height: center;
     --ids-modal-with-space-padding: #{tokens.$space-3};
     --ids-modal-with-space-display: none;
   }
@@ -61,10 +64,20 @@
   z-index: var(--ids-modal-overlay-index);
 }
 
-.ids-modal {
-  position: var(--ids-modal-position);
+.ids-modal__container {
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   bottom: 0;
+  padding: var(--ids-modal-safe-area);
+  display: flex;
+  justify-content: center;
+  align-items: var(--ids-modal-safe-height, initial);
+}
+
+.ids-modal {
+  max-height: 100%;
   width: var(--ids-modal-width);
   overflow-y: auto;
   font-family: var(--ids-modal-font-family);
