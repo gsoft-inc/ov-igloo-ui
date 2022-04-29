@@ -1,0 +1,139 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  --ids-modal-font-family: #{tokens.$primary-font-family};
+  --ids-modal-font-size: #{tokens.$font-size-4};
+  --ids-modal-background: #{tokens.$samoyed};
+  --ids-modal-text: #{tokens.$black};
+  --ids-modal-padding: #{tokens.$space-3};
+  --ids-modal-index: #{tokens.$z-index-max};
+  --ids-modal-shadow: none;
+  --ids-modal-radius: 0;
+  --ids-modal-width: 100%;
+  --ids-modal-position: fixed;
+
+  --ids-modal-header-before-display: block;
+  --ids-modal-header-border: 1px solid #{tokens.$grey-200};
+  --ids-modal-header-width: calc(#{tokens.$space-3} + #{tokens.$space-4});
+  --ids-modal-header-height: #{tokens.$space-8};
+  --ids-modal-header-font-size: #{tokens.$font-size-4};
+  --ids-modal-header-font-weight: #{tokens.$font-weight-bold};
+  --ids-modal-header-padding: #{tokens.$space-0} #{tokens.$space-3};
+
+  --ids-modal-close-margin: #{tokens.$space-3};
+
+  --ids-modal-overlay: rgba(25, 34, 47, 0.5);
+  --ids-modal-overlay-index: #{tokens.$z-index-100};
+
+  --ids-modal-with-space-display: flex;
+}
+
+@media (min-width: #{tokens.$breakpoints-sm}) {
+  :root {
+    --ids-modal-position: relative;
+    --ids-modal-radius: #{tokens.$border-radius-sm};
+    --ids-modal-shadow: #{tokens.$shadow-12};
+    --ids-modal-width: 46rem;
+    --ids-modal-width-medium: 58.4rem;
+    --ids-modal-width-large: 66.4rem;
+    --ids-modal-width-xlarge: 80rem;
+
+    --ids-modal-header-before-display: none;
+    --ids-modal-header-direction: column-reverse;
+    --ids-modal-header-border: none;
+    --ids-modal-header-height: auto;
+    --ids-modal-header-padding: #{tokens.$space-3} #{tokens.$space-3} #{tokens.$space-2};
+
+    --ids-modal-title-display: none;
+
+    --ids-modal-close-margin: #{tokens.$space-0};
+    --ids-modal-close-align: flex-end;
+
+    --ids-modal-padding: #{tokens.$space-5};
+    --ids-modal-with-space-padding: #{tokens.$space-3};
+    --ids-modal-with-space-display: none;
+  }
+}
+
+.ids-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--ids-modal-overlay);
+  z-index: var(--ids-modal-overlay-index);
+}
+
+.ids-modal {
+  position: var(--ids-modal-position);
+  top: 0;
+  bottom: 0;
+  width: var(--ids-modal-width);
+  overflow-y: auto;
+  font-family: var(--ids-modal-font-family);
+  font-size: var(--ids-modal-font-size);
+  color: var(--ids-modal-text);
+  border-radius: var(--ids-modal-radius);
+  background-color: var(--ids-modal-background);
+  z-index: var(--ids-modal-index);
+  box-sizing: border-box;
+
+  &--medium {
+    width: var(--ids-modal-width-medium, 100%);
+  }
+
+  &--large {
+    width: var(--ids-modal-width-large, 100%);
+  }
+
+  &--xlarge {
+    width: var(--ids-modal-width-xlarge, 100%);
+  }
+}
+
+.ids-modal__header {
+  .ids-modal--with-header & {
+    position: relative;
+    display: flex;
+    flex-direction: var(--ids-modal-header-direction, initial);
+    align-items: center;
+    padding: var(--ids-modal-header-padding);
+    border-bottom: var(--ids-modal-header-border);
+    min-height: var(--ids-modal-header-height);
+  }
+
+  &:before {
+    content: '';
+    display: var(--ids-modal-header-display);
+    min-width: var(--ids-modal-header-width);
+  }
+
+  .ids-modal--with-space & {
+    display: var(--ids-modal-with-space-display);
+  }
+}
+
+.ids-modal__title {
+  flex: 1 1 100%;
+  text-align: center;
+  font-size: var(--ids-modal-header-font-size);
+  margin: 0;
+}
+
+.ids-modal__close {
+  margin-left: var(--ids-modal-close-margin);
+  align-self: var(--ids-modal-close-align, initial);
+}
+
+.ids-modal__content {
+  padding: var(--ids-modal-padding);
+
+  .ids-modal--with-space & {
+    --ids-modal-padding: #{tokens.$space-3};
+  }
+}
