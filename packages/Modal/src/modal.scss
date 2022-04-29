@@ -12,7 +12,6 @@
   --ids-modal-radius: 0;
   --ids-modal-width: 100%;
   --ids-modal-position: fixed;
-
   --ids-modal-header-before-display: block;
   --ids-modal-header-border: 1px solid #{tokens.$grey-200};
   --ids-modal-header-width: calc(#{tokens.$space-3} + #{tokens.$space-4});
@@ -20,12 +19,9 @@
   --ids-modal-header-font-size: #{tokens.$font-size-4};
   --ids-modal-header-font-weight: #{tokens.$font-weight-bold};
   --ids-modal-header-padding: #{tokens.$space-0} #{tokens.$space-3};
-
   --ids-modal-close-margin: #{tokens.$space-3};
-
-  --ids-modal-overlay: rgba(25, 34, 47, 0.5);
+  --ids-modal-overlay: rgb(25 34 47 / 50%);
   --ids-modal-overlay-index: #{tokens.$z-index-100};
-
   --ids-modal-with-space-display: flex;
 }
 
@@ -38,18 +34,14 @@
     --ids-modal-width-medium: 58.4rem;
     --ids-modal-width-large: 66.4rem;
     --ids-modal-width-xlarge: 80rem;
-
     --ids-modal-header-before-display: none;
     --ids-modal-header-direction: column-reverse;
     --ids-modal-header-border: none;
     --ids-modal-header-height: auto;
     --ids-modal-header-padding: #{tokens.$space-3} #{tokens.$space-3} #{tokens.$space-2};
-
     --ids-modal-title-display: none;
-
     --ids-modal-close-margin: #{tokens.$space-0};
     --ids-modal-close-align: flex-end;
-
     --ids-modal-padding: #{tokens.$space-5};
     --ids-modal-with-space-padding: #{tokens.$space-3};
     --ids-modal-with-space-display: none;
@@ -107,7 +99,7 @@
     min-height: var(--ids-modal-header-height);
   }
 
-  &:before {
+  &::before {
     content: '';
     display: var(--ids-modal-header-display);
     min-width: var(--ids-modal-header-width);

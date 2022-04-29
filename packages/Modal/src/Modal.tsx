@@ -40,11 +40,11 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     size = 'small',
   } = props;
 
-  let ref = React.useRef<HTMLDivElement>(null);
-  let { overlayProps, underlayProps } = useOverlay(props, ref);
+  const ref = React.useRef<HTMLDivElement>(null);
+  const { overlayProps, underlayProps } = useOverlay(props, ref);
 
   usePreventScroll();
-  let { dialogProps } = useDialog(props, ref);
+  const { dialogProps } = useDialog(props, ref);
 
   const classes = cx('ids-modal', className, {
     [`ids-modal--${size}`]: size !== 'small',
