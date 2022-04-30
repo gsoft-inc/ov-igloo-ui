@@ -12,7 +12,6 @@
   --ids-modal-shadow: none;
   --ids-modal-radius: 0;
   --ids-modal-width: 100%;
-  --ids-modal-position: fixed;
   --ids-modal-header-before-display: block;
   --ids-modal-header-border: 1px solid #{tokens.$grey-200};
   --ids-modal-header-width: calc(#{tokens.$space-3} + #{tokens.$space-4});
@@ -28,7 +27,6 @@
 
 @media (min-width: #{tokens.$breakpoints-sm}) {
   :root {
-    --ids-modal-position: relative;
     --ids-modal-radius: #{tokens.$border-radius-sm};
     --ids-modal-shadow: #{tokens.$shadow-12};
     --ids-modal-width: 46rem;
@@ -85,6 +83,7 @@
   color: var(--ids-modal-text);
   border-radius: var(--ids-modal-radius);
   background-color: var(--ids-modal-background);
+  box-shadow: var(--ids-modal-shadow);
   z-index: var(--ids-modal-index);
   box-sizing: border-box;
 
@@ -114,7 +113,7 @@
 
   &::before {
     content: '';
-    display: var(--ids-modal-header-display);
+    display: var(--ids-modal-header-before-display);
     min-width: var(--ids-modal-header-width);
   }
 
@@ -127,6 +126,7 @@
   flex: 1 1 100%;
   text-align: center;
   font-size: var(--ids-modal-header-font-size);
+  font-weight: var(--ids-modal-header-font-weight);
   margin: 0;
 }
 
