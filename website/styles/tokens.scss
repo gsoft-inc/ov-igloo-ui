@@ -1,4 +1,5 @@
 @use "base/colors" as color;
+@use "abstract/function" as *;
 
 // active color theme
 $active-theme: color.$light-theme;
@@ -28,9 +29,18 @@ $grey-800: var(--neutral-800);
 $grey-900: var(--neutral-900);
 $white: var(--neutral-0);
 $black: var(--neutral-1000);
+$green: #09a198;
+$yellow: #ffc737;
+$pink: #ff8ea9;
 
 //radius tokens
 $radius-0: var(--space-0);
+$radius-1: rebase(0.5rem);
+$radius-2: rebase(0.25rem);
+
+// layout tokens
+$layout-medium: rebase(80rem);
+$layout-small: rebase(50rem);
 
 // Semantic colors
 $text-color: $black;
@@ -41,16 +51,22 @@ $navbar-bg-color: $white;
 $navbar-color: $black;
 $navbar-min-height: var(--space-9);
 
+$hero-space: $space-10 0 rebase(8rem) 0;
+
 $menu-bg-color: $white;
 $menu-color: $black;
 $menu-border-color: $black;
 $menu-border: 1px solid $menu-border-color;
-$menu-text-size: var(--fs-300);
+$menu-text-size: 1.6rem;
 $menu-radius: $radius-0;
 $menu-shadow: 0.5px 1.6px 1.6px rgb(0 0 0 / 15%);
+$code-bg-color: var(--code-300);
+$code-color: var(--code-700);
+$button-copy-border: rgba(205, 217, 229, 0.2);
+$button-copy-color: #a7adb3;
 
 // Semantic font sizes
 $text-size: var(--fs-300);
 $text-size-small: var(--fs-100);
 
-$max-layout-width: 80rem;
+$max-layout-width: $layout-medium;

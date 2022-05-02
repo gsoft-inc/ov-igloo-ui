@@ -1,15 +1,15 @@
-@use '../variables' as var;
+@use '../tokens' as token;
 
 .io-highlighter {
   position: relative;
 
   &__syntax {
-    border-radius: var.$br-2;
-    padding: var.$size-2 !important;
+    border-radius: token.$radius-2;
+    padding: token.$space-2 !important;
   }
 
   &__action {
     position: absolute;
-    inset: var.$size-1 var.$size-1 auto auto;
+    inset: token.$space-1 token.$space-1 auto auto;
   }
 }

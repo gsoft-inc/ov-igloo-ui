@@ -1,27 +1,27 @@
-@use '../variables' as var;
+@use '../tokens' as token;
 
 .io-tag {
   display: inline-flex;
   align-items: center;
   font-size: var(--fs-050, var(--fs-100));
   text-align: center;
-  border-radius: var.$size-2;
-  min-height: var.$size-2;
-  padding: 0 var.$size-1;
-  background: var.$c-grey-200;
+  border-radius: token.$space-2;
+  min-height: token.$space-2;
+  padding: 0 token.$space-1;
+  background: token.$grey-200;
 
   &--ready {
-    color: var.$c-white;
-    background: var.$c-green;
+    color: token.$white;
+    background: token.$green;
   }
 
   &--beta {
-    background: var.$c-yellow;
+    background: token.$yellow;
   }
 
   &--ghost {
     line-height: 1.5;
-    border: 1px solid var.$c-grey-300;
+    border: 1px solid token.$grey-300;
     background: transparent;
   }
 }

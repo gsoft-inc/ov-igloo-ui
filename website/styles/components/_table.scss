@@ -1,22 +1,23 @@
-@use '../variables' as var;
+@use '../abstract/function' as *;
+@use '../tokens' as token;
 
 .io-tokens__table {
   font-size: var(--fs-100);
   width: 100%;
-  margin: var.$size-3 0 var.$size-8 0;
+  margin: token.$space-3 0 token.$space-8 0;
 
   th,
   td {
     font-weight: normal;
     text-align: left;
-    padding: var.$size-0 0;
+    padding: token.$space-0 0;
     margin: 0;
   }
 
   td {
     font-size: var(--fs-100);
     border: 0;
-    border-top: 1px solid var.$c-grey-200;
+    border-top: 1px solid token.$grey-200;
   }
 
   td:first-child {
@@ -29,7 +30,7 @@
   }
 
   td:last-child {
-    width: 8rem;
+    width: rebase(8rem);
 
     > * {
       float: right;
@@ -39,10 +40,10 @@
 
 .io-tokens__preview {
   text-align: right;
-  width: var.$size-5;
-  height: var.$size-3;
-  border-radius: var.$br-2;
-  background: var.$c-grey-200;
+  width: token.$space-5;
+  height: token.$space-3;
+  border-radius: token.$radius-2;
+  background: token.$grey-200;
 }
 
 .io-preview {
@@ -54,18 +55,18 @@
   }
 
   &--space {
-    height: var.$size-2;
-    border-radius: var.$br-2;
-    background: var.$c-code-bg;
+    height: token.$space-2;
+    border-radius: token.$radius-2;
+    background: token.$code-bg-color;
   }
 
   &--lineHeight {
-    padding: 0 var.$size-0;
+    padding: 0 token.$space-0;
   }
 
   &--lineHeight,
   &--border {
-    border: 1px solid var.$c-grey-300;
+    border: 1px solid token.$grey-300;
   }
 
   &--empty,

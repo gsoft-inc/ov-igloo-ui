@@ -2,19 +2,30 @@
 @use "../tokens" as token;
 @use "../base/media-query" as media;
 
+:root {
+  --io-nav-list-gap: #{token.$space-0};
+  --io-nav-list-justify: flex-end;
+  --io-nav-list-item: #{token.$space-1};
+  --io-external-link-position: none;
+}
+
+@include media.mq(medium) {
+  :root {
+    --io-nav-list-gap: #{token.$space-2};
+    --io-nav-list-justify: center;
+    --io-nav-list-item: 0 #{token.$space-2};
+    --io-external-link-position: flex;
+  }
+}
+
 .io-nav {
   &__list {
-    justify-content: flex-end;
+    justify-content: var(--io-nav-list-justify);
     display: flex;
     list-style: none;
-    gap: token.$space-0;
+    gap: var(--io-nav-list-gap);
     margin: 0;
     padding: 0;
-
-    @include media.mq(medium) {
-      justify-content: center;
-      gap: token.$space-2;
-    }
   }
 
   &__item {
@@ -24,13 +35,9 @@
     font-size: token.$menu-text-size;
     background-color: token.$menu-bg-color;
     color: token.$menu-color;
-    padding: token.$space-1;
+    padding: var(--io-nav-list-item);
     border: 1px solid transparent;
     border-radius: token.$radius-0;
-
-    @include media.mq(medium) {
-      padding-inline: token.$space-2;
-    }
 
     &:hover {
       cursor: pointer;
@@ -45,12 +52,8 @@
 }
 
 .io-external-link {
-  display: none;
+  display: var(--io-external-link-position);
   justify-content: flex-end;
-
-  @include media.mq(medium) {
-    display: flex;
-  }
 
   &.io-nav__list {
     gap: token.$space-1;
@@ -64,6 +67,36 @@
     display: none;
   }
 }
+
+.io-subnav {
+  position: sticky;
+  top: token.$navbar-min-height;
+  font-size: var(--fs-100);
+  color: token.$grey-600;
+  list-style: none;
+  margin: 0;
+  padding: token.$space-2 0 0;
+
+  > li {
+    margin: token.$space-1;
+  }
+
+}
+
+//.io-subnav {
+//  position: sticky;
+//  top: var.$navbar + var.$size-3;
+//  list-style: none;
+//  margin: 0;
+//  padding: 0;
+//  font-size: var(--fs-300);
+//  line-height: 2;
+//
+//  a:hover,
+//  a.is-active {
+//    text-decoration: underline;
+//  }
+//}
 
 //.io-external-link {
 //  display: flex;
@@ -118,17 +151,4 @@
 //  }
 //}
 //
-//.io-subnav {
-//  position: sticky;
-//  top: var.$navbar + var.$size-3;
-//  list-style: none;
-//  margin: 0;
-//  padding: 0;
-//  font-size: var(--fs-300);
-//  line-height: 2;
-//
-//  a:hover,
-//  a.is-active {
-//    text-decoration: underline;
-//  }
-//}
+

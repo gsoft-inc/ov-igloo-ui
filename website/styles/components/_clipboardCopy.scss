@@ -1,9 +1,10 @@
-@use '../variables' as var;
+@use '../abstract/function' as *;
+@use '../tokens' as token;
 
-$btn-size: 2rem;
-$btn-radius: 0.25rem;
-$btn-text: var.$c-black;
-$btn-background: var.$c-white;
+$btn-size: rebase(2rem);
+$btn-radius: rebase(0.25rem);
+$btn-text: token.$black;
+$btn-background: token.$white;
 $btn-border: #e5e5e5;
 
 .io-btn-copy {
@@ -23,8 +24,8 @@ $btn-border: #e5e5e5;
   }
 
   &--dark {
-    color: var.$c-copy-text;
+    color: token.$button-copy-color;
     background: transparent;
-    border-color: var.$c-copy-border;
+    border-color: token.$button-copy-color;
   }
 }

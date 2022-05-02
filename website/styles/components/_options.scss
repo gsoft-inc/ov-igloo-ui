@@ -1,22 +1,24 @@
-@use '../variables' as var;
+@use '../base/media-query' as media;
+@use '../tokens' as token;
+
 
 .io-options {
-  background: var.$c-white;
+  background: token.$white;
   display: grid;
-  gap: var.$size-1;
+  gap: token.$space-1;
   grid-template-columns: 1fr;
   align-items: center;
-  margin-bottom: var.$size-3;
-  padding: var.$size-3 var.$size-2;
-  border-radius: var.$br-1;
-  border: 1px solid var.$c-grey-200;
-  box-shadow: 0 0.25rem 0 0 var.$c-grey-300;
+  margin-bottom: token.$space-3;
+  padding: token.$space-3 token.$space-2;
+  border-radius: token.$radius-1;
+  border: 1px solid token.$grey-200;
+  box-shadow: 0 0.25rem 0 0 token.$grey-300;
 
-  @media (min-width: var.$breakpoint-small) {
+  @include media.mq(small){
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: var.$breakpoint-medium) {
+  @include media.mq(medium){
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -24,23 +26,23 @@
   &__search {
     grid-column: 1;
 
-    @media (min-width: var.$breakpoint-medium) {
+    @include media.mq(medium){
       grid-column: 2;
     }
   }
 
   &__sizes {
-    margin: var.$size-2 auto 0;
+    margin: token.$space-2 auto 0;
 
-    @media (min-width: var.$breakpoint-small) {
+    @include media.mq(small){
       margin: 0;
       justify-self: flex-end;
     }
   }
 
   &--large {
-    margin-left: -(var.$size-4);
-    margin-right: -(var.$size-4);
+    margin-left: -(token.$space-4);
+    margin-right: -(token.$space-4);
     display: flex;
   }
 
@@ -54,47 +56,47 @@
   position: relative;
 
   > svg {
-    color: var.$c-grey-300;
+    color: token.$grey-500;
     position: absolute;
     top: 50%;
-    left: var.$size-1;
+    left: token.$space-1;
     transform: translate(0, -50%);
   }
 
   input {
     width: 100%;
-    padding: var.$size-1 var.$size-2 var.$size-1 var.$size-4;
-    border: 1px solid var.$c-grey-200;
-    border-radius: var.$br-1;
-    font-size: var.$fs-3;
+    padding: token.$space-1 token.$space-2 token.$space-1 token.$space-4;
+    border: 1px solid token.$grey-400;
+    border-radius: token.$radius-1;
+    font-size: var(--fs-300);
 
     &:focus {
       outline: none;
-      border-color: var.$c-grey-300;
+      border-color: token.$grey-600;
     }
   }
 }
 
 .io-select {
-  font-size: var.$fs-4;
-  border: 1px solid var.$c-grey-300;
-  border-radius: 0.25rem;
-  padding: var.$size-0;
-  background: var.$c-white;
+  font-size: var(--fs-200);
+  border: 1px solid token.$grey-400;
+  border-radius: token.$radius-1;
+  padding: token.$space-0;
+  background: token.$white;
 }
 
 .io-btn-group {
   > label {
-    padding: var.$size-1 var.$size-2;
-    background: var.$c-white;
-    border: 1px solid var.$c-grey-200;
-    border-radius: var.$br-1;
-    color: var.$c-grey-300;
+    padding: token.$space-1 token.$space-2;
+    background: token.$white;
+    border: 1px solid token.$grey-400;
+    border-radius: token.$radius-1;
+    color: token.$grey-700;
   }
 
   :checked + label {
-    background: var.$c-grey-400;
-    color: var.$c-white;
+    background: token.$grey-900;
+    color: token.$white;
   }
 
   > label:nth-child(n + 3) {
