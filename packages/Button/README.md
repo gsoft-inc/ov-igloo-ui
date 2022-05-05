@@ -1,19 +1,25 @@
-# @igloo-ui/button
+# Button
 
-Welcome to my `Button` component.
+Buttons are used primarily for actions.
+
+<ButtonDemo />
 
 ## Installation
 
-```sh
-npm i @igloo-ui/button
+Install the component from your command line.
+
+```bash
+npm install @igloo-ui/button
 # or with yarn
 yarn add @igloo-ui/button
 ```
 
-Then to use the component in your code just import it!
+## Usage
 
-```js
-import Button from '@igloo-ui/button';
-// and with css-modules
-import '@igloo-ui/button/dist/button.css';
+Import all parts and piece them together.
+
+```jsx
+import { Button } from '@igloo-ui/button';
+
+<Button>Primary</Button>;
 ```

@@ -122,6 +122,13 @@ const generateDoc = async () => {
   const content = JSON.stringify(componentsName);
   const output = path.join(process.cwd(), BASE_PATH, `components.json`);
   writeFile(content, output);
+
+  const componentProps = path.join(
+    process.cwd(),
+    BASE_PATH,
+    `componentProps.json`
+  );
+  writeFile(JSON.stringify(componentsInfo), componentProps);
 };
 
 generateDoc().catch((error) => console.log('error', error));

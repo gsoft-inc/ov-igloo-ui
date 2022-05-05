@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import cx from 'classnames';
 
 import Header from './Header';
 import Nav from './Nav';
@@ -9,7 +10,7 @@ import github from '../svg/github.svg';
 import slack from '../svg/slack-monochrome.svg';
 import darkMode from '../svg/dark-mode.svg';
 
-export default function Layout({ children }) {
+export default function Layout({ children, page }) {
   const externalLink = [
     {
       href: 'https://github.com/gsoft-inc/ov-igloo-ui',
@@ -28,13 +29,21 @@ export default function Layout({ children }) {
     },
   ];
 
+  let layout;
+  const componentLayout = page.search(/component/) !== -1;
+  if (componentLayout) {
+    layout = 'component';
+  } else {
+    layout = page.replace('/', '');
+  }
+
   return (
     <>
       <Head>
         <title>Igloo Design System</title>
         <link rel="icon" type="image/png" href="/igloo.svg" />
       </Head>
-      <div className="io-layout">
+      <div className={cx('io-layout', layout)}>
         <Header brand={brand} links={externalLink}>
           <Nav items={nav} />
         </Header>

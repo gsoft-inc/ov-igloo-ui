@@ -1,0 +1,35 @@
+@use '../tokens' as token;
+@use '../abstract/function' as *;
+
+.io-mdx__content {
+
+  .io-title {
+    margin-bottom: token.$space-1;
+  }
+
+  .io-title + p {
+    margin: 0;
+  }
+
+
+  .io-title--level2 + p {
+    font-size: var(--fs-400);
+    color: token.$grey-600;
+  }
+
+  .io-title--level4 {
+    margin-top: token.$space-5;
+  }
+}
+
+.example {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: token.$space-3;
+  min-height: rebase(10rem);
+  margin: token.$space-6 rebase(-4rem);
+  border: 1px solid token.$grey-400;
+  border-radius: token.$radius-3;
+  background-color: token.$white;
+}

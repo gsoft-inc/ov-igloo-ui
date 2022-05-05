@@ -1,10 +1,11 @@
 @use '../abstract/function' as *;
 @use '../tokens' as token;
 
-.io-tokens__table {
+.io-table {
   font-size: var(--fs-100);
   width: 100%;
   margin: token.$space-3 0 token.$space-8 0;
+  border-collapse: collapse;
 
   th,
   td {
@@ -20,6 +21,10 @@
     border-top: 1px solid token.$grey-200;
   }
 
+
+}
+
+.io--table--tokens {
   td:first-child {
     width: 40%;
   }

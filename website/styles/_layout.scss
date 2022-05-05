@@ -30,7 +30,6 @@
 .io-layout {
   font-size: token.$text-size;
   width: 100%;
-  max-width: token.$max-layout-width;
   margin: 0 auto;
 }
 
@@ -66,8 +65,15 @@
 
 .io-main {
   width: 100%;
-  margin-top: token.$navbar-min-height;
-  padding: token.$space-4 token.$space-4 0;
+  max-width: token.$max-layout-width;
+  min-height: calc( 100vh - #{token.$navbar-min-height});
+  margin: token.$navbar-min-height auto 0;
+  padding: token.$space-10 token.$space-4 0;
+  box-sizing: border-box;
+
+  .io-layout.component & {
+    max-width: 100%;
+  }
 }
 
 .io-hero {
@@ -142,7 +148,7 @@
 }
 
 .io-list {
-  font-size: var(--fs-400);
+  font-size: var(--fs-500);
   list-style: none;
   margin: token.$space-2 0 0;
   padding: 0;

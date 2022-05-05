@@ -51,7 +51,7 @@ export default function Tokens(props) {
 
   const tokensNav = categories.map((category, index) => {
     return (
-      <li key={index.toString()}>
+      <li className="io-subnav__item" key={index.toString()}>
         <Link href={`/tokens#${category}`}>
           <a className={cx(activeLink === `#${category}` && 'is-active')}>
             {category}
@@ -68,7 +68,9 @@ export default function Tokens(props) {
       </Head>
       <div className="io-section io-section--grid io-section--hasAside">
         <div className="io-aside">
-          <ul className="io-subnav">{tokensNav}</ul>
+          <div className="io-subnav">
+            <ul className="io-subnav__list">{tokensNav}</ul>
+          </div>
         </div>
         <div className="io-tokens">
           <Display icon={iconToken}>

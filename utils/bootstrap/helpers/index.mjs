@@ -17,7 +17,7 @@ export async function checkRequiredProgramsExist(programs) {
 }
 
 export async function copyTemplate(directory) {
-  return await fs.copy('utils/bootstrap/template', directory);
+  return await fs.copy('scripts/bootstrap/template', directory);
 }
 
 export async function readPackageJson(directory) {

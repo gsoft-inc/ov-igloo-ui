@@ -102,7 +102,7 @@ export default function Table({ data, title, options }) {
           {title}
         </Title>
       </div>
-      <table className="io-tokens__table">
+      <table className="io-table io-table--tokens">
         <thead>
           <tr>
             <th>Token</th>
