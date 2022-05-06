@@ -1,10 +1,12 @@
 @use 'tokens' as token;
 @use 'base/media-query' as media;
+@use "abstract/function" as *;
 
 :root {
   --ico-columns: calc(100% / 4);
   --io-header-padding: #{token.$space-2};
   --io-hero-space: #{token.$space-3} 0 #{token.$space-8};
+  --io-main-padding: #{token.$space-7} #{token.$space-3} 0;
   --io-section-grid-gap: #{token.$space-8};
   --io-section-hasAside-display: block;
   --io-aside-display: none;
@@ -17,11 +19,12 @@
     --io-header-padding: 0  #{token.$space-4};
     --io-header-title-width: 70%;
     --io-hero-space: #{token.$hero-space};
+    --io-main-padding: #{token.$space-10} #{token.$space-4} 0 ;
     --io-section-template: repeat(3, 1fr);
     --io-section-grid-gap: #{token.$space-3};
     --io-section-grid-template: 2fr 1fr;
     --io-section-hasAside-display: grid;
-    --io-section-hasAside-template: 1fr #{token.$layout-small} 1fr;
+    --io-section-hasAside-template: 1fr minmax(auto, #{rebase(52rem)}) 1fr;
     --io-aside-display: block;
     --io-contact-direction: row;
   }
@@ -68,7 +71,7 @@
   max-width: token.$max-layout-width;
   min-height: calc( 100vh - #{token.$navbar-min-height});
   margin: token.$navbar-min-height auto 0;
-  padding: token.$space-10 token.$space-4 0;
+  padding: var(--io-main-padding) ;
   box-sizing: border-box;
 
   .io-layout.component & {

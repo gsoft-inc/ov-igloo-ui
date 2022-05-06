@@ -19,7 +19,7 @@
   padding: token.$space-0 token.$space-2;
   min-width: rebase(10rem);
 
-  border: 1px solid transparent;
+  border: 1px solid token.$grey-300;
   border-radius: token.$radius-0;
 
   &:hover {

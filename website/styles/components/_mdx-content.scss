@@ -1,7 +1,25 @@
 @use '../tokens' as token;
 @use '../abstract/function' as *;
+@use '../base/media-query' as media;
+
+:root {
+  --io-example-padding: #{token.$space-3};
+  --io-example-margin: #{token.$space-6} 0;
+  --io-example-direction: column;
+}
+
+@include media.mq(medium) {
+  :root {
+    --io-example-padding: 0;
+    --io-example-margin: #{token.$space-6} #{rebase(-4rem)};
+    --io-example-direction: row;
+  }
+}
 
 .io-mdx__content {
+  width: 100%;
+  max-width: rebase(44rem);
+  margin-inline: auto;
 
   .io-title {
     margin-bottom: token.$space-1;
@@ -24,11 +42,13 @@
 
 .example {
   display: flex;
+  flex-direction: var(--io-example-direction);
   align-items: center;
   justify-content: center;
   gap: token.$space-3;
   min-height: rebase(10rem);
-  margin: token.$space-6 rebase(-4rem);
+  padding: var(--io-example-padding);
+  margin: var(--io-example-margin);
   border: 1px solid token.$grey-400;
   border-radius: token.$radius-3;
   background-color: token.$white;

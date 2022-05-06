@@ -7,7 +7,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 
 import { getComponentAPI } from '../../../utils/generate-api.js';
-import { docsFilePaths } from '../../scripts/mdx-utils';
+import { generateComponentList } from '../../scripts/generate-component-list.js';
 import { generatePagination } from '../../scripts/generate-pagination';
 import { generateDoc } from '../../scripts/generate-doc';
 
@@ -16,11 +16,12 @@ import Code from '../../components/Code';
 import PropsTable from '../../components/PropsTable';
 import Pagination from '../../components/Pagination';
 
+const COMPONENTS_SOURCE = path.join(process.cwd(), '..', 'packages');
+
 export default function DocPage(props) {
   const { source, frontMatter, navItems, componentProps } = props;
   const { title, prev, next, empty } = frontMatter;
 
-  // TODO: intégrer la version mobile.
   // TODO: automatiser l'import des exemples'
   const components = {
     ButtonDemo: dynamic(() =>
@@ -87,9 +88,10 @@ export default function DocPage(props) {
 export const getStaticProps = async ({ params }) => {
   const { slug: component } = params;
 
-  const componentList = require('../../data/components.json');
+  const componentList = generateComponentList(COMPONENTS_SOURCE);
   const { prev, next } = generatePagination(componentList, component);
   const { content, empty } = await generateDoc(component);
+
   const data = { title: component, prev, next, empty };
 
   const componentFiles = path.join(
@@ -109,22 +111,6 @@ export const getStaticProps = async ({ params }) => {
     scope: data,
   });
 
-  /**
-   * mdxSource = {
-   *   compiledSource: '...',
-   *   frontMatter: {}
-   *   scope: {title: '...', preview: '...', next: '...'}
-   * }
-   */
-
-  const componentSource = path.join(
-    process.cwd(),
-    '..',
-    'packages',
-    component,
-    'src'
-  );
-
   return {
     props: {
       source: mdxSource,
@@ -137,7 +123,8 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = docsFilePaths
+  const componentList = generateComponentList(COMPONENTS_SOURCE);
+  const paths = componentList
     .map((path) => path.replace(/\.mdx?$/, ''))
     .map((slug) => ({ params: { slug } }));
 

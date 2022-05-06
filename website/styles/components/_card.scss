@@ -98,6 +98,8 @@ a {
   .io-card--inline {
     box-shadow: none;
     height: auto;
+    padding: token.$space-3;
+    background-color: transparent;
 
     &:hover {
       transform: none;
