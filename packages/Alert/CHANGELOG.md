@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.1.4
+
+### Patch Changes
+
+- b8b8912: fix: remove dependence of tokens.css
+
 ## 0.1.3
 
 ### Patch Changes
