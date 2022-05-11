@@ -2,7 +2,9 @@
 
 Buttons are used primarily for actions.
 
-<ButtonDemo />
+<Example />
+
+<ReferenceLinks />
 
 ## Installation
 
@@ -16,7 +18,7 @@ yarn add @igloo-ui/button
 
 ## Usage
 
-Import all parts and piece them together.
+Then to use the component in your code just import it!
 
 ```jsx
 import { Button } from '@igloo-ui/button';

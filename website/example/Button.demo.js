@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@igloo-ui/button';
 
-export default function ButtonDemo() {
+export default function Example() {
   return (
     <div className="example">
       <Button appearance="primary">Primary</Button>
