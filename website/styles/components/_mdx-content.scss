@@ -10,7 +10,7 @@
 
 @include media.mq(medium) {
   :root {
-    --io-example-padding: 0;
+    --io-example-padding: #{token.$space-5} 0;
     --io-example-margin: #{token.$space-6} #{rebase(-4rem)};
     --io-example-direction: row;
   }
@@ -28,7 +28,6 @@
   .io-title + p {
     margin: 0;
   }
-
 
   .io-title--level2 + p {
     font-size: var(--fs-400);

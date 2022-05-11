@@ -7,8 +7,6 @@ import Code from './Code';
 export default function PropsTable({ data, showTitle }) {
   const { displayName, props } = data;
 
-  console.log(data);
-
   const getReadableType = (type) => {
     switch (type.name) {
       case 'enum':

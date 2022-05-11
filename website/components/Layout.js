@@ -18,7 +18,7 @@ export default function Layout({ children, page }) {
       label: 'GitHub',
     },
     {
-      href: 'https://github.com/gsoft-inc/ov-igloo-ui',
+      href: 'https://gsoft.slack.com/archives/C0225DYUSH1',
       icon: slack,
       label: 'Slack',
     },

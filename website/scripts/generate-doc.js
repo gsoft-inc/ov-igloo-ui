@@ -12,25 +12,16 @@ const checkFileExists = async (filePath) => {
   }
 };
 
-const getComponentContent = async (readmePath, apiPath) => {
-  if (!readmePath && !apiPath) {
+const getComponentContent = async (readmePath) => {
+  if (!readmePath) {
     return null;
   }
 
-  let readme = '';
-  let api = '';
-  if (await checkFileExists(readmePath)) {
-    readme = fs.readFileSync(readmePath);
-  }
+  const readme = fs.readFileSync(readmePath);
 
-  if (await checkFileExists(apiPath)) {
-    api = fs.readFileSync(apiPath);
-  }
-
-  // const { content } = matter(readme + api);
   const { content } = matter(readme);
 
-  return { content, empty: api === '' && readme === '' };
+  return { content, empty: content === '' };
 };
 
 export const generateDoc = async (component) => {
@@ -40,7 +31,8 @@ export const generateDoc = async (component) => {
     component,
     'README.md'
   );
-  const DATA_PATH = path.join(process.cwd(), 'data/files/', `${component}.mdx`);
 
-  return await getComponentContent(README_PATH, DATA_PATH);
+  const hasReadme = await checkFileExists(README_PATH);
+
+  return hasReadme ? await getComponentContent(README_PATH) : null;
 };

@@ -1,0 +1,36 @@
+@use '../tokens' as token;
+
+.reference__wrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-100);
+  margin: token.$space-8 0 token.$space-6;
+  padding-bottom: token.$space-2;
+  color: token.$grey-600;
+  border-bottom: 1px solid token.$grey-300;
+}
+
+.reference {
+  font-size: var(--fs-100);
+  display: flex;
+  justify-content: flex-end;
+  gap: token.$space-3;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reference__link {
+  display: flex;
+  align-items: center;
+  gap: token.$space-0;
+
+  &:hover {
+    color: token.$grey-900;
+  }
+}
+
+.reference__img {
+  width: token.$space-1;
+  height: token.$space-1;
+}
