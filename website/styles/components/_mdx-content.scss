@@ -22,7 +22,7 @@
   margin-inline: auto;
 
   .io-title {
-    margin-bottom: token.$space-1;
+    margin-bottom: token.$space-2;
   }
 
   .io-title + p {
@@ -36,6 +36,15 @@
 
   .io-title--level4 {
     margin-top: token.$space-5;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  pre {
+    margin-top: token.$space-0;
+    margin-bottom: token.$space-3;
   }
 }
 

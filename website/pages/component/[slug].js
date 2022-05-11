@@ -42,7 +42,14 @@ export default function DocPage(props) {
       : null,
     h1: (props) => <Title as="h1" level={2} {...props} />,
     h2: (props) => <Title as="h2" level={4} {...props} />,
-    code: (props) => <Code language="jsx">{props.children}</Code>,
+    code: (props) => {
+      const isInlineCode = props.className === undefined;
+      return (
+        <Code inline={isInlineCode} language={props.className}>
+          {props.children}
+        </Code>
+      );
+    },
   };
 
   return (
