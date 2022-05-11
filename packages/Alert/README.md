@@ -8,9 +8,15 @@ Informs user about important changes or persistent conditions. Use this componen
 
 ## Installation
 
+To install `@igloo-ui/alert` in your project, you will need to run the following command using [npm](https://www.npmjs.com/):
+
 ```bash
 npm install @igloo-ui/alert
-# or with yarn
+```
+
+If you prefer [Yarn](https://classic.yarnpkg.com/en/), use the following command instead:
+
+```bash
 yarn add @igloo-ui/alert
 ```
 
@@ -18,10 +24,8 @@ yarn add @igloo-ui/alert
 
 Then to use the component in your code just import it!
 
-```js
+```jsx
 import Alert from '@igloo-ui/alert';
-// and with css-modules
-import '@igloo-ui/alert/dist/alert.css';
 
-<Alert title="Alert title" message="Alert message" />;
+<Alert type="info" title="Alert title" message="Alert message" />;
 ```

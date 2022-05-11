@@ -8,11 +8,15 @@ Buttons are used primarily for actions.
 
 ## Installation
 
-Install the component from your command line.
+To install `@igloo-ui/button` in your project, you will need to run the following command using [npm](https://www.npmjs.com/):
 
 ```bash
 npm install @igloo-ui/button
-# or with yarn
+```
+
+If you prefer [Yarn](https://classic.yarnpkg.com/en/), use the following command instead:
+
+```bash
 yarn add @igloo-ui/button
 ```
 

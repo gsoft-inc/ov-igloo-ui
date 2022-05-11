@@ -1,19 +1,28 @@
-# @igloo-ui/icon-button
+# IconButton
 
-Welcome to my `icon-button` component.
+IconButton are used primarily for actions.
 
 ## Installation
 
-```sh
-npm i @igloo-ui/icon-button
-# or with yarn
+To install `@igloo-ui/icon-button` in your project, you will need to run the following command using [npm](https://www.npmjs.com/):
+
+```bash
+npm install @igloo-ui/icon-button
+```
+
+If you prefer [Yarn](https://classic.yarnpkg.com/en/), use the following command instead:
+
+```bash
 yarn add @igloo-ui/icon-button
 ```
 
+## Usage
+
 Then to use the component in your code just import it!
 
-```js
+```jsx
 import IconButton from '@igloo-ui/icon-button';
-// and with css-modules
-import '@igloo-ui/icon-button/dist/icon-button.css';
+import Plus from '@igloo-ui/icons/dist/Plus';
+
+<IconButton icon={<Plus size="small" />} />;
 ```

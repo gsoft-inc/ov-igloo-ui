@@ -1,19 +1,29 @@
-# @igloo-ui/tooltip
+# Tooltip
 
-Welcome to my `Tooltip` component.
+Tooltips are floating labels that briefly explain the function of a user interface element. They can be triggered when users hover, focus, tap, or click.
+
+<ReferenceLinks />
 
 ## Installation
 
-```sh
-npm i @igloo-ui/tooltip
-# or with yarn
+To install `@igloo-ui/tooltip` in your project, you will need to run the following command using [npm](https://www.npmjs.com/):
+
+```bash
+npm install @igloo-ui/tooltip
+```
+
+If you prefer [Yarn](https://classic.yarnpkg.com/en/), use the following command instead:
+
+```bash
 yarn add @igloo-ui/tooltip
 ```
+
+## Usage
 
 Then to use the component in your code just import it!
 
 ```js
 import Tooltip from '@igloo-ui/tooltip';
-// and with css-modules
-import '@igloo-ui/tooltip/dist/tooltip.css';
+
+<Tooltip content="Lorem ipsum dolor">Element</Tooltip>;
 ```

@@ -1,19 +1,27 @@
-# @igloo-ui/toggle
+# Toggle
 
-Welcome to my `Toggle` component.
+Toggles offer users the choice between turning on or off a setting.
+
+<ReferenceLinks />
 
 ## Installation
 
-```sh
-npm i @igloo-ui/toggle
-# or with yarn
+To install `@igloo-ui/toggle` in your project, you will need to run the following command using [npm](https://www.npmjs.com/):
+
+```bash
+npm install @igloo-ui/toggle
+```
+
+If you prefer [Yarn](https://classic.yarnpkg.com/en/), use the following command instead:
+
+```bash
 yarn add @igloo-ui/toggle
 ```
 
-Then to use the component in your code just import it!
+## Usage
 
-```js
+```jsx
 import Toggle from '@igloo-ui/toggle';
-// and with css-modules
-import '@igloo-ui/Toggle/dist/toggle.css';
+
+<Toggle htmlFor="toggle-id">Label</Toggle>;
 ```
