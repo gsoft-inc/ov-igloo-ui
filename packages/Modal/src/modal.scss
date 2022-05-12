@@ -12,6 +12,7 @@
   --ids-modal-shadow: none;
   --ids-modal-radius: 0;
   --ids-modal-width: 100%;
+  --ids-modal-header-display: flex;
   --ids-modal-header-before-display: block;
   --ids-modal-header-border: 1px solid #{tokens.$grey-200};
   --ids-modal-header-width: calc(#{tokens.$space-3} + #{tokens.$space-4});
@@ -33,6 +34,7 @@
     --ids-modal-width-medium: 58.4rem;
     --ids-modal-width-large: 66.4rem;
     --ids-modal-width-xlarge: 80rem;
+    --ids-modal-header-display: none;
     --ids-modal-header-before-display: none;
     --ids-modal-header-direction: column-reverse;
     --ids-modal-header-border: none;
@@ -101,6 +103,15 @@
 }
 
 .ids-modal__header {
+  &--with-action {
+    display: var(--ids-modal-header-display);
+    justify-content: flex-end;
+    align-items: center;
+    padding: var(--ids-modal-header-padding);
+    border-bottom: var(--ids-modal-header-border);
+    min-height: var(--ids-modal-header-height);
+  }
+
   .ids-modal--with-header & {
     position: relative;
     display: flex;

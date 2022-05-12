@@ -66,18 +66,22 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     <div className="ids-overlay" {...underlayProps}>
       <div className="ids-modal__container">
         <div {...overlayProps} {...dialogProps} ref={ref} className={classes}>
-          <div className="ids-modal__header">
-            {title && <h5 className="ids-modal__title">{title}</h5>}
-            {isClosable && (
-              <IconButton
-                size="small"
-                className="ids-modal__close"
-                onClick={onClose}
-                appearance="ghost"
-                aria-label={closeBtnAriaLabel}
-                icon={<Close />}
-              />
+          <div
+            className={cx(
+              'ids-modal__header',
+              !isClosable && 'ids-modal__header--with-action'
             )}
+          >
+            {title && <h5 className="ids-modal__title">{title}</h5>}
+
+            <IconButton
+              size="small"
+              className="ids-modal__close"
+              onClick={onClose}
+              appearance="ghost"
+              aria-label={closeBtnAriaLabel}
+              icon={<Close />}
+            />
           </div>
           <div className="ids-modal__content">{children}</div>
         </div>
