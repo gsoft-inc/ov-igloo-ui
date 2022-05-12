@@ -42,6 +42,10 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
     React.useImperativeHandle(ref, () => checkRef.current);
 
     React.useEffect(() => {
+      checked ? setStatus(true) : setStatus(false);
+    }, [checked]);
+
+    React.useEffect(() => {
       if (checkRef.current && indeterminate) {
         checkRef.current.indeterminate = true;
       }
@@ -59,14 +63,12 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
       setStatus(!status);
     };
 
-    const classes = cx('ids-checkbox', className);
-
     return (
-      <span className="ids-form-control">
+      <span className={cx('ids-form-control', className)}>
         <input
           ref={checkRef}
           id={htmlFor}
-          className={classes}
+          className="ids-checkbox"
           data-test={dataTest}
           checked={status}
           disabled={disabled}
