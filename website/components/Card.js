@@ -5,6 +5,7 @@ import Title from './Title';
 
 export default function Card({
   inline,
+  component,
   icon,
   title,
   description,
@@ -15,13 +16,18 @@ export default function Card({
   const hasAction = typeof link === 'string' && !featureFlag;
 
   const card = (
-    <div className={cx('io-card', className, { 'io-card--inline': inline })}>
+    <div
+      className={cx('io-card', className, {
+        'io-card--inline': inline,
+        'io-card--component': component,
+      })}
+    >
       <div className="io-card__img">{icon}</div>
       <div className="io-card__content">
         <Title as="h3" level={inline ? 4 : 3} className="io-card__title">
           {title}
         </Title>
-        <p className="io-card__description">{description}</p>
+        {description && <p className="io-card__description">{description}</p>}
       </div>
     </div>
   );

@@ -5,6 +5,9 @@
 $card-effect-size: #{token.$space-2};
 $card-effect-size-negative: calc(-1* #{token.$space-2} );
 
+$card-component-effect-size: #{token.$space-0};
+$card-component-effect-size-negative:  calc(-1* #{token.$space-0});
+
 $card-shadow-yellow: rgb(
   color.red(token.$yellow),
   color.green(token.$yellow),
@@ -83,6 +86,7 @@ a {
     }
   }
 
+
   .io-card--components,
   .io-card--tokens,
   .io-card--icons {
@@ -95,18 +99,35 @@ a {
     }
   }
 
-  .io-card--inline {
+  .io-card--inline,
+  .io-card--component {
     box-shadow: none;
     height: auto;
+
+  }
+
+  .io-card--inline {
     padding: token.$space-3;
     background-color: transparent;
-
     &:hover {
       transform: none;
       box-shadow: none;
     }
   }
+
+  .io-card--component {
+    padding: token.$space-2;
+    background-color: token.$white;
+
+    &:hover {
+      box-shadow: $card-component-effect-size $card-component-effect-size 0 0 token.$grey-900;
+      transform: translate($card-component-effect-size-negative, $card-component-effect-size-negative);
+    }
+  }
+
+
 }
+
 
 .io-card {
   position: relative;
@@ -156,5 +177,15 @@ a {
 
   .io-card__content {
     padding: 0 token.$space-2;
+  }
+}
+
+.io-card--component {
+  border: 2px solid token.$grey-800;
+  color: token.$grey-900;
+
+
+  .io-card__title {
+    font-size: var(--fs-300);
   }
 }

@@ -35,7 +35,6 @@
     font-size: token.$menu-text-size;
     background-color: token.$menu-bg-color;
     color: token.$menu-color;
-    padding: var(--io-nav-list-item);
     border: 1px solid transparent;
     border-radius: token.$radius-0;
 
@@ -48,6 +47,10 @@
     &.is-active {
       font-weight: 700;
     }
+  }
+
+  &__link {
+    padding: var(--io-nav-list-item);
   }
 }
 

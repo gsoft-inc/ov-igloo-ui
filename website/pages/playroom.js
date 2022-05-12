@@ -29,6 +29,8 @@ export default function Playroom() {
           inline
           link="https://www.google.com"
         />
+
+        <Card title="Button" component link="https://www.google.com" />
       </section>
 
       <section>
