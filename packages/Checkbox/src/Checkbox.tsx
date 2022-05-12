@@ -42,11 +42,7 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
     React.useImperativeHandle(ref, () => checkRef.current);
 
     React.useEffect(() => {
-      if (checked) {
-        setStatus(true);
-      } else {
-        setStatus(false);
-      }
+      setStatus(checked);
     }, [checked]);
 
     React.useEffect(() => {
