@@ -125,7 +125,7 @@ export const Exemple = () => {
         <Modal
           isClosable
           isDismissable
-          withSpace
+          fullContent
           title="I'm a modal"
           size="xlarge"
           isOpen={show}

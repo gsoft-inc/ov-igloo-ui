@@ -23,7 +23,7 @@
   --ids-modal-close-margin: #{tokens.$space-3};
   --ids-modal-overlay: rgb(25 34 47 / 50%);
   --ids-modal-overlay-index: #{tokens.$z-index-100};
-  --ids-modal-with-space-display: flex;
+  --ids-modal-full-content-display: flex;
 }
 
 @media (min-width: #{tokens.$breakpoints-sm}) {
@@ -46,8 +46,8 @@
     --ids-modal-padding: #{tokens.$space-5};
     --ids-modal-safe-area: #{tokens.$space-3};
     --ids-modal-safe-height: center;
-    --ids-modal-with-space-padding: #{tokens.$space-3};
-    --ids-modal-with-space-display: none;
+    --ids-modal-full-content-padding: #{tokens.$space-3};
+    --ids-modal-full-content-display: none;
   }
 }
 
@@ -128,8 +128,8 @@
     min-width: var(--ids-modal-header-width);
   }
 
-  .ids-modal--with-space & {
-    display: var(--ids-modal-with-space-display);
+  .ids-modal--full-content & {
+    display: var(--ids-modal-full-content-display);
   }
 }
 
@@ -149,7 +149,7 @@
 .ids-modal__content {
   padding: var(--ids-modal-padding);
 
-  .ids-modal--with-space & {
+  .ids-modal--full-content & {
     --ids-modal-padding: #{tokens.$space-3};
   }
 }

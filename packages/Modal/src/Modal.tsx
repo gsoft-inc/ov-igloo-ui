@@ -35,7 +35,7 @@ export interface ModalProps extends OverlayProps, AriaDialogProps {
   /** The content for the aria-label on the close button */
   closeBtnAriaLabel?: string;
   /** Remove the default padding and the title from the modal */
-  withSpace?: boolean;
+  fullContent?: boolean;
 }
 
 const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
@@ -46,7 +46,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     title,
     onClose,
     isClosable,
-    withSpace,
+    fullContent,
     size = 'small',
   } = props;
 
@@ -58,7 +58,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
 
   const classes = cx('ids-modal', className, {
     [`ids-modal--${size}`]: size !== 'small',
-    'ids-modal--with-space': withSpace,
+    'ids-modal--full-content': fullContent,
     'ids-modal--with-header': isClosable || title !== undefined,
   });
 
