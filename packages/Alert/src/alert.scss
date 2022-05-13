@@ -136,7 +136,7 @@
 
     &--medium-centered {
       @include mixins.ids-alert-mixin-icon-position-size(
-        center,
+        flex-start,
         var(--ids-alert-icon-size-medium)
       );
     }
