@@ -18,7 +18,7 @@ import PropsTable from '../../components/PropsTable';
 import Pagination from '../../components/Pagination';
 import ReferenceLinks from '../../components/ReferenceLinks';
 
-const COMPONENTS_SOURCE = path.join(process.cwd(), '..', 'packages');
+export const COMPONENTS_SOURCE = path.join(process.cwd(), '..', 'packages');
 
 export default function DocPage(props) {
   const {

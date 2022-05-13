@@ -2,13 +2,21 @@ import Head from 'next/head';
 import Display from '../../components/Display';
 import Card from '../../components/Card';
 
+import { COMPONENTS_SOURCE } from './[slug]';
+
 import iconIcon from '../../svg/component.svg';
+import { generateComponentList } from '../../scripts/generate-component-list';
 
 export default function Components(props) {
   const { components } = props;
   const componentsList = components.map((component, index) => {
     return (
-      <Card component title={component} link={`/component/${component}`} />
+      <Card
+        key={index.toString()}
+        component
+        title={component}
+        link={`/component/${component}`}
+      />
     );
   });
   return (
@@ -27,7 +35,7 @@ export default function Components(props) {
 }
 
 export const getStaticProps = async () => {
-  const components = require('../../data/components.json');
+  const components = generateComponentList(COMPONENTS_SOURCE);
   return {
     props: {
       components,
