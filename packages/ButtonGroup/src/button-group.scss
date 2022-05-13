@@ -105,6 +105,11 @@
   .ids-btn-group__item {
     padding-left: var(--ids-button-group-padding-compact);
     padding-right: var(--ids-button-group-padding-compact);
+
+    > svg {
+      margin-left: -1px;
+      margin-right: -1px;
+    }
   }
 
   &.ids-btn-group--small {
