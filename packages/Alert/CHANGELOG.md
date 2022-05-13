@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.1.5
+
+### Patch Changes
+
+- cb767c6: align icon on top of component
+
 ## 0.1.4
 
 ### Patch Changes

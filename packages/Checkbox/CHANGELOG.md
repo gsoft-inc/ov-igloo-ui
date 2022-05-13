@@ -1,5 +1,11 @@
 # @igloo-ui/checkbox
 
+## 0.1.3
+
+### Patch Changes
+
+- cb767c6: fix controlled state, position of checkbox with long content and the size in small space
+
 ## 0.1.2
 
 ### Patch Changes

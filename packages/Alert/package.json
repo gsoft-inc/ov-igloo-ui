@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/alert",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "dist/Alert.js",
   "module": "dist/Alert.js",
   "types": "dist/Alert.d.ts",
