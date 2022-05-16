@@ -38,11 +38,7 @@
 
 .ids-form-control {
   display: inline-flex;
-  align-items: center;
-
-  &.has-description {
-    align-items: flex-start;
-  }
+  align-items: flex-start;
 }
 
 .ids-radio__label {
@@ -57,7 +53,8 @@
   appearance: none;
   height: var(--ids-radio-size);
   width: var(--ids-radio-size);
-  margin: 0;
+  flex-shrink: 0;
+  margin: 2px 0 0;
   display: inline-block;
   position: relative;
   cursor: pointer;
