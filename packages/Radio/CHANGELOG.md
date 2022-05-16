@@ -1,5 +1,11 @@
 # @igloo-ui/radio
 
+## 0.1.4
+
+### Patch Changes
+
+- 3d10593: fix position of radio button with long content and the size in small space
+
 ## 0.1.3
 
 ### Patch Changes
