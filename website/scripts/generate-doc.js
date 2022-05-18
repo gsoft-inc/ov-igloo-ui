@@ -1,16 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
-
-const checkFileExists = async (filePath) => {
-  try {
-    fs.accessSync(filePath, fs.constants.R_OK);
-    return true;
-  } catch (error) {
-    console.log(error);
-    return false;
-  }
-};
+import { checkFileExists } from './files-utils';
 
 const getComponentContent = async (readmePath) => {
   if (!readmePath) {

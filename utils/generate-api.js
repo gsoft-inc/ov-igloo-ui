@@ -27,8 +27,17 @@ export async function getComponentAPI(source) {
     return !stats.isDirectory();
   });
 
+  const ignoreFiles = ['Toast', 'ButtonGroupItem'];
+
   const filterFiles = componentFiles.filter((file) => {
-    return /[A-Z]\w*.tsx$/.test(file);
+    const matchPattern = /[A-Z]\w*.tsx$/.test(file);
+
+    if (matchPattern) {
+      const filename = file.replace(/\.[^/.]+$/, '');
+      return !ignoreFiles.includes(filename);
+    } else {
+      return false;
+    }
   });
 
   return await Promise.all(
