@@ -21,6 +21,7 @@
     --io-hero-space: #{token.$hero-space};
     --io-main-padding: #{token.$space-10} #{token.$space-4} 0 ;
     --io-section-template: repeat(3, 1fr);
+    --io-section-hub-template: repeat(4, 1fr);
     --io-section-grid-gap: #{token.$space-3};
     --io-section-grid-template: 2fr 1fr;
     --io-section-hasAside-display: grid;
@@ -73,10 +74,6 @@
   margin: token.$navbar-min-height auto 0;
   padding: var(--io-main-padding) ;
   box-sizing: border-box;
-
-  .io-layout.component & {
-    max-width: 100%;
-  }
 }
 
 .io-hero {
@@ -96,6 +93,10 @@
       grid-template-columns: repeat(auto-fill, minmax(var(--ico-columns), 1fr));
       grid-gap: 0;
       padding: token.$space-4;
+    }
+
+    &--hub {
+      grid-template-columns: var(--io-section-hub-template, initial);
     }
   }
 

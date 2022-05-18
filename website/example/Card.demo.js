@@ -1,7 +1,5 @@
 import React from 'react';
 
-const Example = () => {
+export default function Example() {
   return <div>Demo card render</div>;
-};
-
-export default Example;
+}

@@ -84,7 +84,7 @@ export default function DocPage(props) {
                   <PropsTable
                     data={data}
                     key={i.toString()}
-                    showTitle={i > 0}
+                    showTitle={componentProps.length > 1}
                   />
                 ))}
               </>
