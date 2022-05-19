@@ -1,7 +1,7 @@
 import React from 'react';
 import Alert from '@igloo-ui/alert';
 
-export default function Example() {
+const Example = () => {
   const handleClick = (event) => {
     console.log('Go to integration event', event);
   };
@@ -19,4 +19,6 @@ export default function Example() {
       />
     </div>
   );
-}
+};
+
+export default Example;

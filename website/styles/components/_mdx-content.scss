@@ -47,17 +47,3 @@
     margin-bottom: token.$space-3;
   }
 }
-
-.example {
-  display: flex;
-  flex-direction: var(--io-example-direction);
-  align-items: center;
-  justify-content: center;
-  gap: token.$space-3;
-  min-height: rebase(10rem);
-  padding: var(--io-example-padding);
-  margin: var(--io-example-margin);
-  border: 1px solid token.$grey-400;
-  border-radius: token.$radius-3;
-  background-color: token.$white;
-}

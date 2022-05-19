@@ -8,10 +8,20 @@ const withMDX = require('@next/mdx')({
 const withTM = require('next-transpile-modules')([
   '@igloo-ui/icons',
   '@igloo-ui/tokens',
-  '@igloo-ui/button',
   '@igloo-ui/alert',
-  '@igloo-ui/input',
+  '@igloo-ui/button',
   '@igloo-ui/button-group',
+  '@igloo-ui/card',
+  '@igloo-ui/checkbox',
+  '@igloo-ui/ellipsis',
+  '@igloo-ui/helper-text',
+  '@igloo-ui/hyperlink',
+  '@igloo-ui/icon-button',
+  '@igloo-ui/input',
+  '@igloo-ui/radio',
+  '@igloo-ui/toaster',
+  '@igloo-ui/toggle',
+  '@igloo-ui/tooltip',
 ]);
 
 const path = require('path');

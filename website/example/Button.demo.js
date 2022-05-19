@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@igloo-ui/button';
 
-export default function Example() {
+const Example = () => {
   return (
     <div className="example">
       <Button appearance="primary">Primary</Button>
@@ -11,4 +11,6 @@ export default function Example() {
       <Button appearance="ghost">Ghost</Button>
     </div>
   );
-}
+};
+
+export default Example;
