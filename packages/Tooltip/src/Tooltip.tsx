@@ -6,8 +6,9 @@ import { Position, getVisiblePosition } from './position';
 import './tooltip.scss';
 
 export type Appearance = 'dark' | 'light';
+export type Ref = HTMLDivElement;
 
-export interface TooltipProps extends React.ComponentProps<'div'> {
+export interface TooltipProps extends React.ComponentPropsWithRef<'div'> {
   /** The target button, text, svg etc.. of the Tooltip. */
   children: React.ReactNode;
   /** Add a specific class to the tooltip */
@@ -22,11 +23,14 @@ export interface TooltipProps extends React.ComponentProps<'div'> {
   maxWidth?: number;
   /** When True, manually show the Tooltip. */
   active?: boolean;
+  /** Disabled the tooltip */
+  disabled?: boolean;
 }
 
-const Tooltip: React.FunctionComponent<TooltipProps> = (
-  props: TooltipProps
-) => {
+const Tooltip: React.FunctionComponent<TooltipProps> = React.forwardRef<
+  Ref,
+  TooltipProps
+>((props, ref) => {
   const {
     children,
     content,
@@ -35,6 +39,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     appearance = 'dark',
     maxWidth = 200,
     className,
+    disabled,
     ...rest
   } = props;
 
@@ -89,7 +94,9 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
   const tooltip = ReactDom.createPortal(
     <div
       ref={tooltipRef}
-      className={classNames(tooltipClasses, { 'ids-tooltip--active': active })}
+      className={classNames(tooltipClasses, {
+        'ids-tooltip--active': active,
+      })}
       style={tooltipStyle}
       {...rest}
     >
@@ -100,14 +107,15 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
 
   return (
     <span
+      ref={ref}
       className={classes}
       onMouseEnter={onMouseEnterHandle}
       onMouseLeave={onMouseLeaveHandle}
     >
       {children}
-      {tooltip}
+      {!disabled && tooltip}
     </span>
   );
-};
+});
 
 export default Tooltip;
