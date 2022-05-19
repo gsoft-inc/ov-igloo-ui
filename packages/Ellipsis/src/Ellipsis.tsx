@@ -1,9 +1,11 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import cx from 'classnames';
 
 import './ellipsis.scss';
 
-export interface EllipsisProps extends React.ComponentProps<'div'> {
+export type Ref = HTMLDivElement;
+
+export interface EllipsisProps extends React.ComponentPropsWithRef<'div'> {
   /** The content to display inside the ellipsis */
   children: React.ReactNode;
   /** Add a className for the ellipsis content div */
@@ -14,25 +16,22 @@ export interface EllipsisProps extends React.ComponentProps<'div'> {
   title?: string;
 }
 
-const Ellipsis: React.FunctionComponent<EllipsisProps> = (
-  props: EllipsisProps
-) => {
-  const { children, className, containerClassName, title } = props;
-
-  const parentElement = useRef<HTMLDivElement>(null);
-  const element = useRef<HTMLDivElement>(null);
+const Ellipsis: React.FunctionComponent<EllipsisProps> = React.forwardRef<
+  Ref,
+  EllipsisProps
+>((props, ref) => {
+  const { children, className, containerClassName, title, ...rest } = props;
 
   return (
     <div
       className={cx('ids-ellipsis', containerClassName)}
       title={title}
-      ref={parentElement}
+      ref={ref}
+      {...rest}
     >
-      <div className={cx('ids-ellipsis__content', className)} ref={element}>
-        {children}
-      </div>
+      <div className={cx('ids-ellipsis__content', className)}>{children}</div>
     </div>
   );
-};
+});
 
 export default Ellipsis;
