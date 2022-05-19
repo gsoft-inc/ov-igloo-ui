@@ -16,7 +16,7 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@igloo-ui/icons": "^0.6.6",
+    "@igloo-ui/icons": "^0.7.0",
     "@igloo-ui/input": "^1.0.3",
     "@igloo-ui/tokens": "^1.1.0",
     "@mdx-js/loader": "2.1.1",
