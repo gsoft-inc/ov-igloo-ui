@@ -2,6 +2,10 @@
 
 IconButton are used primarily for actions.
 
+<Example />
+
+<ReferenceLinks />
+
 ## Installation
 
 To install `@igloo-ui/icon-button` in your project, you will need to run the following command using [npm](https://www.npmjs.com/):

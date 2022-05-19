@@ -2,6 +2,8 @@
 
 Cards are used to group similar concepts and tasks together to make easier for users to scan, read, and get things done.
 
+<Example />
+
 <ReferenceLinks />
 
 ## Installation

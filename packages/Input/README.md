@@ -2,6 +2,8 @@
 
 Input enable the user to interact with and used for freeform data entry.
 
+<Example />
+
 <ReferenceLinks />
 
 ## Installation

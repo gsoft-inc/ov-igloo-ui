@@ -2,6 +2,8 @@
 
 Informs user that text is clipped.
 
+<Example />
+
 <ReferenceLinks />
 
 ## Installation

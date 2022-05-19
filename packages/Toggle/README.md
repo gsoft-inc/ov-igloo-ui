@@ -2,6 +2,8 @@
 
 Toggles offer users the choice between turning on or off a setting.
 
+<Example />
+
 <ReferenceLinks />
 
 ## Installation
