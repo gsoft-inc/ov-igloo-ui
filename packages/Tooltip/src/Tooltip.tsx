@@ -23,7 +23,7 @@ export interface TooltipProps extends React.ComponentPropsWithRef<'div'> {
   maxWidth?: number;
   /** When True, manually show the Tooltip. */
   active?: boolean;
-  /** Disabled the tooltip */
+  /** When True, disabled the tooltip */
   disabled?: boolean;
 }
 
