@@ -1,5 +1,11 @@
 # @igloo-ui/ellipsis
 
+## 0.1.4
+
+### Patch Changes
+
+- 01fbda0: add posibility to forward a `ref`
+
 ## 0.1.3
 
 ### Patch Changes
