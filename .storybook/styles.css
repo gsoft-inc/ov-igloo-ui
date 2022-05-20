@@ -32,3 +32,61 @@ body,
 .isb-element__thin {
   max-width: 100px;
 }
+
+.gv-mockup {
+  display: flex;
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.gv-mockup__visual {
+  flex: 1 1 50%;
+  aspect-ratio: 3/4;
+  background-color: #ccced2;
+  border-radius: 8px 0 0 8px;
+}
+
+.gv-mockup__content {
+  flex: 1 1 50%;
+  padding: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.gv-mockup__formGroup {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.gv-mockup__formGroup--column {
+  margin-top: 2.4rem;
+  flex-direction: column;
+}
+
+.gv-mockup__formGroup--actions {
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+
+.gv-mockup__input,
+.gv-mockup__textarea {
+  background-color: #ccced2;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.gv-mockup__input {
+  height: 4rem;
+}
+
+.gv-mockup__textarea {
+  height: 19rem;
+}
+
+.gv-mockup__btn {
+  width: 8.5rem;
+  height: 4rem;
+  background-color: #ccced2;
+}

@@ -25,7 +25,12 @@ describe('Toggle', () => {
 
   test('It should render in a checked state', () => {
     const { getByTestId } = render(
-      <Toggle dataTest="toggle-3" htmlFor="toggle-3" checked />
+      <Toggle
+        dataTest="toggle-3"
+        htmlFor="toggle-3"
+        checked
+        onChange={() => {}}
+      />
     );
     expect(getByTestId('toggle-3')).toBeChecked();
   });
