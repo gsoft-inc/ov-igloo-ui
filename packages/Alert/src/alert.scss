@@ -8,7 +8,7 @@
   --ids-alert-font-size: #{tokens.$font-size-3};
   --ids-alert-title-font-weight: #{tokens.$font-weight-semi-bold};
   --ids-alert-padding: #{tokens.$space-3};
-  --ids-alert-flex-gap-component: #{tokens.$space-4};
+  --ids-alert-flex-gap-component: #{tokens.$space-3};
   --ids-alert-border-radius: #{tokens.$border-radius-sm};
   --ids-alert-box-shadow: #{tokens.$shadow-6};
   --ids-alert-background-color-light: #{tokens.$samoyed};
@@ -115,7 +115,7 @@
     margin: 0;
 
     + .ids-alert__content {
-      margin-top: var(--space-1);
+      margin-top: tokens.$space-1;
     }
   }
 
@@ -136,7 +136,7 @@
 
     &--medium-centered {
       @include mixins.ids-alert-mixin-icon-position-size(
-        center,
+        flex-start,
         var(--ids-alert-icon-size-medium)
       );
     }

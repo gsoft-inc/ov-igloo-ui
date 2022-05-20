@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/tooltip",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "main": "dist/Tooltip.js",
   "module": "dist/Tooltip.js",
   "types": "dist/Tooltip.d.ts",

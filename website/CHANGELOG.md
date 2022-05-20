@@ -1,5 +1,11 @@
 # docs
 
+## 0.0.6
+
+### Patch Changes
+
+- 7d73e24: Updage icons page with the last package
+
 ## 0.0.5
 
 ### Patch Changes

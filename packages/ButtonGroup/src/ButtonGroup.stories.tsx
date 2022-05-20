@@ -62,7 +62,7 @@ export const Compact = () => {
 
   return (
     <Section>
-      <ButtonGroup compact={false} small={false}>
+      <ButtonGroup compact small={false}>
         <ButtonItem
           active={selected === '1'}
           disabled={false}

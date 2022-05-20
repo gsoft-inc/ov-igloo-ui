@@ -42,7 +42,7 @@
 
 .ids-form-control {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .ids-checkbox__label {
@@ -57,7 +57,8 @@
   appearance: none;
   height: var(--ids-checkbox-size);
   width: var(--ids-checkbox-size);
-  margin: 0;
+  flex-shrink: 0;
+  margin: 2px 0 0;
   display: inline-block;
   position: relative;
   cursor: pointer;
