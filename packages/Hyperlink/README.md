@@ -20,6 +20,8 @@ If you prefer [Yarn](https://classic.yarnpkg.com/en/), use the following command
 yarn add @igloo-ui/hyperlink
 ```
 
+## Usage
+
 Then to use the component in your code just import it!
 
 ```jsx
