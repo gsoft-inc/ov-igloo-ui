@@ -27,6 +27,9 @@
     "next-mdx-remote": "^4.0.2",
     "next-transpile-modules": "^9.0.0",
     "react-syntax-highlighter": "^15.4.5",
-    "remark-gfm": "^3.0.1"
+    "rehype-slug": "^5.0.1",
+    "rehype-toc": "^3.0.2",
+    "remark-gfm": "^3.0.1",
+    "remark-sectionize": "^1.1.1"
   }
 }

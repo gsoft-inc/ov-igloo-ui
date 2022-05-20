@@ -8,9 +8,9 @@ const getComponentContent = async (readmePath) => {
     return null;
   }
 
-  const readme = fs.readFileSync(readmePath);
+  let readme = fs.readFileSync(readmePath, { encoding: 'utf-8' });
 
-  const { content } = matter(readme);
+  const { content } = matter(readme.concat('## API'));
 
   return { content, empty: content === '' };
 };

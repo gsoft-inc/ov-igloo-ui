@@ -1,13 +1,25 @@
 @use 'abstract/variables';
 @use 'tokens' as token;
+@use 'base/media-query' as media;
 
 @use 'components';
 @use 'layout';
 @use 'typography';
 
+:root {
+  --io-scoll-padding: #{token.$space-5};
+}
+
+@include media.mq(medium) {
+  :root {
+    --io-scroll-padding: #{token.$space-8};
+  }
+}
+
 html {
   font-size: 10px;
   scroll-behavior: smooth;
+  scroll-padding-top: var(--io-scroll-padding);
 }
 
 html,

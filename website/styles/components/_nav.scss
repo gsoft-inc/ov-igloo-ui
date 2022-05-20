@@ -1,4 +1,3 @@
-//@use '../variables' as var;
 @use "../tokens" as token;
 @use "../base/media-query" as media;
 
@@ -90,12 +89,19 @@
     padding: token.$space-1 0 0;
   }
 
- &__item {
+
+  &__item,
+  .toc-item{
     margin: token.$space-1 0;
 
-   &:hover > a {
+    > a {
+      text-decoration: none;
+    }
+
+    &:hover > a{
       color: token.$grey-900;
     }
   }
-
 }
+
+

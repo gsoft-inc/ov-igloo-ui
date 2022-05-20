@@ -3,6 +3,9 @@ import dynamic from 'next/dynamic';
 import path from 'path';
 import cx from 'classnames';
 import remarkGfm from 'remark-gfm';
+import rehypeToc from 'rehype-toc';
+import rehypeSlug from 'rehype-slug';
+import sectionize from 'remark-sectionize';
 
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
@@ -17,6 +20,7 @@ import Code from '../../components/Code';
 import PropsTable from '../../components/PropsTable';
 import Pagination from '../../components/Pagination';
 import ReferenceLinks from '../../components/ReferenceLinks';
+import Toc from '../../components/Toc';
 
 export const COMPONENTS_SOURCE = path.join(process.cwd(), '..', 'packages');
 
@@ -34,13 +38,16 @@ export default function DocPage(props) {
   const pkg = require(`../../../packages/${component}/package.json`);
 
   const mdxComponents = {
+    nav: (props) => {
+      return <Toc {...props} />;
+    },
     Example: mdxCustomComponent.includes('Example')
       ? dynamic(() => import(`../../example/${component}.demo`))
       : null,
     ReferenceLinks: mdxCustomComponent.includes('ReferenceLinks')
       ? () => <ReferenceLinks component={component} version={pkg.version} />
       : null,
-    h1: (props) => <Title as="h1" level={2} {...props} />,
+    h1: (props) => <Title id="test" as="h1" level={2} {...props} />,
     h2: (props) => <Title as="h2" level={4} {...props} />,
     code: (props) => {
       const isInlineCode = props.className === undefined;
@@ -77,9 +84,7 @@ export default function DocPage(props) {
             ) : (
               <>
                 <MDXRemote {...source} components={mdxComponents} />
-                <Title as="h2" level={4}>
-                  API
-                </Title>
+                {/* API title is created by generateDoc() */}
                 {componentProps.map((data, i) => (
                   <PropsTable
                     data={data}
@@ -128,8 +133,8 @@ export const getStaticProps = async ({ params }) => {
 
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [remarkGfm],
-      rehypePlugins: [],
+      remarkPlugins: [remarkGfm, sectionize],
+      rehypePlugins: [rehypeSlug, rehypeToc],
     },
     scope: data,
   });
