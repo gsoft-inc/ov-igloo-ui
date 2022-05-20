@@ -52,11 +52,13 @@
 
   &.has-icon {
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
   }
 
   &.has-icon .ids-icon {
     color: var(--ids-link-icon-color);
+    flex-shrink: 0;
+    padding-top: 2px;
   }
 
   &.has-icon--leading .ids-icon {
