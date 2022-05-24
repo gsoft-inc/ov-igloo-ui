@@ -14,20 +14,30 @@ export interface ButtonGroupProps {
   children: React.ReactNode;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
+  /** Add a specific class to the button group */
+  className?: string;
 }
 
 const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (
   props: ButtonGroupProps
 ) => {
-  const { children, compact = false, small = false, dataTest } = props;
+  const {
+    children,
+    compact = false,
+    small = false,
+    className,
+    dataTest,
+    ...rest
+  } = props;
 
   return (
     <div
       data-test={dataTest}
-      className={cx('ids-btn-group', {
+      className={cx('ids-btn-group', className, {
         'ids-btn-group--small': small,
         'ids-btn-group--compact': compact,
       })}
+      {...rest}
     >
       {children}
     </div>

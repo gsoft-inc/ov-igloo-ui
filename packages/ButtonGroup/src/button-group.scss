@@ -7,7 +7,6 @@
   --ids-button-group-font-size: #{tokens.$font-size-4};
   --ids-button-group-text: #{tokens.$grey-800};
   --ids-button-group-heigth: #{tokens.$space-6};
-  --ids-button-group-min-width: #{tokens.$space-10};
   --ids-button-group-border: #{tokens.$grey-300};
   --ids-button-group-border-hover: #{tokens.$grey-600};
   --ids-button-group-border-width: 1px;
@@ -40,7 +39,6 @@
   font-size: var(--ids-button-group-font-size);
   color: var(--ids-button-group-text);
   height: var(--ids-button-group-heigth);
-  min-width: var(--ids-button-group-min-width);
 }
 
 .ids-btn-group__item {
