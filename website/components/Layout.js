@@ -22,11 +22,11 @@ export default function Layout({ children, page }) {
       icon: slack,
       label: 'Slack',
     },
-    {
-      href: '#',
-      icon: darkMode,
-      label: 'Dark mode',
-    },
+    // {
+    //   href: '#',
+    //   icon: darkMode,
+    //   label: 'Dark mode',
+    // },
   ];
 
   let layout;
