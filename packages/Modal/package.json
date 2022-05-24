@@ -1,0 +1,40 @@
+{
+  "name": "@igloo-ui/modal",
+  "version": "0.1.0",
+  "main": "dist/Modal.js",
+  "module": "dist/Modal.js",
+  "types": "dist/Modal.d.ts",
+  "styles": "dist/modal.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "author": "Officevibe Inc.",
+  "contributors": [
+    "Franck franck.gaudin@gsoft.com"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@igloo-ui/icon-button": "^0.2.6",
+    "@igloo-ui/tokens": "^1.0.0",
+    "@react-aria/dialog": "^3.1.8",
+    "@react-aria/overlays": "^3.8.1",
+    "@react-types/dialog": "3.3.4",
+    "@types/react-dom": "17.0.13",
+    "classnames": "^2.3.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE >= 11"
+  ],
+  "devDependencies": {
+    "@igloo-ui/button": "^0.1.11"
+  }
+}
