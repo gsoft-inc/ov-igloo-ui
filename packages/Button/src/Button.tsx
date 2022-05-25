@@ -11,6 +11,8 @@ export type Appearance =
   | 'danger';
 export type Size = 'small' | 'medium';
 
+export type Ref = HTMLButtonElement;
+
 export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   /** The content to display inside the button */
   children?: React.ReactNode;
@@ -42,7 +44,10 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   className?: string;
 }
 
-const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
+const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
+  Ref,
+  ButtonProps
+>((props, ref) => {
   const {
     children,
     disabled = false,
@@ -113,12 +118,13 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
       type={type}
       title={childrenIsAString ? children?.toString() : ''}
       onClick={onClick}
+      ref={ref}
       {...rest}
     >
       {loading && <div className="ids-loader" />}
       {renderContent()}
     </button>
   );
-};
+});
 
 export default Button;
