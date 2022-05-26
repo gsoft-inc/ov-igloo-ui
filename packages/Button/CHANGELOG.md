@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.12
+
+### Patch Changes
+
+- ac5d81a: add forwardRef
+
 ## 0.1.11
 
 ### Patch Changes
