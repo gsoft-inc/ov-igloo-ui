@@ -1,5 +1,11 @@
 # @igloo-ui/button-group
 
+## 0.1.2
+
+### Patch Changes
+
+- ba32c70: remove min-width and add className props
+
 ## 0.1.1
 
 ### Patch Changes
