@@ -13,7 +13,8 @@ export type Size = 'small' | 'medium';
 
 export type Ref = HTMLButtonElement;
 
-export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+// export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+type ButtonOwnProps<E extends React.ElementType> = {
   /** The content to display inside the button */
   children?: React.ReactNode;
   /** Disabled the button, the user cannot click on them */
@@ -42,12 +43,15 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   intercomTarget?: string;
   /** Add a specific class to the button */
   className?: string;
-}
+  as?: E;
+};
 
-const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
-  Ref,
-  ButtonProps
->((props, ref) => {
+type ButtonProps<E extends React.ElementType> = ButtonOwnProps<E> &
+  Omit<React.ComponentProps<E>, keyof ButtonOwnProps<E>>;
+
+const Button = <E extends React.ElementType = 'button'>(
+  props: ButtonProps<E>
+) => {
   const {
     children,
     disabled = false,
@@ -63,6 +67,7 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
     showOnlyIconOnMobile,
     intercomTarget,
     className,
+    as,
     ...rest
   } = props;
 
@@ -109,8 +114,10 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
     );
   };
 
+  const Component = as || 'button';
+
   return (
-    <button
+    <Component
       disabled={disabled}
       className={classes}
       data-test={dataTest}
@@ -118,13 +125,12 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
       type={type}
       title={childrenIsAString ? children?.toString() : ''}
       onClick={onClick}
-      ref={ref}
       {...rest}
     >
       {loading && <div className="ids-loader" />}
       {renderContent()}
-    </button>
+    </Component>
   );
-});
+};
 
 export default Button;
