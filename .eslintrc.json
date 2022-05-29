@@ -29,6 +29,14 @@
       "warn",
       { "allowExpressions": true }
     ],
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "types": {
+          "{}": false
+        }
+      }
+    ],
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "react/prop-types": "off",
     "react/button-has-type": "off",
