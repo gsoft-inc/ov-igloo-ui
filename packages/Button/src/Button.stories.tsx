@@ -93,22 +93,24 @@ export const Icons = () => (
   </Section>
 );
 
-export const AsLink = () => (
-  <Section>
-    <Button as="a" href="://igloo.officevibe.design" appearance="primary">
-      Primary
-    </Button>
-    <Button as="a" href="://igloo.officevibe.design" appearance="secondary">
-      Secondary
-    </Button>
-    <Button as="a" href="://igloo.officevibe.design" appearance="premium">
-      Premium
-    </Button>
-    <Button as="a" href="://igloo.officevibe.design" appearance="danger">
-      Danger
-    </Button>
-    <Button as="a" href="://igloo.officevibe.design" appearance="ghost">
-      Ghost
-    </Button>
-  </Section>
-);
+export const AsLink = () => {
+  return (
+    <Section>
+      <Button as="a" appearance="primary">
+        Primary
+      </Button>
+      <Button as="a" href="://igloo.officevibe.design" appearance="secondary">
+        Secondary
+      </Button>
+      <Button as="a" href="://igloo.officevibe.design" appearance="premium">
+        Premium
+      </Button>
+      <Button as="a" href="://igloo.officevibe.design" appearance="danger">
+        Danger
+      </Button>
+      <Button as="a" href="://igloo.officevibe.design" appearance="ghost">
+        Ghost
+      </Button>
+    </Section>
+  );
+};
