@@ -21,7 +21,7 @@
     "dist"
   ],
   "dependencies": {
-    "@igloo-ui/icon-button": "^0.2.6",
+    "@igloo-ui/icon-button": "^0.2.7",
     "@igloo-ui/tokens": "^1.0.0",
     "@react-aria/dialog": "^3.1.8",
     "@react-aria/overlays": "^3.8.1",
@@ -35,6 +35,6 @@
     "IE >= 11"
   ],
   "devDependencies": {
-    "@igloo-ui/button": "^0.1.11"
+    "@igloo-ui/button": "^0.2.0"
   }
 }

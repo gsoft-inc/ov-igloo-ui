@@ -22,14 +22,14 @@
     "dist"
   ],
   "dependencies": {
-    "@igloo-ui/icon-button": "^0.2.6",
+    "@igloo-ui/icon-button": "^0.2.7",
     "@igloo-ui/icons": "^0.6.3",
     "@igloo-ui/tokens": "^1.0.0",
     "classnames": "^2.3.1",
     "react-hot-toast": "^2.1.1"
   },
   "devDependencies": {
-    "@igloo-ui/button": "^0.1.11",
+    "@igloo-ui/button": "^0.2.0",
     "@types/react-dom": "^17.0.11",
     "@types/react-transition-group": "^4.4.4"
   },
