@@ -4,7 +4,9 @@ import classNames from 'classnames';
 import './card.scss';
 
 export type Size = 'xsmall' | 'small' | 'medium' | 'large';
-export interface CardProps extends React.ComponentProps<'div'> {
+export type Ref = HTMLDivElement;
+
+export interface CardProps extends React.ComponentPropsWithRef<'div'> {
   /** The content to display inside the card */
   children: React.ReactNode;
   /**  Changes the size of card, giving more or less padding */
@@ -13,7 +15,10 @@ export interface CardProps extends React.ComponentProps<'div'> {
   dataTest?: string;
 }
 
-const Card: React.FunctionComponent<CardProps> = (props: CardProps) => {
+const Card: React.FunctionComponent<CardProps> = React.forwardRef<
+  Ref,
+  CardProps
+>((props, ref) => {
   const { children, className, dataTest, size = 'large', ...rest } = props;
 
   const classes = classNames('ids-card', className, {
@@ -21,10 +26,10 @@ const Card: React.FunctionComponent<CardProps> = (props: CardProps) => {
   });
 
   return (
-    <div className={classes} data-test={dataTest} {...rest}>
+    <div ref={ref} className={classes} data-test={dataTest} {...rest}>
       {children}
     </div>
   );
-};
+});
 
 export default Card;
