@@ -1,5 +1,11 @@
 # @igloo-ui/hyperlink
 
+## 0.1.7
+
+### Patch Changes
+
+- f019f88: fix position of icon with content warp
+
 ## 0.1.6
 
 ### Patch Changes
