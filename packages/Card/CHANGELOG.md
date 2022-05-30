@@ -1,5 +1,11 @@
 # @igloo-ui/card
 
+## 0.0.7
+
+### Patch Changes
+
+- 47d61f3: add posibility to forward a ref
+
 ## 0.0.6
 
 ### Patch Changes
