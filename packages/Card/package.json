@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/card",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "dist/Card.js",
   "module": "dist/Card.js",
   "types": "dist/Card.d.ts",
