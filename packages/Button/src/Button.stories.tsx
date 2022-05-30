@@ -96,7 +96,7 @@ export const Icons = () => (
 export const AsLink = () => {
   return (
     <Section>
-      <Button as="a" appearance="primary">
+      <Button as="a" href="://igloo.officevibe.design" appearance="primary">
         Primary
       </Button>
       <Button as="a" href="://igloo.officevibe.design" appearance="secondary">
