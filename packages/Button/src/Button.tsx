@@ -11,9 +11,27 @@ export type Appearance =
   | 'danger';
 export type Size = 'small' | 'medium';
 
-export type Ref = HTMLButtonElement;
+type AsProp<C extends React.ElementType> = {
+  as?: C;
+};
 
-export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+type PropsToOmit<C extends React.ElementType, P> = keyof (AsProp<C> & P);
+
+type PolymorphicComponentProp<
+  C extends React.ElementType,
+  Props = {}
+> = React.PropsWithChildren<Props & AsProp<C>> &
+  Omit<React.ComponentPropsWithoutRef<C>, PropsToOmit<C, Props>>;
+
+type PolymorphicComponentPropWithRef<
+  C extends React.ElementType,
+  Props = {}
+> = PolymorphicComponentProp<C, Props> & { ref?: PolymorphicRef<C> };
+
+type PolymorphicRef<C extends React.ElementType> =
+  React.ComponentPropsWithRef<C>['ref'];
+
+export type ButtonOwnProps = {
   /** The content to display inside the button */
   children?: React.ReactNode;
   /** Disabled the button, the user cannot click on them */
@@ -42,89 +60,104 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   intercomTarget?: string;
   /** Add a specific class to the button */
   className?: string;
-}
+};
 
-const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
-  Ref,
-  ButtonProps
->((props, ref) => {
-  const {
-    children,
-    disabled = false,
-    active = false,
-    loading = false,
-    size = 'medium',
-    appearance = 'primary',
-    type = 'button',
-    onClick,
-    dataTest,
-    iconLeading,
-    iconTrailing,
-    showOnlyIconOnMobile,
-    intercomTarget,
-    className,
-    ...rest
-  } = props;
+type ButtonProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<
+  C,
+  ButtonOwnProps
+>;
 
-  const hasIconLeading = iconLeading !== undefined;
-  const hasIconTrailing = iconTrailing !== undefined;
-  const hasIcon = hasIconLeading || hasIconTrailing;
-  const childrenIsAString =
-    typeof children === 'string' || children instanceof String;
+type ButtonComponent = <C extends React.ElementType = 'button'>(
+  props: ButtonProps<C>
+) => React.ReactElement | null;
 
-  const classes = cx('ids-btn', className, {
-    'ids-btn--small': size === 'small',
-    'ids-btn--active': active,
-    'ids-btn--loading': loading,
-    'ids-btn--mobile': showOnlyIconOnMobile,
-    'has-icon': hasIcon,
-    'has-icon--leading': hasIconLeading,
-    'has-icon--trailing': hasIconTrailing,
-    [`ids-btn--${appearance}`]: appearance !== 'primary',
-  });
+const Button: ButtonComponent = React.forwardRef(
+  <C extends React.ElementType = 'button'>(
+    props: ButtonProps<C>,
+    ref?: PolymorphicRef<C>
+  ) => {
+    const {
+      children,
+      disabled = false,
+      active = false,
+      loading = false,
+      size = 'medium',
+      appearance = 'primary',
+      type = 'button',
+      onClick,
+      dataTest,
+      iconLeading,
+      iconTrailing,
+      showOnlyIconOnMobile,
+      intercomTarget,
+      className,
+      as,
+      ...rest
+    } = props;
 
-  const renderContent = (): JSX.Element => {
+    const hasIconLeading = iconLeading !== undefined;
+    const hasIconTrailing = iconTrailing !== undefined;
+    const hasIcon = hasIconLeading || hasIconTrailing;
+    const childrenIsAString =
+      typeof children === 'string' || children instanceof String;
+
+    const classes = cx('ids-btn', className, {
+      'ids-btn--small': size === 'small',
+      'ids-btn--active': active,
+      'ids-btn--loading': loading,
+      'ids-btn--disabled': as === 'a' && disabled,
+      'ids-btn--mobile': showOnlyIconOnMobile,
+      'has-icon': hasIcon,
+      'has-icon--leading': hasIconLeading,
+      'has-icon--trailing': hasIconTrailing,
+      [`ids-btn--${appearance}`]: appearance !== 'primary',
+    });
+
+    const renderContent = (): JSX.Element => {
+      return (
+        <>
+          {hasIconLeading && iconLeading}
+          {showOnlyIconOnMobile ? (
+            <span
+              className={cx('ids-btn__label', {
+                'is-hidden': loading,
+              })}
+            >
+              {children}
+            </span>
+          ) : (
+            <span
+              className={cx({
+                'is-hidden': loading,
+              })}
+            >
+              {children}
+            </span>
+          )}
+          {hasIconTrailing && iconTrailing}
+        </>
+      );
+    };
+
+    const Component = as || 'button';
+
     return (
-      <>
-        {hasIconLeading && iconLeading}
-        {showOnlyIconOnMobile ? (
-          <span
-            className={cx('ids-btn__label', {
-              'is-hidden': loading,
-            })}
-          >
-            {children}
-          </span>
-        ) : (
-          <span
-            className={cx({
-              'is-hidden': loading,
-            })}
-          >
-            {children}
-          </span>
-        )}
-        {hasIconTrailing && iconTrailing}
-      </>
+      <Component
+        disabled={disabled}
+        className={classes}
+        data-test={dataTest}
+        data-intercom-target={intercomTarget}
+        type={type}
+        title={childrenIsAString ? children?.toString() : ''}
+        onClick={onClick}
+        ref={ref}
+        {...rest}
+      >
+        {loading && <div className="ids-loader" />}
+        {renderContent()}
+      </Component>
     );
-  };
-
-  return (
-    <button
-      disabled={disabled}
-      className={classes}
-      data-test={dataTest}
-      data-intercom-target={intercomTarget}
-      type={type}
-      title={childrenIsAString ? children?.toString() : ''}
-      onClick={onClick}
-      ref={ref}
-      {...rest}
-    >
-      {loading && <div className="ids-loader" />}
-      {renderContent()}
-    </button>
-  );
-});
+  }
+);
 
 export default Button;

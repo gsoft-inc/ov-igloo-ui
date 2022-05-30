@@ -59,4 +59,20 @@ describe('Button Component', (): void => {
     const button = setUp({ appearance: 'ghost' });
     expect(button).toMatchSnapshot();
   });
+
+  test('It should render a button with a tag', (): void => {
+    render(
+      <Button
+        as="a"
+        href="://igloo.officevibe.design"
+        target="_blank"
+        // @ts-ignore
+        name="click me"
+      >
+        Click me
+      </Button>
+    );
+    const link = document.getElementsByTagName('a');
+    expect(link.length).toBe(1);
+  });
 });
