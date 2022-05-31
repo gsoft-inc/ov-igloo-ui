@@ -3405,7 +3405,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-actions@6.5.6", "@storybook/addon-actions@^6.5.6":
+"@storybook/addon-actions@6.5.6":
   version "6.5.6"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.5.6.tgz#0e980a0a6d8d47db8031108ffa1fd51cc627a466"
   integrity sha512-AGtzpWOU/B0FxcqFDM7E/KSHQyr6tMbVts77JlAKCIbwqEncD1LIQoz9CyMdbr1jynkep0Ck0JjcDdmp7CXVoQ==
@@ -3501,7 +3501,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-essentials@^6.5.6":
+"@storybook/addon-essentials@6.5.6":
   version "6.5.6"
   resolved "https://registry.yarnpkg.com/@storybook/addon-essentials/-/addon-essentials-6.5.6.tgz#502e6152b729696d8de8c792fb44aae76fae934e"
   integrity sha512-n+kDN/AI6NDJNJjofYXjGBh618Yg17DuRppFdXROnocwndKufuImF+/tRaQ0YLwXmnULpAiFSGbja6F0pc7fOw==
@@ -3534,7 +3534,7 @@
     react-ga "^2.7.0"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addon-links@^6.5.6":
+"@storybook/addon-links@6.5.6":
   version "6.5.6"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-6.5.6.tgz#1074d239c3c9c8b7168d20c9cc20b8918e4993a6"
   integrity sha512-a4+9HLc6+M9qv5Fvezoc8AJYze8HDfHlsEFvCY1AtQiyVEmxFRNBdAp6w+/teNzihXWY78EKRcGM0jjyt+9mWg==
@@ -4158,7 +4158,7 @@
     react-docgen-typescript "^2.1.1"
     tslib "^2.0.0"
 
-"@storybook/react@^6.5.6":
+"@storybook/react@6.5.6":
   version "6.5.6"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-6.5.6.tgz#9b7ddc678790a8af100c26b8d47c332bc6f4fc84"
   integrity sha512-lU2ggvZe9PbKWK4cbwHI6eDT7tlRAqdx489kLrfKhGTUVE8zhc/uosVEMpxbxS/zf1YYnXumr2DH1Uw2S3JeqA==
@@ -5818,7 +5818,7 @@ babel-jest@27.5.1, babel-jest@^27.5.1:
     graceful-fs "^4.2.9"
     slash "^3.0.0"
 
-babel-loader@^8.0.0, babel-loader@^8.2.2:
+babel-loader@8.2.5, babel-loader@^8.0.0:
   version "8.2.5"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.2.5.tgz#d45f585e654d5a5d90f5350a779d7647c5ed512e"
   integrity sha512-OSiFfH89LrEMiWd4pLNqGz4CwJDtbs2ZVc+iGu2HrkRfPxId9F2anQj38IxWpmRfsUY0aBZYi1EFcd3mhtRMLQ==
@@ -8515,7 +8515,7 @@ eslint-plugin-import@^2.25.2:
     resolve "^1.22.0"
     tsconfig-paths "^3.14.1"
 
-eslint-plugin-jsx-a11y@^6.5.1:
+eslint-plugin-jsx-a11y@6.5.1, eslint-plugin-jsx-a11y@^6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.5.1.tgz#cdbf2df901040ca140b6ec14715c988889c2a6d8"
   integrity sha512-sVCFKX9fllURnXT2JwLN5Qgo24Ug5NF6dxhkmxsMEUZhXRcGg+X3e1JbJ84YePQKBl5E0ZjAH5Q4rkdcGY99+g==
@@ -8550,7 +8550,7 @@ eslint-plugin-react-hooks@^4.3.0:
   resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.5.0.tgz#5f762dfedf8b2cf431c689f533c9d3fa5dcf25ad"
   integrity sha512-8k1gRt7D7h03kd+SAAlzXkQwWK22BnK6GKZG+FJA6BAGy22CFvl8kCIXKpVux0cCxMWDQUPqSok0LKaZ0aOcCw==
 
-eslint-plugin-react@^7.27.0, eslint-plugin-react@^7.29.2:
+eslint-plugin-react@7.30.0, eslint-plugin-react@^7.27.0:
   version "7.30.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.30.0.tgz#8e7b1b2934b8426ac067a0febade1b13bd7064e3"
   integrity sha512-RgwH7hjW48BleKsYyHK5vUAvxtE9SMPDKmcPRQgtRCYaZA0XQPt5FSkrU3nhz5ifzMZcA8opwmRJ2cmOO8tr5A==
