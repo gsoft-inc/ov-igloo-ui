@@ -1,4 +1,3 @@
-import glob from 'glob';
 import path from 'path';
 import fs from 'fs';
 
@@ -43,7 +42,6 @@ export async function getComponentAPI(source) {
   return await Promise.all(
     filterFiles.map(async (name) => {
       const filePath = path.join(source, name);
-
       try {
         return docgen.parse(filePath, options);
       } catch (error) {

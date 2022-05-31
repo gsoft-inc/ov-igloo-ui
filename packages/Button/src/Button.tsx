@@ -31,7 +31,7 @@ type PolymorphicComponentPropWithRef<
 type PolymorphicRef<C extends React.ElementType> =
   React.ComponentPropsWithRef<C>['ref'];
 
-export type ButtonOwnProps = {
+export interface ButtonOwnProps {
   /** The content to display inside the button */
   children?: React.ReactNode;
   /** Disabled the button, the user cannot click on them */
@@ -60,7 +60,7 @@ export type ButtonOwnProps = {
   intercomTarget?: string;
   /** Add a specific class to the button */
   className?: string;
-};
+}
 
 type ButtonProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<
   C,

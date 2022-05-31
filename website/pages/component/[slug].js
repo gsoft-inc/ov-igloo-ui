@@ -84,7 +84,7 @@ export default function DocPage(props) {
             ) : (
               <>
                 <MDXRemote {...source} components={mdxComponents} />
-                {/* API title is created by generateDoc() */}
+                {/*API title is created by generateDoc()*/}
                 {componentProps.map((data, i) => (
                   <PropsTable
                     data={data}
@@ -139,9 +139,11 @@ export const getStaticProps = async ({ params }) => {
     scope: data,
   });
 
+  const componentProps = props.flat();
+
   return {
     props: {
-      componentProps: props.flat(),
+      componentProps,
       components,
       component,
       source: mdxSource,
