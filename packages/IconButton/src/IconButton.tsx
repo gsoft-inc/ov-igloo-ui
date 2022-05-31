@@ -1,13 +1,13 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import Button, { ButtonProps } from '@igloo-ui/button';
+import Button, { ButtonOwnProps } from '@igloo-ui/button';
 
 import './icon-button.scss';
 
 export type Size = 'xsmall' | 'small' | 'medium' | 'large';
 
-export interface IconButtonProps extends Omit<ButtonProps, 'size'> {
+export interface IconButtonProps extends Omit<ButtonOwnProps, 'size'> {
   /** Add class names to the surrounding DOM container. */
   className?: string;
   /** Icon React node to represent the value of the button */

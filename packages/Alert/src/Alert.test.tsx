@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import Alert, { Type, AlertProps, Appearance } from './Alert';
 
@@ -134,20 +135,23 @@ describe('Alert', () => {
 
   test('It should render an Alert with action button', () => {
     const buttonText = 'Supercalifragilisticexpialidocious';
-    const alert = setup({
-      type: 'info',
-      appearance: 'card',
-      button: {
-        label: buttonText,
-        onClick: () => {
-          console.log(buttonText);
-        },
-      },
-    });
-    const findActionButton = alert.find('Button');
+    render(
+      <Alert
+        type="info"
+        appearance="card"
+        button={{
+          label: buttonText,
+          onClick: () => {
+            console.log(buttonText);
+          },
+        }}
+      >
+        Hello world
+      </Alert>
+    );
 
-    expect(findActionButton.length).toBe(1);
-    expect(findActionButton.html()).toContain(buttonText);
+    screen.findByText(buttonText);
+    expect(screen.getByTitle(buttonText)).toHaveTextContent(buttonText);
   });
 
   test('It should render a Card Alert with an icon', () => {

@@ -1,10 +1,10 @@
 {
-  "name": "@igloo-ui/button-group",
-  "version": "0.1.2",
-  "main": "dist/ButtonGroup.js",
-  "module": "dist/ButtonGroup.js",
-  "types": "dist/ButtonGroup.d.ts",
-  "styles": "dist/button-group.css",
+  "name": "@igloo-ui/modal",
+  "version": "0.1.0",
+  "main": "dist/Modal.js",
+  "module": "dist/Modal.js",
+  "types": "dist/Modal.d.ts",
+  "styles": "dist/modal.css",
   "publishConfig": {
     "access": "public"
   },
@@ -21,7 +21,12 @@
     "dist"
   ],
   "dependencies": {
+    "@igloo-ui/icon-button": "^0.2.7",
     "@igloo-ui/tokens": "^1.0.0",
+    "@react-aria/dialog": "^3.1.8",
+    "@react-aria/overlays": "^3.8.1",
+    "@react-types/dialog": "3.3.4",
+    "@types/react-dom": "17.0.13",
     "classnames": "^2.3.1"
   },
   "browserslist": [
@@ -30,7 +35,6 @@
     "IE >= 11"
   ],
   "devDependencies": {
-    "@igloo-ui/icons": "^0.6.6",
-    "@igloo-ui/tooltip": "^0.0.9"
+    "@igloo-ui/button": "^0.2.0"
   }
 }

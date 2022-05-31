@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.2.0
+
+### Minor Changes
+
+- f019f88: Add the ability to display a link by an `a` tag
+
+## 0.1.12
+
+### Patch Changes
+
+- ac5d81a: add forwardRef
+
 ## 0.1.11
 
 ### Patch Changes
