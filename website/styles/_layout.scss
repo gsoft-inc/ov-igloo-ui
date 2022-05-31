@@ -71,7 +71,6 @@
   position: relative;
   width: 100%;
   max-width: token.$max-layout-width;
-  min-height: calc( 100vh - #{token.$navbar-min-height});
   margin: token.$navbar-min-height auto 0;
   padding: var(--io-main-padding);
   box-sizing: border-box;
