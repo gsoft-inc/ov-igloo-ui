@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Fuse from 'fuse.js';
 
@@ -14,13 +15,19 @@ import IconsOptions from '../components/IconsOptions';
 
 import iconIcon from '../svg/icon.svg';
 
+const defaultSize = 'medium';
+const defaultSearch = '';
+
 export default function Icons() {
-  const [size, setSize] = useState('medium');
-  const [search, setSearch] = useState('');
+  const router = useRouter();
+  const { search, size } = router.query;
+
+  const [sizeSelector, setSizeSelector] = useState(defaultSize);
+  const [searchBar, setSearchBar] = useState(defaultSearch);
 
   useEffect(() => {
     let iconSize;
-    switch (size) {
+    switch (sizeSelector) {
       case 'small':
         iconSize = '16px';
         break;
@@ -34,30 +41,44 @@ export default function Icons() {
         break;
     }
     document.body.style.setProperty('--icon-size', iconSize);
-  }, [size]);
+  }, [sizeSelector]);
+
+  useEffect(() => {
+    setSearchBar(search ? `${search}` : defaultSearch);
+
+    switch (size) {
+      case 'small':
+      case 'medium':
+      case 'large':
+        setSizeSelector(`${size}`);
+        break;
+      default:
+        setSizeSelector(defaultSize);
+    }
+  }, [search, size]);
 
   function handleSizeChange(event) {
-    setSize(event.currentTarget.value);
+    setSizeSelector(event.currentTarget.value);
   }
 
   function handleSearchChange(event) {
-    setSearch(event.currentTarget.value);
+    setSearchBar(event.currentTarget.value);
   }
 
   const options = {
     includeScore: true,
-    threshold: 0.3,
+    threshold: 0.2,
   };
   const list = Icon.iconName;
   const fuse = new Fuse(list, options);
-  const results = fuse.search(search);
-  const emptyResult = results.length === 0 && search !== '';
+  const results = fuse.search(searchBar);
+  const emptyResult = results.length === 0 && searchBar !== '';
 
   const EmptyResult = () => {
     return (
       <div className="io-empty">
         <Title level={3} as="h4">
-          No results for "{search}"
+          No results for "{searchBar}"
         </Title>
         <p>
           Not finding an icon that you want?{' '}
@@ -114,15 +135,15 @@ export default function Icons() {
       </section>
       <IconsList
         list={list}
-        size={size}
+        size={sizeSelector}
         search={results}
         emptyResult={emptyResult ? <EmptyResult /> : null}
         options={
           <IconsOptions
-            search={search}
+            search={searchBar}
             searchOnChange={handleSearchChange}
             sizeOnChange={handleSizeChange}
-            size={size}
+            size={sizeSelector}
           />
         }
       />

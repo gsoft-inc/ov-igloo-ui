@@ -3,8 +3,10 @@ import cx from 'classnames';
 
 import { Copy, Check } from './icons';
 
-export default function ClipboardCopy({ dark, textToCopy, className }) {
+export default function ClipboardCopy({ dark, textToCopy, icon, className }) {
   const [isCopied, setIsCopied] = useState(false);
+
+  icon = icon || <Copy />;
 
   async function copyTextToClipboard(text) {
     if ('clipboard' in navigator) {
@@ -33,7 +35,7 @@ export default function ClipboardCopy({ dark, textToCopy, className }) {
 
   return (
     <button className={classes} onClick={handleCopyClick}>
-      {isCopied ? <Check /> : <Copy />}
+      {isCopied ? <Check /> : icon}
     </button>
   );
 }

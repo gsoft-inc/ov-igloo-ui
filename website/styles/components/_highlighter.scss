@@ -12,4 +12,9 @@
     position: absolute;
     inset: var.$size-1 var.$size-1 auto auto;
   }
+
+  &__action-left {
+    position: absolute;
+    inset: var.$size-1;
+  }
 }
