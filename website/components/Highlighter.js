@@ -1,5 +1,5 @@
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { tomorrowNightEighties } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import ClipboardCopy from './ClipboardCopy';
 
@@ -8,7 +8,7 @@ export default function Highlighter({ language, children, action }) {
     <div className="io-highlighter">
       <SyntaxHighlighter
         language={language}
-        style={tomorrowNightEighties}
+        style={tomorrow}
         className="io-highlighter__syntax"
       >
         {children}

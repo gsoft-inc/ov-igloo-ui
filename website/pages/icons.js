@@ -93,7 +93,7 @@ export default function Icons() {
         <p>
           To install <Code inline>@igloo-ui/icons</Code> in your project, you
           will need to run the following command using{' '}
-          <a href="npmjs.org" target="_blank">
+          <a href="https://npmjs.org" target="_blank">
             npm:
           </a>
         </p>
