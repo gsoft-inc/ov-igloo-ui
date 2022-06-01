@@ -1,6 +1,6 @@
 # Toggle
 
-Toggles offer users the choice between turning on or off a setting.
+Toggle is a component used for binary choice for a given option.
 
 <Example />
 

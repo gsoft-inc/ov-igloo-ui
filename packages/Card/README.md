@@ -1,6 +1,6 @@
 # Card
 
-Cards are used to group similar concepts and tasks together to make easier for users to scan, read, and get things done.
+Cards are used to group similar concepts and tasks to make it easier for users to scan, read, and get things done.
 
 <Example />
 

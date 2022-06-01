@@ -1,6 +1,6 @@
 # Radio
 
-Use radio buttons to present each item in a list of options where users must make a single selection.
+Use Radio components to be part of an options list where users can only make a single choice.
 
 <Example />
 

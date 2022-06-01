@@ -1,6 +1,6 @@
 # Alert
 
-Informs user about important changes or persistent conditions. Use this component if you need to communicate to users in a way to catch their attention. Alerts can be placed at the top of the page.
+Use to highlight information for the user that requires his attention.<br/> Alerts can be position at the top of the page or into other components.
 
 <Example />
 

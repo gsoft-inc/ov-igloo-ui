@@ -1,6 +1,6 @@
 # Button
 
-Buttons are used primarily for actions.
+Buttons are used primarily for user interaction.
 
 <Example />
 
