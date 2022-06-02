@@ -90,6 +90,7 @@
     border: 1px solid var.$c-grey-200;
     border-radius: var.$br-1;
     color: var.$c-grey-300;
+    cursor: pointer;
   }
 
   :checked + label {
