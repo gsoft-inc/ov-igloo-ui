@@ -32,6 +32,8 @@
   &__svg {
     display: flex;
     flex: 1 1 4rem;
+    min-width: 50px;
+    cursor: pointer;
 
     > * {
       margin: auto;

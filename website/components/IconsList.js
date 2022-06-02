@@ -28,12 +28,23 @@ export default function IconsList({
     return `${basePath}${pathname}?search=%3D${name}&size=${size}`;
   }
 
+  function setSearch(name, size) {
+    router.push(`?search=%3D${name}&size=${size}`, undefined, {
+      shallow: true,
+    });
+  }
+
   const Item = ({ index, name, size }) => {
     const IconComponent = Icon[name];
     return (
       <div key={index.toString()} className="io-icon">
         <div className="io-icon__content">
-          <div className="io-icon__svg">
+          <div
+            className="io-icon__svg"
+            onClick={() => {
+              setSearch(name, size);
+            }}
+          >
             <IconComponent size={size} />
           </div>
           <div className="io-icon__name" title={name}>
