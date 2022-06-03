@@ -78,7 +78,7 @@ export default {
     },
     intercomTarget: {
       description:
-        'Add a data-intercom-target with unique id to link a components to a Product Tour step',
+        'Add a data-intercom-target with unique id to link a component to a Product Tour step',
       table: {
         type: { summary: 'string' },
       },
@@ -114,7 +114,7 @@ export default {
       options: ['button', 'reset', 'submit'],
     },
     as: {
-      description: 'Add ability to display a link by an `a` tag',
+      description: 'Add the ability to display a link by an `a` tag',
       table: {
         defaultValue: { summary: 'button' },
         type: { summary: '"button | "a"' },
