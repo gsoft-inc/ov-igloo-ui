@@ -21,7 +21,7 @@ export default {
       control: 'text',
       defaultValue: tooltipContent,
     },
-    position: { table: { defaultValue: { summary: 'top' } } },
+    position: { table: { defaultValue: { summary: 'auto' } } },
     appearance: { table: { defaultValue: { summary: 'dark' } } },
     maxWidth: {
       table: { defaultValue: { summary: 200 } },
