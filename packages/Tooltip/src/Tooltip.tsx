@@ -25,6 +25,8 @@ export interface TooltipProps extends React.ComponentPropsWithoutRef<'div'> {
   active?: boolean;
   /** When True, disabled the tooltip */
   disabled?: boolean;
+  /** Add a data-test tag for automated tests */
+  dataTest?: string;
 }
 
 const Tooltip: React.FunctionComponent<TooltipProps> = (
@@ -40,6 +42,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     className,
     disabled,
     active = false,
+    dataTest,
     ...rest
   } = props;
 
@@ -84,12 +87,13 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
       style={styles.popper}
       {...attributes.popper}
       data-show={show}
+      data-test={dataTest}
       {...rest}
     >
       {content}
       <div
         style={styles.arrow}
-        data-popper-arrow={true}
+        data-popper-arrow
         className="ids-tooltip__arrow"
       />
     </div>,
