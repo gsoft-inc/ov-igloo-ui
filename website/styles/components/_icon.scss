@@ -18,11 +18,22 @@
     height: 100%;
     align-items: center;
     justify-content: center;
+    position: relative;
+
+    & .io-btn-copy {
+      display: none;
+    }
+
+    &:hover .io-btn-copy {
+      display: inherit;
+    }
   }
 
   &__svg {
     display: flex;
     flex: 1 1 4rem;
+    min-width: 50px;
+    cursor: pointer;
 
     > * {
       margin: auto;
