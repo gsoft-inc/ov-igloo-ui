@@ -92,6 +92,7 @@
     border: 1px solid token.$grey-400;
     border-radius: token.$radius-1;
     color: token.$grey-700;
+    cursor: pointer;
   }
 
   :checked + label {

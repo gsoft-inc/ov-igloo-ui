@@ -12,4 +12,9 @@
     position: absolute;
     inset: token.$space-1 token.$space-1 auto auto;
   }
+
+  &__action-left {
+    position: absolute;
+    inset: token.$space-1;
+  }
 }

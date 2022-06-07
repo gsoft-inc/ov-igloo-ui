@@ -56,7 +56,7 @@ export interface ButtonOwnProps {
   onClick?: () => void;
   /** Optional prop to specify the type of the Button */
   type?: 'button' | 'reset' | 'submit';
-  /** Add a data-intercom-target with unique id to link a components to a Product Tour step */
+  /** Add a data-intercom-target with unique id to link a component to a Product Tour step */
   intercomTarget?: string;
   /** Add a specific class to the button */
   className?: string;
