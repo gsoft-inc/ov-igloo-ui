@@ -55,21 +55,28 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
   const [tooltipElement, setTooltipElement] =
     React.useState<HTMLElement | null>(null);
 
-  const { styles, attributes } = usePopper(referenceElement, tooltipElement, {
-    placement: position,
-    modifiers: [
-      { name: 'offset', options: { offset: [0, 10] } },
-      {
-        name: 'flip',
-        options: {
-          fallbackPlacements: ['top', 'bottom', 'left', 'right'],
+  const { styles, attributes, update } = usePopper(
+    referenceElement,
+    tooltipElement,
+    {
+      placement: position,
+      modifiers: [
+        { name: 'offset', options: { offset: [0, 10] } },
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: ['top', 'bottom', 'left', 'right'],
+          },
         },
-      },
-    ],
-  });
+      ],
+    }
+  );
 
   const onMouseEnterHandle = (): void => {
     setShow(true);
+    if (update !== null) {
+      update();
+    }
   };
 
   const onMouseLeaveHandle = (): void => {
