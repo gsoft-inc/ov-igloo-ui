@@ -119,6 +119,8 @@
 
   @at-root a#{&} {
     text-decoration: none;
+    display: inline-flex;
+    box-sizing: border-box;
   }
 
   > .is-hidden {
