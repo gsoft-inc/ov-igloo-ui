@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.1
+
+### Patch Changes
+
+- 3eb651d: fix the width of the button as link
+
 ## 0.2.0
 
 ### Minor Changes
