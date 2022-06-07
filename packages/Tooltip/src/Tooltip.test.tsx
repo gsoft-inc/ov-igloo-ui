@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { shallow } from 'enzyme';
+import { render, fireEvent, screen } from '@testing-library/react';
 
 import Tooltip, { TooltipProps } from './Tooltip';
 
@@ -25,32 +26,15 @@ describe('Tooltip', () => {
     expect(component).toMatchSnapshot();
   });
 
-  test('It should render at Top', (): void => {
-    const tooltip = setUp({ position: 'top', children: 'children' });
-    const bubble = tooltip.find('.ids-tooltip--top');
+  test('It should show the tooltip', async () => {
+    const { getByTestId } = render(
+      <Tooltip content="Tooltip content" position="top" dataTest="tooltip-id">
+        Tooltip trigger
+      </Tooltip>
+    );
 
-    expect(bubble.length).toBe(1);
-  });
-
-  test('It should render at Right', (): void => {
-    const tooltip = setUp({ position: 'right', children: 'children' });
-    const bubble = tooltip.find('.ids-tooltip--right');
-
-    expect(bubble.length).toBe(1);
-  });
-
-  test('It should render at Bottom', (): void => {
-    const tooltip = setUp({ position: 'bottom', children: 'children' });
-    const bubble = tooltip.find('.ids-tooltip--bottom');
-
-    expect(bubble.length).toBe(1);
-  });
-
-  test('It should render at Left', (): void => {
-    const tooltip = setUp({ position: 'left', children: 'children' });
-    const bubble = tooltip.find('.ids-tooltip--left');
-
-    expect(bubble.length).toBe(1);
+    fireEvent.mouseEnter(screen.getByText(/Tooltip content/));
+    expect(getByTestId('tooltip-id')).toBeInTheDocument();
   });
 
   test('It should render using light theme', (): void => {
