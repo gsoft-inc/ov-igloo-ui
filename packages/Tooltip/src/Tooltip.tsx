@@ -1,14 +1,14 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import ReactDom from 'react-dom';
 import classNames from 'classnames';
-import { Position, getVisiblePosition } from './position';
+import { usePopper } from 'react-popper';
 
 import './tooltip.scss';
 
 export type Appearance = 'dark' | 'light';
-export type Ref = HTMLDivElement;
+export type Position = 'top' | 'right' | 'bottom' | 'left' | 'auto';
 
-export interface TooltipProps extends React.ComponentPropsWithRef<'div'> {
+export interface TooltipProps extends React.ComponentPropsWithoutRef<'div'> {
   /** The target button, text, svg etc.. of the Tooltip. */
   children: React.ReactNode;
   /** Add a specific class to the tooltip */
@@ -25,97 +25,99 @@ export interface TooltipProps extends React.ComponentPropsWithRef<'div'> {
   active?: boolean;
   /** When True, disabled the tooltip */
   disabled?: boolean;
+  /** Add a data-test tag for automated tests */
+  dataTest?: string;
 }
 
-const Tooltip: React.FunctionComponent<TooltipProps> = React.forwardRef<
-  Ref,
-  TooltipProps
->((props, ref) => {
+const Tooltip: React.FunctionComponent<TooltipProps> = (
+  props: TooltipProps
+) => {
   const {
     children,
     content,
     tooltipClassName,
-    position = 'top',
+    position = 'auto',
     appearance = 'dark',
     maxWidth = 200,
     className,
     disabled,
+    active = false,
+    dataTest,
     ...rest
   } = props;
 
   const classes = classNames('ids-tooltip__container', className);
 
-  const defaultTooltipClasses = (visiblePosition: string): string => {
-    return classNames(
-      'ids-tooltip',
-      tooltipClassName,
-      `ids-tooltip--${visiblePosition}`,
-      {
-        'ids-tooltip--light': appearance === 'light',
-      }
-    );
-  };
+  const [show, setShow] = useState<boolean>(active);
 
-  const [active, setActive] = useState<boolean>(false);
-  const [tooltipClasses, setTooltipClasses] = useState<string>(
-    defaultTooltipClasses(position)
+  const [referenceElement, setReferenceElement] =
+    React.useState<HTMLElement | null>(null);
+  const [tooltipElement, setTooltipElement] =
+    React.useState<HTMLElement | null>(null);
+
+  const { styles, attributes, update } = usePopper(
+    referenceElement,
+    tooltipElement,
+    {
+      placement: position,
+      modifiers: [
+        { name: 'offset', options: { offset: [0, 10] } },
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: ['top', 'bottom', 'left', 'right'],
+          },
+        },
+      ],
+    }
   );
 
-  const tooltipRef = useRef<HTMLDivElement>(null);
-  const positionRef = useRef({ x: 0, y: 0 });
-
-  const tooltipStyle = {
-    maxWidth: `${maxWidth}px`,
-    top: `${positionRef.current.y}px`,
-    left: `${positionRef.current.x}px`,
-  };
-
-  const onMouseEnterHandle = (event: { currentTarget: HTMLElement }): void => {
-    setActive(true);
-
-    const tooltip = tooltipRef.current;
-    const parent = event.currentTarget;
-
-    if (tooltip) {
-      const { x, y, visiblePosition } = getVisiblePosition(
-        tooltip,
-        parent,
-        position
-      );
-      setTooltipClasses(defaultTooltipClasses(visiblePosition));
-      positionRef.current = { x, y };
+  const onMouseEnterHandle = (): void => {
+    setShow(true);
+    if (update !== null) {
+      update();
     }
   };
 
   const onMouseLeaveHandle = (): void => {
-    setActive(false);
+    setShow(false);
   };
+
+  const tooltipClasses = classNames('ids-tooltip', tooltipClassName, {
+    'ids-tooltip--light': appearance === 'light',
+  });
 
   const tooltip = ReactDom.createPortal(
     <div
-      ref={tooltipRef}
-      className={classNames(tooltipClasses, {
-        'ids-tooltip--active': active,
-      })}
-      style={tooltipStyle}
+      ref={setTooltipElement}
+      className={tooltipClasses}
+      style={styles.popper}
+      {...attributes.popper}
+      data-show={show}
+      data-test={dataTest}
       {...rest}
     >
       {content}
+      <div
+        style={styles.arrow}
+        data-popper-arrow
+        className="ids-tooltip__arrow"
+      />
     </div>,
     document.body
   );
 
   return (
     <span
-      ref={ref}
+      ref={setReferenceElement}
       className={classes}
       onMouseEnter={onMouseEnterHandle}
       onMouseLeave={onMouseLeaveHandle}
     >
       {children}
-      {!disabled && tooltip}
+      {disabled ? null : tooltip}
     </span>
   );
-});
+};
 
 export default Tooltip;
