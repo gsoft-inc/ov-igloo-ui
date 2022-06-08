@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+
 import storybook from '../svg/sb.svg';
 
 export default function ReferenceLinks({ component, version }) {
@@ -36,7 +37,9 @@ export default function ReferenceLinks({ component, version }) {
           </a>
         </li>
         <li className="reference__item">
-          <Link href="/storybook">
+          <Link
+            href={`/storybook/?path=/docs/components-${component.toLowerCase()}--overview`}
+          >
             <a className="reference__link" target="_blank">
               <Image width={16} height={16} src={storybook} />
               Storybook
