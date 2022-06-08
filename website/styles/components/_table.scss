@@ -1,24 +1,92 @@
-@use '../variables' as var;
+@use '../abstract/function' as *;
+@use '../tokens' as token;
+@use '../base/media-query' as media;
 
-.io-tokens__table {
+:root {
+  --io-table-api-padding: #{token.$space-1};
+  --io-table-margin: #{token.$space-3} 0;
+  --io-table-api-width: 150%;
+}
+
+@include media.mq(medium) {
+  :root {
+    --io-table-api-padding: #{token.$space-2} #{token.$space-1};
+    --io-table-margin: #{token.$space-3} 0 #{token.$space-8} 0;
+    --io-table-api-width: 100%;
+  }
+}
+
+.io-table__wrapper {
+  overflow-x: auto;
+}
+
+.io-table {
   font-size: var(--fs-100);
+  font-weight: normal;
   width: 100%;
-  margin: var.$size-3 0 var.$size-8 0;
+  margin: var(--io-table-margin);
+  border-collapse: collapse;
 
-  th,
-  td {
-    font-weight: normal;
-    text-align: left;
-    padding: var.$size-0 0;
-    margin: 0;
+  .is-hidden {
+    display: none;
+  }
+}
+
+.io-table__cell {
+  text-align: left;
+  padding: token.$space-0 0;
+  margin: 0;
+  border-top: 1px solid token.$grey-200;
+
+  thead & {
+    border-top: none;
+    color: token.$grey-600;
+  }
+}
+
+// Table API
+.io-table--api {
+  table-layout: auto;
+  width: var(--io-table-api-width);
+  margin-top: 0;
+
+  .io-table__cell {
+    padding: var(--io-table-api-padding);
+    vertical-align: top;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
   }
 
-  td {
-    font-size: var(--fs-100);
-    border: 0;
-    border-top: 1px solid var.$c-grey-200;
+  .io-required {
+    display: block;
+    width: token.$space-0;
+    height: token.$space-0;
+    margin-left: token.$space-0;
+    border-radius: 50%;
+    background: red;
   }
+}
 
+.io-table__cell--mono {
+  font-family: monospace;
+  color: token.$grey-700;
+  white-space: nowrap;
+}
+
+.io-table__cell--prop {
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+}
+
+//Table Token
+.io-table--tokens {
   td:first-child {
     width: 40%;
   }
@@ -29,7 +97,7 @@
   }
 
   td:last-child {
-    width: 8rem;
+    width: rebase(8rem);
 
     > * {
       float: right;
@@ -39,10 +107,10 @@
 
 .io-tokens__preview {
   text-align: right;
-  width: var.$size-5;
-  height: var.$size-3;
-  border-radius: var.$br-2;
-  background: var.$c-grey-200;
+  width: token.$space-5;
+  height: token.$space-3;
+  border-radius: token.$radius-2;
+  background: token.$grey-200;
 }
 
 .io-preview {
@@ -54,18 +122,18 @@
   }
 
   &--space {
-    height: var.$size-2;
-    border-radius: var.$br-2;
-    background: var.$c-code-bg;
+    height: token.$space-2;
+    border-radius: token.$radius-2;
+    background: token.$code-bg-color;
   }
 
   &--lineHeight {
-    padding: 0 var.$size-0;
+    padding: 0 token.$space-0;
   }
 
   &--lineHeight,
   &--border {
-    border: 1px solid var.$c-grey-300;
+    border: 1px solid token.$grey-300;
   }
 
   &--empty,

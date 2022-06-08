@@ -1,0 +1,25 @@
+@use "../tokens" as token;
+@use '../base/media-query' as media;
+
+:root {
+  --io-main-top-padding: #{token.$space-7};
+  --io-main-right-padding: #{token.$space-3};
+  --io-toc-display: none;
+}
+
+@include media.mq(medium) {
+  :root {
+    --io-main-top-padding: #{token.$space-10};
+    --io-main-right-padding: #{token.$space-4};
+    --io-toc-display: block;
+  }
+}
+
+.io-toc {
+  display: var(--io-toc-display);
+  position: absolute;
+  top: var(--io-main-top-padding);
+  right: 0;
+  padding-right: var(--io-main-right-padding);
+  height: 100%;
+}

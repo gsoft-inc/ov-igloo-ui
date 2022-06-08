@@ -1,27 +1,32 @@
 @use 'sass:color';
+@use '../abstract/function' as *;
+@use '../base/media-query' as media;
+@use '../tokens' as token;
 
-@use '../variables' as var;
+$card-effect-size: #{token.$space-2};
+$card-effect-size-negative: calc(-1* #{token.$space-2} );
 
-$card-effect-size: var.$size-2;
+$card-component-effect-size: #{token.$space-0};
+$card-component-effect-size-negative:  calc(-1* #{token.$space-0});
 
 $card-shadow-yellow: rgb(
-  color.red(var.$c-yellow),
-  color.green(var.$c-yellow),
-  color.blue(var.$c-yellow),
+  color.red(token.$yellow),
+  color.green(token.$yellow),
+  color.blue(token.$yellow),
   var(--alpha, 0)
 );
 
 $card-shadow-green: rgb(
-  color.red(var.$c-green),
-  color.green(var.$c-green),
-  color.blue(var.$c-green),
+  color.red(token.$green),
+  color.green(token.$green),
+  color.blue(token.$green),
   var(--alpha, 0)
 );
 
 $card-shadow-pink: rgb(
-  color.red(var.$c-pink),
-  color.green(var.$c-pink),
-  color.blue(var.$c-pink),
+  color.red(token.$pink),
+  color.green(token.$pink),
+  color.blue(token.$pink),
   var(--alpha, 0)
 );
 
@@ -48,12 +53,12 @@ a {
     &:hover {
       --alpha: 1;
 
-      transform: translate($card-effect-size * -1, $card-effect-size * -1);
+      transform: translate($card-effect-size-negative, $card-effect-size-negative);
       box-shadow: $card-effect-size $card-effect-size 0 0 $card-shadow-yellow;
 
       &::after {
-        right: $card-effect-size * -1;
-        bottom: $card-effect-size * -1;
+        right: $card-effect-size-negative;
+        bottom: $card-effect-size-negative;
       }
     }
 
@@ -82,43 +87,64 @@ a {
     }
   }
 
+
   .io-card--components,
   .io-card--tokens,
   .io-card--icons {
     display: flex;
     vertical-align: center;
-    gap: var.$size-3;
+    gap: token.$space-3;
 
-    @media (min-width: var.$breakpoint-medium) {
+    @include media.mq(medium) {
       flex-direction: column;
     }
   }
 
-  .io-card--inline {
+  .io-card--inline,
+  .io-card--component {
     box-shadow: none;
     height: auto;
 
+  }
+
+  .io-card--inline {
+    padding: token.$space-3;
+    background-color: transparent;
     &:hover {
       transform: none;
       box-shadow: none;
+    }
+  }
+
+  .io-card--component {
+    padding: 0;
+    background-color: token.$white;
+
+    &:hover {
+      box-shadow: $card-component-effect-size $card-component-effect-size 0 0 token.$grey-900;
+      transform: translate($card-component-effect-size-negative, $card-component-effect-size-negative);
+
+      .io-card__img {
+        background-color: token.$yellow;
+      }
     }
   }
 }
 
 .io-card {
   position: relative;
-  font-size: var.$fs-4;
-  border-radius: var.$br-1;
-  padding: var.$size-2;
-  color: var.$c-white;
-  background: var.$c-black;
+  font-size: var(--fs-500);
+  border-radius: token.$radius-1;
+  padding: token.$space-2;
+  color: token.$white;
+  background: token.$black;
 
-  @media (min-width: var.$breakpoint-medium) {
-    padding: var.$size-3;
+  @include media.mq(medium) {
+    padding: token.$space-3;
   }
 
   &__img {
-    max-width: var.$size-8;
+    max-width: token.$space-8;
   }
 
   &__content {
@@ -132,15 +158,15 @@ a {
   }
 
   &__description {
-    margin: var.$size-0 0 0;
+    margin: token.$space-0 0 0;
   }
 }
 
 .io-card--inline {
   display: flex;
   padding: 0;
-  color: var.$c-black;
-  background: var.$c-white;
+  color: token.$black;
+  background: token.$white;
 
   .io-card__title {
     font-size: var(--fs-300);
@@ -152,6 +178,31 @@ a {
   }
 
   .io-card__content {
-    padding: 0 var.$size-2;
+    padding: 0 token.$space-2;
+  }
+}
+
+.io-card--component {
+  border: 2px solid token.$grey-800;
+  color: token.$grey-900;
+  display: flex;
+  flex-direction: column;
+
+  .io-card__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    min-height: rebase(8rem);
+    background-color: token.$grey-100;
+    border-radius: rebase(0.4rem) rebase(0.4rem) 0 0;
+  }
+
+  .io-card__content {
+    padding: token.$space-2;
+  }
+
+  .io-card__title {
+    font-size: var(--fs-300);
   }
 }

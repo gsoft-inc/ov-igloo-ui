@@ -1,45 +1,107 @@
-@use '../variables' as var;
+@use "../tokens" as token;
+@use "../base/media-query" as media;
+
+:root {
+  --io-nav-list-gap: #{token.$space-0};
+  --io-nav-list-justify: flex-end;
+  --io-nav-list-item: #{token.$space-1};
+  --io-external-link-position: none;
+}
+
+@include media.mq(medium) {
+  :root {
+    --io-nav-list-gap: #{token.$space-2};
+    --io-nav-list-justify: center;
+    --io-nav-list-item: #{token.$space-0} #{token.$space-2};
+    --io-external-link-position: flex;
+  }
+}
 
 .io-nav {
-  font-size: var(--fs-300);
-  font-weight: 400;
-
   &__list {
+    justify-content: var(--io-nav-list-justify);
     display: flex;
     list-style: none;
+    gap: var(--io-nav-list-gap);
     margin: 0;
     padding: 0;
   }
 
-  &__item:not(:first-child) {
-    margin-left: var.$size-2;
-  }
-
-  &__link:hover {
-    text-decoration: underline;
-  }
-
-  &__item--icon {
+  &__item {
     display: flex;
     align-items: center;
+    justify-content: center;
+    font-size: token.$menu-text-size;
+    background-color: token.$menu-bg-color;
+    color: token.$menu-color;
+    border: 1px solid transparent;
+    border-radius: token.$radius-0;
 
-    span {
-      display: none;
+    &:hover {
+      cursor: pointer;
+      border: token.$menu-border;
+      box-shadow: 2px 2px 0 token.$menu-border-color;
     }
+
+    &.is-active {
+      font-weight: 700;
+    }
+  }
+
+  &__link {
+    padding: var(--io-nav-list-item);
+  }
+}
+
+.io-external-link {
+  display: var(--io-external-link-position);
+  justify-content: flex-end;
+
+  &.io-nav__list {
+    gap: token.$space-1;
+  }
+
+  .io-nav__item {
+    padding: token.$space-1;
+  }
+
+  .is-hidden {
+    display: none;
   }
 }
 
 .io-subnav {
   position: sticky;
-  top: var.$navbar + var.$size-3;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: var(--fs-300);
-  line-height: 2;
+  top: token.$navbar-min-height;
+  padding-top: token.$space-2;
 
-  a:hover,
-  a.is-active {
-    text-decoration: underline;
+  &__title {
+    font-size: var(--fs-100);
+    font-weight: 700;
+    color: token.$grey-900;
+  }
+
+  &__list {
+    font-size: var(--fs-100);
+    color: token.$grey-600;
+    list-style: none;
+    margin: 0;
+    padding: token.$space-1 0 0;
+  }
+
+
+  &__item,
+  .toc-item{
+    margin: token.$space-1 0;
+
+    > a {
+      text-decoration: none;
+    }
+
+    &:hover > a{
+      color: token.$grey-900;
+    }
   }
 }
+
+

@@ -1,8 +1,8 @@
-@use '../variables' as var;
+@use '../tokens' as token;
 
 .io-title {
   line-height: 1.35;
-  color: var.$c-black;
+  color: token.$black;
   margin: 0;
 
   &--level1 {
@@ -14,6 +14,10 @@
   }
 
   &--level3 {
+    font-size: var(--fs-500);
+  }
+
+  &--level4 {
     font-size: var(--fs-400);
   }
 }

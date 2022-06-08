@@ -74,13 +74,13 @@ export default function Table({ data, title, options }) {
 
     return (
       <tr key={index.toString()}>
-        <td>
+        <td className="io-table__cell">
           <Code inline light copy>
             {style === 'scss' ? `$${property}` : `--${property}`}
           </Code>
         </td>
-        <td>{value}</td>
-        <td>
+        <td className="io-table__cell">{value}</td>
+        <td className="io-table__cell">
           <div
             style={preview.style}
             className={cx(
@@ -102,12 +102,12 @@ export default function Table({ data, title, options }) {
           {title}
         </Title>
       </div>
-      <table className="io-tokens__table">
+      <table className="io-table io-table--tokens">
         <thead>
           <tr>
-            <th>Token</th>
-            <th>Value</th>
-            <th>Preview</th>
+            <th className="io-table__cell">Token</th>
+            <th className="io-table__cell">Value</th>
+            <th className="io-table__cell">Preview</th>
           </tr>
         </thead>
         <tbody>{renderTableBody}</tbody>

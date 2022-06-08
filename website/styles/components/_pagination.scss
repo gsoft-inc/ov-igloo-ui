@@ -1,0 +1,40 @@
+@use '../tokens' as token;
+@use '../abstract/function' as *;
+
+.io-pagination {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-100);
+  color: token.$grey-600;
+  margin-top: token.$space-8;
+
+  &.io-pagination--next {
+    justify-content: flex-end;
+  }
+}
+
+.io-pagination--next .io-pagination__item,
+.io-pagination__item:not(:first-child) {
+  text-align: right;
+}
+
+.io-pagination__link {
+  display: flex;
+  flex-direction: column;
+  padding: token.$space-0 token.$space-2;
+  min-width: rebase(10rem);
+
+  border: 1px solid token.$grey-300;
+  border-radius: token.$radius-0;
+
+  &:hover {
+    background-color: token.$menu-bg-color;
+    border: token.$menu-border;
+    box-shadow: 2px 2px 0 token.$menu-border-color;
+  }
+}
+
+.io-pagination__label {
+  color: token.$black;
+  font-size: var(--fs-300);
+}

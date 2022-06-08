@@ -1,4 +1,4 @@
-import React, { RefObject, useRef, useState } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 import Button from '@igloo-ui/button';
@@ -17,8 +17,6 @@ import './alert.scss';
 export type Type = 'announcement' | 'info' | 'premium' | 'success' | 'warning';
 
 export type Appearance = 'card' | 'inline' | 'horizontal';
-
-export type IconStyle = 'medium-centered' | 'small-top';
 
 export interface AlertButton {
   label: string;
@@ -68,7 +66,7 @@ const renderIcon = (
 };
 
 const renderDismissButton = (
-  ref: RefObject<HTMLDivElement>,
+  ref: React.RefObject<HTMLDivElement>,
   setShow: (show: boolean) => void,
   onDismissClick?: () => void
 ): JSX.Element => {
@@ -132,8 +130,8 @@ const Alert: React.FunctionComponent<AlertProps> = (props: AlertProps) => {
     className
   );
 
-  const parentElement = useRef<HTMLDivElement>(null);
-  const [show, setShow] = useState(true);
+  const parentElement = React.useRef<HTMLDivElement>(null);
+  const [show, setShow] = React.useState(true);
   const hasButton = button !== undefined;
   const isHorizontal = appearance === 'horizontal';
   const canBeClose = closable && !isHorizontal;

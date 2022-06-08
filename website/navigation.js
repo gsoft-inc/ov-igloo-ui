@@ -1,7 +1,8 @@
 export const link = {
   TOKENS: '/tokens',
   ICONS: '/icons',
-  COMPONENTS: '/storybook',
+  COMPONENTS: '/component',
+  STORYBOOK: '/storybook',
 };
 
 export const nav = [

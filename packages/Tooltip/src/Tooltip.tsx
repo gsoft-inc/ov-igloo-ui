@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import ReactDom from 'react-dom';
 import classNames from 'classnames';
 import { usePopper } from 'react-popper';
@@ -48,7 +48,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
 
   const classes = classNames('ids-tooltip__container', className);
 
-  const [show, setShow] = useState<boolean>(active);
+  const [show, setShow] = React.useState<boolean>(active);
 
   const [referenceElement, setReferenceElement] =
     React.useState<HTMLElement | null>(null);

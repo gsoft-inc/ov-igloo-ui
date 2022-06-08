@@ -1,24 +1,24 @@
-@use '../variables' as var;
+@use '../tokens' as token;
 
 .io-code {
   display: block;
   font-size: var(--fs-100);
   font-family: monospace;
-  margin: var.$size-2 0;
+  margin: token.$space-2 0;
 
   + .io-title {
-    margin-top: var.$size-6;
+    margin-top: token.$space-6;
   }
 
   &--inline {
     display: inline-block;
     font-family: monospace;
     font-size: var(--fs-100);
-    color: var.$c-code;
+    color: token.$code-color;
     line-height: 2;
-    background: rgb(175, 184, 193, 0.25);
-    padding: 0 var.$size-1;
-    border-radius: var.$br-2;
+    background: token.$grey-200;
+    padding: 0 token.$space-1;
+    border-radius: token.$radius-2;
   }
 
   &--light {
@@ -28,7 +28,7 @@
   &--copy {
     display: flex;
     align-items: center;
-    gap: var.$size-1;
+    gap: token.$space-1;
 
     .io-btn-copy {
       opacity: 0;

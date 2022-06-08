@@ -1,11 +1,11 @@
-@use '../variables' as var;
+@use '../tokens' as token;
 
 .io-display {
   display: flex;
   align-items: center;
   font-size: var(--fs-700);
   font-weight: 700;
-  margin-bottom: var.$size-8;
+  margin-bottom: token.$space-8;
   line-height: 1;
 
   &__content {
@@ -14,13 +14,13 @@
   }
 
   &__tag {
-    margin-left: var.$size-1;
-    margin-bottom: var.$size-0;
+    margin-left: token.$space-1;
+    margin-bottom: token.$space-0;
   }
 
   &__icon {
-    width: var.$size-5;
-    height: var.$size-5;
-    margin-right: var.$size-2;
+    width: token.$space-5;
+    height: token.$space-5;
+    margin-right: token.$space-2;
   }
 }

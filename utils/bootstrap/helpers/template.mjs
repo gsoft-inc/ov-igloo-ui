@@ -88,24 +88,34 @@ export const getStoriesTemplate = (name) => {
 export const getReadmeTemplate = (name) => {
   const pascalCaseName = pascalcase(name);
 
-  const readmeContent = `# @igloo-ui/${name}
+  const readmeContent = `# ${pascalCaseName}
 
-  Welcome to my \`${pascalCaseName}\` component.
+  TODO: Write your component description here.
+
+  <ReferenceLinks />
 
   ## Installation
 
-  \`\`\`sh
-  npm i @igloo-ui/${name}
-  # or with yarn
+  To install \`@igloo-ui/${name}\` in your project, you will need to run the following command using [npm](https://www.npmjs.com/):
+
+  \`\`\`bash
+  npm install @igloo-ui/${name}
+  \`\`\`
+
+  If you prefer [Yarn](https://classic.yarnpkg.com/en/), use the following command instead:
+
+  \`\`\`bash
   yarn add @igloo-ui/${name}
   \`\`\`
 
+  ## Usage
+
   Then to use the component in your code just import it!
 
-  \`\`\`js
+  \`\`\`jsx
   import ${pascalCaseName} from '@igloo-ui/${name}';
-  // and with css-modules
-  import '@igloo-ui/${pascalCaseName}/dist/${name}.css';
+
+  TODO: Add your component usage here
   \`\`\`
   `;
 

@@ -10,6 +10,8 @@ export default function Code({
   light = false,
   copy = false,
 }) {
+  const formatedLanguage = language.replace('language-', '');
+
   return inline ? (
     <code
       className={cx('io-code--inline', {
@@ -22,7 +24,7 @@ export default function Code({
     </code>
   ) : (
     <span className="io-code">
-      <Highlighter language={language}>{children}</Highlighter>
+      <Highlighter language={formatedLanguage}>{children}</Highlighter>
     </span>
   );
 }
