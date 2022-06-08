@@ -1,0 +1,4 @@
+@function rebase($value) {
+  $dif: 1.6;
+  @return $value * $dif;
+}

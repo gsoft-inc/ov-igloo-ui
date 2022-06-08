@@ -1,0 +1,49 @@
+@use '../tokens' as token;
+@use '../abstract/function' as *;
+@use '../base/media-query' as media;
+
+:root {
+  --io-example-padding: #{token.$space-3};
+  --io-example-margin: #{token.$space-6} 0;
+  --io-example-direction: column;
+}
+
+@include media.mq(medium) {
+  :root {
+    --io-example-padding: #{token.$space-5} 0;
+    --io-example-margin: #{token.$space-6} #{rebase(-4rem)};
+    --io-example-direction: row;
+  }
+}
+
+.io-mdx__content {
+  width: 100%;
+  max-width: rebase(44rem);
+  margin-inline: auto;
+
+  .io-title {
+    margin-bottom: token.$space-2;
+  }
+
+  .io-title + p {
+    margin: 0;
+  }
+
+  .io-title--level2 + p {
+    font-size: var(--fs-400);
+    color: token.$grey-600;
+  }
+
+  .io-title--level4 {
+    margin-top: token.$space-5;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  pre {
+    margin-top: token.$space-0;
+    margin-bottom: token.$space-3;
+  }
+}

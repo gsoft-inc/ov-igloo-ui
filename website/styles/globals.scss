@@ -1,10 +1,25 @@
+@use 'abstract/variables';
+@use 'tokens' as token;
+@use 'base/media-query' as media;
+
 @use 'components';
 @use 'layout';
-@use 'typo';
+@use 'typography';
+
+:root {
+  --io-scoll-padding: #{token.$space-5};
+}
+
+@include media.mq(medium) {
+  :root {
+    --io-scroll-padding: #{token.$space-8};
+  }
+}
 
 html {
-  font-size: 16px;
+  font-size: 10px;
   scroll-behavior: smooth;
+  scroll-padding-top: var(--io-scroll-padding);
 }
 
 html,
@@ -14,6 +29,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   text-rendering: optimizeLegibility;
+  background: token.$body-bg-color;
+  color: token.$text-color;
 }
 
 a {

@@ -3,15 +3,12 @@ import Image from 'next/image';
 import { link } from '../navigation';
 import Card from '../components/Card';
 import Title from '../components/Title';
-import RoadMap from '../components/Roadmap';
 
 import iconToken from '../svg/token.svg';
 import iconIcon from '../svg/icon.svg';
 import iconComponent from '../svg/component.svg';
 import slack from '../svg/slack.svg';
 import issue from '../svg/issue.svg';
-
-import roadMap from '../roadmap.json';
 
 export default function Home() {
   return (
@@ -50,7 +47,7 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="io-section io-section--grid">
+      <section className="io-section">
         <div className="io-contact">
           <Card
             icon={<Image src={slack} />}
@@ -66,12 +63,6 @@ export default function Home() {
             link="https://github.com/gsoft-inc/ov-igloo-ui/issues/new"
             inline
           />
-        </div>
-        <div className="io-roadMap">
-          <Title as="h3" level={4}>
-            Coming next
-          </Title>
-          <RoadMap data={roadMap} />
         </div>
       </section>
     </>

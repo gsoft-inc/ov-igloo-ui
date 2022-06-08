@@ -1,9 +1,7 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Image from 'next/image';
-import cx from 'classnames';
 
-import github from '../svg/github.svg';
+import cx from 'classnames';
 
 export default function Nav({ items }) {
   const { asPath } = useRouter();
@@ -31,18 +29,7 @@ export default function Nav({ items }) {
 
   return (
     <nav className="io-nav">
-      <ul className="io-nav__list">
-        {navList}
-        <li className="io-nav__item io-nav__item--icon">
-          <a
-            className="io-link-icon"
-            href="https://github.com/gsoft-inc/ov-igloo-ui"
-          >
-            <Image src={github} layout="responsive" />
-            <span>Github</span>
-          </a>
-        </li>
-      </ul>
+      <ul className="io-nav__list">{navList}</ul>
     </nav>
   );
 }

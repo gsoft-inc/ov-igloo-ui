@@ -1,19 +1,31 @@
-# @igloo-ui/card
+# Card
 
-Welcome to my `Card` component.
+Cards are used to group similar concepts and tasks to make it easier for users to scan, read, and get things done.
+
+<Example />
+
+<ReferenceLinks />
 
 ## Installation
 
-```sh
-npm i @igloo-ui/card
-# or with yarn
+To install `@igloo-ui/card` in your project, you will need to run the following command using [npm](https://www.npmjs.com/):
+
+```bash
+npm install @igloo-ui/card
+```
+
+If you prefer [Yarn](https://classic.yarnpkg.com/en/), use the following command instead:
+
+```bash
 yarn add @igloo-ui/card
 ```
 
+## Usage
+
 Then to use the component in your code just import it!
 
-```js
+```jsx
 import Card from '@igloo-ui/card';
-// and with css-modules
-import '@igloo-ui/card/dist/card.css';
+
+<Card>Card content</Card>;
 ```

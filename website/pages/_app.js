@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
             `,
         }}
       />
-      <Layout>
+      <Layout page={router.asPath}>
         <Component {...pageProps} />
       </Layout>
     </>

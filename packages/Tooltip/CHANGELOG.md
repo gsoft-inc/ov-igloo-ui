@@ -1,5 +1,15 @@
 # @igloo-ui/tooltip
 
+## 1.0.0
+
+### Major Changes
+
+- 9fc50a4: Use popper for the postion of the tooltip
+
+  ## BREAKING CHANGE
+
+  removing the `forwardref`
+
 ## 0.0.9
 
 ### Patch Changes
