@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/icon-button",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "main": "dist/IconButton.js",
   "module": "dist/IconButton.js",
   "types": "dist/IconButton.d.ts",
@@ -21,7 +21,7 @@
     "dist"
   ],
   "dependencies": {
-    "@igloo-ui/button": "^0.2.0",
+    "@igloo-ui/button": "^0.2.2",
     "@igloo-ui/tokens": "^1.1.0",
     "classnames": "^2.3.1"
   },

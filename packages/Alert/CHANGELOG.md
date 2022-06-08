@@ -1,5 +1,14 @@
 # @igloo-ui/alert
 
+## 0.1.7
+
+### Patch Changes
+
+- 0a86f13: Update content of README
+- Updated dependencies [0a86f13]
+  - @igloo-ui/button@0.2.2
+  - @igloo-ui/icon-button@0.2.8
+
 ## 0.1.6
 
 ### Patch Changes

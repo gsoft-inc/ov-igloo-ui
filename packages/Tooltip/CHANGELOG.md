@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 1.0.1
+
+### Patch Changes
+
+- 0a86f13: Update content of README
+
 ## 1.0.0
 
 ### Major Changes
