@@ -98,6 +98,7 @@ export const WithButton = () => (
   </Section>
 );
 
+// TODO: Not sure about this one: Description tells closable but Alert has closable={false}
 export const Closable = () => (
   <Section column>
     <Alert

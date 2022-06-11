@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import Alert, { Type, AlertProps, Appearance } from './Alert';
 
@@ -42,7 +42,7 @@ describe('Alert', () => {
     expect(findHorizontal.length === 1).toBe(style === 'horizontal');
   };
 
-  test('It should render without errors', () => {
+  test('It should render without error', () => {
     const wrapper = component('info').find('.ids-alert');
     expect(wrapper.length).toBe(1);
   });
@@ -81,25 +81,36 @@ describe('Alert', () => {
     expectToBeOfType(alert, 'warning');
   });
 
-  test('It should render by default an alert with a dismiss button', () => {
-    const alert = setup({ type: 'info' });
-    const findDismissButton = alert.find('.ids-alert__dismiss-btn');
+  describe('by default', () => {
+    it('should render an alert with a dismiss button', () => {
+      const { getByRole } = render(<Alert type="info">Hello world</Alert>);
 
-    expect(findDismissButton.length).toBe(1);
+      expect(getByRole('button')).toBeInTheDocument();
+    });
   });
 
-  test('It should render an alert with a dismiss button', () => {
-    const alert = setup({ type: 'info', closable: true });
-    const findDismissButton = alert.find('.ids-alert__dismiss-btn');
+  describe('when alert is closable', () => {
+    it('should render an alert with a dismiss button', () => {
+      const { getByRole } = render(
+        <Alert type="info" closable>
+          Hello world
+        </Alert>
+      );
 
-    expect(findDismissButton.length).toBe(1);
+      expect(getByRole('button')).toBeInTheDocument();
+    });
   });
 
-  test('It should render an alert without a dismiss button', () => {
-    const alert = setup({ type: 'info', closable: false });
-    const findDismissButton = alert.find('.ids-alert__dismiss-btn');
+  describe('when alert is not closable', () => {
+    it('should render an alert without a dismiss button', () => {
+      const { queryByRole } = render(
+        <Alert type="info" closable={false}>
+          Hello world
+        </Alert>
+      );
 
-    expect(findDismissButton.length).toBe(0);
+      expect(queryByRole('button')).not.toBeInTheDocument();
+    });
   });
 
   test('It should render by default a Card style alert', () => {
@@ -135,7 +146,7 @@ describe('Alert', () => {
 
   test('It should render an Alert with action button', () => {
     const buttonText = 'Supercalifragilisticexpialidocious';
-    render(
+    const { findByText, getByTitle } = render(
       <Alert
         type="info"
         appearance="card"
@@ -150,8 +161,8 @@ describe('Alert', () => {
       </Alert>
     );
 
-    screen.findByText(buttonText);
-    expect(screen.getByTitle(buttonText)).toHaveTextContent(buttonText);
+    findByText(buttonText);
+    expect(getByTitle(buttonText)).toHaveTextContent(buttonText);
   });
 
   test('It should render a Card Alert with an icon', () => {
