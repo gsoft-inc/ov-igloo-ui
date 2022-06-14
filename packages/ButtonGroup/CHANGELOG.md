@@ -1,5 +1,11 @@
 # @igloo-ui/button-group
 
+## 0.1.3
+
+### Patch Changes
+
+- 0a86f13: Update content of README
+
 ## 0.1.2
 
 ### Patch Changes
