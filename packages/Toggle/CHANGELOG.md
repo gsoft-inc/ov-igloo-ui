@@ -1,5 +1,11 @@
 # @igloo-ui/toggle
 
+## 0.1.1
+
+### Patch Changes
+
+- 0a86f13: Update content of README
+
 ## 0.1.0
 
 ### Minor Changes

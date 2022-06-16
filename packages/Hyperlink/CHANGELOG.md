@@ -1,5 +1,11 @@
 # @igloo-ui/hyperlink
 
+## 0.1.8
+
+### Patch Changes
+
+- 0a86f13: Update content of README
+
 ## 0.1.7
 
 ### Patch Changes

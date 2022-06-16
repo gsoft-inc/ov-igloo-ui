@@ -1,5 +1,12 @@
 # @igloo-ui/message
 
+## 0.2.3
+
+### Patch Changes
+
+- 0a86f13: Fix color of error appearance
+- 0a86f13: Update content of README
+
 ## 0.2.2
 
 ### Patch Changes
