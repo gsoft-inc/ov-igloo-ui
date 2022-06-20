@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.3
+
+### Patch Changes
+
+- c89877e: Fix render of ghost button in ie11
+
 ## 0.2.2
 
 ### Patch Changes
