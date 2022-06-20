@@ -87,11 +87,16 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     'ids-tooltip--light': appearance === 'light',
   });
 
+  const tooltipStyle = {
+    ...styles.popper,
+    maxWidth: `${maxWidth}px`,
+  };
+
   const tooltip = ReactDom.createPortal(
     <div
       ref={setTooltipElement}
       className={tooltipClasses}
-      style={styles.popper}
+      style={tooltipStyle}
       {...attributes.popper}
       data-show={show}
       data-test={dataTest}
