@@ -1,5 +1,11 @@
 # docs
 
+## 0.0.7
+
+### Patch Changes
+
+- 186c168: Update icons package from `0.7.0` to `0.7.1`
+
 ## 0.0.6
 
 ### Patch Changes
