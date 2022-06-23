@@ -21,11 +21,11 @@
     "dist"
   ],
   "dependencies": {
-    "@igloo-ui/tokens": "^1.1.0",
+    "@igloo-ui/tokens": "^1.1.1",
     "classnames": "^2.3.1"
   },
   "devDependencies": {
-    "@igloo-ui/icons": "^0.6.5"
+    "@igloo-ui/icons": "^1.0.0"
   },
   "browserslist": [
     "> 1%",
