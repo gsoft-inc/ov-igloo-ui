@@ -1624,10 +1624,10 @@
     classnames "^2.3.1"
     html-react-parser "^1.2.7"
 
-"@igloo-ui/icons@^0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@igloo-ui/icons/-/icons-0.7.1.tgz#a261de8e35a36d2cc49417246a2c342c3129cd2a"
-  integrity sha512-JV8OazSpRDSgn34PlenTJfUGDGpcU5GSg03yeUUYZBnQYPaLxVY1t+dwZdGzlL5WXZA5JKRqvU0UeHf8YwX3BQ==
+"@igloo-ui/icons@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@igloo-ui/icons/-/icons-1.0.0.tgz#dff135f23008eb49b473605096d6f64fe5540e0c"
+  integrity sha512-5WGHmrp2tfQmzJehn9Nxd5X7W95W+b7Tr+yM1ZyJWcD1SzdAu7Cg3PiwDQt/fKcWWZQVTn6+yRBe6R7+iM6HuA==
   dependencies:
     classnames "^2.3.1"
     html-react-parser "^1.2.7"
