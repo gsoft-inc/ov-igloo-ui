@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 1.0.2
+
+### Patch Changes
+
+- 9eab44f: Fix the maxWidth
+
 ## 1.0.1
 
 ### Patch Changes

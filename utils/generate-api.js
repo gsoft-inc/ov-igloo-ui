@@ -3,6 +3,7 @@ import fs from 'fs';
 
 // For some reason, react-docgen-typescript has to be imported synchronously
 const docgen = require('react-docgen-typescript');
+const buttonProps = require('../website/data/buttonProps.json');
 
 const options = {
   propFilter: (prop) => {
@@ -43,6 +44,10 @@ export async function getComponentAPI(source) {
     filterFiles.map(async (name) => {
       const filePath = path.join(source, name);
       try {
+        // #TODO: remove mock data after the issue is resolved
+        if (name === 'Button.tsx') {
+          return [buttonProps];
+        }
         return docgen.parse(filePath, options);
       } catch (error) {
         console.error('There was an error parsing component api', error);

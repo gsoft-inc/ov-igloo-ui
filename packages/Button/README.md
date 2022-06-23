@@ -25,7 +25,7 @@ yarn add @igloo-ui/button
 Then to use the component in your code just import it!
 
 ```jsx
-import { Button } from '@igloo-ui/button';
+import Button from '@igloo-ui/button';
 
 <Button>Primary</Button>;
 ```
