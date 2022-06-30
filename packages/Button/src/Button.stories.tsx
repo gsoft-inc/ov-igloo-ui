@@ -96,7 +96,8 @@ export default {
       table: {
         defaultValue: { summary: 'primary' },
         type: {
-          summary: ' "primary" | "secondary" | "premium" | "ghost" | "danger"',
+          summary:
+            ' "primary" | "secondary" | "premium" | "ghost" | "danger" | { type: "ghost", variant?: "danger"} ',
         },
       },
       control: {
@@ -139,6 +140,9 @@ export const Appearances = () => (
     <Button appearance="premium">Premium</Button>
     <Button appearance="danger">Danger</Button>
     <Button appearance="ghost">Ghost</Button>
+    <Button appearance={{ type: 'ghost', variant: 'danger' }}>
+      Ghost Danger
+    </Button>
   </Section>
 );
 
@@ -156,6 +160,9 @@ export const Loading = () => (
     </Button>
     <Button loading appearance="ghost">
       Ghost
+    </Button>
+    <Button loading appearance={{ type: 'ghost', variant: 'danger' }}>
+      Ghost Danger
     </Button>
   </Section>
 );
@@ -210,6 +217,13 @@ export const AsLink = () => {
       </Button>
       <Button as="a" href="://igloo.officevibe.design" appearance="ghost">
         Ghost
+      </Button>
+      <Button
+        as="a"
+        href="://igloo.officevibe.design"
+        appearance={{ type: 'ghost', variant: 'danger' }}
+      >
+        Ghost Danger
       </Button>
     </Section>
   );

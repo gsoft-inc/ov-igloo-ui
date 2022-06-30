@@ -67,6 +67,13 @@
   --ids-loader-ghost: #{tokens.$electric-blue-500};
   --ids-loader-ghost-disabled: #{tokens.$electric-blue-300};
 
+  /* Ghost, variant: Danger */
+  --ids-btn-text-ghost-danger: #{tokens.$coral-500};
+  --ids-btn-text-ghost-danger-hover: #{tokens.$coral-600};
+  --ids-btn-text-ghost-danger-disabled: #{tokens.$coral-300};
+  --ids-loader-border-ghost-danger: 2px solid rgb(249 97 85 / 30%);
+  --ids-loader-ghost-danger: #{tokens.$coral-500};
+
   /* Calculate negative margin for  IE11 compatibility */
   --ids-loader-position: calc(-0.6rem - 1px);
 }
@@ -176,6 +183,11 @@
 .ids-btn--ghost .ids-loader {
   border: var(--ids-loader-border-ghost);
   border-left-color: var(--ids-loader-ghost);
+}
+
+.ids-btn--ghost-danger .ids-loader {
+  border: var(--ids-loader-border-ghost-danger);
+  border-left-color: var(--ids-loader-ghost-danger);
 }
 
 .ids-btn--premium .ids-loader {
@@ -291,6 +303,21 @@
 .ids-btn--ghost:disabled {
   color: var(--ids-btn-text-ghost-disabled);
   background: var(--ids-btn-background-ghost);
+}
+
+.ids-btn--ghost-danger {
+  color: var(--ids-btn-text-ghost-danger);
+}
+
+.ids-btn--ghost-danger:focus,
+.ids-btn--ghost-danger.focus,
+.ids-btn--ghost-danger:hover {
+  color: var(--ids-btn-text-ghost-danger-hover);
+}
+
+.ids-btn--ghost-danger.ids-btn--disabled,
+.ids-btn--ghost-danger:disabled {
+  color: var(--ids-btn-text-ghost-danger-disabled);
 }
 
 .has-icon .ids-icon {

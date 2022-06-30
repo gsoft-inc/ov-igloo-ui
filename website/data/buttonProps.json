@@ -52,7 +52,7 @@
       "required": false,
       "type": {
         "name": "union",
-        "raw": "| 'primary'\n| 'secondary'\n| 'premium'\n| 'ghost'\n| 'danger'",
+        "raw": "| 'primary'\n| 'secondary'\n| 'premium'\n| 'ghost'\n| 'danger'\n| { type: 'ghost', variant: 'danger'}",
         "value": [
           {
             "name": "'primary'"
@@ -68,6 +68,9 @@
           },
           {
             "name": "'danger'"
+          },
+          {
+            "name": "{ type: 'ghost', variant: 'danger'}"
           }
         ]
       },
