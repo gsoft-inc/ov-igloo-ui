@@ -1,5 +1,11 @@
 # @igloo-ui/message
 
+## 0.2.4
+
+### Patch Changes
+
+- 38a4994: Update dependency on @igloo-ui/icons and other @igloo libs
+
 ## 0.2.3
 
 ### Patch Changes

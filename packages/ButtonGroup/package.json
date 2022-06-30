@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/button-group",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "dist/ButtonGroup.js",
   "module": "dist/ButtonGroup.js",
   "types": "dist/ButtonGroup.d.ts",

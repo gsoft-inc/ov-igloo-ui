@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@igloo-ui/icons": "^1.0.0",
-    "@igloo-ui/input": "^1.0.5",
+    "@igloo-ui/input": "^1.0.6",
     "@igloo-ui/tokens": "^1.1.1",
     "@mdx-js/loader": "2.1.1",
     "@next/mdx": "12.1.4",

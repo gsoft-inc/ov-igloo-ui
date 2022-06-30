@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/toaster",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "dist/Toaster.js",
   "module": "dist/Toaster.js",
   "types": "dist/Toaster.d.ts",
@@ -22,14 +22,14 @@
     "dist"
   ],
   "dependencies": {
-    "@igloo-ui/icon-button": "^0.2.8",
+    "@igloo-ui/icon-button": "^0.2.9",
     "@igloo-ui/icons": "^1.0.0",
     "@igloo-ui/tokens": "^1.1.1",
     "classnames": "^2.3.1",
     "react-hot-toast": "^2.1.1"
   },
   "devDependencies": {
-    "@igloo-ui/button": "^0.2.3",
+    "@igloo-ui/button": "^0.3.0",
     "@types/react-dom": "^17.0.11",
     "@types/react-transition-group": "^4.4.4"
   },

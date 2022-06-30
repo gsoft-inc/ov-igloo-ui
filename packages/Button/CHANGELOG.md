@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.3.0
+
+### Minor Changes
+
+- 4de58ec: Add new appearance Ghost Danger in `Button`
+
+### Patch Changes
+
+- 38a4994: Update dependency on @igloo-ui/icons and other @igloo libs
+
 ## 0.2.3
 
 ### Patch Changes
