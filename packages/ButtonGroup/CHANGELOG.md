@@ -1,5 +1,11 @@
 # @igloo-ui/button-group
 
+## 0.1.4
+
+### Patch Changes
+
+- 38a4994: Update dependency on @igloo-ui/icons and other @igloo libs
+
 ## 0.1.3
 
 ### Patch Changes

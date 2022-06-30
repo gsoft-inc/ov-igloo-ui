@@ -1,5 +1,14 @@
 # @igloo-ui/toaster
 
+## 0.1.6
+
+### Patch Changes
+
+- 29e77d3: fix import of `Toaster`
+- 38a4994: Update dependency on @igloo-ui/icons and other @igloo libs
+- Updated dependencies [38a4994]
+  - @igloo-ui/icon-button@0.2.9
+
 ## 0.1.5
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # docs
 
+## 0.0.8
+
+### Patch Changes
+
+- 4de58ec: update doc with new appearance of `Button`
+- 38a4994: Update dependency on @igloo-ui/icons and other @igloo libs
+
 ## 0.0.7
 
 ### Patch Changes

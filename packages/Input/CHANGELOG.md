@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 1.0.6
+
+### Patch Changes
+
+- 38a4994: Update dependency on @igloo-ui/icons and other @igloo libs
+
 ## 1.0.5
 
 ### Patch Changes
