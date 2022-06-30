@@ -290,6 +290,8 @@
 .ids-btn--ghost {
   color: var(--ids-btn-text-ghost);
   background: var(--ids-btn-background-ghost);
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .ids-btn--ghost:focus,
