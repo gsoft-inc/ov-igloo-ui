@@ -25,7 +25,7 @@ yarn add @igloo-ui/toaster
 Then to use the component in your code just import it!
 
 ```jsx
-import Toaster, { toaster } from '@igloo-ui/Toaster';
+import Toaster, { toaster } from '@igloo-ui/toaster';
 
 const notify = () => toaster.success('Here is your toast.');
 
