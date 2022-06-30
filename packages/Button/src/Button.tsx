@@ -8,7 +8,8 @@ export type Appearance =
   | 'secondary'
   | 'premium'
   | 'ghost'
-  | 'danger';
+  | 'danger'
+  | { type: 'ghost'; variant?: 'danger' };
 export type Size = 'small' | 'medium';
 
 type AsProp<C extends React.ElementType> = {
@@ -101,7 +102,23 @@ const Button: ButtonComponent = React.forwardRef(
     const childrenIsAString =
       typeof children === 'string' || children instanceof String;
 
-    const classes = cx('ids-btn', className, {
+    const normalizeAppearanceClass = (appearance: Appearance): {} => {
+      if (typeof appearance === 'object') {
+        return {
+          [`ids-btn--${appearance.type}`]: appearance.type,
+          [`ids-btn--${appearance.type}-${appearance.variant}`]:
+            appearance.variant,
+        };
+      }
+
+      return {
+        [`ids-btn--${appearance}`]: appearance !== 'primary',
+      };
+    };
+
+    const apperanceClasses = normalizeAppearanceClass(appearance);
+
+    const classes = cx('ids-btn', className, apperanceClasses, {
       'ids-btn--small': size === 'small',
       'ids-btn--active': active,
       'ids-btn--loading': loading,
@@ -110,7 +127,6 @@ const Button: ButtonComponent = React.forwardRef(
       'has-icon': hasIcon,
       'has-icon--leading': hasIconLeading,
       'has-icon--trailing': hasIconTrailing,
-      [`ids-btn--${appearance}`]: appearance !== 'primary',
     });
 
     const renderContent = (): JSX.Element => {

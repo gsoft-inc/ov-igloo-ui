@@ -9,6 +9,9 @@ const Example = () => {
       <Button appearance="premium">Premium</Button>
       <Button appearance="danger">Danger</Button>
       <Button appearance="ghost">Ghost</Button>
+      <Button appearance={{ type: 'ghost', variant: 'danger' }}>
+        Ghost Danger
+      </Button>
     </div>
   );
 };
