@@ -24,6 +24,7 @@ const Toggle: React.FunctionComponent<ToggleProps> = (props: ToggleProps) => {
   const {
     children,
     className,
+    checked,
     dataTest,
     htmlFor,
     helperText,
@@ -31,8 +32,22 @@ const Toggle: React.FunctionComponent<ToggleProps> = (props: ToggleProps) => {
     ...rest
   } = props;
 
+  const [isChecked, setIsChecked] = React.useState(checked || false);
+
   const handleStopPropagation = (event: React.MouseEvent<HTMLInputElement>) => {
     event.stopPropagation();
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.checked) {
+      setIsChecked(true);
+    } else {
+      setIsChecked(false);
+    }
+
+    if (onChange) {
+      onChange(event);
+    }
   };
 
   const classes = cx('ids-toggle', className, {
@@ -40,13 +55,20 @@ const Toggle: React.FunctionComponent<ToggleProps> = (props: ToggleProps) => {
   });
 
   return (
-    <div className={classes} onClick={handleStopPropagation}>
+    <div
+      className={classes}
+      onClick={handleStopPropagation}
+      role="switch"
+      aria-checked={isChecked}
+      tabIndex={-1}
+    >
       <input
         className="ids-toggle__input"
         id={htmlFor}
         type="checkbox"
         data-test={dataTest}
-        onChange={onChange}
+        onChange={handleChange}
+        checked={isChecked}
         {...rest}
       />
       <label className="ids-toggle__label" htmlFor={htmlFor}>
