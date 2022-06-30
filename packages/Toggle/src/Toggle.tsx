@@ -21,18 +21,32 @@ export interface ToggleProps extends React.ComponentProps<'input'> {
 }
 
 const Toggle: React.FunctionComponent<ToggleProps> = (props: ToggleProps) => {
-  const { children, className, dataTest, htmlFor, helperText, ...rest } = props;
+  const {
+    children,
+    className,
+    dataTest,
+    htmlFor,
+    helperText,
+    onChange,
+    ...rest
+  } = props;
+
+  const handleStopPropagation = (event: React.MouseEvent<HTMLInputElement>) => {
+    event.stopPropagation();
+  };
 
   const classes = cx('ids-toggle', className, {
     'ids-toggle--helperText': helperText,
   });
+
   return (
-    <div className={classes}>
+    <div className={classes} onClick={handleStopPropagation}>
       <input
         className="ids-toggle__input"
         id={htmlFor}
         type="checkbox"
         data-test={dataTest}
+        onChange={onChange}
         {...rest}
       />
       <label className="ids-toggle__label" htmlFor={htmlFor}>
