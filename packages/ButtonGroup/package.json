@@ -21,7 +21,7 @@
     "dist"
   ],
   "dependencies": {
-    "@igloo-ui/tokens": "^1.0.0",
+    "@igloo-ui/tokens": "^1.1.1",
     "classnames": "^2.3.1"
   },
   "browserslist": [
@@ -30,7 +30,7 @@
     "IE >= 11"
   ],
   "devDependencies": {
-    "@igloo-ui/icons": "^0.6.6",
-    "@igloo-ui/tooltip": "^1.0.1"
+    "@igloo-ui/icons": "^1.0.0",
+    "@igloo-ui/tooltip": "^1.0.2"
   }
 }
