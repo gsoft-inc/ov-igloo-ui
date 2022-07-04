@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 1.0.3
+
+### Patch Changes
+
+- d15162f: Change position of Tooltip from absolut to fixed
+
 ## 1.0.2
 
 ### Patch Changes
