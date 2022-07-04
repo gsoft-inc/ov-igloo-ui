@@ -60,6 +60,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     tooltipElement,
     {
       placement: position,
+      strategy: 'fixed',
       modifiers: [
         { name: 'offset', options: { offset: [0, 10] } },
         {
