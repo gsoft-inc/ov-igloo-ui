@@ -21,18 +21,54 @@ export interface ToggleProps extends React.ComponentProps<'input'> {
 }
 
 const Toggle: React.FunctionComponent<ToggleProps> = (props: ToggleProps) => {
-  const { children, className, dataTest, htmlFor, helperText, ...rest } = props;
+  const {
+    children,
+    className,
+    checked,
+    dataTest,
+    htmlFor,
+    helperText,
+    onChange,
+    ...rest
+  } = props;
+
+  const [isChecked, setIsChecked] = React.useState(checked || false);
+
+  const handleStopPropagation = (event: React.MouseEvent<HTMLInputElement>) => {
+    event.stopPropagation();
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.checked) {
+      setIsChecked(true);
+    } else {
+      setIsChecked(false);
+    }
+
+    if (onChange) {
+      onChange(event);
+    }
+  };
 
   const classes = cx('ids-toggle', className, {
     'ids-toggle--helperText': helperText,
   });
+
   return (
-    <div className={classes}>
+    <div
+      className={classes}
+      onClick={handleStopPropagation}
+      role="switch"
+      aria-checked={isChecked}
+      tabIndex={-1}
+    >
       <input
         className="ids-toggle__input"
         id={htmlFor}
         type="checkbox"
         data-test={dataTest}
+        onChange={handleChange}
+        checked={isChecked}
         {...rest}
       />
       <label className="ids-toggle__label" htmlFor={htmlFor}>

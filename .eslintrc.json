@@ -50,7 +50,8 @@
     "import/no-unresolved": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "jsx-a11y/click-events-have-key-events": "off"
   },
   "settings": {
     "import/parsers": {
