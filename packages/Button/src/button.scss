@@ -307,22 +307,22 @@
   background: var(--ids-btn-background-ghost);
 }
 
-.ids-btn--ghost-danger {
+.ids-btn.ids-btn--ghost-danger {
   color: var(--ids-btn-text-ghost-danger);
   background: var(--ids-btn-background-ghost);
   padding-left: 0;
   padding-right: 0;
 }
 
-.ids-btn--ghost-danger:focus,
-.ids-btn--ghost-danger.focus,
-.ids-btn--ghost-danger:hover {
+.ids-btn.ids-btn--ghost-danger:focus,
+.ids-btn.ids-btn--ghost-danger.focus,
+.ids-btn.ids-btn--ghost-danger:hover {
   color: var(--ids-btn-text-ghost-danger-hover);
   background: var(--ids-btn-background-ghost);
 }
 
-.ids-btn--ghost-danger.ids-btn--disabled,
-.ids-btn--ghost-danger:disabled {
+.ids-btn.ids-btn--ghost-danger.ids-btn--disabled,
+.ids-btn.ids-btn--ghost-danger:disabled {
   color: var(--ids-btn-text-ghost-danger-disabled);
   background: var(--ids-btn-background-ghost);
 }
