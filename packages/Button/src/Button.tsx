@@ -105,7 +105,7 @@ const Button: ButtonComponent = React.forwardRef(
     const normalizeAppearanceClass = (appearance: Appearance): {} => {
       if (typeof appearance === 'object') {
         return {
-          [`ids-btn--${appearance.type}`]: appearance.type,
+          [`ids-btn--${appearance.type}`]: !appearance.variant,
           [`ids-btn--${appearance.type}-${appearance.variant}`]:
             appearance.variant,
         };
