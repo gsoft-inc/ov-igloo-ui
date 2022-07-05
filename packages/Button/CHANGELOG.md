@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.2
+
+### Patch Changes
+
+- f1611fd: Temporary quick fix on ghost danger button by adding `.ids-btn` prefix
+
 ## 0.3.1
 
 ### Patch Changes
