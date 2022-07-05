@@ -1,5 +1,11 @@
 # @igloo-ui/toggle
 
+## 0.1.2
+
+### Patch Changes
+
+- 29e0561: stop propagation of parent onClick
+
 ## 0.1.1
 
 ### Patch Changes
