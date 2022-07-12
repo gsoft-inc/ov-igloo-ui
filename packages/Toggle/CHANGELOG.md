@@ -1,5 +1,11 @@
 # @igloo-ui/toggle
 
+## 1.0.0
+
+### Major Changes
+
+- cc5d235: BREAKING CHANGE: Remove internal state
+
 ## 0.1.2
 
 ### Patch Changes
