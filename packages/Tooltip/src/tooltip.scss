@@ -47,6 +47,12 @@
     border: var(--ids-tooltip-arrow-size) solid transparent;
   }
 
+  &[data-text^='center'],
+  &[data-popper-placement^='top'],
+  &[data-popper-placement^='bottom']{
+    text-align: center;
+  }
+
   &[data-popper-placement^='bottom'] > .ids-tooltip__arrow {
     top: var(--ids-tooltip-arrow-size-negatif);
     border-bottom-color: var(--ids-tooltip-background);
