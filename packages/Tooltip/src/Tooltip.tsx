@@ -93,12 +93,15 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     maxWidth: `${maxWidth}px`,
   };
 
+  const center = position === 'top' || position === 'bottom';
+
   const tooltip = ReactDom.createPortal(
     <div
       ref={setTooltipElement}
       className={tooltipClasses}
       style={tooltipStyle}
       {...attributes.popper}
+      data-text={center && 'center'}
       data-show={show}
       data-test={dataTest}
       {...rest}
