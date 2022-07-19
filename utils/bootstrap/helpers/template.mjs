@@ -3,7 +3,7 @@ import { pascalcase } from 'pascalcase';
 export const getComponentTemplate = (name) => {
   const pascalCaseName = pascalcase(name);
 
-  const componentContent = `import * as React from 'react';
+  return `import * as React from 'react';
 
 import './${name}.scss';
 
@@ -18,14 +18,12 @@ const ${pascalCaseName}: React.FunctionComponent<${pascalCaseName}Props> = (prop
 
 export default ${pascalCaseName};
 `;
-
-  return componentContent;
 };
 
 export const getTestTemplate = (name) => {
   const pascalCaseName = pascalcase(name);
 
-  const testContent = `/**
+  return `/**
   * @jest-environment jsdom
   */
  import React from 'react';
@@ -45,14 +43,12 @@ export const getTestTemplate = (name) => {
    });
  });
 `;
-
-  return testContent;
 };
 
 export const getStoriesTemplate = (name) => {
   const pascalCaseName = pascalcase(name);
 
-  const storiesContent = `import React from 'react';
+  return `import React from 'react';
 
   import { ComponentMeta, ComponentStory } from '@storybook/react';
 
@@ -65,14 +61,14 @@ export const getStoriesTemplate = (name) => {
     title: 'Components/${pascalCaseName}',
     component: ${pascalCaseName},
     parameters: {
-      description: readme,
-    },
+      description: readme
+    }
   } as ComponentMeta<typeof ${pascalCaseName}>;
 
   const Template: ComponentStory<typeof ${pascalCaseName}> = (args) => <${pascalCaseName} {...args} />;
   export const Overview = Template.bind({});
   Overview.args = {
-    children: 'Dummy starter component',
+    children: 'Dummy starter component'
   };
 
   // export const Appearances = () => (
@@ -81,14 +77,12 @@ export const getStoriesTemplate = (name) => {
   //   </Section>
   // );
 `;
-
-  return storiesContent;
 };
 
 export const getReadmeTemplate = (name) => {
   const pascalCaseName = pascalcase(name);
 
-  const readmeContent = `# ${pascalCaseName}
+  return `# ${pascalCaseName}
 
   TODO: Write your component description here.
 
@@ -115,21 +109,19 @@ export const getReadmeTemplate = (name) => {
   \`\`\`jsx
   import ${pascalCaseName} from '@igloo-ui/${name}';
 
-  TODO: Add your component usage here
+  // TODO: Add your component usage here
   \`\`\`
   `;
-
-  return readmeContent;
 };
 
 export const getCssTemplate = (name) => {
-  const cssContent = `@import '~@igloo-ui/tokens/dist/base10/variables';
-  @import '~@igloo-ui/tokens/dist/fonts.css';
+  return `@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
 
   :root {
     /* Default */
-    --ids-${name}-font-family: #{$primary-font-family};
-    --ids-${name}-font-size: #{$font-size-4};
+    --ids-${name}-font-family: #{tokens.$primary-font-family};
+    --ids-${name}-font-size: #{tokens.$font-size-4};
   }
 
   .ids-${name} {
@@ -137,6 +129,4 @@ export const getCssTemplate = (name) => {
     font-size: var(--ids-${name}-font-size);
   }
   `;
-
-  return cssContent;
 };
