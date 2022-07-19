@@ -1,0 +1,13 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-popover-font-family: #{tokens.$primary-font-family};
+  --ids-popover-font-size: #{tokens.$font-size-4};
+}
+
+.ids-popover {
+  font-family: var(--ids-popover-font-family);
+  font-size: var(--ids-popover-font-size);
+}
