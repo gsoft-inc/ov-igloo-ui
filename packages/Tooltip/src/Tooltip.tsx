@@ -124,7 +124,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
       onMouseLeave={onMouseLeaveHandle}
     >
       {children}
-      {disabled ? null : tooltip}
+      {disabled || !show ? null : tooltip}
     </span>
   );
 };

@@ -4,10 +4,42 @@
 :root {
   /* Default */
   --ids-popover-font-family: #{tokens.$primary-font-family};
-  --ids-popover-font-size: #{tokens.$font-size-4};
+  --ids-popover-font-size: #{tokens.$font-size-3};
+  --ids-popover-padding: #{tokens.$space-3};
+  --ids-popover-text: #{tokens.$grey-600};
 }
 
 .ids-popover {
-  font-family: var(--ids-popover-font-family);
-  font-size: var(--ids-popover-font-size);
+  --ids-tooltip-padding: var(--ids-popover-padding);
+  --ids-tooltip-font-size: var(--ids-popover-font-size);
+
+  &[class*='tooltip--light'] {
+    --ids-tooltip-text: var(--ids-popover-text);
+  }
+
+  [class*='arrow'] {
+    display: none;
+  }
+
+  &__title {
+    font-weight: tokens.$font-weight-semi-bold;
+    color: tokens.$grey-800;
+    margin-bottom: tokens.$space-2;
+  }
+
+  &__action {
+    margin-top: tokens.$space-2;
+
+    > * {
+      font-size: var(--ids-tooltip-font-size);
+    }
+  }
+}
+
+[class*='tooltip'] {
+  &.ids-popover[data-text^='center'],
+  &.ids-popover[data-popper-placement^='top'],
+  &.ids-popover[data-popper-placement^='bottom'] {
+    text-align: left;
+  }
 }
