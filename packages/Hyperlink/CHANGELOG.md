@@ -1,5 +1,11 @@
 # @igloo-ui/hyperlink
 
+## 0.1.9
+
+### Patch Changes
+
+- cd04a2e: Fix hyperlink secondary + danger color on focus
+
 ## 0.1.8
 
 ### Patch Changes
