@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactDom from 'react-dom';
-import classNames from 'classnames';
+import cx from 'classnames';
 import { usePopper } from 'react-popper';
 
 import './tooltip.scss';
@@ -46,7 +46,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     ...rest
   } = props;
 
-  const classes = classNames('ids-tooltip__container', className);
+  const classes = cx('ids-tooltip__container', className);
 
   const [show, setShow] = React.useState<boolean>(active);
 
@@ -84,7 +84,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     setShow(false);
   };
 
-  const tooltipClasses = classNames('ids-tooltip', tooltipClassName, {
+  const tooltipClasses = cx('ids-tooltip', tooltipClassName, {
     'ids-tooltip--light': appearance === 'light',
   });
 
