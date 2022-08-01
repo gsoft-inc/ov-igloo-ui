@@ -25,7 +25,7 @@ export interface PopoverProps extends React.ComponentProps<'div'> {
   active?: boolean;
   /** The content for the title of the Popover */
   title?: string;
-
+  /** The content for the call to action of the Popover */
   action?: React.ReactNode;
   /** Render the close button */
   isClosable?: boolean;
@@ -131,10 +131,12 @@ const Popover: React.FunctionComponent<PopoverProps> = (
   );
 
   return (
-    <span ref={setReferenceElement} className={classes} onClick={onClick}>
-      {children}
+    <>
+      <span ref={setReferenceElement} className={classes} onClick={onClick}>
+        {children}
+      </span>
       {!show ? null : popover}
-    </span>
+    </>
   );
 };
 

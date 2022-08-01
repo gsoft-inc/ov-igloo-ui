@@ -15,6 +15,14 @@ export default {
   parameters: {
     description: readme,
   },
+  argTypes: {
+    children: {
+      control: { type: 'null' },
+    },
+    action: {
+      control: { type: 'null' },
+    },
+  },
   decorators: [
     (Story) => (
       <div
@@ -33,7 +41,6 @@ export default {
 } as ComponentMeta<typeof Popover>;
 
 const dt = DateTime.now();
-const f = { month: 'long', day: 'numeric', year: 'numeric' };
 
 const data = [
   { tag: '#1053FF', value: '0.0', name: 'Metric name' },
@@ -63,14 +70,22 @@ Overview.args = {
   children: <div className="isb-trigger" />,
   content: 'Popover copy',
   title: 'Date',
-  action: <Hyperlink>Learn more</Hyperlink>,
+  action: (
+    <Hyperlink>
+      <a href="#">Learn more</a>
+    </Hyperlink>
+  ),
   active: true,
   isClosable: true,
 };
 
 export const QuantitativeContent = () => (
   <Section style={{ justifyContent: 'space-between' }}>
-    <Popover content={overviewContent} title={dt.toLocaleString(f)} active>
+    <Popover
+      content={overviewContent}
+      title={dt.setLocale('fr').toLocaleString(DateTime.DATE_FULL)}
+      active
+    >
       <div className="isb-trigger" />
     </Popover>
 

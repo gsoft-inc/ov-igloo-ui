@@ -1,6 +1,6 @@
 # Popover
 
-TODO: Write your component description here.
+Popovers are small overlays that open on demand. They let users access additional content and actions without cluttering the page.
 
   <ReferenceLinks />
 
@@ -24,6 +24,17 @@ Then to use the component in your code just import it!
 
 ```jsx
 import Popover from '@igloo-ui/popover';
+import Hyperlink from '@igloo-ui/hyperlink';
 
-('TODO: Add your component usage here');
+<Popover
+  title="Date"
+  content="Popover copy"
+  action={
+    <Hyperlink>
+      <a href="#">Learn more</a>
+    </Hyperlink>
+  }
+>
+  Trigger content
+</Popover>;
 ```
