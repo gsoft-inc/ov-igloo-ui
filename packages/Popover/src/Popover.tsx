@@ -1,12 +1,20 @@
 import * as React from 'react';
+import ReactDom from 'react-dom';
 import cx from 'classnames';
-import Tooltip, { Position } from '@igloo-ui/tooltip';
+import { usePopper } from 'react-popper';
+
+import IconButton from '@igloo-ui/icon-button';
+import Close from '@igloo-ui/icons/dist/Close';
 
 import './popover.scss';
+
+export type Position = 'top' | 'right' | 'bottom' | 'left' | 'auto';
 
 export interface PopoverProps extends React.ComponentProps<'div'> {
   /** The target button, text, svg etc.. of the Popover. */
   children: React.ReactNode;
+  /** Add a specific class to the Popover */
+  popoverClassName?: string;
   /** The content to display inside the Popover */
   content: React.ReactNode;
   /** The position the Popover is on. */
@@ -15,10 +23,12 @@ export interface PopoverProps extends React.ComponentProps<'div'> {
   maxWidth?: number;
   /** When True, manually show the Popover. */
   active?: boolean;
-
+  /** The content for the title of the Popover */
   title?: string;
 
   action?: React.ReactNode;
+  /** Render the close button */
+  isClosable?: boolean;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
 }
@@ -30,16 +40,61 @@ const Popover: React.FunctionComponent<PopoverProps> = (
     children,
     content,
     position = 'auto',
-    maxWidth = 200,
-    active,
+    maxWidth = 320,
+    active = false,
     className,
+    popoverClassName,
     title,
     action,
+    isClosable = false,
     dataTest,
     ...rest
   } = props;
 
-  const classes = cx('ids-popover', className);
+  const classes = cx('ids-popover__container', className);
+
+  const [show, setSow] = React.useState<boolean>(active);
+
+  const [referenceElement, setReferenceElement] =
+    React.useState<HTMLElement | null>(null);
+  const [popoverElement, setPopoverElement] =
+    React.useState<HTMLElement | null>(null);
+
+  const { styles, attributes, update } = usePopper(
+    referenceElement,
+    popoverElement,
+    {
+      placement: position,
+      strategy: 'fixed',
+      modifiers: [
+        { name: 'offset', options: { offset: [0, 10] } },
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: ['top', 'bottom', 'left', 'right'],
+          },
+        },
+      ],
+    }
+  );
+
+  const onClick = (): void => {
+    setSow(!show);
+    if (update !== null) {
+      update();
+    }
+  };
+
+  const onClose = (): void => {
+    setSow(false);
+  };
+
+  const popoverClasses = cx('ids-popover', popoverClassName);
+
+  const popoverStyle = {
+    ...styles.popper,
+    maxWidth: `${maxWidth}px`,
+  };
 
   const popoverContent = (
     <>
@@ -49,20 +104,37 @@ const Popover: React.FunctionComponent<PopoverProps> = (
     </>
   );
 
-  return (
-    <Tooltip
-      content={popoverContent}
-      position={position}
-      maxWidth={maxWidth}
-      appearance="light"
-      className="ids-popover__container"
-      tooltipClassName={classes}
-      active={active}
-      dataTest={dataTest}
+  const popover = ReactDom.createPortal(
+    <div
+      ref={setPopoverElement}
+      className={popoverClasses}
+      style={popoverStyle}
+      {...attributes.popper}
+      data-show={show}
+      data-test={dataTest}
       {...rest}
     >
+      {isClosable && (
+        <IconButton
+          size="xsmall"
+          className="ids-popover__close"
+          onClick={onClose}
+          appearance="ghost"
+          aria-label="close"
+          icon={<Close size="small" />}
+        />
+      )}
+
+      {popoverContent}
+    </div>,
+    document.body
+  );
+
+  return (
+    <span ref={setReferenceElement} className={classes} onClick={onClick}>
       {children}
-    </Tooltip>
+      {!show ? null : popover}
+    </span>
   );
 };
 

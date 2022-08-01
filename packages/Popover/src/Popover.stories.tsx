@@ -65,6 +65,7 @@ Overview.args = {
   title: 'Date',
   action: <Hyperlink>Learn more</Hyperlink>,
   active: true,
+  isClosable: true,
 };
 
 export const QuantitativeContent = () => (

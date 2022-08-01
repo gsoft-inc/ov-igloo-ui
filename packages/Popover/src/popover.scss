@@ -6,19 +6,62 @@
   --ids-popover-font-family: #{tokens.$primary-font-family};
   --ids-popover-font-size: #{tokens.$font-size-3};
   --ids-popover-padding: #{tokens.$space-3};
+  --ids-popover-border-radius: #{tokens.$border-radius-sm};
+  --ids-popover-z-index: #{tokens.$z-index-max};
+  --ids-popover-spacing: #{tokens.$space-2};
+  --ids-popover-width: 100%;
+
   --ids-popover-text: #{tokens.$grey-600};
+  --ids-popover-background: #{tokens.$samoyed};
+  --ids-popover-shadow: #{tokens.$shadow-12};
+
+  --ids-popover-title-padding: #{tokens.$space-5};
+}
+
+@media (min-width: #{tokens.$breakpoints-sm}) {
+  :root {
+    --ids-popover-minWidth: 3.2rem;
+    --ids-popover-width: 100%;
+    --ids-popover-close-display: none;
+  }
 }
 
 .ids-popover {
-  --ids-tooltip-padding: var(--ids-popover-padding);
-  --ids-tooltip-font-size: var(--ids-popover-font-size);
+  font-family: var(--ids-popover-font-family);
+  font-size: var(--ids-popover-font-size);
+  position: fixed;
+  padding: var(--ids-popover-padding);
+  border-radius: var(--ids-popover-border-radius);
+  z-index: var(--ids-popover-z-index);
+  color: var(--ids-popover-text);
+  background-color: var(--ids-popover-background);
+  box-shadow: var(--ids-popover-shadow);
+  box-sizing: border-box;
+  min-width: var(--ids-popover-minWidth, var(--ids-popover-width));
+  width: var(--ids-popover-width);
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
 
-  &[class*='tooltip--light'] {
-    --ids-tooltip-text: var(--ids-popover-text);
+  &[data-show='true'] {
+    opacity: 1;
   }
 
-  [class*='arrow'] {
-    display: none;
+
+
+  &__container {
+    position: relative;
+  }
+
+  &__close {
+    position: absolute;
+    top: tokens.$space-3;
+    right: tokens.$space-3;
+    display: var(--ids-popover-close-display, inline-flex);
+  }
+
+  &__title,
+  &__content {
+    padding-right: var(--ids-popover-title-padding, 0);
   }
 
   &__title {
@@ -33,13 +76,5 @@
     > * {
       font-size: var(--ids-tooltip-font-size);
     }
-  }
-}
-
-[class*='tooltip'] {
-  &.ids-popover[data-text^='center'],
-  &.ids-popover[data-popper-placement^='top'],
-  &.ids-popover[data-popper-placement^='bottom'] {
-    text-align: left;
   }
 }
