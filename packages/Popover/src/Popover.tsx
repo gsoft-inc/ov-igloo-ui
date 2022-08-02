@@ -132,7 +132,13 @@ const Popover: React.FunctionComponent<PopoverProps> = (
 
   return (
     <>
-      <span ref={setReferenceElement} className={classes} onClick={onClick}>
+      <span
+        ref={setReferenceElement}
+        className={classes}
+        onClick={onClick}
+        role="button"
+        tabIndex={0}
+      >
         {children}
       </span>
       {!show ? null : popover}

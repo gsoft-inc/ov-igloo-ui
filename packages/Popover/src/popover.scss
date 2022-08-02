@@ -10,17 +10,15 @@
   --ids-popover-z-index: #{tokens.$z-index-max};
   --ids-popover-spacing: #{tokens.$space-2};
   --ids-popover-width: 100%;
-
   --ids-popover-text: #{tokens.$grey-600};
   --ids-popover-background: #{tokens.$samoyed};
   --ids-popover-shadow: #{tokens.$shadow-12};
-
   --ids-popover-title-padding: #{tokens.$space-5};
 }
 
 @media (min-width: #{tokens.$breakpoints-sm}) {
   :root {
-    --ids-popover-minWidth: 3.2rem;
+    --ids-popover-min-width: 3.2rem;
     --ids-popover-width: 100%;
     --ids-popover-close-display: none;
   }
@@ -37,7 +35,7 @@
   background-color: var(--ids-popover-background);
   box-shadow: var(--ids-popover-shadow);
   box-sizing: border-box;
-  min-width: var(--ids-popover-minWidth, var(--ids-popover-width));
+  min-width: var(--ids-popover-min-width, var(--ids-popover-width));
   width: var(--ids-popover-width);
   opacity: 0;
   transition: opacity 0.15s ease-in-out;
@@ -45,8 +43,6 @@
   &[data-show='true'] {
     opacity: 1;
   }
-
-
 
   &__container {
     position: relative;
