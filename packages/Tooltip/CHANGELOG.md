@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 1.0.4
+
+### Patch Changes
+
+- 4092ee6: center text when the position is `top` or `bottom`
+
 ## 1.0.3
 
 ### Patch Changes
