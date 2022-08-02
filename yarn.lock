@@ -1514,26 +1514,10 @@
   resolved "https://registry.yarnpkg.com/@hutson/parse-repository-url/-/parse-repository-url-3.0.2.tgz#98c23c950a3d9b6c8f0daed06da6c3af06981340"
   integrity sha512-H9XAx3hc0BQHY6l+IFSWHDySypcXsvsuLhgYLUGywmJ5pswRVQJUHpOsobnLYp2ZUaUlKiKDrgWWhosOwAEM8Q==
 
-"@igloo-ui/icons@^1.0.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@igloo-ui/icons/-/icons-1.1.0.tgz#e2e921fa89c46063263262b1865d5601bd534023"
-  integrity sha512-f0FFWf1bb1lzrqKm4tIwBv484EgvLBA/06Ds3PcD/+fWrz5UgDydAvlOFVVXq2YZ/UZJ8ty87T3pnpEQnsQ/uQ==
-  dependencies:
-    classnames "^2.3.1"
-    html-react-parser "^1.2.7"
-
-"@igloo-ui/icons@^1.1.0":
+"@igloo-ui/icons@^1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@igloo-ui/icons/-/icons-1.3.0.tgz#ba265164c2b2671956bf486482794e5bc13c0c1b"
   integrity sha512-MJrSCBMiQ4XIjxBiAcNG9g0MLJ5GBtHZWqRuFYSMERM4PWClfNT9yZN8at4Ktb61n/YmUXWVZMzceaH8ikSStA==
-  dependencies:
-    classnames "^2.3.1"
-    html-react-parser "^1.2.7"
-
-"@igloo-ui/icons@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@igloo-ui/icons/-/icons-1.2.0.tgz#42718f346bc1808abdd85542eed2784e1a5e1ea8"
-  integrity sha512-x6YrQTmK8MPFt6WXXwCPlsoT2RlRCTBejOTcXdPlOrMhLo4Vyob4+2udugPNYGQl/FQJfqoczPAQTxpEyODDdw==
   dependencies:
     classnames "^2.3.1"
     html-react-parser "^1.2.7"
