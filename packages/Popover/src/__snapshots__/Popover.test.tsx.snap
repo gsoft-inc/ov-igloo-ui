@@ -7,6 +7,8 @@ Object {
     <div>
       <span
         class="ids-popover__container"
+        role="button"
+        tabindex="0"
       >
         popover trigger
       </span>
@@ -15,6 +17,8 @@ Object {
   "container": <div>
     <span
       class="ids-popover__container"
+      role="button"
+      tabindex="0"
     >
       popover trigger
     </span>
