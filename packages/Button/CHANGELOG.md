@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.3
+
+### Patch Changes
+
+- 8bc7f2c: add not-allowed cursor on disabled state
+
 ## 0.3.2
 
 ### Patch Changes
