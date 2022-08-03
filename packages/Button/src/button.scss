@@ -151,9 +151,14 @@
 
 .ids-btn.ids-btn--disabled,
 .ids-btn:disabled {
-  pointer-events: none;
+  pointer-events: auto;
   user-select: none;
   background: var(--ids-btn-background-primary-disabled);
+}
+
+.ids-btn.ids-btn--disabled:hover,
+.ids-btn:disabled:hover {
+  cursor: not-allowed;
 }
 
 .ids-btn:focus,
