@@ -156,11 +156,6 @@
   background: var(--ids-btn-background-primary-disabled);
 }
 
-.ids-btn.ids-btn--disabled:hover,
-.ids-btn:disabled:hover {
-  cursor: not-allowed;
-}
-
 .ids-btn:focus,
 .ids-btn.focus {
   outline: 0;
@@ -168,6 +163,11 @@
   &:not(.ids-btn--loading) {
     box-shadow: var(--focus);
   }
+}
+
+.ids-btn.ids-btn--disabled:hover,
+.ids-btn:disabled:hover {
+  cursor: not-allowed;
 }
 
 .ids-btn:focus:not(:focus-visible) {
