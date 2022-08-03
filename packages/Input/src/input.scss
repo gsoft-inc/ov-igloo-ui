@@ -139,3 +139,10 @@
   border-color: var(--ids-input-border-color-disabled);
   cursor: not-allowed;
 }
+
+.ids-input--disabled:active,
+.ids-input--disabled.active,
+.ids-input--disabled:focus,
+.ids-input--disabled.focus {
+  border-color: var(--ids-input-border-color-disabled);
+}
