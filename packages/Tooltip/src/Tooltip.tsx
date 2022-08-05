@@ -88,7 +88,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     'ids-tooltip--light': appearance === 'light',
   });
 
-  const fromPxToRem = (value: number, base: number = 10): string =>
+  const fromPxToRem = (value: number, base = 10): string =>
     `${value / base}rem`;
 
   const tooltipStyle = {

@@ -91,7 +91,7 @@ const Popover: React.FunctionComponent<PopoverProps> = (
 
   const popoverClasses = cx('ids-popover', popoverClassName);
 
-  const fromPxToRem = (value: number, base: number = 10): string =>
+  const fromPxToRem = (value: number, base = 10): string =>
     `${value / base}rem`;
 
   const popoverStyle = {
