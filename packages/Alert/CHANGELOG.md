@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.1.9
+
+### Patch Changes
+
+- 1a3322f: Upgrade igloo icons package from `1.1.0` to `1.3.0`
+
 ## 0.1.8
 
 ### Patch Changes
