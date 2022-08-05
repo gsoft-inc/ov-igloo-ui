@@ -1,4 +1,4 @@
-import { $, chalk, fs, which } from 'zx';
+import { chalk, fs, which } from 'zx';
 
 export function exitWthError(msg) {
   console.error(chalk.red(msg));
@@ -17,7 +17,7 @@ export async function checkRequiredProgramsExist(programs) {
 }
 
 export async function copyTemplate(directory) {
-  return await fs.copy('scripts/bootstrap/template', directory);
+  return await fs.copy('utils/bootstrap/template', directory);
 }
 
 export async function readPackageJson(directory) {

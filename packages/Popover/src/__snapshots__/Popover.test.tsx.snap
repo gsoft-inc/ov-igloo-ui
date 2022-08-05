@@ -1,22 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tooltip It should render a snapshot 1`] = `
+exports[`Popover It should render a snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <span
-        class="ids-tooltip__container"
+        class="ids-popover__container"
+        role="button"
+        tabindex="0"
       >
-        tooltip
+        popover trigger
       </span>
     </div>
   </body>,
   "container": <div>
     <span
-      class="ids-tooltip__container"
+      class="ids-popover__container"
+      role="button"
+      tabindex="0"
     >
-      tooltip
+      popover trigger
     </span>
   </div>,
   "debug": [Function],

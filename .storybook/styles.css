@@ -3,8 +3,17 @@
 body,
 .sb-show-main {
   text-rendering: geometricPrecision;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
 }
 
 .isb-section {
@@ -31,6 +40,32 @@ body,
 
 .isb-element__thin {
   max-width: 100px;
+}
+
+.isb-trigger {
+  display: inline-block;
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: 50%;
+  background-color: var(--electric-blue-500);
+}
+
+.isb-popover__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.isb-popover__tag {
+  border-radius: 50%;
+  width: var(--space-2);
+  height: var(--space-2);
+}
+
+.isb-popover__value {
+  font-size: var(--font-size-6);
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--grey-800);
 }
 
 .gv-mockup {
