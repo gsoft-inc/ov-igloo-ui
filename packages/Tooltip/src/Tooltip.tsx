@@ -88,9 +88,12 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     'ids-tooltip--light': appearance === 'light',
   });
 
+  const fromPxToRem = (value: number, base: number = 10): string =>
+    `${value / base}rem`;
+
   const tooltipStyle = {
     ...styles.popper,
-    maxWidth: `${maxWidth}px`,
+    maxWidth: fromPxToRem(maxWidth),
   };
 
   const center = position === 'top' || position === 'bottom';
@@ -124,7 +127,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
       onMouseLeave={onMouseLeaveHandle}
     >
       {children}
-      {disabled || !show ? null : tooltip}
+      {disabled ? null : show && tooltip}
     </span>
   );
 };

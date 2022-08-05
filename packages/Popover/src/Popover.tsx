@@ -53,7 +53,7 @@ const Popover: React.FunctionComponent<PopoverProps> = (
 
   const classes = cx('ids-popover__container', className);
 
-  const [show, setSow] = React.useState<boolean>(active);
+  const [show, setShow] = React.useState<boolean>(active);
 
   const [referenceElement, setReferenceElement] =
     React.useState<HTMLElement | null>(null);
@@ -79,21 +79,24 @@ const Popover: React.FunctionComponent<PopoverProps> = (
   );
 
   const onClick = (): void => {
-    setSow(!show);
+    setShow(!show);
     if (update !== null) {
       update();
     }
   };
 
   const onClose = (): void => {
-    setSow(false);
+    setShow(false);
   };
 
   const popoverClasses = cx('ids-popover', popoverClassName);
 
+  const fromPxToRem = (value: number, base: number = 10): string =>
+    `${value / base}rem`;
+
   const popoverStyle = {
     ...styles.popper,
-    maxWidth: `${maxWidth}px`,
+    maxWidth: fromPxToRem(maxWidth),
   };
 
   const popoverContent = (
@@ -141,7 +144,7 @@ const Popover: React.FunctionComponent<PopoverProps> = (
       >
         {children}
       </span>
-      {!show ? null : popover}
+      {show && popover}
     </>
   );
 };
