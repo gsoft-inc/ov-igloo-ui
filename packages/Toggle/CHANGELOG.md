@@ -1,5 +1,11 @@
 # @igloo-ui/toggle
 
+## 1.0.1
+
+### Patch Changes
+
+- 7ad9351: Fix Switch position in Toggle element
+
 ## 1.0.0
 
 ### Major Changes
