@@ -32,18 +32,14 @@ const [show, setShow] = useState(false);
   open modal
 </Button>;
 
-{
-  show && (
-    <Modal
-      title={`Modal title`}
-      isDismissable
-      isClosable
-      isOpen={show}
-      closeBtnAriaLabel={`Close`}
-      onClose={() => setShow(false)}
-    >
-      Modal content
-    </Modal>
-  );
-}
+<Modal
+  title={`Modal title`}
+  isDismissable
+  isClosable
+  isOpen={show}
+  closeBtnAriaLabel={`Close`}
+  onClose={() => setShow(false)}
+>
+  Modal content
+</Modal>;
 ```

@@ -74,6 +74,7 @@
   display: flex;
   justify-content: center;
   align-items: var(--ids-modal-safe-height, initial);
+  z-index: var(--ids-modal-overlay-index);
 }
 
 .ids-modal {
