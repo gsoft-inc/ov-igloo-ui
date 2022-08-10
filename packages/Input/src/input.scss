@@ -21,11 +21,16 @@
   --ids-input-letter-spacing-compact: #{tokens.$font-weight-regular};
 
   /* with icon */
-  --ids-input-color-prefix: #{tokens.$grey-400};
-  --ids-input-color-prefix-compact: #{tokens.$grey-800};
+  --ids-input-color-icon: #{tokens.$grey-400};
+  --ids-input-color-icon-compact: #{tokens.$grey-800};
+
+  /* with prefix icon */
   --ids-input-width-prefix: #{tokens.$space-7};
   --ids-input-width-prefix-compact: #{tokens.$space-6};
-  --ids-input-padding-prefix: #{tokens.$space-2} #{tokens.$space-2} #{tokens.$space-2} #{tokens.$space-3};
+
+  /* with postfix icon */
+  --ids-input-width-postfix: #{tokens.$space-7};
+  --ids-input-width-postfix-compact: #{tokens.$space-6};
 
   /* Placeholder */
   --ids-input-color-placeholder: #{tokens.$grey-400};
@@ -67,29 +72,53 @@
 }
 
 .ids-input__asset {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  color: var(--ids-input-color-prefix);
-  height: 100%;
-  width: var(--ids-input-width-prefix);
-  padding: var(--ids-input-padding-prefix);
-  box-sizing: border-box;
+  &--prefix, &--postfix {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    color: var(--ids-input-color-icon);
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  &--prefix {
+    left: 0;
+    width: var(--ids-input-width-prefix);
+    padding: var(--ids-input-padding-prefix);
+  }
+
+  &--postfix {
+    right: 0;
+    width: var(--ids-input-width-postfix);
+    padding: var(--ids-input-padding-postfix);
+  }
 }
 
 .ids-input--prefixIcon {
   padding-left: var(--ids-input-width-prefix);
 }
 
-.ids-input__asset--compact {
-  color: var(--ids-input-color-prefix-compact);
+.ids-input--postfixIcon {
+  padding-right: var(--ids-input-width-postfix);
+}
+
+.ids-input__asset--prefix--compact {
+  color: var(--ids-input-color-icon-compact);
   width: var(--ids-input-width-prefix-compact);
 }
 
-.ids-input__asset--compact + .ids-input--prefixIcon {
+.ids-input__asset--postfix--compact {
+  color: var(--ids-input-color-icon-compact);
+  width: var(--ids-input-width-postfix-compact);
+}
+
+.ids-input__asset--prefix--compact + .ids-input--prefixIcon {
   padding-left: var(--ids-input-width-prefix-compact);
+}
+
+.ids-input__asset--postfix--compact + .ids-input--postfixIcon {
+  padding-right: var(--ids-input-width-prefix-compact);
 }
 
 .ids-input--compact {
