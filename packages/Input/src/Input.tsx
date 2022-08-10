@@ -35,8 +35,8 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   dataTest?: string;
   /** Use a prefix for add an icon before the input text */
   prefixIcon?: React.ReactNode;
-  /** Use a postfix for add an icon after the input text */
-  postfixIcon?: React.ReactNode;
+  /** Use a suffix for add an icon after the input text */
+  suffixIcon?: React.ReactNode;
 }
 
 const Input: React.FunctionComponent<InputProps> = React.forwardRef(
@@ -52,7 +52,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       onChange,
       dataTest,
       prefixIcon,
-      postfixIcon,
+      suffixIcon,
       ...rest
     } = props;
 
@@ -61,7 +61,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       'ids-input--error': error,
       'ids-input--disabled': disabled,
       'ids-input--prefixIcon': prefixIcon,
-      'ids-input--postfixIcon': postfixIcon,
+      'ids-input--suffixIcon': suffixIcon,
     });
 
     React.useEffect(() => {
@@ -132,21 +132,21 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       </span>
     );
 
-    const addPostfixIcon = (
+    const addSuffixIcon = (
       <span
-        className={cx('ids-input__asset--postfix', {
-          'ids-input__asset--postfix--compact': isCompact,
+        className={cx('ids-input__asset--suffix', {
+          'ids-input__asset--suffix--compact': isCompact,
         })}
       >
-        {postfixIcon}
+        {suffixIcon}
       </span>
     );
 
-    return prefixIcon || postfixIcon ? (
+    return prefixIcon || suffixIcon ? (
       <div className="ids-input__wrapper">
         {prefixIcon && addPrefixIcon}
         {inputRender}
-        {postfixIcon && addPostfixIcon}
+        {suffixIcon && addSuffixIcon}
       </div>
     ) : (
       inputRender

@@ -62,14 +62,14 @@ export const WithPrefix = () => (
 export const WithPostfix = () => (
   <Section column>
     <Input
-      postfixIcon={<Percentage />}
+      suffixIcon={<Percentage />}
       type="number"
       max="100"
       min="0"
       placeholder="Default"
     />
     <Input
-      postfixIcon={<Percentage size="small" />}
+      suffixIcon={<Percentage size="small" />}
       type="number"
       max="100"
       min="0"
