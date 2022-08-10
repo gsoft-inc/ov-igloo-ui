@@ -27,10 +27,12 @@
   /* with prefix icon */
   --ids-input-width-prefix: #{tokens.$space-7};
   --ids-input-width-prefix-compact: #{tokens.$space-6};
+  --ids-input-padding-prefix: #{tokens.$space-2} #{tokens.$space-2} #{tokens.$space-2} #{tokens.$space-3};
 
   /* with postfix icon */
   --ids-input-width-postfix: #{tokens.$space-7};
   --ids-input-width-postfix-compact: #{tokens.$space-6};
+  --ids-input-padding-postfix: #{tokens.$space-2} #{tokens.$space-3} #{tokens.$space-2} #{tokens.$space-2};
 
   /* Placeholder */
   --ids-input-color-placeholder: #{tokens.$grey-400};
@@ -48,6 +50,16 @@
 
   /* Error */
   --ids-input-border-color-error: #{tokens.$coral-500};
+}
+
+%ids-input-asset {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  color: var(--ids-input-color-icon);
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .ids-input {
@@ -72,23 +84,17 @@
 }
 
 .ids-input__asset {
-  &--prefix, &--postfix {
-    position: absolute;
-    top: 0;
-    display: flex;
-    align-items: center;
-    color: var(--ids-input-color-icon);
-    height: 100%;
-    box-sizing: border-box;
-  }
-
   &--prefix {
+    @extend %ids-input-asset;
+
     left: 0;
     width: var(--ids-input-width-prefix);
     padding: var(--ids-input-padding-prefix);
   }
 
   &--postfix {
+    @extend %ids-input-asset;
+
     right: 0;
     width: var(--ids-input-width-postfix);
     padding: var(--ids-input-padding-postfix);
