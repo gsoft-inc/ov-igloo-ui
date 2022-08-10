@@ -59,7 +59,7 @@ export const WithPrefix = () => (
     />
   </Section>
 );
-export const WithPostfix = () => (
+export const WithSuffix = () => (
   <Section column>
     <Input
       suffixIcon={<Percentage />}
