@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 1.1.0
+
+### Minor Changes
+
+- 4a388ae: Add Postfix icon position in Input component
+
 ## 1.0.7
 
 ### Patch Changes
