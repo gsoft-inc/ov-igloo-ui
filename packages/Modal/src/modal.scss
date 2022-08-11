@@ -74,6 +74,7 @@
   display: flex;
   justify-content: center;
   align-items: var(--ids-modal-safe-height, initial);
+  z-index: var(--ids-modal-overlay-index);
 }
 
 .ids-modal {
@@ -88,6 +89,9 @@
   box-shadow: var(--ids-modal-shadow);
   z-index: var(--ids-modal-index);
   box-sizing: border-box;
+
+  /* Removes the focus-within outline around the modal */
+  outline: none;
 
   &--medium {
     width: var(--ids-modal-width-medium, 100%);

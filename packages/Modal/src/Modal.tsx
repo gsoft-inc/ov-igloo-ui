@@ -9,6 +9,14 @@ import {
 } from '@react-aria/overlays';
 import { useDialog } from '@react-aria/dialog';
 import { AriaDialogProps } from '@react-types/dialog';
+import {
+  animated,
+  AnimationResult,
+  Controller,
+  SpringValue,
+  useTransition,
+} from 'react-spring';
+import { OneOrMore } from '@react-spring/types';
 
 import IconButton from '@igloo-ui/icon-button';
 import Close from '@igloo-ui/icons/dist/Close';
@@ -32,6 +40,8 @@ export interface ModalProps extends OverlayProps, AriaDialogProps {
   isOpen: boolean;
   /** Handler that is called when the overlay should close. */
   onClose?: () => void;
+  /** Handler that is called when the modal is closed and no longer visible. */
+  onAfterClose?: () => void;
   /** The content for the aria-label on the close button */
   closeBtnAriaLabel?: string;
   /** Remove the default padding and the title from the modal */
@@ -45,15 +55,51 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     closeBtnAriaLabel,
     title,
     onClose,
+    onAfterClose,
     isClosable,
     fullContent,
     size = 'small',
+    isOpen,
   } = props;
 
   const ref = React.useRef<HTMLDivElement>(null);
   const { overlayProps, underlayProps } = useOverlay(props, ref);
 
-  usePreventScroll();
+  usePreventScroll({ isDisabled: !isOpen });
+
+  const overlayTransitions = useTransition(isOpen, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    config: { duration: 200 },
+  });
+
+  const modalTransitions = useTransition(isOpen, {
+    from: { opacity: 0, transform: 'scale(0.95)' },
+    // For whatever reason, enter is actually called after leave, which is why the onRest event is added here.
+    // This is also where isOpen is set to false after closing.
+    enter: {
+      opacity: 1,
+      transform: 'scale(1)',
+      delay: 200,
+      onRest: (
+        result: AnimationResult,
+        spring: Controller | SpringValue,
+        item?: OneOrMore<any>
+      ) => {
+        // Call onAfterClose if model is completely closed and animation is done, if the function exists.
+        if (!item) {
+          onAfterClose?.();
+        }
+      },
+    },
+    leave: {
+      opacity: 0,
+      transform: 'scale(1)',
+    },
+    config: { duration: 200 },
+  });
+
   const { dialogProps } = useDialog(props, ref);
 
   const classes = cx('ids-modal', className, {
@@ -63,30 +109,50 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
   });
 
   const modal = (
-    <div className="ids-overlay" {...underlayProps}>
-      <div className="ids-modal__container">
-        <div {...overlayProps} {...dialogProps} ref={ref} className={classes}>
-          <div
-            className={cx(
-              'ids-modal__header',
-              !isClosable && 'ids-modal__header--with-action'
-            )}
-          >
-            {title && <h5 className="ids-modal__title">{title}</h5>}
-
-            <IconButton
-              size="small"
-              className="ids-modal__close"
-              onClick={onClose}
-              appearance="ghost"
-              aria-label={closeBtnAriaLabel}
-              icon={<Close />}
+    <>
+      {overlayTransitions(
+        (styles, item) =>
+          item && (
+            <animated.div
+              className="ids-overlay"
+              {...underlayProps}
+              style={styles}
             />
-          </div>
-          <div className="ids-modal__content">{children}</div>
-        </div>
-      </div>
-    </div>
+          )
+      )}
+      {modalTransitions(
+        (styles, item) =>
+          item && (
+            <animated.div className="ids-modal__container" style={styles}>
+              <div
+                {...overlayProps}
+                {...dialogProps}
+                ref={ref}
+                className={classes}
+              >
+                <div
+                  className={cx(
+                    'ids-modal__header',
+                    !isClosable && 'ids-modal__header--with-action'
+                  )}
+                >
+                  {title && <h5 className="ids-modal__title">{title}</h5>}
+
+                  <IconButton
+                    size="small"
+                    className="ids-modal__close"
+                    onClick={onClose}
+                    appearance="ghost"
+                    aria-label={closeBtnAriaLabel}
+                    icon={<Close />}
+                  />
+                </div>
+                <div className="ids-modal__content">{children}</div>
+              </div>
+            </animated.div>
+          )
+      )}
+    </>
   );
 
   return ReactDom.createPortal(modal, document.body);

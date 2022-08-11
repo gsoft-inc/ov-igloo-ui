@@ -38,14 +38,12 @@ const Template: ComponentStory<typeof Modal> = (args) => {
       <Button appearance="secondary" onClick={handleOpen}>
         show modal
       </Button>
-      {open && (
-        <Modal
-          {...args}
-          isOpen={open}
-          onClose={handleClose}
-          children={args.children}
-        />
-      )}
+      <Modal
+        {...args}
+        isOpen={open}
+        onClose={handleClose}
+        children={args.children}
+      />
     </>
   );
 };
@@ -59,39 +57,41 @@ Overview.args = {
 };
 
 export const Sizes = () => {
-  const [show, setShow] = useState('sizes', '');
+  const [show, setShow] = useState('default', false);
+  const [size, setSize] = useState('sizes', '');
 
-  // @ts-ignore
-  const showModal = show !== '' && show !== false;
+  const handleOpen = (size: string) => {
+    setShow(true);
+    setSize(size);
+  };
 
   return (
     <Section>
-      <Button appearance="secondary" onClick={() => setShow('small')}>
+      <Button appearance="secondary" onClick={() => handleOpen('small')}>
         small
       </Button>
-      <Button appearance="secondary" onClick={() => setShow('medium')}>
+      <Button appearance="secondary" onClick={() => handleOpen('medium')}>
         medium
       </Button>
-      <Button appearance="secondary" onClick={() => setShow('large')}>
+      <Button appearance="secondary" onClick={() => handleOpen('large')}>
         large
       </Button>
-      <Button appearance="secondary" onClick={() => setShow('xlarge')}>
+      <Button appearance="secondary" onClick={() => handleOpen('xlarge')}>
         xlarge
       </Button>
-      {showModal && (
-        <Modal
-          title={`Modal size: ${show}`}
-          isDismissable
-          isClosable
-          isOpen={showModal}
-          // @ts-ignore
-          size={show}
-          closeBtnAriaLabel={`Close`}
-          onClose={() => setShow('')}
-        >
-          Modal content
-        </Modal>
-      )}
+      <Modal
+        title={`Modal size: ${size}`}
+        isDismissable
+        isClosable
+        isOpen={show}
+        // @ts-ignore
+        size={size}
+        closeBtnAriaLabel={`Close`}
+        onClose={() => setShow(false)}
+        onAfterClose={() => setSize('')}
+      >
+        Modal content
+      </Modal>
     </Section>
   );
 };
@@ -104,11 +104,9 @@ export const removeClose = () => {
       <Button appearance="secondary" onClick={() => setShow(true)}>
         open
       </Button>
-      {show && (
-        <Modal isDismissable isOpen={show} onClose={() => setShow(false)}>
-          Modal content
-        </Modal>
-      )}
+      <Modal isDismissable isOpen={show} onClose={() => setShow(false)}>
+        Modal content
+      </Modal>
     </Section>
   );
 };
@@ -121,19 +119,17 @@ export const Exemple = () => {
       <Button appearance="secondary" onClick={() => setShow(true)}>
         open
       </Button>
-      {show && (
-        <Modal
-          isClosable
-          isDismissable
-          fullContent
-          title="I'm a modal"
-          size="xlarge"
-          isOpen={show}
-          onClose={() => setShow(false)}
-        >
-          <Mockup />
-        </Modal>
-      )}
+      <Modal
+        isClosable
+        isDismissable
+        fullContent
+        title="I'm a modal"
+        size="xlarge"
+        isOpen={show}
+        onClose={() => setShow(false)}
+      >
+        <Mockup />
+      </Modal>
     </Section>
   );
 };
