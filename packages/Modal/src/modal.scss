@@ -89,6 +89,8 @@
   box-shadow: var(--ids-modal-shadow);
   z-index: var(--ids-modal-index);
   box-sizing: border-box;
+  outline: none;
+  /* Removes the focus-within outline around the modal */
 
   &--medium {
     width: var(--ids-modal-width-medium, 100%);

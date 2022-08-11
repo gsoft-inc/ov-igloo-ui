@@ -87,7 +87,9 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
         item?: boolean
       ) => {
         // Call onAfterClose if model is completely closed and animation is done, if the function exists.
-        !item && onAfterClose?.();
+        if (!item) {
+          onAfterClose?.();
+        }
       },
     },
     leave: {
@@ -114,7 +116,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
               className="ids-overlay"
               {...underlayProps}
               style={styles}
-            ></animated.div>
+            />
           )
       )}
       {modalTransitions(
