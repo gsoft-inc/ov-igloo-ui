@@ -16,6 +16,7 @@ import {
   SpringValue,
   useTransition,
 } from 'react-spring';
+import { OneOrMore } from '@react-spring/types';
 
 import IconButton from '@igloo-ui/icon-button';
 import Close from '@igloo-ui/icons/dist/Close';
@@ -84,7 +85,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
       onRest: (
         result: AnimationResult,
         spring: Controller | SpringValue,
-        item?: boolean
+        item?: OneOrMore<any>
       ) => {
         // Call onAfterClose if model is completely closed and animation is done, if the function exists.
         if (!item) {

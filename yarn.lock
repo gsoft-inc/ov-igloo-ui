@@ -3229,7 +3229,7 @@
     "@react-spring/shared" "~9.5.2"
     "@react-spring/types" "~9.5.2"
 
-"@react-spring/types@~9.5.2":
+"@react-spring/types@9.5.2", "@react-spring/types@~9.5.2":
   version "9.5.2"
   resolved "https://registry.yarnpkg.com/@react-spring/types/-/types-9.5.2.tgz#cce1b03afbafb23edfb9cd8c517cc7462abffb65"
   integrity sha512-n/wBRSHPqTmEd4BFWY6TeR1o/UY+3ujoqMxLjqy90CcY/ozJzDRuREL3c+pxMeTF2+B7dX33dTPCtFMX51nbxg==
