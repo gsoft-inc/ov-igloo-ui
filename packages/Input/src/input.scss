@@ -21,11 +21,18 @@
   --ids-input-letter-spacing-compact: #{tokens.$font-weight-regular};
 
   /* with icon */
-  --ids-input-color-prefix: #{tokens.$grey-400};
-  --ids-input-color-prefix-compact: #{tokens.$grey-800};
+  --ids-input-color-icon: #{tokens.$grey-400};
+  --ids-input-color-icon-compact: #{tokens.$grey-800};
+
+  /* with prefix icon */
   --ids-input-width-prefix: #{tokens.$space-7};
   --ids-input-width-prefix-compact: #{tokens.$space-6};
   --ids-input-padding-prefix: #{tokens.$space-2} #{tokens.$space-2} #{tokens.$space-2} #{tokens.$space-3};
+
+  /* with suffix icon */
+  --ids-input-width-suffix: #{tokens.$space-7};
+  --ids-input-width-suffix-compact: #{tokens.$space-6};
+  --ids-input-padding-suffix: #{tokens.$space-2} #{tokens.$space-3} #{tokens.$space-2} #{tokens.$space-2};
 
   /* Placeholder */
   --ids-input-color-placeholder: #{tokens.$grey-400};
@@ -43,6 +50,16 @@
 
   /* Error */
   --ids-input-border-color-error: #{tokens.$coral-500};
+}
+
+%ids-input-asset {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  color: var(--ids-input-color-icon);
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .ids-input {
@@ -67,29 +84,47 @@
 }
 
 .ids-input__asset {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  color: var(--ids-input-color-prefix);
-  height: 100%;
-  width: var(--ids-input-width-prefix);
-  padding: var(--ids-input-padding-prefix);
-  box-sizing: border-box;
+  &--prefix {
+    @extend %ids-input-asset;
+
+    left: 0;
+    width: var(--ids-input-width-prefix);
+    padding: var(--ids-input-padding-prefix);
+  }
+
+  &--suffix {
+    @extend %ids-input-asset;
+
+    right: 0;
+    width: var(--ids-input-width-suffix);
+    padding: var(--ids-input-padding-suffix);
+  }
 }
 
 .ids-input--prefixIcon {
   padding-left: var(--ids-input-width-prefix);
 }
 
-.ids-input__asset--compact {
-  color: var(--ids-input-color-prefix-compact);
+.ids-input--suffixIcon {
+  padding-right: var(--ids-input-width-suffix);
+}
+
+.ids-input__asset--prefix--compact {
+  color: var(--ids-input-color-icon-compact);
   width: var(--ids-input-width-prefix-compact);
 }
 
-.ids-input__asset--compact + .ids-input--prefixIcon {
+.ids-input__asset--suffix--compact {
+  color: var(--ids-input-color-icon-compact);
+  width: var(--ids-input-width-suffix-compact);
+}
+
+.ids-input__asset--prefix--compact + .ids-input--prefixIcon {
   padding-left: var(--ids-input-width-prefix-compact);
+}
+
+.ids-input__asset--suffix--compact + .ids-input--suffixIcon {
+  padding-right: var(--ids-input-width-prefix-compact);
 }
 
 .ids-input--compact {

@@ -33,8 +33,10 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   onChange?: (e: any) => void;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
-  /** Use a prefix for add a icon before the input text */
+  /** Use a prefix for add an icon before the input text */
   prefixIcon?: React.ReactNode;
+  /** Use a suffix for add an icon after the input text */
+  suffixIcon?: React.ReactNode;
 }
 
 const Input: React.FunctionComponent<InputProps> = React.forwardRef(
@@ -50,6 +52,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       onChange,
       dataTest,
       prefixIcon,
+      suffixIcon,
       ...rest
     } = props;
 
@@ -58,6 +61,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       'ids-input--error': error,
       'ids-input--disabled': disabled,
       'ids-input--prefixIcon': prefixIcon,
+      'ids-input--suffixIcon': suffixIcon,
     });
 
     React.useEffect(() => {
@@ -118,16 +122,31 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       />
     );
 
-    return prefixIcon ? (
+    const addPrefixIcon = (
+      <span
+        className={cx('ids-input__asset--prefix', {
+          'ids-input__asset--prefix--compact': isCompact,
+        })}
+      >
+        {prefixIcon}
+      </span>
+    );
+
+    const addSuffixIcon = (
+      <span
+        className={cx('ids-input__asset--suffix', {
+          'ids-input__asset--suffix--compact': isCompact,
+        })}
+      >
+        {suffixIcon}
+      </span>
+    );
+
+    return prefixIcon || suffixIcon ? (
       <div className="ids-input__wrapper">
-        <span
-          className={cx('ids-input__asset', {
-            'ids-input__asset--compact': isCompact,
-          })}
-        >
-          {prefixIcon}
-        </span>
+        {prefixIcon && addPrefixIcon}
         {inputRender}
+        {suffixIcon && addSuffixIcon}
       </div>
     ) : (
       inputRender

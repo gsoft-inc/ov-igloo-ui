@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Search from '@igloo-ui/icons/dist/Search';
+import Percentage from '@igloo-ui/icons/dist/Percentage';
 
 import Input from './Input';
 
@@ -53,6 +54,25 @@ export const WithPrefix = () => (
     <Input prefixIcon={<Search />} placeholder="Default" />
     <Input
       prefixIcon={<Search size="small" />}
+      isCompact
+      placeholder="Compact"
+    />
+  </Section>
+);
+export const WithSuffix = () => (
+  <Section column>
+    <Input
+      suffixIcon={<Percentage />}
+      type="number"
+      max="100"
+      min="0"
+      placeholder="Default"
+    />
+    <Input
+      suffixIcon={<Percentage size="small" />}
+      type="number"
+      max="100"
+      min="0"
       isCompact
       placeholder="Compact"
     />
