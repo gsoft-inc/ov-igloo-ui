@@ -1,0 +1,12 @@
+.ids-my-select--header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+
+  &-chevron {
+    order: 99;
+  }
+}

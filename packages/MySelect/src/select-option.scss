@@ -1,0 +1,31 @@
+.ids-select-option {
+  width: 100%;
+  user-select: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  padding: 2px;
+  gap: 5px;
+
+  &:hover, &--selected {
+    background-color: blue;
+    color: white;
+  }
+
+  &--disabled {
+    background-color: gray;
+    color: white;
+  }
+
+  &__icon {
+    order: 0;
+    flex: 0 0 auto;
+  }
+
+  &__title {
+    order: 1;
+  }
+
+
+}

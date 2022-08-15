@@ -19,7 +19,7 @@ export interface SelectHeaderProps extends React.ComponentProps<'div'> {
   /** True if the option list is displayed. */
   isOpen?: boolean;
   /** Option title. */
-  label: string;
+  label: React.ReactNode;
   /** Callback when content is clicked. */
   onClick?: () => void;
   /** Will be displayed when no item are selected. */

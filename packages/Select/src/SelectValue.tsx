@@ -11,7 +11,7 @@ export interface SelectValueProps extends React.ComponentPropsWithRef<'div'> {
   /** Index of the value */
   index: number;
   /** Option title */
-  label: string;
+  label: React.ReactNode;
   /** Callback when content is clicked. */
   onClick?: () => void;
 }

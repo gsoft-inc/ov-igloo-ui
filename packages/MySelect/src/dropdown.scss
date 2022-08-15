@@ -1,0 +1,38 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  --ids-dropdown-background: #{tokens.$samoyed};
+  --ids-dropdown-border-color: #{tokens.$grey-300};
+  --ids-dropdown-border-radius: #{tokens.$border-radius-sm};
+  --ids-dropdown-zindex: #{tokens.$z-index-max};
+  --ids-dropdown-minHeight: #{tokens.$space-1}
+}
+
+.ids-dropdown {
+  position: absolute;
+  width: 100%;
+  background-color: var(--ids-dropdown-background);
+  border: 1px solid var(--ids-dropdown-border-color);
+  border-radius: var(--ids-dropdown-border-radius);
+  min-height: var(--ids-dropdown-minHeight);
+  overflow: hidden;
+
+  z-index: var(--ids-dropdown-zindex);
+
+  &--top {
+    transform: translateY(-100%);
+  }
+
+  &--right {
+    // TODO
+  }
+
+  &--bottom {
+    transform: translateY(100%);
+  }
+
+  &--right {
+    // TODO
+  }
+}
