@@ -1,5 +1,8 @@
 import * as React from 'react';
 import cx from 'classnames';
+import { useTransition, animated } from 'react-spring';
+
+import { DeterminePosition } from './DropdownHelper';
 
 import './dropdown.scss';
 
@@ -15,11 +18,30 @@ export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   children?: React.ReactNode;
   /** Position of the dropdown */
   position?: DropdownPositions;
+  /** True if the dropdown list is displayed. */
+  isOpen?: boolean;
 }
 
 const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
   (props: DropdownProps, ref: React.Ref<HTMLDivElement>) => {
-    const { children, position = DropdownPositions.Bottom, ...rest } = props;
+    const {
+      children,
+      position = DropdownPositions.Bottom,
+      isOpen = false,
+      ...rest
+    } = props;
+
+    const initialTransform = DeterminePosition(position);
+    const isOnTheRight = position === DropdownPositions.Right;
+    const transitions = useTransition(isOpen, {
+      from: { opacity: 0, transform: initialTransform },
+      enter: {
+        opacity: 1,
+        transform: isOnTheRight ? 'translateX(0rem)' : 'translateY(0rem)',
+      },
+      leave: { opacity: 0, transform: initialTransform },
+      config: { duration: 150 },
+    });
 
     const dropdownClasses = cx('ids-dropdown', {
       'ids-dropdown--top': position === DropdownPositions.Top,
@@ -28,11 +50,16 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       'ids-dropdown--left': position === DropdownPositions.Left,
     });
 
-    return (
-      <div ref={ref} className={dropdownClasses} {...rest}>
+    return transitions((styles) => (
+      <animated.div
+        style={styles}
+        ref={ref}
+        className={dropdownClasses}
+        {...rest}
+      >
         {children}
-      </div>
-    );
+      </animated.div>
+    ));
   }
 );
 

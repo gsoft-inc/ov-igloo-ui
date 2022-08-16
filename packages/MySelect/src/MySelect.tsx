@@ -6,6 +6,7 @@ import './my-select.scss';
 import SelectHeader from './SelectHeader';
 import Dropdown from './Dropdown';
 import SelectOption from './SelectOption';
+import SelectValue from './SelectValue';
 
 export interface SelectOptionProps {
   /** The option label */
@@ -104,7 +105,13 @@ const MySelect: React.FunctionComponent<MySelectProps> = (
         const isSelected =
           option.value === currentSelectedOption?.value ?? false;
         const optionOnClickHandler = (): void => {
+          const hasChanged = currentSelectedOption !== option;
+
           setCurrentSelectedOption(option);
+
+          if (onChange && hasChanged) {
+            onChange(currentSelectedOption);
+          }
         };
 
         return (
@@ -114,33 +121,39 @@ const MySelect: React.FunctionComponent<MySelectProps> = (
             onClick={optionOnClickHandler}
             selected={isSelected}
             icon={option.icon}
+            disabled={option.disabled}
           />
         );
       }
     );
 
-    return <Dropdown>{selectOptions}</Dropdown>;
+    return <Dropdown isOpen={isOpen}>{selectOptions}</Dropdown>;
   };
 
   const selectClassname = cx('ids-my-select', className, {
     'ids-my-select-compact': isCompact,
   });
 
+  const canShowMenu = showMenu && !disabled;
+
   return (
     <div
       ref={selectRef}
       className={selectClassname}
-      {...rest}
       onClick={handleOnClick}
       onBlur={handleFocusLost}
       role="button"
       tabIndex={0}
+      {...rest}
     >
-      <SelectHeader isOpen={showMenu}>
-        {currentSelectedOption?.icon}
-        {currentSelectedOption?.label || children}
+      <SelectHeader isOpen={canShowMenu}>
+        <SelectValue
+          label={currentSelectedOption?.label || children}
+          icon={currentSelectedOption?.icon}
+          isPlaceholder={!currentSelectedOption}
+        />
       </SelectHeader>
-      {showMenu && generateOptions()}
+      {canShowMenu && generateOptions()}
     </div>
   );
 };

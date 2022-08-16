@@ -62,7 +62,7 @@
 
   .ids-dropdown {
     position: absolute;
-    bottom: -7px;
+    top: var(--ids-my-select-height);
     left: -1px;
     display: flex;
     flex-flow: column nowrap;

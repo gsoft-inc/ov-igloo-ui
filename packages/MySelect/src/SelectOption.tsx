@@ -1,6 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
 
+import SelectValue from './SelectValue';
+
 import './select-option.scss';
 
 export interface SelectOptionProps extends React.ComponentPropsWithRef<'div'> {
@@ -54,8 +56,7 @@ const SelectOption: React.FunctionComponent<SelectOptionProps> =
           tabIndex={index}
           {...rest}
         >
-          {icon && <div className="ids-select-value__icon">{icon}</div>}
-          <div className="ids-select-value__title">{label}</div>
+          <SelectValue label={label} icon={icon} />
         </div>
       );
     }

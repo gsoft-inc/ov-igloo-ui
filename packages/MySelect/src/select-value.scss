@@ -1,0 +1,25 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+
+:root {
+  --ids-dropdown-value-placeholder-color: #{tokens.$grey-400};
+}
+
+.ids-select-value {
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: center;
+  gap: 5px;
+
+  &-placeholder {
+    color: var(--ids-dropdown-value-placeholder-color);
+  }
+
+  &__icon {
+    flex: 0 0 auto;
+    order: 0;
+  }
+
+  &__label {
+    order: 1;
+  }
+}
