@@ -2,8 +2,6 @@ import * as React from 'react';
 import cx from 'classnames';
 import { useTransition, animated } from 'react-spring';
 
-import { DeterminePosition } from './DropdownHelper';
-
 import './dropdown.scss';
 
 export enum DropdownPositions {
@@ -12,6 +10,18 @@ export enum DropdownPositions {
   Bottom,
   Left,
 }
+
+const DeterminePosition = (position: DropdownPositions): string => {
+  if (position === DropdownPositions.Right) {
+    return 'translateX(-1rem)';
+  }
+
+  if (position === DropdownPositions.Top) {
+    return 'translateY(1rem)';
+  }
+
+  return 'translateY(-1rem)';
+};
 
 export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   /** Default value displayed in the dropdown. */
