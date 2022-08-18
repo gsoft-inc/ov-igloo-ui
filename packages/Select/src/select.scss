@@ -1,13 +1,105 @@
-@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
-@use '~@igloo-ui/tokens/dist/fonts';
+@use '../../../node_modules/@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '../../../node_modules/@igloo-ui/tokens/dist/fonts.css';
 
 :root {
   /* Default */
+  --ids-select-height: #{tokens.$space-6};
   --ids-select-font-family: #{tokens.$primary-font-family};
   --ids-select-font-size: #{tokens.$font-size-4};
+  --ids-select-font-weight: #{tokens.$font-weight-regular};
+  --ids-select-padding: #{tokens.$space-3};
+  --ids-select-line-height: #{tokens.$space-4};
+  --ids-select-margin: #{tokens.$space-1} #{tokens.$space-0};
+
+  --ids-select-background: #{tokens.$samoyed};
+  --ids-select-text: #{tokens.$grey-800};
+  --ids-select-chevron: #{tokens.$grey-800};
+  --ids-select-border-color: #{tokens.$grey-300};
+  --ids-select-border-radius: #{tokens.$border-radius-sm};
+
+  /* Compact */
+  --ids-select-height-compact: #{tokens.$space-5};
+  --ids-select-font-size-compact: #{tokens.$font-size-3};
+  --ids-select-line-height-compact: #{tokens.$line-height-xxl};
+  --ids-select-letter-spacing-compact: #{tokens.$font-weight-regular};
+
+  /* Active */
+  --ids-select-border-color-active: #{tokens.$electric-blue-500};
+
+  /* Disabled */
+  --ids-select-background-disabled: #{tokens.$grey-200};
+  --ids-select-text-disabled: #{tokens.$grey-500};
+  --ids-select-chevron-disabled: #{tokens.$grey-800};
+  --ids-select-border-color-disabled: #{tokens.$grey-200};
+
+  /* Error */
+  --ids-select-border-color-error: #{tokens.$coral-500};
 }
 
 .ids-select {
+  height: var(--ids-select-height);
+  width: 100%;
+  padding: 0 var(--ids-select-padding);
+  font-size: var(--ids-select-font-size);
+  font-family: var(--ids-select-font-family);
+  font-weight: var(--ids-select-font-weight);
+  line-height: var(--ids-select-line-height);
+  background-color: var(--ids-select-background);
+  border: 1px solid var(--ids-select-border-color);
+  border-radius: var(--ids-select-border-radius);
+  box-sizing: border-box;
+  appearance: textfield;
+  transition: border-color 200ms ease 0s;
+  margin: var(--ids-select-margin);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+
+  .ids-dropdown {
+    position: absolute;
+    top: var(--ids-select-height);
+    left: -1px;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .ids-select-header {
+    svg {
+      color: var(--ids-select-chevron);
+      align-self: flex-end;
+    }
+  }
+}
+
+.ids-select.active {
   font-family: var(--ids-select-font-family);
   font-size: var(--ids-select-font-size);
+
+  display: flex;
+  align-items: flex-start;
+  background-color: var(--ids-select-background);
+  color: var(--ids-select-text);
+
+  .ids-select-header {
+    svg {
+      color: var(--ids-select-chevron);
+    }
+  }
+}
+
+.ids-select.disabled {
+  background-color: var(--ids-select-background-disabled);
+  color: var(--ids-select-text-disabled);
+  cursor: default;
+
+  .ids-select-header {
+    & svg {
+      color: var(--ids-select-chevron-disabled);
+    }
+  }
 }

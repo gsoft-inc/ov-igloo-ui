@@ -1,4 +1,4 @@
-@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '../../../node_modules/@igloo-ui/tokens/dist/base10/variables' as tokens;
 
 :root {
   --ids-dropdown-value-placeholder-color: #{tokens.$grey-400};
@@ -10,7 +10,7 @@
   align-content: center;
   gap: 5px;
 
-  &-placeholder {
+  &--placeholder {
     color: var(--ids-dropdown-value-placeholder-color);
   }
 

@@ -1,51 +1,32 @@
 import React from 'react';
 import cx from 'classnames';
 
+import './select-value.scss';
+
 export interface SelectValueProps extends React.ComponentPropsWithRef<'div'> {
-  /** Add a specific class to the button. */
-  className?: string;
-  /** If the option is disables */
-  disabled?: boolean;
-  /** Icon to display to the right of the option */
+  /** Icon to display to the right of the option. */
   icon?: React.ReactNode;
-  /** Index of the value */
-  index: number;
-  /** Option title */
+  /** Option title. */
   label: React.ReactNode;
-  /** Callback when content is clicked. */
-  onClick?: () => void;
+  /** True if the value is a placeholder. */
+  isPlaceholder?: boolean;
 }
 
-const SelectValue: React.FunctionComponent<SelectValueProps> = React.forwardRef(
-  (props: SelectValueProps, ref: React.Ref<HTMLDivElement>) => {
-    const {
-      className,
-      disabled = false,
-      icon,
-      index,
-      label,
-      onClick,
-      ...rest
-    } = props;
+const SelectValue: React.FunctionComponent<SelectValueProps> = (
+  props: SelectValueProps
+) => {
+  const { icon, label, isPlaceholder, ...rest } = props;
 
-    const selectValueClasses = cx('select-value', className, {
-      'select-value--disabled': disabled,
-    });
+  const selectValueClasses = cx('ids-select-value', {
+    'ids-select-value--placeholder': isPlaceholder,
+  });
 
-    return (
-      <div
-        ref={ref}
-        className={selectValueClasses}
-        onClick={onClick}
-        role="button"
-        tabIndex={index}
-        {...rest}
-      >
-        {icon && <div className="select-value__icon">{icon}</div>}
-        <div className="select-value__title">{label}</div>
-      </div>
-    );
-  }
-);
+  return (
+    <div className={selectValueClasses} {...rest}>
+      {icon && <div className="ids-select-value__icon">{icon}</div>}
+      <div className="ids-select-value__label">{label}</div>
+    </div>
+  );
+};
 
 export default SelectValue;

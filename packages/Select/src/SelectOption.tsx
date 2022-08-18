@@ -3,6 +3,8 @@ import cx from 'classnames';
 
 import SelectValue from './SelectValue';
 
+import './select-option.scss';
+
 export interface SelectOptionProps extends React.ComponentPropsWithRef<'div'> {
   /** Add a specific class to the button. */
   className?: string;
@@ -15,7 +17,7 @@ export interface SelectOptionProps extends React.ComponentPropsWithRef<'div'> {
   /** Option title */
   label: React.ReactNode;
   /** Callback when content is clicked. */
-  onClick?: () => void;
+  onClick: () => void;
   /** True if the SelectOption is the one selected */
   selected?: boolean;
 }
@@ -31,11 +33,12 @@ const SelectOption: React.FunctionComponent<SelectOptionProps> =
         label,
         onClick,
         selected = false,
+        ...rest
       } = props;
 
-      const selectOptionClasses = cx('select-option', className, {
-        'select-option--selected': selected,
-        'select-option--disabled': disabled,
+      const selectOptionClasses = cx('ids-select-option', className, {
+        'ids-select-option--selected': selected,
+        'ids-select-option--disabled': disabled,
       });
 
       const onSelectValueClicked = (): void => {
@@ -45,15 +48,15 @@ const SelectOption: React.FunctionComponent<SelectOptionProps> =
       };
 
       return (
-        <div ref={ref} className={selectOptionClasses}>
-          <SelectValue
-            className={className}
-            icon={icon}
-            label={label}
-            disabled={disabled}
-            onClick={onSelectValueClicked}
-            index={index}
-          />
+        <div
+          ref={ref}
+          className={selectOptionClasses}
+          onClick={onSelectValueClicked}
+          role="button"
+          tabIndex={index}
+          {...rest}
+        >
+          <SelectValue label={label} icon={icon} />
         </div>
       );
     }

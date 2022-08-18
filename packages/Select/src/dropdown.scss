@@ -1,5 +1,5 @@
-@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
-@use '~@igloo-ui/tokens/dist/fonts';
+@use '../../../node_modules/@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '../../../node_modules/@igloo-ui/tokens/dist/fonts.css';
 
 :root {
   --ids-dropdown-background: #{tokens.$samoyed};
