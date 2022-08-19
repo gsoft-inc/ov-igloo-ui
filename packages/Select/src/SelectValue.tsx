@@ -8,6 +8,8 @@ export interface SelectValueProps extends React.ComponentPropsWithRef<'div'> {
   disabled?: boolean;
   /** Icon to display to the right of the option. */
   icon?: React.ReactNode;
+  /** True for a compact appearance. */
+  isCompact?: boolean;
   /** Option title. */
   label: React.ReactNode;
   /** True if the value is a placeholder. */
@@ -17,10 +19,18 @@ export interface SelectValueProps extends React.ComponentPropsWithRef<'div'> {
 const SelectValue: React.FunctionComponent<SelectValueProps> = (
   props: SelectValueProps
 ) => {
-  const { disabled = false, icon, label, isPlaceholder, ...rest } = props;
+  const {
+    disabled = false,
+    icon,
+    isCompact = false,
+    label,
+    isPlaceholder,
+    ...rest
+  } = props;
 
   const selectValueClasses = cx('ids-select-value', {
     'ids-select-value--disabled': disabled,
+    'ids-select-value--compact': isCompact,
     'ids-select-value--placeholder': !disabled && isPlaceholder,
   });
 

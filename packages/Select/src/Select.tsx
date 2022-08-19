@@ -3,21 +3,21 @@ import cx from 'classnames';
 
 import './select.scss';
 
-import { KeyboardEventHandler } from 'react';
+import Dropdown from './Dropdown';
+
 import SelectHeader from './SelectHeader';
 import SelectOption from './SelectOption';
 import SelectValue from './SelectValue';
-import Dropdown from './Dropdown';
 
 export interface SelectOptionProps {
-  /** The option label. */
-  label: React.ReactNode;
-  /** The option value. */
-  value: string | number;
   /** True if the current option can't be selected. */
   disabled?: boolean;
   /** Icon displayed at the front of the option label. */
   icon?: React.ReactNode;
+  /** The option label. */
+  label: React.ReactNode;
+  /** The option value. */
+  value: string | number;
 }
 
 export interface SelectProps {
@@ -47,9 +47,9 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
   const {
     children,
     className,
-    error = false,
     disabled = false,
     dataTest,
+    error,
     isCompact = false,
     onChange,
     options,
@@ -116,11 +116,12 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
 
       return (
         <SelectOption
+          disabled={option.disabled}
+          icon={option.icon}
+          isCompact={isCompact}
           label={option.label}
           onClick={optionOnClickHandler}
           selected={isSelected}
-          icon={option.icon}
-          disabled={option.disabled}
         />
       );
     });
@@ -131,28 +132,30 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
   const canShowMenu = showMenu && !disabled;
 
   const selectClassname = cx('ids-select', className, {
-    'ids-select--compact': isCompact,
     'ids-select--active': canShowMenu,
+    'ids-select--compact': isCompact,
     'ids-select--disabled': disabled,
+    'ids-select--error': error,
   });
 
   return (
     <div
       ref={selectRef}
       className={selectClassname}
+      data-test={dataTest}
       onClick={handleOnClick}
       onKeyDown={handleOnKeyDown}
       role="button"
       tabIndex={0}
-      data-test={dataTest}
       {...rest}
     >
       <SelectHeader isOpen={canShowMenu} disabled={disabled}>
         <SelectValue
-          label={currentSelectedOption?.label || children}
-          icon={currentSelectedOption?.icon}
-          isPlaceholder={!currentSelectedOption}
           disabled={disabled}
+          icon={currentSelectedOption?.icon}
+          isCompact={isCompact}
+          isPlaceholder={!currentSelectedOption}
+          label={currentSelectedOption?.label || children}
         />
       </SelectHeader>
       {canShowMenu && generateOptions()}

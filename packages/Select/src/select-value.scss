@@ -3,26 +3,36 @@
 :root {
   /* Default */
   --ids-dropdown-value-padding: #{tokens.$space-2} #{tokens.$space-3};
-  --ids-dropdown-value-placeholder-color: #{tokens.$grey-400};
+  --ids-dropdown-value-gap: #{tokens.$space-1};
+
+  /* Compact **/
+  --ids-dropdown-value-padding-compact: #{tokens.$space-1} #{tokens.$space-3};
 
   /* Disabled */
-  --ids-dropdown-value-disabled-color: #{tokens.$grey-500};
+  --ids-dropdown-value-color-disabled: #{tokens.$grey-500};
+
+  /* Placeholder */
+  --ids-dropdown-value-color-placeholder: #{tokens.$grey-400};
 }
 
 .ids-select-value {
   display: flex;
   flex-flow: row nowrap;
   align-content: center;
-  gap: 5px;
+  gap: var(--ids-dropdown-value-gap);
 
   padding: var(--ids-dropdown-value-padding);
 
+  &--compact {
+    padding: var(--ids-dropdown-value-padding-compact);
+  }
+
   &--disabled {
-    color: var(--ids-dropdown-value-disabled-color);
+    color: var(--ids-dropdown-value-color-disabled);
   }
 
   &--placeholder {
-    color: var(--ids-dropdown-value-placeholder-color);
+    color: var(--ids-dropdown-value-color-placeholder);
   }
 
   &__icon {

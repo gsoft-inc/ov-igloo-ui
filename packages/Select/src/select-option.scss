@@ -1,13 +1,11 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 
 :root {
-  /* Default */
-
   /* Selected */
-  --ids-select-option-selected-background-color: #{tokens.$electric-blue-50};
+  --ids-select-option-background-color-selected: #{tokens.$electric-blue-50};
 
   /* Disabled */
-  --ids-select-option-disabled-color: #{tokens.$grey-600};
+  --ids-select-option-color-disabled: #{tokens.$grey-600};
 }
 
 .ids-select-option {
@@ -15,14 +13,15 @@
   user-select: none;
 
   &--selected, &:hover, &:focus {
-    background-color: var(--ids-select-option-selected-background-color);
+    background-color: var(--ids-select-option-background-color-selected);
     outline: 0;
     box-shadow: none;
   }
 
   &--disabled, &--disabled:hover, &--disabled:active {
+    color: var(--ids-select-option-color-disabled);
+
     background-color: transparent;
-    color: var(--ids-select-option-disabled-color);
     cursor: not-allowed;
   }
 }

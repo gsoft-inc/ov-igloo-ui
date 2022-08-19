@@ -2,8 +2,8 @@
 @use '../../../node_modules/@igloo-ui/tokens/dist/fonts.css';
 
 :root {
+  /* Default */
   --ids-dropdown-background: #{tokens.$samoyed};
-  --ids-dropdown-border-color: #{tokens.$grey-300};
   --ids-dropdown-border-radius: #{tokens.$border-radius-sm};
   --ids-dropdown-zindex: #{tokens.$z-index-max};
   --ids-dropdown-minHeight: #{tokens.$space-1};
@@ -11,13 +11,15 @@
 }
 
 .ids-dropdown {
-  position: absolute;
   width: 100%;
+
+  position: absolute;
+  min-height: var(--ids-dropdown-minHeight);
+  overflow: hidden;
+
   background-color: var(--ids-dropdown-background);
   border-radius: var(--ids-dropdown-border-radius);
   box-shadow: var(--ids-dropdown-box-shadow);
-  min-height: var(--ids-dropdown-minHeight);
-  overflow: hidden;
 
   z-index: var(--ids-dropdown-zindex);
 

@@ -12,6 +12,8 @@ export interface SelectOptionProps extends React.ComponentPropsWithRef<'div'> {
   disabled?: boolean;
   /** Icon to display to the right of the option. */
   icon?: React.ReactNode;
+  /** True for a compact appearance. */
+  isCompact?: boolean;
   /** Option title. */
   label: React.ReactNode;
   /** Callback when content is clicked. */
@@ -27,11 +29,14 @@ const SelectOption: React.FunctionComponent<SelectOptionProps> =
         className,
         disabled = false,
         icon,
+        isCompact = false,
         label,
         onClick,
         selected = false,
         ...rest
       } = props;
+
+      const canTabKeyFocusThisAction = disabled ? -1 : 0;
 
       const selectOptionClasses = cx('ids-select-option', className, {
         'ids-select-option--selected': selected,
@@ -60,10 +65,15 @@ const SelectOption: React.FunctionComponent<SelectOptionProps> =
           onClick={onSelectValueClicked}
           onKeyDown={handleOnKeyDown}
           role="button"
-          tabIndex={disabled ? -1 : 0}
+          tabIndex={canTabKeyFocusThisAction}
           {...rest}
         >
-          <SelectValue label={label} icon={icon} disabled={disabled} />
+          <SelectValue
+            label={label}
+            icon={icon}
+            isCompact={isCompact}
+            disabled={disabled}
+          />
         </div>
       );
     }

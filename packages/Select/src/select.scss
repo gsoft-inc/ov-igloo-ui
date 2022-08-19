@@ -3,32 +3,31 @@
 
 :root {
   /* Default */
-  --ids-select-height: #{tokens.$space-6};
   --ids-select-font-family: #{tokens.$primary-font-family};
   --ids-select-font-size: #{tokens.$font-size-4};
   --ids-select-font-weight: #{tokens.$font-weight-regular};
   --ids-select-line-height: #{tokens.$space-4};
+
+  --ids-select-height: #{tokens.$space-6};
   --ids-select-margin: #{tokens.$space-1} #{tokens.$space-0};
 
-  --ids-select-background: #{tokens.$samoyed};
-  --ids-select-text: #{tokens.$grey-800};
+  --ids-select-color: #{tokens.$grey-800};
   --ids-select-chevron: #{tokens.$grey-800};
+  --ids-select-background: #{tokens.$samoyed};
   --ids-select-border-color: #{tokens.$grey-300};
   --ids-select-border-radius: #{tokens.$border-radius-sm};
 
   /* Compact */
-  --ids-select-height-compact: #{tokens.$space-5};
   --ids-select-font-size-compact: #{tokens.$font-size-3};
   --ids-select-line-height-compact: #{tokens.$line-height-xxl};
-  --ids-select-letter-spacing-compact: #{tokens.$font-weight-regular};
+  --ids-select-height-compact: #{tokens.$space-5};
 
   /* Active */
   --ids-select-border-color-active: #{tokens.$electric-blue-500};
 
   /* Disabled */
+  --ids-select-color-disabled: #{tokens.$grey-500};
   --ids-select-background-disabled: #{tokens.$grey-200};
-  --ids-select-text-disabled: #{tokens.$grey-500};
-  --ids-select-chevron-disabled: #{tokens.$grey-800};
   --ids-select-border-color-disabled: #{tokens.$grey-200};
 
   /* Error */
@@ -36,13 +35,16 @@
 }
 
 .ids-select {
-  height: var(--ids-select-height);
-  width: 100%;
-  padding: 0 var(--ids-select-padding);
   font-size: var(--ids-select-font-size);
   font-family: var(--ids-select-font-family);
   font-weight: var(--ids-select-font-weight);
   line-height: var(--ids-select-line-height);
+
+  height: var(--ids-select-height);
+  width: 100%;
+  padding: 0 var(--ids-select-padding);
+  position: relative;
+
   background-color: var(--ids-select-background);
   border: 1px solid var(--ids-select-border-color);
   border-radius: var(--ids-select-border-radius);
@@ -50,28 +52,41 @@
   appearance: textfield;
   transition: border-color 200ms ease 0s;
   margin: var(--ids-select-margin);
+
+  cursor: pointer;
+  user-select: none;
+
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
   align-content: center;
-  cursor: pointer;
-  user-select: none;
-  position: relative;
 
   &:focus,
   &.focus {
     outline: 0;
-     box-shadow: none;
-      border-color: var(--ids-select-border-color-active);
+    box-shadow: none;
+    border-color: var(--ids-select-border-color-active);
   }
 
   .ids-dropdown {
     position: absolute;
     top: calc(var(--ids-select-height) - 1px);
     left: -1px;
+
     display: flex;
     flex-flow: column nowrap;
+  }
+
+  &.ids-select--compact {
+    font-size: var(--ids-select-font-size-compact);
+    line-height: var(--ids-select-line-height-compact);
+
+    height: var(--ids-select-height-compact);
+
+    .ids-dropdown {
+      top: calc(var(--ids-select-height-compact) - 1px);
+    }
   }
 
   &.ids-select--active {
@@ -79,9 +94,15 @@
   }
 
   &.ids-select--disabled {
+    color: var(--ids-select-color-disabled);
+
     background-color: var(--ids-select-background-disabled);
     border-color: var(--ids-select-border-color-disabled);
-    color: var(--ids-select-text-disabled);
+
     cursor: default;
+  }
+
+  &--error {
+    border-color: var(--ids-select-border-color-error);
   }
 }
