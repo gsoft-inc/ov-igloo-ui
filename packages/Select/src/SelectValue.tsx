@@ -10,10 +10,10 @@ export interface SelectValueProps extends React.ComponentPropsWithRef<'div'> {
   icon?: React.ReactNode;
   /** True for a compact appearance. */
   isCompact?: boolean;
-  /** Option title. */
-  label: React.ReactNode;
   /** True if the value is a placeholder. */
   isPlaceholder?: boolean;
+  /** Option title. */
+  label: React.ReactNode;
 }
 
 const SelectValue: React.FunctionComponent<SelectValueProps> = (
@@ -23,8 +23,8 @@ const SelectValue: React.FunctionComponent<SelectValueProps> = (
     disabled = false,
     icon,
     isCompact = false,
+    isPlaceholder = false,
     label,
-    isPlaceholder,
     ...rest
   } = props;
 

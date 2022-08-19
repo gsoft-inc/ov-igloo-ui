@@ -25,5 +25,12 @@ Then to use the component in your code just import it!
 ```jsx
 import Select from '@igloo-ui/select';
 
-// TODO: Add your component usage here
+<Select
+  options={[
+    { label: 'Option 1', value: '1' },
+    { label: 'Option 2', value: '2' },
+  ]}
+>
+  Place holder
+</Select>;
 ```

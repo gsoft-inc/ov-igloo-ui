@@ -26,18 +26,18 @@ const DeterminePosition = (position: DropdownPositions): string => {
 export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   /** Default value displayed in the Dropdown. */
   children?: React.ReactNode;
-  /** Position of the Dropdown. */
-  position?: DropdownPositions;
   /** True if the Dropdown list is displayed. */
   isOpen?: boolean;
+  /** Position of the Dropdown. */
+  position?: DropdownPositions;
 }
 
 const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
   (props: DropdownProps, ref: React.Ref<HTMLDivElement>) => {
     const {
       children,
-      position = DropdownPositions.Bottom,
       isOpen = false,
+      position = DropdownPositions.Bottom,
       ...rest
     } = props;
 

@@ -25,36 +25,36 @@ export interface SelectProps {
   children?: React.ReactNode;
   /** Add a specific class to the Select. */
   className?: string;
-  /** Disabled the Select, the user cannot click on it. */
-  disabled?: boolean;
   /** Add a data-test tag for automated tests. */
   dataTest?: string;
+  /** Disabled the Select, the user cannot click on it. */
+  disabled?: boolean;
   /** The Select is in an error state. */
   error?: boolean;
   /** True for a compact appearance. */
   isCompact?: boolean;
+  /** True if the option list is displayed. */
+  isOpen?: boolean;
   /** Callback when selected content change. */
   onChange?: (option: SelectOptionProps | any) => void;
   /** List of available options. */
   options: SelectOptionProps[];
   /** The selected option at the initialisation. */
   selectedOption?: SelectOptionProps;
-  /** True if the option list is displayed. */
-  isOpen?: boolean;
 }
 
 const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
   const {
     children,
     className,
-    disabled = false,
     dataTest,
+    disabled = false,
     error,
     isCompact = false,
+    isOpen = false,
     onChange,
     options,
     selectedOption,
-    isOpen = false,
     ...rest
   } = props;
 
