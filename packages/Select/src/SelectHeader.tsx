@@ -1,4 +1,5 @@
 import * as React from 'react';
+import cx from 'classnames';
 
 import './select-header.scss';
 
@@ -8,6 +9,8 @@ import ChevronDown from '@igloo-ui/icons/dist/TableChevronSelectedDown';
 export interface SelectHeaderProps extends React.ComponentProps<'div'> {
   /** Default value displayed in the Select. */
   children?: React.ReactNode;
+  /** True if the Select is disabled. */
+  disabled?: boolean;
   /** True if the option list is displayed. */
   isOpen?: boolean;
 }
@@ -15,10 +18,15 @@ export interface SelectHeaderProps extends React.ComponentProps<'div'> {
 const SelectHeader: React.FunctionComponent<SelectHeaderProps> = (
   props: SelectHeaderProps
 ) => {
-  const { children, isOpen, ...rest } = props;
+  const { children, disabled = false, isOpen = false, ...rest } = props;
+
+  const selectHeaderClasses = cx('ids-select-header', {
+    'ids-select-header--disabled': disabled,
+    'ids-select-header--active': isOpen,
+  });
 
   return (
-    <div className="ids-select-header" {...rest}>
+    <div className={selectHeaderClasses} {...rest}>
       {children}
       <div className="ids-select-header__chevron">
         {isOpen ? <ChevronUp size="small" /> : <ChevronDown size="small" />}

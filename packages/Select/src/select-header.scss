@@ -1,3 +1,13 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+
+:root {
+  --ids-select-header-padding: #{tokens.$space-2};
+  --ids-select-header-chevron-color: #{tokens.$grey-800};
+
+  /* Disabled */
+  --ids-select-header-disabled-chevron-color: #{tokens.$grey-600};
+}
+
 .ids-select-header {
   display: flex;
   flex-flow: row nowrap;
@@ -7,6 +17,15 @@
   width: 100%;
 
   &__chevron {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--ids-select-header-padding);
     order: 99;
+
+    color: var(--ids-select-header-chevron-color);
+  }
+
+  &--disabled &__chevron {
+    color: var(--ids-select-header-disabled-chevron-color);
   }
 }

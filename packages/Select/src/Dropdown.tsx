@@ -26,7 +26,7 @@ const DeterminePosition = (position: DropdownPositions): string => {
 export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   /** Default value displayed in the Dropdown. */
   children?: React.ReactNode;
-  /** Position of the Dropdown */
+  /** Position of the Dropdown. */
   position?: DropdownPositions;
   /** True if the Dropdown list is displayed. */
   isOpen?: boolean;

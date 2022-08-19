@@ -4,6 +4,8 @@ import cx from 'classnames';
 import './select-value.scss';
 
 export interface SelectValueProps extends React.ComponentPropsWithRef<'div'> {
+  /** If the option is disabled. */
+  disabled?: boolean;
   /** Icon to display to the right of the option. */
   icon?: React.ReactNode;
   /** Option title. */
@@ -15,10 +17,11 @@ export interface SelectValueProps extends React.ComponentPropsWithRef<'div'> {
 const SelectValue: React.FunctionComponent<SelectValueProps> = (
   props: SelectValueProps
 ) => {
-  const { icon, label, isPlaceholder, ...rest } = props;
+  const { disabled = false, icon, label, isPlaceholder, ...rest } = props;
 
   const selectValueClasses = cx('ids-select-value', {
-    'ids-select-value--placeholder': isPlaceholder,
+    'ids-select-value--disabled': disabled,
+    'ids-select-value--placeholder': !disabled && isPlaceholder,
   });
 
   return (

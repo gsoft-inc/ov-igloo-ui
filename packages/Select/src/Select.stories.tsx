@@ -21,6 +21,7 @@ const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 export const Overview = Template.bind({});
 Overview.args = {
   children: 'Select place holder text',
+  isOpen: true,
   options: [
     {
       label: 'Text option',

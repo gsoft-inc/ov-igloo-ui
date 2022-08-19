@@ -3,6 +3,7 @@ import cx from 'classnames';
 
 import './select.scss';
 
+import { KeyboardEventHandler } from 'react';
 import SelectHeader from './SelectHeader';
 import SelectOption from './SelectOption';
 import SelectValue from './SelectValue';
@@ -62,9 +63,20 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
     React.useState(selectedOption);
   const [showMenu, setShowMenu] = React.useState(isOpen);
 
-  const onEscapeKey = (): void => {
-    if (selectRef && selectRef.current) {
-      selectRef.current.blur();
+  const handleOnKeyDown = (keyboardEvent: {
+    key: string;
+    code: string;
+  }): void => {
+    if (keyboardEvent.key === 'Escape' || keyboardEvent.key === 'Esc') {
+      if (showMenu) {
+        setShowMenu(false);
+      }
+    }
+
+    if (keyboardEvent.code === 'Space' || keyboardEvent.key === 'Enter') {
+      if (!showMenu) {
+        setShowMenu(true);
+      }
     }
   };
 
@@ -74,21 +86,6 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
     }
 
     setShowMenu(!showMenu);
-
-    window?.addEventListener('keydown', onEscapeKey);
-  };
-
-  const handleFocusLost = (): void => {
-    // Need to delay for the option click event to run
-    setTimeout(() => {
-      if (!showMenu) {
-        return;
-      }
-
-      setShowMenu(false);
-
-      window?.removeEventListener('keydown', onEscapeKey);
-    }, 175);
   };
 
   const generateOptions = (): React.ReactNode => {
@@ -130,28 +127,31 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
     return <Dropdown isOpen={isOpen}>{selectOptions}</Dropdown>;
   };
 
-  const selectClassname = cx('ids-select', className, {
-    'ids-select-compact': isCompact,
-  });
-
   const canShowMenu = showMenu && !disabled;
+
+  const selectClassname = cx('ids-select', className, {
+    'ids-select--compact': isCompact,
+    'ids-select--active': canShowMenu,
+    'ids-select--disabled': disabled,
+  });
 
   return (
     <div
       ref={selectRef}
       className={selectClassname}
       onClick={handleOnClick}
-      onBlur={handleFocusLost}
+      onKeyDown={handleOnKeyDown}
       role="button"
       tabIndex={0}
       data-test={dataTest}
       {...rest}
     >
-      <SelectHeader isOpen={canShowMenu}>
+      <SelectHeader isOpen={canShowMenu} disabled={disabled}>
         <SelectValue
           label={currentSelectedOption?.label || children}
           icon={currentSelectedOption?.icon}
           isPlaceholder={!currentSelectedOption}
+          disabled={disabled}
         />
       </SelectHeader>
       {canShowMenu && generateOptions()}
