@@ -2,7 +2,7 @@
 
 Selects are use for user selection in a folding list.
 
-  <ReferenceLinks />
+<ReferenceLinks />
 
 ## Installation
 
