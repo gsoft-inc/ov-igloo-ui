@@ -6,10 +6,10 @@ import './select.scss';
 import Dropdown from './Dropdown';
 
 import SelectHeader from './SelectHeader';
-import SelectOption from './SelectOption';
+import SelectOptionComponent from './SelectOption';
 import SelectValue from './SelectValue';
 
-export interface SelectOptionProps {
+export interface SelectOption {
   /** True if the current option can't be selected. */
   disabled?: boolean;
   /** Icon displayed at the front of the option label. */
@@ -36,11 +36,11 @@ export interface SelectProps {
   /** True if the option list is displayed. */
   isOpen?: boolean;
   /** Callback when selected content change. */
-  onChange?: (option: SelectOptionProps | any) => void;
+  onChange?: (option: SelectOption | any) => void;
   /** List of available options. */
-  options: SelectOptionProps[];
+  options: SelectOption[];
   /** The selected option at the initialisation. */
-  selectedOption?: SelectOptionProps;
+  selectedOption?: SelectOption;
 }
 
 const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
@@ -98,7 +98,7 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
       return <Dropdown />;
     }
 
-    const selectOptions = options.map((option: SelectOptionProps) => {
+    const selectOptions = options.map((option: SelectOption) => {
       if (!option) {
         return null;
       }
@@ -115,7 +115,7 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
       };
 
       return (
-        <SelectOption
+        <SelectOptionComponent
           disabled={option.disabled}
           icon={option.icon}
           isCompact={isCompact}

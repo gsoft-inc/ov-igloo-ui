@@ -11,7 +11,6 @@
 
 .ids-select-header {
   width: 100%;
-
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -20,9 +19,7 @@
 
   &__chevron {
     color: var(--ids-select-header-chevron);
-
     padding: var(--ids-select-header-padding);
-
     display: flex;
     align-items: center;
     order: 99;

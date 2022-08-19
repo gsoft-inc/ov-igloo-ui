@@ -12,15 +12,18 @@
   width: 100%;
   user-select: none;
 
-  &--selected, &:hover, &:focus {
+  &--selected,
+  &:hover,
+  &:focus {
     background-color: var(--ids-select-option-background-color-selected);
     outline: 0;
     box-shadow: none;
   }
 
-  &--disabled, &--disabled:hover, &--disabled:active {
+  &--disabled,
+  &--disabled:hover,
+  &--disabled:active {
     color: var(--ids-select-option-color-disabled);
-
     background-color: transparent;
     cursor: not-allowed;
   }
