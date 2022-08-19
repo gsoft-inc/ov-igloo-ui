@@ -1,6 +1,6 @@
 # Select
 
-Selects are use for user selection in a folding list.
+Select inputs let users choose one option from an options menu.
 
 <ReferenceLinks />
 
