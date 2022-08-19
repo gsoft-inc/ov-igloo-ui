@@ -74,8 +74,13 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
     }
 
     if (keyboardEvent.code === 'Space' || keyboardEvent.key === 'Enter') {
-      if (!showMenu) {
-        setShowMenu(true);
+      const keepFocus = showMenu;
+
+      setShowMenu(!showMenu);
+      if (keepFocus) {
+        if (selectRef && selectRef.current) {
+          selectRef.current.focus();
+        }
       }
     }
   };
@@ -93,36 +98,32 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
       return <Dropdown />;
     }
 
-    const selectOptions = options.map(
-      (option: SelectOptionProps, index: number) => {
-        if (!option) {
-          return null;
-        }
-
-        const isSelected =
-          option.value === currentSelectedOption?.value ?? false;
-        const optionOnClickHandler = (): void => {
-          const hasChanged = currentSelectedOption !== option;
-
-          setCurrentSelectedOption(option);
-
-          if (onChange && hasChanged) {
-            onChange(currentSelectedOption);
-          }
-        };
-
-        return (
-          <SelectOption
-            index={index}
-            label={option.label}
-            onClick={optionOnClickHandler}
-            selected={isSelected}
-            icon={option.icon}
-            disabled={option.disabled}
-          />
-        );
+    const selectOptions = options.map((option: SelectOptionProps) => {
+      if (!option) {
+        return null;
       }
-    );
+
+      const isSelected = option.value === currentSelectedOption?.value ?? false;
+      const optionOnClickHandler = (): void => {
+        const hasChanged = currentSelectedOption !== option;
+
+        setCurrentSelectedOption(option);
+
+        if (onChange && hasChanged) {
+          onChange(currentSelectedOption);
+        }
+      };
+
+      return (
+        <SelectOption
+          label={option.label}
+          onClick={optionOnClickHandler}
+          selected={isSelected}
+          icon={option.icon}
+          disabled={option.disabled}
+        />
+      );
+    });
 
     return <Dropdown isOpen={isOpen}>{selectOptions}</Dropdown>;
   };

@@ -12,8 +12,6 @@ export interface SelectOptionProps extends React.ComponentPropsWithRef<'div'> {
   disabled?: boolean;
   /** Icon to display to the right of the option. */
   icon?: React.ReactNode;
-  /** Index of the value. */
-  index: number;
   /** Option title. */
   label: React.ReactNode;
   /** Callback when content is clicked. */
@@ -29,7 +27,6 @@ const SelectOption: React.FunctionComponent<SelectOptionProps> =
         className,
         disabled = false,
         icon,
-        index,
         label,
         onClick,
         selected = false,
@@ -47,13 +44,23 @@ const SelectOption: React.FunctionComponent<SelectOptionProps> =
         }
       };
 
+      const handleOnKeyDown = (keyboardEvent: {
+        key: string;
+        code: string;
+      }): void => {
+        if (keyboardEvent.key === 'Enter') {
+          onSelectValueClicked();
+        }
+      };
+
       return (
         <div
           ref={ref}
           className={selectOptionClasses}
           onClick={onSelectValueClicked}
+          onKeyDown={handleOnKeyDown}
           role="button"
-          tabIndex={index}
+          tabIndex={disabled ? -1 : 0}
           {...rest}
         >
           <SelectValue label={label} icon={icon} disabled={disabled} />

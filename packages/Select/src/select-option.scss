@@ -14,8 +14,10 @@
   width: 100%;
   user-select: none;
 
-  &:hover, &--selected {
+  &--selected, &:hover, &:focus {
     background-color: var(--ids-select-option-selected-background-color);
+    outline: 0;
+    box-shadow: none;
   }
 
   &--disabled, &--disabled:hover, &--disabled:active {

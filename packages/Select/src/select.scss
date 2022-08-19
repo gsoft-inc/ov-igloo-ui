@@ -62,11 +62,8 @@
   &:focus,
   &.focus {
     outline: 0;
-
-    &:not(.ids-btn--loading) {
-      box-shadow: none;
+     box-shadow: none;
       border-color: var(--ids-select-border-color-active);
-    }
   }
 
   .ids-dropdown {
