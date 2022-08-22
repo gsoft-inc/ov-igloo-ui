@@ -4,9 +4,12 @@
   /* Default */
   --ids-dropdown-background: #{tokens.$samoyed};
   --ids-dropdown-border-radius: #{tokens.$border-radius-sm};
-  --ids-dropdown-zindex: #{tokens.$z-index-max};
+  --ids-dropdown-zindex: #{tokens.$z-index-100};
   --ids-dropdown-min-height: #{tokens.$space-1};
   --ids-dropdown-box-shadow: #{tokens.$shadow-12};
+
+  /* Click Handler */
+  --ids-dropdown-zindex-click-handler: #{tokens.$z-index-90};
 }
 
 .ids-dropdown {
@@ -33,5 +36,15 @@
 
   &--left {
     // TODO
+  }
+
+  &-click-handler {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--ids-dropdown-zindex-click-handler);
+    width: 100%;
+    height: 100%;
+    cursor: default;
   }
 }
