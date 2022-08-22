@@ -29,7 +29,7 @@ export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   /** True if the Dropdown list is displayed. */
   isOpen?: boolean;
   /** Callback when click outside dropdown. */
-  onClose: () => void;
+  onClose?: () => void;
   /** Position of the Dropdown. */
   position?: DropdownPositions;
 }
@@ -71,13 +71,14 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
 
     return transitions((styles) => (
       <>
-        {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-        <span
+        <div
           role="button"
           tabIndex={0}
           className="ids-dropdown-click-handler"
           onClick={handleOnClose}
-        />
+        >
+          {null}
+        </div>
         <animated.div
           style={styles}
           ref={ref}

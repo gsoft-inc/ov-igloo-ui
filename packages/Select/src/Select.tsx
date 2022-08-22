@@ -36,7 +36,7 @@ export interface SelectProps {
   /** True if the option list is displayed. */
   isOpen?: boolean;
   /** Callback when selected content change. */
-  onChange?: (option: SelectOption | any) => void;
+  onChange?: (option: SelectOption | undefined) => void;
   /** List of available options. */
   options: SelectOption[];
   /** The selected option at the initialisation. */
