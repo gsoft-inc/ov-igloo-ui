@@ -7,7 +7,7 @@ import Happiness from '@igloo-ui/icons/dist/Happiness';
 import Section from '@components/section';
 import readme from '../../Select/README.md';
 
-import Select from './Select';
+import Select, { SelectOption } from './Select';
 
 export default {
   title: 'Components/Select',
@@ -17,7 +17,11 @@ export default {
   },
 } as ComponentMeta<typeof Select>;
 
-const selectPlacehoder = 'ex: Lorem ipsum dolor';
+const selectPlaceholder = 'ex: Lorem ipsum dolor';
+
+const handleOnChange = (option: SelectOption): void => {
+  console.log(option.label);
+};
 
 const smallOptionList = [
   {
@@ -67,14 +71,20 @@ const largeOptionList = [
 const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 export const Overview = Template.bind({});
 Overview.args = {
-  children: selectPlacehoder,
+  children: selectPlaceholder,
   options: smallOptionList,
 };
 
 export const Sizes = () => (
   <Section column>
-    <Select options={smallOptionList}>Default</Select>
-    <Select options={smallOptionList} isCompact={true}>
+    <Select options={smallOptionList} onChange={handleOnChange}>
+      Default
+    </Select>
+    <Select
+      options={smallOptionList}
+      onChange={handleOnChange}
+      isCompact={true}
+    >
       Compact
     </Select>
   </Section>
@@ -82,20 +92,30 @@ export const Sizes = () => (
 
 export const States = () => (
   <Section column>
-    <Select options={smallOptionList} disabled={true}>
+    <Select options={smallOptionList} onChange={handleOnChange} disabled={true}>
       Disabled
     </Select>
-    <Select options={smallOptionList} className={'active'}>
+    <Select
+      options={smallOptionList}
+      onChange={handleOnChange}
+      className={'active'}
+    >
       Active / Focus
     </Select>
-    <Select options={smallOptionList} error={true}>
+    <Select options={smallOptionList} onChange={handleOnChange} error={true}>
       Error
     </Select>
   </Section>
 );
 
+const largeDisplay = {
+  height: 300,
+};
+
 export const LargeOptionNumber = () => (
-  <Section>
-    <Select options={largeOptionList}>Place holder text</Select>
+  <Section style={largeDisplay}>
+    <Select options={largeOptionList} onChange={handleOnChange}>
+      Place holder text
+    </Select>
   </Section>
 );

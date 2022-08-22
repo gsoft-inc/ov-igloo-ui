@@ -63,10 +63,70 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
     React.useState(selectedOption);
   const [showMenu, setShowMenu] = React.useState(isOpen);
 
-  const handleOnKeyDown = (keyboardEvent: {
-    key: string;
-    code: string;
-  }): void => {
+  const SelectNextOption = (): void => {
+    if (!currentSelectedOption) {
+      const firstValidOption = options.find(
+        (option) => option.disabled !== true
+      );
+
+      if (firstValidOption) {
+        setCurrentSelectedOption(firstValidOption);
+      }
+    }
+
+    if (currentSelectedOption) {
+      const currentOptionIndex = options.indexOf(currentSelectedOption);
+
+      if (currentOptionIndex >= options.length - 1) {
+        return;
+      }
+
+      const nextValidOption = options.find(
+        (option, index) =>
+          option.disabled !== true && index > currentOptionIndex
+      );
+
+      if (nextValidOption) {
+        setCurrentSelectedOption(nextValidOption);
+      }
+    }
+  };
+
+  const SelectPreviousOption = (): void => {
+    if (!currentSelectedOption) {
+      const firstValidOption = options.find(
+        (option) => option.disabled !== true
+      );
+
+      if (firstValidOption) {
+        setCurrentSelectedOption(firstValidOption);
+      }
+    }
+
+    if (currentSelectedOption) {
+      const currentOptionIndex = options.indexOf(currentSelectedOption);
+
+      if (currentOptionIndex === 0) {
+        return;
+      }
+
+      const previousValidOption = [...options]
+        .reverse()
+        .find(
+          (option, index) =>
+            option.disabled !== true &&
+            index > options.length - currentOptionIndex - 1
+        );
+
+      if (previousValidOption) {
+        setCurrentSelectedOption(previousValidOption);
+      }
+    }
+  };
+
+  const handleOnKeyDown = (
+    keyboardEvent: React.KeyboardEvent<HTMLDivElement>
+  ): void => {
     if (keyboardEvent.key === 'Escape' || keyboardEvent.key === 'Esc') {
       if (showMenu) {
         setShowMenu(false);
@@ -82,6 +142,22 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
           selectRef.current.focus();
         }
       }
+
+      keyboardEvent.preventDefault();
+      keyboardEvent.stopPropagation();
+    }
+
+    if (keyboardEvent.code === 'ArrowUp') {
+      keyboardEvent.preventDefault();
+      keyboardEvent.stopPropagation();
+
+      SelectPreviousOption();
+    }
+    if (keyboardEvent.code === 'ArrowDown') {
+      keyboardEvent.preventDefault();
+      keyboardEvent.stopPropagation();
+
+      SelectNextOption();
     }
   };
 
