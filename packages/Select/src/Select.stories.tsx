@@ -20,7 +20,7 @@ export default {
 const selectPlaceholder = 'ex: Lorem ipsum dolor';
 
 const largeDisplay = {
-  height: 200,
+  height: 230,
 };
 
 const handleOnChange = (option: SelectOption): void => {
