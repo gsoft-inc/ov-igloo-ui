@@ -19,6 +19,10 @@ export default {
 
 const selectPlaceholder = 'ex: Lorem ipsum dolor';
 
+const largeDisplay = {
+  height: 200,
+};
+
 const handleOnChange = (option: SelectOption): void => {
   console.log(option.label);
 };
@@ -107,10 +111,6 @@ export const States = () => (
     </Select>
   </Section>
 );
-
-const largeDisplay = {
-  height: 300,
-};
 
 export const LargeOptionNumber = () => (
   <Section style={largeDisplay}>

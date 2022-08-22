@@ -61,66 +61,75 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
   const selectRef = React.useRef<HTMLDivElement>(null);
   const [currentSelectedOption, setCurrentSelectedOption] =
     React.useState(selectedOption);
+  const [previousSelectedOption, setPreviousSelectedOption] =
+    React.useState(selectedOption);
   const [showMenu, setShowMenu] = React.useState(isOpen);
+
+  React.useEffect(() => {
+    const hasChanged = currentSelectedOption !== previousSelectedOption;
+
+    if (!hasChanged) {
+      return;
+    }
+
+    setPreviousSelectedOption(currentSelectedOption);
+
+    if (onChange) {
+      onChange(currentSelectedOption);
+    }
+  }, [onChange, currentSelectedOption, previousSelectedOption]);
+
+  const SelectFirstOption = (): void => {
+    const firstValidOption = options.find((option) => option.disabled !== true);
+
+    if (firstValidOption) {
+      setCurrentSelectedOption(firstValidOption);
+    }
+  };
 
   const SelectNextOption = (): void => {
     if (!currentSelectedOption) {
-      const firstValidOption = options.find(
-        (option) => option.disabled !== true
-      );
-
-      if (firstValidOption) {
-        setCurrentSelectedOption(firstValidOption);
-      }
+      SelectFirstOption();
+      return;
     }
 
-    if (currentSelectedOption) {
-      const currentOptionIndex = options.indexOf(currentSelectedOption);
+    const currentOptionIndex = options.indexOf(currentSelectedOption);
 
-      if (currentOptionIndex >= options.length - 1) {
-        return;
-      }
+    if (currentOptionIndex >= options.length - 1) {
+      return;
+    }
 
-      const nextValidOption = options.find(
-        (option, index) =>
-          option.disabled !== true && index > currentOptionIndex
-      );
+    const nextValidOption = options.find(
+      (option, index) => option.disabled !== true && index > currentOptionIndex
+    );
 
-      if (nextValidOption) {
-        setCurrentSelectedOption(nextValidOption);
-      }
+    if (nextValidOption) {
+      setCurrentSelectedOption(nextValidOption);
     }
   };
 
   const SelectPreviousOption = (): void => {
     if (!currentSelectedOption) {
-      const firstValidOption = options.find(
-        (option) => option.disabled !== true
-      );
-
-      if (firstValidOption) {
-        setCurrentSelectedOption(firstValidOption);
-      }
+      SelectFirstOption();
+      return;
     }
 
-    if (currentSelectedOption) {
-      const currentOptionIndex = options.indexOf(currentSelectedOption);
+    const currentOptionIndex = options.indexOf(currentSelectedOption);
 
-      if (currentOptionIndex === 0) {
-        return;
-      }
+    if (currentOptionIndex === 0) {
+      return;
+    }
 
-      const previousValidOption = [...options]
-        .reverse()
-        .find(
-          (option, index) =>
-            option.disabled !== true &&
-            index > options.length - currentOptionIndex - 1
-        );
+    const previousValidOption = [...options]
+      .reverse()
+      .find(
+        (option, index) =>
+          option.disabled !== true &&
+          index > options.length - currentOptionIndex - 1
+      );
 
-      if (previousValidOption) {
-        setCurrentSelectedOption(previousValidOption);
-      }
+    if (previousValidOption) {
+      setCurrentSelectedOption(previousValidOption);
     }
   };
 
@@ -134,6 +143,9 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
     }
 
     if (keyboardEvent.code === 'Space' || keyboardEvent.key === 'Enter') {
+      keyboardEvent.preventDefault();
+      keyboardEvent.stopPropagation();
+
       const keepFocus = showMenu;
 
       setShowMenu(!showMenu);
@@ -142,9 +154,6 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
           selectRef.current.focus();
         }
       }
-
-      keyboardEvent.preventDefault();
-      keyboardEvent.stopPropagation();
     }
 
     if (keyboardEvent.code === 'ArrowUp') {
@@ -180,14 +189,9 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
       }
 
       const isSelected = option.value === currentSelectedOption?.value ?? false;
+
       const optionOnClickHandler = (): void => {
-        const hasChanged = currentSelectedOption !== option;
-
         setCurrentSelectedOption(option);
-
-        if (onChange && hasChanged) {
-          onChange(currentSelectedOption);
-        }
       };
 
       return (
