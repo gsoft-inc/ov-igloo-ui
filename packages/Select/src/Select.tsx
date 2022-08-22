@@ -67,8 +67,9 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
 
   React.useEffect(() => {
     const hasChanged = currentSelectedOption !== previousSelectedOption;
+    const skipOnChangeLogic = !hasChanged || showMenu;
 
-    if (!hasChanged) {
+    if (skipOnChangeLogic) {
       return;
     }
 
@@ -77,7 +78,7 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
     if (onChange) {
       onChange(currentSelectedOption);
     }
-  }, [onChange, currentSelectedOption, previousSelectedOption]);
+  }, [onChange, currentSelectedOption, previousSelectedOption, showMenu]);
 
   const SelectFirstOption = (): void => {
     const firstValidOption = options.find((option) => option.disabled !== true);
