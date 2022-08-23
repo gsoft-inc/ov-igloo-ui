@@ -47,8 +47,6 @@ const SelectOption: React.FunctionComponent<SelectOptionProps> = (
     }
   }, [selected]);
 
-  const canTabKeyFocusThisAction = disabled ? -1 : 0;
-
   const selectOptionClasses = cx('ids-select-option', className, {
     'ids-select-option--selected': selected,
     'ids-select-option--disabled': disabled,
@@ -75,8 +73,9 @@ const SelectOption: React.FunctionComponent<SelectOptionProps> = (
       className={selectOptionClasses}
       onClick={onSelectValueClicked}
       onKeyDown={handleOnKeyDown}
-      role="button"
-      tabIndex={canTabKeyFocusThisAction}
+      role="option"
+      aria-selected={selected}
+      tabIndex={-1}
       {...rest}
     >
       <SelectValue

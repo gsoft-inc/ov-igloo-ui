@@ -181,7 +181,7 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
 
   const generateOptions = (): React.ReactNode => {
     if (!options || options.length === 0) {
-      return <Dropdown />;
+      return <Dropdown key="selectDropdown" />;
     }
 
     const selectOptions = options.map((option: SelectOption) => {
@@ -191,7 +191,11 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
 
       const isSelected = option.value === currentSelectedOption?.value ?? false;
 
-      const optionOnClickHandler = (): void => {
+      const optionHandleOnClick = (): void => {
+        if (option.disabled) {
+          return;
+        }
+
         setCurrentSelectedOption(option);
       };
 
@@ -201,13 +205,18 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
           icon={option.icon}
           isCompact={isCompact}
           label={option.label}
-          onClick={optionOnClickHandler}
+          onClick={optionHandleOnClick}
           selected={isSelected}
+          key={option.value}
         />
       );
     });
 
-    return <Dropdown isOpen={isOpen}>{selectOptions}</Dropdown>;
+    return (
+      <Dropdown isOpen={showMenu} key="selectDropdown">
+        {selectOptions}
+      </Dropdown>
+    );
   };
 
   const canShowMenu = showMenu && !disabled;
