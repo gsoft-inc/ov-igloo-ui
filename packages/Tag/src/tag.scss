@@ -41,29 +41,26 @@
   --ids-tag-color-secondary: #{tokens.$grey-800};
   --ids-tag-border-secondary: #{tokens.$grey-300};
 
-  /* Disabled */
-  --ids-tag-background-disabled: #{tokens.$grey-200};
-  --ids-tag-color-disabled: #{tokens.$grey-600};
+  /* Grey */
+  --ids-tag-background-grey: #{tokens.$grey-200};
+  --ids-tag-color-grey: #{tokens.$grey-600};
 
   /* === Sizes === */
 
   /* Medium */
   --ids-tag-font-size: #{tokens.$font-size-3};
-  --ids-tag-vertical-padding: calc(#{tokens.$space-4} / 4);
-  --ids-tag-horizontal-padding: #{tokens.$space-3};
+  --ids-tag-padding: calc(#{tokens.$space-4} / 4) #{tokens.$space-3};
+  --ids-tag-icon-margin: #{tokens.$space-2};
 
   /* Small */
   --ids-tag-font-size-small: #{tokens.$font-size-2};
-  --ids-tag-vertical-padding-small: #{tokens.$space-1};
-  --ids-tag-horizontal-padding-small: #{tokens.$space-2};
+  --ids-tag-padding-small: #{tokens.$space-1} #{tokens.$space-2};
 
   /* XSmall */
-  --ids-tag-vertical-padding-xsmall: calc(#{tokens.$space-1} / 2);
-  --ids-tag-horizontal-padding-xsmall: #{tokens.$space-2};
+  --ids-tag-padding-xsmall: calc(#{tokens.$space-1} / 2) #{tokens.$space-2};
 
   /* Micro */
-  --ids-tag-vertical-padding-micro: #{tokens.$space-0};
-  --ids-tag-horizontal-padding-micro: #{tokens.$space-2};
+  --ids-tag-padding-micro: #{tokens.$space-0} #{tokens.$space-2};
 }
 
 .ids-tag {
@@ -137,10 +134,10 @@
     );
   }
 
-  &--disabled {
+  &--grey {
     @include mixins.ids-tag-mixin-decoration(
-      var(--ids-tag-background-disabled),
-      var(--ids-tag-color-disabled)
+      var(--ids-tag-background-grey),
+      var(--ids-tag-color-grey)
     );
   }
 
@@ -159,8 +156,8 @@
   &--medium {
     @include mixins.ids-tag-mixin-size(
       var(--ids-tag-font-size),
-      var(--ids-tag-vertical-padding),
-      var(--ids-tag-horizontal-padding)
+      var(--ids-tag-padding),
+      var(--ids-tag-icon-margin)
     );
   }
 
@@ -168,8 +165,8 @@
   &--small {
     @include mixins.ids-tag-mixin-size(
       var(--ids-tag-font-size-small),
-      var(--ids-tag-vertical-padding-small),
-      var(--ids-tag-horizontal-padding-small)
+      var(--ids-tag-padding-small),
+      var(--ids-tag-icon-margin)
     );
   }
 
@@ -177,8 +174,8 @@
   &--xsmall {
     @include mixins.ids-tag-mixin-size(
       var(--ids-tag-font-size-small),
-      var(--ids-tag-vertical-padding-xsmall),
-      var(--ids-tag-horizontal-padding-xsmall)
+      var(--ids-tag-padding-xsmall),
+      var(--ids-tag-icon-margin)
     );
   }
 
@@ -186,8 +183,8 @@
   &--micro {
     @include mixins.ids-tag-mixin-size(
       var(--ids-tag-font-size-small),
-      var(--ids-tag-vertical-padding-micro),
-      var(--ids-tag-horizontal-padding-micro)
+      var(--ids-tag-padding-micro),
+      var(--ids-tag-icon-margin)
     );
   }
 }

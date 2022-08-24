@@ -28,7 +28,7 @@ const Template: ComponentStory<typeof Tag> = (args) => <Tag {...args} />;
 export const Overview = Template.bind({});
 Overview.args = {
   children: 'Tag content',
-  closable: true,
+  dismissible: true,
   icon: <LabelSolid size="small" />,
 };
 
@@ -41,13 +41,13 @@ export const Appearances = () => (
     <Tag appearance="error">Error Tag</Tag>
     <Tag appearance="primary">Primary Tag</Tag>
     <Tag appearance="secondary">Secondary Tag</Tag>
-    <Tag disabled>Disabled Tag</Tag>
+    <Tag appearance="grey">Grey Tag</Tag>
   </Section>
 );
 
-export const Closable = () => (
+export const Dismissible = () => (
   <Section>
-    <Tag closable>Closable Tag</Tag>
+    <Tag dismissible>Dismissible Tag</Tag>
   </Section>
 );
 

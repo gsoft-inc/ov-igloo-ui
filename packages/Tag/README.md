@@ -2,6 +2,8 @@
 
 The Tag component informs users of the status of an object or of an action that's been taken.
 
+<Example />
+
 <ReferenceLinks />
 
 ## Installation
@@ -25,5 +27,7 @@ Then to use the component in your code just import it!
 ```jsx
 import Tag from '@igloo-ui/tag';
 
-<Tag closable>This is a tag</Tag>;
+<Tag icon={<LabelSolid size="small" />} appearance="success" dismissible>
+  This is a tag
+</Tag>;
 ```

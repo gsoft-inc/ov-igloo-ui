@@ -10,21 +10,21 @@
   color: $color;
 }
 
-@mixin ids-tag-mixin-size($fontSize, $verticalPadding, $horizontalPadding) {
+@mixin ids-tag-mixin-size($fontSize, $padding, $margin) {
   font-size: $fontSize;
-  padding: $verticalPadding $horizontalPadding;
+  padding: $padding;
 
   .ids-tag__icon {
     margin:
       #{tokens.$space-0}
-      calc($horizontalPadding / 1.8)
+      $margin
       #{tokens.$space-0}
-      calc($horizontalPadding / -2);
+      #{tokens.$space-0};
   }
 
   .ids-tag__dismiss-btn.ids-icon-btn {
     margin:
-      #{tokens.$space-0} calc($horizontalPadding / -2) #{tokens.$space-0}
-      calc($horizontalPadding / 1.8);
+      #{tokens.$space-0} #{tokens.$space-0} #{tokens.$space-0}
+      $margin;
   }
 }

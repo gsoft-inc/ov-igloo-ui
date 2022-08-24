@@ -15,7 +15,7 @@ const setup = (props: TagProps) => {
 describe('Tag', () => {
   const component = (children: React.ReactNode) => setup({ children });
 
-  const expectTpBeOfStyle = (tag: ShallowWrapper, style: Appearance) => {
+  const expectToBeOfStyle = (tag: ShallowWrapper, style: Appearance) => {
     const findDefault = tag.find('.ids-tag--default');
     const findPrimary = tag.find('.ids-tag--primary');
     const findSecondary = tag.find('.ids-tag--secondary');
@@ -33,7 +33,7 @@ describe('Tag', () => {
     expect(findError.length === 1).toBe(style === 'error');
   };
 
-  const expectTpBeOfSize = (tag: ShallowWrapper, style: Size) => {
+  const expectToBeOfSize = (tag: ShallowWrapper, style: Size) => {
     const findMedium = tag.find('.ids-tag--medium');
     const findSmall = tag.find('.ids-tag--small');
     const findXsmall = tag.find('.ids-tag--xsmall');
@@ -60,8 +60,8 @@ describe('Tag', () => {
 
     expect(findDismissButton.length).toBe(0);
 
-    expectTpBeOfStyle(tag, 'default');
-    expectTpBeOfSize(tag, 'medium');
+    expectToBeOfStyle(tag, 'default');
+    expectToBeOfSize(tag, 'medium');
   });
 
   /* onClose function */
@@ -70,7 +70,7 @@ describe('Tag', () => {
     let show = true;
     const props = {
       children: 'Test onClose Tag',
-      closable: true,
+      dismissible: true,
       onClose: () => {
         show = false;
       },
@@ -84,14 +84,14 @@ describe('Tag', () => {
   /* Dismissible */
 
   test('It should render a tag with a dismiss button', () => {
-    const tag = setup({ children: 'Dismissible Tag', closable: true });
+    const tag = setup({ children: 'Dismissible Tag', dismissible: true });
     const findDismissButton = tag.find('.ids-tag__dismiss-btn');
 
     expect(findDismissButton.length).toBe(1);
   });
 
   test('It should render a tag without a dismiss button', () => {
-    const tag = setup({ children: 'Not Dismissible Tag', closable: false });
+    const tag = setup({ children: 'Not Dismissible Tag', dismissible: false });
     const findDismissButton = tag.find('.ids-tag__dismiss-btn');
 
     expect(findDismissButton.length).toBe(0);
@@ -121,43 +121,43 @@ describe('Tag', () => {
   test('It should render a default style tag', () => {
     const tag = setup({ children: 'Default Tag', appearance: 'default' });
 
-    expectTpBeOfStyle(tag, 'default');
+    expectToBeOfStyle(tag, 'default');
   });
 
   test('It should render a primary style tag', () => {
     const tag = setup({ children: 'Primary Tag', appearance: 'primary' });
 
-    expectTpBeOfStyle(tag, 'primary');
+    expectToBeOfStyle(tag, 'primary');
   });
 
   test('It should render a secondary style tag', () => {
     const tag = setup({ children: 'Secondary Tag', appearance: 'secondary' });
 
-    expectTpBeOfStyle(tag, 'secondary');
+    expectToBeOfStyle(tag, 'secondary');
   });
 
   test('It should render a info style tag', () => {
     const tag = setup({ children: 'Info Tag', appearance: 'info' });
 
-    expectTpBeOfStyle(tag, 'info');
+    expectToBeOfStyle(tag, 'info');
   });
 
   test('It should render a success style tag', () => {
     const tag = setup({ children: 'Success Tag', appearance: 'success' });
 
-    expectTpBeOfStyle(tag, 'success');
+    expectToBeOfStyle(tag, 'success');
   });
 
   test('It should render a warning style tag', () => {
     const tag = setup({ children: 'Warning Tag', appearance: 'warning' });
 
-    expectTpBeOfStyle(tag, 'warning');
+    expectToBeOfStyle(tag, 'warning');
   });
 
   test('It should render a error style tag', () => {
     const tag = setup({ children: 'Error Tag', appearance: 'error' });
 
-    expectTpBeOfStyle(tag, 'error');
+    expectToBeOfStyle(tag, 'error');
   });
 
   /* Size */
@@ -165,24 +165,24 @@ describe('Tag', () => {
   test('It should render a medium tag', () => {
     const tag = setup({ children: 'Medium Tag', size: 'medium' });
 
-    expectTpBeOfSize(tag, 'medium');
+    expectToBeOfSize(tag, 'medium');
   });
 
   test('It should render a small tag', () => {
     const tag = setup({ children: 'Small Tag', size: 'small' });
 
-    expectTpBeOfSize(tag, 'small');
+    expectToBeOfSize(tag, 'small');
   });
 
   test('It should render a xsmall tag', () => {
     const tag = setup({ children: 'XSmall Tag', size: 'xsmall' });
 
-    expectTpBeOfSize(tag, 'xsmall');
+    expectToBeOfSize(tag, 'xsmall');
   });
 
   test('It should render a micro tag', () => {
     const tag = setup({ children: 'Micro Tag', size: 'micro' });
 
-    expectTpBeOfSize(tag, 'micro');
+    expectToBeOfSize(tag, 'micro');
   });
 });

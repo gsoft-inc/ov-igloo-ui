@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { FunctionComponent, ReactNode } from 'react';
 
 import IconButton from '@igloo-ui/icon-button';
 import Close from '@igloo-ui/icons/dist/Close';
@@ -16,23 +15,22 @@ export type Appearance =
   | 'success'
   | 'warning'
   | 'error'
-  | 'secondary';
+  | 'secondary'
+  | 'grey';
 
 export interface TagProps extends React.ComponentProps<'div'> {
   /** The different appearances of the Tag */
   appearance?: Appearance;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
-  /** Make the Tag disabled */
-  disabled?: boolean;
   /** The content of the Tag */
   children: React.ReactNode;
   /** Add a specific class to the Tag */
   className?: string;
   /** Render the close button */
-  closable?: boolean;
+  dismissible?: boolean;
   /** The icon used at the beginning of the Tag */
-  icon?: ReactNode;
+  icon?: React.ReactNode;
   /** Event when the tag is closed */
   onClose?: () => void;
   /** Render rounded corners */
@@ -41,12 +39,11 @@ export interface TagProps extends React.ComponentProps<'div'> {
   size?: Size;
 }
 
-const Tag: FunctionComponent<TagProps> = ({
+const Tag: React.FunctionComponent<TagProps> = ({
   dataTest,
-  disabled = false,
   children,
   className,
-  closable = false,
+  dismissible = false,
   appearance = 'default',
   icon,
   onClose,
@@ -85,7 +82,6 @@ const Tag: FunctionComponent<TagProps> = ({
     `ids-tag--${appearance}`,
     `ids-tag--${size}`,
     {
-      'ids-tag--disabled': disabled,
       'ids-tag--rounded': rounded,
     },
     className
@@ -98,7 +94,7 @@ const Tag: FunctionComponent<TagProps> = ({
 
         <div className="ids-tag__content">{children}</div>
 
-        {closable && renderDismissButton(setShow, onClose)}
+        {dismissible && renderDismissButton(setShow, onClose)}
       </div>
     );
   }
