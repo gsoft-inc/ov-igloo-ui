@@ -26,6 +26,7 @@ Then to use the component in your code just import it!
 
 ```jsx
 import Tag from '@igloo-ui/tag';
+import LabelSolid from '@igloo-ui/icons/dist/LabelSolid';
 
 <Tag icon={<LabelSolid size="small" />} appearance="success" dismissible>
   This is a tag
