@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 1.0.5
+
+### Patch Changes
+
+- 088f9fd: Fix: Changed the mouseleave event to use native js so it works with disabled elements as children.
+
 ## 1.0.4
 
 ### Patch Changes
