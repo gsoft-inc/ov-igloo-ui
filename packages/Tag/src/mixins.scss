@@ -1,0 +1,30 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+
+@mixin ids-tag-mixin-decoration(
+  $backgroundColor,
+  $color,
+  $borderColor: transparent
+) {
+  background: $backgroundColor;
+  border: 1px solid $borderColor;
+  color: $color;
+}
+
+@mixin ids-tag-mixin-size($fontSize, $padding, $margin) {
+  font-size: $fontSize;
+  padding: $padding;
+
+  .ids-tag__icon {
+    margin:
+      #{tokens.$space-0}
+      $margin
+      #{tokens.$space-0}
+      #{tokens.$space-0};
+  }
+
+  .ids-tag__dismiss-btn.ids-icon-btn {
+    margin:
+      #{tokens.$space-0} #{tokens.$space-0} #{tokens.$space-0}
+      $margin;
+  }
+}
