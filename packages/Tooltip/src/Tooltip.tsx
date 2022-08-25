@@ -121,7 +121,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
 
   React.useEffect(() => {
     if (referenceElement) {
-      // The reaosn we use the native js event is because react has a bug where
+      // The reason we use the native js event is because react has a bug where
       // it will not call onMouseLeave if it has a disabled button inside.
       referenceElement.addEventListener('mouseleave', onMouseLeaveHandle);
     }
