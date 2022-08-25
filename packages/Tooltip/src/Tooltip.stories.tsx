@@ -3,6 +3,7 @@ import React from 'react';
 import { ComponentMeta } from '@storybook/react';
 
 import Tooltip, { TooltipProps } from './Tooltip';
+import Button from '@igloo-ui/button';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -74,6 +75,16 @@ export const Position = () => (
     </Tooltip>
     <Tooltip content={tooltipContent} position="left">
       Left
+    </Tooltip>
+  </Section>
+);
+
+export const DisabledButton = () => (
+  <Section>
+    <Tooltip content="Please complete all fields">
+      <Button appearance="secondary" disabled>
+        Update profile
+      </Button>
     </Tooltip>
   </Section>
 );
