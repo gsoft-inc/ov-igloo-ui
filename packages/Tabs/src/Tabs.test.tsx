@@ -68,7 +68,7 @@ describe('Tabs', () => {
       ...defaultComponentSetUp,
       tabs: tabsArray,
     });
-    const findIcon = tabs.find('.ids-tabs__crown-icon');
+    const findIcon = tabs.find('.ids-tab__crown');
 
     expect(findIcon.length).toBe(1);
   });
@@ -80,17 +80,17 @@ describe('Tabs', () => {
       ...defaultComponentSetUp,
       tabs: tabsArray,
     });
-    const findIcon = tabs.find('.ids-tabs__bullet-icon');
+    const findIcon = tabs.find('.ids-tab__bullet');
 
     expect(findIcon.length).toBe(1);
   });
 
   test('It should render tabs with a default index of 1', () => {
-    const tabs = setup({ ...defaultComponentSetUp, defaultIndex: 1 });
+    const tabs = setup({ ...defaultComponentSetUp, selected: 1 });
 
-    const secondTab = tabs.find('.ids-tabs__tab').at(1);
+    const secondTab = tabs.find('.ids-tab').at(1);
 
-    const findActive = secondTab.find('.ids-tabs__tab--active');
+    const findActive = secondTab.find('.ids-tab--active');
 
     expect(findActive.length).toBe(1);
   });
