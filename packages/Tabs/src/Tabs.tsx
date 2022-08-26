@@ -89,8 +89,6 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
         key={index.toString()}
         className={cx('ids-tab', {
           'ids-tab--active': index === selected,
-          'ids-tab--has-btn': isTypeString,
-          'ids-tab--no-btn': !isTypeString,
         })}
         id={tab.id}
       >
