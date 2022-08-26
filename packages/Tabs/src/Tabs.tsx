@@ -1,13 +1,11 @@
 import * as React from 'react';
 
-import './tabs.scss';
-
-import { useState } from 'react';
-import classNames from 'classnames';
-import { NavLink } from 'react-router-dom';
+import cx from 'classnames';
 
 import CrownSolid from '@igloo-ui/icons/dist/CrownSolid';
 import TextBulletSolid from '@igloo-ui/icons/dist/TextBulletSolid';
+
+import './tabs.scss';
 
 export interface TabInterface {
   /** The tab pane contents of the tabs list */
@@ -15,20 +13,18 @@ export interface TabInterface {
   /** Add an id attribute to the tab */
   id?: string;
   /** Add text for the tab */
-  label: string;
+  label: React.ReactNode;
   /** Add a notification indicator to the tab */
   notification?: boolean;
   /** Add a premium indicator to the tab */
   premium?: boolean;
-  /** Use this to redirect to another route */
-  to?: string;
 }
 
 export interface TabsProps extends React.ComponentProps<'div'> {
   /** The function that's called when a tab is clicked */
-  onSelect?: () => void;
+  onSelectTab?: (index: number) => void;
   /** The index number of the Tab that should be selected on load */
-  defaultIndex?: number;
+  selected?: number;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
   /** Add a specific class to the Tabs component */
@@ -40,101 +36,77 @@ export interface TabsProps extends React.ComponentProps<'div'> {
 }
 
 const Tabs: React.FunctionComponent<TabsProps> = ({
-  onSelect,
-  defaultIndex = 0,
+  onSelectTab,
+  selected = 0,
   dataTest,
   className,
   isInline = true,
   tabs,
 }) => {
-  const classes = classNames('ids-tabs', className, {
+  const classes = cx('ids-tabs', className, {
     'ids-tabs--inline': isInline,
     'ids-tabs--heading': !isInline,
   });
 
-  const [selectedTabIndex, setSelectedTabIndex] =
-    useState<number>(defaultIndex);
+  /* Handle the on click */
   const handleOnClick = (index: number): void => {
-    if (setSelectedTabIndex) {
-      setSelectedTabIndex(index);
-    }
-    if (onSelect) {
-      onSelect();
+    if (onSelectTab) {
+      onSelectTab(index);
     }
   };
 
-  const renderTabButton = (
-    tab: TabInterface,
-    index: number
-  ): React.ReactNode => {
-    let button = (
-      <button
-        className="ids-tabs__tab-button"
-        onClick={() => handleOnClick(index)}
-      >
+  /* Render the Tab */
+  const renderTabItem = (tab: TabInterface, index: number): React.ReactNode => {
+    const isTypeString = typeof tab.label === 'string';
+    let tabItem = (
+      <>
         {tab.label}
 
         {tab.notification && (
           <TextBulletSolid
             size="small"
-            className="ids-tabs__tab-icon ids-tabs__bullet-icon"
+            className="ids-tab__icon ids-tab__bullet"
           />
         )}
         {tab.premium && (
-          <CrownSolid
-            size="small"
-            className="ids-tabs__tab-icon ids-tabs__crown-icon"
-          />
+          <CrownSolid size="small" className="ids-tab__icon ids-tab__crown" />
         )}
-      </button>
+      </>
     );
 
-    if (tab.to) {
-      button = (
-        <NavLink
-          className="ids-tabs__tab-button"
-          onClick={() => handleOnClick(index)}
-          to={tab.to}
-        >
-          {tab.label}
-
-          {tab.notification && (
-            <TextBulletSolid
-              size="small"
-              className="ids-tabs__tab-icon ids-tabs__bullet-icon"
-            />
-          )}
-          {tab.premium && (
-            <CrownSolid
-              size="small"
-              className="ids-tabs__tab-icon ids-tabs__crown-icon"
-            />
-          )}
-        </NavLink>
+    if (isTypeString) {
+      tabItem = (
+        <button className="ids-tab__btn" onClick={() => handleOnClick(index)}>
+          {tabItem}
+        </button>
       );
+    } else {
+      tabItem = <span className="ids-tab__nav">{tabItem}</span>;
     }
 
-    return button;
+    return (
+      <li
+        key={index.toString()}
+        className={cx('ids-tab', {
+          'ids-tab--active': index === selected,
+          'ids-tab--has-btn': isTypeString,
+          'ids-tab--no-btn': !isTypeString,
+        })}
+        id={tab.id}
+      >
+        {tabItem}
+      </li>
+    );
   };
 
   return (
     <div className={classes} data-test={dataTest}>
       <ul className="ids-tabs__list">
-        {tabs.map((tab, index) => (
-          <li
-            key={tab.label}
-            className={classNames('ids-tabs__tab', {
-              'ids-tabs__tab--active': index === selectedTabIndex,
-            })}
-            id={tab.id}
-          >
-            {renderTabButton(tab, index)}
-          </li>
-        ))}
+        {tabs.map((tab, index) => renderTabItem(tab, index))}
       </ul>
 
       {/* show selcted tab by index */}
-      {tabs[selectedTabIndex].children && tabs[selectedTabIndex].children}
+      {tabs[selected].children && tabs[selected].children}
     </div>
   );
 };

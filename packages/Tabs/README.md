@@ -25,10 +25,9 @@ yarn add @igloo-ui/tabs
 Then to use the component in your code just import it!
 
 ```jsx
-import Tabs, { TabPane } from '@igloo-ui/tabs';
+import Tabs from '@igloo-ui/tabs';
 
 <Tabs
-  defaultIndex={1}
   tabs={[
     {
       label: 'Premium Tab',
@@ -48,4 +47,42 @@ import Tabs, { TabPane } from '@igloo-ui/tabs';
     },
   ]}
 />;
+```
+
+## Variation
+
+Pass the onClick with the navlink when using react router
+
+```jsx
+<BrowserRouter>
+  <Tabs
+    selected={selected}
+    tabs={[
+      {
+        label: (
+          <NavLink to={'/home'} onClick={() => handleTabChange(0)}>
+            Home
+          </NavLink>
+        ),
+        children: (
+          <Routes>
+            <Route path="/home" element={<div>Home page</div>} />
+          </Routes>
+        ),
+      },
+      {
+        label: (
+          <NavLink to={'/about'} onClick={() => handleTabChange(1)}>
+            About
+          </NavLink>
+        ),
+        children: (
+          <Routes>
+            <Route path="/about" element={<div>About page</div>} />
+          </Routes>
+        ),
+      },
+    ]}
+  />
+</BrowserRouter>
 ```
