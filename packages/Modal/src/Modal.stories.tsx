@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import useState from 'storybook-addon-state';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Button from '@igloo-ui/button';
 
@@ -23,7 +22,7 @@ export default {
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = (args) => {
-  const [open, setOpen] = useState('default', false);
+  const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -57,8 +56,8 @@ Overview.args = {
 };
 
 export const Sizes = () => {
-  const [show, setShow] = useState('default', false);
-  const [size, setSize] = useState('sizes', '');
+  const [show, setShow] = useState(false);
+  const [size, setSize] = useState('');
 
   const handleOpen = (size: string) => {
     setShow(true);
@@ -97,7 +96,7 @@ export const Sizes = () => {
 };
 
 export const removeClose = () => {
-  const [show, setShow] = useState('isClosable', false);
+  const [show, setShow] = useState(false);
 
   return (
     <Section>
@@ -112,7 +111,7 @@ export const removeClose = () => {
 };
 
 export const Exemple = () => {
-  const [show, setShow] = useState('exemple', false);
+  const [show, setShow] = useState(false);
 
   return (
     <Section>
