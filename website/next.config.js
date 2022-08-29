@@ -23,6 +23,7 @@ const withTM = require('next-transpile-modules')([
   '@igloo-ui/toggle',
   '@igloo-ui/tooltip',
   '@igloo-ui/tag',
+  '@igloo-ui/popover',
 ]);
 
 const path = require('path');

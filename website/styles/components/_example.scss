@@ -30,3 +30,35 @@
 .example--truncate > * {
   max-width: rebase(15rem);
 }
+
+
+//Special style for the example of popover
+.ex-popover {
+  z-index: 10;
+}
+
+.ex-trigger {
+  display: inline-block;
+  width:  var(--space-1);
+  height: var(--space-1);
+  border-radius: 50%;
+  background-color: #1053FF;
+}
+
+.ex-popover__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ex-popover__tag {
+  border-radius: 50%;
+  width: var(--space-2);
+  height: var(--space-2);
+}
+
+.ex-popover__value {
+  font-size: var(--font-size-6);
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--grey-800);
+}
