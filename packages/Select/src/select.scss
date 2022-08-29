@@ -8,13 +8,14 @@
   --ids-select-font-weight: #{tokens.$font-weight-regular};
   --ids-select-line-height: #{tokens.$space-4};
   --ids-select-height: #{tokens.$space-6};
-  --ids-select-margin: #{tokens.$space-1} #{tokens.$space-0};
   --ids-select-color: #{tokens.$grey-800};
   --ids-select-chevron: #{tokens.$grey-800};
   --ids-select-background: #{tokens.$samoyed};
   --ids-select-border-color: #{tokens.$grey-300};
   --ids-select-border-radius: #{tokens.$border-radius-sm};
   --ids-select-number-of-option-to-display: 4;
+  --ids-select-position-ajustment-x: -1px;
+  --ids-select-position-ajustment-y: -1px;
 
   /* Compact */
   --ids-select-font-size-compact: #{tokens.$font-size-3};
@@ -46,16 +47,9 @@
   border: 1px solid var(--ids-select-border-color);
   border-radius: var(--ids-select-border-radius);
   box-sizing: border-box;
-  appearance: textfield;
   transition: border-color 200ms ease 0s;
-  margin: var(--ids-select-margin);
   cursor: pointer;
   user-select: none;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
 
   &:focus,
   &.focus {
@@ -66,35 +60,35 @@
 
   .ids-dropdown {
     position: absolute;
-    top: calc(var(--ids-select-height) - 1px);
-    left: -1px;
+    top: calc(var(--ids-select-height) + var(--ids-select-position-ajustment-y));
+    left: var(--ids-select-position-ajustment-x);
     max-height: calc(var(--ids-select-height) * var(--ids-select-number-of-option-to-display));
     overflow: auto;
     display: flex;
     flex-flow: column nowrap;
   }
 
-  &.ids-select--compact {
+  &--compact {
     font-size: var(--ids-select-font-size-compact);
     line-height: var(--ids-select-line-height-compact);
     height: var(--ids-select-height-compact);
 
     .ids-dropdown {
-      top: calc(var(--ids-select-height-compact) - 1px);
+      top: calc(var(--ids-select-height-compact) + var(--ids-select-position-ajustment-y));
       max-height: calc(var(--ids-select-height-compact) * var(--ids-select-number-of-option-to-display));
     }
   }
 
-  &.ids-select--active,
+  &--active,
   &.active {
     border-color: var(--ids-select-border-color-active);
   }
 
-  &.ids-select--disabled {
+  &--disabled {
     color: var(--ids-select-color-disabled);
     background-color: var(--ids-select-background-disabled);
     border-color: var(--ids-select-border-color-disabled);
-    cursor: default;
+    cursor: not-allowed;
   }
 
   &--error {

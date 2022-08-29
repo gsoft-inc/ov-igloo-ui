@@ -7,7 +7,7 @@ import { shallow } from 'enzyme';
 import Select, { SelectOption } from './Select';
 import Dropdown from './Dropdown';
 import SelectOptionComponent from './SelectOption';
-import SelectHeader from './SelectHeader';
+import SelectInput from './SelectInput';
 import SelectValue from './SelectValue';
 
 const setup = (props = {}, options: SelectOption[] = []) => {
@@ -137,7 +137,7 @@ describe('Select', () => {
     const selectOptions = dropdown.find(SelectOptionComponent);
     selectOptions.simulate('click');
     const hasPlaceholderValue = select
-      .find(SelectHeader)
+      .find(SelectInput)
       .find(SelectValue)
       .prop('isPlaceholder');
 
@@ -152,7 +152,7 @@ describe('Select', () => {
     const selectOptions = dropdown.find(SelectOptionComponent);
     selectOptions.simulate('click');
     const hasPlaceholderValue = select
-      .find(SelectHeader)
+      .find(SelectInput)
       .find(SelectValue)
       .prop('isPlaceholder');
 

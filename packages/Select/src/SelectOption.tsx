@@ -47,9 +47,9 @@ const SelectOption: React.FunctionComponent<SelectOptionProps> = (
     }
   }, [selected]);
 
-  const selectOptionClasses = cx('ids-select-option', className, {
-    'ids-select-option--selected': selected,
-    'ids-select-option--disabled': disabled,
+  const selectOptionClasses = cx('ids-select__option', className, {
+    'ids-select__option--selected': selected,
+    'ids-select__option--disabled': disabled,
   });
 
   const onSelectValueClicked = (): void => {

@@ -2,14 +2,14 @@
 
 :root {
   /* Default */
-  --ids-select-header-padding: 0 #{tokens.$space-2};
-  --ids-select-header-chevron: #{tokens.$grey-800};
+  --ids-select-input-padding: 0 #{tokens.$space-2};
+  --ids-select-input-chevron-color: #{tokens.$grey-800};
 
   /* Disabled */
-  --ids-select-header-chevron-disabled: #{tokens.$grey-600};
+  --ids-select-input-chevron-color-disabled: #{tokens.$grey-600};
 }
 
-.ids-select-header {
+.ids-select__input {
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
@@ -18,14 +18,14 @@
   align-content: center;
 
   &__chevron {
-    color: var(--ids-select-header-chevron);
-    padding: var(--ids-select-header-padding);
+    color: var(--ids-select-input-chevron-color);
+    padding: var(--ids-select-input-padding);
     display: flex;
     align-items: center;
     order: 99;
   }
 
   &--disabled &__chevron {
-    color: var(--ids-select-header-chevron-disabled);
+    color: var(--ids-select-input-chevron-color-disabled);
   }
 }

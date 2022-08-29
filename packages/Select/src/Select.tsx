@@ -1,13 +1,13 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import './select.scss';
-
 import Dropdown from './Dropdown';
 
-import SelectHeader from './SelectHeader';
+import SelectInput from './SelectInput';
 import SelectOptionComponent from './SelectOption';
 import SelectValue from './SelectValue';
+
+import './select.scss';
 
 export interface SelectOption {
   /** True if the current option can't be selected. */
@@ -27,7 +27,7 @@ export interface SelectProps {
   className?: string;
   /** Add a data-test tag for automated tests. */
   dataTest?: string;
-  /** Disabled the Select, the user cannot click on it. */
+  /** Disable the Select so the user cannot click on it. */
   disabled?: boolean;
   /** The Select is in an error state. */
   error?: boolean;
@@ -35,11 +35,11 @@ export interface SelectProps {
   isCompact?: boolean;
   /** True if the option list is displayed. */
   isOpen?: boolean;
-  /** Callback when selected content change. */
+  /** Callback when selected content changes. */
   onChange?: (option: SelectOption | undefined) => void;
   /** List of available options. */
   options: SelectOption[];
-  /** The selected option at the initialisation. */
+  /** The initial selected option. */
   selectedOption?: SelectOption;
 }
 
@@ -239,7 +239,7 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
       tabIndex={0}
       {...rest}
     >
-      <SelectHeader isOpen={canShowMenu} disabled={disabled}>
+      <SelectInput isOpen={canShowMenu} disabled={disabled}>
         <SelectValue
           disabled={disabled}
           icon={currentSelectedOption?.icon}
@@ -247,7 +247,7 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
           isPlaceholder={!currentSelectedOption}
           label={currentSelectedOption?.label || children}
         />
-      </SelectHeader>
+      </SelectInput>
       {canShowMenu && generateOptions()}
     </div>
   );

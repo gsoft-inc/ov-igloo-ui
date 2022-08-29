@@ -28,16 +28,16 @@ const SelectValue: React.FunctionComponent<SelectValueProps> = (
     ...rest
   } = props;
 
-  const selectValueClasses = cx('ids-select-value', {
-    'ids-select-value--disabled': disabled,
-    'ids-select-value--compact': isCompact,
-    'ids-select-value--placeholder': !disabled && isPlaceholder,
+  const selectValueClasses = cx('ids-select__value', {
+    'ids-select__value--disabled': disabled,
+    'ids-select__value--compact': isCompact,
+    'ids-select__value--placeholder': !disabled && isPlaceholder,
   });
 
   return (
     <div className={selectValueClasses} {...rest}>
-      {icon && <div className="ids-select-value__icon">{icon}</div>}
-      <div className="ids-select-value__label">{label}</div>
+      {icon && <div className="ids-select__value__icon">{icon}</div>}
+      <div className="ids-select__value__label">{label}</div>
     </div>
   );
 };

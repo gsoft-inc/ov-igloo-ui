@@ -4,19 +4,14 @@ import { useTransition, animated } from 'react-spring';
 
 import './dropdown.scss';
 
-export enum DropdownPositions {
-  Top,
-  Right,
-  Bottom,
-  Left,
-}
+export type Position = 'top' | 'right' | 'bottom' | 'left';
 
-const DeterminePosition = (position: DropdownPositions): string => {
-  if (position === DropdownPositions.Right) {
+const DeterminePosition = (position: Position): string => {
+  if (position === 'right') {
     return 'translateX(-1rem)';
   }
 
-  if (position === DropdownPositions.Top) {
+  if (position === 'top') {
     return 'translateY(1rem)';
   }
 
@@ -28,10 +23,10 @@ export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   children?: React.ReactNode;
   /** True if the Dropdown list is displayed. */
   isOpen?: boolean;
-  /** Callback when click outside dropdown. */
+  /** Callback when the user clicks outside the Dropdown. */
   onClose?: () => void;
   /** Position of the Dropdown. */
-  position?: DropdownPositions;
+  position?: Position;
 }
 
 const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
@@ -40,12 +35,12 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       children,
       isOpen = false,
       onClose,
-      position = DropdownPositions.Bottom,
+      position = 'bottom',
       ...rest
     } = props;
 
     const initialTransform = DeterminePosition(position);
-    const isOnTheRight = position === DropdownPositions.Right;
+    const isOnTheRight = position === 'right';
     const transitions = useTransition(isOpen, {
       from: { opacity: 0, transform: initialTransform },
       enter: {
@@ -57,10 +52,10 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
     });
 
     const dropdownClasses = cx('ids-dropdown', {
-      'ids-dropdown--top': position === DropdownPositions.Top,
-      'ids-dropdown--right': position === DropdownPositions.Right,
-      'ids-dropdown--bottom': position === DropdownPositions.Bottom,
-      'ids-dropdown--left': position === DropdownPositions.Left,
+      'ids-dropdown--top': position === 'top',
+      'ids-dropdown--right': position === 'right',
+      'ids-dropdown--bottom': position === 'bottom',
+      'ids-dropdown--left': position === 'left',
     });
 
     const handleOnClose = (): void => {
@@ -74,7 +69,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
         <div
           role="button"
           tabIndex={0}
-          className="ids-dropdown-click-handler"
+          className="ids-dropdown__overlay"
           onClick={handleOnClose}
         >
           {null}

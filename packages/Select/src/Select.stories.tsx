@@ -24,7 +24,7 @@ const largeDisplay = {
 };
 
 const handleOnChange = (option: SelectOption): void => {
-  console.log(option.label);
+  alert(`Option: ${option.label}`);
 };
 
 const smallOptionList = [
