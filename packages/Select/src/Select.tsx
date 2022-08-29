@@ -239,7 +239,7 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
       tabIndex={0}
       {...rest}
     >
-      <SelectInput isOpen={canShowMenu} disabled={disabled}>
+      <SelectInput isOpen={canShowMenu}>
         <SelectValue
           disabled={disabled}
           icon={currentSelectedOption?.icon}

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import cx from 'classnames';
 
 import ChevronUp from '@igloo-ui/icons/dist/TableChevronSelectedUp';
 import ChevronDown from '@igloo-ui/icons/dist/TableChevronSelectedDown';
@@ -9,8 +8,6 @@ import './select-input.scss';
 export interface SelectInputProps extends React.ComponentProps<'div'> {
   /** Default value displayed in the Select Input. */
   children?: React.ReactNode;
-  /** True if the Select Input is disabled. */
-  disabled?: boolean;
   /** True if the option list is displayed. */
   isOpen?: boolean;
 }
@@ -18,19 +15,16 @@ export interface SelectInputProps extends React.ComponentProps<'div'> {
 const SelectInput: React.FunctionComponent<SelectInputProps> = (
   props: SelectInputProps
 ) => {
-  const { children, disabled = false, isOpen = false, ...rest } = props;
-
-  const selectInputClasses = cx('ids-select__input', {
-    'ids-select__input--disabled': disabled,
-    'ids-select__input--active': isOpen,
-  });
+  const { children, isOpen = false, ...rest } = props;
 
   return (
-    <div className={selectInputClasses} {...rest}>
+    <div className="ids-select__input" {...rest}>
       {children}
-      <div className="ids-select__input__chevron">
-        {isOpen ? <ChevronUp size="small" /> : <ChevronDown size="small" />}
-      </div>
+      {isOpen ? (
+        <ChevronUp className="ids-select__input__chevron" size="small" />
+      ) : (
+        <ChevronDown className="ids-select__input__chevron" size="small" />
+      )}
     </div>
   );
 };

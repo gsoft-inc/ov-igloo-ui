@@ -36,8 +36,8 @@ const SelectValue: React.FunctionComponent<SelectValueProps> = (
 
   return (
     <div className={selectValueClasses} {...rest}>
-      {icon && <div className="ids-select__value__icon">{icon}</div>}
-      <div className="ids-select__value__label">{label}</div>
+      {icon}
+      {label}
     </div>
   );
 };
