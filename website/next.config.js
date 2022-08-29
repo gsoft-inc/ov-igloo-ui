@@ -23,6 +23,7 @@ const withTM = require('next-transpile-modules')([
   '@igloo-ui/toggle',
   '@igloo-ui/tooltip',
   '@igloo-ui/tag',
+  '@igloo-ui/tabs',
   '@igloo-ui/popover',
   '@igloo-ui/modal',
 ]);
