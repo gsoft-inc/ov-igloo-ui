@@ -37,10 +37,10 @@ const Example = () => {
       >
         <>
           <header className="ex-modal__header">
-            <span className="ex-modal__profile">
+            <div className="ex-modal__profile">
               <div className="ex-modal__avatar" />
               <h2>John Doe</h2>
-            </span>
+            </div>
             <IconButton
               appearance="ghost"
               size="small"
