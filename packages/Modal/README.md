@@ -2,6 +2,8 @@
 
 The Modal is an interface component positioned over the page content to put emphasis on new elements. It blocks standard navigation, and requires an interaction from the user to be dismissed.
 
+<Example />
+
 <ReferenceLinks />
 
 ## Installation

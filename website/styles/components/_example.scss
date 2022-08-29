@@ -30,3 +30,81 @@
 .example--truncate > * {
   max-width: rebase(15rem);
 }
+
+.example__inline {
+  display: flex;
+  gap: rebase(0.5rem);
+  align-items: center;
+}
+
+//Special style for the example of Modal
+.ex-modal {
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    gap: rebase(1rem);
+  }
+
+  &__avatar {
+    width: rebase(3rem);
+    height: rebase(3rem);
+    border-radius: token.$radius-2;
+    background-color: token.$grey-400;
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rebase(1rem);
+  }
+
+  &__formGroup {
+    flex: 1 0 100%;
+    max-width: calc(50% - 1.6rem);
+    box-sizing: border-box;
+  }
+
+  &__footer {
+    margin-top: rebase(2rem);
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+
+//Special style for the example of Popover
+.ex-popover {
+  z-index: 10;
+}
+
+.ex-trigger {
+  display: inline-block;
+  width:  var(--space-1);
+  height: var(--space-1);
+  border-radius: 50%;
+  background-color: #1053FF;
+}
+
+.ex-popover__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ex-popover__tag {
+  border-radius: 50%;
+  width: var(--space-2);
+  height: var(--space-2);
+}
+
+.ex-popover__value {
+  font-size: var(--font-size-6);
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--grey-800);
+}
