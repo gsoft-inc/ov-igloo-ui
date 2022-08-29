@@ -19,6 +19,7 @@ const withTM = require('next-transpile-modules')([
   '@igloo-ui/icon-button',
   '@igloo-ui/input',
   '@igloo-ui/radio',
+  '@igloo-ui/select',
   '@igloo-ui/toaster',
   '@igloo-ui/toggle',
   '@igloo-ui/tooltip',

@@ -21,6 +21,8 @@
   align-content: center;
   gap: var(--ids-dropdown-value-gap);
   padding: var(--ids-dropdown-value-padding);
+  white-space: nowrap;
+  overflow: hidden;
 
   &--compact {
     padding: var(--ids-dropdown-value-padding-compact);

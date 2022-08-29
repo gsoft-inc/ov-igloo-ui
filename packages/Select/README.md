@@ -2,6 +2,8 @@
 
 Select inputs let users choose one option from an options menu.
 
+<Example />
+
 <ReferenceLinks />
 
 ## Installation

@@ -17,12 +17,14 @@
   align-items: center;
   align-content: center;
 
-  &__chevron {
+  & &__chevron {
     color: var(--ids-select-input-chevron-color);
     padding: var(--ids-select-input-padding);
     display: flex;
     align-items: center;
     order: 99;
+    width: auto;
+    flex: 0 0 auto;
   }
 
   &--disabled &__chevron {
