@@ -25,6 +25,14 @@
   display: flex;
   flex-direction: column;
   gap: token.$radius-0;
+
+  > .ids-form-control {
+    align-items: center;
+  }
+
+  .ids-checkbox {
+    margin-top: 0;
+  }
 }
 
 .example--truncate > * {
@@ -74,6 +82,7 @@
     margin-top: rebase(2rem);
     display: flex;
     justify-content: flex-end;
+    gap: rebase(1rem);
   }
 }
 
