@@ -1,0 +1,43 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+
+:root {
+  /* Default */
+  --ids-dropdown-value-padding: #{tokens.$space-2} #{tokens.$space-3};
+  --ids-dropdown-value-icon-margin-right: #{tokens.$space-1};
+
+  /* Compact **/
+  --ids-dropdown-value-padding-compact: #{tokens.$space-1} #{tokens.$space-3};
+
+  /* Disabled */
+  --ids-dropdown-value-color-disabled: #{tokens.$grey-500};
+
+  /* Placeholder */
+  --ids-dropdown-value-color-placeholder: #{tokens.$grey-400};
+}
+
+.ids-select__value {
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: center;
+  padding: var(--ids-dropdown-value-padding);
+  white-space: nowrap;
+  overflow: hidden;
+
+  &--compact {
+    padding: var(--ids-dropdown-value-padding-compact);
+  }
+
+  &--disabled {
+    color: var(--ids-dropdown-value-color-disabled);
+  }
+
+  &--placeholder {
+    color: var(--ids-dropdown-value-color-placeholder);
+  }
+
+  svg {
+    order: 0;
+    align-self: center;
+    margin-right: var(--ids-dropdown-value-icon-margin-right);
+  }
+}

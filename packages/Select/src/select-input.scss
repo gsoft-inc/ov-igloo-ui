@@ -1,0 +1,33 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+
+:root {
+  /* Default */
+  --ids-select-input-padding: 0 #{tokens.$space-2};
+  --ids-select-input-chevron-color: #{tokens.$grey-800};
+
+  /* Disabled */
+  --ids-select-input-chevron-color-disabled: #{tokens.$grey-600};
+}
+
+.ids-select__input {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+
+  & &__chevron {
+    color: var(--ids-select-input-chevron-color);
+    padding: var(--ids-select-input-padding);
+    display: flex;
+    align-items: center;
+    order: 99;
+    width: auto;
+    flex: 0 0 auto;
+  }
+
+  &--disabled &__chevron {
+    color: var(--ids-select-input-chevron-color-disabled);
+  }
+}

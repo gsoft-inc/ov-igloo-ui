@@ -1,0 +1,50 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+
+:root {
+  /* Default */
+  --ids-dropdown-background: #{tokens.$samoyed};
+  --ids-dropdown-border-radius: #{tokens.$border-radius-sm};
+  --ids-dropdown-zindex: #{tokens.$z-index-100};
+  --ids-dropdown-min-height: #{tokens.$space-1};
+  --ids-dropdown-box-shadow: #{tokens.$shadow-12};
+
+  /* Click Handler */
+  --ids-dropdown-zindex-click-handler: #{tokens.$z-index-90};
+}
+
+.ids-dropdown {
+  width: 100%;
+  position: absolute;
+  min-height: var(--ids-dropdown-min-height);
+  overflow: hidden;
+  background-color: var(--ids-dropdown-background);
+  border-radius: var(--ids-dropdown-border-radius);
+  box-shadow: var(--ids-dropdown-box-shadow);
+  z-index: var(--ids-dropdown-zindex);
+
+  &--top {
+    transform: translateY(-100%);
+  }
+
+  &--right {
+    transform: translateX(100%);
+  }
+
+  &--bottom {
+    transform: translateY(100%);
+  }
+
+  &--left {
+    transform: translateX(-100%);
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--ids-dropdown-zindex-click-handler);
+    width: 100%;
+    height: 100%;
+    cursor: default;
+  }
+}
