@@ -27,6 +27,7 @@ const withTM = require('next-transpile-modules')([
   '@igloo-ui/tabs',
   '@igloo-ui/popover',
   '@igloo-ui/modal',
+  '@igloo-ui/textarea',
 ]);
 
 const path = require('path');

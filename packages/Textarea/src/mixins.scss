@@ -1,0 +1,25 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+
+@mixin fancy-webkit-scrollbar(
+  $background-color: #{tokens.$samoyed},
+  $scrollbar-color: #{tokens.$grey-300},
+  $scrollbar-width: 1rem) {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+    height: $scrollbar-width;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-color;
+    border: 0.2rem solid $background-color;
+    border-radius: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
