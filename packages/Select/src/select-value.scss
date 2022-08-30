@@ -3,7 +3,7 @@
 :root {
   /* Default */
   --ids-dropdown-value-padding: #{tokens.$space-2} #{tokens.$space-3};
-  --ids-dropdown-value-gap: #{tokens.$space-1};
+  --ids-dropdown-value-icon-margin-right: #{tokens.$space-1};
 
   /* Compact **/
   --ids-dropdown-value-padding-compact: #{tokens.$space-1} #{tokens.$space-3};
@@ -19,7 +19,6 @@
   display: flex;
   flex-flow: row nowrap;
   align-content: center;
-  gap: var(--ids-dropdown-value-gap);
   padding: var(--ids-dropdown-value-padding);
   white-space: nowrap;
   overflow: hidden;
@@ -39,5 +38,6 @@
   svg {
     order: 0;
     align-self: center;
+    margin-right: var(--ids-dropdown-value-icon-margin-right);
   }
 }
