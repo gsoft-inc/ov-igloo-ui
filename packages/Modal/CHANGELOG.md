@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 0.2.0
+
+### Minor Changes
+
+- 8f7d7c7: An animation was added to the modal component when opening and closing. The way to call it was changed, but it wasn't a breaking change; you just won't have the closing animation. Also, the outline on the modal was removed.
+
 ## 0.1.1
 
 ### Patch Changes

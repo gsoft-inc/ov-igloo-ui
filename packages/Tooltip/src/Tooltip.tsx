@@ -119,12 +119,27 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     document.body
   );
 
+  React.useEffect(() => {
+    if (referenceElement) {
+      // The reason we use the native js event is because react has a bug where
+      // it will not call onMouseLeave if it has a disabled button inside.
+      referenceElement.addEventListener('mouseleave', onMouseLeaveHandle);
+    }
+    // Called when unmounting component
+    return () => {
+      if (referenceElement) {
+        // This may still be called multiple times so we want to
+        // make sure we remove the event before mounting it again.
+        referenceElement.removeEventListener('mouseleave', onMouseLeaveHandle);
+      }
+    };
+  }, [referenceElement]);
+
   return (
     <span
       ref={setReferenceElement}
       className={classes}
       onMouseEnter={onMouseEnterHandle}
-      onMouseLeave={onMouseLeaveHandle}
     >
       {children}
       {disabled ? null : show && tooltip}
