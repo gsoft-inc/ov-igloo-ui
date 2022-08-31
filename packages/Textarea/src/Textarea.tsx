@@ -29,18 +29,21 @@ export interface TextareaProps extends React.ComponentProps<'textarea'> {
   value?: string;
 }
 
-const Textarea: React.FunctionComponent<TextareaProps> = ({
-  allowNewline = true,
-  className,
-  dataTest,
-  error = false,
-  isAutoResize = false,
-  maxLength,
-  onChange,
-  showCharactersIndicator = false,
-  value,
-  ...props
-}) => {
+const Textarea: React.FunctionComponent<TextareaProps> = (
+  props: TextareaProps
+) => {
+  const {
+    allowNewline = true,
+    className,
+    dataTest,
+    error = false,
+    isAutoResize = false,
+    maxLength,
+    onChange,
+    showCharactersIndicator = false,
+    value,
+    ...rest
+  } = props;
   const textareaRef = React.useRef<HTMLTextAreaElement | null>(null);
   const [currentCharLength, setCurrentCharLength] = React.useState(
     value?.length ?? 0
@@ -49,15 +52,14 @@ const Textarea: React.FunctionComponent<TextareaProps> = ({
   const textareaMaxLength = maxLength ?? 0;
   const displayCharIndicator = showCharactersIndicator && textareaMaxLength > 0;
 
-  const getClasses = (prefix = 'ids-textarea'): string => {
-    const classes = cx(prefix, {
-      [`${prefix}--error`]: error,
-      [`${prefix}--has-char-count`]: displayCharIndicator,
-      [`${prefix}--disabled`]: props.disabled,
-    });
+  const classes = cx('ids-textarea', className, {
+    'ids-textarea--has-char-count': displayCharIndicator,
+  });
 
-    return classes;
-  };
+  const fieldClasses = cx('ids-textarea__field', {
+    'ids-textarea__field--error': error,
+    'ids-textarea__field--disabled': rest.disabled,
+  });
 
   const handleOnChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
@@ -90,15 +92,15 @@ const Textarea: React.FunctionComponent<TextareaProps> = ({
   }, [currentValue]);
 
   return (
-    <div className={`${getClasses()} ${className}`} data-test={dataTest}>
+    <div className={classes} data-test={dataTest}>
       <textarea
         ref={textareaRef}
-        className={getClasses('ids-textarea__field')}
+        className={fieldClasses}
         maxLength={maxLength}
         onChange={handleOnChange}
         onKeyDown={handleKeyDown}
         value={value}
-        {...props}
+        {...rest}
       />
 
       {displayCharIndicator && (

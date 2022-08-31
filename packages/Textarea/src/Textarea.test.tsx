@@ -25,13 +25,13 @@ describe('Textarea', () => {
 
   test('It should render disabled', (): void => {
     const component = setUp({ disabled: true });
-    const wrapper = component.find('.ids-textarea--disabled');
+    const wrapper = component.find('.ids-textarea__field--disabled');
     expect(wrapper.length).toBe(1);
   });
 
   test('It should render an error look', (): void => {
     const component = setUp({ error: true });
-    const wrapper = component.find('.ids-textarea--error');
+    const wrapper = component.find('.ids-textarea__field--error');
     expect(wrapper.length).toBe(1);
   });
 
