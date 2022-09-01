@@ -1,0 +1,94 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+@use 'mixins';
+
+:root {
+  /* Default */
+  --ids-textarea-font-family: #{tokens.$primary-font-family};
+  --ids-textarea-font-size: #{tokens.$font-size-4};
+  --ids-textarea-line-height: #{tokens.$line-height-xxxl};
+  --ids-textarea-color: #{tokens.$grey-800};
+  --ids-textarea-border-color: #{tokens.$grey-300};
+  --ids-textarea-border-radius: #{tokens.$border-radius-sm};
+  --ids-textarea-padding: #{tokens.$space-2} #{tokens.$space-3};
+
+  /* Placeholder */
+  --ids-textarea-color-placeholder: #{tokens.$grey-400};
+
+  /* Focus */
+  --ids-textarea-focus-border-color: #{tokens.$electric-blue-500};
+
+  /* Error */
+  --ids-textarea-error-border-color: #{tokens.$coral-500};
+
+  /* Disabled */
+  --ids-textarea-disabled-background: #{tokens.$grey-200};
+  --ids-textarea-disabled-color: #{tokens.$grey-500};
+
+  /* Character Indicator */
+  --ids-textarea-char-indicator-padding-bottom: #{tokens.$space-4};
+  --ids-textarea-char-indicator-bottom: #{tokens.$space-2};
+  --ids-textarea-char-indicator-right: #{tokens.$space-3};
+  --ids-textarea-char-indicator-color: #{tokens.$grey-400};
+  --ids-textarea-char-indicator-size: #{tokens.$font-size-2};
+  --ids-textarea-char-indicator-line-height: #{tokens.$line-height-xl};
+}
+
+.ids-textarea {
+  font-family: var(--ids-textarea-font-family);
+  font-size: var(--ids-textarea-font-size);
+  position: relative;
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+
+  &__field {
+    border: 1px solid var(--ids-textarea-border-color);
+    border-radius: var(--ids-textarea-border-radius);
+    color: var(--ids-textarea-color);
+    font-family: inherit;
+    font-size: inherit;
+    line-height: var(--ids-textarea-line-height);
+    outline: none;
+    padding: var(--ids-textarea-padding);
+    resize: none;
+    width: 100%;
+
+    @include mixins.fancy-webkit-scrollbar;
+
+    &::placeholder {
+      color: var(--ids-textarea-color-placeholder);
+    }
+
+    &:focus,
+    .ids-textarea--focus & {
+      border-color: var(--ids-textarea-focus-border-color);
+    }
+
+    &--error {
+      border-color: var(--ids-textarea-error-border-color);
+    }
+
+    &:disabled {
+      background: var(--ids-textarea-disabled-background);
+      border-color: var(--ids-textarea-disabled-background);
+      color: var(--ids-textarea-disabled-color);
+      cursor: not-allowed;
+    }
+
+    &--has-char-count {
+      padding-bottom: var(--ids-textarea-char-indicator-padding-bottom);
+    }
+  }
+
+  &__char-indicator {
+    bottom: var(--ids-textarea-char-indicator-bottom);
+    color: var(--ids-textarea-char-indicator-color);
+    font-size: var(--ids-textarea-char-indicator-size);
+    line-height: var(--ids-textarea-char-indicator-line-height);
+    position: absolute;
+    right: var(--ids-textarea-char-indicator-right);
+  }
+}
