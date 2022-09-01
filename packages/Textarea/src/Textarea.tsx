@@ -11,6 +11,8 @@ export interface TextareaProps extends React.ComponentProps<'textarea'> {
   className?: string;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
+  /** True if the textarea should be disabled. */
+  disabled?: boolean;
   /** True if the textarea has an error. */
   error?: boolean;
   /** True if the textarea should resize
@@ -36,6 +38,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = (
     allowNewline = true,
     className,
     dataTest,
+    disabled = false,
     error = false,
     isAutoResize = false,
     maxLength,
@@ -58,7 +61,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = (
 
   const fieldClasses = cx('ids-textarea__field', {
     'ids-textarea__field--error': error,
-    'ids-textarea__field--disabled': rest.disabled,
+    'ids-textarea__field--disabled': disabled,
   });
 
   const handleOnChange = (
