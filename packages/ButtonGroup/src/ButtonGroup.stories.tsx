@@ -137,3 +137,25 @@ export const WhitIcons = () => (
     </ButtonGroup>
   </Section>
 );
+
+export const WhitIconsAndText = () => (
+  <Section>
+    <ButtonGroup>
+      <ButtonItem active>
+        <UnorderedList /> List
+      </ButtonItem>
+      <ButtonItem>
+        <Tree /> Tree
+      </ButtonItem>
+    </ButtonGroup>
+
+    <ButtonGroup small>
+      <ButtonItem>
+        <UnorderedList /> List
+      </ButtonItem>
+      <ButtonItem>
+        <Tree /> Tree
+      </ButtonItem>
+    </ButtonGroup>
+  </Section>
+);
