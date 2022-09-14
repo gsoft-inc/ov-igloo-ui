@@ -1,5 +1,11 @@
 # @igloo-ui/button-group
 
+## 0.2.0
+
+### Minor Changes
+
+- 6cc6013: feat(buttonGroup): add support for icon and text
+
 ## 0.1.4
 
 ### Patch Changes
