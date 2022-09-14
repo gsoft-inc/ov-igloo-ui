@@ -98,42 +98,42 @@ export const Small = () => (
   </Section>
 );
 
-export const WhitIcons = () => (
+export const WithIcons = () => (
   <Section>
     <ButtonGroup compact>
-      <ButtonItem>
-        <UnorderedList />
-      </ButtonItem>
-      <ButtonItem>
-        <Tree />
-      </ButtonItem>
+      <ButtonItem icon={<UnorderedList />} />
+      <ButtonItem icon={<Tree />} />
     </ButtonGroup>
 
     <ButtonGroup compact small>
-      <ButtonItem>
-        <UnorderedList />
-      </ButtonItem>
-      <ButtonItem>
-        <Tree />
-      </ButtonItem>
+      <ButtonItem icon={<UnorderedList />} />
+      <ButtonItem icon={<Tree />} />
     </ButtonGroup>
 
     <ButtonGroup>
-      <ButtonItem>
-        <UnorderedList />
-      </ButtonItem>
-      <ButtonItem>
-        <Tree />
-      </ButtonItem>
+      <ButtonItem icon={<UnorderedList />} />
+      <ButtonItem icon={<Tree />} />
     </ButtonGroup>
 
     <ButtonGroup small>
-      <ButtonItem>
-        <UnorderedList />
+      <ButtonItem icon={<UnorderedList />} />
+      <ButtonItem icon={<Tree />} />
+    </ButtonGroup>
+  </Section>
+);
+
+export const WithIconsAndText = () => (
+  <Section>
+    <ButtonGroup>
+      <ButtonItem active icon={<UnorderedList />}>
+        List
       </ButtonItem>
-      <ButtonItem>
-        <Tree />
-      </ButtonItem>
+      <ButtonItem icon={<Tree />}>Tree</ButtonItem>
+    </ButtonGroup>
+
+    <ButtonGroup small>
+      <ButtonItem icon={<UnorderedList />}>List</ButtonItem>
+      <ButtonItem icon={<Tree />}>Tree</ButtonItem>
     </ButtonGroup>
   </Section>
 );

@@ -31,6 +31,9 @@
   --ids-button-group-padding-small: #{tokens.$space-1};
   --ids-button-group-padding-compact: #{tokens.$space-2};
   --ids-button-group-height-small: #{tokens.$space-5};
+
+  /* With icons */
+  --ids-button-group-icon-spacing: #{tokens.$space-1};
 }
 
 .ids-btn-group {
@@ -42,6 +45,8 @@
 }
 
 .ids-btn-group__item {
+  display: flex;
+  align-items: center;
   font-size: inherit;
   position: relative;
   border-style: solid;
@@ -124,4 +129,8 @@
 
 .ids-btn-group__item:focus:not(:focus-visible) {
   box-shadow: none;
+}
+
+.ids-btn-group__text {
+  margin-left: var(--ids-button-group-icon-spacing);
 }
