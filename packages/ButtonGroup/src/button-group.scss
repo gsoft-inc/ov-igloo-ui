@@ -28,6 +28,7 @@
   --ids-button-group-background-disabled: #{tokens.$grey-300};
 
   /* Variant */
+  --ids-button-group-font-size-small: #{tokens.$font-size-3};
   --ids-button-group-padding-small: #{tokens.$space-1};
   --ids-button-group-padding-compact: #{tokens.$space-2};
   --ids-button-group-height-small: #{tokens.$space-5};
@@ -124,6 +125,7 @@
 }
 
 .ids-btn-group--small {
+  font-size: var(--ids-button-group-font-size-small);
   height: var(--ids-button-group-height-small);
 }
 
