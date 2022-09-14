@@ -98,7 +98,7 @@ export const Small = () => (
   </Section>
 );
 
-export const WhitIcons = () => (
+export const WithIcons = () => (
   <Section>
     <ButtonGroup compact>
       <ButtonItem icon={<UnorderedList />} />
@@ -122,7 +122,7 @@ export const WhitIcons = () => (
   </Section>
 );
 
-export const WhitIconsAndText = () => (
+export const WithIconsAndText = () => (
   <Section>
     <ButtonGroup>
       <ButtonItem active icon={<UnorderedList />}>
