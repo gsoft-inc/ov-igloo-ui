@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 export interface ButtonGroupItemProps extends React.ComponentProps<'button'> {
   /** The content to display inside the `ButtonItem` */
-  children: React.ReactNode | string;
+  children?: React.ReactNode | string;
   /** Whether or not the `ButtonItem` is active */
   active?: boolean;
   /** Disabled the `ButtonItem`, the user cannot click on them */
@@ -12,12 +12,22 @@ export interface ButtonGroupItemProps extends React.ComponentProps<'button'> {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
+  /** Icon to display to the left of button content */
+  icon?: React.ReactNode;
 }
 
 const ButtonGroupItem: React.FunctionComponent<ButtonGroupItemProps> = (
   props: ButtonGroupItemProps
 ) => {
-  const { children, active, disabled, onClick, dataTest, ...rest } = props;
+  const { children, icon, active, disabled, onClick, dataTest, ...rest } =
+    props;
+
+  const renderWithIcon = (
+    <>
+      {icon}{' '}
+      {children && <span className="ids-btn-group__text">{children}</span>}
+    </>
+  );
 
   return (
     <button
@@ -29,7 +39,7 @@ const ButtonGroupItem: React.FunctionComponent<ButtonGroupItemProps> = (
       onClick={onClick}
       {...rest}
     >
-      {children}
+      {icon ? renderWithIcon : children}
     </button>
   );
 };

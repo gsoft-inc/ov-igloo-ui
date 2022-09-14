@@ -88,10 +88,6 @@
     margin-left: -1px;
   }
 
-  > svg {
-    margin-right: var(--ids-button-group-icon-spacing);
-  }
-
   &.is-selected {
     border-color: var(--ids-button-group-border-selected);
     color: var(--ids-button-group-text-selected);
@@ -133,4 +129,8 @@
 
 .ids-btn-group__item:focus:not(:focus-visible) {
   box-shadow: none;
+}
+
+.ids-btn-group__text {
+  margin-left: var(--ids-button-group-icon-spacing);
 }
