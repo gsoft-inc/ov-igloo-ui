@@ -1534,6 +1534,14 @@
     classnames "^2.3.1"
     html-react-parser "^1.2.7"
 
+"@igloo-ui/icons@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@igloo-ui/icons/-/icons-1.4.0.tgz#0ca07f1955403fddb1e580b232f19379d6d8cd30"
+  integrity sha512-WBpr7OcEBjrHw9RwVX6xfgt81X09EIcdTlKluwFQm0B3cPBzgF5u/i73MhubWyXrfAoinSikHGS6PfoaHSo94w==
+  dependencies:
+    classnames "^2.3.1"
+    html-react-parser "^1.2.7"
+
 "@igloo-ui/tokens@^1.0.0", "@igloo-ui/tokens@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-1.1.1.tgz#a5f25912e2f74dec56e845d1845f00c41abecc5a"
