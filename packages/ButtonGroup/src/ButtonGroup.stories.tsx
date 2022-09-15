@@ -125,15 +125,15 @@ export const WithIcons = () => (
 export const WithIconsAndText = () => (
   <Section>
     <ButtonGroup>
-      <ButtonItem active icon={<UnorderedList />}>
+      <ButtonItem active icon={<UnorderedList size="small" />}>
         List
       </ButtonItem>
-      <ButtonItem icon={<Tree />}>Tree</ButtonItem>
+      <ButtonItem icon={<Tree size="small" />}>Tree</ButtonItem>
     </ButtonGroup>
 
     <ButtonGroup small>
-      <ButtonItem icon={<UnorderedList />}>List</ButtonItem>
-      <ButtonItem icon={<Tree />}>Tree</ButtonItem>
+      <ButtonItem icon={<UnorderedList size="small" />}>List</ButtonItem>
+      <ButtonItem icon={<Tree size="small" />}>Tree</ButtonItem>
     </ButtonGroup>
   </Section>
 );
