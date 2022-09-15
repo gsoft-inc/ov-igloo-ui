@@ -1,5 +1,11 @@
 # docs
 
+## 0.0.9
+
+### Patch Changes
+
+- 8ab15ed: Update icons library to 1.4.0
+
 ## 0.0.8
 
 ### Patch Changes
