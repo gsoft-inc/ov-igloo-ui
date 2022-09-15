@@ -1,5 +1,11 @@
 # @igloo-ui/button-group
 
+## 0.2.1
+
+### Patch Changes
+
+- 86c1ea2: Fix the font-size on small version
+
 ## 0.2.0
 
 ### Minor Changes
