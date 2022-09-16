@@ -5,7 +5,7 @@
   /* Default */
   --ids-option-button-border-color: #{tokens.$grey-400};
   --ids-option-button-border-radius: #{tokens.$border-radius-sm};
-  --ids-option-button-font-size: #{tokens.$font-size-4};
+  --ids-option-button-font-family: #{tokens.$primary-font-family};
 
   /* Focus */
   --ids-option-button-focus-outline-color: #{tokens.$electric-blue-600};
@@ -23,6 +23,7 @@
   --ids-option-button-icon-container-background: #{tokens.$electric-blue-50};
   --ids-option-button-icon-container-height: 5.6rem;
   --ids-option-button-icon-container-width: 6.2rem;
+  --ids-option-button-icon-background-disabled: #{tokens.$grey-300};
 
   /* Text */
   --ids-option-button-text-container-padding: #{tokens.$space-1} #{tokens.$space-3};
@@ -45,13 +46,21 @@
   background: var(--ids-option-button-icon-container-disabled-background);
 }
 
-.ids-option-button {
+%ellipsis {
   display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ids-option-button {
   position: relative;
 
   &__radio {
+    height: 0;
     opacity: 0;
     position: absolute;
+    width: 0;
   }
 
   &__label {
@@ -70,8 +79,7 @@
   }
 
   &__radio:focus ~ &__label {
-    outline: 1.5px solid var(--ids-option-button-focus-outline-color);
-    outline-offset: 2px;
+    box-shadow: var(--focus);
   }
 
   &__radio:checked ~ &__label {
@@ -118,6 +126,10 @@
     @extend %disabled-icon-container;
   }
 
+  &__icon-container svg.disabled [fill$='#{tokens.$sky-100}'] {
+    fill: var(--ids-option-button-icon-background-disabled);
+  }
+
   &__text-container {
     flex: 1 1 auto;
     min-width: 0;
@@ -126,20 +138,16 @@
 
   &__text {
     color: var(--ids-option-button-text-color);
-    display: block;
     font-size: var(--ids-option-button-text-font-size);
     font-weight: var(--ids-option-button-text-font-weight);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+
+    @extend %ellipsis;
   }
 
   &__desc {
     color: var(--ids-option-button-desc-color);
-    display: block;
     font-size: var(--ids-option-button-desc-font-size);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+
+    @extend %ellipsis;
   }
 }

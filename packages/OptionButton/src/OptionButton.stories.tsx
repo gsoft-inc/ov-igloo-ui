@@ -21,41 +21,45 @@ const Template: ComponentStory<typeof OptionButton> = (args) => (
 );
 export const Overview = Template.bind({});
 Overview.args = {
-  text: 'some text',
+  children: 'some text',
   buttonType: 'MultipleChoice',
-  id: 'optionButton1',
+  htmlFor: 'optionButton1',
 };
 
 export const ButtonType = () => (
   <Section>
     <OptionButton
       className="isb-option-button__item"
-      id="textBtn"
+      htmlFor="textBtn"
       name="buttonType"
       buttonType="Text"
-      text="Text"
-    />
+    >
+      Text
+    </OptionButton>
     <OptionButton
       className="isb-option-button__item"
-      id="optionScaleBtn"
+      htmlFor="optionScaleBtn"
       name="buttonType"
       buttonType="OptionScale"
-      text="Option Scale"
-    />
+    >
+      Option Scale
+    </OptionButton>
     <OptionButton
       className="isb-option-button__item"
-      id="MultipleChoiceBtn"
+      htmlFor="MultipleChoiceBtn"
       name="buttonType"
       buttonType="MultipleChoice"
-      text="Multiple Choice"
-    />
+    >
+      Multiple Choice
+    </OptionButton>
     <OptionButton
       className="isb-option-button__item"
-      id="LikertBtn"
+      htmlFor="LikertBtn"
       name="buttonType"
       buttonType="Likert"
-      text="Likert"
-    />
+    >
+      Likert
+    </OptionButton>
   </Section>
 );
 
@@ -63,26 +67,29 @@ export const States = () => (
   <Section>
     <OptionButton
       className="isb-option-button__item"
-      id="focusBtn"
+      htmlFor="focusBtn"
       name="state"
       buttonType="Text"
-      text="Focus"
-    />
+    >
+      Focus
+    </OptionButton>
     <OptionButton
       className="isb-option-button__item"
-      id="disabledBtn"
+      htmlFor="disabledBtn"
       name="state"
       buttonType="OptionScale"
-      text="Disabled"
       disabled
-    />
+    >
+      Disabled
+    </OptionButton>
     <OptionButton
       className="isb-option-button__item"
-      id="hoverBtn"
+      htmlFor="hoverBtn"
       name="state"
       buttonType="OptionScale"
-      text="Hover"
-    />
+    >
+      Hover
+    </OptionButton>
   </Section>
 );
 
@@ -104,25 +111,27 @@ export const CheckedStates = () => {
     <Section>
       <OptionButton
         className="isb-option-button__item"
-        id="radio1"
+        htmlFor="radio1"
         name="checkedState"
         buttonType="MultipleChoice"
-        text="Unchecked Button"
         title="Unchecked Button"
         onChange={handleOnChange}
         checked={checkedId == 'radio1'}
         unchecked={checkedId != 'radio1'}
-      />
+      >
+        Unchecked Button
+      </OptionButton>
       <OptionButton
         className="isb-option-button__item"
-        id="radio2"
+        htmlFor="radio2"
         name="checkedState"
         buttonType="Likert"
-        text="Checked"
         onChange={handleOnChange}
         checked={checkedId == 'radio2'}
         unchecked={checkedId != 'radio2'}
-      />
+      >
+        Checked
+      </OptionButton>
     </Section>
   );
 };
@@ -132,12 +141,13 @@ export const Description = () => (
     <span title="Description with a lot of text to be cut off">
       <OptionButton
         className="isb-option-button__item"
-        id="descBtn"
+        htmlFor="descBtn"
         name="description"
         buttonType="Text"
-        text="Text"
         description="Description with a lot of text to be cut off"
-      />
+      >
+        Text
+      </OptionButton>
     </span>
   </Section>
 );
@@ -146,11 +156,12 @@ export const Icon = () => (
   <Section>
     <OptionButton
       className="isb-option-button__item"
-      id="iconBtn"
+      htmlFor="iconBtn"
       name="icon"
-      text="Custom Icon"
       icon={<Sparkles size="large" />}
-    />
+    >
+      Custom Icon
+    </OptionButton>
   </Section>
 );
 
@@ -158,9 +169,10 @@ export const NoIcon = () => (
   <Section>
     <OptionButton
       className="isb-option-button__item"
-      id="noIconBtn"
+      htmlFor="noIconBtn"
       name="noIcon"
-      text="No Icon"
-    />
+    >
+      No Icon
+    </OptionButton>
   </Section>
 );

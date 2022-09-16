@@ -6,11 +6,12 @@ const Example = () => {
     <div className="example example--truncate">
       <OptionButton
         className="isb-option-button__item"
-        id="MultipleChoiceBtn"
+        htmlFor="MultipleChoiceBtn"
         name="buttonType"
         buttonType="MultipleChoice"
-        text="Multiple Choice"
-      />
+      >
+        Multiple Choice
+      </OptionButton>
     </div>
   );
 };

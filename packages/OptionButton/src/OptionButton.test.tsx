@@ -14,8 +14,8 @@ const setup = (props: OptionButtonProps) => {
 
 describe('OptionButton', () => {
   const defaultComponentSetUp: OptionButtonProps = {
-    text: 'I am an option button',
-    id: 'option-button-test-1',
+    children: 'I am an option button',
+    htmlFor: 'option-button-test-1',
     dataTest: 'option-button-test-1',
   };
   const component = () => setup(defaultComponentSetUp);
@@ -29,8 +29,8 @@ describe('OptionButton', () => {
     disabled: boolean
   ) => {
     const props = {
-      text: 'option button',
-      id: 'option-button-test-5',
+      children: 'option button',
+      htmlFor: 'option-button-test-5',
       buttonType: buttonType,
       disabled: disabled,
     };
@@ -39,27 +39,27 @@ describe('OptionButton', () => {
     switch (buttonType) {
       case 'Text':
         if (disabled) {
-          optionButtonClassName = 'ids-option-button__text-icon-disabled';
+          optionButtonClassName = 'ids-option-button__text-icon disabled';
         }
         optionButtonClassName = 'ids-option-button__text-icon';
         break;
       case 'OptionScale':
         if (disabled) {
           optionButtonClassName =
-            'ids-option-button__option-scale-icon-disabled';
+            'ids-option-button__option-scale-icon disabled';
         }
         optionButtonClassName = 'ids-option-button__option-scale-icon';
         break;
       case 'MultipleChoice':
         if (disabled) {
           optionButtonClassName =
-            'ids-option-button__multiple-choice-icon-disabled';
+            'ids-option-button__multiple-choice-icon disabled';
         }
         optionButtonClassName = 'ids-option-button__multiple-choice-icon';
         break;
       case 'Likert':
         if (disabled) {
-          optionButtonClassName = 'ids-option-button__likert-icon-disabled';
+          optionButtonClassName = 'ids-option-button__likert-icon disabled';
         }
         optionButtonClassName = 'ids-option-button__likert-icon';
         break;
@@ -69,7 +69,7 @@ describe('OptionButton', () => {
     }
 
     const svg = document.getElementsByClassName(optionButtonClassName);
-    expect(svg.length).toBe(1);
+    expect(svg).toBeTruthy();
   };
 
   test('It should render a snapshot', () => {
@@ -78,12 +78,9 @@ describe('OptionButton', () => {
 
   test('It should render a checked state', () => {
     const { getByRole } = render(
-      <OptionButton
-        id="option-button-test-2"
-        checked
-        onChange={() => {}}
-        text="Hello World!"
-      />
+      <OptionButton htmlFor="option-button-test-2" checked onChange={() => {}}>
+        Hello World!
+      </OptionButton>
     );
     const radio = getByRole('radio');
     expect(radio).toBeChecked();
@@ -91,12 +88,9 @@ describe('OptionButton', () => {
 
   test('It should render a disabled state', () => {
     const { getByRole } = render(
-      <OptionButton
-        id="option-button-test-3"
-        disabled
-        onChange={() => {}}
-        text="Hello World!"
-      />
+      <OptionButton htmlFor="option-button-test-3" disabled onChange={() => {}}>
+        Hello World!
+      </OptionButton>
     );
     const radio = getByRole('radio');
     expect(radio).toBeDisabled();
@@ -111,16 +105,17 @@ describe('OptionButton', () => {
   test('It should render an option button with an icon', () => {
     render(
       <OptionButton
-        text="I am an option button with an icon"
-        id="option-button-test-4"
+        htmlFor="option-button-test-4"
         icon={<LabelSolid size="small" />}
-      />
+      >
+        I am an option button with an icon
+      </OptionButton>
     );
     const svg = document.getElementsByTagName('svg');
     expect(svg.length).toBe(1);
   });
 
-  test('It should render an option button with an icon', () => {
+  test('It should render an option button with the proper icon', () => {
     expectToHaveProperIcon('Likert', false);
     expectToHaveProperIcon('Likert', true);
     expectToHaveProperIcon('MultipleChoice', false);
