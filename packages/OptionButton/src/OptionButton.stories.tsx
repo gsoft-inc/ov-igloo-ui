@@ -22,7 +22,7 @@ const Template: ComponentStory<typeof OptionButton> = (args) => (
 export const Overview = Template.bind({});
 Overview.args = {
   children: 'some text',
-  buttonType: 'MultipleChoice',
+  buttonType: 'multipleChoice',
   htmlFor: 'optionButton1',
 };
 
@@ -32,7 +32,7 @@ export const ButtonType = () => (
       className="isb-option-button__item"
       htmlFor="textBtn"
       name="buttonType"
-      buttonType="Text"
+      buttonType="text"
     >
       Text
     </OptionButton>
@@ -40,7 +40,7 @@ export const ButtonType = () => (
       className="isb-option-button__item"
       htmlFor="optionScaleBtn"
       name="buttonType"
-      buttonType="OptionScale"
+      buttonType="optionScale"
     >
       Option Scale
     </OptionButton>
@@ -48,7 +48,7 @@ export const ButtonType = () => (
       className="isb-option-button__item"
       htmlFor="MultipleChoiceBtn"
       name="buttonType"
-      buttonType="MultipleChoice"
+      buttonType="multipleChoice"
     >
       Multiple Choice
     </OptionButton>
@@ -56,7 +56,7 @@ export const ButtonType = () => (
       className="isb-option-button__item"
       htmlFor="LikertBtn"
       name="buttonType"
-      buttonType="Likert"
+      buttonType="likert"
     >
       Likert
     </OptionButton>
@@ -69,7 +69,7 @@ export const States = () => (
       className="isb-option-button__item"
       htmlFor="focusBtn"
       name="state"
-      buttonType="Text"
+      buttonType="text"
     >
       Focus
     </OptionButton>
@@ -77,7 +77,7 @@ export const States = () => (
       className="isb-option-button__item"
       htmlFor="disabledBtn"
       name="state"
-      buttonType="OptionScale"
+      buttonType="optionScale"
       disabled
     >
       Disabled
@@ -86,7 +86,7 @@ export const States = () => (
       className="isb-option-button__item"
       htmlFor="hoverBtn"
       name="state"
-      buttonType="OptionScale"
+      buttonType="optionScale"
     >
       Hover
     </OptionButton>
@@ -113,7 +113,7 @@ export const CheckedStates = () => {
         className="isb-option-button__item"
         htmlFor="radio1"
         name="checkedState"
-        buttonType="MultipleChoice"
+        buttonType="multipleChoice"
         title="Unchecked Button"
         onChange={handleOnChange}
         checked={checkedId == 'radio1'}
@@ -125,7 +125,7 @@ export const CheckedStates = () => {
         className="isb-option-button__item"
         htmlFor="radio2"
         name="checkedState"
-        buttonType="Likert"
+        buttonType="likert"
         onChange={handleOnChange}
         checked={checkedId == 'radio2'}
         unchecked={checkedId != 'radio2'}
@@ -143,7 +143,7 @@ export const Description = () => (
         className="isb-option-button__item"
         htmlFor="descBtn"
         name="description"
-        buttonType="Text"
+        buttonType="text"
         description="Description with a lot of text to be cut off"
       >
         Text
@@ -161,18 +161,6 @@ export const Icon = () => (
       icon={<Sparkles size="large" />}
     >
       Custom Icon
-    </OptionButton>
-  </Section>
-);
-
-export const NoIcon = () => (
-  <Section>
-    <OptionButton
-      className="isb-option-button__item"
-      htmlFor="noIconBtn"
-      name="noIcon"
-    >
-      No Icon
     </OptionButton>
   </Section>
 );

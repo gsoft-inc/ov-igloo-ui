@@ -37,34 +37,31 @@ describe('OptionButton', () => {
     let optionButtonClassName = '';
     render(<OptionButton {...props} />);
     switch (buttonType) {
-      case 'Text':
-        if (disabled) {
-          optionButtonClassName = 'ids-option-button__text-icon disabled';
-        }
-        optionButtonClassName = 'ids-option-button__text-icon';
-        break;
-      case 'OptionScale':
+      case 'optionScale':
         if (disabled) {
           optionButtonClassName =
             'ids-option-button__option-scale-icon disabled';
         }
         optionButtonClassName = 'ids-option-button__option-scale-icon';
         break;
-      case 'MultipleChoice':
+      case 'multipleChoice':
         if (disabled) {
           optionButtonClassName =
             'ids-option-button__multiple-choice-icon disabled';
         }
         optionButtonClassName = 'ids-option-button__multiple-choice-icon';
         break;
-      case 'Likert':
+      case 'likert':
         if (disabled) {
           optionButtonClassName = 'ids-option-button__likert-icon disabled';
         }
         optionButtonClassName = 'ids-option-button__likert-icon';
         break;
       default:
-        optionButtonClassName = '';
+        if (disabled) {
+          optionButtonClassName = 'ids-option-button__text-icon disabled';
+        }
+        optionButtonClassName = 'ids-option-button__text-icon';
         break;
     }
 
@@ -116,13 +113,13 @@ describe('OptionButton', () => {
   });
 
   test('It should render an option button with the proper icon', () => {
-    expectToHaveProperIcon('Likert', false);
-    expectToHaveProperIcon('Likert', true);
-    expectToHaveProperIcon('MultipleChoice', false);
-    expectToHaveProperIcon('MultipleChoice', true);
-    expectToHaveProperIcon('OptionScale', false);
-    expectToHaveProperIcon('OptionScale', true);
-    expectToHaveProperIcon('Text', false);
-    expectToHaveProperIcon('Text', true);
+    expectToHaveProperIcon('likert', false);
+    expectToHaveProperIcon('likert', true);
+    expectToHaveProperIcon('multipleChoice', false);
+    expectToHaveProperIcon('multipleChoice', true);
+    expectToHaveProperIcon('optionScale', false);
+    expectToHaveProperIcon('optionScale', true);
+    expectToHaveProperIcon('text', false);
+    expectToHaveProperIcon('text', true);
   });
 });

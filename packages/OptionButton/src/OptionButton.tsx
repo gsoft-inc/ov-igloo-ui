@@ -10,7 +10,7 @@ import {
 
 import './option-button.scss';
 
-export type ButtonType = 'Text' | 'OptionScale' | 'MultipleChoice' | 'Likert';
+export type ButtonType = 'text' | 'optionScale' | 'multipleChoice' | 'likert';
 
 export interface OptionButtonProps extends React.ComponentProps<'input'> {
   /** Add a button type, which will come with its own icon.
@@ -44,7 +44,7 @@ const OptionButton: React.FunctionComponent<OptionButtonProps> = (
   props: OptionButtonProps
 ) => {
   const {
-    buttonType,
+    buttonType = 'text',
     checked,
     children,
     className,
@@ -67,33 +67,31 @@ const OptionButton: React.FunctionComponent<OptionButtonProps> = (
       disabledClass = 'disabled';
     }
     switch (buttonType) {
-      case 'Text':
-        return (
-          <TextIcon
-            className={`ids-option-button__text-icon ${disabledClass}`}
-          />
-        );
-      case 'OptionScale':
+      case 'optionScale':
         return (
           <OptionScaleIcon
             className={`ids-option-button__option-scale-icon ${disabledClass}`}
           />
         );
-      case 'MultipleChoice':
+      case 'multipleChoice':
         return (
           <MultipleChoiceIcon
             // eslint-disable-next-line max-len
             className={`ids-option-button__multiple-choice-icon ${disabledClass}`}
           />
         );
-      case 'Likert':
+      case 'likert':
         return (
           <LikertIcon
             className={`ids-option-button__likert-icon ${disabledClass}`}
           />
         );
       default:
-        return null;
+        return (
+          <TextIcon
+            className={`ids-option-button__text-icon ${disabledClass}`}
+          />
+        );
     }
   };
 

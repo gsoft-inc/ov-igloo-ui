@@ -27,7 +27,7 @@ Then to use the component in your code just import it!
 ```jsx
 import OptionButton from '@igloo-ui/option-button';
 
-<OptionButton htmlFor="textBtn" name="buttonType" buttonType="Text">
+<OptionButton htmlFor="textBtn" name="buttonType" buttonType="text">
   Text
 </OptionButton>;
 ```

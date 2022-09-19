@@ -8,7 +8,7 @@ const Example = () => {
         className="isb-option-button__item"
         htmlFor="MultipleChoiceBtn"
         name="buttonType"
-        buttonType="MultipleChoice"
+        buttonType="multipleChoice"
       >
         Multiple Choice
       </OptionButton>
