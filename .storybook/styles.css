@@ -71,6 +71,7 @@ body,
 .isb-option-button__item {
   flex: 1 1 26rem;
   max-width: 26rem;
+  padding: 6px 0;
 }
 
 .gv-mockup {
