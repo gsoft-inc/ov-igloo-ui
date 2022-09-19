@@ -31,7 +31,7 @@ export interface OptionButtonProps extends React.ComponentProps<'input'> {
   /** Add an htmlFor to the radio button of the option button.
    * This will also be used as the htmlFor attribute on the label */
   htmlFor: string;
-  /** Add an icon the the beginning of the option button.
+  /** Add an icon to the beginning of the option button.
    * This overrides the icon that comes with buttonType */
   icon?: React.ReactNode;
   /** Add an onChange event to the option button */

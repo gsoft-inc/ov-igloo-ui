@@ -19,10 +19,6 @@ describe('OptionButton', () => {
     dataTest: 'option-button-test-1',
   };
   const component = () => setup(defaultComponentSetUp);
-  test('It should render without errors', () => {
-    const wrapper = component().find('.ids-option-button');
-    expect(wrapper.length).toBe(1);
-  });
 
   const expectToHaveProperIcon = (
     buttonType: ButtonType,
@@ -68,6 +64,11 @@ describe('OptionButton', () => {
     const svg = document.getElementsByClassName(optionButtonClassName);
     expect(svg).toBeTruthy();
   };
+
+  test('It should render without errors', () => {
+    const wrapper = component().find('.ids-option-button');
+    expect(wrapper.length).toBe(1);
+  });
 
   test('It should render a snapshot', () => {
     expect(component()).toMatchSnapshot();

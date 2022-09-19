@@ -7,9 +7,6 @@
   --ids-option-button-border-radius: #{tokens.$border-radius-sm};
   --ids-option-button-font-family: #{tokens.$primary-font-family};
 
-  /* Focus */
-  --ids-option-button-focus-outline-color: #{tokens.$electric-blue-600};
-
   /* Hover */
   --ids-option-button-hover-border-color: #{tokens.$grey-600};
 
@@ -145,6 +142,7 @@
     color: var(--ids-option-button-text-color);
     font-size: var(--ids-option-button-text-font-size);
     font-weight: var(--ids-option-button-text-font-weight);
+    line-height: var(--ids-option-button-text-line-height);
 
     @extend %ellipsis;
   }
@@ -152,6 +150,7 @@
   &__desc {
     color: var(--ids-option-button-desc-color);
     font-size: var(--ids-option-button-desc-font-size);
+    line-height: var(--ids-option-button-desc-line-height);
 
     @extend %ellipsis;
   }
