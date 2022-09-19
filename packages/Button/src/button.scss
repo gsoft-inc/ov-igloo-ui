@@ -151,7 +151,7 @@
 
 .ids-btn.ids-btn--disabled,
 .ids-btn:disabled {
-  pointer-events: auto;
+  cursor: not-allowed;
   user-select: none;
   background: var(--ids-btn-background-primary-disabled);
 }
@@ -235,7 +235,11 @@
 }
 
 .ids-btn--secondary.ids-btn--disabled,
-.ids-btn--secondary:disabled {
+.ids-btn--secondary:disabled,
+.ids-btn--secondary.ids-btn--disabled:hover,
+.ids-btn--secondary:hover:disabled,
+.ids-btn--secondary:hover:active:disabled,
+.ids-btn--secondary.ids-btn--disabled:hover:active {
   color: var(--ids-btn-text-secondary-disabled);
   background: var(--ids-btn-background-secondary-disabled);
   border: 1px solid var(--ids-btn-border-secondary-disabled);
@@ -251,8 +255,6 @@
 .ids-btn--secondary:focus,
 .ids-btn--secondary.focus,
 .ids-btn--secondary:hover,
-.ids-btn--secondary:focus:active,
-.ids-btn--secondary.focus:active,
 .ids-btn--secondary:hover:active,
 .ids-btn--secondary.ids-btn--active:hover {
   color: var(--ids-btn-text-secondary-hover);
