@@ -1,0 +1,157 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-option-button-border-color: #{tokens.$grey-400};
+  --ids-option-button-border-radius: #{tokens.$border-radius-sm};
+  --ids-option-button-font-family: #{tokens.$primary-font-family};
+
+  /* Hover */
+  --ids-option-button-hover-border-color: #{tokens.$grey-600};
+
+  /* Checked */
+  --ids-option-button-checked-box-shadow: 0 0 0.6rem #3c7dff;
+
+  /* disabled */
+  --ids-option-button-icon-container-disabled-background: #{tokens.$grey-200};
+
+  /* Icon */
+  --ids-option-button-icon-container-background: #{tokens.$electric-blue-50};
+  --ids-option-button-icon-container-height: 5.6rem;
+  --ids-option-button-icon-container-width: 6.2rem;
+  --ids-option-button-icon-background-disabled: #{tokens.$grey-300};
+
+  /* Text */
+  --ids-option-button-text-container-padding: #{tokens.$space-1} #{tokens.$space-3};
+  --ids-option-button-text-color: #{tokens.$grey-800};
+  --ids-option-button-text-font-size: #{tokens.$font-size-5};
+  --ids-option-button-text-font-weight: #{tokens.$font-weight-semi-bold};
+  --ids-option-button-text-line-height: #{tokens.$line-height-xl};
+
+  /* Description */
+  --ids-option-button-desc-color: #{tokens.$grey-600};
+  --ids-option-button-desc-font-size: #{tokens.$font-size-3};
+  --ids-option-button-desc-line-height: #{tokens.$line-height-xxl};
+}
+
+%active-icon-container {
+  background: var(--ids-option-button-icon-container-background);
+}
+
+%disabled-icon-container {
+  background: var(--ids-option-button-icon-container-disabled-background);
+}
+
+%ellipsis {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ids-option-button {
+  box-sizing: border-box;
+  position: relative;
+
+  & * {
+    box-sizing: border-box;
+  }
+
+  &__radio {
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+  }
+
+  &__label {
+    align-items: center;
+    border: 1px solid var(--ids-option-button-border-color);
+    border-radius: var(--ids-option-button-border-radius);
+    cursor: pointer;
+    display: flex;
+    font-family: var(--ids-option-button-font-family);
+    outline: none;
+    overflow: hidden;
+  }
+
+  &__radio:hover ~ &__label {
+    border-color: var(--ids-option-button-hover-border-color);
+  }
+
+  &__radio:focus ~ &__label {
+    box-shadow: var(--focus);
+  }
+
+  &__radio:checked ~ &__label {
+    border: 1px solid var(--ids-option-button-border-color);
+    box-shadow: var(--ids-option-button-checked-box-shadow);
+    cursor: default;
+    outline: none;
+  }
+
+  &__radio:disabled ~ &__label {
+    border: 1px solid var(--ids-option-button-border-color);
+    box-shadow: none;
+    cursor: not-allowed;
+    outline: none;
+  }
+
+  &--unchecked &__radio:checked ~ &__label {
+    box-shadow: none;
+  }
+
+  &__icon-container {
+    @extend %active-icon-container;
+
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: center;
+    min-height: var(--ids-option-button-icon-container-height);
+    position: relative;
+    width: var(--ids-option-button-icon-container-width);
+  }
+
+  &--unchecked &__icon-container {
+    @extend %disabled-icon-container;
+  }
+
+  &__radio:checked ~ &__label &__icon-container {
+    @extend %active-icon-container;
+  }
+
+  &__radio:disabled ~ &__label &__icon-container,
+  &--unchecked &__radio:checked ~ &__label &__icon-container {
+    @extend %disabled-icon-container;
+  }
+
+  &__icon-container svg.disabled [fill$='#{tokens.$sky-100}'] {
+    fill: var(--ids-option-button-icon-background-disabled);
+  }
+
+  &__text-container {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: var(--ids-option-button-text-container-padding);
+  }
+
+  &__text {
+    color: var(--ids-option-button-text-color);
+    font-size: var(--ids-option-button-text-font-size);
+    font-weight: var(--ids-option-button-text-font-weight);
+    line-height: var(--ids-option-button-text-line-height);
+
+    @extend %ellipsis;
+  }
+
+  &__desc {
+    color: var(--ids-option-button-desc-color);
+    font-size: var(--ids-option-button-desc-font-size);
+    line-height: var(--ids-option-button-desc-line-height);
+
+    @extend %ellipsis;
+  }
+}
