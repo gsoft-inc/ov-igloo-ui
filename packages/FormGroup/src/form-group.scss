@@ -1,0 +1,46 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-form-group-font-family: #{tokens.$primary-font-family};
+  --ids-form-group-font-size: #{tokens.$font-size-3};
+  --ids-form-group-line-height: #{tokens.$line-height-xxl};
+
+  /* Label */
+  --ids-form-group-label-color: #{tokens.$grey-600};
+  --ids-form-group-label-margin-bottom: #{tokens.$space-1};
+
+  /* Error */
+  --ids-form-group-error-color: #{tokens.$coral-500};
+  --ids-form-group-error-margin-top: #{tokens.$space-1};
+  --ids-form-group-error-icon-margin: 0 #{tokens.$space-1} 0 0;
+}
+
+.ids-form-group {
+  font-family: var(--ids-form-group-font-family);
+  font-size: var(--ids-form-group-font-size);
+  line-height: var(--ids-form-group-line-height);
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+
+  &__label {
+    color: var(--ids-form-group-label-color);
+    display: block;
+    margin-bottom: var(--ids-form-group-label-margin-bottom);
+  }
+
+  &__error {
+    align-items: center;
+    color: var(--ids-form-group-error-color);
+    display: flex;
+    margin-top: var(--ids-form-group-error-margin-top);
+  }
+
+  &__error svg {
+    margin: var(--ids-form-group-error-icon-margin);
+  }
+}
