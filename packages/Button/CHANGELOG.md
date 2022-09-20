@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.4
+
+### Patch Changes
+
+- 4bd97f4: fix the hover state rendering of the disabled secondary button
+
 ## 0.3.3
 
 ### Patch Changes
