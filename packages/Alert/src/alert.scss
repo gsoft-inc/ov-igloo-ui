@@ -6,6 +6,7 @@
   /* Default */
   --ids-alert-font-family: #{tokens.$primary-font-family};
   --ids-alert-font-size: #{tokens.$font-size-3};
+  --ids-alert-line-height: #{tokens.$line-height-xxl};
   --ids-alert-title-font-weight: #{tokens.$font-weight-semi-bold};
   --ids-alert-padding: #{tokens.$space-3};
   --ids-alert-flex-gap-component: #{tokens.$space-3};
@@ -14,11 +15,12 @@
   --ids-alert-background-color-light: #{tokens.$samoyed};
   --ids-alert-background-color-darker: #{tokens.$grey-100};
   --ids-alert-border-left-width: 6px;
-  --ids-alert-text-color-title: #{tokens.$black};
+  --ids-alert-text-color-title: #{tokens.$grey-800};
   --ids-alert-text-color-body: #{tokens.$grey-600};
   --ids-alert-icon-size-small: 26px;
   --ids-alert-icon-size-medium: 40px;
   --ids-alert-link-color: #{tokens.$electric-blue-500};
+  --ids-alert-btn-margin-top: #{tokens.$space-3};
 
   /* Announcement */
   --ids-alert-color-announcement: #{tokens.$seaweed-500};
@@ -41,6 +43,7 @@
   border-left: var(--ids-alert-border-left-width) solid transparent;
   font-size: var(--ids-alert-font-size);
   font-family: var(--ids-alert-font-family);
+  line-height: var(--ids-alert-line-height);
   padding: var(--ids-alert-padding);
 
   /* External component override */
@@ -84,6 +87,7 @@
   /* Components */
   &__dismiss-btn {
     flex: 0 0 auto;
+    margin: -1rem -1rem 0 0;
 
     @media screen and (max-width: 600px) {
       &.ids-btn {
@@ -100,7 +104,7 @@
     align-items: flex-start;
 
     .ids-btn {
-      margin-top: 1.2rem;
+      margin-top: var(--ids-alert-btn-margin-top);
     }
   }
 
