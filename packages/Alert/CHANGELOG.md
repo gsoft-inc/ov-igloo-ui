@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.1.10
+
+### Patch Changes
+
+- d846589: Updated alert scss to match design
+
 ## 0.1.9
 
 ### Patch Changes
