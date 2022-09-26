@@ -1,14 +1,13 @@
 import React from 'react';
+import Input from '@igloo-ui/input';
+import Textarea from '@igloo-ui/textarea';
+import Select, { SelectOption } from '@igloo-ui/select';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import Section from '@components/section';
-import readme from '../README.md';
 
+import readme from '../README.md';
 import FormGroup from './FormGroup';
-import Input from '@igloo-ui/input';
-import Select, { SelectOption } from '@igloo-ui/select';
-import Textarea from '@igloo-ui/textarea';
 
 export default {
   title: 'Components/FormGroup',
@@ -20,7 +19,7 @@ export default {
 
 const Template: ComponentStory<typeof FormGroup> = (args) => (
   <FormGroup {...args}>
-    <Input type="text" placeholder="John" error={true} />
+    <Input type="text" placeholder="John" error={args.showError} />
   </FormGroup>
 );
 
