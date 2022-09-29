@@ -6,7 +6,7 @@ import './filter.scss';
 export interface FilterProps extends React.ComponentProps<'button'> {
   /** Add the main text/icon to the filter */
   children: React.ReactNode;
-  /** Add class names to the filter button */
+  /** Add class names to the filter */
   className?: string;
   /** Count of items that match the filter */
   count?: number;
