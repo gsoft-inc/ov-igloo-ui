@@ -6,14 +6,13 @@ const Example = () => {
   return (
     <div className="example example--truncate">
       <Filter
-        count={5}
         onClick={() => {
           setSelected(!selected);
           alert('Filter was clicked');
         }}
         selected={selected}
       >
-        Assigned to me
+        Assigned to me (5)
       </Filter>
     </div>
   );

@@ -18,6 +18,9 @@
   --ids-filter-background-selected: #{tokens.$grey-500};
   --ids-filter-color-selected: #{tokens.$samoyed};
 
+  /* Selected Hover */
+  --ids-filter-background-selected-hover: #{tokens.$grey-800};
+
   /* Disabled */
   --ids-filter-color-disabled: #{tokens.$grey-400};
 
@@ -73,6 +76,11 @@
   @extend %hover-style;
 }
 
+.ids-filter--selected:hover {
+  background: var(--ids-filter-background-selected-hover);
+  color: var(--ids-filter-color-selected);
+}
+
 .ids-filter:focus,
 .ids-filter.focus {
   box-shadow: var(--ids-filter-focus);
@@ -95,12 +103,4 @@
 
 .ids-filter--selected:focus:not(:focus-visible) {
   @extend %selected-style;
-}
-
-.ids-filter__count::before {
-  content: '\00A0(';
-}
-
-.ids-filter__count::after {
-  content: ')';
 }

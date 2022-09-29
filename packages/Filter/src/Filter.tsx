@@ -8,8 +8,6 @@ export interface FilterProps extends React.ComponentProps<'button'> {
   children: React.ReactNode;
   /** Add class names to the filter */
   className?: string;
-  /** Count of items that match the filter */
-  count?: number;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
   /** True if the filter should be disabled */
@@ -24,7 +22,6 @@ const Filter: React.FunctionComponent<FilterProps> = (props: FilterProps) => {
   const {
     children,
     className,
-    count,
     dataTest,
     disabled,
     onClick,
@@ -46,7 +43,6 @@ const Filter: React.FunctionComponent<FilterProps> = (props: FilterProps) => {
       {...rest}
     >
       {children}
-      {count && <span className="ids-filter__count">{count}</span>}
     </button>
   );
 };

@@ -27,13 +27,12 @@ Then to use the component in your code just import it!
 import Filter from '@igloo-ui/filter';
 
 <Filter
-  count={5}
   onClick={() => {
     setSelected(!selected);
     alert('Filter was clicked');
   }}
   selected={selected}
 >
-  Assigned to me
+  Assigned to me (5)
 </Filter>;
 ```

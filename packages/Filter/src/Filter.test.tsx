@@ -34,14 +34,4 @@ describe('Filter', () => {
     const filter = screen.getByTestId('filter3');
     expect(filter).toHaveClass('ids-filter--selected');
   });
-
-  test('It should render a filter with a count', () => {
-    render(
-      <Filter dataTest="filter4" count={4}>
-        Assigned to me
-      </Filter>
-    );
-    const filter = screen.getByTestId('filter4');
-    expect(filter).toContainHTML('<span class="ids-filter__count">4</span>');
-  });
 });

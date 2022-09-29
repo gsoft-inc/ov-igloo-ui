@@ -18,18 +18,26 @@ export default {
 const Template: ComponentStory<typeof Filter> = (args) => <Filter {...args} />;
 export const Overview = Template.bind({});
 Overview.args = {
-  children: 'Assigned to me',
-  count: 5,
+  children: 'Assigned to me (5)',
   onClick: () => {
     alert('Filter was clicked');
   },
 };
 
-export const Count = () => (
-  <Section>
-    <Filter count={3}>Filter with count</Filter>
-  </Section>
-);
+export const Count = () => {
+  const [amount, setAmount] = React.useState(3);
+  return (
+    <Section>
+      <Filter
+        onClick={() => {
+          setAmount(amount + 1);
+        }}
+      >
+        Click to add count: ({amount})
+      </Filter>
+    </Section>
+  );
+};
 
 export const States = () => (
   <Section>
@@ -45,6 +53,21 @@ export const States = () => (
 States.parameters = {
   pseudo: {
     hover: ['#filterHover'],
+  },
+};
+
+export const SelectedStates = () => (
+  <Section>
+    <Filter selected>Selected Filter</Filter>
+    <Filter id="filterSelectedHover" selected>
+      Selected filter with hover state
+    </Filter>
+  </Section>
+);
+
+SelectedStates.parameters = {
+  pseudo: {
+    hover: ['#filterSelectedHover'],
   },
 };
 
