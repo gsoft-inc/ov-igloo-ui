@@ -1,0 +1,106 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-filter-background: #{tokens.$grey-200};
+  --ids-filter-border-radius: calc(#{tokens.$border-radius-md} * 4);
+  --ids-filter-color: #{tokens.$grey-600};
+  --ids-filter-font-family: #{tokens.$primary-font-family};
+  --ids-filter-font-size: #{tokens.$font-size-3};
+  --ids-filter-line-height: #{tokens.$line-height-xxl};
+  --ids-filter-padding: #{tokens.$space-2} #{tokens.$space-3};
+
+  /* Hover */
+  --ids-filter-background-hover: #{tokens.$grey-300};
+
+  /* Selected */
+  --ids-filter-background-selected: #{tokens.$grey-500};
+  --ids-filter-color-selected: #{tokens.$samoyed};
+
+  /* Selected Hover */
+  --ids-filter-background-selected-hover: #{tokens.$grey-800};
+
+  /* Disabled */
+  --ids-filter-color-disabled: #{tokens.$grey-400};
+
+  /* Focus */
+
+  /* Needed to add a 0.1px blur to fix a bug where
+  chrome would have a lingering blue line when focusing in and out */
+  --ids-filter-focus: 0 0 0 2px #fff, 0 0 0.1px 3.5px #0c46d0;
+}
+
+%default-style {
+  background: var(--ids-filter-background);
+  color: var(--ids-filter-color);
+}
+
+%hover-style {
+  background: var(--ids-filter-background-hover);
+  color: var(--ids-filter-color);
+}
+
+%selected-style {
+  background: var(--ids-filter-background-selected);
+  color: var(--ids-filter-color-selected);
+}
+
+.ids-filter {
+  @extend %default-style;
+
+  align-items: center;
+  border: none;
+  border-radius: var(--ids-filter-border-radius);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--ids-filter-font-family);
+  font-size: var(--ids-filter-font-size);
+  line-height: var(--ids-filter-line-height);
+  outline: none;
+  padding: var(--ids-filter-padding);
+  position: relative;
+  transition: background 0.4s, color 0.4s;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.ids-filter--selected {
+  @extend %selected-style;
+}
+
+.ids-filter:hover {
+  @extend %hover-style;
+}
+
+.ids-filter--selected:hover {
+  background: var(--ids-filter-background-selected-hover);
+  color: var(--ids-filter-color-selected);
+}
+
+.ids-filter:focus,
+.ids-filter.focus {
+  box-shadow: var(--ids-filter-focus);
+
+  @extend %hover-style;
+}
+
+.ids-filter:disabled {
+  background: var(--ids-filter-background);
+  box-shadow: none;
+  color: var(--ids-filter-color-disabled);
+  cursor: not-allowed;
+}
+
+.ids-filter:focus:not(:focus-visible) {
+  @extend %default-style;
+
+  box-shadow: none;
+}
+
+.ids-filter--selected:focus:not(:focus-visible) {
+  @extend %selected-style;
+}
