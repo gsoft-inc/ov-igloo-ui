@@ -31,6 +31,7 @@ const withTM = require('next-transpile-modules')([
   '@igloo-ui/option-button',
   '@igloo-ui/form-group',
   '@igloo-ui/filter',
+  '@igloo-ui/breadcrumb',
 ]);
 
 const path = require('path');

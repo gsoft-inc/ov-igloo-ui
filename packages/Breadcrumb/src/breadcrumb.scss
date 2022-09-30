@@ -1,0 +1,68 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-breadcrumb-font-family: #{tokens.$primary-font-family};
+  --ids-breadcrumb-font-size: #{tokens.$font-size-3};
+  --ids-breadcrumb-line-height: #{tokens.$line-height-xxl};
+
+  /* Item */
+  --ids-breadcrumb-item-color: #{tokens.$grey-900};
+
+  /* Link */
+  --ids-breadcrumb-link-color: #{tokens.$grey-600};
+  --ids-breadcrumb-link-border: 1px solid #{tokens.$grey-600};
+
+  /* Chevron */
+  --ids-breadcrumb-chevron-color: #{tokens.$grey-800};
+  --ids-breadcrumb-chevron-spacing: 0 #{tokens.$space-2};
+}
+
+.ids-breadcrumb {
+  font-family: var(--ids-breadcrumb-font-family);
+  font-size: var(--ids-breadcrumb-font-size);
+  line-height: var(--ids-breadcrumb-line-height);
+}
+
+.ids-breadcrumb__list {
+  align-items: center;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ids-breadcrumb__item {
+  color: var(--ids-breadcrumb-item-color);
+  flex: 0 0 auto;
+}
+
+.ids-breadcrumb__link {
+  color: var(--ids-breadcrumb-link-color);
+  border-bottom: 1px solid transparent;
+  outline: none;
+  text-decoration: none;
+  transition: border 0.2s ease-out;
+
+  &:hover {
+    border-bottom: var(--ids-breadcrumb-link-border);
+  }
+
+  &:focus {
+    box-shadow: var(--focus);
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+}
+
+.ids-breadcrumb__chevron {
+  color: var(--ids-breadcrumb-chevron-color);
+  margin: var(--ids-breadcrumb-chevron-spacing);
+}
+
+.ids-breadcrumb__item--is-back-link .ids-breadcrumb__chevron {
+  margin-left: 0;
+}
