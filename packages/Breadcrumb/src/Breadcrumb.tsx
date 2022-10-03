@@ -13,7 +13,7 @@ type Item = {
   link?: string;
 };
 
-export interface BreadcrumbProps extends React.ComponentProps<'ul'> {
+export interface BreadcrumbProps extends React.ComponentProps<'ol'> {
   /** Add a specific class to the tabs component */
   className?: string;
   /** Add a data-test tag for automated tests */
