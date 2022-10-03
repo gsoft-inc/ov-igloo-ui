@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb It should render without error and a snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    aria-label="Breadcrumb"
+    class="ids-breadcrumb"
+    data-test="breadcrumb1"
+  >
+    <ol
+      class="ids-breadcrumb__list"
+    >
+      <li
+        aria-current="false"
+        class="ids-breadcrumb__item"
+      >
+        <a
+          class="ids-breadcrumb__link"
+          href="#"
+        >
+          Home
+        </a>
+        <svg
+          class="ids-icon ids-breadcrumb__chevron"
+          fill="none"
+          height="16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m6 4 3.823 3.823a.25.25 0 0 1 0 .354L6 12"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+      </li>
+      <li
+        aria-current="false"
+        class="ids-breadcrumb__item"
+      >
+        <a
+          class="ids-breadcrumb__link"
+          href="#"
+        >
+          Career
+        </a>
+        <svg
+          class="ids-icon ids-breadcrumb__chevron"
+          fill="none"
+          height="16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m6 4 3.823 3.823a.25.25 0 0 1 0 .354L6 12"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+      </li>
+      <li
+        aria-current="page"
+        class="ids-breadcrumb__item ids-breadcrumb__item--current"
+      >
+        Developer
+      </li>
+    </ol>
+  </nav>
+</DocumentFragment>
+`;
