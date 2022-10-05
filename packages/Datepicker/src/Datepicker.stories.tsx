@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
-import { DateTime } from 'luxon';
+import Input from '@igloo-ui/input';
+import Dropdown from '@igloo-ui/dropdown';
 
+import Calendar from '@igloo-ui/icons/dist/Calendar';
+import { DateTime } from 'luxon';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import readme from '../README.md';
+
+// @ts-ignore
+import example from './goal-date.png';
 
 import Datepicker from './Datepicker';
 
@@ -34,4 +40,41 @@ Overview.args = {
   selectedDay: apiDate.toString(),
   disabled: false,
   dataTest: 'ids-datepicker',
+};
+
+export const Goal = () => {
+  const [show, setShow] = useState(true);
+  const [date, setDate] = useState('');
+
+  const handleChange = (date: { utc: string }) => {
+    setDate(date.utc);
+  };
+
+  const dt = date !== '' ? DateTime.fromISO(date).toLocaleString() : date;
+
+  return (
+    <>
+      <img
+        src={example}
+        alt="demo image"
+        style={{ maxWidth: '100%', width: 'auto' }}
+      />
+      <div style={{ position: 'relative' }}>
+        <Dropdown
+          isOpen={show}
+          size="medium"
+          position="bottom"
+          content={<Datepicker onChange={handleChange} selectedDay={date} />}
+        >
+          <Input
+            prefixIcon={<Calendar />}
+            placeholder="Select date"
+            onClick={() => setShow(true)}
+            onBlur={() => setShow(false)}
+            value={dt}
+          />
+        </Dropdown>
+      </div>
+    </>
+  );
 };

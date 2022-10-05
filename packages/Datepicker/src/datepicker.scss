@@ -1,5 +1,5 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
-@use "~@igloo-ui/tokens/dist/fonts";
+@use '~@igloo-ui/tokens/dist/fonts';
 
 :root {
   /* Default */
@@ -7,22 +7,18 @@
   --ids-datepicker-font-size: #{tokens.$font-size-4};
   --ids-datepicker-padding: #{tokens.$space-4};
   --ids-datepicker-shadow: #{tokens.$shadow-12};
-  --ids-datepicker-width: 31.4rem;
+  --ids-datepicker-width: 26.6rem;
   --ids-datepicker-color: #{tokens.$grey-800};
   --ids-datepicker-color-disabled: #{tokens.$grey-600};
-
   --ids-datepicker-table-width: 100%;
   --ids-datepicker-table-margin: #{tokens.$space-3};
   --ids-datepicker-table-border: 1px solid #{tokens.$grey-250};
-
   --ids-datepicker-thead-font-size: #{tokens.$font-size-3};
   --ids-datepicker-thead-line-height: 1.25;
   --ids-datepicker-thead-color: #{tokens.$electric-blue-500};
   --ids-datepicker-thead-space: #{tokens.$space-2};
-
   --ids-datepicker-title-font-size: #{tokens.$font-size-5};
   --ids-datepicker-title-line-height: 1.333;
-
   --ids-datepicker-content: 1rem;
   --ids-datepicker-content-color-today: #{tokens.$electric-blue-500};
   --ids-datepicker-content-background-hover: #{tokens.$electric-blue-600};
@@ -32,18 +28,18 @@
   --ids-datepicker-content-focus: #{tokens.$electric-blue-600} solid 1.5px;
 
   // Disabled state
-  --ids-datepicker-disabled-background-hover: #F0F8FF;
-  --ids-datepicker-disabled-background-selected: #51A0FA;
-  --ids-datepicker-disabled-table-border: 1px solid #EFF1F5;
+  --ids-datepicker-disabled-background-hover: #f0f8ff;
+  --ids-datepicker-disabled-background-selected: #51a0fa;
+  --ids-datepicker-disabled-table-border: 1px solid #eff1f5;
 }
 
 .ids-datepicker {
   font-family: var(--ids-datepicker-font-family);
   font-size: var(--ids-datepicker-font-size);
-  padding: var(--ids-datepicker-padding);
-  box-shadow: var(--ids-datepicker-shadow);
+  //padding: var(--ids-datepicker-padding);
+  //box-shadow: var(--ids-datepicker-shadow);
   width: var(--ids-datepicker-width);
-  box-sizing: border-box;
+  //box-sizing: border-box;
 
   &__header {
     display: flex;
@@ -132,6 +128,7 @@
 .ids-datepicker--disabled {
   .ids-datepicker__content {
     cursor: not-allowed;
+
     --ids-datepicker-table-border: var(--ids-datepicker-disabled-table-border);
 
     &:not(.ids-datepicker__content--selected), {
@@ -145,11 +142,5 @@
     &--selected {
       background-color: var(--ids-datepicker-disabled-background-selected);
     }
-
   }
-
-
-
-
-
 }
