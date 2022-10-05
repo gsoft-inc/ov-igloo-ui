@@ -7,7 +7,6 @@ import { nav } from '../navigation';
 
 import brand from '../svg/brand.svg';
 import github from '../svg/github.svg';
-import slack from '../svg/slack-monochrome.svg';
 import darkMode from '../svg/dark-mode.svg';
 
 export default function Layout({ children, page }) {
@@ -16,11 +15,6 @@ export default function Layout({ children, page }) {
       href: 'https://github.com/gsoft-inc/ov-igloo-ui',
       icon: github,
       label: 'GitHub',
-    },
-    {
-      href: 'https://gsoft.slack.com/archives/C0225DYUSH1',
-      icon: slack,
-      label: 'Slack',
     },
     // {
     //   href: '#',

@@ -1,17 +1,17 @@
 {
-  "name": "@igloo-ui/textarea",
-  "version": "0.1.1",
-  "main": "dist/Textarea.js",
-  "module": "dist/Textarea.js",
-  "types": "dist/Textarea.d.ts",
-  "styles": "dist/textarea.css",
+  "name": "@igloo-ui/filter",
+  "version": "0.1.0",
+  "main": "dist/Filter.js",
+  "module": "dist/Filter.js",
+  "types": "dist/Filter.d.ts",
+  "styles": "dist/filter.css",
   "publishConfig": {
     "access": "public"
   },
   "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
   "author": "Officevibe Inc.",
   "contributors": [
-    "Vicky vicky.comeau@gsoft.com"
+    "Vicky Comeau vicky.comeau@gsoft.com"
   ],
   "license": "Apache-2.0",
   "peerDependencies": {
@@ -22,15 +22,11 @@
   ],
   "dependencies": {
     "@igloo-ui/tokens": "^1.0.0",
-    "classnames": "^2.3.1",
-    "autosize": "^4.0.4"
+    "classnames": "^2.3.1"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "IE >= 11"
-  ],
-  "devDependencies": {
-    "@types/autosize": "^4.0.1"
-  }
+  ]
 }

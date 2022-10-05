@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter It should render a snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="ids-filter"
+    data-test="filter1"
+    type="button"
+  >
+    Assigned to me
+  </button>
+</DocumentFragment>
+`;
