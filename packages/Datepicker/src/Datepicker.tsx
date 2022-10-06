@@ -1,5 +1,10 @@
 import * as React from 'react';
 import cx from 'classnames';
+
+import Dropdown from '@igloo-ui/dropdown';
+import Input from '@igloo-ui/input';
+import IconCalendar from '@igloo-ui/icons/dist/Calendar';
+
 import {
   getLocalTimeZone,
   now,
@@ -14,12 +19,26 @@ import './datepicker.scss';
 type Date = { utc: string; local: string };
 
 export interface DatepickerProps {
-  /** Callback function that will be called when the user types something. */
-  onChange?: (date: Date) => void;
   /** Selected value for the date picker. */
   selectedDay?: string;
+  /** Specifies the value inside the input. */
+  value?: string;
+  /** Text that appears in the form control when it has no value set */
+  placeholder?: string;
+  /** Defines a string value that labels the current element */
+  ariaLabel?: string;
   /** True if the date picker should be disabled. */
   disabled?: boolean;
+  /** Form.ValidatedField state. True if has error. */
+  error?: boolean;
+  /** True if the Dropdown list is displayed. */
+  isOpen?: boolean;
+  /** Callback function that will be called when the user types something. */
+  onChange?: (date: Date) => void;
+  /** Callback when the user clicks outside the Dropdown. */
+  onClose?: () => void;
+  /** Function called when the element receives focus. */
+  onFocus?: () => void;
   /** Add a data-test tag for automated tests. */
   dataTest?: string;
 }
@@ -27,7 +46,20 @@ export interface DatepickerProps {
 const Datepicker: React.FunctionComponent<DatepickerProps> = (
   props: DatepickerProps
 ) => {
-  const { selectedDay, onChange, disabled = false, dataTest } = props;
+  const {
+    selectedDay,
+    value,
+    placeholder,
+    ariaLabel,
+    disabled = false,
+    isOpen = false,
+    error = false,
+    onChange,
+    onClose,
+    onFocus,
+    dataTest,
+    ...rest
+  } = props;
 
   // the calendar receives an utc date and formats it locally
   const formattedDate = selectedDay
@@ -66,16 +98,37 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = (
     'ids-datepicker--disabled': disabled,
   });
 
+  const calendar = (
+    <Calendar
+      aria-label={ariaLabel}
+      className={classes}
+      value={formattedDate}
+      onChange={handleChange}
+      isDisabled={disabled}
+    />
+  );
+
   return (
     <>
-      <Calendar
+      <Dropdown
+        isOpen={!disabled && isOpen}
+        onClose={onClose}
+        content={calendar}
+        position="bottom"
+        size="medium"
         dataTest={dataTest}
-        aria-label="Event date"
-        className={classes}
-        value={formattedDate}
-        onChange={handleChange}
-        isDisabled={disabled}
-      />
+        {...rest}
+      >
+        <Input
+          type="text"
+          disabled={disabled}
+          error={error}
+          value={value}
+          placeholder={placeholder}
+          prefixIcon={<IconCalendar />}
+          onFocus={onFocus}
+        />
+      </Dropdown>
     </>
   );
 };

@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
-import Input from '@igloo-ui/input';
-import Dropdown from '@igloo-ui/dropdown';
 
-import Calendar from '@igloo-ui/icons/dist/Calendar';
 import { DateTime } from 'luxon';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import readme from '../README.md';
-
-// @ts-ignore
-import example from './goal-date.png';
-
 import Datepicker from './Datepicker';
+
+import readme from '../README.md';
 
 export default {
   title: 'Components/Datepicker',
@@ -22,13 +16,33 @@ export default {
 } as ComponentMeta<typeof Datepicker>;
 
 const Template: ComponentStory<typeof Datepicker> = (args) => {
+  const [showDatepicker, setShowDatepicker] = useState(args.isOpen);
   const [date, setDate] = useState(args.selectedDay);
+
+  React.useEffect(() => {
+    setShowDatepicker(false);
+  }, [date]);
+
+  const formatedDate = date ? DateTime.fromISO(date).toLocaleString() : '';
 
   const handleChange = (date: { utc: string }) => {
     setDate(date.utc);
   };
 
-  return <Datepicker {...args} selectedDay={date} onChange={handleChange} />;
+  return (
+    <Datepicker
+      disabled={args.disabled}
+      ariaLabel="goal start date"
+      placeholder="Select date"
+      selectedDay={date}
+      value={formatedDate}
+      isOpen={showDatepicker}
+      onClose={() => setShowDatepicker(false)}
+      onChange={handleChange}
+      onFocus={() => setShowDatepicker(!showDatepicker)}
+      error={args.error}
+    />
+  );
 };
 
 export const Overview = Template.bind({});
@@ -40,41 +54,15 @@ Overview.args = {
   selectedDay: apiDate.toString(),
   disabled: false,
   dataTest: 'ids-datepicker',
+  error: false,
 };
 
-export const Goal = () => {
-  const [show, setShow] = useState(true);
-  const [date, setDate] = useState('');
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+};
 
-  const handleChange = (date: { utc: string }) => {
-    setDate(date.utc);
-  };
-
-  const dt = date !== '' ? DateTime.fromISO(date).toLocaleString() : date;
-
-  return (
-    <>
-      <img
-        src={example}
-        alt="demo image"
-        style={{ maxWidth: '100%', width: 'auto' }}
-      />
-      <div style={{ position: 'relative' }}>
-        <Dropdown
-          isOpen={show}
-          size="medium"
-          position="bottom"
-          content={<Datepicker onChange={handleChange} selectedDay={date} />}
-        >
-          <Input
-            prefixIcon={<Calendar />}
-            placeholder="Select date"
-            onClick={() => setShow(true)}
-            onBlur={() => setShow(false)}
-            value={dt}
-          />
-        </Dropdown>
-      </div>
-    </>
-  );
+export const Error = Template.bind({});
+Error.args = {
+  error: true,
 };

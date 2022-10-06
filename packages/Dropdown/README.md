@@ -1,6 +1,8 @@
 # Dropdown
 
-Displays a subelement overlaid and rendering the content
+Displays a sub element overlaid and rendering the content
+
+<Example />
 
 <ReferenceLinks />
 

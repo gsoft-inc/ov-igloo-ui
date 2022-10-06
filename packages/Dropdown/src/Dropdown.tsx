@@ -13,14 +13,16 @@ export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   children: React.ReactElement;
   /** Default value displayed in the Dropdown. */
   content: React.ReactNode;
+  /** Position of the Dropdown. */
+  position?: Position;
   /** Changes the size of card, giving more or less padding */
   size?: Size;
   /** True if the Dropdown list is displayed. */
   isOpen?: boolean;
   /** Callback when the user clicks outside the Dropdown. */
   onClose?: () => void;
-  /** Position of the Dropdown. */
-  position?: Position;
+  /** Add a data-test tag for automated tests. */
+  dataTest?: string;
 }
 
 const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
@@ -29,8 +31,9 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       children,
       content,
       size = 'xsmall',
-      isOpen = false,
       onClose,
+      dataTest,
+      isOpen = false,
       position = 'bottom',
       ...rest
     } = props;
@@ -54,13 +57,13 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
     };
 
     const dropdownClasses = cx('ids-dropdown', {
-      [`ids-drop--${size}`]: size !== 'xsmall',
-      [`ids-drop--${position}`]: position !== 'bottom',
+      [`ids-dropdown--${size}`]: size !== 'xsmall',
+      [`ids-dropdown--${position}`]: position !== 'bottom',
     });
 
     return (
       <>
-        <div className="ids-dropdown__container">
+        <div className="ids-dropdown__container" data-test={dataTest}>
           {children}
           {transition(
             (styles, item) =>
@@ -80,6 +83,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
           <div
             role="button"
             tabIndex={0}
+            aria-label="overlay close"
             className="ids-dropdown__overlay"
             onClick={handleOnClose}
           />

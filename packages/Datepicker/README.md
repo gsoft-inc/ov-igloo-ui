@@ -2,6 +2,8 @@
 
 Date pickers let users choose dates from a visual calendar that’s consistently applied wherever dates need to be selected across Officevibe.
 
+<Example />
+
 <ReferenceLinks />
 
 ## Installation
@@ -24,11 +26,24 @@ Then to use the component in your code just import it!
 
 ```jsx
 import Datepicker from '@igloo-ui/datepicker';
+
+const [showDatepicker, setShowDatepicker] = useState(false);
 const [date, setDate] = useState('2022-09-30T00:00:00Z');
 
-const handleChange = (date) => {
-  setDate(date.utc);
-};
+useEffect(() => {
+  setShowDatepicker(false);
+}, [date]);
 
-<Datepicker selectedDay={date} onChange={handleChange} />;
+const formatedDate = new Date('2022-09-30T00:00:00Z').toLocaleDateString();
+
+<Datepicker
+  ariaLabel="Event date"
+  placeholder="Select date"
+  selectedDay={date}
+  value={formatedDate}
+  isOpen={showDatepicker}
+  onClose={() => setShowDatepicker(false)}
+  onChange={(date) => setDate(date.utc)}
+  onFocus={() => setShowDatepicker(!showDatepicker)}
+/>;
 ```
