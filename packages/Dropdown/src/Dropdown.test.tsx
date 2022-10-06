@@ -13,7 +13,7 @@ describe('Dropdown', () => {
     </Dropdown>
   );
   test('It should render without errors', () => {
-    const wrapper = component.find('.ids-drop__container');
+    const wrapper = component.find('.ids-dropdown__container');
     expect(wrapper.length).toBe(1);
   });
 

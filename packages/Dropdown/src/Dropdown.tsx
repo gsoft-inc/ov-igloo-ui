@@ -53,14 +53,14 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       }
     };
 
-    const dropdownClasses = cx('ids-drop', {
+    const dropdownClasses = cx('ids-dropdown', {
       [`ids-drop--${size}`]: size !== 'xsmall',
       [`ids-drop--${position}`]: position !== 'bottom',
     });
 
     return (
       <>
-        <div className="ids-drop__container">
+        <div className="ids-dropdown__container">
           {children}
           {transition(
             (styles, item) =>
@@ -80,7 +80,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
           <div
             role="button"
             tabIndex={0}
-            className="ids-drop__overlay"
+            className="ids-dropdown__overlay"
             onClick={handleOnClose}
           />
         )}

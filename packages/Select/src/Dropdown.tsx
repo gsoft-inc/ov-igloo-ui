@@ -51,7 +51,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       config: { duration: 150 },
     });
 
-    const dropdownClasses = cx('ids-dropdown', {
+    const dropdownClasses = cx('ids-select-dropdown', {
       'ids-dropdown--top': position === 'top',
       'ids-dropdown--right': position === 'right',
       'ids-dropdown--bottom': position === 'bottom',

@@ -13,7 +13,10 @@ export default {
     description: readme,
   },
   argTypes: {
-    children: { control: 'text' },
+    children: {
+      control: 'text',
+      table: { type: { summary: 'ReactNode' } },
+    },
     content: { control: 'text' },
     size: {
       table: { defaultValue: { summary: 'xsmall' } },
