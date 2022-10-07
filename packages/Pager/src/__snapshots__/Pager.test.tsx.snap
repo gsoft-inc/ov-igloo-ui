@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pager It should render without error and a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ids-pager"
+  >
+    <nav
+      aria-label="Pagination"
+      class="ids-pager__nav"
+      data-test="pager1"
+    >
+      <ol
+        class="ids-pager__list"
+      >
+        <li
+          class="ids-pager__item"
+        >
+          <button
+            aria-label="Go to previous page"
+            class="ids-pager__button ids-pager__prev"
+            disabled=""
+          >
+            <svg
+              class="ids-icon"
+              fill="none"
+              height="16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.333 4 5.57 7.764a.333.333 0 0 0 0 .472L9.333 12"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </button>
+        </li>
+        <li
+          class="ids-pager__item"
+        >
+          <button
+            aria-current="page"
+            aria-label="Page 1"
+            class="ids-pager__button ids-pager__button--selected"
+          >
+            1
+          </button>
+        </li>
+        <li
+          class="ids-pager__item"
+        >
+          <button
+            aria-current="false"
+            aria-label="Go to page 2"
+            class="ids-pager__button"
+          >
+            2
+          </button>
+        </li>
+        <li
+          class="ids-pager__item"
+        >
+          <button
+            aria-current="false"
+            aria-label="Go to page 3"
+            class="ids-pager__button"
+          >
+            3
+          </button>
+        </li>
+        <li
+          class="ids-pager__item"
+        >
+          <button
+            aria-current="false"
+            aria-label="Go to page 4"
+            class="ids-pager__button"
+          >
+            4
+          </button>
+        </li>
+        <li
+          class="ids-pager__item"
+        >
+          <button
+            aria-current="false"
+            aria-label="Go to page 5"
+            class="ids-pager__button"
+          >
+            5
+          </button>
+        </li>
+        <li
+          class="ids-pager__item"
+        >
+          <button
+            aria-label="Jump forward 5 pages"
+            class="ids-pager__button ids-pager__ellipsis"
+          >
+            <svg
+              fill="none"
+              height="12"
+              viewBox="0 0 12 12"
+              width="12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6 7C6.55228 7 7 6.55228 7 6C7 5.44772 6.55228 5 6 5C5.44772 5 5 5.44772 5 6C5 6.55228 5.44772 7 6 7Z"
+                fill="#606B79"
+              />
+              <path
+                d="M2 7C2.55228 7 3 6.55228 3 6C3 5.44772 2.55228 5 2 5C1.44772 5 1 5.44772 1 6C1 6.55228 1.44772 7 2 7Z"
+                fill="#606B79"
+              />
+              <path
+                d="M10 7C10.5523 7 11 6.55228 11 6C11 5.44772 10.5523 5 10 5C9.44772 5 9 5.44772 9 6C9 6.55228 9.44772 7 10 7Z"
+                fill="#606B79"
+              />
+            </svg>
+          </button>
+        </li>
+        <li
+          class="ids-pager__item"
+        >
+          <button
+            aria-current="false"
+            aria-label="Go to page 10"
+            class="ids-pager__button"
+          >
+            10
+          </button>
+        </li>
+        <li
+          class="ids-pager__item"
+        >
+          <button
+            aria-label="Go to next page"
+            class="ids-pager__button ids-pager__next"
+          >
+            <svg
+              class="ids-icon"
+              fill="none"
+              height="16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m6 4 3.823 3.823a.25.25 0 0 1 0 .354L6 12"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </button>
+        </li>
+      </ol>
+    </nav>
+    <div
+      class="ids-pager__results"
+    >
+      1-5 of 50
+    </div>
+  </div>
+</DocumentFragment>
+`;

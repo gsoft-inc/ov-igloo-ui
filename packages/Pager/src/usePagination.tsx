@@ -3,12 +3,17 @@ import * as React from 'react';
 export const JUMPPREV = 'jumpPrev';
 export const JUMPNEXT = 'jumpNext';
 
-type Pagination = {
+interface PaginationProps {
+  /** The number of the currently active page */
   currentPage: number;
+  /** The number of elements each page should contain */
   pageSize: number;
+  /** Represents how many pages should
+   * be on each side of the current page.  */
   siblingCount: number;
+  /** The total amount of elements */
   totalCount: number;
-};
+}
 
 const range = (start: number, end: number): number[] => {
   const length = end - start + 1;
@@ -20,7 +25,7 @@ export const usePagination = ({
   pageSize,
   siblingCount,
   totalCount,
-}: Pagination): Array<number | string> => {
+}: PaginationProps): Array<number | string> => {
   const paginationRange: Array<number | string> = React.useMemo(() => {
     const totalPageCount = Math.ceil(totalCount / pageSize);
 

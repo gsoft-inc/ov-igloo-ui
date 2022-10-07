@@ -27,12 +27,10 @@ Then to use the component in your code just import it!
 import Pager from '@igloo-ui/pager';
 
 const [currentPage, setCurrentPage] = React.useState(1);
-<Section>
-  <Pager
-    pageSize={5}
-    totalCount={200}
-    currentPage={currentPage}
-    onPageChange={(page) => setCurrentPage(page)}
-  />
-</Section>;
+<Pager
+  pageSize={5}
+  totalCount={200}
+  currentPage={currentPage}
+  onPageChange={(page) => setCurrentPage(page)}
+/>;
 ```

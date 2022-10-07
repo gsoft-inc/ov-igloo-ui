@@ -3,19 +3,14 @@ import Pager from '@igloo-ui/pager';
 
 const Example = () => {
   const [currentPage, setCurrentPage] = React.useState(1);
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
   return (
     <div className="example">
-      <Section>
-        <Pager
-          pageSize={5}
-          totalCount={200}
-          currentPage={currentPage}
-          onPageChange={handlePageChange}
-        />
-      </Section>
+      <Pager
+        pageSize={5}
+        totalCount={200}
+        currentPage={currentPage}
+        onPageChange={(page) => setCurrentPage(page)}
+      />
     </div>
   );
 };
