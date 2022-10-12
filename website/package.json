@@ -28,6 +28,7 @@
     "@igloo-ui/input": "*",
     "@igloo-ui/modal": "*",
     "@igloo-ui/option-button": "*",
+    "@igloo-ui/pager": "*",
     "@igloo-ui/popover": "*",
     "@igloo-ui/radio": "*",
     "@igloo-ui/select": "*",
@@ -36,8 +37,7 @@
     "@igloo-ui/textarea": "*",
     "@igloo-ui/toaster": "*",
     "@igloo-ui/toggle": "*",
-    "@igloo-ui/tooltip": "*",
-    "@igloo-ui/pager": "*"
+    "@igloo-ui/tooltip": "*"
   },
   "devDependencies": {
     "@igloo-ui/icons": "^1.4.0",
