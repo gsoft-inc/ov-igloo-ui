@@ -36,7 +36,8 @@
     "@igloo-ui/textarea": "*",
     "@igloo-ui/toaster": "*",
     "@igloo-ui/toggle": "*",
-    "@igloo-ui/tooltip": "*"
+    "@igloo-ui/tooltip": "*",
+    "@igloo-ui/pager": "*"
   },
   "devDependencies": {
     "@igloo-ui/icons": "^1.4.0",

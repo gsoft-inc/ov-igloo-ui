@@ -17,7 +17,7 @@ export interface PagerProps extends React.ComponentProps<'div'> {
   dataTest?: string;
   /** Called when the page is changed. */
   onPageChange: (pageNum: number) => void;
-  /** Add the number of elements each page should contain */
+  /** Specify the number of elements each page should contain */
   pageSize: number;
   /** Represents how many pages should
    * be on each side of the current page.  */
@@ -97,44 +97,49 @@ const Pager: React.FunctionComponent<PagerProps> = (props: PagerProps) => {
           {renderPrevNext('prev')}
 
           {paginationRange.map((pageNumber) => {
-            let pagerBtn = (
-              <button
-                className={cx('ids-pager__button', {
-                  'ids-pager__button--selected': pageNumber === currentPage,
-                })}
-                onClick={() => onPageChange(pageNumber as number)}
-                aria-current={pageNumber === currentPage && 'page'}
-                aria-label={
-                  pageNumber === currentPage
-                    ? `Page ${pageNumber}`
-                    : `Go to page ${pageNumber}`
-                }
-              >
-                {pageNumber}
-              </button>
-            );
+            let pagerBtn = <></>;
 
-            if (pageNumber === JUMPPREV) {
-              pagerBtn = (
-                <button
-                  className="ids-pager__button ids-pager__ellipsis"
-                  onClick={onJumpPrevious}
-                  aria-label="Jump back 5 pages"
-                >
-                  <EllipsisIcon />
-                </button>
-              );
-            }
-            if (pageNumber === JUMPNEXT) {
-              pagerBtn = (
-                <button
-                  className="ids-pager__button ids-pager__ellipsis"
-                  onClick={onJumpNext}
-                  aria-label="Jump forward 5 pages"
-                >
-                  <EllipsisIcon />
-                </button>
-              );
+            switch (pageNumber) {
+              case JUMPPREV:
+                pagerBtn = (
+                  <button
+                    className="ids-pager__button ids-pager__ellipsis"
+                    onClick={onJumpPrevious}
+                    aria-label="Jump back 5 pages"
+                  >
+                    <EllipsisIcon />
+                  </button>
+                );
+                break;
+              case JUMPNEXT:
+                pagerBtn = (
+                  <button
+                    className="ids-pager__button ids-pager__ellipsis"
+                    onClick={onJumpNext}
+                    aria-label="Jump forward 5 pages"
+                  >
+                    <EllipsisIcon />
+                  </button>
+                );
+                break;
+              default:
+                pagerBtn = (
+                  <button
+                    className={cx('ids-pager__button', {
+                      'ids-pager__button--selected': pageNumber === currentPage,
+                    })}
+                    onClick={() => onPageChange(pageNumber as number)}
+                    aria-current={pageNumber === currentPage && 'page'}
+                    aria-label={
+                      pageNumber === currentPage
+                        ? `Page ${pageNumber}`
+                        : `Go to page ${pageNumber}`
+                    }
+                  >
+                    {pageNumber}
+                  </button>
+                );
+                break;
             }
 
             return (
@@ -148,8 +153,8 @@ const Pager: React.FunctionComponent<PagerProps> = (props: PagerProps) => {
         </ol>
       </nav>
       <div className="ids-pager__results">
-        {pageSize * currentPage - pageSize + 1}-{pageSize * currentPage} of{' '}
-        {totalCount}
+        {pageSize * currentPage - pageSize + 1}-
+        {Math.min(pageSize * currentPage, totalCount)} of {totalCount}
       </div>
     </div>
   );

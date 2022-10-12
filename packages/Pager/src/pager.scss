@@ -16,8 +16,8 @@
   --ids-pager-item-color: #{tokens.$grey-800};
 
   /* Selected Item */
-  --ids-pager-item-background-selected: #{tokens.$electric-blue-500};
-  --ids-pager-item-color-selected: #{tokens.$samoyed};
+  --ids-pager-item-selected-background: #{tokens.$electric-blue-500};
+  --ids-pager-item-selected-color: #{tokens.$samoyed};
 
   /* Hover */
   --ids-pager-item-hover-border: 1px solid #{tokens.$grey-600};
@@ -113,9 +113,9 @@
   }
 
   &--selected {
-    background: var(--ids-pager-item-background-selected);
-    border-color: var(--ids-pager-item-background-selected);
-    color: var(--ids-pager-item-color-selected);
+    background: var(--ids-pager-item-selected-background);
+    border-color: var(--ids-pager-item-selected-background);
+    color: var(--ids-pager-item-selected-color);
   }
 }
 
