@@ -18,6 +18,9 @@
   "files": [
     "dist"
   ],
+  "scripts": {
+    "build": "rollup -c rollup.config.js"
+  },
   "dependencies": {
     "@igloo-ui/tokens": "^1.0.0"
   },
