@@ -1,5 +1,5 @@
 [build]
-  command = "NODE_OPTIONS=--max_old_space_size=16384 yarn doc:build"
+  command = "yarn doc:build"
   publish = "website/.next"
 
 [[plugins]]
