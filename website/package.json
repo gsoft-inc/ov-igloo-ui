@@ -36,7 +36,9 @@
     "@igloo-ui/textarea": "*",
     "@igloo-ui/toaster": "*",
     "@igloo-ui/toggle": "*",
-    "@igloo-ui/tooltip": "*"
+    "@igloo-ui/tooltip": "*",
+    "@igloo-ui/datepicker": "*",
+    "@igloo-ui/dropdown": "*"
   },
   "devDependencies": {
     "@igloo-ui/icons": "^1.4.0",
