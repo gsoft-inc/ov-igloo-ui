@@ -18,7 +18,7 @@
     "lint:all": "yarn lint && yarn lint:style",
     "fix:all": "yarn lint:fix && yarn fix:style",
     "doc:start": "lerna run dev --scope=docs ",
-    "doc:build": "lerna run build --scope=docs &&  yarn build-storybook -o ./website/.next/storybook",
+    "doc:build": "lerna run build --scope=docs --verbose &&  yarn build-storybook -o ./website/.next/storybook",
     "dev": "yarn build && yarn storybook",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
