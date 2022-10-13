@@ -30,6 +30,8 @@ export interface ModalProps extends OverlayProps, AriaDialogProps {
   children: React.ReactNode;
   /** Add a specific class to the modal */
   className?: string;
+  /** Add a data-test tag for automated tests */
+  dataTest?: string;
   /** Changes the modal width */
   size?: Size;
   /** The content for the title of the modal */
@@ -52,6 +54,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
   const {
     children,
     className,
+    dataTest,
     closeBtnAriaLabel,
     title,
     onClose,
@@ -129,6 +132,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
                 {...dialogProps}
                 ref={ref}
                 className={classes}
+                data-test={dataTest}
               >
                 <div
                   className={cx(

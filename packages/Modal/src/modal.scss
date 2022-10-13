@@ -17,8 +17,10 @@
   --ids-modal-header-border: 1px solid #{tokens.$grey-200};
   --ids-modal-header-width: calc(#{tokens.$space-3} + #{tokens.$space-4});
   --ids-modal-header-height: #{tokens.$space-8};
-  --ids-modal-header-font-size: #{tokens.$font-size-4};
-  --ids-modal-header-font-weight: #{tokens.$font-weight-bold};
+  --ids-modal-header-font-family: #{tokens.$secondary-font-family};
+  --ids-modal-header-font-size: #{tokens.$font-size-6};
+  --ids-modal-header-font-weight: #{tokens.$font-weight-medium};
+  --ids-modal-header-line-height: #{tokens.$line-height-lg};
   --ids-modal-header-padding: #{tokens.$space-0} #{tokens.$space-3};
   --ids-modal-close-margin: #{tokens.$space-3};
   --ids-modal-overlay: rgb(25 34 47 / 50%);
@@ -140,8 +142,10 @@
 .ids-modal__title {
   flex: 1 1 100%;
   text-align: center;
+  font-family: var(--ids-modal-header-font-family);
   font-size: var(--ids-modal-header-font-size);
   font-weight: var(--ids-modal-header-font-weight);
+  line-height: var(--ids-modal-header-line-height);
   margin: 0;
 }
 
