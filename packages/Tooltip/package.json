@@ -29,7 +29,8 @@
     "@igloo-ui/tokens": "^1.0.0",
     "@popperjs/core": "^2.11.5",
     "classnames": "^2.3.1",
-    "react-popper": "^2.3.0"
+    "react-popper": "^2.3.0",
+    "react-spring": "9.5.2"
   },
   "browserslist": [
     "> 1%",
