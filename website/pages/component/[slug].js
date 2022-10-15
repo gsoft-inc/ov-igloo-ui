@@ -23,6 +23,7 @@ import ReferenceLinks from '../../components/ReferenceLinks';
 import Toc from '../../components/Toc';
 
 export const COMPONENTS_SOURCE = path.join(process.cwd(), '..', 'packages');
+const componentList = generateComponentList(COMPONENTS_SOURCE);
 
 export default function DocPage(props) {
   const {
@@ -117,8 +118,7 @@ export default function DocPage(props) {
 export const getStaticProps = async ({ params }) => {
   const { slug: component } = params;
 
-  const components = generateComponentList(COMPONENTS_SOURCE);
-  const { prev, next } = generatePagination(components, component);
+  const { prev, next } = generatePagination(componentList, component);
   const { content, empty } = await generateDoc(component);
 
   const data = { prev, next, empty };
@@ -144,7 +144,7 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       componentProps,
-      components,
+      components: componentList,
       component,
       source: mdxSource,
       frontMatter: data,
@@ -154,7 +154,13 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const componentList = generateComponentList(COMPONENTS_SOURCE);
+  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+    return {
+      paths: [],
+      fallback: 'blocking',
+    };
+  }
+
   const paths = componentList.map((slug) => ({ params: { slug } }));
 
   return {
