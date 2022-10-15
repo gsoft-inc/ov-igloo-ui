@@ -1,5 +1,5 @@
 [build]
-  command = "SKIP_BUILD_STATIC_GENERATION=&SKIP_BUILD_STATIC_GENERATION yarn doc:build"
+  command = "yarn doc:build"
   publish = "website/.next"
 
 [[plugins]]
@@ -8,5 +8,6 @@
 [build.environment]
   NODE_OPTIONS = "--max_old_space_size=8192"
 
-[context.deploy-preview.environment]
-  SKIP_BUILD_STATIC_GENERATION = "true"
+[context.deploy-preview]
+  command = 'echo $SKIP_BUILD_STATIC_GENERATION'
+  environment = { SKIP_BUILD_STATIC_GENERATION = "true" }
