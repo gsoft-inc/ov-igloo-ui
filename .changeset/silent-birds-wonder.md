@@ -1,5 +1,9 @@
 ---
-'@igloo-ui/tooltip': minor
+'@igloo-ui/tooltip': major
 ---
 
-Feat: Added animation to tooltip and changed default positioning to top
+Added animation to tooltip
+
+## BREAKING CHANGE
+
+Changed the default positioning to 'top' instead of 'auto'
