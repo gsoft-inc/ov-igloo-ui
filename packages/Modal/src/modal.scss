@@ -11,14 +11,16 @@
   --ids-modal-index: #{tokens.$z-index-max};
   --ids-modal-shadow: none;
   --ids-modal-radius: 0;
+  --ids-modal-height: 100%;
   --ids-modal-width: 100%;
+  --ids-modal-max-width: none;
   --ids-modal-header-display: flex;
   --ids-modal-header-before-display: block;
   --ids-modal-header-border: 1px solid #{tokens.$grey-200};
   --ids-modal-header-width: calc(#{tokens.$space-3} + #{tokens.$space-4});
   --ids-modal-header-height: #{tokens.$space-8};
   --ids-modal-header-font-family: #{tokens.$secondary-font-family};
-  --ids-modal-header-font-size: #{tokens.$font-size-6};
+  --ids-modal-header-font-size: #{tokens.$font-size-3};
   --ids-modal-header-font-weight: #{tokens.$font-weight-medium};
   --ids-modal-header-line-height: #{tokens.$line-height-lg};
   --ids-modal-header-padding: #{tokens.$space-0} #{tokens.$space-3};
@@ -32,22 +34,28 @@
   :root {
     --ids-modal-radius: #{tokens.$border-radius-sm};
     --ids-modal-shadow: #{tokens.$shadow-12};
+    --ids-modal-height: auto;
     --ids-modal-width: 46rem;
     --ids-modal-width-medium: 58.4rem;
     --ids-modal-width-large: 66.4rem;
     --ids-modal-width-xlarge: 80rem;
+    --ids-modal-max-width: 94%;
+    --ids-modal-bottom: auto;
+    --ids-modal-left: 50%;
+    --ids-modal-right: auto;
+    --ids-modal-top: 50%;
     --ids-modal-header-display: none;
     --ids-modal-header-before-display: none;
     --ids-modal-header-direction: column-reverse;
     --ids-modal-header-border: none;
     --ids-modal-header-height: auto;
+    --ids-modal-header-font-size: #{tokens.$font-size-6};
     --ids-modal-header-padding: #{tokens.$space-3} #{tokens.$space-3} #{tokens.$space-2};
     --ids-modal-title-display: none;
     --ids-modal-close-margin: #{tokens.$space-0};
     --ids-modal-close-align: flex-end;
     --ids-modal-padding: #{tokens.$space-5};
     --ids-modal-safe-area: #{tokens.$space-3};
-    --ids-modal-safe-height: center;
     --ids-modal-full-content-padding: #{tokens.$space-3};
     --ids-modal-full-content-display: none;
   }
@@ -66,31 +74,24 @@
   z-index: var(--ids-modal-overlay-index);
 }
 
-.ids-modal__container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: var(--ids-modal-safe-area);
-  display: flex;
-  justify-content: center;
-  align-items: var(--ids-modal-safe-height, initial);
-  z-index: var(--ids-modal-overlay-index);
-}
-
 .ids-modal {
-  max-height: 100%;
-  width: var(--ids-modal-width);
-  overflow-y: auto;
+  background-color: var(--ids-modal-background);
+  border-radius: var(--ids-modal-radius);
+  box-shadow: var(--ids-modal-shadow);
+  box-sizing: border-box;
+  color: var(--ids-modal-text);
   font-family: var(--ids-modal-font-family);
   font-size: var(--ids-modal-font-size);
-  color: var(--ids-modal-text);
-  border-radius: var(--ids-modal-radius);
-  background-color: var(--ids-modal-background);
-  box-shadow: var(--ids-modal-shadow);
+  height: var(--ids-modal-height);
+  max-height: 100%;
+  max-width: var(--ids-modal-max-width);
+  overflow-y: auto;
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: var(--ids-modal-width);
   z-index: var(--ids-modal-index);
-  box-sizing: border-box;
 
   /* Removes the focus-within outline around the modal */
   outline: none;

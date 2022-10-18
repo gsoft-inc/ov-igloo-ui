@@ -54,8 +54,8 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
   const {
     children,
     className,
-    dataTest,
     closeBtnAriaLabel,
+    dataTest,
     title,
     onClose,
     onAfterClose,
@@ -78,19 +78,21 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
   });
 
   const modalTransitions = useTransition(isOpen, {
-    from: { opacity: 0, transform: 'scale(0.95)' },
-    // For whatever reason, enter is actually called after leave, which is why the onRest event is added here.
+    from: { opacity: 0, scale: 0.95, transform: 'translate3d(-50%, -50%, 0)' },
+    // For whatever reason, enter is actually called after leave,
+    // which is why the onRest event is added here.
     // This is also where isOpen is set to false after closing.
     enter: {
       opacity: 1,
-      transform: 'scale(1)',
+      scale: 1,
       delay: 200,
       onRest: (
-        result: AnimationResult,
-        spring: Controller | SpringValue,
+        _result: AnimationResult,
+        _spring: Controller | SpringValue,
         item?: OneOrMore<any>
       ) => {
-        // Call onAfterClose if model is completely closed and animation is done, if the function exists.
+        // Call onAfterClose if model is completely closed and
+        // animation is done, if the function exists.
         if (!item) {
           onAfterClose?.();
         }
@@ -98,7 +100,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     },
     leave: {
       opacity: 0,
-      transform: 'scale(1)',
+      scale: 1,
     },
     config: { duration: 200 },
   });
@@ -126,33 +128,32 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
       {modalTransitions(
         (styles, item) =>
           item && (
-            <animated.div className="ids-modal__container" style={styles}>
+            <animated.div
+              className={classes}
+              data-test={dataTest}
+              style={styles}
+              {...overlayProps}
+              {...dialogProps}
+              ref={ref}
+            >
               <div
-                {...overlayProps}
-                {...dialogProps}
-                ref={ref}
-                className={classes}
-                data-test={dataTest}
+                className={cx(
+                  'ids-modal__header',
+                  !isClosable && 'ids-modal__header--with-action'
+                )}
               >
-                <div
-                  className={cx(
-                    'ids-modal__header',
-                    !isClosable && 'ids-modal__header--with-action'
-                  )}
-                >
-                  {title && <h5 className="ids-modal__title">{title}</h5>}
+                {title && <h5 className="ids-modal__title">{title}</h5>}
 
-                  <IconButton
-                    size="small"
-                    className="ids-modal__close"
-                    onClick={onClose}
-                    appearance="ghost"
-                    aria-label={closeBtnAriaLabel}
-                    icon={<Close />}
-                  />
-                </div>
-                <div className="ids-modal__content">{children}</div>
+                <IconButton
+                  size="small"
+                  className="ids-modal__close"
+                  onClick={onClose}
+                  appearance="ghost"
+                  aria-label={closeBtnAriaLabel}
+                  icon={<Close />}
+                />
               </div>
+              <div className="ids-modal__content">{children}</div>
             </animated.div>
           )
       )}

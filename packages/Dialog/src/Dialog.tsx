@@ -12,18 +12,18 @@ export interface DialogProps extends React.ComponentProps<'div'> {
   /** Add a data-test tag for automated tests */
   dataTest?: string;
   /** The text for the dissmiss button */
-  dismissText: string;
+  dismissText?: string;
   /** Whether the modal is open or not */
   isOpen: boolean;
   /** Handler that is called when the overlay should close. */
-  onDismiss?: () => void;
+  onDismiss: () => void;
   /** Handler that is called when the dialog
    * is closed and the animation is complete */
   onAfterDismiss?: () => void;
   /** Handler that is called when the validate button is clicked. */
-  onValidate?: () => void;
+  onValidate: () => void;
   /** The text for the sub title of the modal */
-  subTitle: string;
+  subTitle?: string;
   /** The text for the title of the modal */
   title: string;
   /** The text for the validate button */
@@ -58,15 +58,17 @@ const Dialog: React.FunctionComponent<DialogProps> = (props: DialogProps) => {
       onAfterClose={onAfterDismiss}
       title={title}
     >
-      <div className="ids-dialog__sub-title">{subTitle}</div>
+      {subTitle && <div className="ids-dialog__sub-title">{subTitle}</div>}
       <div className="ids-dialog__buttons">
-        <Button
-          appearance="secondary"
-          onClick={onDismiss}
-          className="ids-dialog__dismiss-btn"
-        >
-          {dismissText}
-        </Button>
+        {dismissText && onDismiss && (
+          <Button
+            appearance="secondary"
+            onClick={onDismiss}
+            className="ids-dialog__dismiss-btn"
+          >
+            {dismissText}
+          </Button>
+        )}
         <Button
           appearance="primary"
           onClick={onValidate}

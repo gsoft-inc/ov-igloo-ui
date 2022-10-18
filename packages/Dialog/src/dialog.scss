@@ -5,23 +5,35 @@
   /* Default */
   --ids-dialog-font-family: #{tokens.$primary-font-family};
   --ids-dialog-font-size: #{tokens.$font-size-4};
-  --ids-dialog-content-padding-top: #{tokens.$space-3};
+  --ids-dialog-max-width: calc(100% - #{tokens.$space-5});
+  --ids-dialog-radius: #{tokens.$border-radius-sm};
+  --ids-dialog-header-direction: column-reverse;
+  --ids-dialog-header-height: auto;
+  --ids-dialog-header-font-size: #{tokens.$font-size-6};
+  --ids-dialog-header-padding: #{tokens.$space-3} #{tokens.$space-3} #{tokens.$space-2};
+  --ids-dialog-content-padding: #{tokens.$space-2} #{tokens.$space-4} #{tokens.$space-4};
   --ids-dialog-sub-title-line-height: #{tokens.$line-height-xxxl};
+  --ids-dialog-sub-title-color: #{tokens.$grey-600};
+  --ids-dialog-close-margin: #{tokens.$space-0};
+  --ids-dialog-close-align: flex-end;
   --ids-dialog-buttons-margin: #{tokens.$space-5} -#{tokens.$space-0} -#{tokens.$space-2};
   --ids-dialog-button-margin: #{tokens.$space-2} #{tokens.$space-0};
 }
 
 @media (min-width: #{tokens.$breakpoints-sm}) {
   :root {
-    --ids-dialog-content-padding-top: #{tokens.$space-0};
+    --ids-dialog-content-padding: #{tokens.$space-0} #{tokens.$space-5} #{tokens.$space-5};
     --ids-dialog-buttons-margin: #{tokens.$space-7} -#{tokens.$space-2} #{tokens.$space-0};
-    --ids-dialog-button-margin: #{tokens.$space-2};
+    --ids-dialog-button-margin: 0 #{tokens.$space-2};
   }
 }
 
-.ids-dialog {
+.ids-modal.ids-dialog {
+  border-radius: var(--ids-dialog-radius);
   font-family: var(--ids-dialog-font-family);
   font-size: var(--ids-dialog-font-size);
+  height: auto;
+  max-width: var(--ids-dialog-max-width);
 
   &,
   & * {
@@ -30,14 +42,30 @@
 }
 
 .ids-dialog.ids-modal--with-header .ids-modal__header {
+  align-items: center;
   border: none;
+  display: flex;
+  flex-direction: var(--ids-dialog-header-direction, initial);
+  min-height: var(--ids-dialog-header-height);
+  padding: var(--ids-dialog-header-padding);
+  position: relative;
+}
+
+.ids-dialog .ids-modal__title {
+  font-size: var(--ids-dialog-header-font-size);
+}
+
+.ids-dialog .ids-modal__close {
+  align-self: var(--ids-dialog-close-align, initial);
+  margin-left: var(--ids-dialog-close-margin);
 }
 
 .ids-dialog .ids-modal__content {
-  padding-top: var(--ids-dialog-content-padding-top);
+  padding: var(--ids-dialog-content-padding);
 }
 
 .ids-dialog__sub-title {
+  color: var(--ids-dialog-sub-title-color);
   line-height: var(--ids-dialog-sub-title-line-height);
   text-align: center;
 }

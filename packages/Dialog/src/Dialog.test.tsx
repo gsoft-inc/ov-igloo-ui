@@ -8,6 +8,7 @@ import Dialog from './Dialog';
 
 describe('Dialog', () => {
   test('It should render without error and a snapshot', () => {
+    const isOpen = true;
     const { asFragment } = render(
       <Dialog
         dataTest="dialog1"
@@ -15,7 +16,9 @@ describe('Dialog', () => {
         subTitle="Dialog sub title"
         dismissText="No"
         validateText="Yes"
-        isOpen={true}
+        onDismiss={() => !isOpen}
+        onValidate={() => console.log('validated')}
+        isOpen={isOpen}
       />
     );
     expect(screen.getByTestId('dialog1')).toBeInTheDocument();
@@ -23,13 +26,16 @@ describe('Dialog', () => {
   });
 
   test('It should render the title', () => {
+    const isOpen = true;
     render(
       <Dialog
         title="Dialog title"
         subTitle="Dialog sub title"
         dismissText="No"
         validateText="Yes"
-        isOpen={true}
+        onDismiss={() => !isOpen}
+        onValidate={() => console.log('validated')}
+        isOpen={isOpen}
       />
     );
 
@@ -38,13 +44,16 @@ describe('Dialog', () => {
   });
 
   test('It should render the sub title', () => {
+    const isOpen = true;
     render(
       <Dialog
         title="Dialog title"
         subTitle="Dialog sub title"
         dismissText="No"
         validateText="Yes"
-        isOpen={true}
+        onDismiss={() => !isOpen}
+        onValidate={() => console.log('validated')}
+        isOpen={isOpen}
       />
     );
 
@@ -53,13 +62,16 @@ describe('Dialog', () => {
   });
 
   test('It should render the dissmiss button', () => {
+    const isOpen = true;
     render(
       <Dialog
         title="Dialog title"
         subTitle="Dialog sub title"
         dismissText="No"
         validateText="Yes"
-        isOpen={true}
+        onDismiss={() => !isOpen}
+        onValidate={() => console.log('validated')}
+        isOpen={isOpen}
       />
     );
 
@@ -68,13 +80,16 @@ describe('Dialog', () => {
   });
 
   test('It should render the validate button', () => {
+    const isOpen = true;
     render(
       <Dialog
         title="Dialog title"
         subTitle="Dialog sub title"
         dismissText="No"
         validateText="Yes"
-        isOpen={true}
+        onDismiss={() => !isOpen}
+        onValidate={() => console.log('validated')}
+        isOpen={isOpen}
       />
     );
 

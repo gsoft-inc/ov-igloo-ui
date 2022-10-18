@@ -1,6 +1,8 @@
 # Dialog
 
-TODO: Write your component description here.
+The Dialog is much like the Model component, except it is simpler. It contains a title, sub title, dismiss action and a validate action.
+
+<Example />
 
 <ReferenceLinks />
 
@@ -24,6 +26,24 @@ Then to use the component in your code just import it!
 
 ```jsx
 import Dialog from '@igloo-ui/dialog';
+import Button from '@igloo-ui/button';
 
-// TODO: Add your component usage here
+const [open, setOpen] = React.useState(false);
+const handleValidate = () => {
+    alert("You said yes");
+    setOpen(false);
+};
+
+<Button appearance="secondary" onClick={() => setOpen(true)}>
+    open
+</Button>
+<Dialog
+    title="Modal title"
+    subTitle="This is a sub title"
+    dismissText="Cancel"
+    validateText="Confirm"
+    isOpen={open}
+    onDismiss={() => setOpen(false)}
+    onValidate={handleValidate}
+/>
 ```

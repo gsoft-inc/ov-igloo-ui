@@ -54,6 +54,12 @@ export const LongText = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleValidate = () => {
+    alert('You said yes');
+    setOpen(false);
+  };
+
   return (
     <Section>
       <Button appearance="secondary" onClick={handleOpen}>
@@ -66,6 +72,39 @@ export const LongText = () => {
         validateText="Yes"
         isOpen={open}
         onDismiss={handleClose}
+        onValidate={handleValidate}
+      />
+    </Section>
+  );
+};
+
+export const FewestNumberOfProps = () => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleValidate = () => {
+    alert('You said yes');
+    setOpen(false);
+  };
+
+  return (
+    <Section>
+      <Button appearance="secondary" onClick={handleOpen}>
+        open
+      </Button>
+      <Dialog
+        title="I only have a title, a validate action and an X to close this dialog"
+        validateText="Confirm"
+        isOpen={open}
+        onDismiss={handleClose}
+        onValidate={handleValidate}
       />
     </Section>
   );
