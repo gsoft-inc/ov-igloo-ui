@@ -5,6 +5,7 @@
   /* Default */
   --ids-pager-font-family: #{tokens.$primary-font-family};
   --ids-pager-font-size: #{tokens.$font-size-4};
+  --ids-pager-height: #{tokens.$space-5};
   --ids-pager-line-height: #{tokens.$line-height-xxxl};
 
   /* Item */
@@ -14,6 +15,7 @@
   --ids-pager-item-prev-border-radius: #{tokens.$border-radius-sm} 0 0 #{tokens.$border-radius-sm};
   --ids-pager-item-next-border-radius: 0 #{tokens.$border-radius-sm} #{tokens.$border-radius-sm} 0;
   --ids-pager-item-color: #{tokens.$grey-800};
+  --ids-pager-item-z-index: #{tokens.$z-index-10};
 
   /* Selected Item */
   --ids-pager-item-selected-background: #{tokens.$electric-blue-500};
@@ -43,10 +45,12 @@
 
 %focus-style {
   border: var(--ids-pager-item-focus-border);
+  z-index: var(--ids-pager-item-z-index);
 }
 
 %hover-style {
   border: var(--ids-pager-item-hover-border);
+  z-index: var(--ids-pager-item-z-index);
 }
 
 .ids-pager {
@@ -76,14 +80,19 @@
 
 .ids-pager__button {
   align-items: center;
+  appearance: none;
   background: var(--ids-pager-item-background);
   border: var(--ids-pager-item-border);
   color: var(--ids-pager-item-color);
   cursor: pointer;
   display: flex;
   flex: 0 0 auto;
+  font-family: var(--ids-pager-font-family);
+  font-size: var(--ids-pager-font-size);
+  height: var(--ids-pager-height);
   justify-content: center;
   line-height: var(--ids-pager-line-height);
+  margin: 0 0 0 -1px;
   min-width: 3.2rem;
   outline: 0;
   padding: var(--ids-pager-item-padding);
@@ -116,6 +125,12 @@
     background: var(--ids-pager-item-selected-background);
     border-color: var(--ids-pager-item-selected-background);
     color: var(--ids-pager-item-selected-color);
+  }
+
+  &--selected:hover,
+  &--selected:focus:not(:focus-visible):hover {
+    border-color: var(--ids-pager-item-selected-background);
+    z-index: auto;
   }
 }
 
