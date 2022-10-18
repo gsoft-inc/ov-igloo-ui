@@ -1,5 +1,15 @@
 # @igloo-ui/tooltip
 
+## 2.0.0
+
+### Major Changes
+
+- 17def56: Added animation to tooltip
+
+  ## BREAKING CHANGE
+
+  Changed the default positioning to 'top' instead of 'auto'
+
 ## 1.0.5
 
 ### Patch Changes
