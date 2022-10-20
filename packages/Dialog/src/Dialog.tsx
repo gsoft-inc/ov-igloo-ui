@@ -13,18 +13,18 @@ export interface DialogProps extends React.ComponentProps<'div'> {
   dataTest?: string;
   /** The text for the dissmiss button */
   dismissText?: string;
-  /** Whether the modal is open or not */
+  /** Whether the dialog is open or not */
   isOpen: boolean;
-  /** Handler that is called when the overlay should close. */
+  /** Handler that is called when the overlay should close */
   onDismiss: () => void;
   /** Handler that is called when the dialog
    * is closed and the animation is complete */
   onAfterDismiss?: () => void;
-  /** Handler that is called when the validate button is clicked. */
+  /** Handler that is called when the validate button is clicked */
   onValidate: () => void;
-  /** The text for the sub title of the modal */
+  /** The text for the sub title of the dialog */
   subTitle?: string;
-  /** The text for the title of the modal */
+  /** The text for the title of the dialog */
   title: string;
   /** The text for the validate button */
   validateText: string;

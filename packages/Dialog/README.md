@@ -1,6 +1,6 @@
 # Dialog
 
-The Dialog is much like the Model component, except it is simpler. It contains a title, sub title, dismiss action and a validate action.
+The Dialog is much like the Modal component, except it is simpler. It contains a title, sub title, dismiss action and a validate action.
 
 <Example />
 
@@ -38,7 +38,7 @@ const handleValidate = () => {
     open
 </Button>
 <Dialog
-    title="Modal title"
+    title="Dialog title"
     subTitle="This is a sub title"
     dismissText="Cancel"
     validateText="Confirm"

@@ -39,7 +39,7 @@ const Template: ComponentStory<typeof Dialog> = (args) => {
 export const Overview = Template.bind({});
 Overview.args = {
   subTitle: 'This is a sub title',
-  title: 'Modal title',
+  title: 'Dialog title',
   dismissText: 'Cancel',
   validateText: 'Confirm',
 };

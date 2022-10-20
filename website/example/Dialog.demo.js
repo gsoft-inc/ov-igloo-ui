@@ -17,7 +17,7 @@ const Example = () => {
           open
         </Button>
         <Dialog
-          title="Modal title"
+          title="Dialog title"
           subTitle="This is a sub title"
           dismissText="Cancel"
           validateText="Confirm"
