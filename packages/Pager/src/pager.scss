@@ -107,6 +107,7 @@
     border: var(--ids-pager-item-disabled-border);
     color: var(--ids-pager-item-disabled-color);
     cursor: default;
+    z-index: 0;
   }
 
   &:focus {
@@ -130,7 +131,7 @@
   &--selected:hover,
   &--selected:focus:not(:focus-visible):hover {
     border-color: var(--ids-pager-item-selected-background);
-    z-index: auto;
+    z-index: 0;
   }
 }
 
