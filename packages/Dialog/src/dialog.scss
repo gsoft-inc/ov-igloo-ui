@@ -1,0 +1,88 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-dialog-font-family: #{tokens.$primary-font-family};
+  --ids-dialog-font-size: #{tokens.$font-size-4};
+  --ids-dialog-max-width: calc(100% - #{tokens.$space-5});
+  --ids-dialog-radius: #{tokens.$border-radius-sm};
+  --ids-dialog-header-direction: column-reverse;
+  --ids-dialog-header-height: auto;
+  --ids-dialog-header-font-size: #{tokens.$font-size-6};
+  --ids-dialog-header-padding: #{tokens.$space-3} #{tokens.$space-3} #{tokens.$space-2};
+  --ids-dialog-content-padding: #{tokens.$space-2} #{tokens.$space-4} #{tokens.$space-4};
+  --ids-dialog-sub-title-line-height: #{tokens.$line-height-xxxl};
+  --ids-dialog-sub-title-color: #{tokens.$grey-600};
+  --ids-dialog-close-margin: #{tokens.$space-0};
+  --ids-dialog-close-align: flex-end;
+  --ids-dialog-buttons-margin: #{tokens.$space-5} -#{tokens.$space-0} -#{tokens.$space-2};
+  --ids-dialog-button-margin: #{tokens.$space-2} #{tokens.$space-0};
+}
+
+@media (min-width: #{tokens.$breakpoints-sm}) {
+  :root {
+    --ids-dialog-content-padding: #{tokens.$space-0} #{tokens.$space-5} #{tokens.$space-5};
+    --ids-dialog-buttons-margin: #{tokens.$space-7} -#{tokens.$space-2} #{tokens.$space-0};
+    --ids-dialog-button-margin: 0 #{tokens.$space-2};
+  }
+}
+
+.ids-modal.ids-dialog {
+  border-radius: var(--ids-dialog-radius);
+  height: auto;
+  max-width: var(--ids-dialog-max-width);
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.ids-dialog.ids-modal--with-header .ids-modal__header {
+  align-items: center;
+  border: none;
+  display: flex;
+  flex-direction: var(--ids-dialog-header-direction, initial);
+  min-height: var(--ids-dialog-header-height);
+  padding: var(--ids-dialog-header-padding);
+  position: relative;
+}
+
+.ids-dialog .ids-modal__title {
+  font-size: var(--ids-dialog-header-font-size);
+}
+
+.ids-dialog .ids-modal__close {
+  align-self: var(--ids-dialog-close-align, initial);
+  margin-left: var(--ids-dialog-close-margin);
+}
+
+.ids-dialog .ids-modal__content {
+  padding: var(--ids-dialog-content-padding);
+}
+
+.ids-dialog__sub-title {
+  color: var(--ids-dialog-sub-title-color);
+  line-height: var(--ids-dialog-sub-title-line-height);
+  text-align: center;
+}
+
+.ids-dialog__buttons {
+  margin: var(--ids-dialog-buttons-margin);
+
+  @media (min-width: #{tokens.$breakpoints-sm}) {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
+
+.ids-dialog__dismiss-btn,
+.ids-dialog__validate-btn {
+  margin: var(--ids-dialog-button-margin);
+
+  @media (min-width: #{tokens.$breakpoints-sm}) {
+    flex: 1 1 auto;
+  }
+}

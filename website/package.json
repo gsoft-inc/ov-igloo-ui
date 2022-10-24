@@ -19,6 +19,7 @@
     "@igloo-ui/button-group": "*",
     "@igloo-ui/card": "*",
     "@igloo-ui/checkbox": "*",
+    "@igloo-ui/dialog": "*",
     "@igloo-ui/ellipsis": "*",
     "@igloo-ui/filter": "*",
     "@igloo-ui/form-group": "*",
