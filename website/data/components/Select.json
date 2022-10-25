@@ -1,0 +1,321 @@
+[
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/Select/src/Dropdown.tsx",
+      "description": "",
+      "displayName": "Dropdown",
+      "methods": [],
+      "props": {
+        "children": {
+          "defaultValue": null,
+          "description": "Default value displayed in the Dropdown.",
+          "name": "children",
+          "parent": {
+            "fileName": "components/packages/Select/src/Dropdown.tsx",
+            "name": "DropdownProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/Dropdown.tsx",
+              "name": "DropdownProps"
+            },
+            {
+              "fileName": "components/node_modules/@types/react/index.d.ts",
+              "name": "TypeLiteral"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "isOpen": {
+          "defaultValue": null,
+          "description": "True if the Dropdown list is displayed.",
+          "name": "isOpen",
+          "parent": {
+            "fileName": "components/packages/Select/src/Dropdown.tsx",
+            "name": "DropdownProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/Dropdown.tsx",
+              "name": "DropdownProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "onClose": {
+          "defaultValue": null,
+          "description": "Callback when the user clicks outside the Dropdown.",
+          "name": "onClose",
+          "parent": {
+            "fileName": "components/packages/Select/src/Dropdown.tsx",
+            "name": "DropdownProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/Dropdown.tsx",
+              "name": "DropdownProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "() => void" }
+        },
+        "position": {
+          "defaultValue": null,
+          "description": "Position of the Dropdown.",
+          "name": "position",
+          "parent": {
+            "fileName": "components/packages/Select/src/Dropdown.tsx",
+            "name": "DropdownProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/Dropdown.tsx",
+              "name": "DropdownProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "Position" }
+        }
+      }
+    }
+  ],
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/Select/src/Select.tsx",
+      "description": "",
+      "displayName": "Select",
+      "methods": [],
+      "props": {
+        "children": {
+          "defaultValue": null,
+          "description": "Default value displayed in the Select.",
+          "name": "children",
+          "parent": {
+            "fileName": "components/packages/Select/src/Select.tsx",
+            "name": "SelectProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/Select.tsx",
+              "name": "SelectProps"
+            },
+            {
+              "fileName": "components/node_modules/@types/react/index.d.ts",
+              "name": "TypeLiteral"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "className": {
+          "defaultValue": null,
+          "description": "Add a specific class to the Select.",
+          "name": "className",
+          "parent": {
+            "fileName": "components/packages/Select/src/Select.tsx",
+            "name": "SelectProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/Select.tsx",
+              "name": "SelectProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "dataTest": {
+          "defaultValue": null,
+          "description": "Add a data-test tag for automated tests.",
+          "name": "dataTest",
+          "parent": {
+            "fileName": "components/packages/Select/src/Select.tsx",
+            "name": "SelectProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/Select.tsx",
+              "name": "SelectProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "disabled": {
+          "defaultValue": null,
+          "description": "Disable the Select so the user cannot click on it.",
+          "name": "disabled",
+          "parent": {
+            "fileName": "components/packages/Select/src/Select.tsx",
+            "name": "SelectProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/Select.tsx",
+              "name": "SelectProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "error": {
+          "defaultValue": null,
+          "description": "The Select is in an error state.",
+          "name": "error",
+          "parent": {
+            "fileName": "components/packages/Select/src/Select.tsx",
+            "name": "SelectProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/Select.tsx",
+              "name": "SelectProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "isCompact": {
+          "defaultValue": null,
+          "description": "True for a compact appearance.",
+          "name": "isCompact",
+          "parent": {
+            "fileName": "components/packages/Select/src/Select.tsx",
+            "name": "SelectProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/Select.tsx",
+              "name": "SelectProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "isOpen": {
+          "defaultValue": null,
+          "description": "True if the option list is displayed.",
+          "name": "isOpen",
+          "parent": {
+            "fileName": "components/packages/Select/src/Select.tsx",
+            "name": "SelectProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/Select.tsx",
+              "name": "SelectProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "onChange": {
+          "defaultValue": null,
+          "description": "Callback when selected content changes.",
+          "name": "onChange",
+          "parent": {
+            "fileName": "components/packages/Select/src/Select.tsx",
+            "name": "SelectProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/Select.tsx",
+              "name": "SelectProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "(option: SelectOption) => void" }
+        },
+        "options": {
+          "defaultValue": null,
+          "description": "List of available options.",
+          "name": "options",
+          "parent": {
+            "fileName": "components/packages/Select/src/Select.tsx",
+            "name": "SelectProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/Select.tsx",
+              "name": "SelectProps"
+            }
+          ],
+          "required": true,
+          "type": { "name": "SelectOption[]" }
+        },
+        "selectedOption": {
+          "defaultValue": null,
+          "description": "The initial selected option.",
+          "name": "selectedOption",
+          "parent": {
+            "fileName": "components/packages/Select/src/Select.tsx",
+            "name": "SelectProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/Select.tsx",
+              "name": "SelectProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "SelectOption" }
+        }
+      }
+    }
+  ],
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/Select/src/SelectInput.tsx",
+      "description": "",
+      "displayName": "SelectInput",
+      "methods": [],
+      "props": {
+        "children": {
+          "defaultValue": null,
+          "description": "Default value displayed in the Select Input.",
+          "name": "children",
+          "parent": {
+            "fileName": "components/packages/Select/src/SelectInput.tsx",
+            "name": "SelectInputProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/SelectInput.tsx",
+              "name": "SelectInputProps"
+            },
+            {
+              "fileName": "components/node_modules/@types/react/index.d.ts",
+              "name": "TypeLiteral"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "isOpen": {
+          "defaultValue": null,
+          "description": "True if the option list is displayed.",
+          "name": "isOpen",
+          "parent": {
+            "fileName": "components/packages/Select/src/SelectInput.tsx",
+            "name": "SelectInputProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Select/src/SelectInput.tsx",
+              "name": "SelectInputProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        }
+      }
+    }
+  ],
+  [],
+  []
+]

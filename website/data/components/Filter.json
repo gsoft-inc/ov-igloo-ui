@@ -1,0 +1,119 @@
+[
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/Filter/src/Filter.tsx",
+      "description": "",
+      "displayName": "Filter",
+      "methods": [],
+      "props": {
+        "children": {
+          "defaultValue": null,
+          "description": "Add the main text/icon to the filter",
+          "name": "children",
+          "parent": {
+            "fileName": "components/packages/Filter/src/Filter.tsx",
+            "name": "FilterProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Filter/src/Filter.tsx",
+              "name": "FilterProps"
+            },
+            {
+              "fileName": "components/node_modules/@types/react/index.d.ts",
+              "name": "TypeLiteral"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "className": {
+          "defaultValue": null,
+          "description": "Add class names to the filter",
+          "name": "className",
+          "parent": {
+            "fileName": "components/packages/Filter/src/Filter.tsx",
+            "name": "FilterProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Filter/src/Filter.tsx",
+              "name": "FilterProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "dataTest": {
+          "defaultValue": null,
+          "description": "Add a data-test tag for automated tests",
+          "name": "dataTest",
+          "parent": {
+            "fileName": "components/packages/Filter/src/Filter.tsx",
+            "name": "FilterProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Filter/src/Filter.tsx",
+              "name": "FilterProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "disabled": {
+          "defaultValue": null,
+          "description": "True if the filter should be disabled",
+          "name": "disabled",
+          "parent": {
+            "fileName": "components/packages/Filter/src/Filter.tsx",
+            "name": "FilterProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Filter/src/Filter.tsx",
+              "name": "FilterProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "onClick": {
+          "defaultValue": null,
+          "description": "Add an event for when the filter is clicked",
+          "name": "onClick",
+          "parent": {
+            "fileName": "components/packages/Filter/src/Filter.tsx",
+            "name": "FilterProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Filter/src/Filter.tsx",
+              "name": "FilterProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "() => void" }
+        },
+        "selected": {
+          "defaultValue": null,
+          "description": "True if the tag is selected",
+          "name": "selected",
+          "parent": {
+            "fileName": "components/packages/Filter/src/Filter.tsx",
+            "name": "FilterProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Filter/src/Filter.tsx",
+              "name": "FilterProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        }
+      }
+    }
+  ]
+]

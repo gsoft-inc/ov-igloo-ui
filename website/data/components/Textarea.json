@@ -1,0 +1,183 @@
+[
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/Textarea/src/Textarea.tsx",
+      "description": "",
+      "displayName": "Textarea",
+      "methods": [],
+      "props": {
+        "allowNewline": {
+          "defaultValue": null,
+          "description": "True if the textarea should allow new lines with Enter",
+          "name": "allowNewline",
+          "parent": {
+            "fileName": "components/packages/Textarea/src/Textarea.tsx",
+            "name": "TextareaProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Textarea/src/Textarea.tsx",
+              "name": "TextareaProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "className": {
+          "defaultValue": null,
+          "description": "Add class names to the surrounding DOM container.",
+          "name": "className",
+          "parent": {
+            "fileName": "components/packages/Textarea/src/Textarea.tsx",
+            "name": "TextareaProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Textarea/src/Textarea.tsx",
+              "name": "TextareaProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "dataTest": {
+          "defaultValue": null,
+          "description": "Add a data-test tag for automated tests",
+          "name": "dataTest",
+          "parent": {
+            "fileName": "components/packages/Textarea/src/Textarea.tsx",
+            "name": "TextareaProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Textarea/src/Textarea.tsx",
+              "name": "TextareaProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "disabled": {
+          "defaultValue": null,
+          "description": "True if the textarea should be disabled.",
+          "name": "disabled",
+          "parent": {
+            "fileName": "components/packages/Textarea/src/Textarea.tsx",
+            "name": "TextareaProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Textarea/src/Textarea.tsx",
+              "name": "TextareaProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "error": {
+          "defaultValue": null,
+          "description": "True if the textarea has an error.",
+          "name": "error",
+          "parent": {
+            "fileName": "components/packages/Textarea/src/Textarea.tsx",
+            "name": "TextareaProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Textarea/src/Textarea.tsx",
+              "name": "TextareaProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "isAutoResize": {
+          "defaultValue": null,
+          "description": "True if the textarea should resize\nautomatically when a multiline value is set.",
+          "name": "isAutoResize",
+          "parent": {
+            "fileName": "components/packages/Textarea/src/Textarea.tsx",
+            "name": "TextareaProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Textarea/src/Textarea.tsx",
+              "name": "TextareaProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "maxLength": {
+          "defaultValue": null,
+          "description": "The maximum number of characters allowed. Required if\n\"showCharactersIndicator\" is enabled.",
+          "name": "maxLength",
+          "parent": {
+            "fileName": "components/packages/Textarea/src/Textarea.tsx",
+            "name": "TextareaProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Textarea/src/Textarea.tsx",
+              "name": "TextareaProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "number" }
+        },
+        "onChange": {
+          "defaultValue": null,
+          "description": "Function called when the value changes.",
+          "name": "onChange",
+          "parent": {
+            "fileName": "components/packages/Textarea/src/Textarea.tsx",
+            "name": "TextareaProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Textarea/src/Textarea.tsx",
+              "name": "TextareaProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "(e: ChangeEvent<HTMLTextAreaElement>) => void" }
+        },
+        "showCharactersIndicator": {
+          "defaultValue": null,
+          "description": "True to display the number of remaining allowed characters\nin the bottom right of the text area. Requires a valid\nvalue in the \"maxLength\" prop.",
+          "name": "showCharactersIndicator",
+          "parent": {
+            "fileName": "components/packages/Textarea/src/Textarea.tsx",
+            "name": "TextareaProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Textarea/src/Textarea.tsx",
+              "name": "TextareaProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "value": {
+          "defaultValue": null,
+          "description": "Specifies the value inside the input.",
+          "name": "value",
+          "parent": {
+            "fileName": "components/packages/Textarea/src/Textarea.tsx",
+            "name": "TextareaProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Textarea/src/Textarea.tsx",
+              "name": "TextareaProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        }
+      }
+    }
+  ]
+]

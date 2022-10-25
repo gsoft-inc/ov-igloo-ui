@@ -1,0 +1,170 @@
+[
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/Hyperlink/src/Hyperlink.tsx",
+      "description": "",
+      "displayName": "Hyperlink",
+      "methods": [],
+      "props": {
+        "children": {
+          "defaultValue": null,
+          "description": "The content to display inside the link",
+          "name": "children",
+          "parent": {
+            "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+            "name": "HyperlinkProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+              "name": "HyperlinkProps"
+            },
+            {
+              "fileName": "components/node_modules/@types/react/index.d.ts",
+              "name": "TypeLiteral"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "size": {
+          "defaultValue": null,
+          "description": "Changes the size of link, giving more or less padding",
+          "name": "size",
+          "parent": {
+            "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+            "name": "HyperlinkProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+              "name": "HyperlinkProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "Size" }
+        },
+        "appearance": {
+          "defaultValue": null,
+          "description": "Link appearance",
+          "name": "appearance",
+          "parent": {
+            "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+            "name": "HyperlinkProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+              "name": "HyperlinkProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "Appearance" }
+        },
+        "underline": {
+          "defaultValue": null,
+          "description": "Add a underline on link",
+          "name": "underline",
+          "parent": {
+            "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+            "name": "HyperlinkProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+              "name": "HyperlinkProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "dataTest": {
+          "defaultValue": null,
+          "description": "Add a data-test tag for automated tests",
+          "name": "dataTest",
+          "parent": {
+            "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+            "name": "HyperlinkProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+              "name": "HyperlinkProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "iconLeading": {
+          "defaultValue": null,
+          "description": "Icon to display to the left of link content",
+          "name": "iconLeading",
+          "parent": {
+            "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+            "name": "HyperlinkProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+              "name": "HyperlinkProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "iconTrailing": {
+          "defaultValue": null,
+          "description": "Icon to display to the right of link content",
+          "name": "iconTrailing",
+          "parent": {
+            "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+            "name": "HyperlinkProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+              "name": "HyperlinkProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "className": {
+          "defaultValue": null,
+          "description": "Add a specific class to the link",
+          "name": "className",
+          "parent": {
+            "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+            "name": "HyperlinkProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+              "name": "HyperlinkProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "intercomTarget": {
+          "defaultValue": null,
+          "description": "Add a data-intercom-target with unique id\nto link a components to a Product Tour step",
+          "name": "intercomTarget",
+          "parent": {
+            "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+            "name": "HyperlinkProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Hyperlink/src/Hyperlink.tsx",
+              "name": "HyperlinkProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        }
+      }
+    }
+  ]
+]

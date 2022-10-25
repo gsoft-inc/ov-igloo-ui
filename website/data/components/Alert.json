@@ -1,0 +1,166 @@
+[
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/Alert/src/Alert.tsx",
+      "description": "",
+      "displayName": "Alert",
+      "methods": [],
+      "props": {
+        "title": {
+          "defaultValue": null,
+          "description": "The title of the alert",
+          "name": "title",
+          "parent": {
+            "fileName": "components/packages/Alert/src/Alert.tsx",
+            "name": "AlertProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Alert/src/Alert.tsx",
+              "name": "AlertProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "message": {
+          "defaultValue": null,
+          "description": "The content to display inside the Alert",
+          "name": "message",
+          "parent": {
+            "fileName": "components/packages/Alert/src/Alert.tsx",
+            "name": "AlertProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Alert/src/Alert.tsx",
+              "name": "AlertProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "type": {
+          "defaultValue": null,
+          "description": "Change the type of the Alert",
+          "name": "type",
+          "parent": {
+            "fileName": "components/packages/Alert/src/Alert.tsx",
+            "name": "AlertProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Alert/src/Alert.tsx",
+              "name": "AlertProps"
+            }
+          ],
+          "required": true,
+          "type": { "name": "Type" }
+        },
+        "appearance": {
+          "defaultValue": null,
+          "description": "Change the Alert appearance",
+          "name": "appearance",
+          "parent": {
+            "fileName": "components/packages/Alert/src/Alert.tsx",
+            "name": "AlertProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Alert/src/Alert.tsx",
+              "name": "AlertProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "Appearance" }
+        },
+        "className": {
+          "defaultValue": null,
+          "description": "Add a specific class to the Alert",
+          "name": "className",
+          "parent": {
+            "fileName": "components/packages/Alert/src/Alert.tsx",
+            "name": "AlertProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Alert/src/Alert.tsx",
+              "name": "AlertProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "closable": {
+          "defaultValue": null,
+          "description": "Set if the Alert can be closed by the user",
+          "name": "closable",
+          "parent": {
+            "fileName": "components/packages/Alert/src/Alert.tsx",
+            "name": "AlertProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Alert/src/Alert.tsx",
+              "name": "AlertProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "onClose": {
+          "defaultValue": null,
+          "description": "Action on Alert close button click",
+          "name": "onClose",
+          "parent": {
+            "fileName": "components/packages/Alert/src/Alert.tsx",
+            "name": "AlertProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Alert/src/Alert.tsx",
+              "name": "AlertProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "() => void" }
+        },
+        "button": {
+          "defaultValue": null,
+          "description": "Alert button",
+          "name": "button",
+          "parent": {
+            "fileName": "components/packages/Alert/src/Alert.tsx",
+            "name": "AlertProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Alert/src/Alert.tsx",
+              "name": "AlertProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "AlertButton" }
+        },
+        "dataTest": {
+          "defaultValue": null,
+          "description": "Add a data-test tag for automated tests",
+          "name": "dataTest",
+          "parent": {
+            "fileName": "components/packages/Alert/src/Alert.tsx",
+            "name": "AlertProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Alert/src/Alert.tsx",
+              "name": "AlertProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        }
+      }
+    }
+  ]
+]

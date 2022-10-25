@@ -1,0 +1,204 @@
+[
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/OptionButton/src/OptionButton.tsx",
+      "description": "",
+      "displayName": "OptionButton",
+      "methods": [],
+      "props": {
+        "buttonType": {
+          "defaultValue": null,
+          "description": "Add a button type, which will come with its own icon.\nIf adding an icon, this will be overridden",
+          "name": "buttonType",
+          "parent": {
+            "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+            "name": "OptionButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+              "name": "OptionButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ButtonType" }
+        },
+        "checked": {
+          "defaultValue": null,
+          "description": "True when the option button is selected",
+          "name": "checked",
+          "parent": {
+            "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+            "name": "OptionButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+              "name": "OptionButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "children": {
+          "defaultValue": null,
+          "description": "Add the main text to the option button",
+          "name": "children",
+          "parent": {
+            "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+            "name": "OptionButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+              "name": "OptionButtonProps"
+            },
+            {
+              "fileName": "components/node_modules/@types/react/index.d.ts",
+              "name": "TypeLiteral"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "className": {
+          "defaultValue": null,
+          "description": "Add a specific class to the option button",
+          "name": "className",
+          "parent": {
+            "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+            "name": "OptionButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+              "name": "OptionButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "dataTest": {
+          "defaultValue": null,
+          "description": "Add a data-test tag for automated tests",
+          "name": "dataTest",
+          "parent": {
+            "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+            "name": "OptionButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+              "name": "OptionButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "description": {
+          "defaultValue": null,
+          "description": "Add a description that is displayed below the text prop",
+          "name": "description",
+          "parent": {
+            "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+            "name": "OptionButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+              "name": "OptionButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "disabled": {
+          "defaultValue": null,
+          "description": "True if the option button should be disabled",
+          "name": "disabled",
+          "parent": {
+            "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+            "name": "OptionButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+              "name": "OptionButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "htmlFor": {
+          "defaultValue": null,
+          "description": "Add an htmlFor to the radio button of the option button.\nThis will also be used as the htmlFor attribute on the label",
+          "name": "htmlFor",
+          "parent": {
+            "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+            "name": "OptionButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+              "name": "OptionButtonProps"
+            }
+          ],
+          "required": true,
+          "type": { "name": "string" }
+        },
+        "icon": {
+          "defaultValue": null,
+          "description": "Add an icon to the beginning of the option button.\nThis overrides the icon that comes with buttonType",
+          "name": "icon",
+          "parent": {
+            "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+            "name": "OptionButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+              "name": "OptionButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "onChange": {
+          "defaultValue": null,
+          "description": "Add an onChange event to the option button",
+          "name": "onChange",
+          "parent": {
+            "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+            "name": "OptionButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+              "name": "OptionButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "(e: ChangeEvent<HTMLInputElement>) => void" }
+        },
+        "unchecked": {
+          "defaultValue": null,
+          "description": "True if the option button should have an unchecked appearance",
+          "name": "unchecked",
+          "parent": {
+            "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+            "name": "OptionButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/OptionButton/src/OptionButton.tsx",
+              "name": "OptionButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        }
+      }
+    }
+  ]
+]

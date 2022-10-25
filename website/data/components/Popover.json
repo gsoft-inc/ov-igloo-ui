@@ -1,0 +1,187 @@
+[
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/Popover/src/Popover.tsx",
+      "description": "",
+      "displayName": "Popover",
+      "methods": [],
+      "props": {
+        "children": {
+          "defaultValue": null,
+          "description": "The target button, text, svg etc.. of the Popover.",
+          "name": "children",
+          "parent": {
+            "fileName": "components/packages/Popover/src/Popover.tsx",
+            "name": "PopoverProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Popover/src/Popover.tsx",
+              "name": "PopoverProps"
+            },
+            {
+              "fileName": "components/node_modules/@types/react/index.d.ts",
+              "name": "TypeLiteral"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "popoverClassName": {
+          "defaultValue": null,
+          "description": "Add a specific class to the Popover",
+          "name": "popoverClassName",
+          "parent": {
+            "fileName": "components/packages/Popover/src/Popover.tsx",
+            "name": "PopoverProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Popover/src/Popover.tsx",
+              "name": "PopoverProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "content": {
+          "defaultValue": null,
+          "description": "The content to display inside the Popover",
+          "name": "content",
+          "parent": {
+            "fileName": "components/packages/Popover/src/Popover.tsx",
+            "name": "PopoverProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Popover/src/Popover.tsx",
+              "name": "PopoverProps"
+            }
+          ],
+          "required": true,
+          "type": { "name": "ReactNode" }
+        },
+        "position": {
+          "defaultValue": null,
+          "description": "The position the Popover is on.",
+          "name": "position",
+          "parent": {
+            "fileName": "components/packages/Popover/src/Popover.tsx",
+            "name": "PopoverProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Popover/src/Popover.tsx",
+              "name": "PopoverProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "Position" }
+        },
+        "maxWidth": {
+          "defaultValue": null,
+          "description": "The max with of the Popover",
+          "name": "maxWidth",
+          "parent": {
+            "fileName": "components/packages/Popover/src/Popover.tsx",
+            "name": "PopoverProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Popover/src/Popover.tsx",
+              "name": "PopoverProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "number" }
+        },
+        "active": {
+          "defaultValue": null,
+          "description": "When True, manually show the Popover.",
+          "name": "active",
+          "parent": {
+            "fileName": "components/packages/Popover/src/Popover.tsx",
+            "name": "PopoverProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Popover/src/Popover.tsx",
+              "name": "PopoverProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "title": {
+          "defaultValue": null,
+          "description": "The content for the title of the Popover",
+          "name": "title",
+          "parent": {
+            "fileName": "components/packages/Popover/src/Popover.tsx",
+            "name": "PopoverProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Popover/src/Popover.tsx",
+              "name": "PopoverProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "action": {
+          "defaultValue": null,
+          "description": "The content for the call to action of the Popover",
+          "name": "action",
+          "parent": {
+            "fileName": "components/packages/Popover/src/Popover.tsx",
+            "name": "PopoverProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Popover/src/Popover.tsx",
+              "name": "PopoverProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "isClosable": {
+          "defaultValue": null,
+          "description": "Render the close button",
+          "name": "isClosable",
+          "parent": {
+            "fileName": "components/packages/Popover/src/Popover.tsx",
+            "name": "PopoverProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Popover/src/Popover.tsx",
+              "name": "PopoverProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "dataTest": {
+          "defaultValue": null,
+          "description": "Add a data-test tag for automated tests",
+          "name": "dataTest",
+          "parent": {
+            "fileName": "components/packages/Popover/src/Popover.tsx",
+            "name": "PopoverProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Popover/src/Popover.tsx",
+              "name": "PopoverProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        }
+      }
+    }
+  ]
+]

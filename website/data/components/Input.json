@@ -1,0 +1,200 @@
+[
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/Input/src/Input.tsx",
+      "description": "",
+      "displayName": "Input",
+      "methods": [],
+      "props": {
+        "className": {
+          "defaultValue": null,
+          "description": "Add class names to the surrounding DOM container.",
+          "name": "className",
+          "parent": {
+            "fileName": "components/packages/Input/src/Input.tsx",
+            "name": "InputProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Input/src/Input.tsx",
+              "name": "InputProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "error": {
+          "defaultValue": null,
+          "description": "Form.ValidatedField state. True if has error.",
+          "name": "error",
+          "parent": {
+            "fileName": "components/packages/Input/src/Input.tsx",
+            "name": "InputProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Input/src/Input.tsx",
+              "name": "InputProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "type": {
+          "defaultValue": null,
+          "description": "Specifies the type to display",
+          "name": "type",
+          "parent": {
+            "fileName": "components/packages/Input/src/Input.tsx",
+            "name": "InputProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Input/src/Input.tsx",
+              "name": "InputProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "InputType" }
+        },
+        "isCompact": {
+          "defaultValue": null,
+          "description": "True for a compact appearance.",
+          "name": "isCompact",
+          "parent": {
+            "fileName": "components/packages/Input/src/Input.tsx",
+            "name": "InputProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Input/src/Input.tsx",
+              "name": "InputProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "value": {
+          "defaultValue": null,
+          "description": "Specifies the value inside the input.",
+          "name": "value",
+          "parent": {
+            "fileName": "components/packages/Input/src/Input.tsx",
+            "name": "InputProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Input/src/Input.tsx",
+              "name": "InputProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string | number" }
+        },
+        "autoFocus": {
+          "defaultValue": null,
+          "description": "True if you need the input to be focus on page load.",
+          "name": "autoFocus",
+          "parent": {
+            "fileName": "components/packages/Input/src/Input.tsx",
+            "name": "InputProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Input/src/Input.tsx",
+              "name": "InputProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "disabled": {
+          "defaultValue": null,
+          "description": "True if you need the input to be readonly.",
+          "name": "disabled",
+          "parent": {
+            "fileName": "components/packages/Input/src/Input.tsx",
+            "name": "InputProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Input/src/Input.tsx",
+              "name": "InputProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "onChange": {
+          "defaultValue": null,
+          "description": "Function called when the value changes.",
+          "name": "onChange",
+          "parent": {
+            "fileName": "components/packages/Input/src/Input.tsx",
+            "name": "InputProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Input/src/Input.tsx",
+              "name": "InputProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "(e: any) => void" }
+        },
+        "dataTest": {
+          "defaultValue": null,
+          "description": "Add a data-test tag for automated tests",
+          "name": "dataTest",
+          "parent": {
+            "fileName": "components/packages/Input/src/Input.tsx",
+            "name": "InputProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Input/src/Input.tsx",
+              "name": "InputProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "prefixIcon": {
+          "defaultValue": null,
+          "description": "Use a prefix for add an icon before the input text",
+          "name": "prefixIcon",
+          "parent": {
+            "fileName": "components/packages/Input/src/Input.tsx",
+            "name": "InputProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Input/src/Input.tsx",
+              "name": "InputProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "suffixIcon": {
+          "defaultValue": null,
+          "description": "Use a suffix for add an icon after the input text",
+          "name": "suffixIcon",
+          "parent": {
+            "fileName": "components/packages/Input/src/Input.tsx",
+            "name": "InputProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Input/src/Input.tsx",
+              "name": "InputProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        }
+      }
+    }
+  ]
+]

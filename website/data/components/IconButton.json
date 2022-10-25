@@ -1,0 +1,289 @@
+[
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/IconButton/src/IconButton.tsx",
+      "description": "",
+      "displayName": "IconButton",
+      "methods": [],
+      "props": {
+        "className": {
+          "defaultValue": null,
+          "description": "Add class names to the surrounding DOM container.",
+          "name": "className",
+          "parent": {
+            "fileName": "components/packages/IconButton/src/IconButton.tsx",
+            "name": "IconButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/IconButton/src/IconButton.tsx",
+              "name": "IconButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "icon": {
+          "defaultValue": null,
+          "description": "Icon React node to represent the value of the button",
+          "name": "icon",
+          "parent": {
+            "fileName": "components/packages/IconButton/src/IconButton.tsx",
+            "name": "IconButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/IconButton/src/IconButton.tsx",
+              "name": "IconButtonProps"
+            }
+          ],
+          "required": true,
+          "type": { "name": "ReactNode" }
+        },
+        "onClick": {
+          "defaultValue": null,
+          "description": "Callback function that will be called when the user clicks on the button.\n@returns",
+          "name": "onClick",
+          "parent": {
+            "fileName": "components/packages/IconButton/src/IconButton.tsx",
+            "name": "IconButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/IconButton/src/IconButton.tsx",
+              "name": "IconButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "() => void" }
+        },
+        "disabled": {
+          "defaultValue": null,
+          "description": "True if the control is disabled and shows a disabled state. The user cannot click on the button",
+          "name": "disabled",
+          "parent": {
+            "fileName": "components/packages/IconButton/src/IconButton.tsx",
+            "name": "IconButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/IconButton/src/IconButton.tsx",
+              "name": "IconButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "size": {
+          "defaultValue": null,
+          "description": "Button size",
+          "name": "size",
+          "parent": {
+            "fileName": "components/packages/IconButton/src/IconButton.tsx",
+            "name": "IconButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/IconButton/src/IconButton.tsx",
+              "name": "IconButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "Size" }
+        },
+        "rounded": {
+          "defaultValue": null,
+          "description": "True for rounded corners",
+          "name": "rounded",
+          "parent": {
+            "fileName": "components/packages/IconButton/src/IconButton.tsx",
+            "name": "IconButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/IconButton/src/IconButton.tsx",
+              "name": "IconButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "dataTest": {
+          "defaultValue": null,
+          "description": "Add a data-test tag for automated tests",
+          "name": "dataTest",
+          "parent": {
+            "fileName": "components/packages/IconButton/src/IconButton.tsx",
+            "name": "IconButtonProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/IconButton/src/IconButton.tsx",
+              "name": "IconButtonProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "children": {
+          "defaultValue": null,
+          "description": "The content to display inside the button",
+          "name": "children",
+          "parent": {
+            "fileName": "components/packages/Button/dist/Button.d.ts",
+            "name": "ButtonOwnProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Button/dist/Button.d.ts",
+              "name": "ButtonOwnProps"
+            },
+            {
+              "fileName": "components/node_modules/@types/react/index.d.ts",
+              "name": "TypeLiteral"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "active": {
+          "defaultValue": null,
+          "description": "Sets the button in an active state",
+          "name": "active",
+          "parent": {
+            "fileName": "components/packages/Button/dist/Button.d.ts",
+            "name": "ButtonOwnProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Button/dist/Button.d.ts",
+              "name": "ButtonOwnProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "loading": {
+          "defaultValue": null,
+          "description": "Replaces button text with a spinner while a background action is being performed",
+          "name": "loading",
+          "parent": {
+            "fileName": "components/packages/Button/dist/Button.d.ts",
+            "name": "ButtonOwnProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Button/dist/Button.d.ts",
+              "name": "ButtonOwnProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "appearance": {
+          "defaultValue": null,
+          "description": "Button appearance",
+          "name": "appearance",
+          "parent": {
+            "fileName": "components/packages/Button/dist/Button.d.ts",
+            "name": "ButtonOwnProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Button/dist/Button.d.ts",
+              "name": "ButtonOwnProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "Appearance" }
+        },
+        "iconLeading": {
+          "defaultValue": null,
+          "description": "Icon to display to the left of button content",
+          "name": "iconLeading",
+          "parent": {
+            "fileName": "components/packages/Button/dist/Button.d.ts",
+            "name": "ButtonOwnProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Button/dist/Button.d.ts",
+              "name": "ButtonOwnProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "iconTrailing": {
+          "defaultValue": null,
+          "description": "Icon to display to the right of button content",
+          "name": "iconTrailing",
+          "parent": {
+            "fileName": "components/packages/Button/dist/Button.d.ts",
+            "name": "ButtonOwnProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Button/dist/Button.d.ts",
+              "name": "ButtonOwnProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "showOnlyIconOnMobile": {
+          "defaultValue": null,
+          "description": "Display only the icon in mobile",
+          "name": "showOnlyIconOnMobile",
+          "parent": {
+            "fileName": "components/packages/Button/dist/Button.d.ts",
+            "name": "ButtonOwnProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Button/dist/Button.d.ts",
+              "name": "ButtonOwnProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "type": {
+          "defaultValue": null,
+          "description": "Optional prop to specify the type of the Button",
+          "name": "type",
+          "parent": {
+            "fileName": "components/packages/Button/dist/Button.d.ts",
+            "name": "ButtonOwnProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Button/dist/Button.d.ts",
+              "name": "ButtonOwnProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "\"button\" | \"reset\" | \"submit\"" }
+        },
+        "intercomTarget": {
+          "defaultValue": null,
+          "description": "Add a data-intercom-target with unique id to link a component to a Product Tour step",
+          "name": "intercomTarget",
+          "parent": {
+            "fileName": "components/packages/Button/dist/Button.d.ts",
+            "name": "ButtonOwnProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Button/dist/Button.d.ts",
+              "name": "ButtonOwnProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        }
+      }
+    }
+  ]
+]

@@ -1,0 +1,219 @@
+[
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/ButtonGroup/src/ButtonGroup.tsx",
+      "description": "",
+      "displayName": "ButtonGroupItem",
+      "methods": [],
+      "props": {
+        "children": {
+          "defaultValue": null,
+          "description": "The content to display inside the `ButtonItem`",
+          "name": "children",
+          "parent": {
+            "fileName": "components/packages/ButtonGroup/src/ButtonGroupItem.tsx",
+            "name": "ButtonGroupItemProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/ButtonGroup/src/ButtonGroupItem.tsx",
+              "name": "ButtonGroupItemProps"
+            },
+            {
+              "fileName": "components/node_modules/@types/react/index.d.ts",
+              "name": "TypeLiteral"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "active": {
+          "defaultValue": null,
+          "description": "Whether or not the `ButtonItem` is active",
+          "name": "active",
+          "parent": {
+            "fileName": "components/packages/ButtonGroup/src/ButtonGroupItem.tsx",
+            "name": "ButtonGroupItemProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/ButtonGroup/src/ButtonGroupItem.tsx",
+              "name": "ButtonGroupItemProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "disabled": {
+          "defaultValue": null,
+          "description": "Disabled the `ButtonItem`, the user cannot click on them",
+          "name": "disabled",
+          "parent": {
+            "fileName": "components/packages/ButtonGroup/src/ButtonGroupItem.tsx",
+            "name": "ButtonGroupItemProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/ButtonGroup/src/ButtonGroupItem.tsx",
+              "name": "ButtonGroupItemProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "onClick": {
+          "defaultValue": null,
+          "description": "Callback function executed when a `ButtonItem` is clicked",
+          "name": "onClick",
+          "parent": {
+            "fileName": "components/packages/ButtonGroup/src/ButtonGroupItem.tsx",
+            "name": "ButtonGroupItemProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/ButtonGroup/src/ButtonGroupItem.tsx",
+              "name": "ButtonGroupItemProps"
+            }
+          ],
+          "required": false,
+          "type": {
+            "name": "(e: MouseEvent<HTMLButtonElement, MouseEvent>) => void"
+          }
+        },
+        "dataTest": {
+          "defaultValue": null,
+          "description": "Add a data-test tag for automated tests",
+          "name": "dataTest",
+          "parent": {
+            "fileName": "components/packages/ButtonGroup/src/ButtonGroupItem.tsx",
+            "name": "ButtonGroupItemProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/ButtonGroup/src/ButtonGroupItem.tsx",
+              "name": "ButtonGroupItemProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "icon": {
+          "defaultValue": null,
+          "description": "Icon to display to the left of button content",
+          "name": "icon",
+          "parent": {
+            "fileName": "components/packages/ButtonGroup/src/ButtonGroupItem.tsx",
+            "name": "ButtonGroupItemProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/ButtonGroup/src/ButtonGroupItem.tsx",
+              "name": "ButtonGroupItemProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        }
+      }
+    },
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/ButtonGroup/src/ButtonGroup.tsx",
+      "description": "",
+      "displayName": "ButtonGroup",
+      "methods": [],
+      "props": {
+        "compact": {
+          "defaultValue": null,
+          "description": "Changes the padding of button group",
+          "name": "compact",
+          "parent": {
+            "fileName": "components/packages/ButtonGroup/src/ButtonGroup.tsx",
+            "name": "ButtonGroupProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/ButtonGroup/src/ButtonGroup.tsx",
+              "name": "ButtonGroupProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "small": {
+          "defaultValue": null,
+          "description": "Changes the size of button group",
+          "name": "small",
+          "parent": {
+            "fileName": "components/packages/ButtonGroup/src/ButtonGroup.tsx",
+            "name": "ButtonGroupProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/ButtonGroup/src/ButtonGroup.tsx",
+              "name": "ButtonGroupProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "children": {
+          "defaultValue": null,
+          "description": "React child node representing the button content text or icon",
+          "name": "children",
+          "parent": {
+            "fileName": "components/packages/ButtonGroup/src/ButtonGroup.tsx",
+            "name": "ButtonGroupProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/ButtonGroup/src/ButtonGroup.tsx",
+              "name": "ButtonGroupProps"
+            },
+            {
+              "fileName": "components/node_modules/@types/react/index.d.ts",
+              "name": "TypeLiteral"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "dataTest": {
+          "defaultValue": null,
+          "description": "Add a data-test tag for automated tests",
+          "name": "dataTest",
+          "parent": {
+            "fileName": "components/packages/ButtonGroup/src/ButtonGroup.tsx",
+            "name": "ButtonGroupProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/ButtonGroup/src/ButtonGroup.tsx",
+              "name": "ButtonGroupProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "className": {
+          "defaultValue": null,
+          "description": "Add a specific class to the button group",
+          "name": "className",
+          "parent": {
+            "fileName": "components/packages/ButtonGroup/src/ButtonGroup.tsx",
+            "name": "ButtonGroupProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/ButtonGroup/src/ButtonGroup.tsx",
+              "name": "ButtonGroupProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        }
+      }
+    }
+  ]
+]

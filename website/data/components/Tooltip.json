@@ -1,0 +1,170 @@
+[
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/Tooltip/src/Tooltip.tsx",
+      "description": "",
+      "displayName": "Tooltip",
+      "methods": [],
+      "props": {
+        "children": {
+          "defaultValue": null,
+          "description": "The target button, text, svg etc.. of the Tooltip.",
+          "name": "children",
+          "parent": {
+            "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+            "name": "TooltipProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+              "name": "TooltipProps"
+            },
+            {
+              "fileName": "components/node_modules/@types/react/index.d.ts",
+              "name": "TypeLiteral"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "tooltipClassName": {
+          "defaultValue": null,
+          "description": "Add a specific class to the tooltip",
+          "name": "tooltipClassName",
+          "parent": {
+            "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+            "name": "TooltipProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+              "name": "TooltipProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "content": {
+          "defaultValue": null,
+          "description": "The content to display inside the tooltip",
+          "name": "content",
+          "parent": {
+            "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+            "name": "TooltipProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+              "name": "TooltipProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "position": {
+          "defaultValue": null,
+          "description": "The position the tooltip is on.",
+          "name": "position",
+          "parent": {
+            "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+            "name": "TooltipProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+              "name": "TooltipProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "Position" }
+        },
+        "appearance": {
+          "defaultValue": null,
+          "description": "The appearance of the tooltip.",
+          "name": "appearance",
+          "parent": {
+            "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+            "name": "TooltipProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+              "name": "TooltipProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "Appearance" }
+        },
+        "maxWidth": {
+          "defaultValue": null,
+          "description": "The max with of the tooltip",
+          "name": "maxWidth",
+          "parent": {
+            "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+            "name": "TooltipProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+              "name": "TooltipProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "number" }
+        },
+        "active": {
+          "defaultValue": null,
+          "description": "When True, manually show the Tooltip.",
+          "name": "active",
+          "parent": {
+            "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+            "name": "TooltipProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+              "name": "TooltipProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "disabled": {
+          "defaultValue": null,
+          "description": "When True, disabled the tooltip",
+          "name": "disabled",
+          "parent": {
+            "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+            "name": "TooltipProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+              "name": "TooltipProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        },
+        "dataTest": {
+          "defaultValue": null,
+          "description": "Add a data-test tag for automated tests",
+          "name": "dataTest",
+          "parent": {
+            "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+            "name": "TooltipProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Tooltip/src/Tooltip.tsx",
+              "name": "TooltipProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        }
+      }
+    }
+  ]
+]

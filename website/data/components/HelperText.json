@@ -1,0 +1,68 @@
+[
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/HelperText/src/HelperText.tsx",
+      "description": "",
+      "displayName": "HelperText",
+      "methods": [],
+      "props": {
+        "className": {
+          "defaultValue": null,
+          "description": "Add a specific class to the `HelperText`",
+          "name": "className",
+          "parent": {
+            "fileName": "components/packages/HelperText/src/HelperText.tsx",
+            "name": "HelperTextProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/HelperText/src/HelperText.tsx",
+              "name": "HelperTextProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "children": {
+          "defaultValue": null,
+          "description": "The content to display inside the HelperText",
+          "name": "children",
+          "parent": {
+            "fileName": "components/packages/HelperText/src/HelperText.tsx",
+            "name": "HelperTextProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/HelperText/src/HelperText.tsx",
+              "name": "HelperTextProps"
+            },
+            {
+              "fileName": "components/node_modules/@types/react/index.d.ts",
+              "name": "TypeLiteral"
+            }
+          ],
+          "required": false,
+          "type": { "name": "ReactNode" }
+        },
+        "error": {
+          "defaultValue": null,
+          "description": "Changes the appearance of component",
+          "name": "error",
+          "parent": {
+            "fileName": "components/packages/HelperText/src/HelperText.tsx",
+            "name": "HelperTextProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/HelperText/src/HelperText.tsx",
+              "name": "HelperTextProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "boolean" }
+        }
+      }
+    }
+  ]
+]
