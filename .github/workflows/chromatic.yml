@@ -10,28 +10,23 @@ on:
 jobs:
   chromatic-deployment:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 16 ]
     steps:
-      - name: Checkout Commit
-        uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v2
         with:
-          node-version: ${{ matrix.node }}
-      - name: Cache yarn dependencies
-        uses: actions/cache@v3
-        id: cache-dependencies
+          fetch-depth: 0
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
         with:
-          path: node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          node-version: '16.x'
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock')}}
           restore-keys: |
-            ${{ runner.ox }}-yarn-
-      - name: Install Dependencies
-        if: steps.cache-dependencies.outputs.cache-hit != 'true'
-        run: |
-          yarn install --force --non-interactive
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      - run: yarn install --frozen-lockfile
       - run: yarn build
       - name: Publish to Chromatic
         uses: chromaui/action@v1
