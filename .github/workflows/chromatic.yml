@@ -7,10 +7,6 @@ on:
       - dependabot/*
       - changeset-release/*
 
-concurrency:
-  group: ${{ github.head_ref }}
-  cancel-in-progress: true
-
 jobs:
   chromatic-deployment:
     runs-on: ubuntu-latest
