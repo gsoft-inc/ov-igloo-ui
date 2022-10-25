@@ -1,0 +1,211 @@
+[
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/Pager/src/Pager.tsx",
+      "description": "",
+      "displayName": "Pager",
+      "methods": [],
+      "props": {
+        "className": {
+          "defaultValue": null,
+          "description": "Add a specific class to the pager component",
+          "name": "className",
+          "parent": {
+            "fileName": "components/packages/Pager/src/Pager.tsx",
+            "name": "PagerProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Pager/src/Pager.tsx",
+              "name": "PagerProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "currentPage": {
+          "defaultValue": null,
+          "description": "The number of the currently active page",
+          "name": "currentPage",
+          "parent": {
+            "fileName": "components/packages/Pager/src/Pager.tsx",
+            "name": "PagerProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Pager/src/Pager.tsx",
+              "name": "PagerProps"
+            }
+          ],
+          "required": true,
+          "type": { "name": "number" }
+        },
+        "dataTest": {
+          "defaultValue": null,
+          "description": "Add a data-test tag for automated tests",
+          "name": "dataTest",
+          "parent": {
+            "fileName": "components/packages/Pager/src/Pager.tsx",
+            "name": "PagerProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Pager/src/Pager.tsx",
+              "name": "PagerProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
+        "onPageChange": {
+          "defaultValue": null,
+          "description": "Called when the page is changed.",
+          "name": "onPageChange",
+          "parent": {
+            "fileName": "components/packages/Pager/src/Pager.tsx",
+            "name": "PagerProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Pager/src/Pager.tsx",
+              "name": "PagerProps"
+            }
+          ],
+          "required": true,
+          "type": { "name": "(pageNum: number) => void" }
+        },
+        "pageSize": {
+          "defaultValue": null,
+          "description": "Specify the number of elements each page should contain",
+          "name": "pageSize",
+          "parent": {
+            "fileName": "components/packages/Pager/src/Pager.tsx",
+            "name": "PagerProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Pager/src/Pager.tsx",
+              "name": "PagerProps"
+            }
+          ],
+          "required": true,
+          "type": { "name": "number" }
+        },
+        "siblingCount": {
+          "defaultValue": null,
+          "description": "Represents how many pages should\nbe on each side of the current page.",
+          "name": "siblingCount",
+          "parent": {
+            "fileName": "components/packages/Pager/src/Pager.tsx",
+            "name": "PagerProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Pager/src/Pager.tsx",
+              "name": "PagerProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "number" }
+        },
+        "totalCount": {
+          "defaultValue": null,
+          "description": "The total amount of elements",
+          "name": "totalCount",
+          "parent": {
+            "fileName": "components/packages/Pager/src/Pager.tsx",
+            "name": "PagerProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Pager/src/Pager.tsx",
+              "name": "PagerProps"
+            }
+          ],
+          "required": true,
+          "type": { "name": "number" }
+        }
+      }
+    }
+  ],
+  [
+    {
+      "tags": {},
+      "filePath": "/Users/franck.gaudin/Devel/Igloo/components/packages/Pager/src/usePagination.tsx",
+      "description": "",
+      "displayName": "usePagination",
+      "methods": [],
+      "props": {
+        "currentPage": {
+          "defaultValue": null,
+          "description": "The number of the currently active page",
+          "name": "currentPage",
+          "parent": {
+            "fileName": "components/packages/Pager/src/usePagination.tsx",
+            "name": "PaginationProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Pager/src/usePagination.tsx",
+              "name": "PaginationProps"
+            }
+          ],
+          "required": true,
+          "type": { "name": "number" }
+        },
+        "pageSize": {
+          "defaultValue": null,
+          "description": "The number of elements each page should contain",
+          "name": "pageSize",
+          "parent": {
+            "fileName": "components/packages/Pager/src/usePagination.tsx",
+            "name": "PaginationProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Pager/src/usePagination.tsx",
+              "name": "PaginationProps"
+            }
+          ],
+          "required": true,
+          "type": { "name": "number" }
+        },
+        "siblingCount": {
+          "defaultValue": null,
+          "description": "Represents how many pages should\nbe on each side of the current page.",
+          "name": "siblingCount",
+          "parent": {
+            "fileName": "components/packages/Pager/src/usePagination.tsx",
+            "name": "PaginationProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Pager/src/usePagination.tsx",
+              "name": "PaginationProps"
+            }
+          ],
+          "required": true,
+          "type": { "name": "number" }
+        },
+        "totalCount": {
+          "defaultValue": null,
+          "description": "The total amount of elements",
+          "name": "totalCount",
+          "parent": {
+            "fileName": "components/packages/Pager/src/usePagination.tsx",
+            "name": "PaginationProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Pager/src/usePagination.tsx",
+              "name": "PaginationProps"
+            }
+          ],
+          "required": true,
+          "type": { "name": "number" }
+        }
+      }
+    }
+  ]
+]

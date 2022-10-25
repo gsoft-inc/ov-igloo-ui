@@ -45,6 +45,23 @@
           "required": false,
           "type": { "name": "string" }
         },
+        "dataTest": {
+          "defaultValue": null,
+          "description": "Add a data-test tag for automated tests",
+          "name": "dataTest",
+          "parent": {
+            "fileName": "components/packages/Modal/src/Modal.tsx",
+            "name": "ModalProps"
+          },
+          "declarations": [
+            {
+              "fileName": "components/packages/Modal/src/Modal.tsx",
+              "name": "ModalProps"
+            }
+          ],
+          "required": false,
+          "type": { "name": "string" }
+        },
         "size": {
           "defaultValue": null,
           "description": "Changes the modal width",
