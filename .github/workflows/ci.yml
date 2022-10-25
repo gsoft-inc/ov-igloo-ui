@@ -61,7 +61,7 @@ jobs:
       - name: Run Stylelint
         run: yarn lint:style
 
-  build:
+  build_and_test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -91,15 +91,5 @@ jobs:
           path: website/.next
       - name: Run tests
         run: yarn test
-
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: build-output
-          path: website/.next
       - name: Run tests
         run: yarn test
