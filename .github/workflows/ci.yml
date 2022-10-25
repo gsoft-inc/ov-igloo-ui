@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: Cache yarn dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: cache-dependencies
         with:
           path: node_modules
@@ -49,7 +49,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: Restore yarn dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: cache-dependencies
         with:
           path: node_modules
@@ -68,7 +68,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock')}}
