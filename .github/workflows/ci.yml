@@ -61,7 +61,7 @@ jobs:
       - name: Run Stylelint
         run: yarn lint:style
 
-  build_and_test:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -84,18 +84,22 @@ jobs:
             ${{ runner.ox }}-yarn-
       - name: Run build
         run: yarn build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-output
+          path: website/.next
       - name: Run tests
         run: yarn test
 
-  build:
-    needs: [lint, build_and_test]
+  test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
+          name: build-output
+          path: website/.next
+      - name: Run tests
+        run: yarn test
