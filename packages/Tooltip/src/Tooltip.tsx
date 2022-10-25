@@ -2,6 +2,7 @@ import * as React from 'react';
 import ReactDom from 'react-dom';
 import cx from 'classnames';
 import { usePopper } from 'react-popper';
+import { animated, useTransition } from 'react-spring';
 
 import './tooltip.scss';
 
@@ -36,7 +37,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     children,
     content,
     tooltipClassName,
-    position = 'auto',
+    position = 'top',
     appearance = 'dark',
     maxWidth = 200,
     className,
@@ -98,26 +99,48 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
 
   const center = position === 'top' || position === 'bottom';
 
-  const tooltip = ReactDom.createPortal(
-    <div
-      ref={setTooltipElement}
-      className={tooltipClasses}
-      style={tooltipStyle}
-      {...attributes.popper}
-      data-text={center && 'center'}
-      data-show={show}
-      data-test={dataTest}
-      {...rest}
-    >
-      {content}
-      <div
-        style={styles.arrow}
-        data-popper-arrow
-        className="ids-tooltip__arrow"
-      />
-    </div>,
-    document.body
+  const translateYAdjustment = position === 'bottom' ? '' : '-';
+
+  const transitions = useTransition(show, {
+    from: {
+      opacity: 0,
+      y: `${translateYAdjustment}1rem`,
+    },
+    enter: {
+      opacity: 1,
+      y: '0',
+    },
+    config: { mass: 1, tension: 126, friction: 18, clamp: true },
+  });
+
+  const tooltip = transitions(
+    ({ opacity, ...restOfAnimations }, item) =>
+      item && (
+        <animated.div
+          ref={setTooltipElement}
+          className={tooltipClasses}
+          style={{
+            ...restOfAnimations,
+            ...tooltipStyle,
+            opacity: opacity.to({ range: [0.0, 0.6, 1.0], output: [0, 1, 1] }),
+          }}
+          {...attributes.popper}
+          data-text={center && 'center'}
+          data-show={show}
+          data-test={dataTest}
+          {...rest}
+        >
+          {content}
+          <div
+            style={styles.arrow}
+            data-popper-arrow
+            className="ids-tooltip__arrow"
+          />
+        </animated.div>
+      )
   );
+
+  const portaledTooltip = ReactDom.createPortal(tooltip, document.body);
 
   React.useEffect(() => {
     if (referenceElement) {
@@ -142,7 +165,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
       onMouseEnter={onMouseEnterHandle}
     >
       {children}
-      {disabled ? null : show && tooltip}
+      {!disabled && portaledTooltip}
     </span>
   );
 };

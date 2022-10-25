@@ -36,6 +36,8 @@ const withTM = require('next-transpile-modules')([
   '@igloo-ui/form-group',
   '@igloo-ui/filter',
   '@igloo-ui/breadcrumb',
+  '@igloo-ui/dialog',
+  '@igloo-ui/pager',
 ]);
 
 const path = require('path');
