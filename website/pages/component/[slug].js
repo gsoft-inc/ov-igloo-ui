@@ -10,8 +10,7 @@ import sectionize from 'remark-sectionize';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 
-import { getComponentAPI } from '../../../utils/generate-api.js';
-import { generateComponentList } from '../../scripts/generate-component-list.js';
+import { generateComponentList } from '../../scripts/generate-component-list.mjs';
 import { generatePagination } from '../../scripts/generate-pagination';
 import { generateDoc } from '../../scripts/generate-doc';
 
@@ -23,7 +22,6 @@ import ReferenceLinks from '../../components/ReferenceLinks';
 import Toc from '../../components/Toc';
 
 export const COMPONENTS_SOURCE = path.join(process.cwd(), '..', 'packages');
-const componentList = generateComponentList(COMPONENTS_SOURCE);
 
 export default function DocPage(props) {
   const {
@@ -118,13 +116,12 @@ export default function DocPage(props) {
 export const getStaticProps = async ({ params }) => {
   const { slug: component } = params;
 
+  const componentList = await generateComponentList(COMPONENTS_SOURCE);
+
   const { prev, next } = generatePagination(componentList, component);
   const { content, empty } = await generateDoc(component);
 
   const data = { prev, next, empty };
-  const props = await getComponentAPI(
-    path.join(process.cwd(), '..', 'packages', `${component}`, 'src')
-  );
 
   const mdxCustomComponent = [
     /<Example/.test(content) ? 'Example' : null,
@@ -139,6 +136,7 @@ export const getStaticProps = async ({ params }) => {
     scope: data,
   });
 
+  const props = require(`../../data/components/${component}.json`);
   const componentProps = props.flat();
 
   return {
@@ -161,6 +159,7 @@ export const getStaticPaths = async () => {
     };
   }
 
+  const componentList = await generateComponentList(COMPONENTS_SOURCE);
   const paths = componentList.map((slug) => ({ params: { slug } }));
 
   return {
