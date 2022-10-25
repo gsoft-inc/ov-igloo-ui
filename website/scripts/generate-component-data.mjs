@@ -7,6 +7,10 @@ const PACKAGES = path.join(process.cwd(), '..', 'packages');
 const COMPONENT_DATA = path.join(process.cwd(), 'data', 'components')
 
 async function writeFile(filename, data) {
+  if (!fs.existsSync(COMPONENT_DATA)) {
+    fs.mkdirSync(COMPONENT_DATA)
+  }
+
   await fs.writeFile(`${COMPONENT_DATA}/${filename}.json`, JSON.stringify(data), function (err) {
     if(err) {
       console.error(err)

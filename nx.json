@@ -11,10 +11,10 @@
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": ["^build", "api"]
+      "dependsOn": ["^build"]
     },
     "dev": {
-      "dependsOn": ["^build", "api"]
+      "dependsOn": ["^build", "prebuild"]
     }
   }
 }

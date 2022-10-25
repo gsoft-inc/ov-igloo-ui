@@ -3,7 +3,7 @@
   "version": "0.0.9",
   "private": true,
   "scripts": {
-    "api": "node './scripts/generate-component-data.mjs'",
+    "prebuild": "node './scripts/generate-component-data.mjs'",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
