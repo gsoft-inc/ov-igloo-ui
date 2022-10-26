@@ -15,7 +15,7 @@ interface CalendarCellProps {
   date: CalendarDate;
 }
 
-const CalendarCell = (props: CalendarCellProps) => {
+const CalendarCell = (props: CalendarCellProps): JSX.Element => {
   const { state, date } = props;
   const ref = React.useRef<HTMLDivElement>(null);
   const {

@@ -4,7 +4,10 @@ import ChevronRight from '@igloo-ui/icons/dist/ChevronRight';
 
 import { useCalendar, useLocale } from 'react-aria';
 import { useCalendarState } from 'react-stately';
-import { GregorianCalendar } from '@internationalized/date';
+import {
+  GregorianCalendar,
+  Calendar as CustomCalendar,
+} from '@internationalized/date';
 import {
   CalendarProps as ReactCalendarProps,
   DateValue,
@@ -13,7 +16,7 @@ import {
 import CalendarButton from './CalendarButton';
 import CalendarGrid from './CalendarGrid';
 
-function createCalendar(identifier: string) {
+function createCalendar(identifier: string): CustomCalendar {
   switch (identifier) {
     case 'gregory':
       return new GregorianCalendar();
