@@ -1,6 +1,6 @@
 # Dropdown
 
-Displays a sub element overlaid and rendering the content
+Displays a sub-element overlaid and renders the content
 
 <Example />
 

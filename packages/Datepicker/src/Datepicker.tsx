@@ -23,13 +23,13 @@ export interface DatepickerProps {
   selectedDay?: string;
   /** Specifies the value inside the input. */
   value?: string;
-  /** Text that appears in the form control when it has no value set */
+  /** Text that appears in the form control when it has no value set. */
   placeholder?: string;
-  /** Defines a string value that labels the current element */
+  /** Defines a string value that labels the current element. */
   ariaLabel?: string;
   /** True if the date picker should be disabled. */
   disabled?: boolean;
-  /** Form.ValidatedField state. True if has error. */
+  /** Form.ValidatedField state. True if it as an error. */
   error?: boolean;
   /** True if the Dropdown list is displayed. */
   isOpen?: boolean;
@@ -109,27 +109,25 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = (
   );
 
   return (
-    <>
-      <Dropdown
-        isOpen={!disabled && isOpen}
-        onClose={onClose}
-        content={calendar}
-        position="bottom"
-        size="medium"
-        dataTest={dataTest}
-        {...rest}
-      >
-        <Input
-          type="text"
-          disabled={disabled}
-          error={error}
-          value={value}
-          placeholder={placeholder}
-          prefixIcon={<IconCalendar />}
-          onFocus={onFocus}
-        />
-      </Dropdown>
-    </>
+    <Dropdown
+      isOpen={!disabled && isOpen}
+      onClose={onClose}
+      content={calendar}
+      position="bottom"
+      size="medium"
+      dataTest={dataTest}
+      {...rest}
+    >
+      <Input
+        type="text"
+        disabled={disabled}
+        error={error}
+        value={value}
+        placeholder={placeholder}
+        prefixIcon={<IconCalendar />}
+        onFocus={onFocus}
+      />
+    </Dropdown>
   );
 };
 
