@@ -2,22 +2,19 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import Dropdown from './Dropdown';
 
 describe('Dropdown', () => {
-  const component = shallow(
-    <Dropdown content="All settings">
-      <button>Settings</button>
-    </Dropdown>
-  );
-  test('It should render without errors', () => {
-    const wrapper = component.find('.ids-dropdown__container');
-    expect(wrapper.length).toBe(1);
-  });
+  test('It should render without error and a snapshot', () => {
+    const { asFragment } = render(
+      <Dropdown content="All settings" dataTest="dropdown1">
+        <button>Settings</button>
+      </Dropdown>
+    );
 
-  test('It should render a snapshot', () => {
-    expect(component).toMatchSnapshot();
+    expect(screen.getByTestId('dropdown1')).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

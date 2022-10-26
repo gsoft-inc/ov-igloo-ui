@@ -15,7 +15,7 @@ export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   content: React.ReactNode;
   /** Position of the Dropdown. */
   position?: Position;
-  /** Changes the size of card, giving more or less padding */
+  /** Changes the size of the card, giving it more or less padding. */
   size?: Size;
   /** True if the Dropdown list is displayed. */
   isOpen?: boolean;

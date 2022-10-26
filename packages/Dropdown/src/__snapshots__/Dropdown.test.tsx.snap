@@ -1,3 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dropdown It should render a snapshot 1`] = `ShallowWrapper {}`;
+exports[`Dropdown It should render without error and a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ids-dropdown__container"
+    data-test="dropdown1"
+  >
+    <button>
+      Settings
+    </button>
+  </div>
+</DocumentFragment>
+`;
