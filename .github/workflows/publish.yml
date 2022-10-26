@@ -102,6 +102,11 @@ jobs:
       - name: Restore yarn dependencies
         uses: actions/cache@v3
         id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.ox }}-yarn-
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
