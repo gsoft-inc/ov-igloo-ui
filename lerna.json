@@ -16,7 +16,6 @@
     "**/*.test.tsx",
     "**/*.stories.tsx",
     "**/__snapshots__/**",
-    "**/*.md",
-    "**/Kashim/**"
+    "**/*.md"
   ]
 }

@@ -5,6 +5,10 @@ const withMDX = require('@next/mdx')({
   },
 });
 
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 const withTM = require('next-transpile-modules')([
   '@igloo-ui/icons',
   '@igloo-ui/tokens',
@@ -39,10 +43,12 @@ const withTM = require('next-transpile-modules')([
 const path = require('path');
 
 module.exports = withTM(
-  withMDX({
-    reactStrictMode: true,
-    sassOptions: {
-      includePaths: [path.join(__dirname, 'styles')],
-    },
-  })
+  withBundleAnalyzer(
+    withMDX({
+      reactStrictMode: true,
+      sassOptions: {
+        includePaths: [path.join(__dirname, 'styles')],
+      },
+    })
+  )
 );

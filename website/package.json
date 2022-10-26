@@ -3,16 +3,13 @@
   "version": "0.0.9",
   "private": true,
   "scripts": {
+    "prebuild": "node './scripts/generate-component-data.mjs'",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "fuse.js": "^6.5.3",
-    "next": "12.1.5",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
     "@igloo-ui/alert": "*",
     "@igloo-ui/breadcrumb": "*",
     "@igloo-ui/button": "*",
@@ -38,7 +35,11 @@
     "@igloo-ui/textarea": "*",
     "@igloo-ui/toaster": "*",
     "@igloo-ui/toggle": "*",
-    "@igloo-ui/tooltip": "*"
+    "@igloo-ui/tooltip": "*",
+    "fuse.js": "^6.5.3",
+    "next": "12.3.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@igloo-ui/icons": "^1.4.0",

@@ -1,5 +1,7 @@
 import path from 'path';
 import fs from 'fs';
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 
 // For some reason, react-docgen-typescript has to be imported synchronously
 const docgen = require('react-docgen-typescript');

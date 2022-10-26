@@ -4,7 +4,7 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build"],
+        "cacheableOperations": ["build", "api"],
         "parallel": 5
       }
     }
@@ -14,7 +14,7 @@
       "dependsOn": ["^build"]
     },
     "dev": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build", "prebuild"]
     }
   }
 }
