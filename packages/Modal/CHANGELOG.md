@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.0.1
+
+### Patch Changes
+
+- 7cf9a4c: Adjusted the z-index to make sure tooltips show above modals
+
 ## 1.0.0
 
 ### Major Changes
