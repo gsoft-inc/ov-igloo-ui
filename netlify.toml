@@ -7,3 +7,7 @@
 
 [build.environment]
   NODE_OPTIONS = "--max_old_space_size=8192"
+
+[context.deploy-preview]
+  command = 'SKIP_BUILD_STATIC_GENERATION=$SKIP_BUILD_STATIC_GENERATION yarn doc:build'
+  environment = { SKIP_BUILD_STATIC_GENERATION = "true" }

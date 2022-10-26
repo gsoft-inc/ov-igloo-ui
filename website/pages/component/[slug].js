@@ -10,8 +10,7 @@ import sectionize from 'remark-sectionize';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 
-import { getComponentAPI } from '../../../utils/generate-api.js';
-import { generateComponentList } from '../../scripts/generate-component-list.js';
+import { generateComponentList } from '../../scripts/generate-component-list.mjs';
 import { generatePagination } from '../../scripts/generate-pagination';
 import { generateDoc } from '../../scripts/generate-doc';
 
@@ -117,14 +116,12 @@ export default function DocPage(props) {
 export const getStaticProps = async ({ params }) => {
   const { slug: component } = params;
 
-  const components = generateComponentList(COMPONENTS_SOURCE);
-  const { prev, next } = generatePagination(components, component);
+  const componentList = await generateComponentList(COMPONENTS_SOURCE);
+
+  const { prev, next } = generatePagination(componentList, component);
   const { content, empty } = await generateDoc(component);
 
   const data = { prev, next, empty };
-  const props = await getComponentAPI(
-    path.join(process.cwd(), '..', 'packages', `${component}`, 'src')
-  );
 
   const mdxCustomComponent = [
     /<Example/.test(content) ? 'Example' : null,
@@ -139,12 +136,13 @@ export const getStaticProps = async ({ params }) => {
     scope: data,
   });
 
+  const props = require(`../../data/components/${component}.json`);
   const componentProps = props.flat();
 
   return {
     props: {
       componentProps,
-      components,
+      components: componentList,
       component,
       source: mdxSource,
       frontMatter: data,
@@ -154,7 +152,14 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const componentList = generateComponentList(COMPONENTS_SOURCE);
+  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+    return {
+      paths: [],
+      fallback: 'blocking',
+    };
+  }
+
+  const componentList = await generateComponentList(COMPONENTS_SOURCE);
   const paths = componentList.map((slug) => ({ params: { slug } }));
 
   return {

@@ -4,39 +4,91 @@ on:
   pull_request:
     branches: [main]
 
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
+
 jobs:
-  lint_and_test:
+  install-cache:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [16]
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v2
+      - name: Checkout Commit
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
-      - name: Cache Node.js modules
-        uses: actions/cache@v2
+          node-version: ${{ matrix.node }}
+      - name: Cache yarn dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
         with:
-          path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock')}}
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
-      - run: yarn lint
-      - run: yarn lint:style
-      - run: yarn test
+            ${{ runner.ox }}-yarn-
+      - name: Install Dependencies
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        run: |
+          yarn install --force --non-interactive
 
-  build:
-    needs: [lint_and_test]
+  lint:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 16 ]
+    needs: install-cache
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Commit
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
+          node-version: ${{ matrix.node }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
         with:
-          node-version: '16.x'
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.ox }}-yarn-
+      - name: Run Eslint
+        run: yarn lint
+      - name: Run Stylelint
+        run: yarn lint:style
+
+  build_and_test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 16 ]
+    needs: install-cache
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.ox }}-yarn-
+      - name: Run build
+        run: yarn build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-output
+          path: website/.next
+      - name: Run tests
+        run: yarn test
+      - name: Run tests
+        run: yarn test

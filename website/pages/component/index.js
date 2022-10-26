@@ -44,7 +44,7 @@ export default function Components(props) {
 }
 
 export const getStaticProps = async () => {
-  const components = generateComponentList(COMPONENTS_SOURCE);
+  const components = await generateComponentList(COMPONENTS_SOURCE);
   const cardImage = await getCardImage(components);
 
   return {
