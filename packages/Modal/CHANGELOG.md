@@ -1,5 +1,15 @@
 # @igloo-ui/modal
 
+## 1.0.0
+
+### Major Changes
+
+- b734729: Updated title style as well as restructured some html
+
+  ## BREAKING CHANGE
+
+  Restructured some HTML and removed what was no longer needed. There is no longer an .ids-modal\_\_container.
+
 ## 0.2.0
 
 ### Minor Changes

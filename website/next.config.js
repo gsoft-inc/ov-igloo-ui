@@ -34,6 +34,8 @@ const withTM = require('next-transpile-modules')([
   '@igloo-ui/breadcrumb',
   '@igloo-ui/dropdown',
   '@igloo-ui/datepicker',
+  '@igloo-ui/dialog',
+  '@igloo-ui/pager',
 ]);
 
 const path = require('path');
