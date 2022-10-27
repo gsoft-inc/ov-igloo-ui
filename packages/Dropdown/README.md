@@ -27,17 +27,17 @@ Then to use the component in your code just import it!
 ```jsx
 import Dropdown from '@igloo-ui/dropdown';
 import Button from '@igloo-ui/button';
-import Datepicker from '@igloo-ui/datepicker';
 
 const [show, setShow] = React.useState(false);
 
-<Dropdown
-  isOpen={show}
-  onClose={() => setShow(false)}
-  content={<Datepicker selectedDay="2022-12-12" />}
->
+function List() {
+  const listItem = items.map((item) => <li>{item}</li>);
+  return <ul>{listItem}</ul>;
+}
+
+<Dropdown isOpen={show} onClose={() => setShow(false)} content={<List />}>
   <Button appearance="secondary" size="small" onClick={() => setShow(!show)}>
-    Chose date
+    Settings
   </Button>
 </Dropdown>;
 ```

@@ -38,7 +38,6 @@
     "@igloo-ui/tooltip": "*",
     "@igloo-ui/datepicker": "*",
     "@igloo-ui/dropdown": "*",
-    "@igloo-ui/tooltip": "*",
     "fuse.js": "^6.5.3",
     "next": "12.3.1",
     "react": "17.0.2",

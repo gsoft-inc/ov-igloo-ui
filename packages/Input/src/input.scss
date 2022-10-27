@@ -12,7 +12,7 @@
   --ids-input-border-radius: #{tokens.$border-radius-sm};
   --ids-input-border-color: #{tokens.$grey-300};
   --ids-input-background: #{tokens.$samoyed};
-  --ids-input-margin: #{tokens.$space-1} #{tokens.$space-0};
+  --ids-input-margin: #{tokens.$space-0};
 
   /* Compact */
   --ids-input-height-compact: #{tokens.$space-5};
@@ -60,6 +60,7 @@
   color: var(--ids-input-color-icon);
   height: 100%;
   box-sizing: border-box;
+  pointer-events: none;
 }
 
 .ids-input {
