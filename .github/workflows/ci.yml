@@ -83,12 +83,5 @@ jobs:
             ${{ runner.ox }}-yarn-
       - name: Run build
         run: yarn build
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-output
-          path: website/.next
-      - name: Run tests
-        run: yarn test
       - name: Run tests
         run: yarn test

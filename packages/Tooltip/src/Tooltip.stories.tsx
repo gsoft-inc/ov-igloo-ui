@@ -4,6 +4,7 @@ import { ComponentMeta } from '@storybook/react';
 
 import Tooltip, { TooltipProps } from './Tooltip';
 import Button from '@igloo-ui/button';
+import Modal from '@igloo-ui/modal';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -88,3 +89,18 @@ export const DisabledButton = () => (
     </Tooltip>
   </Section>
 );
+
+export const TooltipInAModal = () => {
+  const [show, setShow] = React.useState(false);
+
+  return (
+    <Section>
+      <Button onClick={() => setShow(true)}>open</Button>
+      <Modal isDismissable isOpen={show} onClose={() => setShow(false)}>
+        <Tooltip content="Please complete all fields">
+          <Button>Update profile</Button>
+        </Tooltip>
+      </Modal>
+    </Section>
+  );
+};

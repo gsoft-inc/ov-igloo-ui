@@ -5,58 +5,111 @@ on:
     branches: [main]
 
 jobs:
+  install-cache:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 16 ]
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Cache yarn dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.ox }}-yarn-
+      - name: Install Dependencies
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        run: |
+          yarn install --force --non-interactive
+
   lint:
     name: Lint
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [ 16 ]
+    needs: install-cache
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout Commit
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
-      - name: Cache Node.js modules
-        uses: actions/cache@v2
+          node-version: ${{ matrix.node }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
         with:
-          path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock')}}
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-      - run: yarn install --frozen-lockfile
-      - run: yarn lint
-      - run: yarn lint:style
+            ${{ runner.ox }}-yarn-
+      - name: Run Eslint
+        run: yarn lint
+      - name: Run Stylelint
+        run: yarn lint:style
 
   test_and_build:
     name: Test and build
-    needs: [lint]
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [ 16 ]
+    needs: install-cache
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Commit
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
+          node-version: ${{ matrix.node }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
         with:
-          node-version: '16.x'
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
-      - run: yarn test
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.ox }}-yarn-
+      - name: Run build
+        run: yarn build
+      - name: Run tests
+        run: yarn test
 
   release:
     name: Release
     needs: [test_and_build]
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 16 ]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Commit
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
+          node-version: ${{ matrix.node }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
         with:
-          node-version: '16.x'
-      - run: yarn install --frozen-lockfile
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.ox }}-yarn-
       - name: Create Release Pull Request or Publish to npm
-        uses: changesets/action@master
+        id: changesets
+        uses: changesets/action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
 
@@ -64,16 +117,25 @@ jobs:
     name: Publish to npm
     needs: [test_and_build]
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 16 ]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Commit
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
+          node-version: ${{ matrix.node }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
         with:
-          node-version: '16.x'
-          registry-url: https://registry.npmjs.org/
-      - run: yarn install --frozen-lockfile
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.ox }}-yarn-
       - run: yarn publish-ci
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
