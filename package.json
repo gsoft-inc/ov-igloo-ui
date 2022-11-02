@@ -9,6 +9,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "build": "lerna run build",
+    "build:components": "lerna run build --scope=@igloo-ui/*",
     "test": "jest",
     "clean": "npx lerna exec -- rm -rf ./dist",
     "lint": "eslint . --ext .ts,.tsx --quiet",
@@ -19,7 +20,7 @@
     "fix:all": "yarn lint:fix && yarn fix:style",
     "doc:start": "lerna run dev --scope=docs",
     "doc:build": "lerna run build --verbose --scope=docs && yarn build-storybook -o ./website/.next/storybook",
-    "dev": "yarn build && yarn storybook",
+    "dev": "yarn build:components && yarn storybook",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepublish-ci": "yarn build",
