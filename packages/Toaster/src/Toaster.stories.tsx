@@ -64,6 +64,9 @@ export const SuccessToast = () => {
 };
 
 SuccessToast.decorators = [(Story: any) => <Container>{Story()}</Container>];
+SuccessToast.parameters = {
+  chromatic: { delay: 400 },
+};
 
 export const ErrorToast = () => {
   return (
@@ -76,3 +79,6 @@ export const ErrorToast = () => {
 };
 
 ErrorToast.decorators = [(Story: any) => <Container>{Story()}</Container>];
+ErrorToast.parameters = {
+  chromatic: { delay: 400 },
+};
