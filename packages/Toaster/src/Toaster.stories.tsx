@@ -30,6 +30,14 @@ export default {
   ],
 } as ComponentMeta<typeof Toast>;
 
+const Container = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <section id="ids-toaster" style={{ width: '100%' }}>
+      {children}
+    </section>
+  );
+};
+
 export const Overview = () => {
   const { toast, toastList } = useToaster();
   return (
@@ -50,36 +58,21 @@ export const Overview = () => {
 };
 
 export const SuccessToast = () => {
-  const [showToast, setShowToast] = React.useState(false);
   return (
-    <>
-      <Button appearance="secondary" onClick={() => setShowToast(true)}>
-        Remove profile
-      </Button>
-      {showToast && (
-        <Toast
-          message="Andrew's profile has been deleted "
-          onDissmiss={() => setShowToast(false)}
-        />
-      )}
-    </>
+    <Toast message="Andrew's profile has been deleted " duration="infinite" />
   );
 };
 
+SuccessToast.decorators = [(Story: any) => <Container>{Story()}</Container>];
+
 export const ErrorToast = () => {
-  const [showToast, setShowToast] = React.useState(false);
   return (
-    <>
-      <Button appearance="secondary" onClick={() => setShowToast(true)}>
-        Validate inscription
-      </Button>
-      {showToast && (
-        <Toast
-          message="Sorry Andrew, your account could not be activated"
-          error
-          onDissmiss={() => setShowToast(false)}
-        />
-      )}
-    </>
+    <Toast
+      message="Sorry Andrew, your account could not be activated"
+      error
+      duration="infinite"
+    />
   );
 };
+
+ErrorToast.decorators = [(Story: any) => <Container>{Story()}</Container>];

@@ -90,6 +90,12 @@
     animation: fade-out 0.15s ease, slide-out 0.15s ease, remove-space 0.15s ease;
     animation-fill-mode: forwards;
   }
+
+  &--reduce-motion {
+    &::after {
+      animation: none;
+    }
+  }
 }
 
 @keyframes fade-in {

@@ -79,6 +79,7 @@ const Toast: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
 
   const classes = cx('ids-toast', className, {
     'ids-toast--error': error,
+    'ids-toast--reduce-motion': duration === TOAST_INFINITE_TIME,
   });
 
   const container = document.getElementById(TOAST_CONTAINER_ID);
