@@ -1,0 +1,19 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-area-chart-font-family: #{tokens.$primary-font-family};
+  --ids-area-chart-font-size: #{tokens.$font-size-2};
+  --ids-area-chart-color: #{tokens.$grey-600};
+}
+
+.ids-area-chart {
+  color: var(--ids-area-chart-color);
+  font-family: var(--ids-area-chart-font-family);
+  font-size: var(--ids-area-chart-font-size);
+}
+
+.ids-area-chart .recharts-tooltip-wrapper {
+  outline: none;
+}
