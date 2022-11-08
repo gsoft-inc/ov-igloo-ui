@@ -30,7 +30,7 @@ interface DataSet {
   secondaryScore?: number;
   /** The text displayed beside the score in the tooltip */
   name?: string;
-  /** The text displayed beside the scondary score in the tooltip */
+  /** The text displayed beside the secondary score in the tooltip */
   secondaryName?: string;
 }
 
@@ -43,7 +43,7 @@ interface AreaChartData {
   secondaryScore?: number;
   /** The text displayed beside the score in the tooltip */
   name?: string;
-  /** The text displayed beside the scondary score in the tooltip */
+  /** The text displayed beside the secondary score in the tooltip */
   secondaryName?: string;
 }
 
@@ -74,7 +74,7 @@ export interface AreaChartProps extends React.ComponentProps<'div'> {
   dataTest?: string;
   /** The start date and end date for the x axis */
   dateRange: DateTimeRange;
-  /** Wheather or not the chart should resize */
+  /** Whether or not the chart should resize */
   isResponsive?: boolean;
   /** The min and max value of the y axis
    * (Possible values: number, 'auto', 'dataMin' or 'dataMax')
@@ -118,7 +118,14 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
   const [areaChartData, setAreaChartData] = React.useState<AreaChartData[]>();
 
   const dateFormatter = (date: number): string => {
-    return DateTime.fromMillis(date).toFormat('MMM d');
+    return DateTime.fromMillis(date).toLocaleString({
+      month: 'short',
+      day: 'numeric',
+    });
+  };
+
+  const tooltipDateFormatter = (date: number): string => {
+    return DateTime.fromMillis(date).toLocaleString(DateTime.DATE_FULL);
   };
 
   const getNumberOfTicks = (linePoints: number, maxTicks: number): number => {
@@ -179,14 +186,14 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
   };
 
   const cartesianGridConfig = {
-    stroke: variables['grey-200'],
+    stroke: variables.grey200,
     strokeOpacity: 1,
     vertical: false,
   };
 
   const tickStyle = {
-    fill: variables['grey-600'],
-    fontSize: variables['font-size-2'],
+    fill: variables.grey600,
+    fontSize: variables.fontSize2,
     fillOpacity: 1,
   };
 
@@ -204,7 +211,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     tickMargin: 10,
     allowDataOverflow: true,
     axisLine: {
-      stroke: variables['grey-400'],
+      stroke: variables.grey400,
     },
   };
 
@@ -217,7 +224,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     tick: tickStyle,
     domain: [range.min, range.max],
     axisLine: {
-      stroke: variables['grey-400'],
+      stroke: variables.grey400,
     },
   };
 
@@ -229,7 +236,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     r: 4,
     strokeWidth: 1,
     stroke: '#FFF',
-    fill: variables['electric-blue-500'],
+    fill: variables.electricBlue500,
   };
 
   const commonAreaConfig = {
@@ -243,7 +250,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     ...commonAreaConfig,
     dataKey: 'score',
     connectNulls: false,
-    stroke: variables['electric-blue-500'],
+    stroke: variables.electricBlue500,
     activeDot: {
       ...dotConfig,
     },
@@ -253,7 +260,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     ...commonAreaConfig,
     dataKey: 'score',
     connectNulls: true,
-    stroke: variables['grey-400'],
+    stroke: variables.grey400,
     strokeWidth: '6',
     strokeDasharray: '1,9',
     activeDot: false,
@@ -269,7 +276,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     return (
       <defs>
         <linearGradient id="curveAreaFillGradient" x1="0" y1="0" x2="0" y2="1">
-          <stop stopColor={variables['electric-blue-50']} />
+          <stop stopColor={variables.electricBlue50} />
           <stop offset="78%" stopColor="#EDF6FF" />
           <stop offset="96%" stopColor={variables.samoyed} />
         </linearGradient>
@@ -338,7 +345,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
           cursor={false}
           content={
             <ChartTooltip
-              dateFormatter={dateFormatter}
+              dateFormatter={tooltipDateFormatter}
               scoreFormatter={tooltipScoreFormatter}
               unavailableDataMessage={unavailableDataMessage}
             />

@@ -1542,10 +1542,15 @@
     classnames "^2.3.1"
     html-react-parser "^1.2.7"
 
-"@igloo-ui/tokens@^1.0.0", "@igloo-ui/tokens@^1.1.1", "@igloo-ui/tokens@^1.2.0", "@igloo-ui/tokens@^1.3.0":
+"@igloo-ui/tokens@^1.0.0", "@igloo-ui/tokens@^1.1.1", "@igloo-ui/tokens@^1.2.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-1.3.0.tgz#acae232962f108f873e969f3f96da924d82300e3"
   integrity sha512-rAbuHPupVNhHdPbMGXQR6I5MOeWC8SFfN6SRWLcW6l1lQ02KcwjwITHa+dDEBgIc+WHsD4NbREIyhdehww+bsw==
+
+"@igloo-ui/tokens@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-2.0.0.tgz#a7977f0f7875659de8751f9413e4fc72ad2bdcd4"
+  integrity sha512-pkwNI08nUBq6021auftK6LcaPpIro6jhQqBU87RDRfrH+Y3783jghYH5rsCsty5UJRVP3OUUEZLSjHAgh5cTdA==
 
 "@internationalized/date@3.0.0-alpha.4":
   version "3.0.0-alpha.4"

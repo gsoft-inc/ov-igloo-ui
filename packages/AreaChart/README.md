@@ -27,7 +27,7 @@ Then to use the component in your code just import it!
 ```jsx
 import AreaChart from '@igloo-ui/area-chart';
 
-const nFormatter = (num: number): string => {
+const nFormatter = (num) => {
   const lookup = [
     { value: 1, symbol: '' },
     { value: 1e3, symbol: 'k' },

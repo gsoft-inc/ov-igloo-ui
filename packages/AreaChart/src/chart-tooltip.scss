@@ -22,6 +22,8 @@
   --ids-chart-tooltip-score-margin-top: #{tokens.$space-2};
   --ids-chart-tooltip-score-value-margin-right: #{tokens.$space-2};
   --ids-chart-tooltip-score-text-color: #{tokens.$grey-600};
+  --ids-chart-tooltip-score-text-font-size: #{tokens.$font-size-3};
+  --ids-chart-tooltip-score-text-font-weight: #{tokens.$font-weight-regular};
 
   /* Circle */
   --ids-chart-tooltip-circle-background: #{tokens.$electric-blue-500};
@@ -64,6 +66,7 @@
   width: 100%;
 
   &__value {
+    color: var(--ids-chart-tooltip-color);
     font-family: var(--ids-chart-tooltip-score-font-family);
     font-size: var(--ids-chart-tooltip-score-font-size);
     font-weight: var(--ids-chart-tooltip-score-font-weight);
@@ -85,5 +88,7 @@
 
   &__text {
     color: var(--ids-chart-tooltip-score-text-color);
+    font-size: var(--ids-chart-tooltip-score-text-font-size);
+    font-weight: var(--ids-chart-tooltip-score-text-font-weight);
   }
 }
