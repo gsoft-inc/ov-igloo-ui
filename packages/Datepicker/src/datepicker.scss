@@ -96,6 +96,10 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
       outline: none;
     }
   }
+
+  &__action {
+    margin-top: var(--ids-datepicker-table-margin);
+  }
 }
 
 .ids-datepicker__content {

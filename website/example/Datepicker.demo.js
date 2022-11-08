@@ -9,17 +9,26 @@ const Example = () => {
     setShow(false);
   }, [inputValue]);
 
-  const formatedValue =
-    inputValue !== '' ? new Date(inputValue).toLocaleDateString() : '';
+  const formattedValue =
+    inputValue !== '' ? new Date(inputValue).toLocaleDateString() : inputValue;
 
+  const handleChange = (date) => {
+    if (!date) {
+      setInputValue('');
+    } else {
+      setInputValue(date.utc);
+    }
+  };
   return (
     <div className="example">
       <Datepicker
         placeholder="Select date"
         isOpen={show}
         onFocus={() => setShow(!show)}
-        onChange={(date) => setInputValue(date.utc)}
-        value={formatedValue}
+        onChange={handleChange}
+        value={formattedValue}
+        clearable
+        clearLabel="Clear"
       />
     </div>
   );

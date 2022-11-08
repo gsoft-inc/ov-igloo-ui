@@ -3,6 +3,7 @@ import cx from 'classnames';
 
 import Dropdown from '@igloo-ui/dropdown';
 import Input from '@igloo-ui/input';
+import Button from '@igloo-ui/button';
 import IconCalendar from '@igloo-ui/icons/dist/Calendar';
 
 import {
@@ -41,6 +42,10 @@ export interface DatepickerProps {
   onFocus?: () => void;
   /** Add a data-test tag for automated tests. */
   dataTest?: string;
+  /** True if the control's value can be cleared. */
+  clearable?: boolean;
+  /** Label for the clear button. Required if clearable is set to True */
+  clearLabel?: string;
 }
 
 const Datepicker: React.FunctionComponent<DatepickerProps> = (
@@ -54,18 +59,14 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = (
     disabled = false,
     isOpen = false,
     error = false,
+    clearable = false,
+    clearLabel,
     onChange,
     onClose,
     onFocus,
     dataTest,
     ...rest
   } = props;
-
-  // const [inputValue, setInputValue] = React.useState(value);
-  //
-  // React.useEffect(() => {
-  //   setInputValue(value);
-  // }, [value]);
 
   // the calendar receives an utc date and formats it locally
   const formattedDate = selectedDay
@@ -100,8 +101,8 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = (
     }
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value === '' && onChange) {
+  const handleClear = () => {
+    if (onChange) {
       onChange(null);
     }
   };
@@ -111,13 +112,24 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = (
   });
 
   const calendar = (
-    <Calendar
-      aria-label={ariaLabel}
-      className={classes}
-      value={formattedDate}
-      onChange={handleChange}
-      isDisabled={disabled}
-    />
+    <>
+      <Calendar
+        aria-label={ariaLabel}
+        className={classes}
+        value={formattedDate}
+        onChange={handleChange}
+        isDisabled={disabled}
+      />
+      {clearable && clearLabel && (
+        <Button
+          onClick={handleClear}
+          className="ids-datepicker__action"
+          appearance={{ type: 'ghost', variant: 'danger' }}
+        >
+          {clearLabel}
+        </Button>
+      )}
+    </>
   );
 
   return (
@@ -137,7 +149,6 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = (
         value={value}
         placeholder={placeholder}
         prefixIcon={<IconCalendar />}
-        onChange={handleInputChange}
         onFocus={onFocus}
       />
     </Dropdown>
