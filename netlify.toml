@@ -1,5 +1,5 @@
 [build]
-  command = "NODE_OPTIONS=$NODE_OPTIONS yarn doc:build"
+  command = "yarn doc:build"
   publish = "website/.next"
 
 [[plugins]]

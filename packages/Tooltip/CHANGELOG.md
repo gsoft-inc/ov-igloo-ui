@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 2.0.1
+
+### Patch Changes
+
+- 7cf9a4c: Adjusted container display to make sure it works for block elements
+
 ## 2.0.0
 
 ### Major Changes
