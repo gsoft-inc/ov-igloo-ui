@@ -4,6 +4,7 @@ import { DateTime } from 'luxon';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import Datepicker from './Datepicker';
+import Calendar from './components/Calendar';
 
 import readme from '../README.md';
 
@@ -13,6 +14,17 @@ export default {
   parameters: {
     description: readme,
   },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          minHeight: '35rem',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
 } as ComponentMeta<typeof Datepicker>;
 
 const Template: ComponentStory<typeof Datepicker> = (args) => {

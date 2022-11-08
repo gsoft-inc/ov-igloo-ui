@@ -1,11 +1,17 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+$cell-size: tokens.$space-6;
+$cell-number: 7;
+$cell-border: calc(2 * 1px);
+$cell-empty-border: calc(6 * 0.5px);
+$datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-border);
+
 :root {
   /* Default */
   --ids-datepicker-font-family: #{tokens.$primary-font-family};
   --ids-datepicker-font-size: #{tokens.$font-size-4};
-  --ids-datepicker-width: 26.6rem;
+  --ids-datepicker-width: #{$datepicker-width};
   --ids-datepicker-color-disabled: #{tokens.$grey-600};
   --ids-datepicker-table-width: 100%;
   --ids-datepicker-table-margin: #{tokens.$space-3};
@@ -94,7 +100,8 @@
 }
 
 .ids-datepicker__content {
-  padding: var(--ids-datepicker-content) 0;
+  //padding: var(--ids-datepicker-content) 0;
+  line-height: 38px;
   border: var(--ids-datepicker-table-border);
   margin-right: -1px;
   margin-top: -1px;
