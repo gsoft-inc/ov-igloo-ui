@@ -100,7 +100,6 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
 }
 
 .ids-datepicker__content {
-  //padding: var(--ids-datepicker-content) 0;
   line-height: 38px;
   border: var(--ids-datepicker-table-border);
   margin-right: -1px;
