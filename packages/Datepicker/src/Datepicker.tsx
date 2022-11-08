@@ -29,7 +29,7 @@ export interface DatepickerProps {
   ariaLabel?: string;
   /** True if the date picker should be disabled. */
   disabled?: boolean;
-  /** Form.ValidatedField state. True if it as an error. */
+  /** Form.ValidatedField state. True if it has an error. */
   error?: boolean;
   /** True if the Dropdown list is displayed. */
   isOpen?: boolean;
