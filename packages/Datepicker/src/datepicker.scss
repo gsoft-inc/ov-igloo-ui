@@ -22,7 +22,6 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
   --ids-datepicker-thead-space: #{tokens.$space-2};
   --ids-datepicker-title-font-size: #{tokens.$font-size-5};
   --ids-datepicker-title-line-height: 1.333;
-  --ids-datepicker-content: 1rem;
   --ids-datepicker-content-color-today: #{tokens.$electric-blue-500};
   --ids-datepicker-content-background-hover: #{tokens.$electric-blue-600};
   --ids-datepicker-content-color-hover: #{tokens.$samoyed};

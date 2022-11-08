@@ -4,7 +4,6 @@ import { DateTime } from 'luxon';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import Datepicker from './Datepicker';
-import Calendar from './components/Calendar';
 
 import readme from '../README.md';
 
@@ -35,10 +34,14 @@ const Template: ComponentStory<typeof Datepicker> = (args) => {
     setShowDatepicker(false);
   }, [date]);
 
-  const formatedDate = date ? DateTime.fromISO(date).toLocaleString() : '';
+  const formattedDate = date ? DateTime.fromISO(date).toLocaleString() : '';
 
-  const handleChange = (date: { utc: string }) => {
-    setDate(date.utc);
+  const handleChange = (date: { utc: string } | null) => {
+    if (!date) {
+      setDate('');
+    } else {
+      setDate(date.utc);
+    }
   };
 
   return (
@@ -47,7 +50,7 @@ const Template: ComponentStory<typeof Datepicker> = (args) => {
       ariaLabel="goal start date"
       placeholder="Select date"
       selectedDay={date}
-      value={formatedDate}
+      value={formattedDate}
       isOpen={showDatepicker}
       onClose={() => setShowDatepicker(false)}
       onChange={handleChange}

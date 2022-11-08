@@ -34,7 +34,7 @@ export interface DatepickerProps {
   /** True if the Dropdown list is displayed. */
   isOpen?: boolean;
   /** Callback function that will be called when the user types something. */
-  onChange?: (date: Date) => void;
+  onChange?: (date: Date | null) => void;
   /** Callback when the user clicks outside the Dropdown. */
   onClose?: () => void;
   /** Function called when the element receives focus. */
@@ -60,6 +60,12 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = (
     dataTest,
     ...rest
   } = props;
+
+  // const [inputValue, setInputValue] = React.useState(value);
+  //
+  // React.useEffect(() => {
+  //   setInputValue(value);
+  // }, [value]);
 
   // the calendar receives an utc date and formats it locally
   const formattedDate = selectedDay
@@ -94,6 +100,12 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = (
     }
   };
 
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.value === '' && onChange) {
+      onChange(null);
+    }
+  };
+
   const classes = cx('ids-datepicker', {
     'ids-datepicker--disabled': disabled,
   });
@@ -125,6 +137,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = (
         value={value}
         placeholder={placeholder}
         prefixIcon={<IconCalendar />}
+        onChange={handleInputChange}
         onFocus={onFocus}
       />
     </Dropdown>
