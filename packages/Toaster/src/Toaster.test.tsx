@@ -22,7 +22,7 @@ describe('Toast', () => {
       <Toast error message="This didn't work!" dataTest="errorToast" />
     );
     const toast = getByText("This didn't work!");
-    expect(toast.classList.contains('ids-toast--error')).toBe(true);
+    expect(toast).toHaveClass('ids-toast--error');
   });
 
   test('it should render multiple toast', () => {
