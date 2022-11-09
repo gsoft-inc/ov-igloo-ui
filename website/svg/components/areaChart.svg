@@ -1,19 +1,13 @@
 <svg width="244" height="96" viewBox="0 0 244 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="path-1-inside-1_301_2257" fill="white">
-<path d="M12 10H232.028V87H12V10Z"/>
-</mask>
-<path d="M12 10H232.028V87H12V10Z" fill="white"/>
-<path d="M12 87H11V88H12V87ZM232.028 86H12V88H232.028V86ZM13 87V10H11V87H13Z" fill="#CED4DA" mask="url(#path-1-inside-1_301_2257)"/>
-<line x1="12.9433" y1="10.8589" x2="232.029" y2="10.8589" stroke="#E9ECEF"/>
-<line x1="12.9433" y1="31.696" x2="232.029" y2="31.696" stroke="#E9ECEF"/>
-<line x1="12.9433" y1="51.6255" x2="232.029" y2="51.6255" stroke="#E9ECEF"/>
-<line x1="12.9433" y1="70.6489" x2="232.029" y2="70.6489" stroke="#E9ECEF"/>
-<line x1="1.5" y1="-1.5" x2="224.059" y2="-1.5" transform="matrix(0.973387 -0.229167 0.247856 0.968797 12.9443 86.0381)" stroke="#6C757D" stroke-width="3" stroke-linecap="round"/>
-<path d="M232.028 34.4587V86.9999H12.9443L14.833 85.6411L71.0203 72.5058L232.028 34.4587Z" fill="url(#paint0_linear_301_2257)"/>
-<defs>
-<linearGradient id="paint0_linear_301_2257" x1="122.486" y1="35.3646" x2="122.462" y2="98.3234" gradientUnits="userSpaceOnUse">
-<stop stop-color="#D9D9D9"/>
-<stop offset="1" stop-color="#D9D9D9" stop-opacity="0"/>
-</linearGradient>
-</defs>
+<path d="M82.4687 46.6767L64.1153 61.3158C64.0425 61.3739 64 61.4621 64 61.5553V67C64 69.2091 65.7909 71 68 71H184C186.209 71 188 69.2091 188 67V37.5487C188 37.4529 187.948 37.3647 187.865 37.3177L176.168 30.7298C163.877 23.8073 148.471 25.9831 138.578 36.0389L133.512 41.1882C126.532 48.2832 115.643 49.7726 107.014 44.8126C99.2253 40.3358 89.4917 41.075 82.4687 46.6767Z" fill="white"/>
+<path d="M66 61L83.9063 46.3834C90.6554 40.8742 100.121 40.1493 107.63 44.5667V44.5667C115.939 49.4545 126.517 47.9996 133.198 41.05L138.173 35.8746C147.702 25.962 162.762 23.8226 174.675 30.6891L186 37.2169" stroke="#6C757D" stroke-width="4" stroke-linecap="round"/>
+<rect x="64" y="78" width="12" height="4" rx="2" fill="#CED4DA"/>
+<rect x="48" y="68" width="8" height="4" rx="2" fill="#CED4DA"/>
+<rect x="48" y="50" width="8" height="4" rx="2" fill="#CED4DA"/>
+<rect x="48" y="32" width="8" height="4" rx="2" fill="#CED4DA"/>
+<rect x="48" y="14" width="8" height="4" rx="2" fill="#CED4DA"/>
+<rect x="92" y="78" width="12" height="4" rx="2" fill="#CED4DA"/>
+<rect x="120" y="78" width="12" height="4" rx="2" fill="#CED4DA"/>
+<rect x="148" y="78" width="12" height="4" rx="2" fill="#CED4DA"/>
+<rect x="176" y="78" width="12" height="4" rx="2" fill="#CED4DA"/>
 </svg>
