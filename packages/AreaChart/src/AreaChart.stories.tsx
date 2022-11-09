@@ -38,7 +38,7 @@ const nFormatter = (num: number): string => {
 
 const weekDataset = [
   {
-    dateTimeStamp: '2022-10-01T00:40:40.457Z',
+    dateTimeStamp: '2022-10-01',
     score: 48878,
     name: 'sent',
     secondaryName: 'sent',
@@ -90,7 +90,7 @@ export const Overview = Template.bind({});
 Overview.args = {
   dataSet: [
     {
-      dateTimeStamp: '2022-10-01T00:40:40.457Z',
+      dateTimeStamp: '2022-10-01',
       score: 48878,
       name: 'sent',
       secondaryName: 'sent',
@@ -158,7 +158,7 @@ Overview.args = {
       secondaryName: 'sent',
     },
     {
-      dateTimeStamp: '2022-10-16T17:40:40.457Z',
+      dateTimeStamp: '2022-10-16',
       score: 57089,
       name: 'sent',
       secondaryName: 'sent',
@@ -182,39 +182,39 @@ Overview.args = {
       secondaryName: 'sent',
     },
     {
-      dateTimeStamp: '2022-10-24T17:40:40.457Z',
+      dateTimeStamp: '2022-10-24',
       score: 28050,
       name: 'sent',
       secondaryName: 'sent',
     },
     {
-      dateTimeStamp: '2022-10-26T17:40:40.457Z',
+      dateTimeStamp: '2022-10-26',
       score: 24667,
       name: 'sent',
       secondaryName: 'sent',
     },
     {
-      dateTimeStamp: '2022-10-27T17:40:40.457Z',
+      dateTimeStamp: '2022-10-27',
       score: 68588,
       name: 'sent',
       secondaryName: 'sent',
     },
     {
-      dateTimeStamp: '2022-10-28T17:40:40.457Z',
+      dateTimeStamp: '2022-10-28',
       score: 40066,
       name: 'sent',
       secondaryName: 'sent',
     },
     {
-      dateTimeStamp: '2022-10-30T17:40:40.457Z',
+      dateTimeStamp: '2022-10-30',
       score: 20000,
       name: 'sent',
       secondaryName: 'sent',
     },
   ],
   dateRange: {
-    start: '2022-10-01T17:40:40.457Z',
-    end: '2022-10-30T17:40:40.457Z',
+    start: '2022-10-01',
+    end: '2022-10-30',
   },
   scoreFormatter: nFormatter,
   range: { min: 'auto', max: 'auto' },
@@ -226,8 +226,8 @@ export const OneWeek = () => {
       <AreaChart
         scoreFormatter={nFormatter}
         dateRange={{
-          start: '2022-10-01T17:40:40.457Z',
-          end: '2022-10-07T17:40:40.457Z',
+          start: '2022-10-01',
+          end: '2022-10-07',
         }}
         dataSet={weekDataset}
       />
@@ -242,8 +242,8 @@ export const ScoreMinMaxRange = () => {
         range={{ min: 'dataMin', max: 'dataMax' }}
         scoreFormatter={nFormatter}
         dateRange={{
-          start: '2022-10-01T17:40:40.457Z',
-          end: '2022-10-07T17:40:40.457Z',
+          start: '2022-10-01',
+          end: '2022-10-07',
         }}
         dataSet={weekDataset}
       />
@@ -258,8 +258,8 @@ export const ScoreAutoRange = () => {
         range={{ min: 'auto', max: 'auto' }}
         scoreFormatter={nFormatter}
         dateRange={{
-          start: '2022-10-01T17:40:40.457Z',
-          end: '2022-10-07T17:40:40.457Z',
+          start: '2022-10-01',
+          end: '2022-10-07',
         }}
         dataSet={weekDataset}
       />
@@ -273,8 +273,8 @@ export const EmptyData = () => {
       <AreaChart
         scoreFormatter={nFormatter}
         dateRange={{
-          start: '2022-10-01T17:40:40.457Z',
-          end: '2022-10-07T17:40:40.457Z',
+          start: '2022-10-01',
+          end: '2022-10-07',
         }}
         range={{ min: 0, max: 5 }}
         dataSet={[]}

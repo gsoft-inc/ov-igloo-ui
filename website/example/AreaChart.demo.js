@@ -28,12 +28,12 @@ const Example = () => {
       <AreaChart
         scoreFormatter={nFormatter}
         dateRange={{
-          start: '2022-10-01T17:40:40.457Z',
-          end: '2022-10-07T17:40:40.457Z',
+          start: '2022-10-01',
+          end: '2022-10-07',
         }}
         dataSet={[
           {
-            dateTimeStamp: '2022-10-01T00:40:40.457Z',
+            dateTimeStamp: '2022-10-01',
             score: 48878,
             name: 'sent',
             secondaryName: 'sent',
