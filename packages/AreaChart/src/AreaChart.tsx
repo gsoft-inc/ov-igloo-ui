@@ -106,6 +106,8 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     withColoredArea = true,
   } = props;
 
+  const TICK_LIMIT = 7;
+
   const classes = cx('ids-area-chart', className);
 
   const startDate = DateTime.fromISO(dateRange.start, { zone: 'utc' })
@@ -150,7 +152,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
 
   const getTicks = (): number[] => {
     const numberOfDays = endDate.diff(startDate, ['days']).days + 1;
-    const numberOfTicks = getNumberOfTicks(numberOfDays, 7);
+    const numberOfTicks = getNumberOfTicks(numberOfDays, TICK_LIMIT);
     const ticksArr = [];
     const daysBetween = Math.ceil(numberOfDays / numberOfTicks);
     let currentDate = endDate;
@@ -285,7 +287,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
   };
 
   React.useEffect(() => {
-    let updatedAreaChartData: AreaChartData[] = [];
+    let updatedAreaChartData = [];
 
     if (dataSet.length) {
       updatedAreaChartData = dataSet.map((dataSet) => {

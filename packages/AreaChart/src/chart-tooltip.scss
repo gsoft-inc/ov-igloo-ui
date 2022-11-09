@@ -29,6 +29,7 @@
   --ids-chart-tooltip-circle-background: #{tokens.$electric-blue-500};
   --ids-chart-tooltip-circle-secondary-background: #{tokens.$dandelion-500};
   --ids-chart-tooltip-circle-margin-right: 1.2rem;
+  --ids-chart-tooltip-circle-size: 0.8rem;
 }
 
 @keyframes fade-in {
@@ -43,6 +44,7 @@
   box-shadow: var(--ids-chart-tooltip-box-shadow);
   display: flex;
   flex-direction: column;
+  font-family: var(--ids-chart-tooltip-font-family);
   font-size: var(--ids-chart-tooltip-font-size);
   justify-content: space-between;
   outline: none;
@@ -77,9 +79,9 @@
     background: var(--ids-chart-tooltip-circle-background);
     border-radius: 100%;
     flex: 0 0 auto;
-    height: 0.8rem;
+    height: var(--ids-chart-tooltip-circle-size);
     margin-right: var(--ids-chart-tooltip-circle-margin-right);
-    width: 0.8rem;
+    width: var(--ids-chart-tooltip-circle-size);
 
     &--secondary {
       background: var(--ids-chart-tooltip-circle-secondary-background);

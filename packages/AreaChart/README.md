@@ -37,7 +37,7 @@ const nFormatter = (num) => {
   ];
   const digits = 2;
   const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-  var item = lookup
+  const item = lookup
     .slice()
     .reverse()
     .find(function (item) {
