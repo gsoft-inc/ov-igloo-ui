@@ -43,7 +43,7 @@ export interface DatepickerProps {
   /** Add a data-test tag for automated tests. */
   dataTest?: string;
   /** True if the control's value can be cleared. */
-  clearable?: boolean;
+  isClearable?: boolean;
   /** Label for the clear button. Required if clearable is set to True */
   clearLabel?: string;
 }
@@ -59,7 +59,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = (
     disabled = false,
     isOpen = false,
     error = false,
-    clearable = false,
+    isClearable = false,
     clearLabel,
     onChange,
     onClose,
@@ -120,7 +120,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = (
         onChange={handleChange}
         isDisabled={disabled}
       />
-      {clearable && clearLabel && (
+      {isClearable && clearLabel && (
         <Button
           onClick={handleClear}
           className="ids-datepicker__action"
