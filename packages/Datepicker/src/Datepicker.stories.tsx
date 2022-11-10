@@ -56,7 +56,7 @@ const Template: ComponentStory<typeof Datepicker> = (args) => {
       onChange={handleChange}
       onFocus={() => setShowDatepicker(!showDatepicker)}
       error={args.error}
-      clearable={args.clearable}
+      isClearable={args.isClearable}
       clearLabel={args.clearLabel}
     />
   );
@@ -86,6 +86,6 @@ Error.args = {
 
 export const Clearable = Template.bind({});
 Clearable.args = {
-  clearable: true,
+  isClearable: true,
   clearLabel: 'Clear',
 };
