@@ -1,5 +1,11 @@
 # @igloo-ui/icon-button
 
+## 0.2.10
+
+### Patch Changes
+
+- 9842a0d: add forwardRef
+
 ## 0.2.9
 
 ### Patch Changes

@@ -34,8 +34,8 @@
     "IE >= 11"
   ],
   "devDependencies": {
-    "@igloo-ui/input": "^1.0.6",
-    "@igloo-ui/select": "^0.1.0",
+    "@igloo-ui/input": "^2.0.0",
+    "@igloo-ui/select": "^0.1.1",
     "@igloo-ui/textarea": "^0.1.1"
   }
 }
