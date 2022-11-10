@@ -28,7 +28,7 @@
     "@igloo-ui/icon-button": "^0.2.10",
     "@igloo-ui/button": "^0.3.4",
     "@igloo-ui/icons": "^1.4.0",
-    "@igloo-ui/tokens": "^1.0.0",
+    "@igloo-ui/tokens": "^2.0.0",
     "@internationalized/date": "^3.0.1",
     "@react-stately/calendar": "^3.0.2",
     "@react-types/calendar": "^3.0.2",

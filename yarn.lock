@@ -1588,10 +1588,10 @@
     classnames "^2.3.1"
     html-react-parser "^1.2.7"
 
-"@igloo-ui/tokens@^1.0.0", "@igloo-ui/tokens@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-1.1.1.tgz#a5f25912e2f74dec56e845d1845f00c41abecc5a"
-  integrity sha512-Nt+5gi7kqzhUuP99V+1INRYDHTa2iTCPUC8AbMK38Iv5zD9+VmokNATwsXjRZA2v3jaiBUgRccpwZgQYNbiBFw==
+"@igloo-ui/tokens@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-2.0.0.tgz#a7977f0f7875659de8751f9413e4fc72ad2bdcd4"
+  integrity sha512-pkwNI08nUBq6021auftK6LcaPpIro6jhQqBU87RDRfrH+Y3783jghYH5rsCsty5UJRVP3OUUEZLSjHAgh5cTdA==
 
 "@internationalized/date@3.0.0-alpha.4":
   version "3.0.0-alpha.4"
@@ -8002,11 +8002,6 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
-
-classname@^0.0.0:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/classname/-/classname-0.0.0.tgz#43d171b484e354c7a293a5b78004df6852db20d6"
-  integrity sha512-kkhsspEJdUW+VhuvNzb2sQf0KbafDPfd36dB1qf03Uu42dWZwMQzaQuyNkaRr5ir0ZiAN0+TlH/EOOfwb/aaXg==
 
 classnames@^2.3.1:
   version "2.3.1"
