@@ -24,9 +24,9 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/dropdown": "*",
-    "@igloo-ui/icon-button": "*",
-    "@igloo-ui/button": "*",
+    "@igloo-ui/dropdown": "^0.1.0",
+    "@igloo-ui/icon-button": "^0.2.10",
+    "@igloo-ui/button": "^0.3.4",
     "@igloo-ui/icons": "^1.4.0",
     "@igloo-ui/tokens": "^1.0.0",
     "@internationalized/date": "^3.0.1",
