@@ -1,0 +1,96 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-chart-tooltip-font-family: #{tokens.$primary-font-family};
+  --ids-chart-tooltip-font-size: #{tokens.$font-size-3};
+  --ids-chart-tooltip-color: #{tokens.$grey-800};
+  --ids-chart-tooltip-background: #{tokens.$samoyed};
+  --ids-chart-tooltip-box-shadow: #{tokens.$shadow-12};
+  --ids-chart-tooltip-border-radius: #{tokens.$border-radius-sm};
+  --ids-chart-tooltip-padding: #{tokens.$space-3};
+
+  /* Date */
+  --ids-chart-tooltip-date-font-weight: #{tokens.$font-weight-semi-bold};
+
+  /* Score */
+  --ids-chart-tooltip-score-font-family: #{tokens.$secondary-font-family};
+  --ids-chart-tooltip-score-font-size: #{tokens.$font-size-6};
+  --ids-chart-tooltip-score-font-weight: #{tokens.$font-weight-medium};
+  --ids-chart-tooltip-score-line-height: #{tokens.$line-height-lg};
+  --ids-chart-tooltip-score-margin-top: #{tokens.$space-2};
+  --ids-chart-tooltip-score-value-margin-right: #{tokens.$space-2};
+  --ids-chart-tooltip-score-text-color: #{tokens.$grey-600};
+  --ids-chart-tooltip-score-text-font-size: #{tokens.$font-size-3};
+  --ids-chart-tooltip-score-text-font-weight: #{tokens.$font-weight-regular};
+
+  /* Circle */
+  --ids-chart-tooltip-circle-background: #{tokens.$electric-blue-500};
+  --ids-chart-tooltip-circle-secondary-background: #{tokens.$dandelion-500};
+  --ids-chart-tooltip-circle-margin-right: 1.2rem;
+  --ids-chart-tooltip-circle-size: 0.8rem;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.ids-chart-tooltip {
+  animation: fade-in 400ms forwards;
+  background: var(--ids-chart-tooltip-background);
+  border-radius: var(--ids-chart-tooltip-border-radius);
+  box-shadow: var(--ids-chart-tooltip-box-shadow);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--ids-chart-tooltip-font-family);
+  font-size: var(--ids-chart-tooltip-font-size);
+  justify-content: space-between;
+  outline: none;
+  padding: var(--ids-chart-tooltip-padding);
+
+  &__date {
+    color: var(--ids-chart-tooltip-color);
+    font-weight: var(--ids-chart-tooltip-date-font-weight);
+  }
+
+  &__unavailable-score {
+    width: 22.4rem;
+  }
+}
+
+.ids-tooltip-score {
+  align-items: center;
+  display: flex;
+  line-height: var(--ids-chart-tooltip-score-line-height);
+  margin-top: var(--ids-chart-tooltip-score-margin-top);
+  width: 100%;
+
+  &__value {
+    color: var(--ids-chart-tooltip-color);
+    font-family: var(--ids-chart-tooltip-score-font-family);
+    font-size: var(--ids-chart-tooltip-score-font-size);
+    font-weight: var(--ids-chart-tooltip-score-font-weight);
+    margin-right: var(--ids-chart-tooltip-score-value-margin-right);
+  }
+
+  &__circle {
+    background: var(--ids-chart-tooltip-circle-background);
+    border-radius: 100%;
+    flex: 0 0 auto;
+    height: var(--ids-chart-tooltip-circle-size);
+    margin-right: var(--ids-chart-tooltip-circle-margin-right);
+    width: var(--ids-chart-tooltip-circle-size);
+
+    &--secondary {
+      background: var(--ids-chart-tooltip-circle-secondary-background);
+    }
+  }
+
+  &__text {
+    color: var(--ids-chart-tooltip-score-text-color);
+    font-size: var(--ids-chart-tooltip-score-text-font-size);
+    font-weight: var(--ids-chart-tooltip-score-text-font-weight);
+  }
+}
