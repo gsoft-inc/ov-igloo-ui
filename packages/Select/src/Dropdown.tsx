@@ -27,6 +27,8 @@ export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   onClose?: () => void;
   /** Position of the Dropdown. */
   position?: Position;
+  /** Add a data-test tag for automated tests. */
+  dataTest?: string;
 }
 
 const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
@@ -36,6 +38,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       isOpen = false,
       onClose,
       position = 'bottom',
+      dataTest,
       ...rest
     } = props;
 
@@ -51,7 +54,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       config: { duration: 150 },
     });
 
-    const dropdownClasses = cx('ids-dropdown', {
+    const dropdownClasses = cx('ids-select-dropdown', {
       'ids-dropdown--top': position === 'top',
       'ids-dropdown--right': position === 'right',
       'ids-dropdown--bottom': position === 'bottom',
@@ -78,6 +81,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
           style={styles}
           ref={ref}
           className={dropdownClasses}
+          data-test={dataTest}
           {...rest}
         >
           {children}

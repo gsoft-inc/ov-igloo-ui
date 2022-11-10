@@ -1,0 +1,61 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-dropdown-font-family: #{tokens.$primary-font-family};
+  --ids-dropdown-font-size: #{tokens.$font-size-4};
+  --ids-dropdown-background: #{tokens.$samoyed};
+  --ids-dropdown-border-radius: #{tokens.$border-radius-sm};
+  --ids-dropdown-zindex: #{tokens.$z-index-100};
+  --ids-dropdown-box-shadow: #{tokens.$shadow-12};
+  --ids-dropdown-padding: 0;
+
+  /* Click Handler */
+  --ids-dropdown-zindex-click-handler: #{tokens.$z-index-90};
+}
+
+.ids-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: var(--ids-dropdown-padding);
+  font-family: var(--ids-dropdown-font-family);
+  font-size: var(--ids-dropdown-font-size);
+  background-color: var(--ids-dropdown-background);
+  border-radius: var(--ids-dropdown-border-radius);
+  box-shadow: var(--ids-dropdown-box-shadow);
+  box-sizing: border-box;
+
+  &__container {
+    position: relative;
+    z-index: var(--ids-dropdown-zindex);
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: default;
+    z-index: var(--ids-dropdown-zindex-click-handler);
+  }
+
+  &--top {
+    top: inherit;
+    bottom: 100%;
+  }
+
+  &--small {
+    --ids-dropdown-padding: #{tokens.$space-3};
+  }
+
+  &--medium {
+    --ids-dropdown-padding: #{tokens.$space-4};
+  }
+
+  &--large {
+    --ids-dropdown-padding: #{tokens.$space-5};
+  }
+}

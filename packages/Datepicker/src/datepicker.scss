@@ -1,0 +1,157 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+$cell-size: tokens.$space-6;
+
+// Number of cells in a row
+$cell-number: 7;
+
+// Border on each side of the calendar
+$cell-border: 2px;
+
+// Negative space between each cell
+$cell-empty-border: calc(6 * 0.5px);
+
+// Calculation of the width of the datepicker to obtain a square cell
+$datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-border);
+
+:root {
+  /* Default */
+  --ids-datepicker-font-family: #{tokens.$primary-font-family};
+  --ids-datepicker-font-size: #{tokens.$font-size-4};
+  --ids-datepicker-width: #{$datepicker-width};
+  --ids-datepicker-color-disabled: #{tokens.$grey-600};
+  --ids-datepicker-table-width: 100%;
+  --ids-datepicker-table-margin: #{tokens.$space-3};
+  --ids-datepicker-table-border: 1px solid #{tokens.$grey-250};
+  --ids-datepicker-thead-font-size: #{tokens.$font-size-3};
+  --ids-datepicker-thead-line-height: 1.25;
+  --ids-datepicker-thead-color: #{tokens.$electric-blue-500};
+  --ids-datepicker-thead-space: #{tokens.$space-2};
+  --ids-datepicker-title-font-size: #{tokens.$font-size-5};
+  --ids-datepicker-title-line-height: 1.333;
+  --ids-datepicker-content-color-today: #{tokens.$electric-blue-500};
+  --ids-datepicker-content-background-hover: #{tokens.$electric-blue-600};
+  --ids-datepicker-content-color-hover: #{tokens.$samoyed};
+  --ids-datepicker-content-background-selected: #{tokens.$electric-blue-500};
+  --ids-datepicker-content-color-selected: #{tokens.$samoyed};
+  --ids-datepicker-content-focus: #{tokens.$electric-blue-600} solid 1.5px;
+
+  // Disabled state
+  --ids-datepicker-disabled-background-hover: #f0f8ff;
+  --ids-datepicker-disabled-background-selected: #51a0fa;
+  --ids-datepicker-disabled-table-border: 1px solid #eff1f5;
+}
+
+.ids-datepicker {
+  font-family: var(--ids-datepicker-font-family);
+  font-size: var(--ids-datepicker-font-size);
+  width: var(--ids-datepicker-width);
+
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    flex: 1 1 100%;
+    font-size: var(--ids-datepicker-title-font-size);
+    line-height: var(--ids-datepicker-title-line-height);
+    text-align: center;
+    margin: 0;
+    order: 1;
+  }
+
+  &__prev {
+    order: 0;
+  }
+
+  &__next {
+    order: 2;
+  }
+
+  &__table {
+    width: var(--ids-datepicker-table-width);
+    margin-top: var(--ids-datepicker-table-margin);
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+
+  &__thead {
+    font-size: var(--ids-datepicker-thead-font-size);
+    line-height: var(--ids-datepicker-thead-line-height);
+    color: var(--ids-datepicker-thead-color);
+
+    &::after {
+      content: '';
+      display: block;
+      height: var(--ids-datepicker-thead-space);
+    }
+  }
+
+  &__head {
+    font-weight: 400;
+    border-bottom: var(--ids-datepicker-table-border);
+    margin-bottom: var(--ids-datepicker-thead-space);
+  }
+
+  &__cell {
+    cursor: default;
+    text-align: center;
+    padding: 0;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &__action {
+    margin-top: var(--ids-datepicker-table-margin);
+  }
+}
+
+.ids-datepicker__content {
+  line-height: 38px;
+  border: var(--ids-datepicker-table-border);
+  margin-right: -1px;
+  margin-top: -1px;
+
+  &:hover {
+    background: var(--ids-datepicker-content-background-hover);
+    color: var(--ids-datepicker-content-color-hover);
+    cursor: pointer;
+  }
+
+  &:focus-visible {
+    outline: var(--ids-datepicker-content-focus);
+  }
+
+  &--today {
+    color: var(--ids-datepicker-content-color-today);
+  }
+
+  &--selected {
+    background: var(--ids-datepicker-content-background-selected);
+    color: var(--ids-datepicker-content-color-selected);
+  }
+}
+
+.ids-datepicker--disabled {
+  .ids-datepicker__content {
+    cursor: not-allowed;
+
+    --ids-datepicker-table-border: var(--ids-datepicker-disabled-table-border);
+
+    &:not(.ids-datepicker__content--selected), {
+      color: var(--ids-datepicker-color-disabled);
+    }
+
+    &:hover {
+      --ids-datepicker-content-background-hover: var(--ids-datepicker-disabled-background-hover);
+    }
+
+    &--selected {
+      background-color: var(--ids-datepicker-disabled-background-selected);
+    }
+  }
+}

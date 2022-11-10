@@ -30,7 +30,10 @@
     "@popperjs/core": "^2.11.5",
     "classnames": "^2.3.1",
     "react-popper": "^2.3.0",
-    "react-spring": "9.5.2"
+    "react-spring": "^9.5.5"
+  },
+  "devDependencies": {
+    "@react-spring/types": "^9.5.5"
   },
   "browserslist": [
     "> 1%",

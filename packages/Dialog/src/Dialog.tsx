@@ -51,7 +51,6 @@ const Dialog: React.FunctionComponent<DialogProps> = (props: DialogProps) => {
       className={classes}
       dataTest={dataTest}
       isClosable
-      isDismissable={false}
       isOpen={isOpen}
       size="small"
       onClose={onDismiss}

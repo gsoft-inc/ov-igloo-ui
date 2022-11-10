@@ -74,6 +74,21 @@ body,
   padding: 6px 0;
 }
 
+.isb-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.8rem 0;
+  min-width: 20rem;
+}
+
+.isb-list__item {
+  padding: 0.8rem 1.6rem;
+}
+
+.isb-list__item:hover {
+  background: var(--grey-200);
+}
+
 .gv-mockup {
   display: flex;
   width: 100%;
