@@ -1,0 +1,38 @@
+{
+  "name": "@igloo-ui/dropdown",
+  "version": "0.1.0",
+  "main": "dist/Dropdown.js",
+  "module": "dist/Dropdown.js",
+  "types": "dist/Dropdown.d.ts",
+  "styles": "dist/dropdown.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "author": "Officevibe Inc.",
+  "contributors": [
+    "Franck franck.gaudin@gsoft.com"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.js"
+  },
+  "dependencies": {
+    "@igloo-ui/tokens": "^1.0.0",
+    "classnames": "^2.3.2",
+    "react-aria": "^3.20.0",
+    "react-spring": "^9.5.5",
+    "@react-spring/types": "^9.5.5"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE >= 11"
+  ]
+}

@@ -6,6 +6,7 @@ import Button, { ButtonOwnProps } from '@igloo-ui/button';
 import './icon-button.scss';
 
 export type Size = 'xsmall' | 'small' | 'medium' | 'large';
+export type Ref = HTMLButtonElement;
 
 export interface IconButtonProps extends Omit<ButtonOwnProps, 'size'> {
   /** Add class names to the surrounding DOM container. */
@@ -26,9 +27,10 @@ export interface IconButtonProps extends Omit<ButtonOwnProps, 'size'> {
   dataTest?: string;
 }
 
-const IconButton: React.FunctionComponent<IconButtonProps> = (
-  props: IconButtonProps
-) => {
+const IconButton: React.FunctionComponent<IconButtonProps> = React.forwardRef<
+  Ref,
+  IconButtonProps
+>((props: IconButtonProps, ref) => {
   const {
     className,
     icon,
@@ -45,10 +47,16 @@ const IconButton: React.FunctionComponent<IconButtonProps> = (
   });
 
   return (
-    <Button className={classes} onClick={onClick} disabled={disabled} {...rest}>
+    <Button
+      ref={ref}
+      className={classes}
+      onClick={onClick}
+      disabled={disabled}
+      {...rest}
+    >
       {icon}
     </Button>
   );
-};
+});
 
 export default IconButton;

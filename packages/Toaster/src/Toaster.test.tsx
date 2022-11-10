@@ -2,51 +2,46 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom';
-import { Toast as HotToast } from 'react-hot-toast';
 
-import Toaster, { toaster } from './Toaster';
+import Toaster from './Toaster';
 import Toast from './Toast';
 
-const mockToast = {
-  createdAt: 1639075944871,
-  visible: true,
-  ariaProps: {
-    role: 'status',
-    'aria-live': 'polite',
-  },
-  message: 'Successfully toasted!',
-  pauseDuration: 0,
-  position: 'top-center',
-  duration: 5000,
-  id: '1',
-  style: {},
-} as HotToast;
-
-describe('Toaster', () => {
-  const { getByText } = render(
-    <div>
-      <button onClick={() => toaster.success('Successfully toasted!')}>
-        Success
-      </button>
-      <Toaster />
-    </div>
-  );
-
-  test('It should render without errors', () => {
-    fireEvent.click(getByText('Success'));
-    const message = screen.getByText('Successfully toasted!');
-    expect(message).toBeInTheDocument();
+describe('Toast', () => {
+  test('It should render without error and a snapshot', () => {
+    const { asFragment } = render(
+      <Toast message="Successfully toasted!" dataTest="successToast" />
+    );
+    expect(screen.getByTestId('successToast')).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
   });
 
-  test('It should render success', () => {
-    expect(
-      <Toast toast={{ ...mockToast, type: 'success' }} />
-    ).toMatchSnapshot();
+  test('It should render error toast', () => {
+    const { getByText } = render(
+      <Toast error message="This didn't work!" dataTest="errorToast" />
+    );
+    const toast = getByText("This didn't work!");
+    expect(toast).toHaveClass('ids-toast--error');
   });
 
-  test('It should render error', () => {
-    expect(<Toast toast={{ ...mockToast, type: 'error' }} />).toMatchSnapshot();
+  test('it should render multiple toast', () => {
+    const toastsList = [
+      {
+        id: '1',
+        status: 'success' as 'success',
+        isOpen: true,
+        message: 'Success',
+      },
+      {
+        id: '2',
+        status: 'error' as 'error',
+        isOpen: true,
+        message: 'Error',
+      },
+    ];
+    const { getByText } = render(<Toaster toasts={toastsList} />);
+    expect(getByText('Success')).toBeInTheDocument();
+    expect(getByText('Error')).toBeInTheDocument();
   });
 });

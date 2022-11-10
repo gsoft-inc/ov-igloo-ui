@@ -1,86 +1,54 @@
 import * as React from 'react';
-import cx from 'classnames';
-import toast, { useToaster } from 'react-hot-toast';
+import ReactDOM from 'react-dom';
 
 import Toast from './Toast';
+import ToasterContainer from './ToasterContainer';
+import { useToaster, ToastArgs } from './useToaster';
 
 import './toaster.scss';
 
-export interface ToastProps extends React.ComponentProps<'div'> {
-  /** Add a aria-label to describe the close button  */
-  iconDescription?: 'string';
-  /** Add a data-test tag for automated tests */
-  dataTest?: string;
+export interface ToasterProps {
+  toasts: [] | ToastArgs[];
 }
 
-const Toaster: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
-  const { iconDescription, className, dataTest, ...rest } = props;
-  const { toasts } = useToaster();
+const Toaster: React.FunctionComponent<ToasterProps> = (
+  props: ToasterProps
+) => {
+  const { toasts } = props;
+  const [list, setList] = React.useState(toasts);
 
-  const [remove, setRemove] = React.useState<boolean>(false);
-
-  const toasterRef = React.useRef<HTMLDivElement>(null);
-  const lastToastRef = React.useRef<number | null>(null);
-
-  const flip = (size: number): void => {
-    if (lastToastRef.current && size) {
-      const invert = lastToastRef.current - size;
-
-      toasterRef.current?.animate(
-        [
-          { transform: `translateY(${invert}px)` },
-          { transform: `translateY(0)` },
-        ],
-        {
-          duration: 150,
-          easing: 'ease-out',
-        }
-      );
-    }
-
-    lastToastRef.current = size;
-  };
-
-  React.useLayoutEffect(() => {
-    if (toasterRef.current) {
-      flip(toasterRef.current?.offsetHeight);
-    }
+  React.useEffect(() => {
+    setList([...toasts]);
   }, [toasts]);
 
-  const handleClose = (id: string): void => {
-    setRemove(true);
-    toast.dismiss(id);
-    setRemove(false);
+  const deleteToast = (id: string) => {
+    const toast = list;
+    const toastsListItem = toasts.findIndex((e) => e.id === id);
+    toast[toastsListItem].isOpen = false;
+
+    setList([...toast]);
   };
 
-  return (
-    <div ref={toasterRef} className="ids-toaster__overlay" data-test={dataTest}>
-      {toasts.map((t) => {
+  const container = (
+    <ToasterContainer>
+      {toasts.map((toast) => {
         return (
-          <Toast
-            key={t.id}
-            id={t.id}
-            toast={t}
-            close={() => handleClose(t.id)}
-            className={cx(className, {
-              'ids-toaster__hidden': remove,
-            })}
-            iconDescription={iconDescription}
-            {...rest}
-          />
+          toast.isOpen && (
+            <Toast
+              key={toast.id}
+              message={toast.message}
+              error={toast.status === 'error'}
+              duration={toast.duration}
+              onDissmiss={() => deleteToast(toast.id)}
+            />
+          )
         );
       })}
-    </div>
+    </ToasterContainer>
   );
+
+  return ReactDOM.createPortal(container, document.body);
 };
 
-const position = 'top-center';
-
-export const toaster = {
-  success: (message: string, duration = 5000) =>
-    toast.success(message, { position, duration }),
-  error: (message: string, duration = 5000) =>
-    toast.error(message, { position, duration }),
-};
-
+export { useToaster, Toast };
 export default Toaster;

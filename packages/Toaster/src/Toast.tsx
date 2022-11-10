@@ -1,55 +1,102 @@
 import * as React from 'react';
+import ReactDOM from 'react-dom';
 import cx from 'classnames';
 
-import { Toast as HotToast } from 'react-hot-toast';
-
-import IconButton from '@igloo-ui/icon-button';
 import SuccessSolid from '@igloo-ui/icons/dist/SuccessSolid';
 import RemoveSolid from '@igloo-ui/icons/dist/RemoveSolid';
-import Close from '@igloo-ui/icons/dist/Close';
+
+import ToasterContainer, { TOAST_CONTAINER_ID } from './ToasterContainer';
+
+const TOAST_DURATION = 4000 as const;
+const TOAST_INFINITE_TIME = 'infinite' as const;
 
 export interface ToastProps extends React.ComponentProps<'div'> {
-  toast?: HotToast;
-  close?: () => void;
-  className?: string;
-  iconDescription?: string;
+  /** The content to display inside the Toast. */
+  message: string;
+  /** Display the error Toast. */
+  error?: boolean;
+  /** The length of time in milliseconds the toast message should persist. */
+  duration?: number | 'infinite';
+  /** Add a data-test tag for automated tests. */
+  dataTest?: string;
+  /** Handler that is called when the overlay should close. */
+  onDissmiss?: () => void;
 }
 
 const Toast: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
-  const { toast, iconDescription, close, className, ...rest } = props;
+  const {
+    message,
+    error = false,
+    onDissmiss,
+    duration = TOAST_DURATION,
+    className,
+    dataTest,
+    ...rest
+  } = props;
 
-  const toastRef = React.useRef<HTMLDivElement>(null);
+  const toastRef = React.useRef<HTMLOutputElement>(null);
+  let interval: NodeJS.Timer;
 
-  if (!toast) {
-    return null;
-  }
+  const setAnimation = (duration: number) => {
+    document.documentElement.style.setProperty('--_duration', `${duration}ms`);
+    interval = setInterval(() => {
+      if (toastRef && toastRef.current) {
+        toastRef.current.classList.add('ids-toast--hidden');
+      }
+    }, duration);
 
-  const error = toast.type === 'error';
+    return () => clearInterval(interval);
+  };
+
+  React.useEffect(() => {
+    if (duration === TOAST_INFINITE_TIME) {
+      return;
+    }
+
+    setAnimation(duration);
+  }, []);
+
+  React.useEffect(() => {
+    if (duration === TOAST_INFINITE_TIME) {
+      return;
+    }
+
+    interval = setInterval(() => {
+      if (onDissmiss) {
+        onDissmiss();
+      }
+    }, duration + 500);
+
+    // eslint-disable-next-line
+    return () => clearInterval(interval);
+  }, [onDissmiss]);
 
   const statusIcon = !error ? (
-    <SuccessSolid className="ids-toaster__icon" />
+    <SuccessSolid className="ids-toast__icon" />
   ) : (
-    <RemoveSolid className="ids-toaster__icon" />
+    <RemoveSolid className="ids-toast__icon" />
   );
 
-  const classes = cx('ids-toaster', className, {
-    'ids-toaster--error': error,
+  const classes = cx('ids-toast', className, {
+    'ids-toast--error': error,
+    'ids-toast--reduce-motion': duration === TOAST_INFINITE_TIME,
   });
 
-  return (
-    <div {...toast.ariaProps} ref={toastRef} className={classes} {...rest}>
-      <div className="ids-toaster__content">
-        {statusIcon}
-        <span className="ids-toaster__text">{toast.message}</span>
-      </div>
+  const container = document.getElementById(TOAST_CONTAINER_ID);
 
-      <IconButton
-        onClick={close}
-        appearance="ghost"
-        aria-label={iconDescription}
-        icon={<Close className="ids-toaster__close" />}
-      />
-    </div>
+  const toast = (
+    <output ref={toastRef} className={classes} data-test={dataTest} {...rest}>
+      {statusIcon} {message}
+    </output>
   );
+
+  if (!container) {
+    return ReactDOM.createPortal(
+      <ToasterContainer>{toast}</ToasterContainer>,
+      document.body
+    );
+  }
+
+  return toast;
 };
 export default Toast;

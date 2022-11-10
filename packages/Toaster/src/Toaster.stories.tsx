@@ -1,16 +1,17 @@
 import React from 'react';
 import { ComponentMeta } from '@storybook/react';
-import { Toast as HotToast } from 'react-hot-toast';
 
 import Button from '@igloo-ui/button';
-import Toaster, { toaster } from './Toaster';
+
+import Toaster, { useToaster } from './Toaster';
 import Toast from './Toast';
 
 import readme from '../README.md';
 
 export default {
   title: 'Components/Toaster',
-  component: Toaster,
+  component: Toast,
+  subcomponents: { Toaster },
   parameters: {
     description: readme,
   },
@@ -20,73 +21,65 @@ export default {
         style={{
           display: 'flex',
           padding: '2.4rem',
+          gap: '1.6rem',
         }}
       >
         <Story />
       </div>
     ),
   ],
-} as ComponentMeta<typeof Toaster>;
-
-const mockToast = {
-  createdAt: 1639075944871,
-  visible: true,
-  ariaProps: {
-    role: 'status',
-    'aria-live': 'polite',
-  },
-  message: 'Successfully toasted!',
-  pauseDuration: 0,
-  position: 'top-center',
-  duration: 5000,
-  id: '1',
-  style: {},
-} as HotToast;
+} as ComponentMeta<typeof Toast>;
 
 export const Overview = () => {
+  const { toast, toastList } = useToaster();
   return (
     <>
-      <Button
-        size="small"
-        onClick={() => toaster.success('Successfully toasted!')}
-      >
+      <Button onClick={() => toast.success('Successfully toasted!')}>
         Success
       </Button>
       <Button
-        style={{ marginLeft: '1.6rem' }}
-        size="small"
         appearance="secondary"
-        onClick={() => toaster.error("This didn't work.")}
+        onClick={() => toast.error("This didn't work!")}
       >
         Error
       </Button>
-      <Toaster iconDescription="describes the close button" />
+
+      <Toaster toasts={toastList} />
     </>
   );
 };
 
-export const Standard = () => (
-  <Toast
-    iconDescription="describes the close button"
-    toast={{ ...mockToast, type: 'success' }}
-  />
-);
+export const SuccessToast = () => {
+  const [showToast, setShowToast] = React.useState(false);
+  return (
+    <>
+      <Button appearance="secondary" onClick={() => setShowToast(true)}>
+        Remove profile
+      </Button>
+      {showToast && (
+        <Toast
+          message="Andrew's profile has been deleted "
+          onDissmiss={() => setShowToast(false)}
+        />
+      )}
+    </>
+  );
+};
 
-export const Error = () => (
-  <Toast
-    iconDescription="describes the close button"
-    toast={{ ...mockToast, type: 'error' }}
-  />
-);
-
-export const LongDescription = () => (
-  <Toast
-    iconDescription="describes the close button"
-    toast={{
-      ...mockToast,
-      type: 'success',
-      message:
-        'Aenean ultrices sapien vitae dolor mollis, a ullamcorper est commodo',
-    }}
-  />
-);
+export const ErrorToast = () => {
+  const [showToast, setShowToast] = React.useState(false);
+  return (
+    <>
+      <Button appearance="secondary" onClick={() => setShowToast(true)}>
+        Validate inscription
+      </Button>
+      {showToast && (
+        <Toast
+          message="Sorry Andrew, your account could not be activated"
+          error
+          onDissmiss={() => setShowToast(false)}
+        />
+      )}
+    </>
+  );
+};

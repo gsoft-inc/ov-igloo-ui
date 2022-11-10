@@ -29,7 +29,7 @@ export async function getComponentAPI(source) {
     return !stats.isDirectory();
   });
 
-  const ignoreFiles = ['Toast', 'ButtonGroupItem'];
+  const ignoreFiles = ['ToasterContainer', 'Toast', 'ButtonGroupItem'];
 
   const filterFiles = componentFiles.filter((file) => {
     const matchPattern = /[A-Z]\w*.tsx$/.test(file);

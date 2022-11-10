@@ -1,0 +1,47 @@
+{
+  "name": "@igloo-ui/datepicker",
+  "version": "0.0.0",
+  "main": "dist/Datepicker.js",
+  "module": "dist/Datepicker.js",
+  "types": "dist/Datepicker.d.ts",
+  "styles": "dist/datepicker.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "author": "Officevibe Inc.",
+  "contributors": [
+    "Franck franck.gaudin@gsoft.com"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.js"
+  },
+  "dependencies": {
+    "@igloo-ui/dropdown": "*",
+    "@igloo-ui/icon-button": "*",
+    "@igloo-ui/button": "*",
+    "@igloo-ui/icons": "^1.4.0",
+    "@igloo-ui/tokens": "^1.0.0",
+    "@internationalized/date": "^3.0.1",
+    "@react-stately/calendar": "^3.0.2",
+    "@react-types/calendar": "^3.0.2",
+    "classnames": "^2.3.2",
+    "react-aria": "^3.19.0",
+    "react-stately": "^3.17.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE >= 11"
+  ],
+  "devDependencies": {
+    "luxon": "^3.0.4"
+  }
+}

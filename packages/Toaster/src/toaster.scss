@@ -1,38 +1,36 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+/* stylelint-disable custom-property-pattern, max-line-length  */
+
 :root {
   /* Default */
   --ids-toaster-font-family: #{tokens.$primary-font-family};
-  --ids-toaster-font-size: #{tokens.$font-size-5};
-  --ids-toaster-font-weight: #{tokens.$font-weight-bold};
+  --ids-toaster-font-size: #{tokens.$font-size-3};
+  --ids-toaster-font-weight: #{tokens.$font-weight-medium};
   --ids-toaster-text: #{tokens.$grey-800};
-  /* stylelint-disable max-line-length */
-  --ids-toaster-padding: #{tokens.$space-3} #{tokens.$space-2} #{tokens.$space-3} calc(#{tokens.$space-3} + #{tokens.$space-1});
-  --ids-toaster-gap: #{tokens.$space-3};
+  --ids-toaster-inset: 0 0 auto 0;
+  --ids-toaster-padding: #{tokens.$space-2} #{tokens.$space-2} calc(#{tokens.$space-2} + #{tokens.$space-1}) #{tokens.$space-2};
+  --ids-toaster-gap: #{tokens.$space-2};
   --ids-toaster-max-width: 60rem;
-  --ids-toaster-border-radius: #{tokens.$border-radius-sm};
+  --ids-toaster-border-radius: 0;
   --ids-toaster-shadow: #{tokens.$shadow-12};
   --ids-toaster-background: #{tokens.$samoyed};
-  --ids-toaster-icon-margin: #{tokens.$space-3};
-  --ids-toaster-status-width: #{tokens.$space-1};
-  --ids-toaster-status-color: #{tokens.$seaweed-400};
+  --ids-toaster-status-height: #{tokens.$space-1};
+  --ids-toaster-status-color: #{tokens.$seaweed-500};
   --ids-toaster-status-icon-size: #{tokens.$space-4};
-  --ids-toaster-close-color: #{tokens.$grey-500};
-  --ids-toaster-close-size: #{tokens.$space-5};
-  --ids-toaster-close-radius: #{tokens.$border-radius-sm};
 
   /* Error */
-  --ids-toaster-status-color-error: #{tokens.$coral-300};
+  --ids-toaster-status-color-error: #{tokens.$coral-500};
 
   /* Overlay */
   --ids-toaster-overlay-padding: 0 #{tokens.$space-3};
   --ids-toaster-z-index: #{tokens.$z-index-max};
 }
 
-.ids-toaster__overlay {
+.ids-toast__overlay {
   position: fixed;
-  inset: var(--space-3) 0 auto 0;
+  inset: var(--ids-toaster-inset);
   pointer-events: none;
   display: flex;
   flex-direction: column;
@@ -41,12 +39,15 @@
   z-index: var(--ids-toaster-z-index);
 }
 
-.ids-toaster {
+.ids-toast {
+  --_state: var(--ids-toaster-status-color);
+
   position: relative;
   pointer-events: auto;
+  overflow: hidden;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: var(--ids-toaster-gap);
   width: 100%;
   max-width: var(--ids-toaster-max-width);
   font-family: var(--ids-toaster-font-family);
@@ -61,43 +62,38 @@
   will-change: transform;
   animation: fade-in 0.3s ease, slide-in 0.3s ease;
 
-  &::before {
+  &::after {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: auto 0 0 0;
     display: block;
     content: '';
-    width: var(--ids-toaster-status-width);
-    height: 100%;
-    background: var(--ids-toaster-status-color);
-    border-top-left-radius: var(--ids-toaster-border-radius);
-    border-bottom-left-radius: var(--ids-toaster-border-radius);
-  }
-
-  &__content {
-    display: flex;
-    align-items: center;
-    gap: var(---ids-toaster-gap);
-    width: calc(100% - var(--ids-toaster-close-size));
+    height: var(--ids-toaster-status-height);
+    background: var(--_state);
+    animation-name: time;
+    animation-duration: var(--_duration, 4000ms);
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
   }
 
   &__icon {
-    color: var(--ids-toaster-status-color);
-    margin-right: var(--ids-toaster-icon-margin);
-    float: left;
-  }
-
-  &__hidden {
-    animation: fade-out 0.15s ease;
+    box-sizing: border-box;
+    flex: 0 1 auto;
+    min-width: var(--ids-toaster-status-icon-size);
+    color: var(--_state);
   }
 
   &--error {
-    &::before {
-      background: var(--ids-toaster-status-color-error);
-    }
+    --_state: var(--ids-toaster-status-color-error);
+  }
 
-    .ids-toaster__icon {
-      color: var(--ids-toaster-status-color-error);
+  &--hidden {
+    animation: fade-out 0.15s ease, slide-out 0.15s ease, remove-space 0.15s ease;
+    animation-fill-mode: forwards;
+  }
+
+  &--reduce-motion {
+    &::after {
+      animation: none;
     }
   }
 }
@@ -108,20 +104,48 @@
   }
 }
 
-@keyframes slide-in {
-  from {
-    transform: translateY(var(--_travel-distance, -64px));
-  }
-}
-
 @keyframes fade-out {
   to {
     opacity: 0;
   }
 }
 
+@keyframes slide-in {
+  from {
+    transform: translateY(var(--_travel-distance, -64px));
+  }
+}
+
+@keyframes slide-out {
+  to {
+    transform: translateY(var(--_travel-distance, -64px));
+  }
+}
+
+@keyframes remove-space {
+  to {
+    height: 0;
+    padding: 0;
+  }
+}
+
+@keyframes time {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 @media (min-width: 600px) {
   :root {
+    --ids-toaster-font-size: #{tokens.$font-size-4};
+    --ids-toaster-font-weight: #{tokens.$font-weight-bold};
+    --ids-toaster-inset: #{tokens.$space-3} 0 auto 0;
+    --ids-toaster-border-radius: #{tokens.$border-radius-sm};
+    --ids-toaster-padding: #{tokens.$space-3} #{tokens.$space-3} calc(#{tokens.$space-3} + #{tokens.$space-1}) #{tokens.$space-3};
     --ids-toaster-overlay-padding: 0;
   }
 }
