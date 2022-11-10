@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AreaChart It should render without error and a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ids-area-chart"
+    data-test="areaChart1"
+  />
+</DocumentFragment>
+`;
