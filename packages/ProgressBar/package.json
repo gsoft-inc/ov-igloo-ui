@@ -1,0 +1,35 @@
+{
+  "name": "@igloo-ui/progress-bar",
+  "version": "0.0.0",
+  "main": "dist/ProgressBar.js",
+  "module": "dist/ProgressBar.js",
+  "types": "dist/ProgressBar.d.ts",
+  "styles": "dist/progress-bar.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "author": "Officevibe Inc.",
+  "contributors": [
+    "Franck franck.gaudin@gsoft.com"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.js"
+  },
+  "dependencies": {
+    "@igloo-ui/tokens": "^1.0.0",
+    "classname": "^0.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE >= 11"
+  ]
+}

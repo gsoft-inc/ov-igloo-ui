@@ -1,0 +1,36 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  --ids-progress-bar-height: #{tokens.$space-2};
+  --ids-progress-bar-radius: #{tokens.$space-1};
+  --ids-progress-bar-background: #eff1f5;
+  --ids-progress-bar-background-progress: #1053ff;
+  --ids-progress-bar-background-completed: #0cba9d;
+}
+
+.ids-progress-bar {
+  overflow: hidden;
+  width: 100%;
+  border-radius: var(--ids-progress-bar-radius);
+  height: var(--ids-progress-bar-height);
+  background-color: var(--ids-progress-bar-background);
+
+  &__status {
+    display: block;
+    width: var(--_progress, 10%);
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+    height: var(--ids-progress-bar-height);
+    background-color: var(--ids-progress-bar-background-progress);
+  }
+}
+
+.ids-progress-bar--completed {
+  .ids-progress-bar__status {
+    --ids-progress-bar-background-progress: var(
+      --ids-progress-bar-background-completed
+    );
+    border-radius: inherit;
+  }
+}
