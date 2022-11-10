@@ -1,5 +1,17 @@
 # @igloo-ui/toaster
 
+## 1.0.0
+
+### Major Changes
+
+- 4f5b3c1: Rework the code of component and update UI
+
+  BRAKING CHANGE
+
+  - The `react-hot-toast` has been removed, we have rewritten the code of the toaster.
+  - A custom Hook is now available to display several toasts one after the other.
+  - It is also possible to display a single toast
+
 ## 0.1.7
 
 ### Patch Changes
