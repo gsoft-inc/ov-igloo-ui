@@ -1,5 +1,15 @@
 # @igloo-ui/input
 
+## 2.0.0
+
+### Major Changes
+
+- 9842a0d: Disabled pointer-events on prefix icon
+
+  BREAKING CHANGE
+
+  Remove top and bottom margin
+
 ## 1.1.0
 
 ### Minor Changes
