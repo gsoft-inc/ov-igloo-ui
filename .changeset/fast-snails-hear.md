@@ -1,20 +1,20 @@
 ---
-'@igloo-ui/alert': minor
-'@igloo-ui/button': minor
-'@igloo-ui/card': minor
-'@igloo-ui/checkbox': minor
-'@igloo-ui/ellipsis': minor
-'@igloo-ui/form-group': minor
-'@igloo-ui/helper-text': minor
-'@igloo-ui/hyperlink': minor
-'@igloo-ui/icon-button': minor
-'@igloo-ui/input': minor
-'@igloo-ui/option-button': minor
-'@igloo-ui/radio': minor
-'@igloo-ui/select': minor
-'@igloo-ui/tabs': minor
-'@igloo-ui/tag': minor
-'@igloo-ui/textarea': minor
+'@igloo-ui/alert': patch
+'@igloo-ui/button': patch
+'@igloo-ui/card': patch
+'@igloo-ui/checkbox': patch
+'@igloo-ui/ellipsis': patch
+'@igloo-ui/form-group': patch
+'@igloo-ui/helper-text': patch
+'@igloo-ui/hyperlink': patch
+'@igloo-ui/icon-button': patch
+'@igloo-ui/input': patch
+'@igloo-ui/option-button': patch
+'@igloo-ui/radio': patch
+'@igloo-ui/select': patch
+'@igloo-ui/tabs': patch
+'@igloo-ui/tag': patch
+'@igloo-ui/textarea': patch
 ---
 
 All tests were updated to use testing library and not enzyme
