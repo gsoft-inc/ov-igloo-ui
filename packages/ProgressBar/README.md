@@ -27,5 +27,5 @@ Then to use the component in your code just import it!
 ```jsx
 import ProgressBar from '@igloo-ui/progress-bar';
 
-<ProgressBar value={0.7} />;
+<ProgressBar value={0.7} ariaLabel="Progress: 70% of objectives achieved" />;
 ```
