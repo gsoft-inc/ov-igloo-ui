@@ -1,5 +1,11 @@
 # @igloo-ui/message
 
+## 0.2.6
+
+### Patch Changes
+
+- d971143: All tests were updated to use testing library and not enzyme
+
 ## 0.2.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/radio
 
+## 0.1.6
+
+### Patch Changes
+
+- d971143: All tests were updated to use testing library and not enzyme
+
 ## 0.1.5
 
 ### Patch Changes
