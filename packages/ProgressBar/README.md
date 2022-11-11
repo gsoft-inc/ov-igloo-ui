@@ -1,6 +1,6 @@
 # ProgressBar
 
-Progress bar that displays linear progress. Works best with elements that doesn't involve specific steps.
+Progress bar that displays linear progress. Works best with elements that do not involve specific steps.
 
 <Example />
 
