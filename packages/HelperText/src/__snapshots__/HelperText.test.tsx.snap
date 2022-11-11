@@ -1,5 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HelperText It should render a default appearance 1`] = `ShallowWrapper {}`;
+exports[`HelperText It should render a default appearance 1`] = `
+<DocumentFragment>
+  <span
+    class="ids-helperText"
+  >
+    Information message
+  </span>
+</DocumentFragment>
+`;
 
-exports[`HelperText It should render a error appearance 1`] = `ShallowWrapper {}`;
+exports[`HelperText It should render a error appearance 1`] = `
+<DocumentFragment>
+  <span
+    appearance="error"
+    class="ids-helperText"
+  >
+    Information message
+  </span>
+</DocumentFragment>
+`;

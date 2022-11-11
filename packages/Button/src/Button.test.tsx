@@ -2,66 +2,61 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render } from '@testing-library/react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import Plus from '@igloo-ui/icons/dist/Plus';
 
-import Button from './Button';
+import Button, { ButtonOwnProps } from './Button';
 
-const setUp = (props = {}) => {
-  const component = shallow(
+const setUp = (props: ButtonOwnProps = {}) => {
+  return render(
     <Button dataTest="ids-btn" {...props}>
       Click me
     </Button>
   );
-  return component;
 };
 
 describe('Button Component', (): void => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let component: any;
-  beforeEach(() => {
-    component = setUp();
-  });
-
   test('It should render without errors', (): void => {
-    const wrapper = component.find('button');
-    expect(wrapper.length).toBe(1);
+    setUp();
+    const wrapper = screen.getByRole('button');
+    expect(wrapper).toBeInTheDocument();
   });
 
   test('It should render a button with icon', (): void => {
-    render(<Button iconLeading={<Plus size="small" />}>Click me</Button>);
-    const svg = document.getElementsByTagName('svg');
-    expect(svg.length).toBe(1);
+    const container = setUp({
+      iconLeading: <Plus size="small" />,
+    }).container;
+    const svg = container.querySelector('svg');
+    expect(svg).toBeInTheDocument();
   });
 
   test('It should render a primary appearance', (): void => {
-    const button = setUp();
-    expect(button).toMatchSnapshot();
+    const fragment = setUp().asFragment();
+    expect(fragment).toMatchSnapshot();
   });
 
   test('It should render a secondary appearance', (): void => {
-    const button = setUp({ appearance: 'secondary' });
-    expect(button).toMatchSnapshot();
+    const fragment = setUp({ appearance: 'secondary' }).asFragment();
+    expect(fragment).toMatchSnapshot();
   });
 
   test('It should render a premium appearance', (): void => {
-    const button = setUp({ appearance: 'premium' });
-    expect(button).toMatchSnapshot();
+    const fragment = setUp({ appearance: 'premium' }).asFragment();
+    expect(fragment).toMatchSnapshot();
   });
 
   test('It should render a danger appearance', (): void => {
-    const button = setUp({ appearance: 'danger' });
-    expect(button).toMatchSnapshot();
+    const fragment = setUp({ appearance: 'danger' }).asFragment();
+    expect(fragment).toMatchSnapshot();
   });
 
   test('It should render a ghost appearance', (): void => {
-    const button = setUp({ appearance: 'ghost' });
-    expect(button).toMatchSnapshot();
+    const fragment = setUp({ appearance: 'ghost' }).asFragment();
+    expect(fragment).toMatchSnapshot();
   });
 
   test('It should render a button with a tag', (): void => {
-    render(
+    const { container } = render(
       <Button
         as="a"
         href="://igloo.officevibe.design"
@@ -72,7 +67,8 @@ describe('Button Component', (): void => {
         Click me
       </Button>
     );
-    const link = document.getElementsByTagName('a');
-    expect(link.length).toBe(1);
+
+    const link = container.querySelector('a');
+    expect(link).toBeInTheDocument();
   });
 });

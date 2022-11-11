@@ -1,3 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tabs It should render a snapshot 1`] = `ShallowWrapper {}`;
+exports[`Tabs It should render a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ids-tabs ids-tabs--inline"
+    data-test="ids-tabs-id"
+  >
+    <ul
+      class="ids-tabs__list"
+    >
+      <li
+        class="ids-tab ids-tab--active"
+      >
+        <button
+          class="ids-tab__btn"
+        >
+          tab 1
+        </button>
+      </li>
+      <li
+        class="ids-tab"
+      >
+        <button
+          class="ids-tab__btn"
+        >
+          tab 2
+        </button>
+      </li>
+    </ul>
+    Tab 1 content
+  </div>
+</DocumentFragment>
+`;
