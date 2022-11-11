@@ -2,49 +2,43 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { findByRole, render } from '@testing-library/react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import Radio from './Radio';
 
 const setUp = (props = {}) => {
-  const component = shallow(<Radio htmlFor="radio-master" {...props} />);
-  return component;
+  return render(<Radio htmlFor="radio-master" {...props} />);
 };
 
 describe('Radio', () => {
-  let component: any;
-  beforeEach(() => {
-    component = setUp();
-  });
-
   test('It should render without errors', () => {
-    const { getByText } = render(<Radio htmlFor="radio-test">Label</Radio>);
+    const { getByText } = setUp({ htmlFor: 'radio-test', children: 'Label' });
     expect(getByText('Label')).toBeInTheDocument();
   });
 
   test('It should render without label', () => {
-    render(<Radio htmlFor="radio-test" />);
-    const label = document.getElementsByTagName('label');
-    expect(label.length).toBe(0);
+    const { container } = setUp({ htmlFor: 'radio-test-1' });
+    const label = container.querySelector('label');
+    expect(label).not.toBeInTheDocument();
   });
 
   test('It should render a checked state', () => {
-    const { getByRole } = render(
-      <Radio htmlFor="radio-test-2" checked onChange={() => {}}>
-        Label
-      </Radio>
-    );
+    const { getByRole } = setUp({
+      htmlFor: 'radio-test-2',
+      children: 'Label',
+      checked: true,
+      onChange: () => {},
+    });
     const radio = getByRole('radio');
     expect(radio).toBeChecked();
   });
 
   test('It should render a disabled state', () => {
-    const { getByRole } = render(
-      <Radio htmlFor="radio-test-3" disabled>
-        Label
-      </Radio>
-    );
+    const { getByRole } = setUp({
+      htmlFor: 'radio-test-3',
+      children: 'Label',
+      disabled: true,
+    });
     const radio = getByRole('radio');
 
     expect(radio).toBeDisabled();

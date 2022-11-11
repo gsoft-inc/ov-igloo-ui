@@ -1,3 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Textarea It should render a snapshot 1`] = `ShallowWrapper {}`;
+exports[`Textarea It should render a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ids-textarea"
+    data-test="ids-textarea"
+  >
+    <textarea
+      class="ids-textarea__field"
+    />
+  </div>
+</DocumentFragment>
+`;

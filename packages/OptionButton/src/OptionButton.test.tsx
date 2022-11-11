@@ -2,14 +2,13 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render } from '@testing-library/react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import OptionButton, { OptionButtonProps, ButtonType } from './OptionButton';
 import LabelSolid from '@igloo-ui/icons/dist/LabelSolid';
 
 const setup = (props: OptionButtonProps) => {
-  return shallow(<OptionButton {...props} />);
+  return render(<OptionButton {...props} />);
 };
 
 describe('OptionButton', () => {
@@ -66,12 +65,14 @@ describe('OptionButton', () => {
   };
 
   test('It should render without errors', () => {
-    const wrapper = component().find('.ids-option-button');
-    expect(wrapper.length).toBe(1);
+    component();
+    const wrapper = screen.getByTestId('option-button-test-1');
+    expect(wrapper).toBeInTheDocument();
   });
 
   test('It should render a snapshot', () => {
-    expect(component()).toMatchSnapshot();
+    const { asFragment } = component();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('It should render a checked state', () => {
@@ -95,9 +96,9 @@ describe('OptionButton', () => {
   });
 
   test('It should render a unchecked look', () => {
-    const wrapper = setup({ ...defaultComponentSetUp, unchecked: true });
-    const radio = wrapper.find('.ids-option-button--unchecked');
-    expect(radio.length).toBe(1);
+    setup({ ...defaultComponentSetUp, unchecked: true });
+    const radio = screen.getByTestId('option-button-test-1');
+    expect(radio).toHaveClass('ids-option-button--unchecked');
   });
 
   test('It should render an option button with an icon', () => {

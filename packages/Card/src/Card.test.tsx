@@ -2,24 +2,26 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import Card from './Card';
 
 describe('Card', () => {
-  const component = shallow(<Card>Hello world</Card>);
   test('It should render without errors', () => {
-    const wrapper = component.find('.ids-card');
-    expect(wrapper.length).toBe(1);
+    render(<Card>Hello world</Card>);
+    const wrapper = screen.getByText('Hello world');
+    expect(wrapper).toBeInTheDocument();
   });
 
   test('It should render a small size', (): void => {
-    const card = shallow(<Card size="small">Hello world</Card>);
-    const wrapper = card.find('.ids-card--small');
-    expect(wrapper.length).toBe(1);
+    render(<Card size="small">Hello world</Card>);
+    const wrapper = screen.getByText('Hello world');
+
+    expect(wrapper).toHaveClass('ids-card--small');
   });
 
   test('It should render a snapshot', () => {
-    expect(component).toMatchSnapshot();
+    const { asFragment } = render(<Card>Hello world</Card>);
+    expect(asFragment()).toMatchSnapshot();
   });
 });

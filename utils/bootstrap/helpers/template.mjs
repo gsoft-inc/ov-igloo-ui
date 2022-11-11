@@ -9,11 +9,13 @@ import './${name}.scss';
 
 export interface ${pascalCaseName}Props extends React.ComponentProps<'div'> {
   children: React.ReactNode;
+  /** Add a data-test tag for automated tests */
+  dataTest?: string;
 }
 
 const ${pascalCaseName}: React.FunctionComponent<${pascalCaseName}Props> = (props: ${pascalCaseName}Props) => {
-  const { children } = props;
-  return <div className="ids-${name}">{children}</div>;
+  const { children, dataTest } = props;
+  return <div className="ids-${name}" data-test={dataTest}>{children}</div>;
 };
 
 export default ${pascalCaseName};
@@ -27,19 +29,26 @@ export const getTestTemplate = (name) => {
   * @jest-environment jsdom
   */
  import React from 'react';
- import { shallow } from 'enzyme';
+ import { render, screen } from '@testing-library/react';
 
  import ${pascalCaseName} from './${pascalCaseName}';
 
+ const setup = (props = {}) => {
+  return render(
+    <${pascalCaseName} dataTest="ids-${name}" {...props}>Hello world</${pascalCaseName}>
+  );
+};
+
  describe('${pascalCaseName}', () => {
-   const component = shallow(<${pascalCaseName}>Hello world</${pascalCaseName}>);
    test('It should render without errors', () => {
-     const wrapper = component.find('.ids-${name}');
-     expect(wrapper.length).toBe(1);
+    setup();
+     const wrapper = screen.getByTestId('ids-${name}');
+     expect(wrapper).toBeInTheDocument();
    });
 
    test('It should render a snapshot', () => {
-     expect(component).toMatchSnapshot();
+     const {asFragment} = setup();
+     expect(asFragment()).toMatchSnapshot();
    });
  });
 `;

@@ -1,11 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Hyperlink Component It should render a danger appearance 1`] = `ShallowWrapper {}`;
+exports[`Hyperlink Component It should render a danger appearance 1`] = `
+<DocumentFragment>
+  <span
+    class="ids-link ids-link--danger"
+    data-test="ids-link"
+    role="link"
+    tabindex="0"
+  >
+    Click me
+  </span>
+</DocumentFragment>
+`;
 
-exports[`Hyperlink Component It should render a ghost appearance 1`] = `ShallowWrapper {}`;
+exports[`Hyperlink Component It should render a ghost appearance 1`] = `
+<DocumentFragment>
+  <span
+    class="ids-link ids-link--ghost"
+    data-test="ids-link"
+    role="link"
+    tabindex="0"
+  >
+    Click me
+  </span>
+</DocumentFragment>
+`;
 
-exports[`Hyperlink Component It should render a premium appearance 1`] = `ShallowWrapper {}`;
+exports[`Hyperlink Component It should render a premium appearance 1`] = `
+<DocumentFragment>
+  <span
+    class="ids-link ids-link--premium"
+    data-test="ids-link"
+    role="link"
+    tabindex="0"
+  >
+    Click me
+  </span>
+</DocumentFragment>
+`;
 
-exports[`Hyperlink Component It should render a primary appearance 1`] = `ShallowWrapper {}`;
+exports[`Hyperlink Component It should render a primary appearance 1`] = `
+<DocumentFragment>
+  <span
+    class="ids-link"
+    data-test="ids-link"
+    role="link"
+    tabindex="0"
+  >
+    Click me
+  </span>
+</DocumentFragment>
+`;
 
-exports[`Hyperlink Component It should render a secondary appearance 1`] = `ShallowWrapper {}`;
+exports[`Hyperlink Component It should render a secondary appearance 1`] = `
+<DocumentFragment>
+  <span
+    class="ids-link ids-link--secondary"
+    data-test="ids-link"
+    role="link"
+    tabindex="0"
+  >
+    Click me
+  </span>
+</DocumentFragment>
+`;

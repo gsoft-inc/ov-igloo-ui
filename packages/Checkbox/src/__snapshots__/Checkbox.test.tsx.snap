@@ -1,7 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checkbox It should render a checked state 1`] = `ShallowWrapper {}`;
+exports[`Checkbox It should render a checked state 1`] = `
+<DocumentFragment>
+  <span
+    class="ids-form-control"
+  >
+    <input
+      checked=""
+      class="ids-checkbox"
+      id="checkbox-master"
+      type="checkbox"
+    />
+  </span>
+</DocumentFragment>
+`;
 
-exports[`Checkbox It should render a disabled state 1`] = `ShallowWrapper {}`;
+exports[`Checkbox It should render a disabled state 1`] = `
+<DocumentFragment>
+  <span
+    class="ids-form-control"
+  >
+    <input
+      class="ids-checkbox"
+      disabled=""
+      id="checkbox-master"
+      type="checkbox"
+    />
+  </span>
+</DocumentFragment>
+`;
 
-exports[`Checkbox It should render a indeterminate state 1`] = `ShallowWrapper {}`;
+exports[`Checkbox It should render a indeterminate state 1`] = `
+<DocumentFragment>
+  <span
+    class="ids-form-control"
+  >
+    <input
+      class="ids-checkbox"
+      id="checkbox-master"
+      type="checkbox"
+    />
+  </span>
+</DocumentFragment>
+`;

@@ -2,49 +2,55 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { shallow } from 'enzyme';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import Textarea from './Textarea';
 
 const setUp = (props = {}) => {
-  const component = shallow(<Textarea dataTest="ids-textarea" {...props} />);
-  return component;
+  return render(<Textarea dataTest="ids-textarea" {...props} />);
 };
 
 describe('Textarea', () => {
   test('It should render without errors', () => {
-    const component = setUp();
-    const wrapper = component.find('.ids-textarea');
-    expect(wrapper.length).toBe(1);
+    setUp();
+    const textarea = screen.getByTestId('ids-textarea');
+    expect(textarea).toBeInTheDocument();
   });
 
   test('It should render a snapshot', () => {
-    const component = setUp();
-    expect(component).toMatchSnapshot();
+    const { asFragment } = setUp();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('It should render disabled', (): void => {
-    const component = setUp({ disabled: true });
-    const wrapper = component.find('.ids-textarea__field--disabled');
-    expect(wrapper.length).toBe(1);
+    const { container } = setUp({ disabled: true });
+    const textareaField = container.querySelector('.ids-textarea__field');
+    expect(textareaField).toHaveClass('ids-textarea__field--disabled');
   });
 
   test('It should render an error look', (): void => {
-    const component = setUp({ error: true });
-    const wrapper = component.find('.ids-textarea__field--error');
-    expect(wrapper.length).toBe(1);
+    const { container } = setUp({ error: true });
+    const textareaField = container.querySelector('.ids-textarea__field');
+    expect(textareaField).toHaveClass('ids-textarea__field--error');
   });
 
   test('It should render a character count', (): void => {
-    const component = setUp({ showCharactersIndicator: true, maxLength: 100 });
-    const wrapper = component.find('.ids-textarea__char-indicator');
-    expect(wrapper.length).toBe(1);
+    const { container } = setUp({
+      showCharactersIndicator: true,
+      maxLength: 100,
+    });
+    const charIndicator = container.querySelector(
+      '.ids-textarea__char-indicator'
+    );
+    expect(charIndicator).toBeInTheDocument();
   });
 
   test('It should not render a character count without max length', (): void => {
-    const component = setUp({ showCharactersIndicator: true });
-    const wrapper = component.find('.ids-textarea__char-indicator');
-    expect(wrapper.length).toBe(0);
+    const { container } = setUp({ showCharactersIndicator: true });
+    const charIndicator = container.querySelector(
+      '.ids-textarea__char-indicator'
+    );
+    expect(charIndicator).not.toBeInTheDocument();
   });
 
   test('It should call the onChange function', () => {
@@ -57,9 +63,12 @@ describe('Textarea', () => {
         changed = true;
       },
     };
-    const component = setUp(props);
+    const { container } = setUp(props);
+    const textareaField = container.querySelector('.ids-textarea__field');
 
-    component.find('.ids-textarea__field').simulate('change', event);
+    if (textareaField) {
+      fireEvent.change(textareaField, event);
+    }
     expect(changed).toBeTruthy();
   });
 });

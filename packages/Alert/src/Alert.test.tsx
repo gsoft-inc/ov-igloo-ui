@@ -2,135 +2,127 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { shallow, ShallowWrapper } from 'enzyme';
 import { render, screen } from '@testing-library/react';
 
 import Alert, { Type, AlertProps, Appearance } from './Alert';
 
 const setup = (props: AlertProps) => {
-  return shallow(<Alert {...props}>Hello world</Alert>);
+  return render(<Alert {...props}>Hello world</Alert>);
 };
 
 describe('Alert', () => {
   const component = (type: Type) => setup({ type });
 
-  const expectToBeOfType = (alert: ShallowWrapper, type: Type) => {
-    const findAlert = alert.find('.ids-alert');
-
-    const findAnnouncement = alert.find('.ids-alert--announcement');
-    const findInfo = alert.find('.ids-alert--info');
-    const findPremium = alert.find('.ids-alert--premium');
-    const findSuccess = alert.find('.ids-alert--success');
-    const findWarning = alert.find('.ids-alert--warning');
-
-    expect(findAlert.length).toBe(1);
-
-    expect(findAnnouncement.length === 1).toBe(type === 'announcement');
-    expect(findInfo.length === 1).toBe(type === 'info');
-    expect(findPremium.length === 1).toBe(type === 'premium');
-    expect(findSuccess.length === 1).toBe(type === 'success');
-    expect(findWarning.length === 1).toBe(type === 'warning');
+  const expectToBeOfType = (type: Type, dataTest: string) => {
+    const wrapper = screen.getByTestId(dataTest);
+    const expectedClass = 'ids-alert--' + type;
+    expect(wrapper).toHaveClass(expectedClass);
   };
 
-  const expectTpBeOfStyle = (alert: ShallowWrapper, style: Appearance) => {
-    const findCard = alert.find('.ids-alert--card');
-    const findInline = alert.find('.ids-alert--inline');
-    const findHorizontal = alert.find('.ids-alert--horizontal');
-
-    expect(findCard.length === 1).toBe(style === 'card');
-    expect(findInline.length === 1).toBe(style === 'inline');
-    expect(findHorizontal.length === 1).toBe(style === 'horizontal');
+  const expectTpBeOfStyle = (style: Appearance, dataTest: string) => {
+    const wrapper = screen.getByTestId(dataTest);
+    const expectedClass = 'ids-alert--' + style;
+    expect(wrapper).toHaveClass(expectedClass);
   };
 
   test('It should render without errors', () => {
-    const wrapper = component('info').find('.ids-alert');
-    expect(wrapper.length).toBe(1);
+    setup({ type: 'info', dataTest: 'alert1' });
+    const wrapper = screen.getByTestId('alert1');
+    expect(wrapper).toBeInTheDocument();
   });
 
   test('It should render a snapshot', () => {
-    expect(component('info')).toMatchSnapshot();
+    expect(component('info').asFragment()).toMatchSnapshot();
   });
 
   test('It should render an alert with type "announcement"', () => {
-    const alert = component('announcement');
+    setup({ type: 'announcement', dataTest: 'alert2' });
 
-    expectToBeOfType(alert, 'announcement');
+    expectToBeOfType('announcement', 'alert2');
   });
 
   test('It should render an alert with type "info"', () => {
-    const alert = component('info');
+    setup({ type: 'info', dataTest: 'alert3' });
 
-    expectToBeOfType(alert, 'info');
+    expectToBeOfType('info', 'alert3');
   });
 
   test('It should render an alert with type "premium"', () => {
-    const alert = component('premium');
+    setup({ type: 'premium', dataTest: 'alert4' });
 
-    expectToBeOfType(alert, 'premium');
+    expectToBeOfType('premium', 'alert4');
   });
 
   test('It should render an alert with type "success"', () => {
-    const alert = component('success');
+    component('success');
+    setup({ type: 'success', dataTest: 'alert5' });
 
-    expectToBeOfType(alert, 'success');
+    expectToBeOfType('success', 'alert5');
   });
 
   test('It should render an alert with type "warning"', () => {
-    const alert = component('warning');
+    component('warning');
+    setup({ type: 'warning', dataTest: 'alert6' });
 
-    expectToBeOfType(alert, 'warning');
+    expectToBeOfType('warning', 'alert6');
   });
 
   test('It should render by default an alert with a dismiss button', () => {
-    const alert = setup({ type: 'info' });
-    const findDismissButton = alert.find('.ids-alert__dismiss-btn');
+    const container = component('info').container;
+    const findDismissButton = container.querySelector(
+      '.ids-alert__dismiss-btn'
+    );
 
-    expect(findDismissButton.length).toBe(1);
+    expect(findDismissButton).toBeInTheDocument();
   });
 
   test('It should render an alert with a dismiss button', () => {
-    const alert = setup({ type: 'info', closable: true });
-    const findDismissButton = alert.find('.ids-alert__dismiss-btn');
+    const container = setup({ type: 'info', closable: true }).container;
+    const findDismissButton = container.querySelector(
+      '.ids-alert__dismiss-btn'
+    );
 
-    expect(findDismissButton.length).toBe(1);
+    expect(findDismissButton).toBeInTheDocument();
   });
 
   test('It should render an alert without a dismiss button', () => {
-    const alert = setup({ type: 'info', closable: false });
-    const findDismissButton = alert.find('.ids-alert__dismiss-btn');
+    const container = setup({ type: 'info', closable: false }).container;
+    const findDismissButton = container.querySelector(
+      '.ids-alert__dismiss-btn'
+    );
 
-    expect(findDismissButton.length).toBe(0);
+    expect(findDismissButton).not.toBeInTheDocument();
   });
 
   test('It should render by default a Card style alert', () => {
-    const alert = setup({ type: 'info' });
+    setup({ type: 'info', dataTest: 'alert7' });
 
-    expectTpBeOfStyle(alert, 'card');
+    expectTpBeOfStyle('card', 'alert7');
   });
 
   test('It should render a Card style alert', () => {
-    const alert = setup({ type: 'info', appearance: 'card' });
+    setup({ type: 'info', appearance: 'card', dataTest: 'alert8' });
 
-    expectTpBeOfStyle(alert, 'card');
+    expectTpBeOfStyle('card', 'alert8');
   });
 
   test('It should render a Inline style alert', () => {
-    const alert = setup({ type: 'info', appearance: 'inline' });
+    setup({ type: 'info', appearance: 'inline', dataTest: 'alert9' });
 
-    expectTpBeOfStyle(alert, 'inline');
+    expectTpBeOfStyle('inline', 'alert9');
   });
 
   test('It should render a Horizontal style alert', () => {
-    const alert = setup({ type: 'info', appearance: 'horizontal' });
+    setup({ type: 'info', appearance: 'horizontal', dataTest: 'alert10' });
 
-    expectTpBeOfStyle(alert, 'horizontal');
+    expectTpBeOfStyle('horizontal', 'alert10');
   });
 
   test('It should render an Alert without action button', () => {
-    const alert = setup({ type: 'info', appearance: 'card' });
-    const findActionButton = alert.find('Button');
+    const container = setup({ type: 'info', appearance: 'card' }).container;
+    const findActionButton = container.querySelector('.ids-alert__action-btn');
 
-    expect(findActionButton.length).toBe(0);
+    expect(findActionButton).not.toBeInTheDocument();
   });
 
   test('It should render an Alert with action button', () => {
@@ -150,62 +142,65 @@ describe('Alert', () => {
       </Alert>
     );
 
-    screen.findByText(buttonText);
     expect(screen.getByTitle(buttonText)).toHaveTextContent(buttonText);
   });
 
   test('It should render a Card Alert with an icon', () => {
-    const alert = setup({
+    const container = setup({
       type: 'success',
       appearance: 'card',
-    });
-    const findIcon = alert.find('.ids-alert__icon');
+    }).container;
+    const findIcon = container.querySelector('.ids-alert__icon');
 
-    expect(findIcon.length).toBe(1);
+    expect(findIcon).toBeInTheDocument();
   });
 
   test('It should render a Inline Alert with an icon', () => {
-    const alert = setup({
+    const container = setup({
       type: 'success',
       appearance: 'inline',
-    });
-    const findIcon = alert.find('.ids-alert__icon');
+    }).container;
+    const findIcon = container.querySelector('.ids-alert__icon');
 
-    expect(findIcon.length).toBe(1);
+    expect(findIcon).toBeInTheDocument();
   });
 
   test('It should render a Horizontal Alert without an icon', () => {
-    const alert = setup({
+    const container = setup({
       type: 'success',
       appearance: 'horizontal',
-    });
-    const findIcon = alert.find('.ids-alert__icon');
+    }).container;
+    const findIcon = container.querySelector('.ids-alert__icon');
 
-    expect(findIcon.length).toBe(0);
+    expect(findIcon).not.toBeInTheDocument();
   });
 
   test('It should render an Alert by default with a medium icon', () => {
-    const alert = setup({
+    const container = setup({
       type: 'success',
       appearance: 'card',
-    });
-    const findIcon = alert.find('.ids-alert__icon--medium-centered');
+    }).container;
+    const findIcon = container.querySelector(
+      '.ids-alert__icon--medium-centered'
+    );
 
-    expect(findIcon.length).toBe(1);
+    expect(findIcon).toBeInTheDocument();
   });
 
   test('It should render an Alert with a medium icon', () => {
-    const alert = setup({
+    const container = setup({
       type: 'success',
       appearance: 'card',
-    });
-    const findIcon = alert.find('.ids-alert__icon--medium-centered');
+    }).container;
+    const findIcon = container.querySelector(
+      '.ids-alert__icon--medium-centered'
+    );
 
-    expect(findIcon.length).toBe(1);
+    expect(findIcon).toBeInTheDocument();
   });
 
   test('It should render an Alert with a small icon', () => {
-    const alert = setup({
+    const container = setup({
       type: 'success',
       appearance: 'card',
       button: {
@@ -214,9 +209,9 @@ describe('Alert', () => {
           console.log('onClick');
         },
       },
-    });
-    const findIcon = alert.find('.ids-alert__icon--small-top');
+    }).container;
+    const findIcon = container.querySelector('.ids-alert__icon--small-top');
 
-    expect(findIcon.length).toBe(1);
+    expect(findIcon).toBeInTheDocument();
   });
 });

@@ -1,15 +1,220 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`IconButton Component It should render a danger appearance 1`] = `ShallowWrapper {}`;
+exports[`IconButton Component It should render a danger appearance 1`] = `
+<DocumentFragment>
+  <button
+    class="ids-btn ids-icon-btn ids-icon-btn--medium ids-btn--danger"
+    data-test="ids-icon-btn"
+    title=""
+    type="button"
+  >
+    <span
+      class=""
+    >
+      <svg
+        class="ids-icon"
+        fill="none"
+        height="16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 12V4M12 8H4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+        />
+      </svg>
+    </span>
+  </button>
+</DocumentFragment>
+`;
 
-exports[`IconButton Component It should render a default theme 1`] = `ShallowWrapper {}`;
+exports[`IconButton Component It should render a default theme 1`] = `
+<DocumentFragment>
+  <button
+    class="ids-btn ids-icon-btn ids-icon-btn--medium"
+    data-test="ids-icon-btn"
+    theme="default"
+    title=""
+    type="button"
+  >
+    <span
+      class=""
+    >
+      <svg
+        class="ids-icon"
+        fill="none"
+        height="16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 12V4M12 8H4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+        />
+      </svg>
+    </span>
+  </button>
+</DocumentFragment>
+`;
 
-exports[`IconButton Component It should render a ghost appearance 1`] = `ShallowWrapper {}`;
+exports[`IconButton Component It should render a ghost appearance 1`] = `
+<DocumentFragment>
+  <button
+    class="ids-btn ids-icon-btn ids-icon-btn--medium ids-btn--ghost"
+    data-test="ids-icon-btn"
+    title=""
+    type="button"
+  >
+    <span
+      class=""
+    >
+      <svg
+        class="ids-icon"
+        fill="none"
+        height="16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 12V4M12 8H4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+        />
+      </svg>
+    </span>
+  </button>
+</DocumentFragment>
+`;
 
-exports[`IconButton Component It should render a premium appearance 1`] = `ShallowWrapper {}`;
+exports[`IconButton Component It should render a premium appearance 1`] = `
+<DocumentFragment>
+  <button
+    class="ids-btn ids-icon-btn ids-icon-btn--medium ids-btn--premium"
+    data-test="ids-icon-btn"
+    title=""
+    type="button"
+  >
+    <span
+      class=""
+    >
+      <svg
+        class="ids-icon"
+        fill="none"
+        height="16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 12V4M12 8H4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+        />
+      </svg>
+    </span>
+  </button>
+</DocumentFragment>
+`;
 
-exports[`IconButton Component It should render a primary appearance 1`] = `ShallowWrapper {}`;
+exports[`IconButton Component It should render a primary appearance 1`] = `
+<DocumentFragment>
+  <button
+    class="ids-btn ids-icon-btn ids-icon-btn--medium"
+    data-test="ids-icon-btn"
+    title=""
+    type="button"
+  >
+    <span
+      class=""
+    >
+      <svg
+        class="ids-icon"
+        fill="none"
+        height="16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 12V4M12 8H4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+        />
+      </svg>
+    </span>
+  </button>
+</DocumentFragment>
+`;
 
-exports[`IconButton Component It should render a round theme 1`] = `ShallowWrapper {}`;
+exports[`IconButton Component It should render a round theme 1`] = `
+<DocumentFragment>
+  <button
+    class="ids-btn ids-icon-btn ids-icon-btn--medium"
+    data-test="ids-icon-btn"
+    theme="round"
+    title=""
+    type="button"
+  >
+    <span
+      class=""
+    >
+      <svg
+        class="ids-icon"
+        fill="none"
+        height="16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 12V4M12 8H4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+        />
+      </svg>
+    </span>
+  </button>
+</DocumentFragment>
+`;
 
-exports[`IconButton Component It should render a secondary appearance 1`] = `ShallowWrapper {}`;
+exports[`IconButton Component It should render a secondary appearance 1`] = `
+<DocumentFragment>
+  <button
+    class="ids-btn ids-icon-btn ids-icon-btn--medium ids-btn--secondary"
+    data-test="ids-icon-btn"
+    title=""
+    type="button"
+  >
+    <span
+      class=""
+    >
+      <svg
+        class="ids-icon"
+        fill="none"
+        height="16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 12V4M12 8H4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+        />
+      </svg>
+    </span>
+  </button>
+</DocumentFragment>
+`;
