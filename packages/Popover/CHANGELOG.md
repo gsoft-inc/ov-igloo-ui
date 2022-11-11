@@ -1,5 +1,12 @@
 # @igloo-ui/popover
 
+## 0.1.2
+
+### Patch Changes
+
+- Updated dependencies [d971143]
+  - @igloo-ui/icon-button@0.3.0
+
 ## 0.1.1
 
 ### Patch Changes

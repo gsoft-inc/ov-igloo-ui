@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.4.0
+
+### Minor Changes
+
+- d971143: All tests were updated to use testing library and not enzyme
+
 ## 0.3.4
 
 ### Patch Changes

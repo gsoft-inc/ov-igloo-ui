@@ -1,5 +1,12 @@
 # @igloo-ui/modal
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [d971143]
+  - @igloo-ui/icon-button@0.3.0
+
 ## 1.0.1
 
 ### Patch Changes

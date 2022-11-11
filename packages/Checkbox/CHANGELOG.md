@@ -1,5 +1,11 @@
 # @igloo-ui/checkbox
 
+## 0.2.0
+
+### Minor Changes
+
+- d971143: All tests were updated to use testing library and not enzyme
+
 ## 0.1.4
 
 ### Patch Changes

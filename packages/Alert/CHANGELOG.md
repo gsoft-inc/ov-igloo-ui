@@ -1,5 +1,17 @@
 # @igloo-ui/alert
 
+## 0.2.0
+
+### Minor Changes
+
+- d971143: All tests were updated to use testing library and not enzyme
+
+### Patch Changes
+
+- Updated dependencies [d971143]
+  - @igloo-ui/button@0.4.0
+  - @igloo-ui/icon-button@0.3.0
+
 ## 0.1.10
 
 ### Patch Changes
