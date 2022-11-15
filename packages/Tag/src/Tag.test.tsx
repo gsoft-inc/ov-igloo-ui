@@ -2,63 +2,53 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { shallow, ShallowWrapper } from 'enzyme';
+import {
+  fireEvent,
+  render,
+  RenderResult,
+  screen,
+} from '@testing-library/react';
 
 import Tag, { Appearance, Size, TagProps } from './Tag';
 import LabelSolid from '@igloo-ui/icons/dist/LabelSolid';
-import IconButton from '@igloo-ui/icon-button';
 
 const setup = (props: TagProps) => {
-  return shallow(<Tag {...props} />);
+  return render(<Tag dataTest="ids-tag" {...props} />);
 };
 
 describe('Tag', () => {
   const component = (children: React.ReactNode) => setup({ children });
 
-  const expectToBeOfStyle = (tag: ShallowWrapper, style: Appearance) => {
-    const findDefault = tag.find('.ids-tag--default');
-    const findPrimary = tag.find('.ids-tag--primary');
-    const findSecondary = tag.find('.ids-tag--secondary');
-    const findInfo = tag.find('.ids-tag--info');
-    const findSuccess = tag.find('.ids-tag--success');
-    const findWarning = tag.find('.ids-tag--warning');
-    const findError = tag.find('.ids-tag--error');
-
-    expect(findDefault.length === 1).toBe(style === 'default');
-    expect(findPrimary.length === 1).toBe(style === 'primary');
-    expect(findSecondary.length === 1).toBe(style === 'secondary');
-    expect(findInfo.length === 1).toBe(style === 'info');
-    expect(findSuccess.length === 1).toBe(style === 'success');
-    expect(findWarning.length === 1).toBe(style === 'warning');
-    expect(findError.length === 1).toBe(style === 'error');
+  const expectToBeOfStyle = (component: RenderResult, style: Appearance) => {
+    const tag = component.container.firstChild;
+    const expectedClass = 'ids-tag--' + style;
+    expect(tag).toHaveClass(expectedClass);
   };
 
-  const expectToBeOfSize = (tag: ShallowWrapper, style: Size) => {
-    const findMedium = tag.find('.ids-tag--medium');
-    const findSmall = tag.find('.ids-tag--small');
-    const findXsmall = tag.find('.ids-tag--xsmall');
-    const findMicro = tag.find('.ids-tag--micro');
-
-    expect(findMedium.length === 1).toBe(style === 'medium');
-    expect(findSmall.length === 1).toBe(style === 'small');
-    expect(findXsmall.length === 1).toBe(style === 'xsmall');
-    expect(findMicro.length === 1).toBe(style === 'micro');
+  const expectToBeOfSize = (component: RenderResult, size: Size) => {
+    const tag = component.container.firstChild;
+    const expectedClass = 'ids-tag--' + size;
+    expect(tag).toHaveClass(expectedClass);
   };
 
   test('It should render without errors', () => {
-    const wrapper = component('Render without errors').find('.ids-tag');
-    expect(wrapper.length).toBe(1);
+    component('Render without errors');
+
+    expect(screen.getByTestId('ids-tag')).toBeInTheDocument();
   });
 
   test('It should render a snapshot', () => {
-    expect(component('Render snapshot')).toMatchSnapshot();
+    const { asFragment } = component('Render snapshot');
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('It should render by default a default style medium tag and no dismiss button', () => {
     const tag = setup({ children: 'Default Tag' });
-    const findDismissButton = tag.find('.ids-tag__dismiss-btn');
+    const findDismissButton = tag.container.querySelector(
+      '.ids-tag__dismiss-btn'
+    );
 
-    expect(findDismissButton.length).toBe(0);
+    expect(findDismissButton).not.toBeInTheDocument();
 
     expectToBeOfStyle(tag, 'default');
     expectToBeOfSize(tag, 'medium');
@@ -75,45 +65,54 @@ describe('Tag', () => {
         show = false;
       },
     };
-    const tag = setup(props);
+    const { container } = setup(props);
 
-    tag.find(IconButton).simulate('click');
+    const dismissBtn = container.querySelector('.ids-tag__dismiss-btn');
+    if (dismissBtn) {
+      fireEvent.click(dismissBtn);
+    }
     expect(show).toBeFalsy();
   });
 
   /* Dismissible */
 
   test('It should render a tag with a dismiss button', () => {
-    const tag = setup({ children: 'Dismissible Tag', dismissible: true });
-    const findDismissButton = tag.find('.ids-tag__dismiss-btn');
+    const { container } = setup({
+      children: 'Dismissible Tag',
+      dismissible: true,
+    });
+    const findDismissButton = container.querySelector('.ids-tag__dismiss-btn');
 
-    expect(findDismissButton.length).toBe(1);
+    expect(findDismissButton).toBeInTheDocument();
   });
 
   test('It should render a tag without a dismiss button', () => {
-    const tag = setup({ children: 'Not Dismissible Tag', dismissible: false });
-    const findDismissButton = tag.find('.ids-tag__dismiss-btn');
+    const { container } = setup({
+      children: 'Not Dismissible Tag',
+      dismissible: false,
+    });
+    const findDismissButton = container.querySelector('.ids-tag__dismiss-btn');
 
-    expect(findDismissButton.length).toBe(0);
+    expect(findDismissButton).not.toBeInTheDocument();
   });
 
   /* Icon */
 
   test('It should render a tag without an icon', () => {
-    const tag = setup({ children: 'Default Icon Tag' });
-    const findIcon = tag.find('.ids-tag__icon');
+    const { container } = setup({ children: 'Default Icon Tag' });
+    const icon = container.querySelector('.ids-tag__icon');
 
-    expect(findIcon.length).toBe(0);
+    expect(icon).not.toBeInTheDocument();
   });
 
   test('It should render a tag with an icon', () => {
-    const tag = setup({
+    const { container } = setup({
       children: 'Dismissible Tag',
       icon: <LabelSolid size="small" />,
     });
-    const findIcon = tag.find('.ids-tag__icon');
+    const icon = container.querySelector('.ids-tag__icon');
 
-    expect(findIcon.length).toBe(1);
+    expect(icon).toBeInTheDocument();
   });
 
   /* Appearance */

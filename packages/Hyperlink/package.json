@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/hyperlink",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "main": "dist/Hyperlink.js",
   "module": "dist/Hyperlink.js",
   "types": "dist/Hyperlink.d.ts",
@@ -25,7 +25,7 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/tokens": "^1.0.0",
+    "@igloo-ui/tokens": "^2.0.0",
     "@react-aria/link": "^3.2.0",
     "classnames": "^2.3.1"
   },

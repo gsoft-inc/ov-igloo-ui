@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.0.1
+
+### Patch Changes
+
+- d971143: All tests were updated to use testing library and not enzyme
+
 ## 2.0.0
 
 ### Major Changes

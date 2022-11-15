@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/button",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "main": "dist/Button.js",
   "module": "dist/Button.js",
   "types": "dist/Button.d.ts",
@@ -24,7 +24,7 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/tokens": "^1.1.1",
+    "@igloo-ui/tokens": "^2.0.0",
     "classnames": "^2.3.1"
   },
   "devDependencies": {

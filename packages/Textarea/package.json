@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/textarea",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/Textarea.js",
   "module": "dist/Textarea.js",
   "types": "dist/Textarea.d.ts",
@@ -24,7 +24,7 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/tokens": "^1.0.0",
+    "@igloo-ui/tokens": "^2.0.0",
     "classnames": "^2.3.1",
     "autosize": "^4.0.4"
   },

@@ -2,43 +2,45 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import FormGroup, { FormGroupProps } from './FormGroup';
 import Input from '@igloo-ui/input';
 
-const setup = (props: FormGroupProps) => {
-  return shallow(<FormGroup {...props}></FormGroup>);
+const inputField = <Input type="text" placeholder="Enter your full name" />;
+const defaultProps = {
+  children: inputField,
+};
+
+const setup = (props: FormGroupProps = { ...defaultProps }) => {
+  return render(<FormGroup {...props}></FormGroup>);
 };
 
 describe('FormGroup', () => {
-  const inputField = <Input type="text" placeholder="Enter your full name" />;
-  const component = () => setup({ children: inputField });
-
   test('It should render without errors', () => {
-    const wrapper = component().find('.ids-form-group');
-    expect(wrapper.length).toBe(1);
+    setup({ ...defaultProps, dataTest: 'formGroup1' });
+    const wrapper = screen.getByTestId('formGroup1');
+    expect(wrapper).toBeInTheDocument();
   });
 
   test('It should render a snapshot', () => {
-    expect(component()).toMatchSnapshot();
+    const { asFragment } = setup();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('It should render a label', () => {
-    const formGroupComponent = () =>
-      setup({ children: inputField, label: 'I am a label' });
-    const wrapper = formGroupComponent().find('.ids-form-group__label');
-    expect(wrapper.length).toBe(1);
+    setup({ ...defaultProps, label: 'I am a label' });
+    const wrapper = screen.getByText('I am a label');
+    expect(wrapper).toBeInTheDocument();
   });
 
   test('It should render an error', () => {
-    const formGroupComponent = () =>
-      setup({
-        children: inputField,
-        errorMsg: 'I am an error',
-        showError: true,
-      });
-    const wrapper = formGroupComponent().find('.ids-form-group__error');
-    expect(wrapper.length).toBe(1);
+    setup({
+      ...defaultProps,
+      errorMsg: 'I am an error',
+      showError: true,
+    });
+    const wrapper = screen.getByText('I am an error');
+    expect(wrapper).toBeInTheDocument();
   });
 });

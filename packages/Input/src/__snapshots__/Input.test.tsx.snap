@@ -1,11 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input It should render a number type 1`] = `ShallowWrapper {}`;
+exports[`Input It should render a number type 1`] = `
+<DocumentFragment>
+  <input
+    class="ids-input"
+    data-test="ids-input"
+    type="number"
+    value="12345"
+  />
+</DocumentFragment>
+`;
 
-exports[`Input It should render a password type 1`] = `ShallowWrapper {}`;
+exports[`Input It should render a password type 1`] = `
+<DocumentFragment>
+  <input
+    class="ids-input"
+    data-test="ids-input"
+    type="password"
+    value="this is a great password!"
+  />
+</DocumentFragment>
+`;
 
-exports[`Input It should render a snapshot 1`] = `ShallowWrapper {}`;
+exports[`Input It should render a snapshot 1`] = `
+<DocumentFragment>
+  <input
+    class="ids-input"
+    data-test="ids-input"
+    type="text"
+    value=""
+  />
+</DocumentFragment>
+`;
 
-exports[`Input It should render a text type 1`] = `ShallowWrapper {}`;
+exports[`Input It should render a text type 1`] = `
+<DocumentFragment>
+  <input
+    class="ids-input"
+    data-test="ids-input"
+    type="text"
+    value="potato"
+  />
+</DocumentFragment>
+`;
 
-exports[`Input It should render an email type 1`] = `ShallowWrapper {}`;
+exports[`Input It should render an email type 1`] = `
+<DocumentFragment>
+  <input
+    class="ids-input"
+    data-test="ids-input"
+    type="email"
+    value="hashbrown@potatocatinc.com"
+  />
+</DocumentFragment>
+`;

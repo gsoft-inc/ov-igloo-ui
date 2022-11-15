@@ -2,13 +2,9 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen, fireEvent } from '@testing-library/react';
 
 import Select, { SelectOption } from './Select';
-import Dropdown from './Dropdown';
-import SelectOptionComponent from './SelectOption';
-import SelectInput from './SelectInput';
-import SelectValue from './SelectValue';
 
 const setup = (props = {}, options: SelectOption[] = []) => {
   options =
@@ -24,9 +20,8 @@ const setup = (props = {}, options: SelectOption[] = []) => {
             value: '2',
           },
         ];
-
-  return shallow(
-    <Select options={options} {...props}>
+  return render(
+    <Select dataTest="select1" options={options} {...props}>
       Hello world
     </Select>
   );
@@ -34,82 +29,82 @@ const setup = (props = {}, options: SelectOption[] = []) => {
 
 describe('Select', () => {
   test('It should render without errors', () => {
-    const select = setup();
-    const wrapper = select.find('.ids-select');
-    expect(wrapper.length).toBe(1);
+    setup();
+    const wrapper = screen.getByTestId('select1');
+    expect(wrapper).toBeInTheDocument();
   });
 
   test('It should render a snapshot', () => {
-    const select = setup();
-    expect(select).toMatchSnapshot();
+    const { asFragment } = setup();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('It should render medium size as default', () => {
-    const select = setup();
+    setup();
+    const select = screen.getByTestId('select1');
 
-    const isCompact = select.find('.ids-select--compact').length === 1;
-
-    expect(isCompact).toBeFalsy();
+    expect(select).not.toHaveClass('ids-select--compact');
   });
 
   test('It should render compact size when set', () => {
-    const select = setup({ isCompact: true });
+    setup({ isCompact: true });
+    const select = screen.getByTestId('select1');
 
-    const isCompact = select.find('.ids-select--compact').length === 1;
-
-    expect(isCompact).toBeTruthy();
+    expect(select).toHaveClass('ids-select--compact');
   });
 
   test('It should render in error state when set', () => {
-    const select = setup({ error: true });
+    setup({ error: true });
 
-    const isCompact = select.find('.ids-select--error').length === 1;
+    const select = screen.getByTestId('select1');
 
-    expect(isCompact).toBeTruthy();
+    expect(select).toHaveClass('ids-select--error');
   });
 
   test('It should render in disabled state when set', () => {
-    const select = setup({ disabled: true });
+    setup({ disabled: true });
 
-    const isCompact = select.find('.ids-select--disabled').length === 1;
+    const select = screen.getByTestId('select1');
 
-    expect(isCompact).toBeTruthy();
+    expect(select).toHaveClass('ids-select--disabled');
   });
 
   test('It should render in active state when isOpen', () => {
-    const select = setup({ isOpen: true });
+    setup({ isOpen: true });
 
-    const isCompact = select.find('.ids-select--active').length === 1;
+    const select = screen.getByTestId('select1');
 
-    expect(isCompact).toBeTruthy();
+    expect(select).toHaveClass('ids-select--active');
   });
 
   /* Dropdown */
 
   test('It should display the Dropdown when isOpen is set', () => {
-    const select = setup({ isOpen: true });
+    const { container } = setup({ isOpen: true });
 
-    const hasDropdownDisplay = select.find(Dropdown).length === 1;
+    const dropdown = container.querySelector('.ids-select-dropdown');
 
-    expect(hasDropdownDisplay).toBeTruthy();
+    expect(dropdown).toBeInTheDocument();
   });
 
   test('It should display the Dropdown when the Select is clicked', () => {
-    const select = setup();
+    setup();
+    const select = screen.getByTestId('select1');
+    fireEvent.click(select);
 
-    select.find('.ids-select').simulate('click');
-    const hasDropdownDisplay = select.find(Dropdown).length === 1;
+    const dropdown = select.querySelector('.ids-select-dropdown');
 
-    expect(hasDropdownDisplay).toBeTruthy();
+    expect(dropdown).toBeInTheDocument();
   });
 
   test('It should not display the Dropdown when the select is clicked if the Select is disabled', () => {
-    const select = setup({ disabled: true });
+    setup({ disabled: true });
 
-    select.find('.ids-select').simulate('click');
-    const hasDropdownDisplay = select.find(Dropdown).length === 1;
+    const select = screen.getByTestId('select1');
+    fireEvent.click(select);
+    const dropdown = select.querySelector('.ids-select-dropdown');
 
-    expect(hasDropdownDisplay).toBeFalsy();
+    expect(dropdown).not.toBeInTheDocument();
   });
 
   /* Options */
@@ -122,40 +117,34 @@ describe('Select', () => {
       { label: '4', value: 4 },
     ];
 
-    const select = setup({ isOpen: true }, options);
-    const dropdown = select.find(Dropdown);
-    const selectOptions = dropdown.find(SelectOptionComponent);
+    setup({ isOpen: true }, options);
+    const select = screen.getByTestId('select1');
+    const selectOptions = select.querySelectorAll('.ids-select__option');
 
     expect(selectOptions.length).toBe(options.length);
   });
 
-  test('It should put the option label in the header after clicked it', () => {
+  test("It should put the option label in the header after it's clicked", () => {
     const options = [{ label: '1', value: 1 }];
 
-    const select = setup({ isOpen: true }, options);
-    const dropdown = select.find(Dropdown);
-    const selectOptions = dropdown.find(SelectOptionComponent);
-    selectOptions.simulate('click');
-    const hasPlaceholderValue = select
-      .find(SelectInput)
-      .find(SelectValue)
-      .prop('isPlaceholder');
+    setup({ isOpen: true }, options);
+    const select = screen.getByTestId('select1');
+    const selectOptions = select.querySelectorAll('.ids-select__option');
+    fireEvent.click(selectOptions[0]);
+    const selectValue = select.querySelector('.ids-select__value');
 
-    expect(hasPlaceholderValue).toBeFalsy();
+    expect(selectValue).not.toHaveClass('ids-select__value--placeholder');
   });
 
-  test('It should not put the option label in the header after clicked it if the option is disabled', () => {
+  test("It should not put the option label in the header after it's clicked if the option is disabled", () => {
     const options = [{ label: '1', value: 1, disabled: true }];
 
-    const select = setup({ isOpen: true }, options);
-    const dropdown = select.find(Dropdown);
-    const selectOptions = dropdown.find(SelectOptionComponent);
-    selectOptions.simulate('click');
-    const hasPlaceholderValue = select
-      .find(SelectInput)
-      .find(SelectValue)
-      .prop('isPlaceholder');
+    setup({ isOpen: true }, options);
+    const select = screen.getByTestId('select1');
+    const selectOptions = select.querySelectorAll('.ids-select__option');
+    fireEvent.click(selectOptions[0]);
+    const selectValue = select.querySelector('.ids-select__value');
 
-    expect(hasPlaceholderValue).toBeTruthy();
+    expect(selectValue).toHaveClass('ids-select__value--placeholder');
   });
 });

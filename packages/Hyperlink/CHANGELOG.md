@@ -1,5 +1,11 @@
 # @igloo-ui/hyperlink
 
+## 0.1.10
+
+### Patch Changes
+
+- d971143: All tests were updated to use testing library and not enzyme
+
 ## 0.1.9
 
 ### Patch Changes

@@ -17,7 +17,8 @@ export interface IconButtonProps extends Omit<ButtonOwnProps, 'size'> {
    * @returns {void}
    */
   onClick?: () => void;
-  /** True if the control is disabled and shows a disabled state. The user cannot click on the button */
+  /** True if the control is disabled and shows a disabled state.
+   * The user cannot click on the button */
   disabled?: boolean;
   /** Button size */
   size?: Size;
@@ -52,6 +53,7 @@ const IconButton: React.FunctionComponent<IconButtonProps> = React.forwardRef<
       className={classes}
       onClick={onClick}
       disabled={disabled}
+      data-test={dataTest}
       {...rest}
     >
       {icon}

@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/card",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "dist/Card.js",
   "module": "dist/Card.js",
   "types": "dist/Card.d.ts",
@@ -24,7 +24,7 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/tokens": "^1.0.0",
+    "@igloo-ui/tokens": "^2.0.0",
     "classnames": "^2.3.1"
   },
   "browserslist": [

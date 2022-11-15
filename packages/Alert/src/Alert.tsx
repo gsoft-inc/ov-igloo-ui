@@ -103,6 +103,7 @@ const renderAlertActionButton = (
       appearance={style === 'horizontal' ? 'ghost' : 'secondary'}
       size="small"
       onClick={button.onClick}
+      className="ids-alert__action-btn"
     >
       {button.label}
     </Button>
