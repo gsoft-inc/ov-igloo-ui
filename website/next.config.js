@@ -41,6 +41,7 @@ const withTM = require('next-transpile-modules')([
   '@igloo-ui/dialog',
   '@igloo-ui/pager',
   '@igloo-ui/area-chart',
+  '@igloo-ui/progress-bar',
 ]);
 
 const path = require('path');
