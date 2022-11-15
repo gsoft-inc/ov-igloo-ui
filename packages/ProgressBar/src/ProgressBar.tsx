@@ -10,9 +10,9 @@ export interface ProgressBarProps extends React.ComponentProps<'div'> {
   isCompact?: boolean;
   /** True for a light appearance. */
   isLowContrast?: boolean;
-  /** Add a specific class to the component */
+  /** Add a specific class to the component. */
   className?: string;
-  /** Add a data-test tag for automated tests */
+  /** Add a data-test tag for automated tests. */
   dataTest?: string;
   /** Defines a string value that labels the current element. */
   ariaLabel?: string;
@@ -31,9 +31,7 @@ const ProgressBar: React.FunctionComponent<ProgressBarProps> = (
     ...rest
   } = props;
 
-  let progress;
-  progress = value * 100;
-
+  let progress = value * 100;
   if (value > 1) {
     progress = 100;
   }

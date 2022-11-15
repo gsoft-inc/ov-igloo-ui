@@ -14,6 +14,11 @@ export default {
   parameters: {
     description: readme,
   },
+  argTypes: {
+    value: {
+      control: { type: 'number', min: 0, max: 1, step: 0.05 },
+    },
+  },
 } as ComponentMeta<typeof ProgressBar>;
 
 const Template: ComponentStory<typeof ProgressBar> = (args) => (
