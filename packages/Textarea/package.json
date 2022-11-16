@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@igloo-ui/tokens": "^2.0.0",
-    "classnames": "^2.3.1",
+    "classnames": "^2.3.2",
     "autosize": "^4.0.4"
   },
   "browserslist": [

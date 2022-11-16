@@ -32,7 +32,7 @@
     "@react-aria/overlays": "^3.8.1",
     "@react-types/dialog": "3.3.4",
     "@types/react-dom": "17.0.13",
-    "classnames": "^2.3.1",
+    "classnames": "^2.3.2",
     "react-spring": "^9.5.5",
     "@react-spring/types": "^9.5.5"
   },
