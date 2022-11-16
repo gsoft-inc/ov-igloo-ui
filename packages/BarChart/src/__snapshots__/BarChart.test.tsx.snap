@@ -9,11 +9,11 @@ exports[`BarChart It should render a snapshot 1`] = `
     <li
       class="ids-bar-chart"
     >
-      <label
+      <span
         class="ids-bar-chart__label"
       >
         Good vibes
-      </label>
+      </span>
       <div
         class="ids-bar-chart__content"
       >
@@ -32,11 +32,11 @@ exports[`BarChart It should render a snapshot 1`] = `
     <li
       class="ids-bar-chart"
     >
-      <label
+      <span
         class="ids-bar-chart__label"
       >
         Excellence
-      </label>
+      </span>
       <div
         class="ids-bar-chart__content"
       >
@@ -55,11 +55,11 @@ exports[`BarChart It should render a snapshot 1`] = `
     <li
       class="ids-bar-chart"
     >
-      <label
+      <span
         class="ids-bar-chart__label"
       >
         Radical candor
-      </label>
+      </span>
       <div
         class="ids-bar-chart__content"
       >
@@ -78,11 +78,11 @@ exports[`BarChart It should render a snapshot 1`] = `
     <li
       class="ids-bar-chart"
     >
-      <label
+      <span
         class="ids-bar-chart__label"
       >
         Custom cards by members
-      </label>
+      </span>
       <div
         class="ids-bar-chart__content"
       >
