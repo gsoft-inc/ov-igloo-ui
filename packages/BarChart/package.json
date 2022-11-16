@@ -1,0 +1,38 @@
+{
+  "name": "@igloo-ui/bar-chart",
+  "version": "0.0.0",
+  "main": "dist/BarChart.js",
+  "module": "dist/BarChart.js",
+  "types": "dist/BarChart.d.ts",
+  "styles": "dist/bar-chart.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "author": "Officevibe Inc.",
+  "contributors": [
+    "Franck franck.gaudin@gsoft.com"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.js"
+  },
+  "dependencies": {
+    "@igloo-ui/tokens": "^2.0.0",
+    "classnames": "^2.3.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE >= 11"
+  ],
+  "devDependencies": {
+    "@types/lodash.camelcase": "^4.3.7"
+  }
+}

@@ -1,0 +1,62 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-bar-chart-font-family: #{tokens.$primary-font-family};
+  --ids-bar-chart-font-size: #{tokens.$font-size-3};
+  --ids-bar-chart-color: #{tokens.$grey-900};
+  --ids-bar-chart-gap: #{tokens.$space-3};
+  --ids-bar-chart-value-font-family: #{tokens.$secondary-font-family};
+  --ids-bar-chart-value-font-size: #{tokens.$font-size-5};
+  --ids-bar-chart-value-color: #{tokens.$grey-800};
+  --ids-bar-chart-value-weight: #{tokens.$font-weight-medium};
+  --ids-bar-chart-content-gap: #{tokens.$space-2};
+  --ids-bar-chart-graph-height: calc(#{tokens.$space-4} / 2);
+  --ids-bar-chart-graph-background: #{tokens.$grey-300};
+  --ids-bar-chart-graph-radius: #{tokens.$border-radius-sm};
+}
+
+.ids-bar-chart {
+  font-family: var(--ids-bar-chart-font-family);
+  font-size: var(--ids-bar-chart-font-size);
+  line-height: 1.428;
+
+  &__value {
+    font-family: var(--ids-bar-chart-value-font-family);
+    font-size: var(--ids-bar-chart-value-font-size);
+    font-weight: var(--ids-bar-chart-value-weight);
+    color: var(--ids-bar-chart-value-color);
+    line-height: 1.33;
+  }
+
+  &__container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--ids-bar-chart-gap);
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: var(--ids-bar-chart-content-gap);
+
+    &:not(:first-child) {
+      margin-top: calc(var(--ids-bar-chart-content-gap) / 2);
+    }
+  }
+
+  &__graph {
+    height: var(--ids-bar-chart-graph-height);
+    width: var(--ids-bar-chart-graph-width, 100%);
+    border-radius: var(--ids-bar-chart-graph-radius);
+    background-color: var(--ids-bar-chart-graph-background);
+
+    &[data-value='0'] {
+      --ids-bar-chart-graph-width: #{tokens.$space-1};
+    }
+  }
+}

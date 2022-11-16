@@ -39,6 +39,11 @@
   max-width: rebase(15rem);
 }
 
+.example--max-with > * {
+  width: 100%;
+  max-width: 80%;
+}
+
 .example__inline {
   display: flex;
   gap: rebase(0.5rem);

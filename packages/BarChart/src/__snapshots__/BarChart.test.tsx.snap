@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BarChart It should render a snapshot 1`] = `
+<DocumentFragment>
+  <ul
+    class="ids-bar-chart__container"
+    data-test="ids-bar-chart"
+  >
+    <li
+      class="ids-bar-chart"
+    >
+      <label
+        class="ids-bar-chart__label"
+      >
+        Good vibes
+      </label>
+      <div
+        class="ids-bar-chart__content"
+      >
+        <div
+          class="ids-bar-chart__graph"
+          data-value="48"
+          style="width: 100%; background-color: rgb(251, 199, 59);"
+        />
+        <span
+          class="ids-bar-chart__value"
+        >
+          48
+        </span>
+      </div>
+    </li>
+    <li
+      class="ids-bar-chart"
+    >
+      <label
+        class="ids-bar-chart__label"
+      >
+        Excellence
+      </label>
+      <div
+        class="ids-bar-chart__content"
+      >
+        <div
+          class="ids-bar-chart__graph"
+          data-value="46"
+          style="width: 95.83333333333333%; background-color: rgb(16, 83, 255);"
+        />
+        <span
+          class="ids-bar-chart__value"
+        >
+          46
+        </span>
+      </div>
+    </li>
+    <li
+      class="ids-bar-chart"
+    >
+      <label
+        class="ids-bar-chart__label"
+      >
+        Radical candor
+      </label>
+      <div
+        class="ids-bar-chart__content"
+      >
+        <div
+          class="ids-bar-chart__graph"
+          data-value="24"
+          style="width: 50%; background-color: rgb(231, 145, 154);"
+        />
+        <span
+          class="ids-bar-chart__value"
+        >
+          24
+        </span>
+      </div>
+    </li>
+    <li
+      class="ids-bar-chart"
+    >
+      <label
+        class="ids-bar-chart__label"
+      >
+        Custom cards by members
+      </label>
+      <div
+        class="ids-bar-chart__content"
+      >
+        <div
+          class="ids-bar-chart__graph"
+          data-value="0"
+          style="background-color: rgb(178, 221, 242);"
+        />
+        <span
+          class="ids-bar-chart__value"
+        >
+          0
+        </span>
+      </div>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
