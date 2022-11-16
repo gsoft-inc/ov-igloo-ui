@@ -33,7 +33,7 @@
     "IE >= 11"
   ],
   "devDependencies": {
-    "@igloo-ui/icons": "^1.3.0",
+    "@igloo-ui/icons": "^1.6.0",
     "@igloo-ui/tooltip": "^2.0.0"
   }
 }
