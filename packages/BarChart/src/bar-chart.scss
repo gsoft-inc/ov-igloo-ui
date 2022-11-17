@@ -7,8 +7,10 @@
   --ids-bar-chart-font-size: #{tokens.$font-size-3};
   --ids-bar-chart-color: #{tokens.$grey-900};
   --ids-bar-chart-gap: #{tokens.$space-3};
+  --ids-bar-chart-line-height: #{tokens.$line-height-xxl};
   --ids-bar-chart-value-font-family: #{tokens.$secondary-font-family};
   --ids-bar-chart-value-font-size: #{tokens.$font-size-5};
+  --ids-bar-chart-value-line-height: #{tokens.$line-height-xl};
   --ids-bar-chart-value-color: #{tokens.$grey-800};
   --ids-bar-chart-value-weight: #{tokens.$font-weight-medium};
   --ids-bar-chart-content-gap: #{tokens.$space-2};
@@ -20,14 +22,14 @@
 .ids-bar-chart {
   font-family: var(--ids-bar-chart-font-family);
   font-size: var(--ids-bar-chart-font-size);
-  line-height: 1.428;
+  line-height: var(--ids-bar-chart-line-height);
 
   &__value {
     font-family: var(--ids-bar-chart-value-font-family);
     font-size: var(--ids-bar-chart-value-font-size);
     font-weight: var(--ids-bar-chart-value-weight);
     color: var(--ids-bar-chart-value-color);
-    line-height: 1.33;
+    line-height: var(--ids-bar-chart-value-line-height);
   }
 
   &__container {

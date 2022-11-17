@@ -32,9 +32,7 @@ const setup = (props = {}) => {
   ];
 
   return render(
-    <BarChart dataSet={mockData} dataTest="ids-bar-chart" {...props}>
-      Hello world
-    </BarChart>
+    <BarChart dataSet={mockData} dataTest="ids-bar-chart" {...props} />
   );
 };
 
