@@ -30,7 +30,7 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
     return null;
   }
 
-  const setWidth = (value: number) => {
+  const setWidth = (value: number): undefined | string => {
     if (!value || value === 0) {
       return undefined;
     }
