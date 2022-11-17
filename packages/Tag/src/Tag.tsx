@@ -1,8 +1,12 @@
 import * as React from 'react';
 
-import IconButton from '@igloo-ui/icon-button';
-import Close from '@igloo-ui/icons/dist/Close';
 import cx from 'classnames';
+
+import IconButton from '@igloo-ui/icon-button';
+import Ellipsis from '@igloo-ui/ellipsis';
+import Close from '@igloo-ui/icons/dist/Close';
+import ColorIcon from './components/ColorIcon';
+import UserImage from './components/UserImage';
 
 import './tag.scss';
 
@@ -21,44 +25,78 @@ export type Appearance =
 export interface TagProps extends React.ComponentProps<'div'> {
   /** The different appearances of the Tag */
   appearance?: Appearance;
-  /** Add a data-test tag for automated tests */
-  dataTest?: string;
   /** The content of the Tag */
   children: React.ReactNode;
   /** Add a specific class to the Tag */
   className?: string;
+  /** Add a colored square instead of an image or an icon */
+  color?: string;
+  /** Add a data-test tag for automated tests */
+  dataTest?: string;
   /** Render the close button */
   dismissible?: boolean;
   /** The icon used at the beginning of the Tag */
-  icon?: React.ReactNode;
+  icon?: React.ReactElement;
+  /** Add an error style to the tag */
+  hasError?: boolean;
   /** Event when the tag is closed */
   onClose?: () => void;
   /** Render rounded corners */
   rounded?: boolean;
   /** The different sizes of the Tag */
   size?: Size;
+  /** Specifies the image url to show */
+  src?: string;
 }
 
 const Tag: React.FunctionComponent<TagProps> = ({
-  dataTest,
   children,
   className,
+  color,
+  dataTest,
   dismissible = false,
   appearance = 'default',
   icon,
+  hasError,
   onClose,
   rounded = false,
   size = 'medium',
+  src,
 }) => {
   const [show, setShow] = React.useState(true);
 
-  const renderDismissButton = (
-    setShow: (show: boolean) => void,
-    onDismissClick?: () => void
-  ): JSX.Element => {
+  const renderIcon = (): JSX.Element | null => {
+    if (icon) {
+      return React.cloneElement(icon, {
+        className: 'ids-tag__visual ids-tag__icon',
+      });
+    }
+    if (color) {
+      // When 'color' is blank, its value is calculated from 'id'
+      return (
+        <ColorIcon
+          className="ids-tag__visual ids-tag__color-icon"
+          color={color}
+          size="small"
+        />
+      );
+    }
+    if (src) {
+      return (
+        <UserImage
+          className="ids-tag__visual ids-tag__image-icon"
+          src={src}
+          size="small"
+        />
+      );
+    }
+    return null;
+  };
+
+  const renderDismissButton = (): JSX.Element => {
     const action = (): void => {
-      if (onDismissClick) {
-        onDismissClick();
+      if (onClose) {
+        onClose();
       }
 
       setShow(false);
@@ -83,6 +121,7 @@ const Tag: React.FunctionComponent<TagProps> = ({
     `ids-tag--${size}`,
     {
       'ids-tag--rounded': rounded,
+      'ids-tag--has-error': hasError,
     },
     className
   );
@@ -90,11 +129,13 @@ const Tag: React.FunctionComponent<TagProps> = ({
   if (show) {
     return (
       <div className={classes} data-test={dataTest}>
-        {icon && <div className="ids-tag__icon">{icon}</div>}
+        {renderIcon()}
 
-        <div className="ids-tag__content">{children}</div>
+        <div className="ids-tag__content">
+          <Ellipsis>{children}</Ellipsis>
+        </div>
 
-        {dismissible && renderDismissButton(setShow, onClose)}
+        {dismissible && renderDismissButton()}
       </div>
     );
   }

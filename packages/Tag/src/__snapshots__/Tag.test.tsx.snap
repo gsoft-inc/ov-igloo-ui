@@ -9,7 +9,15 @@ exports[`Tag It should render a snapshot 1`] = `
     <div
       class="ids-tag__content"
     >
-      Render snapshot
+      <div
+        class="ids-ellipsis"
+      >
+        <div
+          class="ids-ellipsis__content"
+        >
+          Render snapshot
+        </div>
+      </div>
     </div>
   </div>
 </DocumentFragment>

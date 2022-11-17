@@ -10,21 +10,12 @@
   color: $color;
 }
 
-@mixin ids-tag-mixin-size($fontSize, $padding, $margin) {
+@mixin ids-tag-mixin-size($fontSize, $padding, $height, $contentPadding) {
   font-size: $fontSize;
+  height: $height;
   padding: $padding;
 
-  .ids-tag__icon {
-    margin:
-      #{tokens.$space-0}
-      $margin
-      #{tokens.$space-0}
-      #{tokens.$space-0};
-  }
-
-  .ids-tag__dismiss-btn.ids-icon-btn {
-    margin:
-      #{tokens.$space-0} #{tokens.$space-0} #{tokens.$space-0}
-      $margin;
+  .ids-tag__content {
+    padding: $contentPadding;
   }
 }

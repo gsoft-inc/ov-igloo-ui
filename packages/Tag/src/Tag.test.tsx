@@ -115,6 +115,36 @@ describe('Tag', () => {
     expect(icon).toBeInTheDocument();
   });
 
+  test('It should render a tag with an icon', () => {
+    const { container } = setup({
+      children: 'Tag with icon',
+      icon: <LabelSolid size="small" />,
+    });
+    const icon = container.querySelector('.ids-tag__icon');
+
+    expect(icon).toBeInTheDocument();
+  });
+
+  test('It should render a tag with a color icon', () => {
+    const { container } = setup({
+      children: 'Tag with color icon',
+      color: '#9A3842',
+    });
+    const icon = container.querySelector('.ids-tag__color-icon');
+
+    expect(icon).toBeInTheDocument();
+  });
+
+  test('It should render a tag with an image icon', () => {
+    const { container } = setup({
+      children: 'Tag with color icon',
+      src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEB3tCC4oJsa4ZZsiEDIhWi06EyN3iHYMoOg&usqp=CAU',
+    });
+    const icon = container.querySelector('.ids-tag__image-icon');
+
+    expect(icon).toBeInTheDocument();
+  });
+
   /* Appearance */
 
   test('It should render a default style tag', () => {
@@ -183,5 +213,17 @@ describe('Tag', () => {
     const tag = setup({ children: 'Micro Tag', size: 'micro' });
 
     expectToBeOfSize(tag, 'micro');
+  });
+
+  test('It should render with an error class', () => {
+    setup({
+      children: 'Tag with an error',
+      dataTest: 'ids-tag-error',
+      appearance: 'secondary',
+      hasError: true,
+    });
+
+    const tag = screen.getByTestId('ids-tag-error');
+    expect(tag).toHaveClass('ids-tag--has-error');
   });
 });

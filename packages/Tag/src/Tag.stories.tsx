@@ -29,7 +29,8 @@ export const Overview = Template.bind({});
 Overview.args = {
   children: 'Tag content',
   dismissible: true,
-  icon: <LabelSolid size="small" />,
+  color: '#FCD35A',
+  appearance: 'secondary',
 };
 
 export const Appearances = () => (
@@ -47,13 +48,26 @@ export const Appearances = () => (
 
 export const Dismissible = () => (
   <Section>
-    <Tag dismissible>Dismissible Tag</Tag>
+    <Tag appearance="secondary" dismissible>
+      Dismissible Tag
+    </Tag>
   </Section>
 );
 
-export const Icon = () => (
-  <Section style={{ alignItems: 'center' }}>
+export const Icons = () => (
+  <Section
+    style={{ alignItems: 'center', flexWrap: 'wrap', gap: 'var(--space-3) 0' }}
+  >
     <Tag icon={<LabelSolid size="small" />}>Tag with Icon</Tag>
+    <Tag color="#9A3842" appearance="secondary">
+      Tag with a color icon from color
+    </Tag>
+    <Tag
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEB3tCC4oJsa4ZZsiEDIhWi06EyN3iHYMoOg&usqp=CAU"
+      appearance="secondary"
+    >
+      Tag with an image icon
+    </Tag>
   </Section>
 );
 
@@ -72,5 +86,21 @@ export const Sizes = () => (
     <Tag size="small">Small Tag</Tag>
     <Tag size="xsmall">Xsmall Tag</Tag>
     <Tag size="micro">Micro Tag</Tag>
+  </Section>
+);
+
+export const Ellipsis = () => (
+  <Section>
+    <Tag color="#00A587" appearance="secondary">
+      Really long text so that the ellipsis will show
+    </Tag>
+  </Section>
+);
+
+export const Error = () => (
+  <Section>
+    <Tag color="#00A587" appearance="secondary" hasError>
+      Really long text so that the ellipsis will show
+    </Tag>
   </Section>
 );

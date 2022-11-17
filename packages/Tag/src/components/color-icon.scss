@@ -1,0 +1,59 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  --ids-team-color-icon-border-radius: #{tokens.$border-radius-sm};
+  --ids-team-color-icon-border-radius-xs: #{tokens.$border-radius-xs};
+  --ids-team-color-icon-color: #{tokens.$samoyed};
+  --ids-team-color-icon-font-family: #{tokens.$secondary-font-family};
+  --ids-team-color-icon-font-size: #{tokens.$font-size-4};
+  --ids-team-color-icon-font-weight: #{tokens.$font-weight-medium};
+
+  /* Sizes */
+  --ids-team-color-icon-size-s: #{tokens.$font-size-3};
+  --ids-team-color-icon-size-m: #{tokens.$font-size-4};
+  --ids-team-color-icon-size-l: #{tokens.$font-size-7};
+  --ids-team-color-icon-size-xl: #{tokens.$font-size-9};
+}
+
+.ids-team-color-icon {
+  align-items: center;
+  border-radius: var(--ids-team-color-icon-border-radius);
+  box-sizing: border-box;
+  color: var(--ids-team-color-icon-color);
+  display: flex;
+  flex-shrink: 0;
+  font-family: var(--ids-team-color-icon-font-family);
+  font-size: var(--ids-team-color-icon-font-size);
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: var(--ids-team-color-icon-font-weight);
+  justify-content: center;
+  user-select: none;
+
+  &--small {
+    border-radius: var(--ids-team-color-icon-border-radius-xs);
+    height: var(--ids-team-color-icon-size-s);
+    line-height: var(--ids-team-color-icon-size-s);
+    width: var(--ids-team-color-icon-size-s);
+  }
+
+  &--medium {
+    border-radius: var(--ids-team-color-icon-border-radius-xs);
+    height: var(--ids-team-color-icon-size-m);
+    line-height: var(--ids-team-color-icon-size-m);
+    width: var(--ids-team-color-icon-size-m);
+  }
+
+  &--large {
+    height: var(--ids-team-color-icon-size-l);
+    line-height: var(--ids-team-color-icon-size-l);
+    width: var(--ids-team-color-icon-size-l);
+  }
+
+  &--xlarge {
+    height: var(--ids-team-color-icon-size-xl);
+    line-height: var(--ids-team-color-icon-size-xl);
+    width: var(--ids-team-color-icon-size-xl);
+  }
+}
