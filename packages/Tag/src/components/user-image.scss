@@ -4,10 +4,6 @@
 :root {
   --ids-user-image-border-radius: #{tokens.$border-radius-sm};
   --ids-user-image-border-radius-xs: #{tokens.$border-radius-xs};
-  --ids-user-image-color: #{tokens.$samoyed};
-  --ids-user-image-font-family: #{tokens.$secondary-font-family};
-  --ids-user-image-font-size: #{tokens.$font-size-4};
-  --ids-user-image-font-weight: #{tokens.$font-weight-medium};
 
   /* Sizes */
   --ids-user-image-size-xs: #{tokens.$font-size-4};

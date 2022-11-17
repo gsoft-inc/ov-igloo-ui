@@ -23,12 +23,11 @@ const UserImage: React.FunctionComponent<UserImageProps> = ({
   const classes = cx('ids-user-image', `ids-user-image--${size}`, className);
 
   const checkImgSrc = (): string => {
-    // Tests for valid base64 string
-    const regex =
+    const validBase64Regex =
       /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
 
     let image = src;
-    if (regex.exec(image) !== null) {
+    if (validBase64Regex.exec(image) !== null) {
       image = `data:image/jpeg;base64,${image}`;
     }
 
@@ -44,7 +43,6 @@ const UserImage: React.FunctionComponent<UserImageProps> = ({
           `ids-user-image__image--${size}`
         )}
         src={checkImgSrc()}
-        data-hj-suppress
       />
     </div>
   );

@@ -43,7 +43,7 @@
   --ids-tag-color-secondary: #{tokens.$grey-800};
   --ids-tag-border-secondary: #{tokens.$grey-300};
   --ids-tag-secondary-dismiss-btn-color: #{tokens.$grey-400};
-  --ids-tag-secondary-dismiss-btn-hovercolor: #{tokens.$grey-800};
+  --ids-tag-secondary-dismiss-btn-hover-color: #{tokens.$grey-800};
 
   /* Grey */
   --ids-tag-background-grey: #{tokens.$grey-200};
@@ -67,7 +67,6 @@
 
   /* Micro */
   --ids-tag-height-micro: #{tokens.$space-3};
-  --ids-tag-line-height-micro: #{tokens.$line-height-sm};
 
   /* === isError === */
   --ids-tag-border-has-error: #{tokens.$coral-600};
