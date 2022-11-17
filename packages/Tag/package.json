@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/tag",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "main": "dist/Tag.js",
   "module": "dist/Tag.js",
   "types": "dist/Tag.d.ts",
