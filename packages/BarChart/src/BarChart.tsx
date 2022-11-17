@@ -54,7 +54,7 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
             data-value={value}
             style={{
               width: setWidth(value),
-              backgroundColor: color,
+              background: color,
             }}
           />
           <span className="ids-bar-chart__value">{value}</span>
