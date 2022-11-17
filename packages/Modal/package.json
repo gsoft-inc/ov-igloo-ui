@@ -26,13 +26,13 @@
   },
   "dependencies": {
     "@igloo-ui/icon-button": "^0.2.9",
-    "@igloo-ui/icons": "^1.3.0",
+    "@igloo-ui/icons": "^1.6.0",
     "@igloo-ui/tokens": "^2.0.0",
-    "@react-aria/dialog": "^3.1.8",
-    "@react-aria/overlays": "^3.8.1",
-    "@react-types/dialog": "3.3.4",
+    "@react-aria/dialog": "^3.4.1",
+    "@react-aria/overlays": "^3.12.0",
+    "@react-types/dialog": "3.4.5",
     "@types/react-dom": "17.0.13",
-    "classnames": "^2.3.1",
+    "classnames": "^2.3.2",
     "react-spring": "^9.5.5",
     "@react-spring/types": "^9.5.5"
   },

@@ -16,5 +16,10 @@
     "dev": {
       "dependsOn": ["^build", "prebuild"]
     }
+  },
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "sharedGlobals": [],
+    "production": ["default"]
   }
 }

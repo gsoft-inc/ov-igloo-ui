@@ -26,8 +26,8 @@
   },
   "dependencies": {
     "@igloo-ui/tokens": "^2.0.0",
-    "@react-aria/link": "^3.2.0",
-    "classnames": "^2.3.1"
+    "@react-aria/link": "^3.3.5",
+    "classnames": "^2.3.2"
   },
   "browserslist": [
     "> 1%",
