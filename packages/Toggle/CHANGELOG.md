@@ -1,5 +1,11 @@
 # @igloo-ui/toggle
 
+## 1.0.2
+
+### Patch Changes
+
+- 0640409: udpate classnames to 2.3.2
+
 ## 1.0.1
 
 ### Patch Changes

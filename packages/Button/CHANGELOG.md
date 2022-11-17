@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.3.6
+
+### Patch Changes
+
+- 0640409: Update @igloo-ui/icons to 1.6.0
+- 0640409: udpate classnames to 2.3.2
+
 ## 0.3.5
 
 ### Patch Changes

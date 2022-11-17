@@ -1,5 +1,12 @@
 # @igloo-ui/textarea
 
+## 0.1.3
+
+### Patch Changes
+
+- 0640409: Update package autosize to 5.0.1
+- 0640409: udpate classnames to 2.3.2
+
 ## 0.1.2
 
 ### Patch Changes

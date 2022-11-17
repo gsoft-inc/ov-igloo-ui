@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/option-button",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/OptionButton.js",
   "module": "dist/OptionButton.js",
   "types": "dist/OptionButton.d.ts",

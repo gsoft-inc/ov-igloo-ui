@@ -1,5 +1,17 @@
 # @igloo-ui/hyperlink
 
+## 0.1.11
+
+### Patch Changes
+
+- 0640409: Update packages
+
+  - "react-aria": "^3.21.0",
+  - "@react-aria/link": "^3.35",
+  - "react-stately": "^3.19.0"
+
+- 0640409: udpate classnames to 2.3.2
+
 ## 0.1.10
 
 ### Patch Changes
