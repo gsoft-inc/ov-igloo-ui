@@ -59,9 +59,6 @@ export const Icons = () => (
     style={{ alignItems: 'center', flexWrap: 'wrap', gap: 'var(--space-3) 0' }}
   >
     <Tag icon={<LabelSolid size="small" />}>Tag with Icon</Tag>
-    <Tag id="34565-45656-1963" color="" appearance="secondary">
-      Tag with a color icon from ID
-    </Tag>
     <Tag color="#9A3842" appearance="secondary">
       Tag with a color icon from color
     </Tag>
@@ -70,9 +67,6 @@ export const Icons = () => (
       appearance="secondary"
     >
       Tag with an image icon
-    </Tag>
-    <Tag isWarning appearance="secondary">
-      Tag with warning icon
     </Tag>
   </Section>
 );

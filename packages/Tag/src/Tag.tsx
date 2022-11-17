@@ -5,9 +5,8 @@ import cx from 'classnames';
 import IconButton from '@igloo-ui/icon-button';
 import Ellipsis from '@igloo-ui/ellipsis';
 import Close from '@igloo-ui/icons/dist/Close';
-import IconAlert from '@igloo-ui/icons/dist/Alert';
-import TeamColorIcon from './TeamColorIcon';
-import UserImage from './UserImage';
+import ColorIcon from './components/ColorIcon';
+import UserImage from './components/UserImage';
 
 import './tag.scss';
 
@@ -38,12 +37,8 @@ export interface TagProps extends React.ComponentProps<'div'> {
   dismissible?: boolean;
   /** The icon used at the beginning of the Tag */
   icon?: React.ReactElement;
-  /** The id of the tag */
-  id?: string;
   /** Add an error style to the tag */
   hasError?: boolean;
-  /** Add a warning icon to the tag. Overrides any image, color or icon */
-  isWarning?: boolean;
   /** Event when the tag is closed */
   onClose?: () => void;
   /** Render rounded corners */
@@ -62,9 +57,7 @@ const Tag: React.FunctionComponent<TagProps> = ({
   dismissible = false,
   appearance = 'default',
   icon,
-  id,
   hasError,
-  isWarning,
   onClose,
   rounded = false,
   size = 'medium',
@@ -73,31 +66,23 @@ const Tag: React.FunctionComponent<TagProps> = ({
   const [show, setShow] = React.useState(true);
 
   const renderIcon = (): JSX.Element | null => {
-    let visual = null;
-
-    if (isWarning) {
-      visual = (
-        <IconAlert
-          size="small"
-          className="ids-tag__visual ids-tag__warning-icon"
-        />
-      );
-    } else if (icon) {
-      visual = React.cloneElement(icon, {
+    if (icon) {
+      return React.cloneElement(icon, {
         className: 'ids-tag__visual ids-tag__icon',
       });
-    } else if (color !== undefined) {
+    }
+    if (color) {
       // When 'color' is blank, its value is calculated from 'id'
-      visual = (
-        <TeamColorIcon
+      return (
+        <ColorIcon
           className="ids-tag__visual ids-tag__color-icon"
-          teamId={id}
-          teamColor={color}
+          color={color}
           size="small"
         />
       );
-    } else if (src) {
-      visual = (
+    }
+    if (src) {
+      return (
         <UserImage
           className="ids-tag__visual ids-tag__image-icon"
           src={src}
@@ -105,7 +90,7 @@ const Tag: React.FunctionComponent<TagProps> = ({
         />
       );
     }
-    return visual;
+    return null;
   };
 
   const renderDismissButton = (): JSX.Element => {

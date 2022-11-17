@@ -135,33 +135,12 @@ describe('Tag', () => {
     expect(icon).toBeInTheDocument();
   });
 
-  test('It should render a tag with a color icon from ID', () => {
-    const { container } = setup({
-      children: 'Tag with color icon',
-      color: '',
-      id: '3434-3434',
-    });
-    const icon = container.querySelector('.ids-tag__color-icon');
-
-    expect(icon).toBeInTheDocument();
-  });
-
   test('It should render a tag with an image icon', () => {
     const { container } = setup({
       children: 'Tag with color icon',
       src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEB3tCC4oJsa4ZZsiEDIhWi06EyN3iHYMoOg&usqp=CAU',
     });
     const icon = container.querySelector('.ids-tag__image-icon');
-
-    expect(icon).toBeInTheDocument();
-  });
-
-  test('It should render a tag with a warning icon', () => {
-    const { container } = setup({
-      children: 'Tag with color icon',
-      isWarning: true,
-    });
-    const icon = container.querySelector('.ids-tag__warning-icon');
 
     expect(icon).toBeInTheDocument();
   });

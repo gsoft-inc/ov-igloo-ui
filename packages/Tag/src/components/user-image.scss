@@ -14,7 +14,7 @@
   --ids-user-image-size-s: #{tokens.$font-size-7};
   --ids-user-image-size-m: #{tokens.$font-size-9};
   --ids-user-image-size-l: #{tokens.$font-size-10};
-  --ids-user-image-size-xl: 6.4rem;
+  --ids-user-image-size-xl: #{tokens.$space-8};
 }
 
 .ids-user-image {
