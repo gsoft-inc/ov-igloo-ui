@@ -12,6 +12,7 @@
   "dependencies": {
     "@igloo-ui/alert": "*",
     "@igloo-ui/area-chart": "*",
+    "@igloo-ui/bar-chart": "*",
     "@igloo-ui/breadcrumb": "*",
     "@igloo-ui/button": "*",
     "@igloo-ui/button-group": "*",
@@ -29,6 +30,7 @@
     "@igloo-ui/option-button": "*",
     "@igloo-ui/pager": "*",
     "@igloo-ui/popover": "*",
+    "@igloo-ui/progress-bar": "*",
     "@igloo-ui/radio": "*",
     "@igloo-ui/select": "*",
     "@igloo-ui/tabs": "*",
