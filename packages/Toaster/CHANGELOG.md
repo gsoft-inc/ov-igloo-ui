@@ -1,5 +1,12 @@
 # @igloo-ui/toaster
 
+## 1.0.1
+
+### Patch Changes
+
+- 0640409: Update @igloo-ui/icons to 1.6.0
+- 0640409: udpate classnames to 2.3.2
+
 ## 1.0.0
 
 ### Major Changes

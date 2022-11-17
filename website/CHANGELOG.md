@@ -1,5 +1,45 @@
 # docs
 
+## 0.0.10
+
+### Patch Changes
+
+- 0640409: Update @igloo-ui/icons to 1.6.0
+- 0640409: udpate classnames to 2.3.2
+- Updated dependencies [0640409]
+- Updated dependencies [0640409]
+- Updated dependencies [0640409]
+- Updated dependencies [0640409]
+- Updated dependencies [0640409]
+  - @igloo-ui/alert@0.1.12
+  - @igloo-ui/breadcrumb@0.1.1
+  - @igloo-ui/button@0.3.6
+  - @igloo-ui/button-group@0.2.2
+  - @igloo-ui/datepicker@0.0.1
+  - @igloo-ui/form-group@0.1.2
+  - @igloo-ui/helper-text@0.2.7
+  - @igloo-ui/icon-button@0.2.12
+  - @igloo-ui/input@2.0.2
+  - @igloo-ui/modal@1.0.2
+  - @igloo-ui/pager@0.1.1
+  - @igloo-ui/popover@0.1.2
+  - @igloo-ui/select@0.1.3
+  - @igloo-ui/tabs@0.1.2
+  - @igloo-ui/tag@0.1.2
+  - @igloo-ui/toaster@1.0.1
+  - @igloo-ui/textarea@0.1.3
+  - @igloo-ui/dropdown@0.1.1
+  - @igloo-ui/hyperlink@0.1.11
+  - @igloo-ui/card@0.0.10
+  - @igloo-ui/checkbox@0.1.6
+  - @igloo-ui/dialog@0.1.1
+  - @igloo-ui/ellipsis@0.1.7
+  - @igloo-ui/filter@0.1.1
+  - @igloo-ui/option-button@0.0.3
+  - @igloo-ui/radio@0.1.7
+  - @igloo-ui/toggle@1.0.2
+  - @igloo-ui/tooltip@2.0.2
+
 ## 0.0.9
 
 ### Patch Changes

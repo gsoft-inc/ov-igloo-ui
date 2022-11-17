@@ -1,5 +1,11 @@
 # @igloo-ui/card
 
+## 0.0.10
+
+### Patch Changes
+
+- 0640409: udpate classnames to 2.3.2
+
 ## 0.0.9
 
 ### Patch Changes

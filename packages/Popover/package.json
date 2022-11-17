@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/popover",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/Popover.js",
   "module": "dist/Popover.js",
   "types": "dist/Popover.d.ts",
@@ -25,10 +25,10 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/icon-button": "^0.2.9",
+    "@igloo-ui/icon-button": "^0.2.12",
     "@igloo-ui/icons": "^1.6.0",
     "@igloo-ui/tokens": "^2.0.0",
-    "@igloo-ui/tooltip": "^2.0.0",
+    "@igloo-ui/tooltip": "^2.0.2",
     "classnames": "^2.3.2",
     "react-popper": "^2.3.0"
   },
@@ -38,7 +38,7 @@
     "IE >= 11"
   ],
   "devDependencies": {
-    "@igloo-ui/hyperlink": "^0.1.8",
+    "@igloo-ui/hyperlink": "^0.1.11",
     "@types/luxon": "^2.4.0",
     "luxon": "^3.0.1"
   }
