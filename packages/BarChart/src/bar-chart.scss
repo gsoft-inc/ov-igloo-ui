@@ -55,7 +55,7 @@
     height: var(--ids-bar-chart-graph-height);
     width: var(--ids-bar-chart-graph-width, 100%);
     border-radius: var(--ids-bar-chart-graph-radius);
-    background-color: var(--ids-bar-chart-graph-background);
+    background: var(--ids-bar-chart-graph-background);
 
     &[data-value='0'] {
       --ids-bar-chart-graph-width: #{tokens.$space-1};
