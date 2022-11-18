@@ -1,5 +1,11 @@
 # @igloo-ui/tag
 
+## 0.2.0
+
+### Minor Changes
+
+- 8d0b6ed: Added new features such as an ellipsis when too long, a color icon option, an image icon option, a warning icon option, and an error look
+
 ## 0.1.2
 
 ### Patch Changes
