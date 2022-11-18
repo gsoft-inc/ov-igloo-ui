@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import { DateTime } from 'luxon';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { within, userEvent } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 
 import Datepicker from './Datepicker';
 
@@ -73,6 +75,9 @@ Overview.args = {
   dataTest: 'ids-datepicker',
   error: false,
 };
+Overview.parameters = {
+  chromatic: { disableSnapshot: true },
+};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
@@ -88,4 +93,25 @@ export const Clearable = Template.bind({});
 Clearable.args = {
   isClearable: true,
   clearLabel: 'Clear',
+};
+
+Clearable.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+const DATE = DateTime.fromISO('2022-11-14');
+
+export const Interaction = Template.bind({});
+Interaction.args = {
+  selectedDay: DATE.toString(),
+  dataTest: 'ids-date-picker-interaction',
+};
+Interaction.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await userEvent.click(canvas.getByPlaceholderText(/Select date/));
+
+  await expect(
+    canvas.getByDisplayValue(DATE.toLocaleString())
+  ).toBeInTheDocument();
 };

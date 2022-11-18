@@ -4,6 +4,7 @@ import { DateTime } from 'luxon';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Hyperlink from '@igloo-ui/hyperlink';
 
+import ChromaticWrapper from '@components/chromaticWrapper';
 import Section from '@components/section';
 import readme from '../README.md';
 
@@ -14,6 +15,7 @@ export default {
   component: Popover,
   parameters: {
     description: readme,
+    chromatic: { diffThreshold: 0.792 },
   },
   argTypes: {
     children: {
@@ -63,7 +65,9 @@ const overviewContent = (
 );
 
 const Template: ComponentStory<typeof Popover> = (args) => (
-  <Popover {...args}>{args.children}</Popover>
+  <ChromaticWrapper>
+    <Popover {...args}>{args.children}</Popover>
+  </ChromaticWrapper>
 );
 export const Overview = Template.bind({});
 Overview.args = {
@@ -80,17 +84,19 @@ Overview.args = {
 };
 
 export const QuantitativeContent = () => (
-  <Section style={{ justifyContent: 'space-between' }}>
-    <Popover
-      content={overviewContent}
-      title={dt.setLocale('fr').toLocaleString(DateTime.DATE_FULL)}
-      active
-    >
-      <div className="isb-trigger" />
-    </Popover>
+  <ChromaticWrapper>
+    <Section style={{ justifyContent: 'space-between' }}>
+      <Popover
+        content={overviewContent}
+        title={dt.setLocale('fr').toLocaleString(DateTime.DATE_FULL)}
+        active
+      >
+        <div className="isb-trigger" />
+      </Popover>
 
-    <Popover content={overviewContent} active>
-      <div className="isb-trigger" />
-    </Popover>
-  </Section>
+      <Popover content={overviewContent} active>
+        <div className="isb-trigger" />
+      </Popover>
+    </Section>
+  </ChromaticWrapper>
 );

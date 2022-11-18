@@ -167,6 +167,10 @@ export const Loading = () => (
   </Section>
 );
 
+Loading.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
 export const Sizes = () => (
   <Section>
     <Button size="small">Small</Button>

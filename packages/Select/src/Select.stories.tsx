@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { within, userEvent } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 
 import Happiness from '@igloo-ui/icons/dist/Happiness';
 
@@ -78,6 +80,14 @@ Overview.args = {
   children: selectPlaceholder,
   options: smallOptionList,
 };
+Overview.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await userEvent.click(canvas.getByRole('button'));
+  const firstOption = await canvas.findByText('Text option');
+
+  await expect(firstOption).toBeInTheDocument();
+};
 
 export const Sizes = () => (
   <Section column>
@@ -119,3 +129,14 @@ export const LargeOptionNumber = () => (
     </Select>
   </Section>
 );
+
+// Chromatic configuration
+Sizes.bind({});
+Sizes.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+LargeOptionNumber.bind({});
+LargeOptionNumber.parameters = {
+  chromatic: { disableSnapshot: true },
+};

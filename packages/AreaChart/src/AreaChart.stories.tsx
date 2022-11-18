@@ -12,6 +12,7 @@ export default {
   component: AreaChart,
   parameters: {
     description: readme,
+    chromatic: { delay: 1000 },
   },
 } as ComponentMeta<typeof AreaChart>;
 
