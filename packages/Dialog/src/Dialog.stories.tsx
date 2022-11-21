@@ -1,9 +1,11 @@
 import React from 'react';
+import isChromatic from 'chromatic/isChromatic';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import Button from '@igloo-ui/button';
-import Section from '@components/section';
+import ChromaticWrapper from '@components/chromaticWrapper';
+
 import readme from '../README.md';
 
 import Dialog from './Dialog';
@@ -13,11 +15,12 @@ export default {
   component: Dialog,
   parameters: {
     description: readme,
+    chromatic: { pauseAnimationAtEnd: true },
   },
 } as ComponentMeta<typeof Dialog>;
 
 const Template: ComponentStory<typeof Dialog> = (args) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(args.isOpen);
 
   const handleOpen = () => {
     setOpen(true);
@@ -28,12 +31,12 @@ const Template: ComponentStory<typeof Dialog> = (args) => {
   };
 
   return (
-    <>
+    <ChromaticWrapper>
       <Button appearance="secondary" onClick={handleOpen}>
         open
       </Button>
       <Dialog {...args} isOpen={open} onDismiss={handleClose} />
-    </>
+    </ChromaticWrapper>
   );
 };
 export const Overview = Template.bind({});
@@ -42,10 +45,11 @@ Overview.args = {
   title: 'Dialog title',
   dismissText: 'Cancel',
   validateText: 'Confirm',
+  isOpen: isChromatic(),
 };
 
 export const LongText = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(isChromatic());
 
   const handleOpen = () => {
     setOpen(true);
@@ -61,7 +65,7 @@ export const LongText = () => {
   };
 
   return (
-    <Section>
+    <ChromaticWrapper>
       <Button appearance="secondary" onClick={handleOpen}>
         open
       </Button>
@@ -74,12 +78,12 @@ export const LongText = () => {
         onDismiss={handleClose}
         onValidate={handleValidate}
       />
-    </Section>
+    </ChromaticWrapper>
   );
 };
 
 export const FewestNumberOfProps = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(isChromatic());
 
   const handleOpen = () => {
     setOpen(true);
@@ -95,7 +99,7 @@ export const FewestNumberOfProps = () => {
   };
 
   return (
-    <Section>
+    <ChromaticWrapper>
       <Button appearance="secondary" onClick={handleOpen}>
         open
       </Button>
@@ -106,6 +110,6 @@ export const FewestNumberOfProps = () => {
         onDismiss={handleClose}
         onValidate={handleValidate}
       />
-    </Section>
+    </ChromaticWrapper>
   );
 };

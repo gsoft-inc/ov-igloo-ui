@@ -40,7 +40,7 @@ export const Count = () => {
 };
 
 export const States = () => (
-  <Section>
+  <Section style={{ padding: '1.6rem' }}>
     <Filter disabled>Disabled Filter</Filter>
     <Filter id="filterHover">Filter with hover state</Filter>
     <Filter selected>Selected Filter</Filter>

@@ -5,3 +5,7 @@ declare module '@components/section' {
 declare module '@components/mockup' {
   export default function Mockup(): JSX.Element;
 }
+
+declare module '@components/chromaticWrapper' {
+  export default function ChromaticWrapper(children): JSX.Element;
+}

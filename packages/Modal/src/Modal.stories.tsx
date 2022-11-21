@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import isChromatic from 'chromatic/isChromatic';
 import Button from '@igloo-ui/button';
 
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+
+import ChromaticWrapper from '@components/chromaticWrapper';
 import Section from '@components/section';
 import Mockup from '@components/mockup';
 
@@ -22,7 +24,7 @@ export default {
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = (args) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(isChromatic());
 
   const handleOpen = () => {
     setOpen(true);
@@ -33,7 +35,7 @@ const Template: ComponentStory<typeof Modal> = (args) => {
   };
 
   return (
-    <>
+    <ChromaticWrapper>
       <Button appearance="secondary" onClick={handleOpen}>
         show modal
       </Button>
@@ -43,7 +45,7 @@ const Template: ComponentStory<typeof Modal> = (args) => {
         onClose={handleClose}
         children={args.children}
       />
-    </>
+    </ChromaticWrapper>
   );
 };
 
@@ -96,21 +98,21 @@ export const Sizes = () => {
 };
 
 export const removeClose = () => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(isChromatic());
 
   return (
-    <Section>
+    <ChromaticWrapper>
       <Button appearance="secondary" onClick={() => setShow(true)}>
         open
       </Button>
       <Modal isDismissable isOpen={show} onClose={() => setShow(false)}>
         Modal content
       </Modal>
-    </Section>
+    </ChromaticWrapper>
   );
 };
 
-export const Exemple = () => {
+export const Example = () => {
   const [show, setShow] = useState(false);
 
   return (
@@ -131,4 +133,15 @@ export const Exemple = () => {
       </Modal>
     </Section>
   );
+};
+
+// Chromatic configuration
+Sizes.bind({});
+Sizes.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+Example.bind({});
+Example.parameters = {
+  chromatic: { disableSnapshot: true },
 };

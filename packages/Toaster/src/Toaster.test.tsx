@@ -13,7 +13,8 @@ describe('Toast', () => {
     const { asFragment } = render(
       <Toast message="Successfully toasted!" dataTest="successToast" />
     );
-    expect(screen.getByTestId('successToast')).toBeInTheDocument();
+    const toast = screen.getByText('Successfully toasted!');
+    expect(toast).toBeVisible();
     expect(asFragment()).toMatchSnapshot();
   });
 

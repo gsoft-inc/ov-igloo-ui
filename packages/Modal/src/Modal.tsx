@@ -40,6 +40,8 @@ export interface ModalProps extends OverlayProps, AriaDialogProps {
   isClosable?: boolean;
   /** Whether the modal is open or not */
   isOpen: boolean;
+  /** Whether to close the overlay when the user interacts outside it. */
+  isDismissable?: boolean;
   /** Handler that is called when the overlay should close. */
   onClose?: () => void;
   /** Handler that is called when the modal is closed and no longer visible. */
@@ -60,13 +62,17 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     onClose,
     onAfterClose,
     isClosable,
+    isDismissable = false,
     fullContent,
     size = 'small',
     isOpen,
   } = props;
 
   const ref = React.useRef<HTMLDivElement>(null);
-  const { overlayProps, underlayProps } = useOverlay(props, ref);
+  const { overlayProps, underlayProps } = useOverlay(
+    { isOpen, onClose, isDismissable },
+    ref
+  );
 
   usePreventScroll({ isDisabled: !isOpen });
 

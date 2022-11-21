@@ -1,7 +1,9 @@
 import React from 'react';
+import Button from '@igloo-ui/button';
+
 import { ComponentMeta } from '@storybook/react';
 
-import Button from '@igloo-ui/button';
+import ChromaticWrapper from '@components/chromaticWrapper';
 
 import Toaster, { useToaster } from './Toaster';
 import Toast from './Toast';
@@ -52,7 +54,7 @@ export const Overview = () => {
 export const SuccessToast = () => {
   const [showToast, setShowToast] = React.useState(false);
   return (
-    <>
+    <ChromaticWrapper>
       <Button appearance="secondary" onClick={() => setShowToast(true)}>
         Remove profile
       </Button>
@@ -62,7 +64,7 @@ export const SuccessToast = () => {
           onDissmiss={() => setShowToast(false)}
         />
       )}
-    </>
+    </ChromaticWrapper>
   );
 };
 
@@ -82,4 +84,10 @@ export const ErrorToast = () => {
       )}
     </>
   );
+};
+
+// Chromatic configuration
+Overview.bind({});
+Overview.parameters = {
+  chromatic: { disableSnapshot: true },
 };

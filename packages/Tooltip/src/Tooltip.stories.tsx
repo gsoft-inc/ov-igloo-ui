@@ -1,4 +1,5 @@
 import React from 'react';
+import isChromatic from 'chromatic/isChromatic';
 
 import { ComponentMeta } from '@storybook/react';
 
@@ -6,6 +7,7 @@ import Tooltip, { TooltipProps } from './Tooltip';
 import Button from '@igloo-ui/button';
 import Modal from '@igloo-ui/modal';
 
+import ChromaticWrapper from '@components/chromaticWrapper';
 import Section from '@components/section';
 import readme from '../README.md';
 
@@ -16,6 +18,7 @@ export default {
   component: Tooltip,
   parameters: {
     description: readme,
+    chromatic: { disableSnapshot: true },
   },
   argTypes: {
     children: { control: 'text', defaultValue: 'Playground tooltip' },
@@ -53,14 +56,25 @@ export const Overview = (args: TooltipProps) => (
 );
 
 export const Appearances = () => (
-  <Section>
-    <Tooltip content={tooltipContent} appearance="dark">
-      Dark
-    </Tooltip>
-    <Tooltip content={tooltipContent} appearance="light">
-      Light
-    </Tooltip>
-  </Section>
+  <ChromaticWrapper>
+    <Section>
+      <Tooltip
+        active={isChromatic()}
+        content={tooltipContent}
+        appearance="dark"
+      >
+        Dark
+      </Tooltip>
+      <Tooltip
+        active={isChromatic()}
+        position={isChromatic() ? 'bottom' : 'auto'}
+        content={tooltipContent}
+        appearance="light"
+      >
+        Light
+      </Tooltip>
+    </Section>
+  </ChromaticWrapper>
 );
 
 export const Position = () => (
@@ -103,4 +117,10 @@ export const TooltipInAModal = () => {
       </Modal>
     </Section>
   );
+};
+
+// Chromatic configuration
+Appearances.bind({});
+Appearances.parameters = {
+  chromatic: { disableSnapshot: false },
 };

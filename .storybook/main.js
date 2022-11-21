@@ -14,7 +14,11 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     'storybook-addon-pseudo-states',
+    '@storybook/addon-interactions',
   ],
+  features: {
+    interactionsDebugger: true,
+  },
   staticDirs: ['../assets'],
   webpackFinal: (config) => {
     config.resolve.plugins = [
