@@ -43,6 +43,8 @@ const withTM = require('next-transpile-modules')([
   '@igloo-ui/area-chart',
   '@igloo-ui/progress-bar',
   '@igloo-ui/bar-chart',
+  '@igloo-ui/avatar',
+  '@igloo-ui/color',
 ]);
 
 const path = require('path');

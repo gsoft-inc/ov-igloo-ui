@@ -1,0 +1,58 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  --ids-avatar-border-radius: #{tokens.$border-radius-sm};
+  --ids-avatar-border-radius-xs: #{tokens.$border-radius-xs};
+
+  /* Sizes */
+  --ids-avatar-size-xs: #{tokens.$font-size-4};
+  --ids-avatar-size-s: #{tokens.$font-size-7};
+  --ids-avatar-size-m: #{tokens.$font-size-9};
+  --ids-avatar-size-l: #{tokens.$font-size-10};
+  --ids-avatar-size-xl: #{tokens.$space-8};
+}
+
+.ids-avatar {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-shrink: 0;
+
+  // Remove spaces before and after
+  font-size: 0;
+
+  &__image {
+    border-radius: var(--ids-avatar-border-radius);
+    max-height: 100%;
+    width: 100%;
+
+    &--xsmall {
+      border-radius: var(--ids-avatar-border-radius-xs);
+    }
+  }
+
+  &--xsmall {
+    height: var(--ids-avatar-size-xs);
+    width: var(--ids-avatar-size-xs);
+  }
+
+  &--small {
+    height: var(--ids-avatar-size-s);
+    width: var(--ids-avatar-size-s);
+  }
+
+  &--medium {
+    height: var(--ids-avatar-size-m);
+    width: var(--ids-avatar-size-m);
+  }
+
+  &--large {
+    height: var(--ids-avatar-size-l);
+    width: var(--ids-avatar-size-l);
+  }
+
+  &--xlarge {
+    height: var(--ids-avatar-size-xl);
+    width: var(--ids-avatar-size-xl);
+  }
+}

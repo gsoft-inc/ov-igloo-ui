@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Color It should render a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ids-color ids-color--small"
+    data-test="ids-color"
+  />
+</DocumentFragment>
+`;

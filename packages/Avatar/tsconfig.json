@@ -9,10 +9,5 @@
     "composite": true,
     "baseUrl": ".",
     "typeRoots": ["../../typings", "../../node_modules/@types"]
-  },
-  "references": [
-    {
-      "path": "../../shared/components"
-    }
-  ]
+  }
 }

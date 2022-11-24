@@ -88,10 +88,6 @@
     color: currentColor;
   }
 
-  &__warning-icon {
-    color: var(--ids-tag-warning-icon-color);
-  }
-
   &__content {
     flex: 0 1 auto;
     max-width: var(--ids-tag-max-width);

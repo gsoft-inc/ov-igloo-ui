@@ -5,8 +5,8 @@ import cx from 'classnames';
 import IconButton from '@igloo-ui/icon-button';
 import Ellipsis from '@igloo-ui/ellipsis';
 import Close from '@igloo-ui/icons/dist/Close';
-import ColorIcon from './components/ColorIcon';
-import UserImage from './components/UserImage';
+
+import { VisualIdentifier } from '../../../shared/components';
 
 import './tag.scss';
 
@@ -37,10 +37,16 @@ export interface TagProps extends React.ComponentProps<'div'> {
   dismissible?: boolean;
   /** The icon used at the beginning of the Tag */
   icon?: React.ReactElement;
+  /** The id of the tag to use when removing */
+  id?: string;
   /** Add an error style to the tag */
   hasError?: boolean;
-  /** Event when the tag is closed */
-  onClose?: () => void;
+  /**
+   * Callback to execute on remove tag.
+   * @param {string} id - The item id to delete
+   * @returns {void}
+   */
+  onRemove?: (id: string) => void;
   /** Render rounded corners */
   rounded?: boolean;
   /** The different sizes of the Tag */
@@ -57,46 +63,19 @@ const Tag: React.FunctionComponent<TagProps> = ({
   dismissible = false,
   appearance = 'default',
   icon,
+  id,
   hasError,
-  onClose,
+  onRemove,
   rounded = false,
   size = 'medium',
   src,
 }) => {
   const [show, setShow] = React.useState(true);
 
-  const renderIcon = (): JSX.Element | null => {
-    if (icon) {
-      return React.cloneElement(icon, {
-        className: 'ids-tag__visual ids-tag__icon',
-      });
-    }
-    if (color) {
-      // When 'color' is blank, its value is calculated from 'id'
-      return (
-        <ColorIcon
-          className="ids-tag__visual ids-tag__color-icon"
-          color={color}
-          size="small"
-        />
-      );
-    }
-    if (src) {
-      return (
-        <UserImage
-          className="ids-tag__visual ids-tag__image-icon"
-          src={src}
-          size="small"
-        />
-      );
-    }
-    return null;
-  };
-
   const renderDismissButton = (): JSX.Element => {
     const action = (): void => {
-      if (onClose) {
-        onClose();
+      if (onRemove && id) {
+        onRemove(id);
       }
 
       setShow(false);
@@ -129,7 +108,12 @@ const Tag: React.FunctionComponent<TagProps> = ({
   if (show) {
     return (
       <div className={classes} data-test={dataTest}>
-        {renderIcon()}
+        <VisualIdentifier
+          className="ids-tag__visual"
+          color={color}
+          src={src}
+          icon={icon}
+        />
 
         <div className="ids-tag__content">
           <Ellipsis>{children}</Ellipsis>
