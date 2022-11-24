@@ -7,8 +7,11 @@ const appDirectory = path.resolve(__dirname, '../');
 const getStories = () =>
   glob.sync(`${appDirectory}/packages/**/*.stories.@(js|jsx|ts|tsx)`);
 
+const getSharedStories = () =>
+  glob.sync(`${appDirectory}/shared/**/*.stories.@(js|jsx|ts|tsx)`);
+
 module.exports = {
-  stories: async (list) => [...list, ...getStories()],
+  stories: async (list) => [...list, ...getStories(), ...getSharedStories()],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
