@@ -1,3 +1,13 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --shared-font-family: #{tokens.$primary-font-family};
+  --shared-font-size: #{tokens.$font-size-3};
+}
+
 .visual-identifier {
-  background: red;
+  font-family: var(--shared-font-family);
+  font-size: var(--shared-font-size);
 }
