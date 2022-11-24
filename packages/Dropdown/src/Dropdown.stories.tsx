@@ -29,11 +29,13 @@ export default {
     (Story) => (
       <div
         style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '100%',
+          height: '36rem',
+          padding: '1.6rem',
           fontSize: '1.6rem',
-          paddingTop: 0,
-          paddingBottom: 200,
-          paddingRight: 10,
-          paddingLeft: 10,
         }}
       >
         <Story />

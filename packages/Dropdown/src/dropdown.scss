@@ -28,6 +28,7 @@
   box-sizing: border-box;
 
   &__container {
+    display: inline-block;
     position: relative;
     z-index: var(--ids-dropdown-zindex);
   }
@@ -42,7 +43,20 @@
     z-index: var(--ids-dropdown-zindex-click-handler);
   }
 
-  &--top {
+  &--bottomLeft,
+  &--bottomRight{
+    top: 100%;
+  }
+
+  &--topRight,
+  &--bottomRight {
+    left: inherit;
+    right: 0;
+  }
+
+  &--top,
+  &--topLeft,
+  &--topRight {
     top: inherit;
     bottom: 100%;
   }
