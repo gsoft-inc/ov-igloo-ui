@@ -44,7 +44,7 @@
     "import/extensions": [
       "error",
       "ignorePackages",
-      { "ts": "never", "tsx": "never" }
+      { "ts": "never", "tsx": "never", "js": "never" }
     ],
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
