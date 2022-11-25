@@ -8,11 +8,12 @@
   ],
   "license": "Apache-2.0",
   "scripts": {
+    "prebuild": "lerna run build:shared",
     "build": "lerna run build",
     "build:components": "lerna run build --scope=@igloo-ui/*",
     "build:shared": "lerna run build --scope=@shared/*",
     "test": "jest",
-    "clean": "npx lerna exec -- rm -rf ./dist",
+    "clean": "lerna exec -- rm -rf ./dist",
     "lint": "eslint . --ext .ts,.tsx --quiet",
     "lint:fix": "eslint . --ext .ts,.tsx --fix --quiet",
     "lint:style": "stylelint \"**/*.scss\"",
