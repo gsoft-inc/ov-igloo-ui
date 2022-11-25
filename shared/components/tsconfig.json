@@ -10,7 +10,7 @@
     "baseUrl": ".",
     "typeRoots": ["../../typings", "../../node_modules/@types"],
     "paths": {
-      "@igloo-ui/*": ["../../packages/**/src"]
+      "@igloo-ui/": ["../../packages/**/src"]
     }
   }
 }
