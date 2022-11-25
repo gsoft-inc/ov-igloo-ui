@@ -11,7 +11,7 @@ export interface DialogProps extends React.ComponentProps<'div'> {
   className?: string;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
-  /** The text for the dissmiss button */
+  /** The text for the dismiss button */
   dismissText?: string;
   /** Whether the dialog is open or not */
   isOpen: boolean;
@@ -22,12 +22,14 @@ export interface DialogProps extends React.ComponentProps<'div'> {
   onAfterDismiss?: () => void;
   /** Handler that is called when the validate button is clicked */
   onValidate: () => void;
-  /** The text for the sub title of the dialog */
+  /** The text for the subtitle of the dialog */
   subTitle?: string;
   /** The text for the title of the dialog */
   title: string;
   /** The text for the validate button */
   validateText: string;
+  /** A specific variant of dialog used for destructive actions */
+  danger?: boolean;
 }
 
 const Dialog: React.FunctionComponent<DialogProps> = (props: DialogProps) => {
@@ -42,6 +44,7 @@ const Dialog: React.FunctionComponent<DialogProps> = (props: DialogProps) => {
     subTitle,
     title,
     validateText,
+    danger,
   } = props;
 
   const classes = cx('ids-dialog', className);
@@ -69,7 +72,7 @@ const Dialog: React.FunctionComponent<DialogProps> = (props: DialogProps) => {
           </Button>
         )}
         <Button
-          appearance="primary"
+          appearance={danger ? 'danger' : 'primary'}
           onClick={onValidate}
           className="ids-dialog__validate-btn"
         >
