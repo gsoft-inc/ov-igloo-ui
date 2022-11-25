@@ -8,9 +8,6 @@
     "declarationDir": "./dist",
     "composite": true,
     "baseUrl": ".",
-    "typeRoots": ["../../typings", "../../node_modules/@types"],
-    "paths": {
-      "@igloo-ui/*": ["../../../packages/**/src"]
-    }
+    "typeRoots": ["../../typings", "../../node_modules/@types"]
   }
 }
