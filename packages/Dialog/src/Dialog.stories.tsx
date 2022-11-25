@@ -113,3 +113,37 @@ export const FewestNumberOfProps = () => {
     </ChromaticWrapper>
   );
 };
+
+export const Danger = () => {
+  const [open, setOpen] = React.useState(isChromatic());
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleValidate = () => {
+    alert('You said yes');
+    setOpen(false);
+  };
+
+  return (
+    <ChromaticWrapper>
+      <Button appearance="secondary" onClick={handleOpen}>
+        Remove user
+      </Button>
+      <Dialog
+        danger
+        title="Are you about to delete this user?"
+        validateText="Confirm"
+        dismissText="Cancel"
+        isOpen={open}
+        onDismiss={handleClose}
+        onValidate={handleValidate}
+      />
+    </ChromaticWrapper>
+  );
+};
