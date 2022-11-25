@@ -11,7 +11,7 @@
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": ["prebuild", "^build"]
+      "dependsOn": ["^build"]
     },
     "dev": {
       "dependsOn": ["^build", "prebuild"]

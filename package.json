@@ -8,7 +8,7 @@
   ],
   "license": "Apache-2.0",
   "scripts": {
-    "prebuild": "lerna run build:shared",
+    "prebuild": "yarn build:shared",
     "build": "lerna run build",
     "build:components": "lerna run build --scope=@igloo-ui/*",
     "build:shared": "lerna run build --scope=@shared/*",
