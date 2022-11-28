@@ -64,12 +64,8 @@ const Color: React.FunctionComponent<ColorProps> = ({
       }
     }
 
-    if (size === 'small' || size === 'medium') {
-      initials = initials.charAt(0);
-    }
-
     return initials;
-  }, [name, size]);
+  }, [name]);
 
   return (
     <div

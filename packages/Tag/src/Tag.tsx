@@ -41,11 +41,7 @@ export interface TagProps extends React.ComponentProps<'div'> {
   id?: string;
   /** Add an error style to the tag */
   hasError?: boolean;
-  /**
-   * Callback to execute on remove tag.
-   * @param {string} id - The item id to delete
-   * @returns {void}
-   */
+  /** Callback to execute on remove tag */
   onRemove?: (id: string) => void;
   /** Render rounded corners */
   rounded?: boolean;

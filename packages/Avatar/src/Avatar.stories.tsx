@@ -23,33 +23,20 @@ export default {
   },
 } as ComponentMeta<typeof Avatar>;
 
+const imageSrc = 'https://i.pravatar.cc/100';
+
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 export const Overview = Template.bind({});
 Overview.args = {
-  src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEB3tCC4oJsa4ZZsiEDIhWi06EyN3iHYMoOg&usqp=CAU',
+  src: imageSrc,
 };
 
 export const Sizes = () => (
   <Section>
-    <Avatar
-      size="xsmall"
-      src="https://cdn-icons-png.flaticon.com/512/168/168724.png"
-    />
-    <Avatar
-      size="small"
-      src="https://cdn-icons-png.flaticon.com/512/168/168724.png"
-    />
-    <Avatar
-      size="medium"
-      src="https://cdn-icons-png.flaticon.com/512/168/168724.png"
-    />
-    <Avatar
-      size="large"
-      src="https://cdn-icons-png.flaticon.com/512/168/168724.png"
-    />
-    <Avatar
-      size="xlarge"
-      src="https://cdn-icons-png.flaticon.com/512/168/168724.png"
-    />
+    <Avatar size="xsmall" src={imageSrc} />
+    <Avatar size="small" src={imageSrc} />
+    <Avatar size="medium" src={imageSrc} />
+    <Avatar size="large" src={imageSrc} />
+    <Avatar size="xlarge" src={imageSrc} />
   </Section>
 );

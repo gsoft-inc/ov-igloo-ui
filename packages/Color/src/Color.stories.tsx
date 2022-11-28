@@ -42,24 +42,6 @@ export const Initials = () => (
     <Color
       color={variables.coral200}
       textColor={variables.coral900}
-      size="small"
-      name="Awesome Possum Team"
-    />
-    <Color
-      color={variables.coral200}
-      textColor={variables.coral900}
-      size="medium"
-      name="Awesome Possum Team"
-    />
-    <Color
-      color={variables.coral200}
-      textColor={variables.coral900}
-      size="large"
-      name="Awesome Possum Team"
-    />
-    <Color
-      color={variables.coral200}
-      textColor={variables.coral900}
       size="xlarge"
       name="Awesome Possum Team"
     />
@@ -68,9 +50,6 @@ export const Initials = () => (
 
 export const CustomText = () => (
   <Section>
-    <Color color={variables.electricBlue700} size="small" name="V" />
-    <Color color={variables.electricBlue700} size="medium" name="V" />
-    <Color color={variables.electricBlue700} size="large" name="V" />
     <Color color={variables.electricBlue700} size="xlarge" name="VC" />
   </Section>
 );
