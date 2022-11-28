@@ -133,8 +133,5 @@
     "> 1%",
     "last 2 versions",
     "IE >= 11"
-  ],
-  "resolutions": {
-    "d3-color": "3.1.0"
-  }
+  ]
 }
