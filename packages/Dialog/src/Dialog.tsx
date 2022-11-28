@@ -28,6 +28,8 @@ export interface DialogProps extends React.ComponentProps<'div'> {
   title: string;
   /** The text for the validate button */
   validateText: string;
+  /** A specific variant of dialog used for destructive actions */
+  danger?: boolean;
 }
 
 const Dialog: React.FunctionComponent<DialogProps> = (props: DialogProps) => {
@@ -42,6 +44,7 @@ const Dialog: React.FunctionComponent<DialogProps> = (props: DialogProps) => {
     subTitle,
     title,
     validateText,
+    danger,
   } = props;
 
   const classes = cx('ids-dialog', className);
@@ -69,7 +72,7 @@ const Dialog: React.FunctionComponent<DialogProps> = (props: DialogProps) => {
           </Button>
         )}
         <Button
-          appearance="primary"
+          appearance={danger ? 'danger' : 'primary'}
           onClick={onValidate}
           className="ids-dialog__validate-btn"
         >
