@@ -9,11 +9,11 @@ export type Size = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 export interface AvatarProps extends React.ComponentProps<'img'> {
   /** The alternate text for the image */
   alt?: string;
-  /** Add a specific class to the team color icon */
+  /** Add a specific class to the avatar */
   className?: string;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
-  /** Specifies the size of the team icon */
+  /** Specifies the size of the avatar */
   size?: Size;
   /** Specifies the image url to show */
   src: string;
