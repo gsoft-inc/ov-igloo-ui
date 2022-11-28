@@ -5,7 +5,13 @@ import { useTransition, animated } from 'react-spring';
 
 import './dropdown.scss';
 
-export type Position = 'top' | 'bottom';
+export type Position =
+  | 'top'
+  | 'topLeft'
+  | 'topRight'
+  | 'bottom'
+  | 'bottomLeft'
+  | 'bottomRight';
 export type Size = 'xsmall' | 'small' | 'medium' | 'large';
 
 export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
