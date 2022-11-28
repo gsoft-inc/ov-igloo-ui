@@ -1,3 +1,3 @@
 import * as React from 'react';
 
-export { VisualIdentifier } from './visual-identifier/VisualIdentifier';
+export * from './visual-identifier/VisualIdentifier';

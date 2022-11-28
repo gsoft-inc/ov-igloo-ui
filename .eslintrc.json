@@ -41,11 +41,7 @@
     "react/prop-types": "off",
     "react/button-has-type": "off",
     "react/jsx-props-no-spreading": "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      { "ts": "never", "tsx": "never" }
-    ],
+    "import/extensions": ["error", "never", { "json": "always" }],
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
     "react-hooks/rules-of-hooks": "error",

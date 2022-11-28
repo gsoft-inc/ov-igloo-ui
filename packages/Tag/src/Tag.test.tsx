@@ -56,12 +56,13 @@ describe('Tag', () => {
 
   /* onClose function */
 
-  test('It should render a tag with an onClose action', () => {
+  test('It should render a tag with an onRemove action', () => {
     let show = true;
     const props = {
-      children: 'Test onClose Tag',
+      children: 'Test onRemove Tag',
       dismissible: true,
-      onClose: () => {
+      id: 'tag1',
+      onRemove: () => {
         show = false;
       },
     };
@@ -98,21 +99,11 @@ describe('Tag', () => {
 
   /* Icon */
 
-  test('It should render a tag without an icon', () => {
-    const { container } = setup({ children: 'Default Icon Tag' });
-    const icon = container.querySelector('.ids-tag__icon');
+  test('It should render a tag without a visual identifier', () => {
+    const { container } = setup({ children: 'Default Tag' });
+    const icon = container.querySelector('.ids-tag__visual');
 
     expect(icon).not.toBeInTheDocument();
-  });
-
-  test('It should render a tag with an icon', () => {
-    const { container } = setup({
-      children: 'Dismissible Tag',
-      icon: <LabelSolid size="small" />,
-    });
-    const icon = container.querySelector('.ids-tag__icon');
-
-    expect(icon).toBeInTheDocument();
   });
 
   test('It should render a tag with an icon', () => {
@@ -120,29 +111,31 @@ describe('Tag', () => {
       children: 'Tag with icon',
       icon: <LabelSolid size="small" />,
     });
-    const icon = container.querySelector('.ids-tag__icon');
+    const icon = container.querySelector('.ids-visual-identifier__icon');
 
     expect(icon).toBeInTheDocument();
   });
 
-  test('It should render a tag with a color icon', () => {
+  test('It should render a tag with a color', () => {
     const { container } = setup({
-      children: 'Tag with color icon',
+      children: 'Tag with color',
       color: '#9A3842',
     });
-    const icon = container.querySelector('.ids-tag__color-icon');
+    const color = container.querySelector('.ids-visual-identifier__color');
 
-    expect(icon).toBeInTheDocument();
+    expect(color).toBeInTheDocument();
   });
 
-  test('It should render a tag with an image icon', () => {
+  test('It should render a tag with an avatar', () => {
     const { container } = setup({
-      children: 'Tag with color icon',
+      children: 'Tag with avatar',
       src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEB3tCC4oJsa4ZZsiEDIhWi06EyN3iHYMoOg&usqp=CAU',
     });
-    const icon = container.querySelector('.ids-tag__image-icon');
+    const icon = container.querySelector('.ids-tag__visual');
+    console.log(icon);
+    const avatar = container.querySelector('.ids-visual-identifier__avatar');
 
-    expect(icon).toBeInTheDocument();
+    expect(avatar).toBeInTheDocument();
   });
 
   /* Appearance */
