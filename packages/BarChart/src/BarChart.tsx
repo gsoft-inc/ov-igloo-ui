@@ -1,6 +1,8 @@
 import * as React from 'react';
 import cx from 'classnames';
 
+import { useTransition, animated, easings } from 'react-spring';
+
 import './bar-chart.scss';
 
 export interface DataSet {
@@ -39,22 +41,35 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
     const maxValue = Math.max(...values);
 
     const size = (value * 100) / maxValue;
+
     return `${size}%`;
   };
 
-  const barChart = dataSet.map((data: DataSet) => {
-    const { label, value, color } = data;
+  const transitions = useTransition(dataSet, {
+    from: { width: '0' },
+    enter: (item: DataSet) => [
+      {
+        width: setWidth(item.value),
+      },
+    ],
+    config: { duration: 500, easing: easings.easeInCubic },
+  });
+
+  const barChart = transitions(({ width }, item: DataSet) => {
+    const { label, value, color } = item;
+
+    const animateWidth = value > 0 ? width : undefined;
 
     return (
       <li key={`ids-bar-chart-${value}`} className="ids-bar-chart" {...rest}>
         <span className="ids-bar-chart__label">{label}</span>
         <div className="ids-bar-chart__content">
-          <div
+          <animated.div
             className="ids-bar-chart__graph"
             data-value={value}
             style={{
-              width: setWidth(value),
-              background: color,
+              width: animateWidth,
+              backgroundColor: color,
             }}
           />
           <span className="ids-bar-chart__value">{value}</span>
@@ -62,6 +77,27 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
       </li>
     );
   });
+
+  // const barChart = dataSet.map((data: DataSet) => {
+  //   const { label, value, color } = data;
+  //
+  //   return (
+  //     <li key={`ids-bar-chart-${value}`} className="ids-bar-chart" {...rest}>
+  //       <span className="ids-bar-chart__label">{label}</span>
+  //       <div className="ids-bar-chart__content">
+  //         <div
+  //           className="ids-bar-chart__graph"
+  //           data-value={value}
+  //           style={{
+  //             width: setWidth(value),
+  //             background: color,
+  //           }}
+  //         />
+  //         <span className="ids-bar-chart__value">{value}</span>
+  //       </div>
+  //     </li>
+  //   );
+  // });
 
   return (
     <ul

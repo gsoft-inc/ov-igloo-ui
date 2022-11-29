@@ -12,6 +12,7 @@ export default {
   component: BarChart,
   parameters: {
     description: readme,
+    chromatic: { delay: 600 },
   },
 } as ComponentMeta<typeof BarChart>;
 
