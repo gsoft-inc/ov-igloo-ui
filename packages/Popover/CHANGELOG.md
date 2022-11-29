@@ -1,5 +1,12 @@
 # @igloo-ui/popover
 
+## 0.1.3
+
+### Patch Changes
+
+- Updated dependencies [ff6db5c]
+  - @igloo-ui/tooltip@3.0.0
+
 ## 0.1.2
 
 ### Patch Changes

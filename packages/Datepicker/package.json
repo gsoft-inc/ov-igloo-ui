@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/datepicker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/Datepicker.js",
   "module": "dist/Datepicker.js",
   "types": "dist/Datepicker.d.ts",
@@ -24,7 +24,7 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/dropdown": "^0.1.1",
+    "@igloo-ui/dropdown": "^0.2.0",
     "@igloo-ui/icon-button": "^0.2.12",
     "@igloo-ui/button": "^0.3.6",
     "@igloo-ui/icons": "^1.6.0",
