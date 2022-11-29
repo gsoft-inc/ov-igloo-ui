@@ -4,6 +4,8 @@ import cx from 'classnames';
 import { usePopper } from 'react-popper';
 import { animated, useTransition } from 'react-spring';
 
+import useDeviceDetect from './hooks/useDeviceDetect';
+
 import './tooltip.scss';
 
 export type Appearance = 'dark' | 'light';
@@ -28,6 +30,8 @@ export interface TooltipProps extends React.ComponentPropsWithoutRef<'div'> {
   disabled?: boolean;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
+  /** When True, display the tooltip on a mobile device */
+  showOnMobile?: boolean;
 }
 
 const Tooltip: React.FunctionComponent<TooltipProps> = (
@@ -44,6 +48,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     disabled,
     active = false,
     dataTest,
+    showOnMobile = false,
     ...rest
   } = props;
 
@@ -56,6 +61,8 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
   const [tooltipElement, setTooltipElement] =
     React.useState<HTMLElement | null>(null);
 
+  const { isMobile } = useDeviceDetect();
+
   const { styles, attributes, update } = usePopper(
     referenceElement,
     tooltipElement,
@@ -64,6 +71,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
       strategy: 'fixed',
       modifiers: [
         { name: 'offset', options: { offset: [0, 10] } },
+        { name: 'hide', options: { enabled: true } },
         {
           name: 'flip',
           options: {
@@ -73,6 +81,20 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
       ],
     }
   );
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (show) {
+        setShow(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const onMouseEnterHandle = (): void => {
     setShow(true);
@@ -158,6 +180,8 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
     };
   }, [referenceElement]);
 
+  const disabledOnMobile = isMobile && !showOnMobile;
+
   return (
     <span
       ref={setReferenceElement}
@@ -165,7 +189,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
       onMouseEnter={onMouseEnterHandle}
     >
       {children}
-      {!disabled && portaledTooltip}
+      {!disabled && !disabledOnMobile && portaledTooltip}
     </span>
   );
 };

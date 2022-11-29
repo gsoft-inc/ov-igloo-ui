@@ -38,6 +38,11 @@
     opacity: 1;
   }
 
+  &[data-popper-reference-hidden='true'] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
   &__arrow {
     content: '';
     position: absolute;
