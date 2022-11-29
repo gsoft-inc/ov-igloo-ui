@@ -28,10 +28,6 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
 ) => {
   const { dataSet, className, dataTest, ...rest } = props;
 
-  if (!dataSet) {
-    return null;
-  }
-
   const setWidth = (value: number): undefined | string => {
     if (!value || value === 0) {
       return undefined;
@@ -55,6 +51,10 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
     config: { duration: 500, easing: easings.easeInCubic },
   });
 
+  if (!dataSet) {
+    return null;
+  }
+
   const barChart = transitions(({ width }, item: DataSet) => {
     const { label, value, color } = item;
 
@@ -77,27 +77,6 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
       </li>
     );
   });
-
-  // const barChart = dataSet.map((data: DataSet) => {
-  //   const { label, value, color } = data;
-  //
-  //   return (
-  //     <li key={`ids-bar-chart-${value}`} className="ids-bar-chart" {...rest}>
-  //       <span className="ids-bar-chart__label">{label}</span>
-  //       <div className="ids-bar-chart__content">
-  //         <div
-  //           className="ids-bar-chart__graph"
-  //           data-value={value}
-  //           style={{
-  //             width: setWidth(value),
-  //             background: color,
-  //           }}
-  //         />
-  //         <span className="ids-bar-chart__value">{value}</span>
-  //       </div>
-  //     </li>
-  //   );
-  // });
 
   return (
     <ul
