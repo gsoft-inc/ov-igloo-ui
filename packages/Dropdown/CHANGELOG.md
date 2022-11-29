@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 0.2.0
+
+### Minor Changes
+
+- 64ca515: add new position: `topLeft`, `topRight`, `bottomLeft`, `bottomRight`
+
 ## 0.1.1
 
 ### Patch Changes

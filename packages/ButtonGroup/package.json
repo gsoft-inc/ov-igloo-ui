@@ -34,6 +34,6 @@
   ],
   "devDependencies": {
     "@igloo-ui/icons": "^1.6.0",
-    "@igloo-ui/tooltip": "^2.0.2"
+    "@igloo-ui/tooltip": "^3.0.0"
   }
 }

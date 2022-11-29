@@ -1,5 +1,11 @@
 # @igloo-ui/dialog
 
+## 0.1.2
+
+### Patch Changes
+
+- a1a4642: Add danger props for render a desctructive actions
+
 ## 0.1.1
 
 ### Patch Changes

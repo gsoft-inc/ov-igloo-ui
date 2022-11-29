@@ -1,5 +1,15 @@
 # @igloo-ui/tooltip
 
+## 3.0.0
+
+### Major Changes
+
+- ff6db5c: change of behavior for the tooltip when scrolling and displaying in the mobile version.
+
+  ## BREAKING CHANGE
+
+  - disabling the tooltip in mobile devices. It is however possible to display it by passing the props `showOnMobile`
+
 ## 2.0.2
 
 ### Patch Changes
