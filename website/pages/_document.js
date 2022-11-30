@@ -1,12 +1,9 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import { Html, Main, NextScript } from 'next/document';
 import { GTM_ID } from '../lib/gtm';
 
 export default function Document() {
   return (
     <Html>
-      <Head>
-        <title>Igloo - Design System Doc</title>
-      </Head>
       <body>
         <noscript>
           <iframe
