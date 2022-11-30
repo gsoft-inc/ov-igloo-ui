@@ -1,4 +1,4 @@
-import { Html, Main, NextScript } from 'next/document';
+import { Html, Main, Head, NextScript } from 'next/document';
 import { GTM_ID } from '../lib/gtm';
 export default function Document() {
   return (
