@@ -6,6 +6,8 @@ import { useTransition, animated, easings } from 'react-spring';
 import './bar-chart.scss';
 
 export interface DataSet {
+  /** Add id for bar chart. */
+  id: string | number;
   /** Add label text above the bar chart. */
   label: string;
   /** The value displayed beside the bar chart. */
@@ -56,12 +58,12 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
   }
 
   const barChart = transitions(({ width }, item: DataSet) => {
-    const { label, value, color } = item;
+    const { label, value, color, id } = item;
 
     const animateWidth = value > 0 ? width : undefined;
 
     return (
-      <li key={`ids-bar-chart-${value}`} className="ids-bar-chart" {...rest}>
+      <li key={id} className="ids-bar-chart" {...rest}>
         <span className="ids-bar-chart__label">{label}</span>
         <div className="ids-bar-chart__content">
           <animated.div
