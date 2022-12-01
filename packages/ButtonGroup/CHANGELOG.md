@@ -1,5 +1,11 @@
 # @igloo-ui/button-group
 
+## 0.2.3
+
+### Patch Changes
+
+- 7fa9fe0: replace the button font with the font required for the design (Inter)
+
 ## 0.2.2
 
 ### Patch Changes
