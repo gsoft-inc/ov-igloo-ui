@@ -11,10 +11,8 @@
   --ids-form-group-label-color: #{tokens.$grey-600};
   --ids-form-group-label-margin-bottom: #{tokens.$space-1};
 
-  /* Error */
-  --ids-form-group-error-color: #{tokens.$coral-500};
-  --ids-form-group-error-margin-top: #{tokens.$space-1};
-  --ids-form-group-error-icon-margin: 0 #{tokens.$space-1} 0 0;
+  /* Message */
+  --ids-form-group-message-margin-top: #{tokens.$space-1};
 }
 
 .ids-form-group {
@@ -33,14 +31,9 @@
     margin-bottom: var(--ids-form-group-label-margin-bottom);
   }
 
-  &__error {
+  &__message {
     align-items: center;
-    color: var(--ids-form-group-error-color);
     display: flex;
-    margin-top: var(--ids-form-group-error-margin-top);
-  }
-
-  &__error svg {
-    margin: var(--ids-form-group-error-icon-margin);
+    margin-top: var(--ids-form-group-message-margin-top);
   }
 }

@@ -1,9 +1,11 @@
 import * as React from 'react';
 
 import cx from 'classnames';
-import Alert from '@igloo-ui/icons/dist/Alert';
+import HelperText from '@igloo-ui/helper-text';
 
 import './form-group.scss';
+
+export type MessageType = 'error' | 'info';
 
 export interface FormGroupProps extends React.ComponentProps<'div'> {
   /** The form element that needs an error and/or a label. */
@@ -12,23 +14,37 @@ export interface FormGroupProps extends React.ComponentProps<'div'> {
   className?: string;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
-  /** Add an error message below the form element */
-  errorMsg?: string;
+  /** Add a message below the form element */
+  message?: string;
+  /** Specifies the type of message to display */
+  messageType?: MessageType;
   /** Add the htmlFor attribute to the label of the form element */
   htmlFor?: string;
   /** Add label text above the form element */
   label?: string;
-  /** Decides when to show the error */
-  showError?: boolean;
+  /** Decides when to show the message */
+  showMessage?: boolean;
 }
 
 const FormGroup: React.FunctionComponent<FormGroupProps> = (
   props: FormGroupProps
 ) => {
-  const { children, className, dataTest, errorMsg, htmlFor, label, showError } =
-    props;
+  const {
+    children,
+    className,
+    dataTest,
+    message,
+    messageType = 'error',
+    htmlFor,
+    label,
+    showMessage,
+  } = props;
 
-  const classes = cx('ids-form-group', className);
+  const classes = cx(
+    'ids-form-group',
+    `ids-form-group--${messageType}`,
+    className
+  );
 
   return (
     <div className={classes} data-test={dataTest}>
@@ -38,11 +54,13 @@ const FormGroup: React.FunctionComponent<FormGroupProps> = (
         </label>
       )}
       {children}
-      {errorMsg && showError && (
-        <div className="ids-form-group__error">
-          <Alert size="small" />
-          {errorMsg}
-        </div>
+      {message && showMessage && (
+        <HelperText
+          error={messageType === 'error'}
+          className="ids-form-group__message"
+        >
+          {message}
+        </HelperText>
       )}
     </div>
   );
