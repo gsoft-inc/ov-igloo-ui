@@ -30,6 +30,14 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
 ) => {
   const { dataSet, className, dataTest, ...rest } = props;
 
+  const [animation, setAnimation] = React.useState(false);
+
+  React.useEffect(() => {
+    setAnimation(!animation);
+    const timer = setTimeout(() => setAnimation(false), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
   const setWidth = (value: number): undefined | string => {
     if (!value || value === 0) {
       return undefined;
@@ -42,7 +50,6 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
 
     return `${size}%`;
   };
-
   const transitions = useTransition(dataSet, {
     from: { width: '0' },
     enter: (item: DataSet) => [
@@ -62,22 +69,35 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
 
     const animateWidth = value > 0 ? width : undefined;
 
-    return (
+    const animateList = (
       <li key={id} className="ids-bar-chart" {...rest}>
         <span className="ids-bar-chart__label">{label}</span>
         <div className="ids-bar-chart__content">
-          <animated.div
-            className="ids-bar-chart__graph"
-            data-value={value}
-            style={{
-              width: animateWidth,
-              backgroundColor: color,
-            }}
-          />
+          {animation ? (
+            <animated.div
+              className="ids-bar-chart__graph"
+              data-value={value}
+              style={{
+                width: animateWidth,
+                backgroundColor: color,
+              }}
+            />
+          ) : (
+            <div
+              className="ids-bar-chart__graph"
+              data-value={value}
+              style={{
+                width: setWidth(value),
+                backgroundColor: color,
+              }}
+            />
+          )}
           <span className="ids-bar-chart__value">{value}</span>
         </div>
       </li>
     );
+
+    return item ? animateList : null;
   });
 
   return (

@@ -1,4 +1,4 @@
-import React, { PointerEvent } from 'react';
+import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import tokens from '@igloo-ui/tokens/dist/base10/tokens.json';
@@ -49,27 +49,4 @@ const Template: ComponentStory<typeof BarChart> = (args) => (
 export const Overview = Template.bind({});
 Overview.args = {
   dataSet: mockData,
-};
-
-export const Debug = () => {
-  const uniqueRow = {
-    id: '1',
-    label: 'Rerender animation',
-    value: 32,
-    color: '#2a91de',
-  };
-
-  const [debugData, setDebugData] = React.useState(uniqueRow);
-
-  const handleChange = (event: any) => {
-    const value = event.target.value;
-    setDebugData((prev) => ({ ...prev, value }));
-  };
-
-  return (
-    <>
-      <input type="number" value={debugData.value} onChange={handleChange} />
-      <BarChart dataSet={[debugData]} />
-    </>
-  );
 };
