@@ -132,7 +132,6 @@ describe('Tag', () => {
       src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEB3tCC4oJsa4ZZsiEDIhWi06EyN3iHYMoOg&usqp=CAU',
     });
     const icon = container.querySelector('.ids-tag__visual');
-    console.log(icon);
     const avatar = container.querySelector('.ids-visual-identifier__avatar');
 
     expect(avatar).toBeInTheDocument();
