@@ -30,7 +30,7 @@ body:
       description: Which component has the issue?
       placeholder: Component's name
     validations:
-      required: false
+      required: true
   - type: input
     id: component-version
     attributes:
