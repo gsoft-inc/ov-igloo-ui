@@ -2,9 +2,9 @@
 
 Use to highlight information for the user that requires his attention.<br/> Alerts can be position at the top of the page or into other components.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

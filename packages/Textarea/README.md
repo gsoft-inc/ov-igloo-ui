@@ -2,9 +2,9 @@
 
 The textarea component defines a multi-line text input control.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

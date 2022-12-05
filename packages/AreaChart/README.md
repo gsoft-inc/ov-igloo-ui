@@ -2,9 +2,9 @@
 
 The area chart is a line chart with shading below the line. This area chart depicts score over time.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

@@ -2,8 +2,8 @@
 
 The filter component is a button that is used to filter the items of a list or table.
 
-<Example />
-<ReferenceLinks />
+<Example is="custom" />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

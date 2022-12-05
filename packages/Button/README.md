@@ -2,9 +2,9 @@
 
 Buttons are used primarily for user interaction.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

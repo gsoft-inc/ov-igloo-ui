@@ -16,9 +16,7 @@ export default {
   argTypes: {
     size: {
       table: { defaultValue: { summary: 'large' } },
-      control: {
-        options: ['xsmall', 'small', 'medium', 'large'],
-      },
+      options: ['xsmall', 'small', 'medium', 'large'],
     },
   },
 } as ComponentMeta<typeof Card>;

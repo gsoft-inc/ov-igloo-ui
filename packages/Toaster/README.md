@@ -2,9 +2,9 @@
 
 The Toaster component is a non-disruptive message that appears at the top of the viewport to provide quick, at-a-glance feedback on the outcome of an action.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

@@ -2,9 +2,9 @@
 
 A color can be used in place of an avatar. The background color and text color are customizable.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

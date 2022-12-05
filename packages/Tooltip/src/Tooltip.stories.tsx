@@ -20,18 +20,21 @@ export default {
     description: readme,
     chromatic: { disableSnapshot: true },
   },
+  args: {
+    children: 'Playground tooltip',
+    content: tooltipContent,
+    maxWidth: 200,
+  },
   argTypes: {
-    children: { control: 'text', defaultValue: 'Playground tooltip' },
+    children: { control: 'text' },
     content: {
       control: 'text',
-      defaultValue: tooltipContent,
     },
     position: { table: { defaultValue: { summary: 'auto' } } },
     appearance: { table: { defaultValue: { summary: 'dark' } } },
     maxWidth: {
       table: { defaultValue: { summary: 200 } },
       control: 'number',
-      defaultValue: 200,
     },
   },
   decorators: [

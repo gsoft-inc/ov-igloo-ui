@@ -2,9 +2,9 @@
 
 Breadcrumbs allow users to orient themselves in the hierarchy of the app. It also provides a way to navigate to the parent page.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

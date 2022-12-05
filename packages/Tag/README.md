@@ -2,9 +2,9 @@
 
 The Tag component informs users of the status of an object or of an action that's been taken.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 
