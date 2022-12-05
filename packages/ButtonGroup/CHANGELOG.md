@@ -1,5 +1,11 @@
 # @igloo-ui/button-group
 
+## 0.2.4
+
+### Patch Changes
+
+- 87cc070: fix error on the import statement of the component
+
 ## 0.2.3
 
 ### Patch Changes
