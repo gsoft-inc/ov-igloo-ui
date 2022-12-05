@@ -20,7 +20,7 @@ exports[`BarChart It should render a snapshot 1`] = `
         <div
           class="ids-bar-chart__graph"
           data-value="48"
-          style="width: 100%; background: rgb(251, 199, 59);"
+          style="width: 0px; background-color: rgb(251, 199, 59);"
         />
         <span
           class="ids-bar-chart__value"
@@ -43,7 +43,7 @@ exports[`BarChart It should render a snapshot 1`] = `
         <div
           class="ids-bar-chart__graph"
           data-value="46"
-          style="width: 95.83333333333333%; background: rgb(16, 83, 255);"
+          style="width: 0px; background-color: rgb(16, 83, 255);"
         />
         <span
           class="ids-bar-chart__value"
@@ -66,7 +66,7 @@ exports[`BarChart It should render a snapshot 1`] = `
         <div
           class="ids-bar-chart__graph"
           data-value="24"
-          style="width: 50%; background: rgb(231, 145, 154);"
+          style="width: 0px; background-color: rgb(231, 145, 154);"
         />
         <span
           class="ids-bar-chart__value"
@@ -89,7 +89,7 @@ exports[`BarChart It should render a snapshot 1`] = `
         <div
           class="ids-bar-chart__graph"
           data-value="0"
-          style="background: rgb(178, 221, 242);"
+          style="background-color: rgb(178, 221, 242);"
         />
         <span
           class="ids-bar-chart__value"

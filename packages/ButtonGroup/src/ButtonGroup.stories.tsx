@@ -10,7 +10,6 @@ import Section from '@components/section';
 import readme from '../README.md';
 
 import ButtonGroup, { ButtonItem } from './ButtonGroup';
-import { ButtonGroupItem } from './ButtonGroupItem.stories';
 
 export default {
   title: 'Components/ButtonGroup',
@@ -31,9 +30,9 @@ const Template: ComponentStory<any> = (args) => {
   return (
     <ButtonGroup {...args}>
       {items.map((item: any, key: number) => (
-        <ButtonGroupItem {...item} key={`item_${key}`}>
+        <ButtonItem {...item} key={`item_${key}`}>
           {item.children}
-        </ButtonGroupItem>
+        </ButtonItem>
       ))}
     </ButtonGroup>
   );

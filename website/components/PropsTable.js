@@ -7,6 +7,14 @@ import Code from './Code';
 export default function PropsTable({ data, showTitle }) {
   const { displayName, props } = data;
 
+  const rewriteDisplayName = (name) => {
+    if (name === 'ButtonGroupItem') {
+      return 'ButtonItem';
+    }
+
+    return name;
+  };
+
   const getReadableType = (type) => {
     switch (type.name) {
       case 'enum':
@@ -28,7 +36,7 @@ export default function PropsTable({ data, showTitle }) {
     <div className="io-table__wrapper">
       {showTitle && (
         <Title as="h3" level={4}>
-          {displayName}
+          {rewriteDisplayName(displayName)}
         </Title>
       )}
       <table className="io-table io-table--api">
