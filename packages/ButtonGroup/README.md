@@ -2,9 +2,9 @@
 
 ButtonGroup displays multiple related actions or options stacked in a horizontal row to help with arrangement and spacing.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

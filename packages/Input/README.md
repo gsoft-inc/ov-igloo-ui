@@ -2,9 +2,9 @@
 
 Input enable the user to interact with and used for freeform data entry.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

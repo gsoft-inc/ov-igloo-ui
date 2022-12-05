@@ -2,9 +2,9 @@
 
 Informs user that text is clipped.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

@@ -2,9 +2,9 @@
 
 An image icon used to identify a user.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

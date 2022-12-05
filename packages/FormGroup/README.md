@@ -2,9 +2,9 @@
 
 The FormGroup is a component that displays a label and an error message for a form input.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

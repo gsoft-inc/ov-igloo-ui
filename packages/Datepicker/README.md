@@ -2,9 +2,9 @@
 
 Date pickers let users choose dates from a visual calendar that’s consistently applied wherever dates need to be selected.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

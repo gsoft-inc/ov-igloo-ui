@@ -2,9 +2,9 @@
 
 Displays a sub-element overlaid and renders the content
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

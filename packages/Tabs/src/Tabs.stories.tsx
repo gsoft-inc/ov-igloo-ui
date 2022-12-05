@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import useState from 'storybook-addon-state';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -179,7 +178,7 @@ export const RedirectTab = () => {
               ),
               children: (
                 <Routes>
-                  <Route path="/home" element={<div>Home page</div>} />
+                  <Route path="*" element={<div>Home page</div>} />
                 </Routes>
               ),
             },

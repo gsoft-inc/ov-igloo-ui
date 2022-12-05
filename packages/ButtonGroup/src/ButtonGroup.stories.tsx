@@ -29,8 +29,10 @@ const Template: ComponentStory<any> = (args) => {
 
   return (
     <ButtonGroup {...args}>
-      {items.map((item: any) => (
-        <ButtonItem {...item}>{item.children}</ButtonItem>
+      {items.map((item: any, key: number) => (
+        <ButtonItem {...item} key={`item_${key}`}>
+          {item.children}
+        </ButtonItem>
       ))}
     </ButtonGroup>
   );

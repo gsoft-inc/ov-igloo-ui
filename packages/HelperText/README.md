@@ -2,9 +2,9 @@
 
 Providing additional information about a form input.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

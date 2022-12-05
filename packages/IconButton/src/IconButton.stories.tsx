@@ -27,9 +27,7 @@ export default {
   argTypes: {
     size: {
       table: { defaultValue: { summary: 'medium' } },
-      control: {
-        options: ['xsmall', 'small', 'medium', 'large'],
-      },
+      options: ['xsmall', 'small', 'medium', 'large'],
     },
     appearance: { table: { defaultValue: { summary: 'primary' } } },
     icon: { control: { type: null } },

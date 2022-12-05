@@ -2,9 +2,9 @@
 
 Use to alternate among related views within the same context.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

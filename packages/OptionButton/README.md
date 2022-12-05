@@ -2,9 +2,9 @@
 
 The option button is a component that will often be used in a group of multiple option buttons and will play a role similar to the radio buttons.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

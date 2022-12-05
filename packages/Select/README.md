@@ -2,9 +2,9 @@
 
 Select inputs let users choose one option from an options menu.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 
