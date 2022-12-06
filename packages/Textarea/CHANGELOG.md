@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.1.4
+
+### Patch Changes
+
+- 6ee9c45: Updated anything causing errors or warnings in the browser console
+
 ## 0.1.3
 
 ### Patch Changes

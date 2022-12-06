@@ -1,5 +1,14 @@
 # @igloo-ui/dialog
 
+## 0.1.3
+
+### Patch Changes
+
+- 6ee9c45: Updated anything causing errors or warnings in the browser console
+- Updated dependencies [6ee9c45]
+  - @igloo-ui/button@0.3.7
+  - @igloo-ui/modal@1.0.3
+
 ## 0.1.2
 
 ### Patch Changes

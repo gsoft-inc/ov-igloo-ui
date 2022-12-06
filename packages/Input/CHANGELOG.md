@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.0.3
+
+### Patch Changes
+
+- 6ee9c45: Updated anything causing errors or warnings in the browser console
+
 ## 2.0.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.0.1
+
+### Patch Changes
+
+- 6ee9c45: Updated anything causing errors or warnings in the browser console
+
 ## 3.0.0
 
 ### Major Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/checkbox
 
+## 0.1.7
+
+### Patch Changes
+
+- 6ee9c45: Updated anything causing errors or warnings in the browser console
+
 ## 0.1.6
 
 ### Patch Changes
