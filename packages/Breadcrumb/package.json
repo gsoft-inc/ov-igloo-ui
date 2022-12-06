@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/breadcrumb",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/Breadcrumb.js",
   "module": "dist/Breadcrumb.js",
   "types": "dist/Breadcrumb.d.ts",

@@ -1,5 +1,11 @@
 # @igloo-ui/toaster
 
+## 1.0.2
+
+### Patch Changes
+
+- 6ee9c45: Updated anything causing errors or warnings in the browser console
+
 ## 1.0.1
 
 ### Patch Changes
