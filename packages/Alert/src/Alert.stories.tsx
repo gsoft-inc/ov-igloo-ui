@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { withDesign } from 'storybook-addon-designs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import Section from '@components/section';
@@ -10,6 +11,7 @@ import Alert from './Alert';
 export default {
   title: 'Components/Alert',
   component: Alert,
+  decorators: [withDesign],
   parameters: {
     description: readme,
   },
@@ -39,6 +41,21 @@ Overview.args = {
   button: { label: 'Button', onClick: () => {} },
   type: 'info',
   onClose: () => {},
+};
+
+Overview.parameters = {
+  design: [
+    {
+      allowFullscreen: true,
+      type: 'figma',
+      url: 'https://www.figma.com/file/KXrVZlFqD8mmlxJJhL5Jhn/Igloo-Design-System-%E2%9D%84%EF%B8%8F?node-id=13531%3A54088&t=wgeXmfPntrPh6yYD-4',
+    },
+    {
+      type: 'link',
+      label: 'Open design in new tab',
+      url: 'https://www.figma.com/file/KXrVZlFqD8mmlxJJhL5Jhn/Igloo-Design-System-%E2%9D%84%EF%B8%8F?node-id=13531%3A54088&t=wgeXmfPntrPh6yYD-4',
+    },
+  ],
 };
 
 export const Types = () => (

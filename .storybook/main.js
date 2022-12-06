@@ -18,6 +18,7 @@ module.exports = {
     '@storybook/addon-a11y',
     'storybook-addon-pseudo-states',
     '@storybook/addon-interactions',
+    'storybook-addon-designs',
   ],
   features: {
     interactionsDebugger: true,
