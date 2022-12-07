@@ -2,9 +2,9 @@
 
 Use Radio components to be part of an options list where users can only make a single choice.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

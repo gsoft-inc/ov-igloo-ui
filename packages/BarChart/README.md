@@ -2,9 +2,9 @@
 
 Bar charts should be used when you are showing segments of information.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

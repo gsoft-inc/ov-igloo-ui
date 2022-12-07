@@ -2,9 +2,9 @@
 
 IconButton are used primarily for actions.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

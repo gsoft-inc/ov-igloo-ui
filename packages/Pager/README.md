@@ -2,8 +2,8 @@
 
 Pagers allow users to navigate through items of the same table or list.
 
-<Example />
-<ReferenceLinks />
+<Example is="custom" />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

@@ -1,9 +1,13 @@
 import * as React from 'react';
 import cx from 'classnames';
 
+import { useTransition, animated, easings } from 'react-spring';
+
 import './bar-chart.scss';
 
 export interface DataSet {
+  /** Add id for bar chart. */
+  id: string | number;
   /** Add label text above the bar chart. */
   label: string;
   /** The value displayed beside the bar chart. */
@@ -26,9 +30,13 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
 ) => {
   const { dataSet, className, dataTest, ...rest } = props;
 
-  if (!dataSet) {
-    return null;
-  }
+  const [animation, setAnimation] = React.useState(false);
+
+  React.useEffect(() => {
+    setAnimation(!animation);
+    const timer = setTimeout(() => setAnimation(false), 300);
+    return () => clearTimeout(timer);
+  }, []);
 
   const setWidth = (value: number): undefined | string => {
     if (!value || value === 0) {
@@ -39,28 +47,57 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
     const maxValue = Math.max(...values);
 
     const size = (value * 100) / maxValue;
+
     return `${size}%`;
   };
+  const transitions = useTransition(dataSet, {
+    from: { width: '0' },
+    enter: (item: DataSet) => [
+      {
+        width: setWidth(item.value),
+      },
+    ],
+    config: { duration: 500, easing: easings.easeInCubic },
+  });
 
-  const barChart = dataSet.map((data: DataSet) => {
-    const { label, value, color } = data;
+  if (!dataSet) {
+    return null;
+  }
 
-    return (
-      <li key={`ids-bar-chart-${value}`} className="ids-bar-chart" {...rest}>
+  const barChart = transitions(({ width }, item: DataSet) => {
+    const { label, value, color, id } = item;
+
+    const animateWidth = value > 0 ? width : undefined;
+
+    const animateList = (
+      <li key={id} className="ids-bar-chart" {...rest}>
         <span className="ids-bar-chart__label">{label}</span>
         <div className="ids-bar-chart__content">
-          <div
-            className="ids-bar-chart__graph"
-            data-value={value}
-            style={{
-              width: setWidth(value),
-              background: color,
-            }}
-          />
+          {animation ? (
+            <animated.div
+              className="ids-bar-chart__graph"
+              data-value={value}
+              style={{
+                width: animateWidth,
+                backgroundColor: color,
+              }}
+            />
+          ) : (
+            <div
+              className="ids-bar-chart__graph"
+              data-value={value}
+              style={{
+                width: setWidth(value),
+                backgroundColor: color,
+              }}
+            />
+          )}
           <span className="ids-bar-chart__value">{value}</span>
         </div>
       </li>
     );
+
+    return item ? animateList : null;
   });
 
   return (

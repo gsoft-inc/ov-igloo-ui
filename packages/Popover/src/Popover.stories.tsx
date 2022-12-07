@@ -51,8 +51,8 @@ const data = [
 
 const overviewContent = (
   <div className="isb-popover__items">
-    {data.map((d) => (
-      <div className="isb-popover__item">
+    {data.map((d, i) => (
+      <div className="isb-popover__item" key={`popover-item_${d.value}_${i}`}>
         <span
           className="isb-popover__tag"
           style={{ backgroundColor: d.tag }}

@@ -2,9 +2,9 @@
 
 ButtonGroup displays multiple related actions or options stacked in a horizontal row to help with arrangement and spacing.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 
@@ -23,10 +23,10 @@ yarn add @igloo-ui/button-group
 Then to use the component in your code just import it!
 
 ```jsx
-import ButtonGroup from '@igloo-ui/button-group';
+import ButtonGroup, { ButtonItem } from '@igloo-ui/button-group';
 
 <ButtonGroup>
-  <ButtonGroupItem>Label 1</ButtonGroupItem>
-  <ButtonGroupItem>Label 2</ButtonGroupItem>
+  <ButtonItem>Label 1</ButtonItem>
+  <ButtonItem>Label 2</ButtonItem>
 </ButtonGroup>;
 ```

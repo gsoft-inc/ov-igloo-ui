@@ -10,21 +10,25 @@ import tokens from '@igloo-ui/tokens/dist/base10/tokens.json';
 const setup = (props = {}) => {
   const mockData = [
     {
+      id: '1',
       label: 'Good vibes',
       value: 48,
       color: tokens.dandelion400,
     },
     {
+      id: '2',
       label: 'Excellence',
       value: 46,
       color: tokens.electricBlue500,
     },
     {
+      id: '3',
       label: 'Radical candor',
       value: 24,
       color: tokens.strawberryFields200,
     },
     {
+      id: '4',
       label: 'Custom cards by members',
       value: 0,
       color: tokens.sky100,

@@ -1,5 +1,14 @@
 # @igloo-ui/tag
 
+## 1.0.1
+
+### Patch Changes
+
+- 6ee9c45: Updated anything causing errors or warnings in the browser console
+- Updated dependencies [6ee9c45]
+  - @igloo-ui/ellipsis@0.1.8
+  - @igloo-ui/icon-button@0.2.13
+
 ## 1.0.0
 
 ### Major Changes

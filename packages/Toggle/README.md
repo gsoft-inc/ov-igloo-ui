@@ -2,9 +2,9 @@
 
 Toggle is a component used for binary choice for a given option.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

@@ -2,9 +2,9 @@
 
 Hyperlink are interactive elements that allow users to navigate in webpage.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

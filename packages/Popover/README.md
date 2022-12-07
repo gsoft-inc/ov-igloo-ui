@@ -2,9 +2,9 @@
 
 Popovers are small overlays that open on demand. They let users access additional content and actions without cluttering the page.
 
-  <Example />
+  <Example is="custom" />
 
-  <ReferenceLinks />
+  <ReferenceLinks is="custom" />
 
 ## Installation
 

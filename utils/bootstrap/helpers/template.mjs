@@ -95,7 +95,7 @@ export const getReadmeTemplate = (name) => {
 
   TODO: Write your component description here.
 
-  <ReferenceLinks />
+  <ReferenceLinks is="custom" />
 
   ## Installation
 

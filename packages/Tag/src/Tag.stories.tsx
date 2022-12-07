@@ -16,9 +16,7 @@ export default {
   },
   argTypes: {
     size: {
-      control: {
-        options: ['medium', 'small', 'xsmall', 'micro'],
-      },
+      options: ['medium', 'small', 'xsmall', 'micro'],
     },
     icon: { control: { type: null } },
   },

@@ -1,5 +1,23 @@
 # @igloo-ui/button-group
 
+## 0.2.5
+
+### Patch Changes
+
+- 6ee9c45: Updated anything causing errors or warnings in the browser console
+
+## 0.2.4
+
+### Patch Changes
+
+- 87cc070: fix error on the import statement of the component
+
+## 0.2.3
+
+### Patch Changes
+
+- 7fa9fe0: replace the button font with the font required for the design (Inter)
+
 ## 0.2.2
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/pager",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/Pager.js",
   "module": "dist/Pager.js",
   "types": "dist/Pager.d.ts",

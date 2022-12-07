@@ -2,9 +2,9 @@
 
 Progress bar that displays linear progress. Works best with elements that do not involve specific steps.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

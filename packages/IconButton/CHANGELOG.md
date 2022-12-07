@@ -1,5 +1,13 @@
 # @igloo-ui/icon-button
 
+## 0.2.13
+
+### Patch Changes
+
+- 6ee9c45: Updated anything causing errors or warnings in the browser console
+- Updated dependencies [6ee9c45]
+  - @igloo-ui/button@0.3.7
+
 ## 0.2.12
 
 ### Patch Changes

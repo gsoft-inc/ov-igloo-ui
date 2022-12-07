@@ -2,9 +2,9 @@
 
 The Dialog is much like the Modal component, except it is simpler. It contains a title, sub title, dismiss action and a validate action.
 
-<Example />
+<Example is="custom" />
 
-<ReferenceLinks />
+<ReferenceLinks is="custom" />
 
 ## Installation
 

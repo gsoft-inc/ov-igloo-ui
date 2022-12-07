@@ -20,9 +20,7 @@ export default {
     content: { control: 'text' },
     size: {
       table: { defaultValue: { summary: 'xsmall' } },
-      control: {
-        options: ['xsmall', 'small', 'medium', 'large'],
-      },
+      options: ['xsmall', 'small', 'medium', 'large'],
     },
   },
   decorators: [
@@ -45,8 +43,10 @@ export default {
 } as ComponentMeta<typeof Dropdown>;
 
 const List = ({ items }: { items: string[] }) => {
-  const listItem = items.map((item) => (
-    <li className="isb-list__item">{item}</li>
+  const listItem = items.map((item, key) => (
+    <li className="isb-list__item" key={`items_${key}`}>
+      {item}
+    </li>
   ));
   return <ul className="isb-list">{listItem}</ul>;
 };
