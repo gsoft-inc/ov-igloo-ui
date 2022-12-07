@@ -17,7 +17,7 @@ export default function Home() {
         </Title>
       </div>
       <section className="io-section">
-        <Title level={3} as="h2">
+        <Title className="io-section__title" level={3} as="h2">
           Resources
         </Title>
 

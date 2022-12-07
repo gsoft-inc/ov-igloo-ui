@@ -33,7 +33,7 @@ export default function Card({
   );
   return hasAction ? (
     <Link href={link}>
-      <a>{card}</a>
+      <a className="io-card__link">{card}</a>
     </Link>
   ) : (
     card
