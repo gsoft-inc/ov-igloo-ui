@@ -84,6 +84,14 @@
 .io-section {
   margin-bottom: token.$space-8;
 
+  &__title {
+
+    .io-layout & {
+      margin-bottom: 2.4rem;
+    }
+
+  }
+
   &__content {
     display: grid;
     gap: token.$space-3;
