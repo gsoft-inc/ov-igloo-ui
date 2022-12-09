@@ -2,6 +2,8 @@ name: 'Chromatic'
 
 on:
   push:
+    paths:
+      - 'packages/**'
     branches-ignore:
       - main
       - dependabot/*
