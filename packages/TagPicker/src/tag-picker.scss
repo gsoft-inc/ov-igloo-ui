@@ -1,5 +1,6 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
+@use 'mixins';
 
 :root {
   /* Default */
@@ -8,6 +9,7 @@
   --ids-tag-picker-border-radius: #{tokens.$border-radius-sm};
   --ids-tag-picker-font-family: #{tokens.$primary-font-family};
   --ids-tag-picker-font-size: #{tokens.$font-size-4};
+  --ids-tag-picker-disabled: #{tokens.$grey-250};
 
   /* Tag */
   --ids-tag-picker-tag-margin: #{tokens.$space-1};
@@ -26,9 +28,23 @@
   border-radius: var(--ids-tag-picker-border-radius);
   font-family: var(--ids-tag-picker-font-family);
   font-size: var(--ids-tag-picker-font-size);
+  overflow: auto;
+
+  @include mixins.fancy-webkit-scrollbar;
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
 
   &--focused {
     border: 1px solid var(--ids-tag-picker-border-color-focus);
+  }
+
+  &--disabled {
+    background: var(--ids-tag-picker-disabled);
+    border: 1px solid var(--ids-tag-picker-disabled);
+    cursor: not-allowed;
   }
 
   .ids-dropdown__container {

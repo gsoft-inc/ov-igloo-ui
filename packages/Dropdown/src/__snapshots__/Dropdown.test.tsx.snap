@@ -2,10 +2,7 @@
 
 exports[`Dropdown It should render without error and a snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="ids-dropdown__container"
-    data-test="dropdown1"
-  >
+  <div>
     <button>
       Settings
     </button>

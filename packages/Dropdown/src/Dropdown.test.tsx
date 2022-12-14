@@ -9,7 +9,7 @@ import Dropdown from './Dropdown';
 describe('Dropdown', () => {
   test('It should render without error and a snapshot', () => {
     const { asFragment } = render(
-      <Dropdown content="All settings" dataTest="dropdown1">
+      <Dropdown content="All settings" dataTest="dropdown1" isOpen>
         <button>Settings</button>
       </Dropdown>
     );

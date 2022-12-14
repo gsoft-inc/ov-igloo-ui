@@ -27,7 +27,6 @@ export const mockData = [
     id: '6',
     text: 'Bob Warning',
     src: 'https://cdn-stg.officevibe-dev.com/assets/avatars/avatar-1.svg',
-    isWarning: true,
   },
   {
     id: '7',

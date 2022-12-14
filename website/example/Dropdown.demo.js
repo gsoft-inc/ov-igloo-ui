@@ -6,8 +6,10 @@ const Example = () => {
   const [show, setShow] = React.useState(false);
 
   const List = ({ items }) => {
-    const listItem = items.map((item) => (
-      <li className="ex-list__item">{item}</li>
+    const listItem = items.map((item, key) => (
+      <li className="ex-list__item" key={`list-item_${key}`}>
+        {item}
+      </li>
     ));
     return <ul className="ex-list">{listItem}</ul>;
   };
