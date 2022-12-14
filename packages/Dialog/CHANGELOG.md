@@ -1,5 +1,11 @@
 # @igloo-ui/dialog
 
+## 0.1.4
+
+### Patch Changes
+
+- d1ee42f: Fix: Added an if statement on the dialog demo page so that the dialog code doesn't stick around. This will need to be updated once react-spring fixes the javascript error.
+
 ## 0.1.3
 
 ### Patch Changes
