@@ -16,15 +16,17 @@ const Example = () => {
         <Button appearance="secondary" onClick={() => setOpen(true)}>
           open
         </Button>
-        <Dialog
-          title="Dialog title"
-          subTitle="This is a sub title"
-          dismissText="Cancel"
-          validateText="Confirm"
-          isOpen={open}
-          onDismiss={() => setOpen(false)}
-          onValidate={handleValidate}
-        />
+        {open && (
+          <Dialog
+            title="Dialog title"
+            subTitle="This is a sub title"
+            dismissText="Cancel"
+            validateText="Confirm"
+            isOpen={open}
+            onDismiss={() => setOpen(false)}
+            onValidate={handleValidate}
+          />
+        )}
       </div>
     </>
   );
