@@ -3,7 +3,7 @@
 exports[`FormGroup It should render a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="ids-form-group ids-form-group--error"
+    class="ids-form-group"
   >
     <input
       class="ids-input"
