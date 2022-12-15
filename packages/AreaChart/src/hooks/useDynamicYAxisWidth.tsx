@@ -3,6 +3,7 @@ import * as React from 'react';
 // eslint-disable-next-line max-len
 const AXIS_TICK_VALUE_SELECTOR = `.recharts-cartesian-axis-tick-value[orientation="left"],
 .recharts-cartesian-axis-tick-value[orientation="right"]`;
+const DEFAULT_WIDTH = 60;
 
 type Props = {
   yAxisWidthModifier?: (width: number) => number;
@@ -16,7 +17,7 @@ type ReturnValues = {
 
 const useDynamicYAxisWidth = (props: undefined | Props): ReturnValues => {
   const { yAxisWidthModifier } = props || {};
-  const [yAxisWidthState, setYAxisWidthState] = React.useState(undefined);
+  const [yAxisWidthState, setYAxisWidthState] = React.useState(DEFAULT_WIDTH);
 
   const setChartRef = React.useCallback(
     (chartRef) => {
