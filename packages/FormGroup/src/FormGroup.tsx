@@ -40,11 +40,7 @@ const FormGroup: React.FunctionComponent<FormGroupProps> = (
     showMessage,
   } = props;
 
-  const classes = cx(
-    'ids-form-group',
-    `ids-form-group--${messageType}`,
-    className
-  );
+  const classes = cx('ids-form-group', className);
 
   return (
     <div className={classes} data-test={dataTest}>

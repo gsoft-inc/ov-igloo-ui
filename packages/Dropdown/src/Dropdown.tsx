@@ -12,22 +12,12 @@ import './dropdown.scss';
 
 export type Position =
   | 'top'
-  | 'topLeft'
-  | 'topRight'
+  | 'top-start'
+  | 'top-end'
   | 'bottom'
-  | 'bottomLeft'
-  | 'bottomRight';
+  | 'bottom-start'
+  | 'bottom-end';
 export type Size = 'xsmall' | 'small' | 'medium' | 'large';
-
-export enum Placement {
-  top = 'top',
-  topLeft = 'top-start',
-  topRight = 'top-end',
-  bottom = 'bottom',
-  bottomLeft = 'bottom-start',
-  bottomRight = 'bottom-end',
-}
-
 export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   /** The target button, text, svg etc.. of the Dropdown. */
   children: React.ReactElement;
@@ -54,7 +44,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       onClose,
       dataTest,
       isOpen = false,
-      position = 'bottomLeft',
+      position = 'bottom-start',
       ...rest
     } = props;
 
@@ -69,7 +59,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       referenceElement,
       dropdownElement,
       {
-        placement: Placement[position],
+        placement: position,
         strategy: 'fixed',
         modifiers: [
           { name: 'offset', options: { offset: [0, 1] } },

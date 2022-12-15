@@ -137,7 +137,6 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = (
       isOpen={!disabled && isOpen}
       onClose={onClose}
       content={calendar}
-      position="bottom"
       size="medium"
       dataTest={dataTest}
       {...rest}
