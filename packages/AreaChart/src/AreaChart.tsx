@@ -20,6 +20,7 @@ import * as variables from '@igloo-ui/tokens/dist/base10/tokens.json';
 
 import ChartTooltip from './ChartTooltip';
 import './area-chart.scss';
+import useDynamicYAxisWidth from './hooks/useDynamicYAxisWidth';
 
 interface DataSet {
   /** Date/time in ISO format */
@@ -187,6 +188,10 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     return ticks;
   };
 
+  const { yAxisWidth, setChartRef } = useDynamicYAxisWidth({
+    yAxisWidthModifier: (x) => x + 20,
+  });
+
   const cartesianGridConfig = {
     stroke: variables.grey200,
     strokeOpacity: 1,
@@ -228,6 +233,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     axisLine: {
       stroke: variables.grey400,
     },
+    width: yAxisWidth,
   };
 
   if (!dataSet.length) {
@@ -322,7 +328,8 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
   const areaChart = (
     <RechartsAreaChart
       data={areaChartData}
-      margin={{ right: 26, top: 10, bottom: 10, left: 26 }}
+      margin={{ right: 26, top: 10, bottom: 10, left: 0 }}
+      ref={setChartRef}
     >
       {withColoredArea && buildAreaDefs()}
       <CartesianGrid {...cartesianGridConfig} />
