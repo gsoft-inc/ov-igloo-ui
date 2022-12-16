@@ -17,3 +17,19 @@
 .ids-area-chart .recharts-tooltip-wrapper {
   outline: none;
 }
+
+.ids-area-chart-skeleton-animation {
+  animation: pulse-light 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-light {
+  0% {
+    fill: rgba(tokens.$grey-600, 0.01);
+  }
+  50% {
+    fill: rgba(tokens.$grey-600, 0.10);
+  }
+  100% {
+    fill: rgba(tokens.$grey-600, 0.01);
+  }
+}
