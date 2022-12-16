@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 0.1.2
+
+### Patch Changes
+
+- 0855a3c: The extra space ont he left of the area chart was removed
+
 ## 0.1.1
 
 ### Patch Changes
