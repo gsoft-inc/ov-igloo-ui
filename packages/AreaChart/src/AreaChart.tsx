@@ -89,7 +89,7 @@ export interface AreaChartProps extends React.ComponentProps<'div'> {
   unavailableDataMessage?: string;
   /** Whether or not to show the colored area below the line */
   withColoredArea?: boolean;
-  /** Replaces AreaChart label with a skeleton*/
+  /** Replaces AreaChart label with a skeleton */
   loading?: boolean;
 }
 

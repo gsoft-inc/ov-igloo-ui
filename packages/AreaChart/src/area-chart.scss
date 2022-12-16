@@ -24,12 +24,14 @@
 
 @keyframes pulse-light {
   0% {
-    fill: rgba(tokens.$grey-600, 0.01);
+    fill: rgb(tokens.$grey-600 0.01);
   }
+
   50% {
-    fill: rgba(tokens.$grey-600, 0.10);
+    fill: rgb(tokens.$grey-600 0.1);
   }
+
   100% {
-    fill: rgba(tokens.$grey-600, 0.01);
+    fill: rgb(tokens.$grey-600 0.01);
   }
 }
