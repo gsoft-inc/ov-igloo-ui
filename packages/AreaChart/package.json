@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/area-chart",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "main": "dist/AreaChart.js",
   "module": "dist/AreaChart.js",
   "types": "dist/AreaChart.d.ts",
