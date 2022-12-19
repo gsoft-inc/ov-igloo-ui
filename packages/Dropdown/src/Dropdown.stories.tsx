@@ -77,6 +77,5 @@ const Template: ComponentStory<typeof Dropdown> = (args) => {
 
 export const Overview = Template.bind({});
 Overview.args = {
-  position: 'bottom',
   isOpen: true,
 };

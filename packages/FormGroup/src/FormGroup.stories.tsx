@@ -19,19 +19,19 @@ export default {
 
 const Template: ComponentStory<typeof FormGroup> = (args) => (
   <FormGroup {...args}>
-    <Input type="text" placeholder="John" error={args.showError} />
+    <Input type="text" placeholder="John" error={args.showMessage} />
   </FormGroup>
 );
 
 export const Overview = Template.bind({});
 Overview.args = {
   label: 'First name',
-  errorMsg: 'This field is required',
-  showError: true,
+  message: 'This field is required',
+  showMessage: true,
 };
 
 export const Label = () => (
-  <Section>
+  <Section column>
     <FormGroup label="Last Name">
       <Input type="text" placeholder="Doe" />
     </FormGroup>
@@ -46,13 +46,38 @@ export const Error = () => {
   };
 
   return (
-    <Section>
-      <FormGroup errorMsg="Name is required" showError={hasError}>
+    <Section column>
+      <FormGroup message="Name is required" showMessage={hasError}>
         <Input
           type="text"
           placeholder="Enter your full name"
           error={hasError}
           onChange={handleOnChange}
+        />
+      </FormGroup>
+    </Section>
+  );
+};
+
+export const info = () => {
+  const [hasMessage, setHasMessage] = React.useState(false);
+
+  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setHasMessage(event?.target?.value.length >= 20);
+  };
+
+  return (
+    <Section column>
+      <FormGroup
+        message="You've reached your limit"
+        messageType="info"
+        showMessage={hasMessage}
+      >
+        <Input
+          type="text"
+          placeholder="Enter your full name"
+          onChange={handleOnChange}
+          maxLength={20}
         />
       </FormGroup>
     </Section>
@@ -93,8 +118,8 @@ export const OtherFormElements = () => {
     <Section column>
       <FormGroup
         label="Error Select"
-        errorMsg="You must select an option"
-        showError={hasSelectError}
+        message="You must select an option"
+        showMessage={hasSelectError}
       >
         <Select
           options={smallOptionList}
@@ -107,8 +132,8 @@ export const OtherFormElements = () => {
 
       <FormGroup
         label="Error Textarea"
-        errorMsg="You must enter text"
-        showError={hasTextareaError}
+        message="You must enter text"
+        showMessage={hasTextareaError}
       >
         <Textarea
           placeholder="Enter text here"

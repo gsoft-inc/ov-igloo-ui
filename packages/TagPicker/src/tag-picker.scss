@@ -1,0 +1,89 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+@use 'mixins';
+
+:root {
+  /* Default */
+  --ids-tag-picker-border-color: #{tokens.$grey-400};
+  --ids-tag-picker-border-color-focus: #{tokens.$electric-blue-500};
+  --ids-tag-picker-border-radius: #{tokens.$border-radius-sm};
+  --ids-tag-picker-font-family: #{tokens.$primary-font-family};
+  --ids-tag-picker-font-size: #{tokens.$font-size-4};
+  --ids-tag-picker-disabled: #{tokens.$grey-250};
+
+  /* Tag */
+  --ids-tag-picker-tag-margin: #{tokens.$space-1};
+
+  /* Results */
+  --ids-tag-picker-results-padding: #{tokens.$space-2} 0;
+  --ids-tag-picker-results-min-width: 24rem;
+
+  /* No Results */
+  --ids-tag-picker-no-results-padding: #{tokens.$space-2};
+  --ids-tag-picker-no-results-color: #{tokens.$grey-600};
+}
+
+.ids-tag-picker {
+  border: 1px solid var(--ids-tag-picker-border-color);
+  border-radius: var(--ids-tag-picker-border-radius);
+  font-family: var(--ids-tag-picker-font-family);
+  font-size: var(--ids-tag-picker-font-size);
+  overflow: auto;
+
+  @include mixins.fancy-webkit-scrollbar;
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+
+  &--focused {
+    border: 1px solid var(--ids-tag-picker-border-color-focus);
+  }
+
+  &--disabled {
+    background: var(--ids-tag-picker-disabled);
+    border: 1px solid var(--ids-tag-picker-disabled);
+    cursor: not-allowed;
+  }
+
+  .ids-dropdown__container {
+    display: block;
+  }
+}
+
+.ids-tag-picker__selected-results {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.ids-tag-picker__tag {
+  margin: var(--ids-tag-picker-tag-margin);
+}
+
+.ids-tag-picker__input {
+  border: none;
+
+  &:focus {
+    border: none;
+  }
+}
+
+.ids-tag-picker__results {
+  list-style: none;
+  margin: 0;
+  min-width: var(--ids-tag-picker-results-min-width);
+  padding: var(--ids-tag-picker-results-padding);
+}
+
+.ids-tag-picker__results-item {
+  display: flex;
+}
+
+.ids-tag-picker__no-results {
+  color: var(--ids-tag-picker-no-results-color);
+  min-width: var(--ids-tag-picker-results-min-width);
+  padding: var(--ids-tag-picker-no-results-padding);
+}

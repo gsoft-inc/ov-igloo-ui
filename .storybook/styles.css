@@ -89,6 +89,10 @@ body,
   background: var(--grey-200);
 }
 
+.isb-tag-picker--small-width {
+  max-width: 45rem;
+}
+
 .gv-mockup {
   display: flex;
   width: 100%;

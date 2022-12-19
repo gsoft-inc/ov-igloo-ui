@@ -1,19 +1,23 @@
 import * as React from 'react';
+import ReactDom from 'react-dom';
 import cx from 'classnames';
 
+import { usePopper } from 'react-popper';
 import { useTransition, animated } from 'react-spring';
+
+import useClickOutside from './hooks/useClickOutside';
+import useMergeRefs from './hooks/useMergeRefs';
 
 import './dropdown.scss';
 
 export type Position =
   | 'top'
-  | 'topLeft'
-  | 'topRight'
+  | 'top-start'
+  | 'top-end'
   | 'bottom'
-  | 'bottomLeft'
-  | 'bottomRight';
+  | 'bottom-start'
+  | 'bottom-end';
 export type Size = 'xsmall' | 'small' | 'medium' | 'large';
-
 export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   /** The target button, text, svg etc.. of the Dropdown. */
   children: React.ReactElement;
@@ -32,7 +36,7 @@ export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
 }
 
 const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
-  (props: DropdownProps, ref: React.Ref<HTMLDivElement>) => {
+  (props: DropdownProps, ref: React.ForwardedRef<HTMLDivElement>) => {
     const {
       children,
       content,
@@ -40,23 +44,47 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       onClose,
       dataTest,
       isOpen = false,
-      position = 'bottom',
+      position = 'bottom-start',
       ...rest
     } = props;
 
-    const initialTransform =
-      position === 'bottom' ? 'translateY(-1rem)' : 'translateY(1rem)';
+    const [referenceElement, setReferenceElement] =
+      React.useState<HTMLElement | null>(null);
+    const [dropdownElement, setDropdownElement] =
+      React.useState<HTMLElement | null>(null);
+
+    const refCallback = useMergeRefs([setDropdownElement, ref]);
+
+    const { styles, attributes, update } = usePopper(
+      referenceElement,
+      dropdownElement,
+      {
+        placement: position,
+        strategy: 'fixed',
+        modifiers: [
+          { name: 'offset', options: { offset: [0, 1] } },
+          {
+            name: 'flip',
+          },
+        ],
+      }
+    );
+
+    const initialTransform = position === 'bottom' ? '-1rem' : '1rem';
     const transition = useTransition(isOpen, {
       from: {
         opacity: 0,
-        transform: initialTransform,
+        y: initialTransform,
       },
-      enter: { opacity: 1, transform: 'translateY(0rem)' },
-      leave: { opacity: 0, transform: initialTransform },
+      enter: {
+        opacity: 1,
+        y: '0rem',
+      },
+      leave: { opacity: 0, y: initialTransform },
       config: { duration: 150 },
     });
 
-    const handleOnClose = () => {
+    const handleOnClose = (): void => {
       if (onClose) {
         onClose();
       }
@@ -67,33 +95,40 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       [`ids-dropdown--${position}`]: position !== 'bottom',
     });
 
+    const dropdownHTML = ReactDom.createPortal(
+      <>
+        {transition(
+          (animationStyles, item) =>
+            item && (
+              <animated.div
+                style={{ ...animationStyles, ...styles.popper }}
+                ref={refCallback}
+                className={dropdownClasses}
+                data-test={dataTest}
+                {...attributes.popper}
+                {...rest}
+                data-show={isOpen}
+              >
+                {content}
+              </animated.div>
+            )
+        )}
+      </>,
+      document.body
+    );
+
+    useClickOutside([referenceElement, dropdownElement], handleOnClose);
+
+    React.useEffect(() => {
+      if (update !== null && isOpen) {
+        update();
+      }
+    }, [isOpen, update]);
+
     return (
       <>
-        <div className="ids-dropdown__container" data-test={dataTest}>
-          {children}
-          {transition(
-            (styles, item) =>
-              item && (
-                <animated.div
-                  style={styles}
-                  ref={ref}
-                  className={dropdownClasses}
-                  {...rest}
-                >
-                  {content}
-                </animated.div>
-              )
-          )}
-        </div>
-        {isOpen && (
-          <div
-            role="button"
-            tabIndex={0}
-            aria-label="overlay close"
-            className="ids-dropdown__overlay"
-            onClick={handleOnClose}
-          />
-        )}
+        <div ref={setReferenceElement}>{children}</div>
+        {dropdownHTML}
       </>
     );
   }

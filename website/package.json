@@ -37,6 +37,7 @@
     "@igloo-ui/select": "*",
     "@igloo-ui/tabs": "*",
     "@igloo-ui/tag": "*",
+    "@igloo-ui/tag-picker": "*",
     "@igloo-ui/textarea": "*",
     "@igloo-ui/toaster": "*",
     "@igloo-ui/toggle": "*",
