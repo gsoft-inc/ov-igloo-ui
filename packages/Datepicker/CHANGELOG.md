@@ -1,5 +1,12 @@
 # @igloo-ui/datepicker
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [9b9ec61]
+  - @igloo-ui/dropdown@1.0.0
+
 ## 0.0.3
 
 ### Patch Changes

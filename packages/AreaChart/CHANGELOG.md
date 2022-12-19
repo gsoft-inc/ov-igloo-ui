@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 0.2.0
+
+### Minor Changes
+
+- c4eb19a: add a loading state
+
 ## 0.1.2
 
 ### Patch Changes

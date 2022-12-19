@@ -1,5 +1,11 @@
 # @igloo-ui/tag
 
+## 1.0.2
+
+### Patch Changes
+
+- 9b9ec61: Initial release of the tag picker and a small color change for the dismiss button in the tag component.
+
 ## 1.0.1
 
 ### Patch Changes
