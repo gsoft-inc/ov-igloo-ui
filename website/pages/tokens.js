@@ -87,7 +87,10 @@ export default function Tokens(props) {
           <p>
             To install <Code inline>@igloo-ui/tokens</Code> in your project, you
             will need to run the following command using{' '}
-            <a href="npmjs.org" target="_blank">
+            <a
+              href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm"
+              target="_blank"
+            >
               npm:
             </a>
           </p>
@@ -99,7 +102,17 @@ export default function Tokens(props) {
           </Title>
           <p>In Sass, you can import the files by doing:</p>
           <Code language="jsx">
-            {`// Fonts${'\n'}@import '@igloo-ui/tokens/dist/_fonts.scss';${'\n'}// SCSS${'\n'}@import '@igloo-ui/tokens/dist/_variables.scss';${'\n'}// CSS${'\n'}@import '@igloo-ui/tokens/dist/_colors.scss';${'\n'}`}
+            {`// CSS${'\n'}@import '@igloo-ui/tokens/dist/variables.css';${'\n'}// SCSS${'\n'}@import '@igloo-ui/tokens/dist/_variables.scss';${'\n'}`}
+          </Code>
+          <Title level={3} as="h3">
+            Fonts
+          </Title>
+          <p>
+            To use the fonts it is important to import them into the global{' '}
+            <Code inline>.css</Code> file of your application:
+          </p>
+          <Code language="jsx">
+            {`// Fonts${'\n'}@import '@igloo-ui/tokens/dist/fonts.css';`}
           </Code>
           <Title level={3} as="h3">
             Base 10 support

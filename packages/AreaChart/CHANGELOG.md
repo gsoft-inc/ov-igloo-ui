@@ -1,5 +1,17 @@
 # @igloo-ui/area-chart
 
+## 0.2.0
+
+### Minor Changes
+
+- c4eb19a: add a loading state
+
+## 0.1.2
+
+### Patch Changes
+
+- 0855a3c: The extra space ont he left of the area chart was removed
+
 ## 0.1.1
 
 ### Patch Changes

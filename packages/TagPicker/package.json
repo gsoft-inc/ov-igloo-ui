@@ -1,10 +1,10 @@
 {
-  "name": "@igloo-ui/area-chart",
-  "version": "0.2.0",
-  "main": "dist/AreaChart.js",
-  "module": "dist/AreaChart.js",
-  "types": "dist/AreaChart.d.ts",
-  "styles": "dist/area-chart.css",
+  "name": "@igloo-ui/tag-picker",
+  "version": "0.1.0",
+  "main": "dist/TagPicker.js",
+  "module": "dist/TagPicker.js",
+  "types": "dist/TagPicker.d.ts",
+  "styles": "dist/tag-picker.css",
   "publishConfig": {
     "access": "public"
   },
@@ -24,13 +24,15 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
+    "@igloo-ui/dropdown": "^1.0.0",
+    "@igloo-ui/input": "^2.0.2",
+    "@igloo-ui/tag": "^1.0.2",
     "@igloo-ui/tokens": "^2.0.0",
     "classnames": "^2.3.2",
-    "luxon": "^3.0.4",
-    "recharts": "^2.1.15"
+    "react-aria": "^3.21.0"
   },
   "devDependencies": {
-    "@types/recharts": "^1.8.23"
+    "@igloo-ui/form-group": "^1.0.0"
   },
   "browserslist": [
     "> 1%",

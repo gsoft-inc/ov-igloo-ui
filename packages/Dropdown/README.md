@@ -31,7 +31,9 @@ import Button from '@igloo-ui/button';
 const [show, setShow] = React.useState(false);
 
 function List() {
-  const listItem = items.map((item) => <li>{item}</li>);
+  const listItem = items.map((item, key) => (
+    <li key={`list-item_${key}`}>{item}</li>
+  ));
   return <ul>{listItem}</ul>;
 }
 

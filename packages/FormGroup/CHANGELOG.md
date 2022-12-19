@@ -1,5 +1,11 @@
 # @igloo-ui/form-group
 
+## 1.0.0
+
+### Major Changes
+
+- 9b9ec61: Changed some props of form group to allow different types of messages to be added and not just errors
+
 ## 0.1.3
 
 ### Patch Changes

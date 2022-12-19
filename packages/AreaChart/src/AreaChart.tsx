@@ -20,6 +20,7 @@ import * as variables from '@igloo-ui/tokens/dist/base10/tokens.json';
 
 import ChartTooltip from './ChartTooltip';
 import './area-chart.scss';
+import useDynamicYAxisWidth from './hooks/useDynamicYAxisWidth';
 
 interface DataSet {
   /** Date/time in ISO format */
@@ -88,6 +89,8 @@ export interface AreaChartProps extends React.ComponentProps<'div'> {
   unavailableDataMessage?: string;
   /** Whether or not to show the colored area below the line */
   withColoredArea?: boolean;
+  /** Replaces AreaChart label with a skeleton */
+  loading?: boolean;
 }
 
 const AreaChart: React.FunctionComponent<AreaChartProps> = (
@@ -98,6 +101,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     dataSet,
     dataTest,
     dateRange,
+    loading = false,
     isResponsive = true,
     range = { max: 'auto', min: 0 },
     scoreFormatter,
@@ -107,6 +111,45 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
   } = props;
 
   const TICK_LIMIT = 7;
+  const DEFAULT_SKELETON_WIDTH = 24;
+  const DEFAULT_SKELETON_HEIGHT = 8;
+
+  const SkeletonAxisTick = ({
+    x,
+    y,
+    className,
+    payload,
+    skeletonWidth = DEFAULT_SKELETON_WIDTH,
+    skeletonHeight = DEFAULT_SKELETON_HEIGHT,
+  }: {
+    x?: number;
+    y?: number;
+    className?: string;
+    payload?: { offset: number };
+    skeletonWidth?: number;
+    skeletonHeight?: number;
+  }) => {
+    let positionX;
+    let positionY;
+
+    if (x && y && payload) {
+      positionX = x - skeletonWidth / 2 + payload.offset / 2;
+      positionY = y - skeletonHeight / 2 + payload.offset / 2;
+    }
+
+    return (
+      <g>
+        <rect
+          x={positionX}
+          y={positionY}
+          className={cx('ids-area-chart-skeleton-animation', className)}
+          width={skeletonWidth}
+          height={skeletonHeight}
+          rx="4"
+        />
+      </g>
+    );
+  };
 
   const classes = cx('ids-area-chart', className);
 
@@ -184,8 +227,22 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
       );
     }
 
+    if (range && range.min === 'auto' && range.max === 'auto') {
+      ticks = [1, 2, 3, 4, 5];
+    }
+
     return ticks;
   };
+
+  const { yAxisWidth, setChartRef } = useDynamicYAxisWidth({
+    yAxisWidthModifier: (x) => {
+      let width = x;
+      if (loading) {
+        width = DEFAULT_SKELETON_WIDTH;
+      }
+      return width + 20;
+    },
+  });
 
   const cartesianGridConfig = {
     stroke: variables.grey200,
@@ -228,10 +285,17 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     axisLine: {
       stroke: variables.grey400,
     },
+    width: yAxisWidth,
   };
 
   if (!dataSet.length) {
     yAxisConfig.ticks = geYtTicks();
+  }
+
+  if (loading) {
+    yAxisConfig.ticks = geYtTicks();
+    yAxisConfig.tick = <SkeletonAxisTick />;
+    xAxisConfig.tick = <SkeletonAxisTick skeletonWidth={32} />;
   }
 
   const dotConfig: DotProps = {
@@ -322,13 +386,14 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
   const areaChart = (
     <RechartsAreaChart
       data={areaChartData}
-      margin={{ right: 26, top: 10, bottom: 10, left: 26 }}
+      margin={{ right: 26, top: 10, bottom: 10, left: 0 }}
+      ref={setChartRef}
     >
       {withColoredArea && buildAreaDefs()}
       <CartesianGrid {...cartesianGridConfig} />
       <XAxis {...xAxisConfig} />
       <YAxis {...yAxisConfig} />
-      {dataSet.length ? (
+      {dataSet.length && !loading ? (
         <Area {...areaConfig} />
       ) : (
         <>
@@ -338,7 +403,9 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
             {...onlyUnavailableDataConfig}
             label={unavailableDataMessage}
           />
-          <Area {...unavailableDataConfig} strokeLinecap="round" />
+          {!loading && (
+            <Area {...unavailableDataConfig} strokeLinecap="round" />
+          )}
         </>
       )}
       {dataSet.length ? (

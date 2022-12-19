@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/dropdown",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "main": "dist/Dropdown.js",
   "module": "dist/Dropdown.js",
   "types": "dist/Dropdown.d.ts",
@@ -28,6 +28,10 @@
     "classnames": "^2.3.2",
     "react-aria": "^3.21.0",
     "react-spring": "^9.5.5",
+    "react-popper": "^2.3.0",
+    "@types/react-dom": "17.0.13"
+  },
+  "devDependencies": {
     "@react-spring/types": "^9.5.5"
   },
   "browserslist": [

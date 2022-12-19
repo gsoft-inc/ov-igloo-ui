@@ -37,8 +37,8 @@ describe('FormGroup', () => {
   test('It should render an error', () => {
     setup({
       ...defaultProps,
-      errorMsg: 'I am an error',
-      showError: true,
+      message: 'I am an error',
+      showMessage: true,
     });
     const wrapper = screen.getByText('I am an error');
     expect(wrapper).toBeInTheDocument();
