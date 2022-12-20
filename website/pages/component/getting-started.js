@@ -193,14 +193,15 @@ export default function GettingStarted(props) {
                       <strong>docs</strong>: Modifications to the documentation
                     </li>
                     <li>
-                      <strong>feat</strong>: For new component or new feature
+                      <strong>feat</strong>: For a new component or a new
+                      feature
                     </li>
                     <li>
                       <strong>fix</strong>: Bug fix
                     </li>
                     <li>
                       <strong>refactor</strong>: Changes to the code base that
-                      don't fix a bug or add feature
+                      do not fix a bug or add a feature
                     </li>
                     <li>
                       <strong>test</strong>: Add missing tests or fix existing
@@ -225,9 +226,7 @@ export default function GettingStarted(props) {
                   <p>
                     Documentation:&nbsp;
                     <a href="https://github.com/lerna/lerna" target="_blank">
-                      GitHub - lerna/lerna: Lerna is a fast, modern build system
-                      for managing and publishing multiple JavaScript/TypeScript
-                      packages from the same repository.
+                      GitHub - Lerna
                     </a>
                   </p>
                 </section>
