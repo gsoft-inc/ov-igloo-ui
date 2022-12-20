@@ -2,6 +2,7 @@ export const link = {
   TOKENS: '/tokens',
   ICONS: '/icons',
   COMPONENTS: '/component',
+  GETTING_STARTED: '/component/getting-started',
   STORYBOOK: '/storybook',
 };
 

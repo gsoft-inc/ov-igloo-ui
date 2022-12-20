@@ -16,6 +16,7 @@ import { generateDoc } from '../../scripts/generate-doc';
 
 import Title from '../../components/Title';
 import Code from '../../components/Code';
+import Aside from '../../components/ComponentAside';
 import PropsTable from '../../components/PropsTable';
 import Pagination from '../../components/Pagination';
 import ReferenceLinks from '../../components/ReferenceLinks';
@@ -64,18 +65,7 @@ export default function DocPage(props) {
         <title>{component} - Igloo</title>
       </Head>
       <div className="io-section io-section--grid io-section--hasAside">
-        <div className="io-aside">
-          <div className="io-subnav">
-            <div className="io-subnav__title">Components</div>
-            <ul className="io-subnav__list">
-              {components.map((item, index) => (
-                <li className="io-subnav__item" key={index.toString()}>
-                  <a href={`/component/${item}`}>{item}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <Aside components={components} />
         <div className="io-doc io-mdx">
           <section className="io-section io-mdx__content">
             {empty ? (
