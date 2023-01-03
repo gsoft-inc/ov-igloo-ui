@@ -45,10 +45,6 @@
     display: flex;
     align-items: center;
     gap: var(--ids-bar-chart-content-gap);
-
-    &:not(:first-child) {
-      margin-top: calc(var(--ids-bar-chart-content-gap) / 2);
-    }
   }
 
   &__graph {

@@ -30,11 +30,10 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
 ) => {
   const { dataSet, className, dataTest, ...rest } = props;
 
-  const [animation, setAnimation] = React.useState(false);
+  const [animation, setAnimation] = React.useState(true);
 
   React.useEffect(() => {
-    setAnimation(!animation);
-    const timer = setTimeout(() => setAnimation(false), 300);
+    const timer = setTimeout(() => setAnimation(false), 600);
     return () => clearTimeout(timer);
   }, []);
 
