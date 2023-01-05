@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.0.2
+
+### Patch Changes
+
+- a3e8f88: Updated the variables used for the light theme of the tooltip
+
 ## 3.0.1
 
 ### Patch Changes
