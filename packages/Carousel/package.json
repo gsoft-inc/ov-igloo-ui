@@ -1,0 +1,39 @@
+{
+  "name": "@igloo-ui/carousel",
+  "version": "0.0.0",
+  "main": "dist/Carousel.js",
+  "module": "dist/Carousel.js",
+  "types": "dist/Carousel.d.ts",
+  "styles": "dist/carousel.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "author": "Officevibe Inc.",
+  "contributors": [
+    "Vicky Comeau vicky.comeau@gsoft.com"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.js"
+  },
+  "dependencies": {
+    "@igloo-ui/tokens": "^2.0.0",
+    "classnames": "^2.3.2"
+  },
+  "devDependencies": {
+    "@igloo-ui/button": "^0.3.7",
+    "@react-spring/types": "^9.5.5"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE >= 11"
+  ]
+}
