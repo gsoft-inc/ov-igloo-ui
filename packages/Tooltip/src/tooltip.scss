@@ -84,8 +84,8 @@
   }
 
   &--light {
-    --ids-tooltip-text: var(--grey-800);
-    --ids-tooltip-background: var(--samoyed);
-    --ids-tooltip-shadow: var(--shadow-12);
+    --ids-tooltip-text: #{tokens.$grey-800};
+    --ids-tooltip-background: #{tokens.$samoyed};
+    --ids-tooltip-shadow: #{tokens.$shadow-12};
   }
 }
