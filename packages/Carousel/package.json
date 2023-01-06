@@ -28,8 +28,7 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@igloo-ui/button": "^0.3.7",
-    "@react-spring/types": "^9.5.5"
+    "@igloo-ui/button": "^0.3.7"
   },
   "browserslist": [
     "> 1%",
