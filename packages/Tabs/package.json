@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/tabs",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "dist/Tabs.js",
   "module": "dist/Tabs.js",
   "types": "dist/Tabs.d.ts",
