@@ -219,7 +219,6 @@ Overview.args = {
   },
   scoreFormatter: nFormatter,
   range: { min: 'auto', max: 'auto' },
-  loading: false,
 };
 
 export const OneWeek = () => {
