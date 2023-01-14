@@ -19,11 +19,11 @@
 }
 
 .ids-area-chart-skeleton-animation {
-  animation: ids-pulse-light 1.5s infinite ease-in-out;
+  animation: pulse-light 1.5s infinite ease-in-out;
 }
 
 /* stylelint-disable */
-@keyframes ids-pulse-light {
+@keyframes pulse-light {
   0% {
     fill: rgb(tokens.$grey-600, 0.01);
   }
