@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 0.3.0
+
+### Minor Changes
+
+- 1b4cf68: Added a locale prop to be able to change languages
+
 ## 0.2.1
 
 ### Patch Changes
