@@ -30,20 +30,8 @@ import Carousel from '@igloo-ui/carousel';
 
 const SLIDE_NUM = 3;
 const [selected, setSelected] = React.useState(0);
-const [secondaryActionText, setSecondaryActionText] = React.useState('Cancel');
-const [primaryActionText, setPrimaryActionText] = React.useState('Next');
 
 const handlePageChange = (index) => {
-  if (index < SLIDE_NUM - 1) {
-    setPrimaryActionText('Next');
-  } else {
-    setPrimaryActionText('Done');
-  }
-  if (index > 0) {
-    setSecondaryActionText('Prev');
-  } else {
-    setSecondaryActionText('Cancel');
-  }
   setSelected(index);
 };
 
@@ -64,12 +52,12 @@ const handleSecondaryActionClick = () => {
   currentSlide={selected}
   primaryAction={
     <Button appearance={'primary'} onClick={handlePrimaryActionClick}>
-      {primaryActionText}
+      {selected < SLIDE_NUM - 1 ? 'Next' : 'Done'}
     </Button>
   }
   secondaryAction={
     <Button appearance={'ghost'} onClick={handleSecondaryActionClick}>
-      {secondaryActionText}
+      {selected > 0 ? 'Prev' : 'Cancel'}
     </Button>
   }
 >
