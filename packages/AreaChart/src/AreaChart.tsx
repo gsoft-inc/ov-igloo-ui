@@ -121,6 +121,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     payload,
     skeletonWidth = DEFAULT_SKELETON_WIDTH,
     skeletonHeight = DEFAULT_SKELETON_HEIGHT,
+    orientation,
   }: {
     x?: number;
     y?: number;
@@ -128,12 +129,17 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     payload?: { offset: number };
     skeletonWidth?: number;
     skeletonHeight?: number;
+    orientation?: string;
   }) => {
     let positionX;
     let positionY;
 
     if (x && y && payload) {
-      positionX = x - skeletonWidth / 2 + payload.offset / 2;
+      const positionBottomCenter = x - skeletonWidth / 2 + payload.offset / 2;
+      const positionLeft = x - skeletonWidth;
+
+      positionX =
+        orientation === 'bottom' ? positionBottomCenter : positionLeft;
       positionY = y - skeletonHeight / 2 + payload.offset / 2;
     }
 
@@ -235,13 +241,8 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
   };
 
   const { yAxisWidth, setChartRef } = useDynamicYAxisWidth({
-    yAxisWidthModifier: (x) => {
-      let width = x;
-      if (loading) {
-        width = DEFAULT_SKELETON_WIDTH;
-      }
-      return width + 20;
-    },
+    yAxisWidthModifier: (x) => x + 20,
+    loading,
   });
 
   const cartesianGridConfig = {
@@ -370,12 +371,14 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
       });
     } else {
       const dates = getTicks();
-      updatedAreaChartData = dates.map((date) => {
-        return {
-          dateTimeStamp: date,
-          score: 0,
-        };
-      });
+      updatedAreaChartData = dates
+        .map((date) => {
+          return {
+            dateTimeStamp: date,
+            score: 0,
+          };
+        })
+        .reverse();
     }
 
     setAreaChartData(updatedAreaChartData);
