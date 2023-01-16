@@ -1,5 +1,14 @@
 # @igloo-ui/area-chart
 
+## 0.2.1
+
+### Patch Changes
+
+- 93dd0cb: fix(AreaChart): Issues with loading and empty state
+  - rename the css animation to avoid conflicts
+  - update y-axis size when the loading state disappeared
+  - change the orientation of animation for empty state
+
 ## 0.2.0
 
 ### Minor Changes
