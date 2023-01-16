@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 0.1.4
+
+### Patch Changes
+
+- 3e60150: fix(Tabs): update the space between the label and the blue bar.
+
 ## 0.1.3
 
 ### Patch Changes
