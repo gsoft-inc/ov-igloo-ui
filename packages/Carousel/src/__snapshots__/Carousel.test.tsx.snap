@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel It should render a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ids-carousel"
+    data-test="ids-carousel"
+  >
+    <div
+      class="ids-carousel__slides"
+    >
+      <div
+        class="ids-carousel__slide"
+      >
+        <div
+          style="background: pink; padding: 4rem;"
+        >
+          Slide 1
+        </div>
+      </div>
+    </div>
+    <div
+      class="ids-carousel__nav-bar"
+    >
+      <div
+        class="ids-carousel__action-wrapper"
+      />
+      <div
+        class="ids-carousel__bullet-list"
+      >
+        <button
+          aria-label="Page 0"
+          class="ids-carousel__bullet ids-carousel__bullet--active"
+          title="Page 0"
+        />
+        <button
+          aria-label="Page 1"
+          class="ids-carousel__bullet"
+          title="Page 1"
+        />
+        <button
+          aria-label="Page 2"
+          class="ids-carousel__bullet"
+          title="Page 2"
+        />
+      </div>
+      <div
+        class="ids-carousel__action-wrapper"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -16,6 +16,7 @@ const withTM = require('next-transpile-modules')([
   '@igloo-ui/button',
   '@igloo-ui/button-group',
   '@igloo-ui/card',
+  '@igloo-ui/carousel',
   '@igloo-ui/checkbox',
   '@igloo-ui/ellipsis',
   '@igloo-ui/helper-text',
