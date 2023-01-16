@@ -8,10 +8,6 @@
   - rename the css animation to avoid conflicts
   - update y-axis size when the loading state disappeared
   - change the orientation of animation for empty state
-- ab63307: fix(AreaChart): Issues with loading and empty state
-  - rename the css animation to avoid conflicts
-  - update y-axis size when the loading state disappeared
-  - change the orientation of animation for empty state
 
 ## 0.2.0
 
