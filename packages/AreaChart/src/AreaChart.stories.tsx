@@ -300,3 +300,18 @@ export const Loading = () => {
     />
   );
 };
+
+export const Locale = () => {
+  return (
+    <AreaChart
+      range={{ min: 'auto', max: 'auto' }}
+      scoreFormatter={nFormatter}
+      dateRange={{
+        start: '2022-10-01',
+        end: '2022-10-07',
+      }}
+      dataSet={weekDataset}
+      locale="fr"
+    />
+  );
+};

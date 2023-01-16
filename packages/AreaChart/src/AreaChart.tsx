@@ -1,6 +1,6 @@
 import * as React from 'react';
 import cx from 'classnames';
-import { DateTime } from 'luxon';
+import { DateTime, Settings } from 'luxon';
 import {
   AreaChart as RechartsAreaChart,
   Area,
@@ -77,6 +77,8 @@ export interface AreaChartProps extends React.ComponentProps<'div'> {
   dateRange: DateTimeRange;
   /** Whether or not the chart should resize */
   isResponsive?: boolean;
+  /** Update the default locale */
+  locale?: string;
   /** The min and max value of the y axis
    * (Possible values: number, 'auto', 'dataMin' or 'dataMax')
    */
@@ -103,6 +105,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     dateRange,
     loading = false,
     isResponsive = true,
+    locale = 'en',
     range = { max: 'auto', min: 0 },
     scoreFormatter,
     tooltipScoreFormatter,
@@ -113,6 +116,8 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
   const TICK_LIMIT = 7;
   const DEFAULT_SKELETON_WIDTH = 24;
   const DEFAULT_SKELETON_HEIGHT = 8;
+
+  Settings.defaultLocale = locale;
 
   const SkeletonAxisTick = ({
     x,
@@ -130,7 +135,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     skeletonWidth?: number;
     skeletonHeight?: number;
     orientation?: string;
-  }) => {
+  }): React.ReactElement => {
     let positionX;
     let positionY;
 
