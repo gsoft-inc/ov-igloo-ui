@@ -5,7 +5,7 @@
   /* Default */
   --ids-tabs-font-family: #{tokens.$primary-font-family};
   --ids-tabs-font-size: #{tokens.$font-size-4};
-  --ids-tabs-margin: #{tokens.$space-0} #{tokens.$space-0} #{tokens.$space-3};
+  --ids-tabs-margin: #{tokens.$space-0} #{tokens.$space-0} 2rem;
 
   /* Tab */
   --ids-tab-button-padding: #{tokens.$space-2};
@@ -15,9 +15,9 @@
   --ids-tab-button-color: #{tokens.$grey-600};
   --ids-tab-button-hover-color: #{tokens.$electric-blue-500};
   --ids-tab-button-active-color: #{tokens.$electric-blue-500};
-  --ids-tab-button-after-bottom: #{tokens.$space-2};
   --ids-tab-button-after-horizontal-space: #{tokens.$space-2};
   --ids-tab-button-after-height: calc(#{tokens.$space-1} / 2);
+  --ids-tab-button-after-bottom: calc(#{tokens.$space-2} - var(--ids-tab-button-after-height));
   --ids-tab-button-after-background: #{tokens.$electric-blue-500};
 
   /* Icons */
@@ -31,7 +31,7 @@
 
   /* Tab */
   --ids-inline-tab-button-padding: calc(#{tokens.$space-1} + #{tokens.$space-2}) #{tokens.$space-3};
-  --ids-inline-tab-button-after-bottom: #{tokens.$space-0};
+  --ids-inline-tab-button-after-bottom: -#{tokens.$space-1};
   --ids-inline-tab-button-after-height: #{tokens.$space-1};
   --ids-inline-tab-button-after-horizontal-space: #{tokens.$space-0};
 }
@@ -70,6 +70,7 @@
   color: var(--ids-tab-button-color);
   cursor: pointer;
   display: flex;
+  font-family: var(--ids-tabs-font-family);
   font-size: var(--ids-tab-button-font-size);
   font-weight: var(--ids-tab-button-font-weight);
   line-height: var(--ids-tab-button-line-height);

@@ -219,6 +219,7 @@ Overview.args = {
   },
   scoreFormatter: nFormatter,
   range: { min: 'auto', max: 'auto' },
+  loading: false,
 };
 
 export const OneWeek = () => {
@@ -296,6 +297,21 @@ export const Loading = () => {
       }}
       range={{ min: 0, max: 5 }}
       dataSet={[]}
+    />
+  );
+};
+
+export const Locale = () => {
+  return (
+    <AreaChart
+      range={{ min: 'auto', max: 'auto' }}
+      scoreFormatter={nFormatter}
+      dateRange={{
+        start: '2022-10-01',
+        end: '2022-10-07',
+      }}
+      dataSet={weekDataset}
+      locale="fr"
     />
   );
 };
