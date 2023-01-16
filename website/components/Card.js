@@ -32,8 +32,8 @@ export default function Card({
     </div>
   );
   return hasAction ? (
-    <Link href={link}>
-      <a className="io-card__link">{card}</a>
+    <Link href={link} className="io-card__link">
+      {card}
     </Link>
   ) : (
     card
