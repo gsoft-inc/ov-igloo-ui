@@ -18,6 +18,7 @@
     "@igloo-ui/button": "*",
     "@igloo-ui/button-group": "*",
     "@igloo-ui/card": "*",
+    "@igloo-ui/carousel": "*",
     "@igloo-ui/checkbox": "*",
     "@igloo-ui/color": "*",
     "@igloo-ui/dialog": "*",
