@@ -36,7 +36,7 @@
     "website"
   ],
   "devDependencies": {
-    "@babel/core": "7.17.5",
+    "@babel/core": "7.20.12",
     "@babel/preset-env": "7.16.11",
     "@babel/preset-react": "7.16.7",
     "@babel/preset-typescript": "7.16.7",
@@ -85,6 +85,7 @@
     "jest": "27.5.1",
     "lerna": "6.0.3",
     "lint-staged": "12.3.4",
+    "next": "^13.1.2",
     "pascalcase": "2.0.0",
     "postcss": "8.4.5",
     "postcss-flexbugs-fixes": "5.0.2",
