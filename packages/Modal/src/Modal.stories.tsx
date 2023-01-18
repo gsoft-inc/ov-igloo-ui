@@ -135,6 +135,134 @@ export const Example = () => {
   );
 };
 
+export const FullContent = () => {
+  const [show, setShow] = useState(false);
+
+  return (
+    <Section>
+      <Button appearance="secondary" onClick={() => setShow(true)}>
+        open
+      </Button>
+      <Modal
+        isDismissable
+        fullContent
+        size="xlarge"
+        isOpen={show}
+        onClose={() => setShow(false)}
+      >
+        <Mockup />
+      </Modal>
+    </Section>
+  );
+};
+
+export const Buttons = () => {
+  const [show, setShow] = useState(false);
+
+  const handlePrimaryActionClick = () => {
+    setShow(false);
+  };
+
+  const handleSecondaryActionClick = () => {
+    setShow(false);
+  };
+
+  return (
+    <Section>
+      <Button appearance="secondary" onClick={() => setShow(true)}>
+        open
+      </Button>
+      <Modal
+        isClosable
+        isDismissable
+        title="I'm a modal with buttons"
+        size="xlarge"
+        isOpen={show}
+        onClose={() => setShow(false)}
+        primaryAction={
+          <Button appearance={'primary'} onClick={handlePrimaryActionClick}>
+            Done
+          </Button>
+        }
+        secondaryAction={
+          <Button appearance={'secondary'} onClick={handleSecondaryActionClick}>
+            Cancel
+          </Button>
+        }
+      >
+        <p>Static content</p>
+      </Modal>
+    </Section>
+  );
+};
+
+export const Steps = () => {
+  const [show, setShow] = useState(false);
+  const SLIDE_NUM = 3;
+  const [selected, setSelected] = React.useState(0);
+
+  const handlePageChange = (index: number) => {
+    setSelected(index);
+  };
+
+  const handlePrimaryActionClick = () => {
+    if (selected < SLIDE_NUM - 1) {
+      handlePageChange(selected + 1);
+    } else {
+      setShow(false);
+    }
+  };
+
+  const handleSecondaryActionClick = () => {
+    if (selected > 0) {
+      handlePageChange(selected - 1);
+    } else {
+      setShow(false);
+    }
+  };
+
+  return (
+    <Section>
+      <Button appearance="secondary" onClick={() => setShow(true)}>
+        open
+      </Button>
+      <Modal
+        isClosable
+        isDismissable
+        title="I'm a modal with steps"
+        size="xlarge"
+        isOpen={show}
+        onClose={() => setShow(false)}
+        primaryAction={
+          <Button appearance={'primary'} onClick={handlePrimaryActionClick}>
+            {selected < SLIDE_NUM - 1 ? 'Next' : 'Done'}
+          </Button>
+        }
+        secondaryAction={
+          <Button appearance={'secondary'} onClick={handleSecondaryActionClick}>
+            {selected > 0 ? 'Prev' : 'Cancel'}
+          </Button>
+        }
+        carousel={{
+          currentSlide: selected,
+          onPageChange: handlePageChange,
+          slides: [
+            <div style={{ background: 'pink', padding: '4rem' }}>Slide 1</div>,
+            <div style={{ background: 'lightBlue', padding: '4rem' }}>
+              Slide 2
+            </div>,
+            <div style={{ background: 'lightGreen', padding: '4rem' }}>
+              Slide 3
+            </div>,
+          ],
+        }}
+      >
+        <p>Static content</p>
+      </Modal>
+    </Section>
+  );
+};
+
 // Chromatic configuration
 Sizes.bind({});
 Sizes.parameters = {
@@ -143,5 +271,20 @@ Sizes.parameters = {
 
 Example.bind({});
 Example.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+FullContent.bind({});
+FullContent.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+Buttons.bind({});
+Buttons.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+Steps.bind({});
+Steps.parameters = {
   chromatic: { disableSnapshot: true },
 };

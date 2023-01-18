@@ -17,8 +17,10 @@
   /* Actions */
   --ids-carousel-action-basis: #{tokens.$space-7};
   --ids-carousel-action-margin: #{tokens.$space-2};
-  --ids-carousel-secondary-action-color: #{tokens.$grey-600};
-  --ids-carousel-secondary-action-color-hover: #{tokens.$grey-900};
+
+  /* Needed to add a 0.1px blur to fix a bug where
+    chrome would have a lingering blue line when focusing in and out */
+  --ids-carousel-action-focus: 0 0 0 2px #fff, 0 0 0.1px 3.5px #0c46d0;
 }
 
 .ids-carousel {
@@ -116,12 +118,28 @@
 }
 
 .ids-carousel__action-wrapper .ids-carousel__secondary-action {
-  color: var(--ids-carousel-secondary-action-color);
   margin: var(--ids-carousel-action-margin);
 
-  &:hover,
-  &:focus {
-    color: var(--ids-carousel-secondary-action-color-hover);
+  &:focus:not(.ids-btn--loading) {
+    box-shadow: var(--ids-carousel-action-focus);
+    outline: none;
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  @media (min-width: #{tokens.$breakpoints-sm}) {
+    border: none;
+    padding: 0;
+
+    &:hover {
+      border: none;
+    }
+
+    &:focus:not(.ids-btn--loading) {
+      border: none;
+    }
   }
 }
 

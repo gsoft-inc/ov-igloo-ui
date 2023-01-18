@@ -33,7 +33,7 @@ const Example = () => {
           </Button>
         }
         secondaryAction={
-          <Button appearance={'ghost'} onClick={handleSecondaryActionClick}>
+          <Button appearance={'secondary'} onClick={handleSecondaryActionClick}>
             {selected > 0 ? 'Prev' : 'Cancel'}
           </Button>
         }

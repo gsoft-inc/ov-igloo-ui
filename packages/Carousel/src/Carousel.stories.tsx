@@ -25,6 +25,9 @@ const Template: ComponentStory<typeof Carousel> = (args) => {
   };
 
   const handlePrimaryActionClick = () => {
+    {
+      ('secondary');
+    }
     if (selected < SLIDE_NUM - 1) {
       handlePageChange(selected + 1);
     }
@@ -47,7 +50,7 @@ const Template: ComponentStory<typeof Carousel> = (args) => {
         </Button>
       }
       secondaryAction={
-        <Button appearance={'ghost'} onClick={handleSecondaryActionClick}>
+        <Button appearance={'secondary'} onClick={handleSecondaryActionClick}>
           {selected > 0 ? 'Prev' : 'Cancel'}
         </Button>
       }
