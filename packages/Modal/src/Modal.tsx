@@ -21,7 +21,7 @@ import { OneOrMore } from '@react-spring/types';
 import IconButton from '@igloo-ui/icon-button';
 import Close from '@igloo-ui/icons/dist/Close';
 import ChevronLeft from '@igloo-ui/icons/dist/ChevronLeft';
-import Carousel from '@igloo-ui/Carousel';
+import Carousel from '@igloo-ui/carousel';
 
 import './modal.scss';
 
