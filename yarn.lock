@@ -15482,7 +15482,7 @@ next-mdx-remote@^4.0.2:
     vfile "^5.3.0"
     vfile-matter "^3.0.1"
 
-next@13.1.2:
+next@^13.1.0:
   version "13.1.2"
   resolved "https://registry.yarnpkg.com/next/-/next-13.1.2.tgz#4105b0cf238bb2f58d5e12dbded8cabb9785f2d9"
   integrity sha512-Rdnnb2YH///w78FEOR/IQ6TXga+qpth4OqFSem48ng1PYYKr6XBsIk1XVaRcIGM3o6iiHnun0nJvkJHDf+ICyQ==
