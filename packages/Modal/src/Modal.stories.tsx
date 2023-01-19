@@ -135,7 +135,7 @@ export const Example = () => {
   );
 };
 
-export const FullContent = () => {
+export const NoTitleAndNotClosable = () => {
   const [show, setShow] = useState(false);
 
   return (
@@ -274,8 +274,8 @@ Example.parameters = {
   chromatic: { disableSnapshot: true },
 };
 
-FullContent.bind({});
-FullContent.parameters = {
+NoTitleAndNotClosable.bind({});
+NoTitleAndNotClosable.parameters = {
   chromatic: { disableSnapshot: true },
 };
 

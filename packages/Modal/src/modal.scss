@@ -28,6 +28,7 @@
   --ids-modal-close-margin: #{tokens.$space-0} #{tokens.$space-0} #{tokens.$space-0} #{tokens.$space-3};
   --ids-modal-overlay: rgb(25 34 47 / 50%);
   --ids-modal-overlay-index: #{tokens.$z-index-100};
+  --ids-modal-full-content-display: block;
   --ids-modal-full-content-close-spacing: #{tokens.$space-3};
   --ids-modal-footer-margin: #{tokens.$space-2} -#{tokens.$space-2} -#{tokens.$space-2};
   --ids-modal-footer-action-margin: #{tokens.$space-2};
@@ -60,6 +61,7 @@
     --ids-modal-padding: #{tokens.$space-4};
     --ids-modal-safe-area: #{tokens.$space-3};
     --ids-modal-full-content-padding: #{tokens.$space-3};
+    --ids-modal-full-content-display: none;
   }
 }
 
@@ -137,7 +139,9 @@
   }
 
   .ids-modal--full-content & {
-    --ids-modal-header-padding: #{tokens.$space-0};
+    @media (min-width: #{tokens.$breakpoints-sm}) {
+      --ids-modal-header-padding: #{tokens.$space-0};
+    }
   }
 
   &::before {
@@ -165,7 +169,7 @@
   margin: 0;
 
   .ids-modal--full-content & {
-    display: none;
+    display: var(--ids-modal-full-content-display);
   }
 }
 
@@ -174,9 +178,11 @@
   align-self: var(--ids-modal-close-align, initial);
 
   .ids-modal--full-content & {
-    position: absolute;
-    right: var(--ids-modal-full-content-close-spacing);
-    top: var(--ids-modal-full-content-close-spacing);
+    @media (min-width: #{tokens.$breakpoints-sm}) {
+      position: absolute;
+      right: var(--ids-modal-full-content-close-spacing);
+      top: var(--ids-modal-full-content-close-spacing);
+    }
   }
 }
 

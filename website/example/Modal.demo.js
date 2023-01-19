@@ -28,6 +28,7 @@ const Example = () => {
       {open && (
         <Modal
           fullContent
+          title="John Doe"
           isOpen={open}
           isDismissable
           isClosable
