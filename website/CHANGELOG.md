@@ -1,5 +1,11 @@
 # docs
 
+## 0.1.1
+
+### Patch Changes
+
+- 6401299: Chore/upgrade nextjs to v13
+
 ## 0.1.0
 
 ### Minor Changes
