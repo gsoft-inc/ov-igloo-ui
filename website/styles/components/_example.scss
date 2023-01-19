@@ -51,6 +51,9 @@
 }
 
 //Special style for the example of Modal
+.ids-modal.ex-modal {
+  z-index: 1000;
+}
 .ex-modal {
   &__header {
     display: flex;
@@ -125,10 +128,10 @@
 
 // Special style for the dropdown list
 .ex-list {
-    list-style: none;
-    margin: 0;
-    padding: 0.8rem 0;
-    min-width: 20rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.8rem 0;
+  min-width: 20rem;
 
   &__item {
     padding: 0.8rem 1.6rem;
