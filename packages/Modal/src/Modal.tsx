@@ -33,7 +33,7 @@ export interface CarouselInterface {
   /** Event called when the page is changed */
   onPageChange?: (index: number) => void;
   /** Contains the list of slides */
-  slides: Array<React.ReactNode>;
+  slides: React.ReactNode[];
 }
 
 export interface ModalProps extends OverlayProps, AriaDialogProps {

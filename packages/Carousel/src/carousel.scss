@@ -119,10 +119,10 @@
 
 .ids-carousel__action-wrapper .ids-carousel__secondary-action {
   margin: var(--ids-carousel-action-margin);
+  outline: none;
 
   &:focus:not(.ids-btn--loading) {
     box-shadow: var(--ids-carousel-action-focus);
-    outline: none;
   }
 
   &:focus:not(:focus-visible) {
@@ -133,10 +133,13 @@
     border: none;
     padding: 0;
 
-    &:hover {
-      border: none;
+    &:active {
+      background: none;
     }
 
+    &:hover,
+    &:active,
+    &:hover:active,
     &:focus:not(.ids-btn--loading) {
       border: none;
     }

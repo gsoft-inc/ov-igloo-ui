@@ -156,7 +156,7 @@ export const NoTitleAndNotClosable = () => {
   );
 };
 
-export const Buttons = () => {
+export const WithActions = () => {
   const [show, setShow] = useState(false);
 
   const handlePrimaryActionClick = () => {
@@ -196,7 +196,7 @@ export const Buttons = () => {
   );
 };
 
-export const Steps = () => {
+export const WithSteps = () => {
   const [show, setShow] = useState(false);
   const SLIDE_NUM = 3;
   const [selected, setSelected] = React.useState(0);
@@ -279,12 +279,12 @@ NoTitleAndNotClosable.parameters = {
   chromatic: { disableSnapshot: true },
 };
 
-Buttons.bind({});
-Buttons.parameters = {
+WithActions.bind({});
+WithActions.parameters = {
   chromatic: { disableSnapshot: true },
 };
 
-Steps.bind({});
-Steps.parameters = {
+WithSteps.bind({});
+WithSteps.parameters = {
   chromatic: { disableSnapshot: true },
 };
