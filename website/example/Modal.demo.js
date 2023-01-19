@@ -7,7 +7,6 @@ import HelperText from '@igloo-ui/helper-text';
 import Modal from '@igloo-ui/modal';
 
 import SettingsSolid from '@igloo-ui/icons/dist/SettingsSolid';
-import Close from '@igloo-ui/icons/dist/Close';
 
 const Example = () => {
   const [open, setOpen] = useState(false);
@@ -35,6 +34,7 @@ const Example = () => {
           isClosable
           size="large"
           onClose={() => setOpen(!open)}
+          className="ex-modal"
         >
           <>
             <header className="ex-modal__header">
@@ -42,12 +42,6 @@ const Example = () => {
                 <div className="ex-modal__avatar" />
                 <h2>John Doe</h2>
               </div>
-              <IconButton
-                appearance="ghost"
-                size="small"
-                icon={<Close />}
-                onClick={() => setOpen(!open)}
-              />
             </header>
             <h4>Your personal info</h4>
             <form className="ex-modal__form">

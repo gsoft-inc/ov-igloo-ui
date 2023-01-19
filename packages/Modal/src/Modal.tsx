@@ -20,10 +20,21 @@ import { OneOrMore } from '@react-spring/types';
 
 import IconButton from '@igloo-ui/icon-button';
 import Close from '@igloo-ui/icons/dist/Close';
+import ChevronLeft from '@igloo-ui/icons/dist/ChevronLeft';
+import Carousel from '@igloo-ui/carousel';
 
 import './modal.scss';
 
 export type Size = 'small' | 'medium' | 'large' | 'xlarge';
+
+export interface CarouselInterface {
+  /** The current slide number starting at 0 */
+  currentSlide?: number;
+  /** Event called when the page is changed */
+  onPageChange?: (index: number) => void;
+  /** Contains the list of slides */
+  slides: React.ReactNode[];
+}
 
 export interface ModalProps extends OverlayProps, AriaDialogProps {
   /** The content to display inside the modal */
@@ -50,6 +61,12 @@ export interface ModalProps extends OverlayProps, AriaDialogProps {
   closeBtnAriaLabel?: string;
   /** Remove the default padding and the title from the modal */
   fullContent?: boolean;
+  /** The button displayed on the right */
+  primaryAction?: React.ReactElement;
+  /** The secondary button displayed on the left */
+  secondaryAction?: React.ReactElement;
+  /** The object to build the carousel inside the modal */
+  carousel?: CarouselInterface;
 }
 
 const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
@@ -66,7 +83,18 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     fullContent,
     size = 'small',
     isOpen,
+    primaryAction,
+    secondaryAction,
+    carousel,
   } = props;
+
+  const displayBackBtn =
+    carousel && carousel.currentSlide && carousel.currentSlide > 0;
+  const handleOnPageChange = (index: number): void => {
+    if (carousel?.onPageChange && index >= 0) {
+      carousel?.onPageChange(index);
+    }
+  };
 
   const ref = React.useRef<HTMLDivElement>(null);
   const { overlayProps, underlayProps } = useOverlay(
@@ -117,6 +145,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     [`ids-modal--${size}`]: size !== 'small',
     'ids-modal--full-content': fullContent,
     'ids-modal--with-header': isClosable || title !== undefined,
+    'ids-modal--with-close': isClosable,
   });
 
   const modal = (
@@ -145,9 +174,28 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
               <div
                 className={cx(
                   'ids-modal__header',
-                  !isClosable && 'ids-modal__header--with-action'
+                  !isClosable && 'ids-modal__header--with-action',
+                  {
+                    'ids-modal__header--with-back-btn': displayBackBtn,
+                  }
                 )}
               >
+                {displayBackBtn ? (
+                  <IconButton
+                    size="small"
+                    className="ids-modal__back"
+                    onClick={() => {
+                      if (carousel && carousel.currentSlide) {
+                        handleOnPageChange(carousel.currentSlide - 1);
+                      }
+                    }}
+                    appearance="ghost"
+                    icon={<ChevronLeft size="medium" />}
+                  />
+                ) : (
+                  <></>
+                )}
+
                 {title && <h5 className="ids-modal__title">{title}</h5>}
 
                 <IconButton
@@ -159,7 +207,43 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
                   icon={<Close />}
                 />
               </div>
-              <div className="ids-modal__content">{children}</div>
+              <div className="ids-modal__content">
+                {children}
+
+                {carousel && (
+                  <Carousel
+                    onPageChange={carousel.onPageChange}
+                    currentSlide={carousel.currentSlide}
+                    primaryAction={primaryAction}
+                    secondaryAction={secondaryAction}
+                    className="ids-modal__carousel"
+                  >
+                    {carousel.slides.map((slide, index) => {
+                      return (
+                        <div
+                          key={`slide_${index.toString()}`}
+                          className="ids-modal__carousel-slide"
+                        >
+                          {slide}
+                        </div>
+                      );
+                    })}
+                  </Carousel>
+                )}
+
+                {(primaryAction || secondaryAction) && !carousel && (
+                  <div className="ids-modal__footer">
+                    {secondaryAction &&
+                      React.cloneElement(secondaryAction, {
+                        className: 'ids-modal__footer-action',
+                      })}
+                    {primaryAction &&
+                      React.cloneElement(primaryAction, {
+                        className: 'ids-modal__footer-action',
+                      })}
+                  </div>
+                )}
+              </div>
             </animated.div>
           )
       )}
