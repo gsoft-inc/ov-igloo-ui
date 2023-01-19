@@ -3,10 +3,8 @@ import Image from 'next/image';
 
 export default function Header({ children, links, brand }) {
   const brandLink = (
-    <Link href="/">
-      <a className="io-link-icon io-link-brand" href="/">
-        <Image src={brand} />
-      </a>
+    <Link href="/" className="io-link-icon io-link-brand">
+      <Image src={brand} alt="Igloo branding" />
     </Link>
   );
 
@@ -16,7 +14,7 @@ export default function Header({ children, links, brand }) {
         return (
           <li key={index.toString()} className="io-nav__item">
             <a className="io-link-icon" href={link.href} target="_blank">
-              <Image src={link.icon} layout="" />
+              <Image src={link.icon} />
               <span className="is-hidden">{link.label}</span>
             </a>
           </li>

@@ -39,11 +39,11 @@ export default function ReferenceLinks({ component, version }) {
         <li className="reference__item">
           <Link
             href={`/storybook/?path=/docs/components-${component.toLowerCase()}--overview`}
+            className="reference__link"
+            target="_blank"
           >
-            <a className="reference__link" target="_blank">
-              <Image width={16} height={16} src={storybook} />
-              Storybook
-            </a>
+            <Image width={16} height={16} src={storybook} />
+            Storybook
           </Link>
         </li>
       </ul>

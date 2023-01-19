@@ -8,15 +8,12 @@ export default function Nav({ items }) {
 
   const navList = items.map((item, index) => {
     const navItem = (
-      <Link key={index.toString()} href={item.link}>
-        <a
-          className={cx(
-            'io-nav__link',
-            cx(asPath === item.link && 'is-active')
-          )}
-        >
-          {item.label}
-        </a>
+      <Link
+        key={index.toString()}
+        href={item.link}
+        className={cx('io-nav__link', cx(asPath === item.link && 'is-active'))}
+      >
+        {item.label}
       </Link>
     );
 

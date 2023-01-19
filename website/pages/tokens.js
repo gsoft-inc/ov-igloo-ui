@@ -52,10 +52,11 @@ export default function Tokens(props) {
   const tokensNav = categories.map((category, index) => {
     return (
       <li className="io-subnav__item" key={index.toString()}>
-        <Link href={`/tokens#${category}`}>
-          <a className={cx(activeLink === `#${category}` && 'is-active')}>
-            {category}
-          </a>
+        <Link
+          className={cx(activeLink === `#${category}` && 'is-active')}
+          href={`/tokens#${category}`}
+        >
+          {category}
         </Link>
       </li>
     );
