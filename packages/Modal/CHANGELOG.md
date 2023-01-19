@@ -1,5 +1,16 @@
 # @igloo-ui/modal
 
+## 1.1.0
+
+### Minor Changes
+
+- 386e7cd: Reduced the padding for the modal and dialog components. Also added steps and buttons to the modal. The carousel just had a minor style update on the secondary button.
+
+### Patch Changes
+
+- Updated dependencies [386e7cd]
+  - @igloo-ui/carousel@0.1.1
+
 ## 1.0.3
 
 ### Patch Changes
