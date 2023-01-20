@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/modal",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "main": "dist/Modal.js",
   "module": "dist/Modal.js",
   "types": "dist/Modal.d.ts",
@@ -28,7 +28,7 @@
     "@igloo-ui/icon-button": "^0.2.13",
     "@igloo-ui/icons": "^1.6.0",
     "@igloo-ui/tokens": "^2.0.0",
-    "@igloo-ui/carousel": "^0.1.0",
+    "@igloo-ui/carousel": "^0.1.1",
     "@react-aria/dialog": "^3.4.1",
     "@react-aria/overlays": "^3.12.0",
     "@react-types/dialog": "3.4.5",
