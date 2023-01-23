@@ -177,7 +177,10 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
 
   const formatSpecialMonth = (date: DateTime) => {
     if (date.locale !== 'en') {
-      return date.toFormat('d MMM');
+      return date.toLocaleString({
+        month: 'short',
+        day: 'numeric',
+      });
     }
 
     const { month } = date;
