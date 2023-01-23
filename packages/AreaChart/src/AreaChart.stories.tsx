@@ -269,6 +269,45 @@ export const ScoreAutoRange = () => {
   );
 };
 
+export const Locale = () => {
+  return (
+    <AreaChart
+      range={{ min: 'auto', max: 'auto' }}
+      scoreFormatter={nFormatter}
+      dateRange={{
+        start: '2022-10-01',
+        end: '2022-10-07',
+      }}
+      dataSet={weekDataset}
+      locale="fr"
+    />
+  );
+};
+
+export const Last7Days = () => {
+  return (
+    <AreaChart
+      range={{ min: 'auto', max: 'auto' }}
+      scoreFormatter={nFormatter}
+      dateRange={{
+        start: '2022-10-01',
+        end: '2022-10-08',
+      }}
+      dataSet={[
+        ...weekDataset,
+        {
+          dateTimeStamp: '2022-10-08',
+          score: 61897,
+          name: 'sent',
+          secondaryName: 'sent',
+        },
+      ]}
+      xAxisTickCount={8}
+      locale="en"
+    />
+  );
+};
+
 export const EmptyData = () => {
   return (
     <Section column>
@@ -297,21 +336,6 @@ export const Loading = () => {
       }}
       range={{ min: 0, max: 5 }}
       dataSet={[]}
-    />
-  );
-};
-
-export const Locale = () => {
-  return (
-    <AreaChart
-      range={{ min: 'auto', max: 'auto' }}
-      scoreFormatter={nFormatter}
-      dateRange={{
-        start: '2022-10-01',
-        end: '2022-10-07',
-      }}
-      dataSet={weekDataset}
-      locale="fr"
     />
   );
 };
