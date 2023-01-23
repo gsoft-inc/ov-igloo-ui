@@ -180,7 +180,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
       return date.toFormat('MMM d');
     }
 
-    const month = date.month;
+    const { month } = date;
     let monthString = '';
     switch (month) {
       case 5:
