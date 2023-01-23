@@ -14,6 +14,12 @@ export default {
     description: readme,
     chromatic: { delay: 1000 },
   },
+  argTypes: {
+    locale: {
+      control: 'select',
+      options: ['fr', 'en'],
+    },
+  },
 } as ComponentMeta<typeof AreaChart>;
 
 const nFormatter = (num: number): string => {
@@ -219,6 +225,7 @@ Overview.args = {
   },
   scoreFormatter: nFormatter,
   range: { min: 'auto', max: 'auto' },
+  locale: 'en',
   loading: false,
 };
 
