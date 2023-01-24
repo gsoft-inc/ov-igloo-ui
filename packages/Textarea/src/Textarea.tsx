@@ -103,6 +103,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = (
         onChange={handleOnChange}
         onKeyDown={handleKeyDown}
         value={value}
+        disabled={disabled}
         {...rest}
       />
 
