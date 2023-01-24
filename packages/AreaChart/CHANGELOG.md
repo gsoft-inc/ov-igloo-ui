@@ -1,5 +1,12 @@
 # @igloo-ui/area-chart
 
+## 0.4.0
+
+### Minor Changes
+
+- 77e4f12: Added special month formatting for May, June, July for English locale only in function formatSpecialMonth
+  Added new props for setting the maximum elements of the x-axis
+
 ## 0.3.0
 
 ### Minor Changes
