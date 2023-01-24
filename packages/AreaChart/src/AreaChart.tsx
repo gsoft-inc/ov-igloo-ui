@@ -79,11 +79,13 @@ export interface AreaChartProps extends React.ComponentProps<'div'> {
   isResponsive?: boolean;
   /** Update the default locale */
   locale?: string;
-  /** The min and max value of the y axis
+  /** The min and max value of the y-axis
    * (Possible values: number, 'auto', 'dataMin' or 'dataMax')
    */
   range?: DataRange;
-  /** The formatter function for the y axis */
+  /** The maximum elements of the x-axis */
+  xAxisTickCount?: number;
+  /** The formatter function for the y-axis */
   scoreFormatter?: (score: number) => string;
   /** The formatter function for the score on the tooltip */
   tooltipScoreFormatter?: (score: number) => string;
@@ -107,13 +109,13 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
     isResponsive = true,
     locale = 'en',
     range = { max: 'auto', min: 0 },
+    xAxisTickCount = 7,
     scoreFormatter,
     tooltipScoreFormatter,
     unavailableDataMessage,
     withColoredArea = true,
   } = props;
 
-  const TICK_LIMIT = 7;
   const DEFAULT_SKELETON_WIDTH = 24;
   const DEFAULT_SKELETON_HEIGHT = 8;
 
@@ -173,11 +175,38 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
 
   const [areaChartData, setAreaChartData] = React.useState<AreaChartData[]>();
 
+  const formatSpecialMonth = (date: DateTime) => {
+    if (date.locale !== 'en') {
+      return date.toLocaleString({
+        month: 'short',
+        day: 'numeric',
+      });
+    }
+
+    const { month } = date;
+    let monthString = '';
+    switch (month) {
+      case 5:
+        monthString = 'May';
+        break;
+      case 6:
+        monthString = 'June';
+        break;
+      case 7:
+        monthString = 'July';
+        break;
+      case 9:
+        monthString = 'Sept.';
+        break;
+      default:
+        monthString = date.toFormat('MMM.');
+    }
+    return `${monthString} ${date.day}`;
+  };
+
   const dateFormatter = (date: number): string => {
-    return DateTime.fromMillis(date).toLocaleString({
-      month: 'short',
-      day: 'numeric',
-    });
+    const newDatefromMillis = DateTime.fromMillis(date);
+    return formatSpecialMonth(newDatefromMillis);
   };
 
   const tooltipDateFormatter = (date: number): string => {
@@ -206,7 +235,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
 
   const getTicks = (): number[] => {
     const numberOfDays = endDate.diff(startDate, ['days']).days + 1;
-    const numberOfTicks = getNumberOfTicks(numberOfDays, TICK_LIMIT);
+    const numberOfTicks = getNumberOfTicks(numberOfDays, xAxisTickCount);
     const ticksArr = [];
     const daysBetween = Math.ceil(numberOfDays / numberOfTicks);
     let currentDate = endDate;

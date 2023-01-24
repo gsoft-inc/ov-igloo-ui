@@ -21,7 +21,6 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  viewMode: 'docs',
   previewTabs: {
     canvas: { title: 'Playground' },
   },
