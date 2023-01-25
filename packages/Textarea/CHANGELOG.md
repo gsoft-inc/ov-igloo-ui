@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.1.5
+
+### Patch Changes
+
+- f47833b: Textarea - added disabled prop to the actual textarea
+
 ## 0.1.4
 
 ### Patch Changes
