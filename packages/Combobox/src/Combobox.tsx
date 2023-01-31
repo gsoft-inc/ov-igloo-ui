@@ -3,12 +3,11 @@ import cx from 'classnames';
 import useResizeObserver from '@react-hook/resize-observer';
 
 import Dropdown from '@igloo-ui/dropdown';
-import List, { OptionType } from '@igloo-ui/list';
+import List, { OptionType, Option } from '@igloo-ui/list';
 
-import SelectInput from './SelectInput';
-import SelectValue from './SelectValue';
+import ComboboxInput from './ComboboxInput';
 
-import './select.scss';
+import './combobox.scss';
 
 export enum Keys {
   Enter = 'Enter',
@@ -21,7 +20,7 @@ export enum Keys {
 
 export type FocusDirection = 'first' | 'last' | 'up' | 'down';
 
-export interface SelectProps {
+export interface ComboboxProps {
   /** Set this to true and the dropdown will take the width of its content,
    * not the width of the select. */
   autoWidth?: boolean;
@@ -29,6 +28,10 @@ export interface SelectProps {
   children?: React.ReactNode;
   /** Add a specific class to the Select. */
   className?: string;
+  /** If true, it clears any selected option */
+  clear?: boolean;
+  /** The tooltip text for the clear button */
+  clearTooltipText?: string;
   /** Add a data-test tag for automated tests. */
   dataTest?: string;
   /** Disable the Select so the user cannot click on it. */
@@ -39,31 +42,45 @@ export interface SelectProps {
   isCompact?: boolean;
   /** True if the option list is displayed. */
   isOpen?: boolean;
+  /** The select gains checkboxes beside each option
+   * to be able to select multiple options */
+  multiselect?: boolean;
+  /** Specify the text to display when there are no results found */
+  noResultsText?: string;
   /** Callback when selected content changes. */
   onChange?: (option: OptionType | undefined) => void;
   /** List of available options. */
   options: OptionType[];
+  /** Whether or not to display a search box when open */
+  search?: boolean;
   /** The initial selected option. */
   selectedOption?: OptionType;
 }
 
-const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
+const Combobox: React.FunctionComponent<ComboboxProps> = (
+  props: ComboboxProps
+) => {
   const {
     autoWidth = false,
     children,
     className,
+    clear,
+    clearTooltipText,
     dataTest,
     disabled = false,
     error,
     isCompact = false,
     isOpen = false,
+    noResultsText = 'No Results',
     onChange,
     options,
+    search,
     selectedOption,
     ...rest
   } = props;
 
-  const selectRef = React.useRef<HTMLDivElement>(null);
+  const comboboxRef = React.useRef<HTMLDivElement>(null);
+  const searchInputRef = React.useRef<HTMLInputElement>(null);
   const [currentFocusedOption, setCurrentFocusedOption] =
     React.useState(selectedOption);
   const [currentSelectedOption, setCurrentSelectedOption] =
@@ -71,10 +88,21 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
   const [showMenu, setShowMenu] = React.useState(isOpen);
   const [results, setResults] = React.useState<OptionType[]>(options);
 
-  const [selectRect, setSelectRect] = React.useState<DOMRectReadOnly>();
-  useResizeObserver(selectRef, (entry) => {
-    setSelectRect(entry.contentRect);
+  const [comboboxRect, setComboboxRect] = React.useState<DOMRectReadOnly>();
+  useResizeObserver(comboboxRef, (entry) => {
+    setComboboxRect(entry.contentRect);
   });
+
+  // Setting state is asynchronous so these actions
+  // absolutely need to happen when the menu is either fully closed or open.
+  React.useEffect(() => {
+    if (showMenu) {
+      // Opening menu actions
+      if (searchInputRef && searchInputRef.current) {
+        searchInputRef.current.focus();
+      }
+    }
+  }, [options, showMenu]);
 
   const optionText = (option: OptionType | undefined): string | undefined => {
     if (option?.type === 'member') {
@@ -93,8 +121,13 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
   const toggleMenu = (isOpen: boolean, keepFocus = false): void => {
     const DROPDOWN_ANIMATION_DURATION = 150;
     if (isOpen) {
-      if (keepFocus && selectRef && selectRef.current) {
-        selectRef.current.focus();
+      // Closing menu actions
+      if (searchInputRef && searchInputRef.current) {
+        searchInputRef.current.value = '';
+      }
+
+      if (keepFocus && comboboxRef && comboboxRef.current) {
+        comboboxRef.current.focus();
       }
 
       setTimeout(() => setResults(options), DROPDOWN_ANIMATION_DURATION);
@@ -227,42 +260,53 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
     toggleMenu(showMenu, keepFocus);
   };
 
-  const listItemResults = results.map((option: OptionType) => {
-    const isSelected = option.value === currentSelectedOption?.value ?? false;
-    const isFocused = option.value === currentFocusedOption?.value ?? false;
+  const handleSearch = (searchTerm: string): void => {
+    const filteredOptions = options.filter((option: OptionType) => {
+      return optionText(option)
+        ?.toString()
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+    });
+    setResults(filteredOptions);
 
-    const listItem = {
-      ...option,
-      onClick: () => selectOption(option),
-      onHover: () => hoverOption(option),
-      selected: isSelected,
-      focused: isFocused,
-    };
+    if (currentFocusedOption) {
+      const isFocusedVisible =
+        filteredOptions.indexOf(currentFocusedOption) >= 0;
+      if (!isFocusedVisible) {
+        setCurrentFocusedOption(undefined);
+      }
+    }
+  };
 
-    return listItem;
-  });
+  const handleClear = (): void => {
+    if (showMenu) {
+      toggleMenu(showMenu);
+    }
+    setCurrentSelectedOption(undefined);
+    setCurrentFocusedOption(undefined);
+  };
 
   const canShowMenu = showMenu && !disabled;
 
-  const selectClassname = cx('ids-select', className, {
-    'ids-select--active': canShowMenu,
-    'ids-select--compact': isCompact,
-    'ids-select--disabled': disabled,
-    'ids-select--error': error,
+  const comboboxClassname = cx('ids-combobox', className, {
+    'ids-combobox--active': canShowMenu,
+    'ids-combobox--compact': isCompact,
+    'ids-combobox--disabled': disabled,
+    'ids-combobox--error': error,
   });
 
-  const selectDropdownClassname = cx(
-    'ids-select__dropdown',
+  const comboboxDropdownClassname = cx(
+    'ids-combobox__dropdown',
     `${className}__dropdown`,
     {
-      'ids-select__dropdown--compact': isCompact,
+      'ids-combobox__dropdown--compact': isCompact,
     }
   );
 
   return (
     <div
-      ref={selectRef}
-      className={selectClassname}
+      ref={comboboxRef}
+      className={comboboxClassname}
       data-test={dataTest}
       onClick={handleOnClick}
       onKeyDown={handleOnKeyDown}
@@ -271,10 +315,11 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
       {...rest}
     >
       <Dropdown
-        key="selectDropdown"
+        key="comboboxDropdown"
         content={
           <List
-            options={listItemResults}
+            options={results}
+            noResultsText={noResultsText}
             isCompact
             onOptionHover={hoverOption}
             onOptionSelect={selectOption}
@@ -283,23 +328,27 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
           />
         }
         isOpen={canShowMenu}
-        style={{ width: autoWidth ? '' : selectRect?.width }}
-        className={selectDropdownClassname}
+        style={{ width: autoWidth ? '' : comboboxRect?.width }}
+        className={comboboxDropdownClassname}
       >
-        <SelectInput isOpen={canShowMenu}>
-          <SelectValue
-            disabled={disabled}
-            icon={currentSelectedOption?.icon}
-            isCompact={isCompact}
-            isPlaceholder={!currentSelectedOption}
-            label={optionText(currentSelectedOption) || children}
-            src={currentSelectedOption?.src}
-            color={currentSelectedOption?.color}
-          />
-        </SelectInput>
+        <ComboboxInput
+          isOpen={canShowMenu}
+          search={search}
+          onSearch={handleSearch}
+          searchRef={searchInputRef}
+          clear={clear}
+          onClear={handleClear}
+          clearTooltipText={clearTooltipText}
+          disabled={disabled}
+          icon={currentSelectedOption?.icon}
+          isPlaceholder={!currentSelectedOption}
+          label={optionText(currentSelectedOption) || children}
+          src={currentSelectedOption?.src}
+          color={currentSelectedOption?.color}
+        />
       </Dropdown>
     </div>
   );
 };
 
-export default Select;
+export default Combobox;

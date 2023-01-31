@@ -8,13 +8,13 @@ import Happiness from '@igloo-ui/icons/dist/Happiness';
 import { Option, OptionType } from '@igloo-ui/list';
 
 import Section from '@components/section';
-import readme from '../../Select/README.md';
+import readme from '../../Combobox/README.md';
 
-import Select from './Select';
+import Combobox from './Combobox';
 
 export default {
-  title: 'Components/Select',
-  component: Select,
+  title: 'Components/Combobox',
+  component: Combobox,
   parameters: {
     description: readme,
   },
@@ -29,13 +29,9 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Select>;
+} as ComponentMeta<typeof Combobox>;
 
-const selectPlaceholder = 'ex: Lorem ipsum dolor';
-
-const largeDisplay = {
-  height: 230,
-};
+const comboboxPlaceholder = 'ex: Lorem ipsum dolor';
 
 const handleOnChange = (option: OptionType | undefined): void => {
   const item = option as Option;
@@ -89,20 +85,20 @@ const largeOptionList: Option[] = [
     type: 'list',
     label: 'Text 5',
     value: '5',
-    src: 'https://i.pravatar.cc/100',
   },
   {
     type: 'list',
     label: 'Text 6',
     value: '6',
-    icon: <Happiness size="small" />,
   },
 ];
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: ComponentStory<typeof Combobox> = (args) => (
+  <Combobox {...args} />
+);
 export const Overview = Template.bind({});
 Overview.args = {
-  children: selectPlaceholder,
+  children: comboboxPlaceholder,
   options: smallOptionList,
 };
 Overview.play = async ({ canvasElement }) => {
@@ -116,50 +112,76 @@ Overview.play = async ({ canvasElement }) => {
 
 export const Sizes = () => (
   <Section column>
-    <Select options={smallOptionList} onChange={handleOnChange}>
+    <Combobox options={smallOptionList} onChange={handleOnChange}>
       Default
-    </Select>
-    <Select
+    </Combobox>
+    <Combobox
       options={smallOptionList}
       onChange={handleOnChange}
       isCompact={true}
     >
       Compact
-    </Select>
+    </Combobox>
   </Section>
 );
 
 export const States = () => (
   <Section column>
-    <Select options={smallOptionList} onChange={handleOnChange} disabled={true}>
+    <Combobox
+      options={smallOptionList}
+      onChange={handleOnChange}
+      disabled={true}
+    >
       Disabled
-    </Select>
-    <Select
+    </Combobox>
+    <Combobox
       options={smallOptionList}
       onChange={handleOnChange}
       className={'active'}
     >
       Active / Focus
-    </Select>
-    <Select options={smallOptionList} onChange={handleOnChange} error={true}>
+    </Combobox>
+    <Combobox options={smallOptionList} onChange={handleOnChange} error={true}>
       Error
-    </Select>
+    </Combobox>
   </Section>
 );
 
 export const LargeOptionNumber = () => (
-  <Section style={largeDisplay}>
-    <Select options={largeOptionList} onChange={handleOnChange}>
+  <Section column>
+    <Combobox options={largeOptionList} onChange={handleOnChange}>
       Place holder text
-    </Select>
+    </Combobox>
+  </Section>
+);
+
+export const Search = () => (
+  <Section column>
+    <Combobox options={largeOptionList} onChange={handleOnChange} search={true}>
+      Place holder text
+    </Combobox>
+  </Section>
+);
+
+export const Clear = () => (
+  <Section column>
+    <Combobox
+      options={largeOptionList}
+      onChange={handleOnChange}
+      search={true}
+      clear
+      clearTooltipText="Remove Mapping"
+    >
+      Place holder text
+    </Combobox>
   </Section>
 );
 
 export const AutoWidth = () => (
-  <Section>
-    <Select options={largeOptionList} onChange={handleOnChange} autoWidth>
+  <Section column>
+    <Combobox options={largeOptionList} onChange={handleOnChange} autoWidth>
       Place holder text
-    </Select>
+    </Combobox>
   </Section>
 );
 

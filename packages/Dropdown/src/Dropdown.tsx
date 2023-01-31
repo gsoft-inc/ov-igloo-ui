@@ -21,6 +21,8 @@ export type Size = 'xsmall' | 'small' | 'medium' | 'large';
 export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   /** The target button, text, svg etc.. of the Dropdown. */
   children: React.ReactElement;
+  /** Add a specific class to the dropdown. */
+  className?: string;
   /** Default value displayed in the Dropdown. */
   content: React.ReactNode;
   /** Position of the Dropdown. */
@@ -39,12 +41,14 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
   (props: DropdownProps, ref: React.ForwardedRef<HTMLDivElement>) => {
     const {
       children,
+      className,
       content,
       size = 'xsmall',
       onClose,
       dataTest,
       isOpen = false,
       position = 'bottom-start',
+      style,
       ...rest
     } = props;
 
@@ -90,7 +94,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       }
     };
 
-    const dropdownClasses = cx('ids-dropdown', {
+    const dropdownClasses = cx('ids-dropdown', className, {
       [`ids-dropdown--${size}`]: size !== 'xsmall',
       [`ids-dropdown--${position}`]: position !== 'bottom',
     });
@@ -101,7 +105,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
           (animationStyles, item) =>
             item && (
               <animated.div
-                style={{ ...animationStyles, ...styles.popper }}
+                style={{ ...style, ...animationStyles, ...styles.popper }}
                 ref={refCallback}
                 className={dropdownClasses}
                 data-test={dataTest}
@@ -127,7 +131,9 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
 
     return (
       <>
-        <div ref={setReferenceElement}>{children}</div>
+        <div className="ids-dropdown__ref" ref={setReferenceElement}>
+          {children}
+        </div>
         {dropdownHTML}
       </>
     );
