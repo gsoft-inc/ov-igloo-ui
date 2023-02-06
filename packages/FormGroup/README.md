@@ -28,7 +28,7 @@ Then to use the component in your code just import it!
 import FormGroup from '@igloo-ui/form-group';
 import Input from '@igloo-ui/input';
 
-<FormGroup label="Name" errorMsg="Name is required" showError={true}>
-  <Input type="text" placeholder="John Doe" error={true} />
+<FormGroup label="Name" message="This field is required" showMessage>
+  <Input type="text" placeholder="John Doe" error />
 </FormGroup>;
 ```
