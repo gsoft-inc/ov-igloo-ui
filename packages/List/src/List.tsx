@@ -25,7 +25,7 @@ export interface ListProps extends React.ComponentProps<'ul'> {
   onOptionChange?: (option: OptionType) => void;
   /** A list of options */
   options: OptionType[];
-  /** The option that is currently selected */
+  /** The initial selected option or a list of selected options. */
   selectedOption?: OptionType | OptionType[] | null;
 }
 

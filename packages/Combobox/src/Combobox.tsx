@@ -57,7 +57,7 @@ export interface ComboboxProps {
   options: ComboboxOption[];
   /** Whether or not to display a search box when open */
   search?: boolean;
-  /** The initial selected option. */
+  /** The initial selected option or a list of selected options. */
   selectedOption?: OptionType | OptionType[];
 }
 

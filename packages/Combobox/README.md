@@ -1,8 +1,10 @@
 # Combobox
 
-TODO: Write your component description here.
+A combobox has all the features a select does as well as filtering and clearing results.
 
-  <ReferenceLinks is="custom" />
+<Example is="custom" />
+
+<ReferenceLinks is="custom" />
 
 ## Installation
 
@@ -25,5 +27,25 @@ Then to use the component in your code just import it!
 ```jsx
 import Combobox from '@igloo-ui/combobox';
 
-// TODO: Add your component usage here
+const optionList = [
+  {
+    label: 'Text 1',
+    value: '1',
+  },
+  {
+    label: 'Text 2 (disabled)',
+    value: '2',
+    disabled: true,
+  },
+  {
+    label:
+      'Text 3. I will put a lot of text here to see how it behaves. Hopefully it looks good!',
+    value: '3',
+    color: '#74DCC9',
+  },
+];
+
+<Combobox options={optionList} search clear clearTooltipText="Remove Mapping">
+  Place holder text
+</Combobox>;
 ```
