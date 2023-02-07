@@ -1,5 +1,11 @@
 # @igloo-ui/form-group
 
+## 1.0.1
+
+### Patch Changes
+
+- 621de79: fix the error of the documentation in relation to the use of the `FormGroup`
+
 ## 1.0.0
 
 ### Major Changes
