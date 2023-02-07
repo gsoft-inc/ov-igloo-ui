@@ -2,7 +2,9 @@
 
 exports[`Dropdown It should render without error and a snapshot 1`] = `
 <DocumentFragment>
-  <div>
+  <div
+    class="ids-dropdown__ref"
+  >
     <button>
       Settings
     </button>

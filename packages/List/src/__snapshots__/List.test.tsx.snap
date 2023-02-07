@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List It should render a snapshot 1`] = `
+<DocumentFragment>
+  <ul
+    class="ids-list ids-list--compact"
+    data-test="ids-list"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="ids-list-item ids-list-item--compact"
+      role="option"
+      tabindex="-1"
+    >
+      <div
+        class="ids-list-item__content"
+      >
+        <span
+          class="ids-list-item__text"
+        >
+          <span
+            class="ids-list-item__text-label"
+          >
+            Item 1
+          </span>
+          <span
+            class="ids-list-item__text-description"
+          >
+            just adding some description
+          </span>
+        </span>
+      </div>
+    </li>
+    <li
+      aria-selected="false"
+      class="ids-list-item ids-list-item--compact ids-list-item--disabled"
+      role="option"
+      tabindex="-1"
+    >
+      <div
+        class="ids-list-item__content"
+      >
+        <span
+          class="ids-list-item__text"
+        >
+          <span
+            class="ids-list-item__text-label"
+          >
+            Item 2 (disabled)
+          </span>
+        </span>
+      </div>
+    </li>
+    <li
+      aria-selected="false"
+      class="ids-list-item ids-list-item--compact"
+      role="option"
+      tabindex="-1"
+    >
+      <div
+        class="ids-list-item__content"
+      >
+        <div
+          class="ids-list-item__visual-identifier-container"
+        >
+          <svg
+            class="ids-icon ids-visual-identifier ids-visual-identifier__icon ids-list-item__visual"
+            fill="none"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M13.5 8a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0ZM15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM5.375 6.687a.875.875 0 1 0 0-1.75.875.875 0 0 0 0 1.75Zm6.125-.875a.875.875 0 1 1-1.75 0 .875.875 0 0 1 1.75 0ZM4.805 8.541a.75.75 0 1 0-1.48.248 4.741 4.741 0 0 0 9.35 0 .75.75 0 1 0-1.48-.248 3.241 3.241 0 0 1-6.39 0Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <span
+          class="ids-list-item__text"
+        >
+          <span
+            class="ids-list-item__text-label"
+          >
+            Item 3 (focused)
+          </span>
+          <span
+            class="ids-list-item__text-description"
+          >
+            just adding some description
+          </span>
+        </span>
+      </div>
+    </li>
+    <li
+      aria-selected="false"
+      class="ids-list-item ids-list-item--compact"
+      role="option"
+      tabindex="-1"
+    >
+      <div
+        class="ids-list-item__content"
+      >
+        <span
+          class="ids-list-item__text"
+        >
+          <span
+            class="ids-list-item__text-label"
+          >
+            Item 4 (selected)
+          </span>
+        </span>
+      </div>
+    </li>
+    <li
+      aria-selected="false"
+      class="ids-list-item ids-list-item--compact"
+      role="option"
+      tabindex="-1"
+    >
+      <div
+        class="ids-list-item__content"
+      >
+        <div
+          class="ids-list-item__visual-identifier-container"
+        >
+          <div
+            class="ids-color ids-color--small ids-visual-identifier ids-visual-identifier__color ids-list-item__visual"
+            style="background-color: rgb(116, 220, 201);"
+          />
+        </div>
+        <span
+          class="ids-list-item__text"
+        >
+          <span
+            class="ids-list-item__text-label"
+          >
+            Item 5
+          </span>
+        </span>
+      </div>
+    </li>
+    <li
+      aria-selected="false"
+      class="ids-list-item ids-list-item--compact"
+      role="option"
+      tabindex="-1"
+    >
+      <div
+        class="ids-list-item__content"
+      >
+        <span
+          class="ids-list-item__text"
+        >
+          <span
+            class="ids-list-item__text-label"
+          >
+            Item 6
+          </span>
+        </span>
+      </div>
+    </li>
+    <li
+      aria-selected="false"
+      class="ids-list-item ids-list-item--compact"
+      role="option"
+      tabindex="-1"
+    >
+      <div
+        class="ids-list-item__content"
+      >
+        <span
+          class="ids-list-item__text"
+        >
+          <span
+            class="ids-list-item__text-label"
+          >
+            Item 7
+          </span>
+        </span>
+      </div>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

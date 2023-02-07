@@ -4,13 +4,14 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
+import Tag from '@igloo-ui/tag';
 import Happiness from '@igloo-ui/icons/dist/Happiness';
-import { Option, OptionType } from '@igloo-ui/list';
+import { OptionType } from '@igloo-ui/list';
 
 import Section from '@components/section';
 import readme from '../../Combobox/README.md';
 
-import Combobox from './Combobox';
+import Combobox, { ComboboxOption } from './Combobox';
 
 export default {
   title: 'Components/Combobox',
@@ -34,60 +35,52 @@ export default {
 const comboboxPlaceholder = 'ex: Lorem ipsum dolor';
 
 const handleOnChange = (option: OptionType | undefined): void => {
-  const item = option as Option;
+  const item = option as ComboboxOption;
   alert(`Option: ${item?.label}`);
 };
 
-const smallOptionList: Option[] = [
+const smallOptionList: ComboboxOption[] = [
   {
-    type: 'list',
     label: 'Text option',
     value: 'text',
   },
   {
-    type: 'list',
     label: 'Disabled option',
     value: 'disabled',
     disabled: true,
   },
   {
-    type: 'list',
     label: 'Text option with icon',
     value: 'icon',
     icon: <Happiness size="small" />,
   },
 ];
 
-const largeOptionList: Option[] = [
+const largeOptionList: ComboboxOption[] = [
   {
-    type: 'list',
     label: 'Text 1',
     value: '1',
   },
   {
-    type: 'list',
     label: 'Text 2 (disabled)',
     value: '2',
     disabled: true,
   },
   {
-    type: 'list',
-    label: 'Text 3',
+    label:
+      'Text 3. I will put a lot of text here to see how it behaves. Hopefully it looks good!',
     value: '3',
     color: '#74DCC9',
   },
   {
-    type: 'list',
     label: 'Text 4',
     value: '4',
   },
   {
-    type: 'list',
     label: 'Text 5',
     value: '5',
   },
   {
-    type: 'list',
     label: 'Text 6',
     value: '6',
   },
@@ -184,6 +177,70 @@ export const AutoWidth = () => (
     </Combobox>
   </Section>
 );
+
+export const Multiple = () => {
+  const [selectedResults, setSelectedResults] = React.useState<OptionType[]>(
+    []
+  );
+
+  const removeItem = (optionValue: string): void => {
+    const filteredResults = selectedResults.filter(
+      (s) => s.value !== optionValue
+    );
+    setSelectedResults([...filteredResults]);
+  };
+
+  const handleOptionChange = (option: OptionType | undefined) => {
+    if (option) {
+      const selectedItem = selectedResults.filter((o) => {
+        return o.value === option.value;
+      });
+      const isChecked = !!selectedItem && selectedItem.length > 0;
+      if (isChecked) {
+        removeItem(option.value.toString());
+      } else {
+        setSelectedResults([...selectedResults, option]);
+      }
+    }
+  };
+
+  const handleTagRemove = (tagId: string): void => {
+    removeItem(tagId);
+  };
+
+  return (
+    <Section column>
+      <div className="isb-combobox__tag-list">
+        {selectedResults.map((item: OptionType) => {
+          return (
+            <Tag
+              key={item.value}
+              id={item.value.toString()}
+              src={item.src}
+              color={item.color}
+              icon={item.icon}
+              dismissible={item.type === 'list' ? !item.disabled : true}
+              appearance="secondary"
+              onRemove={handleTagRemove}
+              className="isb-combobox__tag"
+            >
+              {item.type === 'list' ? item.label : item.member}
+            </Tag>
+          );
+        })}
+      </div>
+      <Combobox
+        options={largeOptionList}
+        multiple
+        search
+        onChange={handleOptionChange}
+        selectedOption={selectedResults}
+      >
+        Place holder text
+      </Combobox>
+    </Section>
+  );
+};
 
 // Chromatic configuration
 Sizes.bind({});

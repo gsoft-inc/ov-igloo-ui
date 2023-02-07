@@ -6,31 +6,8 @@
   --ids-list-font-family: #{tokens.$primary-font-family};
   --ids-list-font-size: #{tokens.$font-size-3};
   --ids-list-color: #{tokens.$grey-800};
-  --ids-list-min-width: 20rem;
   --ids-list-line-height: #{tokens.$line-height-xxl};
-  --ids-list-item-padding: #{tokens.$space-2} #{tokens.$space-3};
-  --ids-list-item-min-height: #{tokens.$space-6};
-
-  /* Compact */
-  --ids-list-item-padding-compact: #{tokens.$space-1} #{tokens.$space-3};
-  --ids-list-item-min-height-compact: #{tokens.$space-5};
-
-  /* Focused */
-  --ids-list-item-background-focused: #{tokens.$electric-blue-50};
-
-  /* Selected */
-  --ids-list-item-background-selected: none;
-
-  /* Disabled */
-  --ids-list-item-color-disabled: #{tokens.$grey-600};
-
-  /* Visual Identifier */
-  --ids-list-item-icon-size: #{tokens.$space-4};
-  --ids-list-item-icon-margin-right: #{tokens.$space-2};
-
-  /* Checkmark */
-  --ids-list-item-checkmark-color: #{tokens.$electric-blue-500};
-  --ids-list-item-checkmark-margin: 0 0 0 #{tokens.$space-3};
+  --ids-list-min-width: 20rem;
 
   /* No Results */
   --ids-list-no-results-color: #{tokens.$grey-600};
@@ -48,58 +25,11 @@
   margin: 0;
   min-width: var(--ids-list-min-width);
   padding: 0;
-}
 
-.ids-list__item {
-  align-items: center;
-  display: flex;
-  min-height: var(--ids-list-item-min-height);
-  padding: var(--ids-list-item-padding);
-  user-select: none;
-
-  &--compact {
-    min-height: var(--ids-list-item-min-height-compact);
-    padding: var(--ids-list-item-padding-compact);
+  &,
+  & * {
+    box-sizing: border-box;
   }
-
-  &--selected,
-  &--focused {
-    background: var(--ids-list-item-background-selected);
-    outline: 0;
-    box-shadow: none;
-  }
-
-  &--focused {
-    background: var(--ids-list-item-background-focused);
-  }
-
-  &--disabled,
-  &--disabled:hover,
-  &--disabled:active {
-    background: transparent;
-    color: var(--ids-list-item-color-disabled);
-    cursor: not-allowed;
-  }
-}
-
-.ids-list__item-visual-identifier-container {
-  align-items: center;
-  display: flex;
-  flex: 0 0 auto;
-  height: var(--ids-list-item-icon-size);
-  justify-content: center;
-  margin-right: var(--ids-list-item-icon-margin-right);
-  width: var(--ids-list-item-icon-size);
-}
-
-.ids-list__item-text {
-  flex: 1 1 auto;
-}
-
-.ids-list__item-checkmark {
-  color: var(--ids-list-item-checkmark-color);
-  flex: 0 0 auto;
-  margin: var(--ids-list-item-checkmark-margin);
 }
 
 .ids-list__no-results {

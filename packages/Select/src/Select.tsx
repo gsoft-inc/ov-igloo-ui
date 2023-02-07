@@ -3,7 +3,7 @@ import cx from 'classnames';
 import useResizeObserver from '@react-hook/resize-observer';
 
 import Dropdown from '@igloo-ui/dropdown';
-import List, { OptionType } from '@igloo-ui/list';
+import List, { OptionType, Option } from '@igloo-ui/list';
 
 import SelectInput from './SelectInput';
 import SelectValue from './SelectValue';
@@ -20,6 +20,8 @@ export enum Keys {
 }
 
 export type FocusDirection = 'first' | 'last' | 'up' | 'down';
+
+export type SelectOptiontype = Omit<Option, 'type'>;
 
 export interface SelectProps {
   /** Set this to true and the dropdown will take the width of its content,
@@ -42,7 +44,7 @@ export interface SelectProps {
   /** Callback when selected content changes. */
   onChange?: (option: OptionType | undefined) => void;
   /** List of available options. */
-  options: OptionType[];
+  options: SelectOptiontype[];
   /** The initial selected option. */
   selectedOption?: OptionType;
 }
@@ -63,13 +65,20 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
     ...rest
   } = props;
 
+  const selectOptions = options.map((option): OptionType => {
+    return {
+      ...option,
+      type: 'list',
+    };
+  });
+
   const selectRef = React.useRef<HTMLDivElement>(null);
   const [currentFocusedOption, setCurrentFocusedOption] =
     React.useState(selectedOption);
   const [currentSelectedOption, setCurrentSelectedOption] =
     React.useState(selectedOption);
   const [showMenu, setShowMenu] = React.useState(isOpen);
-  const [results, setResults] = React.useState<OptionType[]>(options);
+  const [results, setResults] = React.useState<OptionType[]>(selectOptions);
 
   const [selectRect, setSelectRect] = React.useState<DOMRectReadOnly>();
   useResizeObserver(selectRef, (entry) => {
@@ -97,7 +106,7 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
         selectRef.current.focus();
       }
 
-      setTimeout(() => setResults(options), DROPDOWN_ANIMATION_DURATION);
+      setTimeout(() => setResults(selectOptions), DROPDOWN_ANIMATION_DURATION);
     } else if (currentFocusedOption !== currentSelectedOption) {
       // This happens when the user doesn't select an option by keyboard.
       setCurrentFocusedOption(currentSelectedOption);
@@ -227,21 +236,6 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
     toggleMenu(showMenu, keepFocus);
   };
 
-  const listItemResults = results.map((option: OptionType) => {
-    const isSelected = option.value === currentSelectedOption?.value ?? false;
-    const isFocused = option.value === currentFocusedOption?.value ?? false;
-
-    const listItem = {
-      ...option,
-      onClick: () => selectOption(option),
-      onHover: () => hoverOption(option),
-      selected: isSelected,
-      focused: isFocused,
-    };
-
-    return listItem;
-  });
-
   const canShowMenu = showMenu && !disabled;
 
   const selectClassname = cx('ids-select', className, {
@@ -274,12 +268,12 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
         key="selectDropdown"
         content={
           <List
-            options={listItemResults}
+            options={results}
             isCompact
-            onOptionHover={hoverOption}
-            onOptionSelect={selectOption}
+            onOptionFocus={hoverOption}
+            onOptionChange={selectOption}
             selectedOption={currentSelectedOption}
-            hoveredOption={currentFocusedOption}
+            focusedOption={currentFocusedOption}
           />
         }
         isOpen={canShowMenu}

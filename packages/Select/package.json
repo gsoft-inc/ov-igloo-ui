@@ -30,11 +30,8 @@
     "@igloo-ui/icon-button": "^0.2.13",
     "@igloo-ui/input": "^2.0.3",
     "@igloo-ui/tokens": "^2.0.0",
-    "@igloo-ui/tooltip": "^3.0.2",
     "@react-hook/resize-observer": "^1.2.6",
-    "@react-spring/types": "^9.5.5",
-    "classnames": "^2.3.2",
-    "react-spring": "^9.5.5"
+    "classnames": "^2.3.2"
   },
   "browserslist": [
     "> 1%",

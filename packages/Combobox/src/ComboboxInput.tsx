@@ -110,7 +110,7 @@ const ComboboxInput: React.FunctionComponent<ComboboxInputProps> = (
               />
             </div>
           )}
-          {label}
+          <span className="ids-combobox-input__value-label">{label}</span>
         </div>
       )}
       <div className="ids-combobox-input__actions">

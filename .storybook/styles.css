@@ -93,6 +93,17 @@ body,
   max-width: 45rem;
 }
 
+.isb-combobox__tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -0.2rem;
+  min-height: 3.8rem;
+}
+
+.isb-combobox__tag {
+  margin: 0.2rem;
+}
+
 .gv-mockup {
   display: flex;
   width: 100%;

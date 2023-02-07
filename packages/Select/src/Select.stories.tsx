@@ -33,10 +33,6 @@ export default {
 
 const selectPlaceholder = 'ex: Lorem ipsum dolor';
 
-const largeDisplay = {
-  height: 230,
-};
-
 const handleOnChange = (option: OptionType | undefined): void => {
   const item = option as Option;
   alert(`Option: ${item?.label}`);
@@ -148,7 +144,7 @@ export const States = () => (
 );
 
 export const LargeOptionNumber = () => (
-  <Section style={largeDisplay}>
+  <Section>
     <Select options={largeOptionList} onChange={handleOnChange}>
       Place holder text
     </Select>
