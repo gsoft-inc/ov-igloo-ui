@@ -77,5 +77,5 @@ const Template: ComponentStory<typeof Dropdown> = (args) => {
 
 export const Overview = Template.bind({});
 Overview.args = {
-  isOpen: true,
+  isOpen: false,
 };

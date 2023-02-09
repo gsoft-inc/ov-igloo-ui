@@ -24,15 +24,9 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.19.1",
     "@igloo-ui/tokens": "^2.0.0",
-    "classnames": "^2.3.2",
-    "react-aria": "^3.21.0",
-    "react-spring": "^9.5.5",
-    "react-popper": "^2.3.0",
-    "@types/react-dom": "17.0.13"
-  },
-  "devDependencies": {
-    "@react-spring/types": "^9.5.5"
+    "classnames": "^2.3.2"
   },
   "browserslist": [
     "> 1%",
