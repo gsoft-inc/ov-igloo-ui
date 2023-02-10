@@ -19,13 +19,13 @@ export interface ComboboxInputProps extends React.ComponentProps<'div'> {
   clearTooltipText?: string;
   /** Add a colored square instead of an image or an icon */
   color?: string;
-  /** If the combobox is disabled. */
+  /** If the combobox is disabled */
   disabled?: boolean;
   /** Add an icon to the left of the option */
   icon?: React.ReactElement;
   /** True if the option list is displayed */
   isOpen?: boolean;
-  /** True if the value is a placeholder. */
+  /** True if the value is a placeholder */
   isPlaceholder?: boolean;
   /** Option title. */
   label: React.ReactNode;

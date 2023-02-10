@@ -7,14 +7,10 @@
   --ids-combobox-font-size: #{tokens.$font-size-4};
   --ids-combobox-font-weight: #{tokens.$font-weight-regular};
   --ids-combobox-line-height: #{tokens.$space-4};
-  --ids-combobox-color: #{tokens.$grey-800};
-  --ids-combobox-chevron: #{tokens.$grey-800};
   --ids-combobox-background: #{tokens.$samoyed};
   --ids-combobox-border-color: #{tokens.$grey-300};
   --ids-combobox-border-radius: #{tokens.$border-radius-sm};
   --ids-combobox-number-of-option-to-display: 4;
-  --ids-combobox-position-ajustment-x: -1px;
-  --ids-combobox-position-ajustment-y: -1px;
 
   /* Compact */
   --ids-combobox-font-size-compact: #{tokens.$font-size-3};

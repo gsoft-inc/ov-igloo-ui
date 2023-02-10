@@ -7,21 +7,17 @@
   --ids-combobox-input-chevron-color: #{tokens.$grey-800};
   --ids-combobox-input-search-height: 3.9rem;
   --ids-combobox-input-actions-padding: 0 #{tokens.$space-2};
+  --ids-combobox-input-value-padding: #{tokens.$space-2} #{tokens.$space-3};
+  --ids-combobox-input-value-color: #{tokens.$grey-800};
 
   /* Disabled */
   --ids-combobox-input-chevron-color-disabled: #{tokens.$grey-600};
-
-  /* Default */
-  --ids-combobox-input-value-padding: #{tokens.$space-2} #{tokens.$space-3};
-  --ids-combobox-input-value-icon-margin-right: #{tokens.$space-1};
+  --ids-combobox-input-value-color-disabled: #{tokens.$grey-500};
 
   /* Compact **/
   --ids-combobox-input-height-compact: #{tokens.$space-5};
   --ids-combobox-input-value-padding-compact: #{tokens.$space-1} #{tokens.$space-3};
   --ids-combobox-input-search-height-compact: 3rem;
-
-  /* Disabled */
-  --ids-combobox-input-value-color-disabled: #{tokens.$grey-500};
 
   /* Placeholder */
   --ids-combobox-input-value-color-placeholder: #{tokens.$grey-400};
@@ -34,6 +30,7 @@
 .ids-combobox-input {
   align-content: center;
   align-items: center;
+  color: var(--ids-combobox-input-value-color);
   display: flex;
   flex-flow: row nowrap;
   height: var(--ids-combobox-input-height);

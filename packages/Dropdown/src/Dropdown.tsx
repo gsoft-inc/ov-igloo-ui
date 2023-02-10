@@ -5,7 +5,6 @@ import {
   useMergeRefs,
   offset,
   autoUpdate,
-  FloatingPortal,
   useFloating,
   FloatingFocusManager,
   useDismiss,
@@ -114,33 +113,31 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
         >
           {children}
         </div>
-        <FloatingPortal>
-          {isMounted && (
-            <FloatingFocusManager
-              context={context}
-              modal={false}
-              initialFocus={-1}
+        {isMounted && (
+          <FloatingFocusManager
+            context={context}
+            modal={false}
+            initialFocus={-1}
+          >
+            <div
+              ref={mergedDropdownRef}
+              className={dropdownClasses}
+              data-test={dataTest}
+              {...rest}
+              data-show={isOpen}
+              style={{
+                position: strategy,
+                top: y ?? 0,
+                left: x ?? 0,
+                ...styles,
+                ...style,
+              }}
+              {...getFloatingProps()}
             >
-              <div
-                ref={mergedDropdownRef}
-                className={dropdownClasses}
-                data-test={dataTest}
-                {...rest}
-                data-show={isOpen}
-                style={{
-                  position: strategy,
-                  top: y ?? 0,
-                  left: x ?? 0,
-                  ...styles,
-                  ...style,
-                }}
-                {...getFloatingProps()}
-              >
-                {content}
-              </div>
-            </FloatingFocusManager>
-          )}
-        </FloatingPortal>
+              {content}
+            </div>
+          </FloatingFocusManager>
+        )}
       </>
     );
   }

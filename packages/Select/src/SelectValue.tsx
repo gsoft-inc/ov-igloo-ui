@@ -8,15 +8,15 @@ import './select-value.scss';
 export interface SelectValueProps extends React.ComponentPropsWithRef<'div'> {
   /** Add a colored square instead of an image or an icon */
   color?: string;
-  /** If the option is disabled. */
+  /** If the option is disabled */
   disabled?: boolean;
-  /** Icon to display to the right of the option. */
+  /** Icon to display to the right of the option */
   icon?: React.ReactElement;
-  /** True for a compact appearance. */
+  /** True for a compact appearance */
   isCompact?: boolean;
-  /** True if the value is a placeholder. */
+  /** True if the value is a placeholder */
   isPlaceholder?: boolean;
-  /** Option title. */
+  /** Option title */
   label: React.ReactNode;
   /** Specifies the url for the image to show */
   src?: string;

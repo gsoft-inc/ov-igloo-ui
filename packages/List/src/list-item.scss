@@ -19,6 +19,7 @@
 
   /* Selected */
   --ids-list-item-background-selected: #{tokens.$electric-blue-50};
+  --ids-list-item-background-selected-multi: none;
 
   /* Disabled */
   --ids-list-item-color-disabled: #{tokens.$grey-600};
@@ -28,13 +29,6 @@
   --ids-list-item-icon-margin: 0.25rem #{tokens.$space-2} 0 0.25rem;
   --ids-list-item-svg-margin: 0 #{tokens.$space-2} 0 0;
   --ids-list-item-icon-member-size: #{tokens.$space-5};
-
-  /* Checkmark */
-  --ids-list-item-checkmark-color: #{tokens.$electric-blue-500};
-  --ids-list-item-checkmark-margin: 0 0 0 #{tokens.$space-2};
-
-  /* Premium */
-  --ids-list-item-premium-color: #{tokens.$dandelion-500};
 
   /* Manager */
   --ids-list-item-manager-color: #{tokens.$grey-500};
@@ -74,21 +68,21 @@
   }
 
   30% {
-    width: var(--ids-checkbox-check-width);
+    width: var(--ids-list-item-checkbox-check-width);
     height: 0;
     margin-top: 0;
     opacity: 1;
   }
 
   100% {
-    width: var(--ids-checkbox-check-width);
-    height: var(--ids-checkbox-check-height);
+    width: var(--ids-list-item-checkbox-check-width);
+    height: var(--ids-list-item-checkbox-check-height);
   }
 }
 
 %check {
-  width: var(--ids-checkbox-check-width);
-  height: var(--ids-checkbox-check-height);
+  width: var(--ids-list-item-checkbox-check-width);
+  height: var(--ids-list-item-checkbox-check-height);
   border: 2px solid currentColor;
   border-bottom: 0;
   border-left: 0;
@@ -122,6 +116,10 @@
     background: var(--ids-list-item-background-selected);
     outline: 0;
     box-shadow: none;
+  }
+
+  .ids-list--multi-select &--selected {
+    background: var(--ids-list-item-background-selected-multi);
   }
 
   &--focused {
@@ -169,18 +167,6 @@
   flex: 1 1 auto;
 }
 
-.ids-list-item__checkmark {
-  color: var(--ids-list-item-checkmark-color);
-  flex: 0 0 auto;
-  margin: var(--ids-list-item-checkmark-margin);
-}
-
-.ids-list-item__premium {
-  color: var(--ids-list-item-premium-color);
-  flex: 0 0 auto;
-  margin: var(--ids-list-item-checkmark-margin);
-}
-
 .ids-list-item__checkbox .ids-checkbox__label {
   align-items: center;
   display: flex;
@@ -188,18 +174,18 @@
 }
 
 .ids-list-item__checkbox {
-  background: var(--ids-checkbox-background);
-  border: 1px solid var(--ids-checkbox-border);
-  border-radius: var(--ids-checkbox-radius);
-  color: var(--ids-checkbox-check);
+  background: var(--ids-list-item-checkbox-background);
+  border: 1px solid var(--ids-list-item-checkbox-border);
+  border-radius: var(--ids-list-item-checkbox-radius);
+  color: var(--ids-list-item-checkbox-check);
   cursor: pointer;
   display: inline-block;
   flex-shrink: 0;
-  height: var(--ids-checkbox-size);
+  height: var(--ids-list-item-checkbox-size);
   position: relative;
   margin: var(--ids-list-item-checkbox-margin);
   transition: background 0.05s ease-in-out;
-  width: var(--ids-checkbox-size);
+  width: var(--ids-list-item-checkbox-size);
 
   .ids-list-item &,
   .ids-list-item & * {
@@ -207,23 +193,23 @@
   }
 
   .ids-list-item--selected & {
-    background: var(--ids-checkbox-background-checked);
-    border-color: var(--ids-checkbox-border-checked);
+    background: var(--ids-list-item-checkbox-background-checked);
+    border-color: var(--ids-list-item-checkbox-border-checked);
   }
 
   .ids-list-item--disabled & {
-    background: var(--ids-checkbox-background-disabled);
-    border-color: var(--ids-checkbox-border);
+    background: var(--ids-list-item-checkbox-background-disabled);
+    border-color: var(--ids-list-item-checkbox-border);
     cursor: not-allowed;
   }
 
   .ids-list-item:hover &,
   .ids-list-item--selected:hover & {
-    border-color: var(--ids-checkbox-border-hover);
+    border-color: var(--ids-list-item-checkbox-border-hover);
   }
 
   .ids-list-item--selected.ids-list-item--disabled & {
-    background: var(--ids-checkbox-background-checked-disabled);
+    background: var(--ids-list-item-checkbox-background-checked-disabled);
   }
 
   .ids-list-item--selected &::after {
@@ -242,7 +228,7 @@
   }
 
   .ids-list-item--disabled:hover & {
-    border-color: var(--ids-checkbox-border);
+    border-color: var(--ids-list-item-checkbox-border);
   }
 }
 

@@ -10,11 +10,11 @@ import './list-item.scss';
 interface ListItem {
   /** Add a colored square instead of an image or an icon */
   color?: string;
-  /** Icon displayed in front of the option label. */
+  /** Icon displayed in front of the option label */
   icon?: React.ReactElement;
   /** Specifies the url for the image to show */
   src?: string;
-  /** The option value. */
+  /** The option value */
   value: string | number;
 }
 
@@ -23,7 +23,7 @@ export interface Option extends ListItem {
   description?: string;
   /** Whether or not the option is disabled */
   disabled?: boolean;
-  /** The option label. */
+  /** The option label */
   label: string;
   /** The option type */
   type: 'list';
@@ -43,9 +43,9 @@ export interface Member extends ListItem {
 export type OptionType = Option | Member;
 
 export interface ListItemProps extends React.ComponentProps<'li'> {
-  /** Add a specific class to the Select. */
+  /** Add a specific class to the Select */
   className?: string;
-  /** True for a compact appearance. */
+  /** True for a compact appearance */
   isCompact?: boolean;
   /** If the option is focused/hovered */
   isFocused?: boolean;

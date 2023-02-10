@@ -25,27 +25,27 @@ export type SelectOptiontype = Omit<Option, 'type'>;
 
 export interface SelectProps {
   /** Set this to true and the dropdown will take the width of its content,
-   * not the width of the select. */
+   * not the width of the select */
   autoWidth?: boolean;
-  /** Default value displayed in the Select. */
+  /** Default value displayed in the Select */
   children?: React.ReactNode;
-  /** Add a specific class to the Select. */
+  /** Add a specific class to the Select */
   className?: string;
-  /** Add a data-test tag for automated tests. */
+  /** Add a data-test tag for automated tests */
   dataTest?: string;
-  /** Disable the Select so the user cannot click on it. */
+  /** Disable the Select so the user cannot click on it */
   disabled?: boolean;
-  /** The Select is in an error state. */
+  /** The Select is in an error state */
   error?: boolean;
-  /** True for a compact appearance. */
+  /** True for a compact appearance */
   isCompact?: boolean;
-  /** True if the option list is displayed. */
+  /** True if the option list is displayed */
   isOpen?: boolean;
-  /** Callback when selected content changes. */
+  /** Callback when selected content changes */
   onChange?: (option: OptionType | undefined) => void;
-  /** List of available options. */
+  /** List of available options */
   options: SelectOptiontype[];
-  /** The initial selected option. */
+  /** The initial selected option */
   selectedOption?: OptionType;
 }
 

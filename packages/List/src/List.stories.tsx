@@ -101,7 +101,7 @@ const textAndHelperTextList: Option[] = [
   },
 ];
 
-const textIconlist: Option[] = [
+const textIconList: Option[] = [
   {
     type: 'list',
     label: 'Item 1',
@@ -254,13 +254,13 @@ const membersList: Member[] = [
 ];
 
 const Template: ComponentStory<typeof List> = (args) => {
-  const [selectedOption, setSeletedOption] = React.useState<OptionType | null>(
+  const [selectedOption, setSelectedOption] = React.useState<OptionType | null>(
     textOnlyList[3]
   );
   const [focusedOption, setFocusedOption] = React.useState<OptionType | null>();
 
   function handleOptionSelect(option: OptionType) {
-    setSeletedOption(option);
+    setSelectedOption(option);
   }
 
   function handleOptionFocus(option: OptionType) {
@@ -336,7 +336,7 @@ export const Multiselect = () => {
 };
 
 export const TextAndIcon = () => {
-  return <List options={textIconlist} style={{ maxWidth: '40rem' }} />;
+  return <List options={textIconList} style={{ maxWidth: '40rem' }} />;
 };
 
 export const TextIconAndHelperText = () => {

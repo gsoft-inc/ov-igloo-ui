@@ -24,11 +24,11 @@ export type ComboboxOption = Omit<Option, 'type'>;
 
 export interface ComboboxProps {
   /** Set this to true and the dropdown will take the width of its content,
-   * not the width of the select. */
+   * not the width of the select */
   autoWidth?: boolean;
-  /** Default value displayed in the Select. */
+  /** Default value displayed in the Select */
   children?: React.ReactNode;
-  /** Add a specific class to the Select. */
+  /** Add a specific class to the Select */
   className?: string;
   /** If true, it clears any selected option */
   clear?: boolean;
@@ -36,28 +36,28 @@ export interface ComboboxProps {
   clearTooltipText?: string;
   /** Whether or not the combobox should close after an item is selected */
   closeOnSelect?: boolean;
-  /** Add a data-test tag for automated tests. */
+  /** Add a data-test tag for automated tests */
   dataTest?: string;
-  /** Disable the Select so the user cannot click on it. */
+  /** Disable the Select so the user cannot click on it */
   disabled?: boolean;
-  /** The Select is in an error state. */
+  /** The Select is in an error state */
   error?: boolean;
-  /** True for a compact appearance. */
+  /** True for a compact appearance */
   isCompact?: boolean;
-  /** True if the option list is displayed. */
+  /** True if the option list is displayed */
   isOpen?: boolean;
   /** The Combobox gains checkboxes beside each option
    * to be able to select multiple options */
   multiple?: boolean;
   /** Specify the text to display when there are no results found */
   noResultsText?: string;
-  /** Callback when selected content changes. */
+  /** Callback when selected content changes */
   onChange?: (option: OptionType | undefined) => void;
   /** List of available options. */
   options: ComboboxOption[];
   /** Whether or not to display a search box when open */
   search?: boolean;
-  /** The initial selected option or a list of selected options. */
+  /** The initial selected option or a list of selected options */
   selectedOption?: OptionType | OptionType[];
 }
 
@@ -182,9 +182,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = (
   };
 
   const focusOption = (direction: FocusDirection = 'first'): void => {
-    const options = results.filter(
-      (option) => isOptionDisabled(option) !== true
-    );
+    const options = results.filter((option) => !isOptionDisabled(option));
     if (!options.length) return;
 
     let currentFocusedIndex = -1;
@@ -277,8 +275,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = (
       return;
     }
 
-    const keepFocus = showMenu;
-    toggleMenu(showMenu, keepFocus);
+    toggleMenu(showMenu, true);
   };
 
   const handleSearch = (searchTerm: string): void => {

@@ -6,13 +6,13 @@ import ListItem, { Option, Member, OptionType } from './ListItem';
 import './list.scss';
 
 export interface ListProps extends React.ComponentProps<'ul'> {
-  /** Add a specific class to the Select. */
+  /** Add a specific class to the Select */
   className?: string;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
   /** The option that is currently being focused or hovered */
   focusedOption?: OptionType | null;
-  /** True for a compact appearance. */
+  /** True for a compact appearance */
   isCompact?: boolean;
   /** The List gains checkboxes beside each option
    * to be able to select multiple options */
@@ -23,7 +23,7 @@ export interface ListProps extends React.ComponentProps<'ul'> {
   onOptionChange?: (option: OptionType) => void;
   /** A list of options */
   options: OptionType[];
-  /** The initial selected option or a list of selected options. */
+  /** The initial selected option or a list of selected options */
   selectedOption?: OptionType | OptionType[] | null;
 }
 
@@ -43,6 +43,7 @@ const List: React.FunctionComponent<ListProps> = (props: ListProps) => {
 
   const listClasses = cx('ids-list', className, {
     'ids-list--compact': isCompact,
+    'ids-list--multi-select': multiple,
   });
 
   return (
