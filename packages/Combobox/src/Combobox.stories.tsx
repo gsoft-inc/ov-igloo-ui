@@ -140,14 +140,6 @@ export const States = () => (
   </Section>
 );
 
-export const LargeOptionNumber = () => (
-  <Section column>
-    <Combobox options={largeOptionList} onChange={handleOnChange}>
-      Place holder text
-    </Combobox>
-  </Section>
-);
-
 export const Search = () => (
   <Section column>
     <Combobox options={largeOptionList} onChange={handleOnChange} search={true}>
@@ -248,7 +240,22 @@ Sizes.parameters = {
   chromatic: { disableSnapshot: true },
 };
 
-LargeOptionNumber.bind({});
-LargeOptionNumber.parameters = {
+Search.bind({});
+Search.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+Clear.bind({});
+Clear.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+AutoWidth.bind({});
+AutoWidth.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+Multiple.bind({});
+Multiple.parameters = {
   chromatic: { disableSnapshot: true },
 };

@@ -8,12 +8,6 @@
   --ids-list-color: #{tokens.$grey-800};
   --ids-list-line-height: #{tokens.$line-height-xxl};
   --ids-list-min-width: 20rem;
-
-  /* No Results */
-  --ids-list-no-results-color: #{tokens.$grey-600};
-  --ids-list-no-results-font-size: #{tokens.$font-size-3};
-  --ids-list-no-results-padding: #{tokens.$space-3};
-  --ids-list-no-results-line-height: #{tokens.$line-height-xxl};
 }
 
 .ids-list {
@@ -30,11 +24,4 @@
   & * {
     box-sizing: border-box;
   }
-}
-
-.ids-list__no-results {
-  color: var(--ids-list-no-results-color);
-  font-size: var(--ids-list-no-results-font-size);
-  line-height: var(--ids-list-no-results-line-height);
-  padding: var(--ids-list-no-results-padding);
 }

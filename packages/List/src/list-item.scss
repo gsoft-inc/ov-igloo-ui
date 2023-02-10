@@ -7,7 +7,7 @@
   --ids-list-item-min-height: #{tokens.$space-8};
 
   /* Compact */
-  --ids-list-item-padding-compact: #{tokens.$space-1} #{tokens.$space-3};
+  --ids-list-item-padding-compact: #{tokens.$space-2} #{tokens.$space-3};
   --ids-list-item-min-height-compact: #{tokens.$space-5};
 
   /* Member */
@@ -18,7 +18,7 @@
   --ids-list-item-background-focused: #{tokens.$electric-blue-50};
 
   /* Selected */
-  --ids-list-item-background-selected: none;
+  --ids-list-item-background-selected: #{tokens.$electric-blue-50};
 
   /* Disabled */
   --ids-list-item-color-disabled: #{tokens.$grey-600};
@@ -26,6 +26,7 @@
   /* Visual Identifier */
   --ids-list-item-icon-size: #{tokens.$space-4};
   --ids-list-item-icon-margin: 0.25rem #{tokens.$space-2} 0 0.25rem;
+  --ids-list-item-svg-margin: 0 #{tokens.$space-2} 0 0;
   --ids-list-item-icon-member-size: #{tokens.$space-5};
 
   /* Checkmark */
@@ -157,6 +158,10 @@
   .ids-list-item--member & {
     width: var(--ids-list-item-icon-member-size);
   }
+}
+
+.ids-list-item__svg-container {
+  margin: var(--ids-list-item-svg-margin);
 }
 
 .ids-list-item__text {

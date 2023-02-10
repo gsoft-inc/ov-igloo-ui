@@ -30,6 +30,12 @@
 
   /* Error */
   --ids-combobox-border-color-error: #{tokens.$coral-500};
+
+  /* No Results */
+  --ids-combobox-no-results-color: #{tokens.$grey-600};
+  --ids-combobox-no-results-font-size: #{tokens.$font-size-3};
+  --ids-combobox-no-results-padding: #{tokens.$space-3};
+  --ids-combobox-no-results-line-height: #{tokens.$line-height-xxl};
 }
 
 .ids-combobox {
@@ -88,4 +94,11 @@
   &--compact {
     max-height: calc(var(--ids-combobox-height-compact) * var(--ids-combobox-number-of-option-to-display));
   }
+}
+
+.ids-combobox__no-results {
+  color: var(--ids-combobox-no-results-color);
+  font-size: var(--ids-combobox-no-results-font-size);
+  line-height: var(--ids-combobox-no-results-line-height);
+  padding: var(--ids-combobox-no-results-padding);
 }

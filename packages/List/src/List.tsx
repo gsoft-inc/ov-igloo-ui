@@ -17,8 +17,6 @@ export interface ListProps extends React.ComponentProps<'ul'> {
   /** The List gains checkboxes beside each option
    * to be able to select multiple options */
   multiple?: boolean;
-  /** Specify the text to display when there are no results found */
-  noResultsText?: string;
   /** Called when an option becomes focused or hovered */
   onOptionFocus?: (option: OptionType) => void;
   /** Called when an option is selected */
@@ -36,7 +34,6 @@ const List: React.FunctionComponent<ListProps> = (props: ListProps) => {
     focusedOption,
     isCompact = true,
     multiple,
-    noResultsText = 'No Results',
     onOptionFocus,
     onOptionChange,
     options,
@@ -56,42 +53,38 @@ const List: React.FunctionComponent<ListProps> = (props: ListProps) => {
       role="listbox"
       {...rest}
     >
-      {options && options.length ? (
-        options.map((option: OptionType) => {
-          let selected = false;
+      {options.map((option: OptionType) => {
+        let selected = false;
 
-          if (multiple) {
-            if (Array.isArray(selectedOption)) {
-              const selectedItem = selectedOption.filter((o) => {
-                return o.value === option.value;
-              });
-              selected = !!selectedItem && selectedItem.length > 0;
-            }
-          } else if (selectedOption && !Array.isArray(selectedOption)) {
-            selected = selectedOption.value === option.value;
+        if (multiple) {
+          if (Array.isArray(selectedOption)) {
+            const selectedItem = selectedOption.filter((o) => {
+              return o.value === option.value;
+            });
+            selected = !!selectedItem && selectedItem.length > 0;
           }
+        } else if (selectedOption && !Array.isArray(selectedOption)) {
+          selected = selectedOption.value === option.value;
+        }
 
-          let isFocused = false;
-          if (focusedOption) {
-            isFocused = focusedOption.value === option.value;
-          }
+        let isFocused = false;
+        if (focusedOption) {
+          isFocused = focusedOption.value === option.value;
+        }
 
-          return (
-            <ListItem
-              key={option.value}
-              option={option}
-              onOptionChange={onOptionChange}
-              onOptionFocus={onOptionFocus}
-              isCompact={isCompact}
-              isFocused={isFocused}
-              isSelected={selected}
-              useCheckbox={multiple}
-            />
-          );
-        })
-      ) : (
-        <div className="ids-list__no-results">{noResultsText}</div>
-      )}
+        return (
+          <ListItem
+            key={option.value}
+            option={option}
+            onOptionChange={onOptionChange}
+            onOptionFocus={onOptionFocus}
+            isCompact={isCompact}
+            isFocused={isFocused}
+            isSelected={selected}
+            useCheckbox={multiple}
+          />
+        );
+      })}
     </ul>
   );
 };

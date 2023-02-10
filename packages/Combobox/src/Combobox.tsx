@@ -338,16 +338,19 @@ const Combobox: React.FunctionComponent<ComboboxProps> = (
       <Dropdown
         key="comboboxDropdown"
         content={
-          <List
-            options={results}
-            noResultsText={noResultsText}
-            isCompact
-            onOptionFocus={hoverOption}
-            onOptionChange={updateOption}
-            selectedOption={multiple ? selectedOption : currentSelectedOption}
-            focusedOption={currentFocusedOption}
-            multiple={multiple}
-          />
+          results && results.length ? (
+            <List
+              options={results}
+              isCompact
+              onOptionFocus={hoverOption}
+              onOptionChange={updateOption}
+              selectedOption={multiple ? selectedOption : currentSelectedOption}
+              focusedOption={currentFocusedOption}
+              multiple={multiple}
+            />
+          ) : (
+            <div className="ids-combobox__no-results">{noResultsText}</div>
+          )
         }
         isOpen={canShowMenu}
         style={{ width: autoWidth ? '' : comboboxRect?.width }}

@@ -1,8 +1,6 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import Checkmark from '@igloo-ui/icons/dist/Checkmark';
-import CrownSolid from '@igloo-ui/icons/dist/CrownSolid';
 import UserSolid from '@igloo-ui/icons/dist/UserSolid';
 
 import { VisualIdentifier } from '../../../shared/components';
@@ -27,8 +25,6 @@ export interface Option extends ListItem {
   disabled?: boolean;
   /** The option label. */
   label: string;
-  /** Display an icon to indicate it's a premium option */
-  premium?: boolean;
   /** The option type */
   type: 'list';
 }
@@ -112,6 +108,12 @@ const ListItem: React.FunctionComponent<ListItemProps> = (
   });
 
   const shouldShowVisualIdentifier = option.src || option.color || option.icon;
+  const visualIdentifierContainerClasses = cx(
+    'ids-list-item__visual-identifier-container',
+    {
+      'ids-list-item__svg-container': option.icon,
+    }
+  );
 
   const listItemContent =
     option.type === 'list' ? (
@@ -157,7 +159,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = (
         {useCheckbox && <span className="ids-list-item__checkbox" />}
 
         {shouldShowVisualIdentifier && (
-          <div className="ids-list-item__visual-identifier-container">
+          <div className={visualIdentifierContainerClasses}>
             <VisualIdentifier
               className="ids-list-item__visual"
               icon={option.icon}
@@ -168,12 +170,6 @@ const ListItem: React.FunctionComponent<ListItemProps> = (
           </div>
         )}
         <span className="ids-list-item__text">{listItemContent}</span>
-        {isSelected && !useCheckbox && (
-          <Checkmark size="small" className="ids-list-item__checkmark" />
-        )}
-        {option.type === 'list' && option.premium && (
-          <CrownSolid size="small" className="ids-list-item__premium" />
-        )}
       </div>
     </li>
   );
