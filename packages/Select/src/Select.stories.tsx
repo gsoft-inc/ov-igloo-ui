@@ -169,3 +169,8 @@ LargeOptionNumber.bind({});
 LargeOptionNumber.parameters = {
   chromatic: { disableSnapshot: true },
 };
+
+AutoWidth.bind({});
+AutoWidth.parameters = {
+  chromatic: { disableSnapshot: true },
+};
