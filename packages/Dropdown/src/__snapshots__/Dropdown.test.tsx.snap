@@ -7,5 +7,23 @@ exports[`Dropdown It should render without error and a snapshot 1`] = `
       Settings
     </button>
   </div>
+  <span
+    data-floating-ui-focus-guard=""
+    data-type="outside"
+    role="button"
+    style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+    tabindex="0"
+  />
+  <span
+    aria-owns="floating-ui-0"
+    style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+  />
+  <span
+    data-floating-ui-focus-guard=""
+    data-type="outside"
+    role="button"
+    style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+    tabindex="0"
+  />
 </DocumentFragment>
 `;

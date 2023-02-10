@@ -18,7 +18,7 @@ const Example = () => {
     <div className="example">
       <Dropdown
         isOpen={show}
-        position="bottomRight"
+        position="bottom-end"
         onClose={() => setShow(false)}
         content={
           <List

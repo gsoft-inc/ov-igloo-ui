@@ -1,12 +1,17 @@
 import * as React from 'react';
-import ReactDom from 'react-dom';
 import cx from 'classnames';
-
-import { usePopper } from 'react-popper';
-import { useTransition, animated } from 'react-spring';
-
-import useClickOutside from './hooks/useClickOutside';
-import useMergeRefs from './hooks/useMergeRefs';
+import {
+  flip,
+  useMergeRefs,
+  offset,
+  autoUpdate,
+  FloatingPortal,
+  useFloating,
+  FloatingFocusManager,
+  useDismiss,
+  useInteractions,
+  useTransitionStyles,
+} from '@floating-ui/react';
 
 import './dropdown.scss';
 
@@ -48,87 +53,85 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       ...rest
     } = props;
 
-    const [referenceElement, setReferenceElement] =
-      React.useState<HTMLElement | null>(null);
-    const [dropdownElement, setDropdownElement] =
-      React.useState<HTMLElement | null>(null);
-
-    const refCallback = useMergeRefs([setDropdownElement, ref]);
-
-    const { styles, attributes, update } = usePopper(
-      referenceElement,
-      dropdownElement,
-      {
-        placement: position,
-        strategy: 'fixed',
-        modifiers: [
-          { name: 'offset', options: { offset: [0, 1] } },
-          {
-            name: 'flip',
-          },
-        ],
-      }
-    );
-
-    const initialTransform = position === 'bottom' ? '-1rem' : '1rem';
-    const transition = useTransition(isOpen, {
-      from: {
-        opacity: 0,
-        y: initialTransform,
-      },
-      enter: {
-        opacity: 1,
-        y: '0rem',
-      },
-      leave: { opacity: 0, y: initialTransform },
-      config: { duration: 150 },
-    });
-
     const handleOnClose = (): void => {
       if (onClose) {
         onClose();
       }
     };
 
+    const handleOpenChange = (open: boolean): void => {
+      if (!open) {
+        handleOnClose();
+      }
+    };
+
+    const { x, y, strategy, refs, context } = useFloating({
+      placement: position,
+      open: isOpen,
+      strategy: 'fixed',
+      onOpenChange: handleOpenChange,
+      whileElementsMounted: autoUpdate,
+      middleware: [offset(1), flip()],
+    });
+
+    const mergedDropdownRef = useMergeRefs([refs.setFloating, ref]);
+
+    const dismiss = useDismiss(context);
+
+    const { getReferenceProps, getFloatingProps } = useInteractions([dismiss]);
+
+    const { isMounted, styles } = useTransitionStyles(context, {
+      duration: 150,
+      initial: ({ side }) => ({
+        opacity: 0,
+        transform: side === 'bottom' ? 'translateY(1rem)' : 'translateY(-1rem)',
+      }),
+      open: {
+        opacity: 1,
+        transform: 'translateY(0rem)',
+      },
+      close: ({ side }) => ({
+        opacity: 0,
+        transform: side === 'bottom' ? 'translateY(1rem)' : 'translateY(-1rem)',
+      }),
+    });
+
     const dropdownClasses = cx('ids-dropdown', {
       [`ids-dropdown--${size}`]: size !== 'xsmall',
       [`ids-dropdown--${position}`]: position !== 'bottom',
     });
 
-    const dropdownHTML = ReactDom.createPortal(
-      <>
-        {transition(
-          (animationStyles, item) =>
-            item && (
-              <animated.div
-                style={{ ...animationStyles, ...styles.popper }}
-                ref={refCallback}
-                className={dropdownClasses}
-                data-test={dataTest}
-                {...attributes.popper}
-                {...rest}
-                data-show={isOpen}
-              >
-                {content}
-              </animated.div>
-            )
-        )}
-      </>,
-      document.body
-    );
-
-    useClickOutside([referenceElement, dropdownElement], handleOnClose);
-
-    React.useEffect(() => {
-      if (update !== null && isOpen) {
-        update();
-      }
-    }, [isOpen, update]);
-
     return (
       <>
-        <div ref={setReferenceElement}>{children}</div>
-        {dropdownHTML}
+        <div ref={refs.setReference} {...getReferenceProps()}>
+          {children}
+        </div>
+        <FloatingPortal>
+          {isMounted && (
+            <FloatingFocusManager
+              context={context}
+              modal={false}
+              initialFocus={-1}
+            >
+              <div
+                ref={mergedDropdownRef}
+                className={dropdownClasses}
+                data-test={dataTest}
+                {...rest}
+                data-show={isOpen}
+                style={{
+                  position: strategy,
+                  top: y ?? 0,
+                  left: x ?? 0,
+                  ...styles,
+                }}
+                {...getFloatingProps()}
+              >
+                {content}
+              </div>
+            </FloatingFocusManager>
+          )}
+        </FloatingPortal>
       </>
     );
   }
