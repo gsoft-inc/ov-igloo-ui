@@ -63,7 +63,7 @@ exports[`List It should render a snapshot 1`] = `
         class="ids-list-item__content"
       >
         <div
-          class="ids-list-item__visual-identifier-container"
+          class="ids-list-item__visual-identifier-container ids-list-item__svg-container"
         >
           <svg
             class="ids-icon ids-visual-identifier ids-visual-identifier__icon ids-list-item__visual"
