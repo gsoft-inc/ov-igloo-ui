@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.1.0
+
+### Minor Changes
+
+- 6b869be: Updated jsPopper to floating-ui and Fixed the weird positiong behavior of the dropdown
+
 ## 1.0.0
 
 ### Major Changes
