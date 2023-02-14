@@ -200,6 +200,10 @@ export const Multiple = () => {
     removeItem(tagId);
   };
 
+  const handleClear = (): void => {
+    setSelectedResults([]);
+  };
+
   return (
     <Section column>
       <div className="isb-combobox__tag-list">
@@ -227,6 +231,8 @@ export const Multiple = () => {
         search
         onChange={handleOptionChange}
         selectedOption={selectedResults}
+        clear
+        onClear={handleClear}
       >
         Place holder text
       </Combobox>

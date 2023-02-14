@@ -68,7 +68,8 @@
     border-color: var(--ids-select-border-color-active);
   }
 
-  &--disabled {
+  &--disabled,
+  &--disabled:focus {
     color: var(--ids-select-color-disabled);
     background-color: var(--ids-select-background-disabled);
     border-color: var(--ids-select-border-color-disabled);

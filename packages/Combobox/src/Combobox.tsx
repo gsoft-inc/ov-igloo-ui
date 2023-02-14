@@ -53,6 +53,8 @@ export interface ComboboxProps {
   noResultsText?: string;
   /** Callback when selected content changes */
   onChange?: (option: OptionType | undefined) => void;
+  /** Callback called when selected is cleared */
+  onClear?: () => void;
   /** List of available options. */
   options: ComboboxOption[];
   /** Whether or not to display a search box when open */
@@ -79,6 +81,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = (
     multiple = false,
     noResultsText = 'No Results',
     onChange,
+    onClear,
     options,
     search,
     selectedOption,
@@ -300,6 +303,9 @@ const Combobox: React.FunctionComponent<ComboboxProps> = (
     if (showMenu) {
       toggleMenu(showMenu);
     }
+    if (multiple && onClear) {
+      onClear();
+    }
     setCurrentSelectedOption(undefined);
     setCurrentFocusedOption(undefined);
   };
@@ -360,7 +366,13 @@ const Combobox: React.FunctionComponent<ComboboxProps> = (
             search={search}
             onSearch={handleSearch}
             searchRef={searchInputRef}
-            clear={clear}
+            clear={
+              selectedOption &&
+              Array.isArray(selectedOption) &&
+              selectedOption.length
+                ? clear
+                : undefined
+            }
             onClear={handleClear}
             clearTooltipText={clearTooltipText}
             disabled={disabled}
@@ -373,7 +385,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = (
             search={search}
             onSearch={handleSearch}
             searchRef={searchInputRef}
-            clear={clear}
+            clear={currentSelectedOption ? clear : undefined}
             onClear={handleClear}
             clearTooltipText={clearTooltipText}
             disabled={disabled}

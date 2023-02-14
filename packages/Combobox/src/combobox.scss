@@ -71,7 +71,8 @@
     border-color: var(--ids-combobox-border-color-active);
   }
 
-  &--disabled {
+  &--disabled,
+  &--disabled:focus {
     color: var(--ids-combobox-color-disabled);
     background: var(--ids-combobox-background-disabled);
     border-color: var(--ids-combobox-border-color-disabled);
