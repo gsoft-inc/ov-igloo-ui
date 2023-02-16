@@ -1,50 +1,57 @@
 import * as React from 'react';
 import cx from 'classnames';
+import useResizeObserver from '@react-hook/resize-observer';
 
-import Dropdown from './Dropdown';
+import Dropdown from '@igloo-ui/dropdown';
+import List, { OptionType, Option } from '@igloo-ui/list';
 
 import SelectInput from './SelectInput';
-import SelectOptionComponent from './SelectOption';
 import SelectValue from './SelectValue';
 
 import './select.scss';
 
-export interface SelectOption {
-  /** True if the current option can't be selected. */
-  disabled?: boolean;
-  /** Icon displayed at the front of the option label. */
-  icon?: React.ReactNode;
-  /** The option label. */
-  label: React.ReactNode;
-  /** The option value. */
-  value: string | number;
+export enum Keys {
+  Enter = 'Enter',
+  Space = ' ',
+  ArrowDown = 'ArrowDown',
+  ArrowUp = 'ArrowUp',
+  Escape = 'Escape',
+  Tab = 'Tab',
 }
 
+export type FocusDirection = 'first' | 'last' | 'up' | 'down';
+
+export type SelectOptiontype = Omit<Option, 'type'>;
+
 export interface SelectProps {
-  /** Default value displayed in the Select. */
+  /** Set this to true and the dropdown will take the width of its content,
+   * not the width of the select */
+  autoWidth?: boolean;
+  /** Default value displayed in the Select */
   children?: React.ReactNode;
-  /** Add a specific class to the Select. */
+  /** Add a specific class to the Select */
   className?: string;
-  /** Add a data-test tag for automated tests. */
+  /** Add a data-test tag for automated tests */
   dataTest?: string;
-  /** Disable the Select so the user cannot click on it. */
+  /** Disable the Select so the user cannot click on it */
   disabled?: boolean;
-  /** The Select is in an error state. */
+  /** The Select is in an error state */
   error?: boolean;
-  /** True for a compact appearance. */
+  /** True for a compact appearance */
   isCompact?: boolean;
-  /** True if the option list is displayed. */
+  /** True if the option list is displayed */
   isOpen?: boolean;
-  /** Callback when selected content changes. */
-  onChange?: (option: SelectOption | undefined) => void;
-  /** List of available options. */
-  options: SelectOption[];
-  /** The initial selected option. */
-  selectedOption?: SelectOption;
+  /** Callback when selected content changes */
+  onChange?: (option: OptionType | undefined) => void;
+  /** List of available options */
+  options: SelectOptiontype[];
+  /** The initial selected option */
+  selectedOption?: OptionType;
 }
 
 const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
   const {
+    autoWidth = false,
     children,
     className,
     dataTest,
@@ -58,165 +65,175 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
     ...rest
   } = props;
 
+  const selectOptions = options.map((option): OptionType => {
+    return {
+      ...option,
+      type: 'list',
+    };
+  });
+
   const selectRef = React.useRef<HTMLDivElement>(null);
+  const [currentFocusedOption, setCurrentFocusedOption] =
+    React.useState(selectedOption);
   const [currentSelectedOption, setCurrentSelectedOption] =
     React.useState(selectedOption);
-  const [previousSelectedOption, setPreviousSelectedOption] =
-    React.useState(selectedOption);
   const [showMenu, setShowMenu] = React.useState(isOpen);
+  const [results, setResults] = React.useState<OptionType[]>(selectOptions);
 
-  React.useEffect(() => {
-    const hasChanged = currentSelectedOption !== previousSelectedOption;
-    const skipOnChangeLogic = !hasChanged || showMenu;
+  const [selectRect, setSelectRect] = React.useState<DOMRectReadOnly>();
+  useResizeObserver(selectRef, (entry) => {
+    setSelectRect(entry.contentRect);
+  });
 
-    if (skipOnChangeLogic) {
+  const optionText = (option: OptionType | undefined): string | undefined => {
+    if (option?.type === 'member') {
+      return option?.member;
+    }
+    return option?.label;
+  };
+
+  const isOptionDisabled = (option: OptionType | undefined): boolean => {
+    if (option?.type === 'list') {
+      return option?.disabled ?? false;
+    }
+    return false;
+  };
+
+  const toggleMenu = (isOpen: boolean, keepFocus = false): void => {
+    const DROPDOWN_ANIMATION_DURATION = 150;
+    if (isOpen) {
+      if (keepFocus && selectRef && selectRef.current) {
+        selectRef.current.focus();
+      }
+
+      setTimeout(() => setResults(selectOptions), DROPDOWN_ANIMATION_DURATION);
+    } else if (currentFocusedOption !== currentSelectedOption) {
+      // This happens when the user doesn't select an option by keyboard.
+      setCurrentFocusedOption(currentSelectedOption);
+    }
+
+    setShowMenu(!isOpen);
+  };
+
+  const selectOption = (option: OptionType): void => {
+    const hasChanged = option !== currentSelectedOption;
+
+    toggleMenu(true, true);
+
+    if (!hasChanged || isOptionDisabled(option)) {
       return;
     }
 
-    setPreviousSelectedOption(currentSelectedOption);
+    setCurrentSelectedOption(option);
 
     if (onChange) {
-      onChange(currentSelectedOption);
-    }
-  }, [onChange, currentSelectedOption, previousSelectedOption, showMenu]);
-
-  const SelectFirstOption = (): void => {
-    const firstValidOption = options.find((option) => option.disabled !== true);
-
-    if (firstValidOption) {
-      setCurrentSelectedOption(firstValidOption);
+      onChange(option);
     }
   };
 
-  const SelectNextOption = (): void => {
-    if (!currentSelectedOption) {
-      SelectFirstOption();
-      return;
-    }
+  const hoverOption = (option: OptionType): void => {
+    setCurrentFocusedOption(option);
+  };
 
-    const currentOptionIndex = options.indexOf(currentSelectedOption);
-
-    if (currentOptionIndex >= options.length - 1) {
-      return;
-    }
-
-    const nextValidOption = options.find(
-      (option, index) => option.disabled !== true && index > currentOptionIndex
+  const focusOption = (direction: FocusDirection = 'first'): void => {
+    const options = results.filter(
+      (option) => isOptionDisabled(option) !== true
     );
+    if (!options.length) return;
 
-    if (nextValidOption) {
-      setCurrentSelectedOption(nextValidOption);
+    let currentFocusedIndex = -1;
+    if (currentFocusedOption) {
+      currentFocusedIndex = options.indexOf(currentFocusedOption);
+    } else if (currentSelectedOption) {
+      currentFocusedIndex = options.indexOf(currentSelectedOption);
+    }
+
+    switch (direction) {
+      case 'up':
+        setCurrentFocusedOption(
+          options[
+            currentFocusedIndex > 0
+              ? currentFocusedIndex - 1
+              : options.length - 1
+          ]
+        );
+        break;
+      case 'down':
+        setCurrentFocusedOption(
+          options[(currentFocusedIndex + 1) % options.length]
+        );
+        break;
+      case 'last':
+        setCurrentFocusedOption(options[options.length - 1]);
+        break;
+      default:
+        setCurrentFocusedOption(options[0]);
+        break;
     }
   };
 
-  const SelectPreviousOption = (): void => {
-    if (!currentSelectedOption) {
-      SelectFirstOption();
-      return;
-    }
-
-    const currentOptionIndex = options.indexOf(currentSelectedOption);
-
-    if (currentOptionIndex === 0) {
-      return;
-    }
-
-    const previousValidOption = [...options]
-      .reverse()
-      .find(
-        (option, index) =>
-          option.disabled !== true &&
-          index > options.length - currentOptionIndex - 1
-      );
-
-    if (previousValidOption) {
-      setCurrentSelectedOption(previousValidOption);
-    }
+  const targetIsClearBtn = (element: HTMLElement): boolean => {
+    return !!element.closest('.ids-select__input-clear');
   };
 
   const handleOnKeyDown = (
     keyboardEvent: React.KeyboardEvent<HTMLDivElement>
   ): void => {
-    if (keyboardEvent.key === 'Escape' || keyboardEvent.key === 'Esc') {
-      if (showMenu) {
-        setShowMenu(false);
-      }
-    }
-
-    if (keyboardEvent.code === 'Space' || keyboardEvent.key === 'Enter') {
-      keyboardEvent.preventDefault();
-      keyboardEvent.stopPropagation();
-
-      const keepFocus = showMenu;
-
-      setShowMenu(!showMenu);
-      if (keepFocus) {
-        if (selectRef && selectRef.current) {
-          selectRef.current.focus();
+    const { target } = keyboardEvent;
+    switch (keyboardEvent.key) {
+      case Keys.Escape:
+        if (showMenu) {
+          toggleMenu(showMenu);
         }
-      }
-    }
+        break;
+      case Keys.Enter:
+        if (!targetIsClearBtn(target as HTMLElement)) {
+          keyboardEvent.preventDefault();
+          keyboardEvent.stopPropagation();
+          if (currentFocusedOption) {
+            selectOption(currentFocusedOption);
+          }
+          if ((!currentFocusedOption && showMenu) || !showMenu) {
+            toggleMenu(showMenu, true);
+          }
+        }
+        break;
+      case Keys.Space:
+        if (!showMenu && !targetIsClearBtn(target as HTMLElement)) {
+          toggleMenu(false);
+        }
+        break;
+      case Keys.ArrowUp:
+        keyboardEvent.preventDefault();
+        keyboardEvent.stopPropagation();
 
-    if (keyboardEvent.code === 'ArrowUp') {
-      keyboardEvent.preventDefault();
-      keyboardEvent.stopPropagation();
+        focusOption('up');
+        break;
+      case Keys.ArrowDown:
+        keyboardEvent.preventDefault();
+        keyboardEvent.stopPropagation();
 
-      SelectPreviousOption();
-    }
-    if (keyboardEvent.code === 'ArrowDown') {
-      keyboardEvent.preventDefault();
-      keyboardEvent.stopPropagation();
+        focusOption('down');
+        break;
+      case Keys.Tab:
+        if (showMenu) {
+          toggleMenu(showMenu);
+        }
 
-      SelectNextOption();
+        break;
+      default:
+        break;
     }
   };
-
-  const handleOnClick = (): void => {
-    if (disabled) {
+  const handleOnClick = (e: React.MouseEvent<HTMLDivElement>): void => {
+    const { target } = e;
+    if (disabled || targetIsClearBtn(target as HTMLDivElement)) {
       return;
     }
 
-    setShowMenu(!showMenu);
-  };
+    const keepFocus = showMenu;
 
-  const generateOptions = (): React.ReactNode => {
-    if (!options || options.length === 0) {
-      return <Dropdown key="selectDropdown" />;
-    }
-
-    const selectOptions = options.map((option: SelectOption) => {
-      if (!option) {
-        return null;
-      }
-
-      const isSelected = option.value === currentSelectedOption?.value ?? false;
-
-      const optionHandleOnClick = (): void => {
-        if (option.disabled) {
-          return;
-        }
-
-        setCurrentSelectedOption(option);
-      };
-
-      return (
-        <SelectOptionComponent
-          disabled={option.disabled}
-          icon={option.icon}
-          isCompact={isCompact}
-          label={option.label}
-          onClick={optionHandleOnClick}
-          selected={isSelected}
-          key={option.value}
-        />
-      );
-    });
-
-    return (
-      <Dropdown isOpen={showMenu} key="selectDropdown">
-        {selectOptions}
-      </Dropdown>
-    );
+    toggleMenu(showMenu, keepFocus);
   };
 
   const canShowMenu = showMenu && !disabled;
@@ -227,6 +244,14 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
     'ids-select--disabled': disabled,
     'ids-select--error': error,
   });
+
+  const selectDropdownClassname = cx(
+    'ids-select__dropdown',
+    `${className}__dropdown`,
+    {
+      'ids-select__dropdown--compact': isCompact,
+    }
+  );
 
   return (
     <div
@@ -239,16 +264,34 @@ const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
       tabIndex={0}
       {...rest}
     >
-      <SelectInput isOpen={canShowMenu}>
-        <SelectValue
-          disabled={disabled}
-          icon={currentSelectedOption?.icon}
-          isCompact={isCompact}
-          isPlaceholder={!currentSelectedOption}
-          label={currentSelectedOption?.label || children}
-        />
-      </SelectInput>
-      {canShowMenu && generateOptions()}
+      <Dropdown
+        key="selectDropdown"
+        content={
+          <List
+            options={results}
+            isCompact
+            onOptionFocus={hoverOption}
+            onOptionChange={selectOption}
+            selectedOption={currentSelectedOption}
+            focusedOption={currentFocusedOption}
+          />
+        }
+        isOpen={canShowMenu}
+        style={{ width: autoWidth ? '' : selectRect?.width }}
+        className={selectDropdownClassname}
+      >
+        <SelectInput isOpen={canShowMenu}>
+          <SelectValue
+            disabled={disabled}
+            icon={currentSelectedOption?.icon}
+            isCompact={isCompact}
+            isPlaceholder={!currentSelectedOption}
+            label={optionText(currentSelectedOption) || children}
+            src={currentSelectedOption?.src}
+            color={currentSelectedOption?.color}
+          />
+        </SelectInput>
+      </Dropdown>
     </div>
   );
 };

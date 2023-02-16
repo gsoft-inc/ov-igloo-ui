@@ -5,7 +5,6 @@ import {
   useMergeRefs,
   offset,
   autoUpdate,
-  FloatingPortal,
   useFloating,
   FloatingFocusManager,
   useDismiss,
@@ -26,6 +25,8 @@ export type Size = 'xsmall' | 'small' | 'medium' | 'large';
 export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   /** The target button, text, svg etc.. of the Dropdown. */
   children: React.ReactElement;
+  /** Add a specific class to the dropdown. */
+  className?: string;
   /** Default value displayed in the Dropdown. */
   content: React.ReactNode;
   /** Position of the Dropdown. */
@@ -44,12 +45,14 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
   (props: DropdownProps, ref: React.ForwardedRef<HTMLDivElement>) => {
     const {
       children,
+      className,
       content,
       size = 'xsmall',
       onClose,
       dataTest,
       isOpen = false,
       position = 'bottom-start',
+      style,
       ...rest
     } = props;
 
@@ -96,42 +99,45 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       }),
     });
 
-    const dropdownClasses = cx('ids-dropdown', {
+    const dropdownClasses = cx('ids-dropdown', className, {
       [`ids-dropdown--${size}`]: size !== 'xsmall',
       [`ids-dropdown--${position}`]: position !== 'bottom',
     });
 
     return (
       <>
-        <div ref={refs.setReference} {...getReferenceProps()}>
+        <div
+          className="ids-dropdown__ref"
+          ref={refs.setReference}
+          {...getReferenceProps()}
+        >
           {children}
         </div>
-        <FloatingPortal>
-          {isMounted && (
-            <FloatingFocusManager
-              context={context}
-              modal={false}
-              initialFocus={-1}
+        {isMounted && (
+          <FloatingFocusManager
+            context={context}
+            modal={false}
+            initialFocus={-1}
+          >
+            <div
+              ref={mergedDropdownRef}
+              className={dropdownClasses}
+              data-test={dataTest}
+              {...rest}
+              data-show={isOpen}
+              style={{
+                position: strategy,
+                top: y ?? 0,
+                left: x ?? 0,
+                ...styles,
+                ...style,
+              }}
+              {...getFloatingProps()}
             >
-              <div
-                ref={mergedDropdownRef}
-                className={dropdownClasses}
-                data-test={dataTest}
-                {...rest}
-                data-show={isOpen}
-                style={{
-                  position: strategy,
-                  top: y ?? 0,
-                  left: x ?? 0,
-                  ...styles,
-                }}
-                {...getFloatingProps()}
-              >
-                {content}
-              </div>
-            </FloatingFocusManager>
-          )}
-        </FloatingPortal>
+              {content}
+            </div>
+          </FloatingFocusManager>
+        )}
       </>
     );
   }

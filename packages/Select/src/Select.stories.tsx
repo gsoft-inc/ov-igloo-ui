@@ -5,11 +5,12 @@ import { within, userEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
 import Happiness from '@igloo-ui/icons/dist/Happiness';
+import { Option, OptionType } from '@igloo-ui/list';
 
 import Section from '@components/section';
 import readme from '../../Select/README.md';
 
-import Select, { SelectOption } from './Select';
+import Select from './Select';
 
 export default {
   title: 'Components/Select',
@@ -17,60 +18,80 @@ export default {
   parameters: {
     description: readme,
   },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          minHeight: '34rem',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
 } as ComponentMeta<typeof Select>;
 
 const selectPlaceholder = 'ex: Lorem ipsum dolor';
 
-const largeDisplay = {
-  height: 230,
+const handleOnChange = (option: OptionType | undefined): void => {
+  const item = option as Option;
+  alert(`Option: ${item?.label}`);
 };
 
-const handleOnChange = (option: SelectOption): void => {
-  alert(`Option: ${option.label}`);
-};
-
-const smallOptionList = [
+const smallOptionList: Option[] = [
   {
+    type: 'list',
     label: 'Text option',
     value: 'text',
   },
   {
+    type: 'list',
     label: 'Disabled option',
     value: 'disabled',
     disabled: true,
   },
   {
+    type: 'list',
     label: 'Text option with icon',
     value: 'icon',
     icon: <Happiness size="small" />,
   },
 ];
 
-const largeOptionList = [
+const largeOptionList: Option[] = [
   {
+    type: 'list',
     label: 'Text 1',
     value: '1',
   },
   {
+    type: 'list',
     label: 'Text 2 (disabled)',
     value: '2',
     disabled: true,
   },
   {
+    type: 'list',
     label: 'Text 3',
     value: '3',
+    color: '#74DCC9',
   },
   {
+    type: 'list',
     label: 'Text 4',
     value: '4',
   },
   {
+    type: 'list',
     label: 'Text 5',
     value: '5',
+    src: 'https://i.pravatar.cc/100',
   },
   {
+    type: 'list',
     label: 'Text 6',
     value: '6',
+    icon: <Happiness size="small" />,
   },
 ];
 
@@ -123,8 +144,16 @@ export const States = () => (
 );
 
 export const LargeOptionNumber = () => (
-  <Section style={largeDisplay}>
+  <Section>
     <Select options={largeOptionList} onChange={handleOnChange}>
+      Place holder text
+    </Select>
+  </Section>
+);
+
+export const AutoWidth = () => (
+  <Section>
+    <Select options={largeOptionList} onChange={handleOnChange} autoWidth>
       Place holder text
     </Select>
   </Section>
@@ -138,5 +167,10 @@ Sizes.parameters = {
 
 LargeOptionNumber.bind({});
 LargeOptionNumber.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+AutoWidth.bind({});
+AutoWidth.parameters = {
   chromatic: { disableSnapshot: true },
 };

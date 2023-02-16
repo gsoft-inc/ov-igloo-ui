@@ -1,0 +1,27 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-list-font-family: #{tokens.$primary-font-family};
+  --ids-list-font-size: #{tokens.$font-size-3};
+  --ids-list-color: #{tokens.$grey-800};
+  --ids-list-line-height: #{tokens.$line-height-xxl};
+  --ids-list-min-width: 20rem;
+}
+
+.ids-list {
+  color: var(--ids-list-color);
+  font-family: var(--ids-list-font-family);
+  font-size: var(--ids-list-font-size);
+  line-height: var(--ids-list-line-height);
+  list-style: none;
+  margin: 0;
+  min-width: var(--ids-list-min-width);
+  padding: 0;
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+}

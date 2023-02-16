@@ -1,17 +1,17 @@
 {
-  "name": "@igloo-ui/select",
-  "version": "0.1.4",
-  "main": "dist/Select.js",
-  "module": "dist/Select.js",
-  "types": "dist/Select.d.ts",
-  "styles": "dist/select.css",
+  "name": "@igloo-ui/combobox",
+  "version": "0.0.0",
+  "main": "dist/Combobox.js",
+  "module": "dist/Combobox.js",
+  "types": "dist/Combobox.d.ts",
+  "styles": "dist/combobox.css",
   "publishConfig": {
     "access": "public"
   },
   "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
   "author": "Officevibe Inc.",
   "contributors": [
-    "alexandre.beaudoin@gsoft.com"
+    "Vicky Comeau vicky.comeau@gsoft.com"
   ],
   "license": "Apache-2.0",
   "peerDependencies": {
@@ -30,8 +30,12 @@
     "@igloo-ui/icon-button": "^0.2.13",
     "@igloo-ui/input": "^2.0.3",
     "@igloo-ui/tokens": "^2.0.0",
+    "@igloo-ui/tooltip": "^3.0.2",
     "@react-hook/resize-observer": "^1.2.6",
     "classnames": "^2.3.2"
+  },
+  "devDependencies": {
+    "@igloo-ui/tag": "^1.0.2"
   },
   "browserslist": [
     "> 1%",

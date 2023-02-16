@@ -11,17 +11,17 @@ const Example = () => {
     {
       label: 'Telephone',
       value: 'Telephone',
-      icon: Audio,
+      icon: <Audio size="small" />,
     },
     {
       label: 'SMS',
       value: 'SMS',
-      icon: Feedback,
+      icon: <Feedback size="small" />,
     },
     {
       label: 'Email',
       value: 'Email',
-      icon: Email,
+      icon: <Email size="small" />,
     },
   ];
 
