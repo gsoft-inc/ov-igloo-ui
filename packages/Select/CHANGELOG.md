@@ -8,7 +8,7 @@
 
   ## BREAKING CHANGE
 
-  Select types were updated. List component is used inside Select so SelectOption.tsx was removed. Some functionality was changed. When selecting an element int he select using the keyboard, it now just focuses the element, you need to actually hit enter to select it.
+  Select types were updated. List component is used inside Select so SelectOption.tsx was removed. Some functionality was changed. When selecting an element in the select using the keyboard, it now just focuses the element, you need to actually hit enter to select it.
 
 ### Patch Changes
 
