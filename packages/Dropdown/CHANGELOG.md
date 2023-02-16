@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.1.1
+
+### Patch Changes
+
+- 7dcba93: Initial release of List and Combobox components. Select was updated to use the Dropdown component that was created previously as well as the new List component.
+
 ## 1.1.0
 
 ### Minor Changes

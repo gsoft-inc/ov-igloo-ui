@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/combobox",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "dist/Combobox.js",
   "module": "dist/Combobox.js",
   "types": "dist/Combobox.d.ts",
@@ -24,8 +24,8 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/dropdown": "^1.0.0",
-    "@igloo-ui/list": "^0.0.0",
+    "@igloo-ui/dropdown": "^1.1.1",
+    "@igloo-ui/list": "^0.1.0",
     "@igloo-ui/icons": "^1.6.0",
     "@igloo-ui/icon-button": "^0.2.13",
     "@igloo-ui/input": "^2.0.3",
