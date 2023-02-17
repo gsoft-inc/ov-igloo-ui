@@ -12,7 +12,7 @@
   --ids-btn-padding: #{tokens.$space-3};
   --ids-btn-padding-mobile: 1.2rem;
   --ids-btn-border-radius: #{tokens.$border-radius-sm};
-  --ids-btn-icon-color: currencolor;
+  --ids-btn-icon-color: currentColor;
   --ids-btn-icon-margin: #{tokens.$space-1};
   --ids-btn-z-index: #{tokens.$z-index-10};
   --ids-btn-focus-position: -0.3rem;
@@ -73,6 +73,13 @@
   --ids-btn-text-ghost-danger-disabled: #{tokens.$coral-300};
   --ids-loader-border-ghost-danger: 2px solid rgb(249 97 85 / 30%);
   --ids-loader-ghost-danger: #{tokens.$coral-500};
+
+  /* Ghost, variant: Secondary */
+  --ids-btn-text-ghost-secondary: #{tokens.$grey-600};
+  --ids-btn-text-ghost-secondary-hover: #{tokens.$grey-800};
+  --ids-btn-text-ghost-secondary-disabled: #{tokens.$grey-400};
+  --ids-loader-border-ghost-secondary: 2px solid rgb(96 107 121 / 30%);
+  --ids-loader-ghost-secondary: #{tokens.$grey-600};
 
   /* Calculate negative margin for  IE11 compatibility */
   --ids-loader-position: calc(-0.6rem - 1px);
@@ -193,6 +200,11 @@
 .ids-btn--ghost-danger .ids-loader {
   border: var(--ids-loader-border-ghost-danger);
   border-left-color: var(--ids-loader-ghost-danger);
+}
+
+.ids-btn--ghost-secondary .ids-loader {
+  border: var(--ids-loader-border-ghost-secondary);
+  border-left-color: var(--ids-loader-ghost-secondary);
 }
 
 .ids-btn--premium .ids-loader {
@@ -338,6 +350,26 @@
 .ids-btn.ids-btn--ghost-danger.ids-btn--disabled,
 .ids-btn.ids-btn--ghost-danger:disabled {
   color: var(--ids-btn-text-ghost-danger-disabled);
+  background: var(--ids-btn-background-ghost);
+}
+
+.ids-btn.ids-btn--ghost-secondary {
+  color: var(--ids-btn-text-ghost-secondary);
+  background: var(--ids-btn-background-ghost);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ids-btn.ids-btn--ghost-secondary:focus,
+.ids-btn.ids-btn--ghost-secondary.focus,
+.ids-btn.ids-btn--ghost-secondary:hover {
+  color: var(--ids-btn-text-ghost-secondary-hover);
+  background: var(--ids-btn-background-ghost);
+}
+
+.ids-btn.ids-btn--ghost-secondary.ids-btn--disabled,
+.ids-btn.ids-btn--ghost-secondary:disabled {
+  color: var(--ids-btn-text-ghost-secondary-disabled);
   background: var(--ids-btn-background-ghost);
 }
 
