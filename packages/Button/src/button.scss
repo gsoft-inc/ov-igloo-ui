@@ -216,7 +216,9 @@
 }
 
 .ids-btn--secondary:active .ids-loader,
-.ids-btn--secondary.ids-btn--active .ids-loader {
+.ids-btn--secondary.ids-btn--active .ids-loader,
+.ids-btn--ghost-secondary:active .ids-loader,
+.ids-btn--ghost-secondary.ids-btn--active .ids-loader {
   border-left-color: var(--ids-loader-secondary-active);
 }
 
@@ -365,6 +367,11 @@
 .ids-btn.ids-btn--ghost-secondary:hover {
   color: var(--ids-btn-text-ghost-secondary-hover);
   background: var(--ids-btn-background-ghost);
+}
+
+.ids-btn.ids-btn--ghost-secondary:active,
+.ids-btn.ids-btn--ghost-secondary.ids-btn--active {
+  color: var(--ids-btn-text-secondary-active);
 }
 
 .ids-btn.ids-btn--ghost-secondary.ids-btn--disabled,
