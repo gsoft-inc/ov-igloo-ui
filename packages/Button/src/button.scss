@@ -14,9 +14,6 @@
   --ids-btn-border-radius: #{tokens.$border-radius-sm};
   --ids-btn-icon-color: currentColor;
   --ids-btn-icon-margin: #{tokens.$space-1};
-  --ids-btn-z-index: #{tokens.$z-index-10};
-  --ids-btn-focus-position: -0.3rem;
-  --ids-btn-shadow: 0 0 0 1.5px #{tokens.$electric-blue-500};
 
   /* Primary */
   --ids-btn-text-primary: #{tokens.$samoyed};
@@ -27,6 +24,7 @@
 
   /* Secondary */
   --ids-btn-text-secondary: #{tokens.$grey-800};
+  --ids-btn-text-secondary-hover: #{tokens.$grey-800};
   --ids-btn-text-secondary-active: #{tokens.$electric-blue-500};
   --ids-btn-text-secondary-disabled: #{tokens.$grey-600};
   --ids-btn-border-secondary: #{tokens.$grey-300};
@@ -45,7 +43,6 @@
   --ids-btn-background-premium-disabled: #{tokens.$dandelion-50};
 
   /* Danger */
-  --ids-btn-text-danger: #{tokens.$samoyed};
   --ids-btn-background-danger: #{tokens.$coral-500};
   --ids-btn-background-danger-hover: #{tokens.$coral-600};
   --ids-btn-background-danger-disabled: #{tokens.$coral-200};
@@ -245,7 +242,7 @@
 %btn-secondary-disabled {
   color: var(--ids-btn-text-secondary-disabled);
   background: var(--ids-btn-background-secondary-disabled);
-  border: 1px solid var(--ids-btn-border-secondary-disabled);
+  border: 1px solid var(--ids-btn-background-secondary-disabled);
 }
 
 .ids-btn--secondary {
