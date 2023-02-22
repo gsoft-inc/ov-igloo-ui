@@ -29,7 +29,32 @@ export default {
       table: { defaultValue: { summary: 'medium' } },
       options: ['xsmall', 'small', 'medium', 'large'],
     },
-    appearance: { table: { defaultValue: { summary: 'primary' } } },
+    appearance: {
+      description: 'Button appearance',
+      table: {
+        defaultValue: { summary: 'primary' },
+        type: {
+          summary:
+            ' "primary" | "secondary" | "premium" | "ghost" | "danger" | { type: "ghost", variant?: "secondary"} | { type: "ghost", variant?: "danger"} ',
+        },
+      },
+      control: {
+        type: 'radio',
+      },
+      options: [
+        'primary',
+        'secondary',
+        'premium',
+        'ghost',
+        'danger',
+        'ghostSecondary',
+        'ghostDanger',
+      ],
+      mapping: {
+        ghostSecondary: { type: 'ghost', variant: 'secondary' },
+        ghostDanger: { type: 'ghost', variant: 'danger' },
+      },
+    },
     icon: { control: { type: null } },
   },
 } as ComponentMeta<typeof IconButton>;
@@ -50,6 +75,14 @@ export const Appearances = () => (
     <IconButton appearance="premium" icon={<Plus size="small" />} />
     <IconButton appearance="danger" icon={<Plus size="small" />} />
     <IconButton appearance="ghost" icon={<Plus size="small" />} />
+    <IconButton
+      appearance={{ type: 'ghost', variant: 'secondary' }}
+      icon={<Plus size="small" />}
+    />
+    <IconButton
+      appearance={{ type: 'ghost', variant: 'danger' }}
+      icon={<Plus size="small" />}
+    />
   </Section>
 );
 
@@ -64,6 +97,16 @@ export const Rounded = () => (
     <IconButton rounded appearance="premium" icon={<Settings size="small" />} />
     <IconButton rounded appearance="danger" icon={<Settings size="small" />} />
     <IconButton rounded appearance="ghost" icon={<Settings size="small" />} />
+    <IconButton
+      rounded
+      appearance={{ type: 'ghost', variant: 'secondary' }}
+      icon={<Settings size="small" />}
+    />
+    <IconButton
+      rounded
+      appearance={{ type: 'ghost', variant: 'danger' }}
+      icon={<Settings size="small" />}
+    />
   </Section>
 );
 
@@ -77,14 +120,42 @@ export const Sizes = () => (
 );
 
 export const States = () => (
-  <Section>
-    <IconButton appearance="secondary" icon={<Plus size="small" />} />
-    <IconButton disabled appearance="secondary" icon={<Plus size="small" />} />
-    <IconButton active appearance="secondary" icon={<Plus size="small" />} />
-    <IconButton
-      className="focus"
-      appearance="secondary"
-      icon={<Plus size="small" />}
-    />
+  <Section column>
+    <Section>
+      <IconButton appearance="secondary" icon={<Plus size="small" />} />
+      <IconButton
+        disabled
+        appearance="secondary"
+        icon={<Plus size="small" />}
+      />
+      <IconButton active appearance="secondary" icon={<Plus size="small" />} />
+      <IconButton
+        className="focus"
+        appearance="secondary"
+        icon={<Plus size="small" />}
+      />
+    </Section>
+
+    <Section>
+      <IconButton
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+        icon={<Plus size="small" />}
+      />
+      <IconButton
+        disabled
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+        icon={<Plus size="small" />}
+      />
+      <IconButton
+        active
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+        icon={<Plus size="small" />}
+      />
+      <IconButton
+        className="focus"
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+        icon={<Plus size="small" />}
+      />
+    </Section>
   </Section>
 );
