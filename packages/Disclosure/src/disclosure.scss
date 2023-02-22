@@ -29,15 +29,16 @@
 }
 
 .ids-disclosure {
+  border-radius: var(--ids-disclosure-border-radius);
   box-shadow: var(--ids-disclosure-shadow);
   font-family: var(--ids-disclosure-font-family);
   font-size: var(--ids-disclosure-font-size);
+  overflow: hidden;
 
   .ids-disclosure__header {
     align-items: center;
     background: var(--ids-disclosure-header-background);
     border: none;
-    border-radius: var(--ids-disclosure-border-radius);
     color: var(--ids-disclosure-color);
     cursor: pointer;
     display: flex;
