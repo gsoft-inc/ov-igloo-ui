@@ -179,37 +179,17 @@ export const Sizes = () => (
 );
 
 export const States = () => (
-  <Section column>
-    <Section>
-      <Button appearance="secondary">Secondary</Button>
-      <Button disabled appearance="secondary">
-        Secondary
-      </Button>
-      <Button active appearance="secondary">
-        Secondary
-      </Button>
-      <Button className="focus" appearance="secondary">
-        Secondary
-      </Button>
-    </Section>
-
-    <Section>
-      <Button appearance={{ type: 'ghost', variant: 'secondary' }}>
-        Secondary
-      </Button>
-      <Button disabled appearance={{ type: 'ghost', variant: 'secondary' }}>
-        Secondary
-      </Button>
-      <Button active appearance={{ type: 'ghost', variant: 'secondary' }}>
-        Secondary
-      </Button>
-      <Button
-        className="focus"
-        appearance={{ type: 'ghost', variant: 'secondary' }}
-      >
-        Secondary
-      </Button>
-    </Section>
+  <Section>
+    <Button appearance="secondary">Secondary</Button>
+    <Button disabled appearance="secondary">
+      Secondary
+    </Button>
+    <Button active appearance="secondary">
+      Secondary
+    </Button>
+    <Button className="focus" appearance="secondary">
+      Secondary
+    </Button>
   </Section>
 );
 

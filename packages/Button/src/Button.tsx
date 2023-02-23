@@ -9,7 +9,6 @@ export type Appearance =
   | 'premium'
   | 'ghost'
   | 'danger'
-  | { type: 'ghost'; variant?: 'secondary' }
   | { type: 'ghost'; variant?: 'danger' };
 export type Size = 'small' | 'medium';
 
@@ -40,8 +39,7 @@ export interface ButtonOwnProps {
   disabled?: boolean;
   /** Sets the button in an active state */
   active?: boolean;
-  /** Replaces button text with a spinner while a
-   * background action is being performed */
+  /** Replaces button text with a spinner while a background action is being performed */
   loading?: boolean;
   /** Changes the size of button, giving more or less padding */
   size?: Size;
@@ -59,8 +57,7 @@ export interface ButtonOwnProps {
   onClick?: () => void;
   /** Optional prop to specify the type of the Button */
   type?: 'button' | 'reset' | 'submit';
-  /** Add a data-intercom-target with unique id to link a
-   * component to a Product Tour step */
+  /** Add a data-intercom-target with unique id to link a component to a Product Tour step */
   intercomTarget?: string;
   /** Add a specific class to the button */
   className?: string;
