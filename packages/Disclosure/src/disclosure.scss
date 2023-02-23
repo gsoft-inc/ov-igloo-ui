@@ -93,13 +93,13 @@
     flex: 0 0 auto;
     margin: var(--ids-disclosure-header-chevron-margin);
 
-    [aria-expanded='true'] & {
-      transform: rotate(180deg);
-    }
-
     @media (min-width: #{tokens.$breakpoints-sm}) {
       display: block;
     }
+  }
+
+  [aria-expanded='true'] .ids-disclosure__header-chevron {
+    transform: rotate(180deg);
   }
 
   .ids-disclosure__content {
