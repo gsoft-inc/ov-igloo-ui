@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 import { useButton } from 'react-aria';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence, LazyMotion, domAnimation } from 'framer-motion';
 
 import ChevronDown from '@igloo-ui/icons/dist/ChevronDown';
 
@@ -70,31 +70,33 @@ const Disclosure: React.FunctionComponent<DisclosureProps> = (
         </span>
         <ChevronDown size="medium" className="ids-disclosure__header-chevron" />
       </button>
-      <AnimatePresence initial={false}>
-        {expanded && (
-          <motion.div
-            className="ids-disclosure__content"
-            key="content"
-            initial="collapsed"
-            animate="open"
-            exit="collapsed"
-            variants={{
-              open: {
-                opacity: 1,
-                height: 'auto',
-                overflow: 'hidden',
-                transitionEnd: {
-                  overflow: 'visible',
+      <LazyMotion features={domAnimation} strict>
+        <AnimatePresence initial={false}>
+          {expanded && (
+            <m.div
+              className="ids-disclosure__content"
+              key="content"
+              initial="collapsed"
+              animate="open"
+              exit="collapsed"
+              variants={{
+                open: {
+                  opacity: 1,
+                  height: 'auto',
+                  overflow: 'hidden',
+                  transitionEnd: {
+                    overflow: 'visible',
+                  },
                 },
-              },
-              collapsed: { opacity: 0, height: 0, overflow: 'hidden' },
-            }}
-            transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
-          >
-            {children}
-          </motion.div>
-        )}
-      </AnimatePresence>
+                collapsed: { opacity: 0, height: 0, overflow: 'hidden' },
+              }}
+              transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
+            >
+              {children}
+            </m.div>
+          )}
+        </AnimatePresence>
+      </LazyMotion>
     </div>
   );
 };
