@@ -25,52 +25,50 @@ const Example = () => {
           />
         </span>
       </div>
-      {open && (
-        <Modal
-          fullContent
-          title="John Doe"
-          isOpen={open}
-          isDismissable
-          isClosable
-          size="large"
-          onClose={() => setOpen(!open)}
-          className="ex-modal"
-        >
-          <>
-            <header className="ex-modal__header">
-              <div className="ex-modal__profile">
-                <div className="ex-modal__avatar" />
-                <h2>John Doe</h2>
-              </div>
-            </header>
-            <h4>Your personal info</h4>
-            <form className="ex-modal__form">
-              <div className="ex-modal__formGroup">
-                <HelperText>First name</HelperText>
-                <Input value="John" />
-              </div>
-              <div className="ex-modal__formGroup">
-                <HelperText>Last name</HelperText>
-                <Input value="Doe" />
-              </div>
-              <div className="ex-modal__formGroup">
-                <HelperText>Job title</HelperText>
-                <Input placeholder="e.g. Designer" />
-              </div>
-              <div className="ex-modal__formGroup">
-                <HelperText>Email</HelperText>
-                <Input disabled value="john.doe@acm.com" />
-              </div>
-            </form>
-            <footer className="ex-modal__footer">
-              <Button onClick={() => setOpen(!open)} appearance="secondary">
-                Cancel
-              </Button>
-              <Button disabled>Update profile</Button>
-            </footer>
-          </>
-        </Modal>
-      )}
+      <Modal
+        fullContent
+        title="John Doe"
+        isOpen={open}
+        isDismissable
+        isClosable
+        size="large"
+        onClose={() => setOpen(!open)}
+        className="ex-modal"
+      >
+        <>
+          <header className="ex-modal__header">
+            <div className="ex-modal__profile">
+              <div className="ex-modal__avatar" />
+              <h2>John Doe</h2>
+            </div>
+          </header>
+          <h4>Your personal info</h4>
+          <form className="ex-modal__form">
+            <div className="ex-modal__formGroup">
+              <HelperText>First name</HelperText>
+              <Input value="John" />
+            </div>
+            <div className="ex-modal__formGroup">
+              <HelperText>Last name</HelperText>
+              <Input value="Doe" />
+            </div>
+            <div className="ex-modal__formGroup">
+              <HelperText>Job title</HelperText>
+              <Input placeholder="e.g. Designer" />
+            </div>
+            <div className="ex-modal__formGroup">
+              <HelperText>Email</HelperText>
+              <Input disabled value="john.doe@acm.com" />
+            </div>
+          </form>
+          <footer className="ex-modal__footer">
+            <Button onClick={() => setOpen(!open)} appearance="secondary">
+              Cancel
+            </Button>
+            <Button disabled>Update profile</Button>
+          </footer>
+        </>
+      </Modal>
     </>
   );
 };

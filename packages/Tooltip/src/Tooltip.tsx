@@ -1,8 +1,21 @@
 import * as React from 'react';
-import ReactDom from 'react-dom';
 import cx from 'classnames';
-import { usePopper } from 'react-popper';
-import { animated, useTransition } from 'react-spring';
+import {
+  arrow,
+  flip,
+  shift,
+  offset,
+  autoUpdate,
+  useFloating,
+  useDismiss,
+  useInteractions,
+  useTransitionStyles,
+  autoPlacement,
+  useHover,
+  useFocus,
+  useRole,
+  FloatingPortal,
+} from '@floating-ui/react';
 
 import useDeviceDetect from './hooks/useDeviceDetect';
 
@@ -54,58 +67,71 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
 
   const classes = cx('ids-tooltip__container', className);
 
-  const [show, setShow] = React.useState<boolean>(active);
+  const arrowRef = React.useRef(null);
 
-  const [referenceElement, setReferenceElement] =
-    React.useState<HTMLElement | null>(null);
-  const [tooltipElement, setTooltipElement] =
-    React.useState<HTMLElement | null>(null);
+  let floatingUIPlacement = {};
+  const arrowMiddleware = arrow({
+    element: arrowRef,
+  });
+
+  if (position === 'auto') {
+    floatingUIPlacement = {
+      middleware: [offset(10), autoPlacement(), shift(), arrowMiddleware],
+    };
+  } else {
+    floatingUIPlacement = {
+      placement: position,
+      middleware: [offset(10), flip(), shift(), arrowMiddleware],
+    };
+  }
+
+  const [show, setShow] = React.useState<boolean>(active);
 
   const { isMobile } = useDeviceDetect();
 
-  const { styles, attributes, update } = usePopper(
-    referenceElement,
-    tooltipElement,
-    {
-      placement: position,
-      strategy: 'fixed',
-      modifiers: [
-        { name: 'offset', options: { offset: [0, 10] } },
-        { name: 'hide', options: { enabled: true } },
-        {
-          name: 'flip',
-          options: {
-            fallbackPlacements: ['top', 'bottom', 'left', 'right'],
-          },
-        },
-      ],
-    }
-  );
+  const disabledOnMobile = isMobile && !showOnMobile;
+  const showTooltip = !disabled && !disabledOnMobile && show;
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      if (show) {
-        setShow(false);
-      }
-    };
+  const {
+    x,
+    y,
+    strategy,
+    refs,
+    context,
+    middlewareData,
+    placement: finalPlacement,
+  } = useFloating({
+    open: showTooltip,
+    strategy: 'fixed',
+    onOpenChange: setShow,
+    whileElementsMounted: autoUpdate,
+    ...floatingUIPlacement,
+  });
 
-    window.addEventListener('scroll', handleScroll);
+  const hover = useHover(context, { move: false });
+  const focus = useFocus(context);
+  const dismiss = useDismiss(context);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const role = useRole(context, { role: 'tooltip' });
 
-  const onMouseEnterHandle = (): void => {
-    setShow(true);
-    if (update !== null) {
-      update();
-    }
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    hover,
+    focus,
+    dismiss,
+    role,
+  ]);
+
+  const staticSideObj = {
+    top: 'bottom',
+    right: 'left',
+    bottom: 'top',
+    left: 'right',
   };
+  type ObjectKey = keyof typeof staticSideObj;
 
-  const onMouseLeaveHandle = (): void => {
-    setShow(false);
-  };
+  const finalPlacementKey = finalPlacement.split('-')[0] as ObjectKey;
+
+  const staticSide = staticSideObj[finalPlacementKey];
 
   const tooltipClasses = cx('ids-tooltip', tooltipClassName, {
     'ids-tooltip--light': appearance === 'light',
@@ -114,82 +140,56 @@ const Tooltip: React.FunctionComponent<TooltipProps> = (
   const fromPxToRem = (value: number, base = 10): string =>
     `${value / base}rem`;
 
-  const tooltipStyle = {
-    ...styles.popper,
-    maxWidth: fromPxToRem(maxWidth),
-  };
-
   const center = position === 'top' || position === 'bottom';
 
-  const translateYAdjustment = position === 'bottom' ? '' : '-';
-
-  const transitions = useTransition(show, {
-    from: {
+  const { isMounted, styles } = useTransitionStyles(context, {
+    duration: 150,
+    initial: ({ side }) => ({
       opacity: 0,
-      y: `${translateYAdjustment}1rem`,
-    },
-    enter: {
+      transform: side === 'bottom' ? 'translateY(1rem)' : 'translateY(-1rem)',
+    }),
+    open: {
       opacity: 1,
-      y: '0',
+      transform: 'translateY(0rem)',
     },
-    config: { mass: 1, tension: 126, friction: 18, clamp: true },
   });
 
-  const tooltip = transitions(
-    ({ opacity, ...restOfAnimations }, item) =>
-      item && (
-        <animated.div
-          ref={setTooltipElement}
-          className={tooltipClasses}
-          style={{
-            ...restOfAnimations,
-            ...tooltipStyle,
-            opacity: opacity.to({ range: [0.0, 0.6, 1.0], output: [0, 1, 1] }),
-          }}
-          {...attributes.popper}
-          data-text={center && 'center'}
-          data-show={show}
-          data-test={dataTest}
-          {...rest}
-        >
-          {content}
-          <div
-            style={styles.arrow}
-            data-popper-arrow
-            className="ids-tooltip__arrow"
-          />
-        </animated.div>
-      )
-  );
-
-  const portaledTooltip = ReactDom.createPortal(tooltip, document.body);
-
-  React.useEffect(() => {
-    if (referenceElement) {
-      // The reason we use the native js event is because react has a bug where
-      // it will not call onMouseLeave if it has a disabled button inside.
-      referenceElement.addEventListener('mouseleave', onMouseLeaveHandle);
-    }
-    // Called when unmounting component
-    return () => {
-      if (referenceElement) {
-        // This may still be called multiple times so we want to
-        // make sure we remove the event before mounting it again.
-        referenceElement.removeEventListener('mouseleave', onMouseLeaveHandle);
-      }
-    };
-  }, [referenceElement]);
-
-  const disabledOnMobile = isMobile && !showOnMobile;
+  const arrowStyles = {
+    left: middlewareData.arrow?.x,
+    top: middlewareData.arrow?.y,
+    [staticSide]: '-2.5px',
+  };
 
   return (
-    <span
-      ref={setReferenceElement}
-      className={classes}
-      onMouseEnter={onMouseEnterHandle}
-    >
+    <span ref={refs.setReference} className={classes} {...getReferenceProps()}>
       {children}
-      {!disabled && !disabledOnMobile && portaledTooltip}
+      <FloatingPortal>
+        {isMounted && (
+          <div
+            ref={refs.setFloating}
+            className={tooltipClasses}
+            style={{
+              position: strategy,
+              top: y ?? 0,
+              left: x ?? 0,
+              maxWidth: fromPxToRem(maxWidth),
+              ...styles,
+            }}
+            {...getFloatingProps()}
+            data-text={center && 'center'}
+            data-show={show}
+            data-test={dataTest}
+            {...rest}
+          >
+            {content}
+            <div
+              className="ids-tooltip__arrow"
+              ref={arrowRef}
+              style={arrowStyles}
+            />
+          </div>
+        )}
+      </FloatingPortal>
     </span>
   );
 };
