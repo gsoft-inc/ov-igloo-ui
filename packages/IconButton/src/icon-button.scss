@@ -18,11 +18,6 @@
   /* Large */
   --ids-icon-btn-height-large: #{tokens.$space-6};
   --ids-icon-btn-width-large: #{tokens.$space-6};
-
-  /* Ghost */
-  --ids-icon-btn-ghost: #{tokens.$grey-500};
-  --ids-icon-btn-ghost-hover: #{tokens.$grey-900};
-  --ids-icon-btn-ghost-disabled: #{tokens.$grey-300};
 }
 
 .ids-icon-btn {
@@ -60,18 +55,6 @@
   }
 
   &.ids-btn {
-    &--ghost {
-      color: var(--ids-icon-btn-ghost);
-
-      &:hover {
-        color: var(--ids-icon-btn-ghost-hover);
-      }
-
-      &:disabled {
-        color: var(--ids-icon-btn-ghost-disabled);
-      }
-    }
-
     &--active {
       color: var(--ids-icon-btn-active);
     }

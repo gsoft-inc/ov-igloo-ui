@@ -70,6 +70,9 @@
             "name": "'danger'"
           },
           {
+            "name": "{ type: 'ghost', variant: 'secondary'}"
+          },
+          {
             "name": "{ type: 'ghost', variant: 'danger'}"
           }
         ]

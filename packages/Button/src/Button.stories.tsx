@@ -97,13 +97,25 @@ export default {
         defaultValue: { summary: 'primary' },
         type: {
           summary:
-            ' "primary" | "secondary" | "premium" | "ghost" | "danger" | { type: "ghost", variant?: "danger"} ',
+            ' "primary" | "secondary" | "premium" | "ghost" | "danger" | { type: "ghost", variant?: "secondary"} | { type: "ghost", variant?: "danger"} ',
         },
       },
       control: {
         type: 'radio',
       },
-      options: ['primary', 'secondary', 'premium', 'ghost', 'danger'],
+      options: [
+        'primary',
+        'secondary',
+        'premium',
+        'ghost',
+        'danger',
+        'ghostSecondary',
+        'ghostDanger',
+      ],
+      mapping: {
+        ghostSecondary: { type: 'ghost', variant: 'secondary' },
+        ghostDanger: { type: 'ghost', variant: 'danger' },
+      },
     },
     type: {
       description: 'Optional prop to specify the type of the Button',
@@ -140,6 +152,9 @@ export const Appearances = () => (
     <Button appearance="premium">Premium</Button>
     <Button appearance="danger">Danger</Button>
     <Button appearance="ghost">Ghost</Button>
+    <Button appearance={{ type: 'ghost', variant: 'secondary' }}>
+      Ghost Secondary
+    </Button>
     <Button appearance={{ type: 'ghost', variant: 'danger' }}>
       Ghost Danger
     </Button>
@@ -161,6 +176,9 @@ export const Loading = () => (
     <Button loading appearance="ghost">
       Ghost
     </Button>
+    <Button loading appearance={{ type: 'ghost', variant: 'secondary' }}>
+      Ghost Secondary
+    </Button>
     <Button loading appearance={{ type: 'ghost', variant: 'danger' }}>
       Ghost Danger
     </Button>
@@ -179,17 +197,37 @@ export const Sizes = () => (
 );
 
 export const States = () => (
-  <Section>
-    <Button appearance="secondary">Secondary</Button>
-    <Button disabled appearance="secondary">
-      Secondary
-    </Button>
-    <Button active appearance="secondary">
-      Secondary
-    </Button>
-    <Button className="focus" appearance="secondary">
-      Secondary
-    </Button>
+  <Section column>
+    <Section>
+      <Button appearance="secondary">Secondary</Button>
+      <Button disabled appearance="secondary">
+        Secondary
+      </Button>
+      <Button active appearance="secondary">
+        Secondary
+      </Button>
+      <Button className="focus" appearance="secondary">
+        Secondary
+      </Button>
+    </Section>
+
+    <Section>
+      <Button appearance={{ type: 'ghost', variant: 'secondary' }}>
+        Secondary
+      </Button>
+      <Button disabled appearance={{ type: 'ghost', variant: 'secondary' }}>
+        Secondary
+      </Button>
+      <Button active appearance={{ type: 'ghost', variant: 'secondary' }}>
+        Secondary
+      </Button>
+      <Button
+        className="focus"
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+      >
+        Secondary
+      </Button>
+    </Section>
   </Section>
 );
 
@@ -221,6 +259,13 @@ export const AsLink = () => {
       </Button>
       <Button as="a" href="://igloo.officevibe.design" appearance="ghost">
         Ghost
+      </Button>
+      <Button
+        as="a"
+        href="://igloo.officevibe.design"
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+      >
+        Ghost Secondary
       </Button>
       <Button
         as="a"

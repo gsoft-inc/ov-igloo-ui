@@ -144,8 +144,9 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
   const classes = cx('ids-modal', className, {
     [`ids-modal--${size}`]: size !== 'small',
     'ids-modal--full-content': fullContent,
-    'ids-modal--with-header': isClosable || title !== undefined,
-    'ids-modal--with-close': isClosable,
+    'ids-modal--with-title': title !== undefined,
+    'ids-modal--dismissable': isDismissable,
+    'ids-modal--closable': isClosable,
   });
 
   const modal = (
@@ -172,13 +173,9 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
               ref={ref}
             >
               <div
-                className={cx(
-                  'ids-modal__header',
-                  !isClosable && 'ids-modal__header--with-action',
-                  {
-                    'ids-modal__header--with-back-btn': displayBackBtn,
-                  }
-                )}
+                className={cx('ids-modal__header', {
+                  'ids-modal__header--with-back-btn': displayBackBtn,
+                })}
               >
                 {displayBackBtn ? (
                   <IconButton
