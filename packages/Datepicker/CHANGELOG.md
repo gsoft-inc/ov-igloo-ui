@@ -1,5 +1,15 @@
 # @igloo-ui/datepicker
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [e47ae88]
+- Updated dependencies [d2e08a0]
+- Updated dependencies [d5c91f5]
+  - @igloo-ui/icon-button@1.0.0
+  - @igloo-ui/button@0.4.0
+
 ## 0.0.4
 
 ### Patch Changes

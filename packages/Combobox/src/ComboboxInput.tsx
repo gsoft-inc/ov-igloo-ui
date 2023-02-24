@@ -8,7 +8,7 @@ import IconButton from '@igloo-ui/icon-button';
 import Close from '@igloo-ui/icons/dist/Close';
 import Tooltip from '@igloo-ui/tooltip';
 import Input from '@igloo-ui/input';
-import { VisualIdentifier } from '../../../shared/components';
+import { VisualIdentifier } from '@shared/components';
 
 import './combobox-input.scss';
 
