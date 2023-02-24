@@ -60,7 +60,7 @@ jobs:
       - name: Run Stylelint
         run: yarn lint:style
 
-  build_and_test:
+  build_and_test_components:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -81,14 +81,40 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.ox }}-yarn-
-      - name: Run build
-        run: yarn build
+      - name: Run build Shared components
+        run: yarn build:shared
+      - name: Run build Components
+        run: yarn build:components
       - name: Run tests
         run: yarn test
 
+  build_doc:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 16 ]
+    needs: [install-cache, build_and_test_components]
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.ox }}-yarn-
+      - name: Run build Doc
+        run: yarn doc:build
+
   slack-notification:
     runs-on: ubuntu-latest
-    needs: [build_and_test, lint]
+    needs: [build_and_test_components, build_doc, lint]
     steps:
       - name: Send message to Slack
         id: slack

@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.4.0
+
+### Minor Changes
+
+- d2e08a0: Feat: Added the ghost secondary appearance of the button.
+
+### Patch Changes
+
+- d5c91f5: link shared components with aliases
+
 ## 0.3.7
 
 ### Patch Changes

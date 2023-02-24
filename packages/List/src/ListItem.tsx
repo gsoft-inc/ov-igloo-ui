@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 import UserSolid from '@igloo-ui/icons/dist/UserSolid';
 
-import { VisualIdentifier } from '../../../shared/components';
+import { VisualIdentifier } from '@shared/components';
 
 import './list-item.scss';
 
