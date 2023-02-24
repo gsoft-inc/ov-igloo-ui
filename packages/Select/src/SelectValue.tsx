@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import { VisualIdentifier } from '../../../shared/components';
+import { VisualIdentifier } from '@shared/components';
 
 import './select-value.scss';
 

@@ -32,6 +32,7 @@
     "@igloo-ui/tokens": "^2.0.0",
     "@igloo-ui/tooltip": "^3.0.2",
     "@react-hook/resize-observer": "^1.2.6",
+    "@shared/components": "0.1.0",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
