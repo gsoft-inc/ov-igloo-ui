@@ -82,7 +82,7 @@ const Tag: React.FunctionComponent<TagProps> = ({
         className="ids-tag__dismiss-btn"
         type="button"
         onClick={action}
-        appearance="ghost"
+        appearance={{ type: 'ghost', variant: 'secondary' }}
         size="xsmall"
         aria-label="close"
         icon={<Close size="small" className="ids-tag__close" />}

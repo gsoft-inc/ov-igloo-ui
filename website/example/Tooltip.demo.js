@@ -7,7 +7,11 @@ const Example = () => {
   return (
     <div className="example">
       <Tooltip content="Settings">
-        <IconButton appearance="ghost" rounded icon={<Settings />} />
+        <IconButton
+          appearance={{ type: 'ghost', variant: 'secondary' }}
+          rounded
+          icon={<Settings />}
+        />
       </Tooltip>
     </div>
   );
