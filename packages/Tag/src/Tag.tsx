@@ -6,7 +6,7 @@ import IconButton from '@igloo-ui/icon-button';
 import Ellipsis from '@igloo-ui/ellipsis';
 import Close from '@igloo-ui/icons/dist/Close';
 
-import { VisualIdentifier } from '../../../shared/components';
+import { VisualIdentifier } from '@shared/components';
 
 import './tag.scss';
 
