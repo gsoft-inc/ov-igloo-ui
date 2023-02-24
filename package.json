@@ -24,7 +24,7 @@
     "doc:build": "lerna run build --verbose --scope=docs && yarn build-storybook --docs -o ./website/.next/storybook",
     "dev": "yarn build:shared && yarn build:components && yarn storybook",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider build-storybook",
     "prepublish-ci": "yarn build",
     "publish-ci": "npx lerna publish from-package -y",
     "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN",
