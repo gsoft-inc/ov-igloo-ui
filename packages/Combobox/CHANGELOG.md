@@ -1,5 +1,15 @@
 # @igloo-ui/combobox
 
+## 0.1.1
+
+### Patch Changes
+
+- d5c91f5: link shared components with aliases
+- Updated dependencies [e47ae88]
+- Updated dependencies [d5c91f5]
+  - @igloo-ui/icon-button@1.0.0
+  - @igloo-ui/list@0.1.1
+
 ## 0.1.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/hyperlink
 
+## 0.1.13
+
+### Patch Changes
+
+- d5c91f5: link shared components with aliases
+
 ## 0.1.12
 
 ### Patch Changes
