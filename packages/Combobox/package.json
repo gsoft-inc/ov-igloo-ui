@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/combobox",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/Combobox.js",
   "module": "dist/Combobox.js",
   "types": "dist/Combobox.d.ts",
@@ -25,9 +25,9 @@
   },
   "dependencies": {
     "@igloo-ui/dropdown": "^1.1.1",
-    "@igloo-ui/list": "^0.1.0",
+    "@igloo-ui/list": "^0.1.1",
     "@igloo-ui/icons": "^1.6.0",
-    "@igloo-ui/icon-button": "^0.2.13",
+    "@igloo-ui/icon-button": "^1.0.0",
     "@igloo-ui/input": "^2.0.3",
     "@igloo-ui/tokens": "^2.0.0",
     "@igloo-ui/tooltip": "^3.0.2",
@@ -36,7 +36,7 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@igloo-ui/tag": "^1.0.2"
+    "@igloo-ui/tag": "^1.0.3"
   },
   "browserslist": [
     "> 1%",

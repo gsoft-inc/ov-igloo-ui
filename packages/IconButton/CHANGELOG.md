@@ -1,5 +1,21 @@
 # @igloo-ui/icon-button
 
+## 1.0.0
+
+### Major Changes
+
+- e47ae88: A secondary ghost appearance was added to the icon button.
+
+  ## BREAKING CHANGE
+
+  Since the ghost icon button was already grey, we needed to set the default back to blue and add the secondary variant, which is grey.
+
+### Patch Changes
+
+- Updated dependencies [d2e08a0]
+- Updated dependencies [d5c91f5]
+  - @igloo-ui/button@0.4.0
+
 ## 0.2.13
 
 ### Patch Changes

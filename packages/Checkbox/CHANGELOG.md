@@ -1,5 +1,11 @@
 # @igloo-ui/checkbox
 
+## 0.1.8
+
+### Patch Changes
+
+- d5c91f5: link shared components with aliases
+
 ## 0.1.7
 
 ### Patch Changes

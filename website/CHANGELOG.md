@@ -1,5 +1,28 @@
 # docs
 
+## 0.1.2
+
+### Patch Changes
+
+- d5c91f5: link shared components with aliases
+- Updated dependencies [e47ae88]
+- Updated dependencies [d2e08a0]
+- Updated dependencies [d5c91f5]
+- Updated dependencies [2770c73]
+  - @igloo-ui/icon-button@1.0.0
+  - @igloo-ui/button@0.4.0
+  - @igloo-ui/checkbox@0.1.8
+  - @igloo-ui/combobox@0.1.1
+  - @igloo-ui/hyperlink@0.1.13
+  - @igloo-ui/list@0.1.1
+  - @igloo-ui/modal@1.1.1
+  - @igloo-ui/select@1.0.1
+  - @igloo-ui/tag@1.0.3
+  - @igloo-ui/tag-picker@0.1.1
+  - @igloo-ui/alert@0.1.14
+  - @igloo-ui/datepicker@0.0.5
+  - @igloo-ui/popover@0.1.5
+
 ## 0.1.1
 
 ### Patch Changes
