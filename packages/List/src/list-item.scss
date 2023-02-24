@@ -83,7 +83,7 @@
 %check {
   width: var(--ids-list-item-checkbox-check-width);
   height: var(--ids-list-item-checkbox-check-height);
-  border: 2px solid currentColor;
+  border: 2px solid currentcolor;
   border-bottom: 0;
   border-left: 0;
   transform: scaleX(-0.9) rotate(135deg);
