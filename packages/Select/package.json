@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/select",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/Select.js",
   "module": "dist/Select.js",
   "types": "dist/Select.d.ts",
@@ -25,12 +25,13 @@
   },
   "dependencies": {
     "@igloo-ui/dropdown": "^1.1.1",
-    "@igloo-ui/list": "^0.1.0",
+    "@igloo-ui/list": "^0.1.1",
     "@igloo-ui/icons": "^1.6.0",
-    "@igloo-ui/icon-button": "^0.2.13",
+    "@igloo-ui/icon-button": "^1.0.0",
     "@igloo-ui/input": "^2.0.3",
     "@igloo-ui/tokens": "^2.0.0",
     "@react-hook/resize-observer": "^1.2.6",
+    "@shared/components": "0.1.0",
     "classnames": "^2.3.2"
   },
   "browserslist": [

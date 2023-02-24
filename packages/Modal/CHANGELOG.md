@@ -1,5 +1,14 @@
 # @igloo-ui/modal
 
+## 1.1.1
+
+### Patch Changes
+
+- d5c91f5: link shared components with aliases
+- 2770c73: Made sure the close button displays only when it should in the modal component.
+- Updated dependencies [e47ae88]
+  - @igloo-ui/icon-button@1.0.0
+
 ## 1.1.0
 
 ### Minor Changes

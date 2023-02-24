@@ -47,6 +47,9 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/require-default-props": 0,
+    "react/function-component-definition": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "react/no-unstable-nested-components": "off",
     "jsx-a11y/click-events-have-key-events": "off"
   },
   "settings": {

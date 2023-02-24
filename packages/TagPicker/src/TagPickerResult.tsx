@@ -3,7 +3,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import Ellipsis from '@igloo-ui/ellipsis';
-import { VisualIdentifier } from '../../../shared/components';
+import { VisualIdentifier } from '@shared/components';
 import type { TagItem } from './TagPicker';
 
 import './tag-picker-result.scss';

@@ -1,5 +1,13 @@
 # @igloo-ui/tag
 
+## 1.0.3
+
+### Patch Changes
+
+- d5c91f5: link shared components with aliases
+- Updated dependencies [e47ae88]
+  - @igloo-ui/icon-button@1.0.0
+
 ## 1.0.2
 
 ### Patch Changes

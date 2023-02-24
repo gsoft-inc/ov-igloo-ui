@@ -135,7 +135,7 @@
   }
 
   &--with-back-btn,
-  .ids-modal:not(.ids-modal--closable):not(.ids-modal--dismissable) & {
+  .ids-modal:not(.ids-modal--closable, .ids-modal--dismissable) & {
     --ids-modal-header-before-display: none;
   }
 
