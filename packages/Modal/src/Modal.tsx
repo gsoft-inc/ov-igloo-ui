@@ -186,7 +186,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
                         handleOnPageChange(carousel.currentSlide - 1);
                       }
                     }}
-                    appearance="ghost"
+                    appearance={{ type: 'ghost', variant: 'secondary' }}
                     icon={<ChevronLeft size="medium" />}
                   />
                 ) : (
@@ -199,7 +199,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
                   size="small"
                   className="ids-modal__close"
                   onClick={onClose}
-                  appearance="ghost"
+                  appearance={{ type: 'ghost', variant: 'secondary' }}
                   aria-label={closeBtnAriaLabel}
                   icon={<Close />}
                 />
