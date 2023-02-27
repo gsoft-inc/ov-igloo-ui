@@ -80,7 +80,7 @@ const renderDismissButton = (
 
   return (
     <IconButton
-      appearance="ghost"
+      appearance={{ type: 'ghost', variant: 'secondary' }}
       className="ids-alert__dismiss-btn"
       type="button"
       size="medium"

@@ -153,7 +153,7 @@ const Popover: React.FunctionComponent<PopoverProps> = (
           size="xsmall"
           className="ids-popover__close"
           onClick={onClose}
-          appearance="ghost"
+          appearance={{ type: 'ghost', variant: 'secondary' }}
           aria-label="close"
           icon={<Close size="small" />}
         />

@@ -73,7 +73,7 @@ const ComboboxInput: React.FunctionComponent<ComboboxInputProps> = (
 
   const clearBtn = (
     <IconButton
-      appearance="ghost"
+      appearance={{ type: 'ghost', variant: 'secondary' }}
       className="ids-combobox-input__clear"
       type="button"
       size="small"

@@ -20,7 +20,7 @@ const Example = () => {
         >
           John Doe
           <IconButton
-            appearance="ghost"
+            appearance={{ type: 'ghost', variant: 'secondary' }}
             icon={<SettingsSolid size="medium" />}
           />
         </span>
