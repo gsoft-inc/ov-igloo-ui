@@ -1,5 +1,11 @@
 # @igloo-ui/datepicker
 
+## 0.0.6
+
+### Patch Changes
+
+- 4230499: Fix: updated components to use the IconButton with appearance ghost, variant secondary so that they are grey like they used to be.
+
 ## 0.0.5
 
 ### Patch Changes

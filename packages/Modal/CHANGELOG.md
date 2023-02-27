@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.1.2
+
+### Patch Changes
+
+- 4230499: Fix: updated components to use the IconButton with appearance ghost, variant secondary so that they are grey like they used to be.
+
 ## 1.1.1
 
 ### Patch Changes
