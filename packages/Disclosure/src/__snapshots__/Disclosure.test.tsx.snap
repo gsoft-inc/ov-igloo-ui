@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Disclosure It should render a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ids-disclosure"
+    data-test="ids-disclosure"
+  >
+    <button
+      aria-expanded="false"
+      class="ids-disclosure__header"
+      type="button"
+    >
+      <span
+        class="ids-disclosure__header-icon"
+      >
+        <svg
+          class="ids-icon ids-disclosure__icon"
+          fill="none"
+          height="32"
+          width="32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="16"
+            cy="16"
+            r="10.667"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <path
+            d="M10.343 16h11.314"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </svg>
+      </span>
+      <span
+        class="ids-disclosure__header-content"
+      >
+        <span
+          class="ids-disclosure__header-title"
+        >
+          Diversity
+        </span>
+        <span
+          class="ids-disclosure__header-desc"
+        >
+          0.8pt in the last 30 days
+        </span>
+      </span>
+      <svg
+        class="ids-icon ids-disclosure__header-chevron"
+        fill="none"
+        height="24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M5.47 8.47a.75.75 0 0 1 1.06 0L12 13.94l5.47-5.47a.75.75 0 1 1 1.06 1.06l-5.764 5.765a1.083 1.083 0 0 1-1.532 0L5.47 9.53a.75.75 0 0 1 0-1.06Z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </button>
+  </div>
+</DocumentFragment>
+`;

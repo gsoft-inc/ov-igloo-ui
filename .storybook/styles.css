@@ -161,3 +161,12 @@ body,
   height: 4rem;
   background-color: #ccced2;
 }
+
+.isb-disclosure__desc {
+  align-items: center;
+  display: flex;
+}
+
+.isb-disclosure__desc-tag {
+  margin-right: 0.4rem;
+}

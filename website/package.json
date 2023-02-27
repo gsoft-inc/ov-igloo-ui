@@ -24,6 +24,7 @@
     "@igloo-ui/combobox": "*",
     "@igloo-ui/datepicker": "*",
     "@igloo-ui/dialog": "*",
+    "@igloo-ui/disclosure": "*",
     "@igloo-ui/dropdown": "*",
     "@igloo-ui/ellipsis": "*",
     "@igloo-ui/filter": "*",
