@@ -168,6 +168,8 @@ const Popover: React.FunctionComponent<PopoverProps> = (
       <span
         ref={refs.setReference}
         className={classes}
+        role="button"
+        tabIndex={0}
         {...getReferenceProps()}
       >
         {children}
