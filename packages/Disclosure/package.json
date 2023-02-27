@@ -1,23 +1,21 @@
 {
-  "name": "@igloo-ui/tooltip",
-  "version": "3.0.3",
-  "main": "dist/Tooltip.js",
-  "module": "dist/Tooltip.js",
-  "types": "dist/Tooltip.d.ts",
-  "styles": "dist/tooltip.css",
+  "name": "@igloo-ui/disclosure",
+  "version": "0.0.0",
+  "main": "dist/Disclosure.js",
+  "module": "dist/Disclosure.js",
+  "types": "dist/Disclosure.d.ts",
+  "styles": "dist/disclosure.css",
   "publishConfig": {
     "access": "public"
   },
   "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
   "author": "Officevibe Inc.",
   "contributors": [
-    "Franck franck.gaudin@gsoft.com",
-    "Alexande alexandre.beaudoin@gsoft.com"
+    "Vicky Comeau vicky.comeau@gsoft.com"
   ],
   "license": "Apache-2.0",
   "peerDependencies": {
-    "react": ">= 16.8.6",
-    "react-dom": ">= 16.8.6"
+    "react": ">= 16.8.6"
   },
   "files": [
     "dist"
@@ -27,8 +25,9 @@
   },
   "dependencies": {
     "@igloo-ui/tokens": "^2.0.0",
-    "@floating-ui/react": "^0.19.1",
-    "classnames": "^2.3.2"
+    "classnames": "^2.3.2",
+    "framer-motion": "^6.5.1",
+    "react-aria": "^3.22.0"
   },
   "browserslist": [
     "> 1%",

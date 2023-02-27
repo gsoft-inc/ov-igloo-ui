@@ -1,5 +1,11 @@
 # @igloo-ui/tag
 
+## 1.0.4
+
+### Patch Changes
+
+- 4230499: Fix: updated components to use the IconButton with appearance ghost, variant secondary so that they are grey like they used to be.
+
 ## 1.0.3
 
 ### Patch Changes

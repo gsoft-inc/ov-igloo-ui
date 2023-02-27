@@ -1,5 +1,13 @@
 # @igloo-ui/combobox
 
+## 0.1.2
+
+### Patch Changes
+
+- 4230499: Fix: updated components to use the IconButton with appearance ghost, variant secondary so that they are grey like they used to be.
+- Updated dependencies [4230499]
+  - @igloo-ui/tooltip@3.0.3
+
 ## 0.1.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.0.3
+
+### Patch Changes
+
+- 4230499: Fix: updated components to use the IconButton with appearance ghost, variant secondary so that they are grey like they used to be.
+
 ## 3.0.2
 
 ### Patch Changes
