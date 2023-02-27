@@ -21,7 +21,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
       ref={ref}
       icon={children}
       size="small"
-      appearance="ghost"
+      appearance={{ type: 'ghost', variant: 'secondary' }}
       className={className}
       {...buttonProps}
     />
