@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.1.15
+
+### Patch Changes
+
+- 4230499: Fix: updated components to use the IconButton with appearance ghost, variant secondary so that they are grey like they used to be.
+
 ## 0.1.14
 
 ### Patch Changes

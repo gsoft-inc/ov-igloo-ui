@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/popover",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "dist/Popover.js",
   "module": "dist/Popover.js",
   "types": "dist/Popover.d.ts",
@@ -28,7 +28,7 @@
     "@igloo-ui/icon-button": "^1.0.0",
     "@igloo-ui/icons": "^1.6.0",
     "@igloo-ui/tokens": "^2.0.0",
-    "@igloo-ui/tooltip": "^3.0.1",
+    "@igloo-ui/tooltip": "^3.0.3",
     "classnames": "^2.3.2",
     "react-popper": "^2.3.0"
   },
