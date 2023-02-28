@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.2.0
+
+### Minor Changes
+
+- bf0342e: Refactor: Replaced react spring and react popper with framer motion and/or floating-ui
+
 ## 1.1.2
 
 ### Patch Changes
