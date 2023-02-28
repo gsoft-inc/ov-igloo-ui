@@ -6,6 +6,8 @@ exports[`Popover It should render a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <span
+        aria-expanded="false"
+        aria-haspopup="dialog"
         class="ids-popover__container"
         role="button"
         tabindex="0"
@@ -13,9 +15,15 @@ exports[`Popover It should render a snapshot 1`] = `
         popover trigger
       </span>
     </div>
+    <div
+      data-floating-ui-portal=""
+      id=":r2:"
+    />
   </body>,
   "container": <div>
     <span
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="ids-popover__container"
       role="button"
       tabindex="0"

@@ -26,11 +26,10 @@
   "dependencies": {
     "@igloo-ui/tokens": "^2.0.0",
     "classnames": "^2.3.2",
-    "react-spring": "^9.5.5"
+    "framer-motion": "^6.5.1"
   },
   "devDependencies": {
-    "@types/lodash.camelcase": "^4.3.7",
-    "@react-spring/types": "^9.5.5"
+    "@types/lodash.camelcase": "^4.3.7"
   },
   "browserslist": [
     "> 1%",
