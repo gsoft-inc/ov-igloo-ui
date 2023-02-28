@@ -1,0 +1,14 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+  :root {
+    /* Default */
+    --ids-action-menu-font-family: #{tokens.$primary-font-family};
+    --ids-action-menu-font-size: #{tokens.$font-size-4};
+  }
+
+  .ids-action-menu {
+    font-family: var(--ids-action-menu-font-family);
+    font-size: var(--ids-action-menu-font-size);
+  }
+  

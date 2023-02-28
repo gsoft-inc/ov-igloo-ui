@@ -12,6 +12,8 @@ interface ListItem {
   color?: string;
   /** Icon displayed in front of the option label */
   icon?: React.ReactElement;
+  /** Unique id used in Intercom to link a components to a Product Tour step. */
+  intercomTarget?: string;
   /** Specifies the url for the image to show */
   src?: string;
   /** The option value */
@@ -153,6 +155,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = (
       aria-selected={isSelected}
       tabIndex={-1}
       key={option.value}
+      data-intercom-target={option?.intercomTarget}
       {...rest}
     >
       <div className="ids-list-item__content">

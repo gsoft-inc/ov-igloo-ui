@@ -1,0 +1,39 @@
+{
+  "name": "@igloo-ui/action-menu",
+  "version": "0.0.0",
+  "main": "dist/ActionMenu.js",
+  "module": "dist/ActionMenu.js",
+  "types": "dist/ActionMenu.d.ts",
+  "styles": "dist/action-menu.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "author": "Officevibe Inc.",
+  "contributors": [
+    "Vicky Comeau vicky.comeau@gsoft.com"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.js"
+  },
+  "dependencies": {
+    "@igloo-ui/tokens": "^2.0.0",
+    "@igloo-ui/dropdown": "^1.1.1",
+    "@igloo-ui/list": "^0.1.1",
+    "@igloo-ui/icons": "^1.6.0",
+    "@igloo-ui/icon-button": "^1.0.0",
+    "classnames": "^2.3.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE >= 11"
+  ]
+}
