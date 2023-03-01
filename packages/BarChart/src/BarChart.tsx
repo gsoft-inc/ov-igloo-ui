@@ -1,7 +1,6 @@
 import * as React from 'react';
+import { LazyMotion, domAnimation, m } from 'framer-motion';
 import cx from 'classnames';
-
-import { useTransition, animated, easings } from 'react-spring';
 
 import './bar-chart.scss';
 
@@ -49,35 +48,33 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
 
     return `${size}%`;
   };
-  const transitions = useTransition(dataSet, {
-    from: { width: '0' },
-    enter: (item: DataSet) => [
-      {
-        width: setWidth(item.value),
-      },
-    ],
-    config: { duration: 500, easing: easings.easeInCubic },
-  });
 
   if (!dataSet) {
     return null;
   }
 
-  const barChart = transitions(({ width }, item: DataSet) => {
+  const barChart = dataSet.map((item: DataSet) => {
     const { label, value, color, id } = item;
 
-    const animateWidth = value > 0 ? width : undefined;
+    const animateWidth = value > 0 ? setWidth(item.value) : '';
 
     const animateList = (
       <li key={id} className="ids-bar-chart" {...rest}>
         <span className="ids-bar-chart__label">{label}</span>
         <div className="ids-bar-chart__content">
           {animation ? (
-            <animated.div
+            <m.div
               className="ids-bar-chart__graph"
               data-value={value}
-              style={{
+              initial={{ width: 0 }}
+              animate={{
                 width: animateWidth,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: 'easeIn',
+              }}
+              style={{
                 backgroundColor: color,
               }}
             />
@@ -100,12 +97,14 @@ const BarChart: React.FunctionComponent<BarChartProps> = (
   });
 
   return (
-    <ul
-      className={cx('ids-bar-chart__container', className)}
-      data-test={dataTest}
-    >
-      {barChart}
-    </ul>
+    <LazyMotion features={domAnimation} strict>
+      <ul
+        className={cx('ids-bar-chart__container', className)}
+        data-test={dataTest}
+      >
+        {barChart}
+      </ul>
+    </LazyMotion>
   );
 };
 

@@ -37,12 +37,6 @@
   box-sizing: border-box;
   min-width: var(--ids-popover-min-width, var(--ids-popover-width));
   width: var(--ids-popover-width);
-  opacity: 0;
-  transition: opacity 0.15s ease-in-out;
-
-  &[data-show='true'] {
-    opacity: 1;
-  }
 
   &__container {
     position: relative;

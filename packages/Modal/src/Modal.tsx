@@ -1,7 +1,9 @@
 import * as React from 'react';
 import ReactDom from 'react-dom';
 import cx from 'classnames';
+import { LazyMotion, domAnimation, m, AnimatePresence } from 'framer-motion';
 
+import { mergeProps } from '@react-aria/utils';
 import {
   OverlayProps,
   useOverlay,
@@ -9,14 +11,6 @@ import {
 } from '@react-aria/overlays';
 import { useDialog } from '@react-aria/dialog';
 import { AriaDialogProps } from '@react-types/dialog';
-import {
-  animated,
-  AnimationResult,
-  Controller,
-  SpringValue,
-  useTransition,
-} from 'react-spring';
-import { OneOrMore } from '@react-spring/types';
 
 import IconButton from '@igloo-ui/icon-button';
 import Close from '@igloo-ui/icons/dist/Close';
@@ -104,40 +98,39 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
 
   usePreventScroll({ isDisabled: !isOpen });
 
-  const overlayTransitions = useTransition(isOpen, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-    config: { duration: 200 },
-  });
+  const onExitComplete = (): void => {
+    if (!isOpen) {
+      onAfterClose?.();
+    }
+  };
 
-  const modalTransitions = useTransition(isOpen, {
-    from: { opacity: 0, scale: 0.95, transform: 'translate3d(-50%, -50%, 0)' },
-    // For whatever reason, enter is actually called after leave,
-    // which is why the onRest event is added here.
-    // This is also where isOpen is set to false after closing.
-    enter: {
+  const overlayVariants = {
+    open: {
+      opacity: 1,
+    },
+    close: { opacity: 0 },
+  };
+
+  const modalVariants = {
+    open: {
       opacity: 1,
       scale: 1,
-      delay: 200,
-      onRest: (
-        _result: AnimationResult,
-        _spring: Controller | SpringValue,
-        item?: OneOrMore<any>
-      ) => {
-        // Call onAfterClose if model is completely closed and
-        // animation is done, if the function exists.
-        if (!item) {
-          onAfterClose?.();
-        }
-      },
+      x: '-50%',
+      y: '-50%',
     },
-    leave: {
+    close: {
       opacity: 0,
       scale: 1,
+      x: '-50%',
+      y: '-50%',
     },
-    config: { duration: 200 },
-  });
+    initial: {
+      opacity: 0,
+      scale: 0.95,
+      x: '-50%',
+      y: '-50%',
+    },
+  };
 
   const { dialogProps } = useDialog(props, ref);
 
@@ -150,101 +143,107 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
   });
 
   const modal = (
-    <>
-      {overlayTransitions(
-        (styles, item) =>
-          item && (
-            <animated.div
-              className="ids-overlay"
-              {...underlayProps}
-              style={styles}
-            />
-          )
-      )}
-      {modalTransitions(
-        (styles, item) =>
-          item && (
-            <animated.div
-              className={classes}
-              data-test={dataTest}
-              style={styles}
-              {...overlayProps}
-              {...dialogProps}
-              ref={ref}
+    <LazyMotion features={domAnimation} strict>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <m.div
+            className="ids-overlay"
+            {...(underlayProps as any)}
+            initial="close"
+            animate="open"
+            exit="close"
+            variants={overlayVariants}
+            transition={{ duration: 0.2 }}
+          />
+        )}
+      </AnimatePresence>
+      <AnimatePresence initial={false} onExitComplete={onExitComplete}>
+        {isOpen && (
+          <m.div
+            className={classes}
+            data-test={dataTest}
+            {...(overlayProps as any)}
+            {...dialogProps}
+            initial="initial"
+            animate="open"
+            exit="close"
+            variants={modalVariants}
+            transition={{ duration: 0.2 }}
+            ref={ref}
+          >
+            <div
+              className={cx('ids-modal__header', {
+                'ids-modal__header--with-back-btn': displayBackBtn,
+              })}
             >
-              <div
-                className={cx('ids-modal__header', {
-                  'ids-modal__header--with-back-btn': displayBackBtn,
-                })}
-              >
-                {displayBackBtn ? (
-                  <IconButton
-                    size="small"
-                    className="ids-modal__back"
-                    onClick={() => {
-                      if (carousel && carousel.currentSlide) {
-                        handleOnPageChange(carousel.currentSlide - 1);
-                      }
-                    }}
-                    appearance={{ type: 'ghost', variant: 'secondary' }}
-                    icon={<ChevronLeft size="medium" />}
-                  />
-                ) : (
-                  <></>
-                )}
-
-                {title && <h5 className="ids-modal__title">{title}</h5>}
-
+              {displayBackBtn ? (
                 <IconButton
                   size="small"
-                  className="ids-modal__close"
-                  onClick={onClose}
+                  className="ids-modal__back"
+                  onClick={() => {
+                    if (carousel && carousel.currentSlide) {
+                      handleOnPageChange(carousel.currentSlide - 1);
+                    }
+                  }}
                   appearance={{ type: 'ghost', variant: 'secondary' }}
-                  aria-label={closeBtnAriaLabel}
-                  icon={<Close />}
+                  icon={<ChevronLeft size="medium" />}
                 />
-              </div>
-              <div className="ids-modal__content">
-                {children}
+              ) : (
+                <></>
+              )}
 
-                {carousel && (
-                  <Carousel
-                    onPageChange={carousel.onPageChange}
-                    currentSlide={carousel.currentSlide}
-                    primaryAction={primaryAction}
-                    secondaryAction={secondaryAction}
-                    className="ids-modal__carousel"
-                  >
-                    {carousel.slides.map((slide, index) => {
-                      return (
-                        <div
-                          key={`slide_${index.toString()}`}
-                          className="ids-modal__carousel-slide"
-                        >
-                          {slide}
-                        </div>
-                      );
+              {title && <h5 className="ids-modal__title">{title}</h5>}
+
+              <IconButton
+                size="small"
+                className="ids-modal__close"
+                onClick={onClose}
+                appearance={{ type: 'ghost', variant: 'secondary' }}
+                aria-label={closeBtnAriaLabel}
+                icon={<Close />}
+              />
+            </div>
+            <div className="ids-modal__content">
+              {children}
+
+              {carousel && (
+                <Carousel
+                  onPageChange={carousel.onPageChange}
+                  currentSlide={carousel.currentSlide}
+                  primaryAction={primaryAction}
+                  secondaryAction={secondaryAction}
+                  className="ids-modal__carousel"
+                >
+                  {carousel.slides.map((slide, index) => {
+                    return (
+                      <div
+                        key={`slide_${index.toString()}`}
+                        className="ids-modal__carousel-slide"
+                      >
+                        {slide}
+                      </div>
+                    );
+                  })}
+                </Carousel>
+              )}
+
+              {(primaryAction || secondaryAction) && !carousel && (
+                <div className="ids-modal__footer">
+                  {secondaryAction &&
+                    React.cloneElement(secondaryAction, {
+                      className: 'ids-modal__footer-action',
                     })}
-                  </Carousel>
-                )}
-
-                {(primaryAction || secondaryAction) && !carousel && (
-                  <div className="ids-modal__footer">
-                    {secondaryAction &&
-                      React.cloneElement(secondaryAction, {
-                        className: 'ids-modal__footer-action',
-                      })}
-                    {primaryAction &&
-                      React.cloneElement(primaryAction, {
-                        className: 'ids-modal__footer-action',
-                      })}
-                  </div>
-                )}
-              </div>
-            </animated.div>
-          )
-      )}
-    </>
+                  {primaryAction &&
+                    React.cloneElement(primaryAction, {
+                      className: 'ids-modal__footer-action',
+                    })}
+                </div>
+              )}
+            </div>
+          </m.div>
+        )}
+      </AnimatePresence>
+    </LazyMotion>
   );
 
   return ReactDom.createPortal(modal, document.body);

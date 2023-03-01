@@ -9,7 +9,6 @@
   --ids-tooltip-border-radius: #{tokens.$border-radius-sm};
   --ids-tooltip-z-index: #{tokens.$z-index-max};
   --ids-tooltip-arrow-size: 5px;
-  --ids-tooltip-arrow-size-negatif: -10px;
   --ids-tooltip-spacing: #{tokens.$space-2};
 
   /* Theme */
@@ -31,51 +30,18 @@
   pointer-events: none;
   user-select: none;
   width: max-content;
-  opacity: 0;
-  transition: opacity 0.15s ease-in-out;
-
-  &[data-show='true'] {
-    opacity: 1;
-  }
-
-  &[data-popper-reference-hidden='true'] {
-    opacity: 0;
-    pointer-events: none;
-  }
 
   &__arrow {
-    content: '';
+    background: var(--ids-tooltip-background);
     position: absolute;
     display: block;
-    width: 0;
-    height: 0;
-    border: var(--ids-tooltip-arrow-size) solid transparent;
+    width: var(--ids-tooltip-arrow-size);
+    height: var(--ids-tooltip-arrow-size);
+    transform: rotate(45deg);
   }
 
-  &[data-text^='center'],
-  &[data-popper-placement^='top'],
-  &[data-popper-placement^='bottom'] {
+  &[data-text^='center'] {
     text-align: center;
-  }
-
-  &[data-popper-placement^='bottom'] > .ids-tooltip__arrow {
-    top: var(--ids-tooltip-arrow-size-negatif);
-    border-bottom-color: var(--ids-tooltip-background);
-  }
-
-  &[data-popper-placement^='top'] > .ids-tooltip__arrow {
-    bottom: var(--ids-tooltip-arrow-size-negatif);
-    border-top-color: var(--ids-tooltip-background);
-  }
-
-  &[data-popper-placement^='left'] > .ids-tooltip__arrow {
-    right: var(--ids-tooltip-arrow-size-negatif);
-    border-left-color: var(--ids-tooltip-background);
-  }
-
-  &[data-popper-placement^='right'] > .ids-tooltip__arrow {
-    left: var(--ids-tooltip-arrow-size-negatif);
-    border-right-color: var(--ids-tooltip-background);
   }
 
   &__container {

@@ -11,24 +11,20 @@ const Example = () => {
   };
 
   return (
-    <>
-      <div className="example">
-        <Button appearance="secondary" onClick={() => setOpen(true)}>
-          open
-        </Button>
-        {open && (
-          <Dialog
-            title="Dialog title"
-            subTitle="This is a sub title"
-            dismissText="Cancel"
-            validateText="Confirm"
-            isOpen={open}
-            onDismiss={() => setOpen(false)}
-            onValidate={handleValidate}
-          />
-        )}
-      </div>
-    </>
+    <div className="example">
+      <Button appearance="secondary" onClick={() => setOpen(true)}>
+        open
+      </Button>
+      <Dialog
+        title="Dialog title"
+        subTitle="This is a sub title"
+        dismissText="Cancel"
+        validateText="Confirm"
+        isOpen={open}
+        onDismiss={() => setOpen(false)}
+        onValidate={handleValidate}
+      />
+    </div>
   );
 };
 

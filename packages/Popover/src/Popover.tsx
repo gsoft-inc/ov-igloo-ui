@@ -1,7 +1,20 @@
 import * as React from 'react';
-import ReactDom from 'react-dom';
 import cx from 'classnames';
-import { usePopper } from 'react-popper';
+import {
+  flip,
+  shift,
+  offset,
+  autoUpdate,
+  useFloating,
+  useDismiss,
+  useInteractions,
+  useTransitionStyles,
+  autoPlacement,
+  useRole,
+  FloatingPortal,
+  useClick,
+  FloatingFocusManager,
+} from '@floating-ui/react';
 
 import IconButton from '@igloo-ui/icon-button';
 import Close from '@igloo-ui/icons/dist/Close';
@@ -55,35 +68,52 @@ const Popover: React.FunctionComponent<PopoverProps> = (
 
   const [show, setShow] = React.useState<boolean>(active);
 
-  const [referenceElement, setReferenceElement] =
-    React.useState<HTMLElement | null>(null);
-  const [popoverElement, setPopoverElement] =
-    React.useState<HTMLElement | null>(null);
+  let floatingUIPlacement = {};
 
-  const { styles, attributes, update } = usePopper(
-    referenceElement,
-    popoverElement,
-    {
+  if (position === 'auto') {
+    floatingUIPlacement = {
+      middleware: [offset(10), autoPlacement(), shift()],
+    };
+  } else {
+    floatingUIPlacement = {
       placement: position,
-      strategy: 'fixed',
-      modifiers: [
-        { name: 'offset', options: { offset: [0, 10] } },
-        {
-          name: 'flip',
-          options: {
-            fallbackPlacements: ['top', 'bottom', 'left', 'right'],
-          },
-        },
+      middleware: [
+        offset(10),
+        flip({ fallbackAxisSideDirection: 'end' }),
+        shift(),
       ],
-    }
-  );
+    };
+  }
 
-  const onClick = (): void => {
-    setShow(!show);
-    if (update !== null) {
-      update();
-    }
-  };
+  const { x, y, strategy, refs, context } = useFloating({
+    open: show,
+    strategy: 'fixed',
+    onOpenChange: setShow,
+    whileElementsMounted: autoUpdate,
+    ...floatingUIPlacement,
+  });
+
+  const click = useClick(context);
+  const dismiss = useDismiss(context);
+  const role = useRole(context);
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    click,
+    dismiss,
+    role,
+  ]);
+
+  const { isMounted, styles } = useTransitionStyles(context, {
+    duration: 150,
+    initial: ({ side }) => ({
+      opacity: 0,
+      transform: side === 'bottom' ? 'translateY(1rem)' : 'translateY(-1rem)',
+    }),
+    open: {
+      opacity: 1,
+      transform: 'translateY(0rem)',
+    },
+  });
 
   const onClose = (): void => {
     setShow(false);
@@ -94,11 +124,6 @@ const Popover: React.FunctionComponent<PopoverProps> = (
   const fromPxToRem = (value: number, base = 10): string =>
     `${value / base}rem`;
 
-  const popoverStyle = {
-    ...styles.popper,
-    maxWidth: fromPxToRem(maxWidth),
-  };
-
   const popoverContent = (
     <>
       {title && <div className="ids-popover__title">{title}</div>}
@@ -107,14 +132,20 @@ const Popover: React.FunctionComponent<PopoverProps> = (
     </>
   );
 
-  const popover = ReactDom.createPortal(
+  const popover = (
     <div
-      ref={setPopoverElement}
+      ref={refs.setFloating}
       className={popoverClasses}
-      style={popoverStyle}
-      {...attributes.popper}
+      style={{
+        position: strategy,
+        top: y ?? 0,
+        left: x ?? 0,
+        maxWidth: fromPxToRem(maxWidth),
+        ...styles,
+      }}
       data-show={show}
       data-test={dataTest}
+      {...getFloatingProps()}
       {...rest}
     >
       {isClosable && (
@@ -129,22 +160,31 @@ const Popover: React.FunctionComponent<PopoverProps> = (
       )}
 
       {popoverContent}
-    </div>,
-    document.body
+    </div>
   );
 
   return (
     <>
       <span
-        ref={setReferenceElement}
+        ref={refs.setReference}
         className={classes}
-        onClick={onClick}
         role="button"
         tabIndex={0}
+        {...getReferenceProps()}
       >
         {children}
       </span>
-      {show && popover}
+      <FloatingPortal>
+        {isMounted && (
+          <FloatingFocusManager
+            context={context}
+            modal={false}
+            initialFocus={-1}
+          >
+            {popover}
+          </FloatingFocusManager>
+        )}
+      </FloatingPortal>
     </>
   );
 };
