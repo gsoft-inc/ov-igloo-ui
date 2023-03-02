@@ -11,11 +11,6 @@ export type Position =
 export type Size = 'xsmall' | 'small' | 'medium' | 'large';
 export type Role = 'listbox' | 'menu';
 
-export interface ReferenceProps {
-  ref: React.RefCallback<Element>;
-  getReferenceProps: () => void;
-}
-
 export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   /** The target button, text, svg etc.. of the Dropdown. */
   children?: React.ReactElement;
@@ -37,7 +32,9 @@ export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   role?: Role;
   /** Render the reference element to be able to add the
    * reference props directly. This overrides children */
-  renderReference?: (props: ReferenceProps) => React.ReactElement;
+  renderReference?: (
+    props: React.HTMLProps<HTMLButtonElement>
+  ) => React.ReactElement;
 }
 
 const MockDropdown: React.FunctionComponent<DropdownProps> = ({
@@ -63,7 +60,9 @@ const MockDropdown: React.FunctionComponent<DropdownProps> = ({
   };
 
   const { getReferenceProps } = {
-    getReferenceProps: () => {},
+    getReferenceProps: (): Record<string, unknown> => {
+      return {};
+    },
   };
 
   const dropdownClasses = [
@@ -78,7 +77,7 @@ const MockDropdown: React.FunctionComponent<DropdownProps> = ({
   return (
     <>
       {renderReference ? (
-        renderReference({ ref: refs.setReference, getReferenceProps })
+        renderReference({ ref: refs.setReference, ...getReferenceProps() })
       ) : (
         <div className="ids-dropdown__ref" ref={refs.setReference}>
           {children}

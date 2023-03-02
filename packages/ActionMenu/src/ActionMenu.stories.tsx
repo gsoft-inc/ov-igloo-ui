@@ -1,16 +1,21 @@
 import React from 'react';
+import isChromatic from 'chromatic/isChromatic';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-
-import Section from '@components/section';
-import readme from '../README.md';
-
+import IconButton from '@igloo-ui/icon-button';
+import Button from '@igloo-ui/button';
+import { OptionType } from '../../List/dist/List';
+import Kebab from '@igloo-ui/icons/dist/Kebab';
 import AddSolid from '@igloo-ui/icons/dist/AddSolid';
 import Delete from '@igloo-ui/icons/dist/Delete';
 import Copy from '@igloo-ui/icons/dist/Copy';
 
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+
+import ChromaticWrapper from '@components/chromaticWrapper';
+import Section from '@components/section';
+import readme from '../README.md';
+
 import ActionMenu, { ActionMenuOption } from './ActionMenu';
-import { OptionType } from '../../List/dist/List';
 
 const actionMenuList: ActionMenuOption[] = [
   {
@@ -56,55 +61,138 @@ export default {
     closeOnSelect: {
       control: { type: 'boolean' },
     },
+    position: {
+      table: {
+        defaultValue: { summary: 'bottom-end' },
+      },
+      control: {
+        defaultValue: { summary: 'bottom-end' },
+      },
+    },
   },
 } as ComponentMeta<typeof ActionMenu>;
 
+const kebab = (props: any) => {
+  return (
+    <IconButton
+      icon={<Kebab size="medium" />}
+      appearance={{ type: 'ghost', variant: 'secondary' }}
+      size="medium"
+      {...props}
+    />
+  );
+};
+
 const Template: ComponentStory<typeof ActionMenu> = (args) => (
-  <ActionMenu {...args} style={{ display: 'flex', justifyContent: 'center' }} />
+  <ChromaticWrapper>
+    <ActionMenu
+      {...args}
+      style={{ display: 'flex', justifyContent: 'center' }}
+    />
+  </ChromaticWrapper>
 );
 export const Overview = Template.bind({});
 Overview.args = {
   options: actionMenuList,
+  renderReference: kebab,
+  isOpen: isChromatic(),
 };
 
 export const Positioning = () => {
   return (
-    <Section style={{ gap: '4rem' }}>
-      <div>
-        <ActionMenu options={actionMenuList2} position="bottom" />
-      </div>
+    <ChromaticWrapper>
+      <Section style={{ gap: '2rem' }}>
+        <ActionMenu
+          options={actionMenuList2}
+          position="bottom-end"
+          isOpen
+          renderReference={(props: any) => {
+            return (
+              <Button appearance="secondary" {...props}>
+                Bottom End
+              </Button>
+            );
+          }}
+        />
 
-      <div>
-        <ActionMenu options={actionMenuList2} position="bottom-start" />
-      </div>
+        <ActionMenu
+          options={actionMenuList2}
+          position="top"
+          isOpen
+          renderReference={(props: any) => {
+            return (
+              <Button appearance="secondary" {...props}>
+                Top
+              </Button>
+            );
+          }}
+        />
 
-      <div>
-        <ActionMenu options={actionMenuList2} position="bottom-end" />
-      </div>
+        <ActionMenu
+          options={actionMenuList2}
+          position="bottom-start"
+          isOpen
+          renderReference={(props: any) => {
+            return (
+              <Button appearance="secondary" {...props}>
+                Bottom Start
+              </Button>
+            );
+          }}
+        />
 
-      <div>
-        <ActionMenu options={actionMenuList2} position="top" />
-      </div>
+        <ActionMenu
+          options={actionMenuList2}
+          position="top-end"
+          isOpen
+          renderReference={(props: any) => {
+            return (
+              <Button appearance="secondary" {...props}>
+                Top End
+              </Button>
+            );
+          }}
+        />
 
-      <div>
-        <ActionMenu options={actionMenuList2} position="top-start" />
-      </div>
+        <ActionMenu
+          options={actionMenuList2}
+          position="bottom"
+          isOpen
+          renderReference={(props: any) => {
+            return (
+              <Button appearance="secondary" {...props}>
+                Bottom
+              </Button>
+            );
+          }}
+        />
 
-      <div>
-        <ActionMenu options={actionMenuList2} position="top-end" />
-      </div>
-    </Section>
+        <ActionMenu
+          options={actionMenuList2}
+          position="top-start"
+          isOpen
+          renderReference={(props: any) => {
+            return (
+              <Button appearance="secondary" {...props}>
+                Top Start
+              </Button>
+            );
+          }}
+        />
+      </Section>
+    </ChromaticWrapper>
   );
 };
 
 export const Events = () => {
   return (
-    <>
+    <ChromaticWrapper>
       <p style={{ fontSize: '1.4rem' }}>
         The menu close event will not be called when clicking{' '}
         <strong>delete</strong>.
       </p>
       <ActionMenu
+        renderReference={kebab}
         options={actionMenuList2}
         style={{ display: 'flex', justifyContent: 'center' }}
         onOptionSelect={(option: OptionType) => {
@@ -123,6 +211,6 @@ export const Events = () => {
           return true;
         }}
       />
-    </>
+    </ChromaticWrapper>
   );
 };

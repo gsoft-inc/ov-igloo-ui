@@ -25,6 +25,7 @@ Then to use the component in your code just import it!
 
 ```jsx
 import ActionMenu from '@igloo-ui/action-menu';
+import Button from '@igloo-ui/button';
 
 <ActionMenu
   options={[
@@ -42,5 +43,12 @@ import ActionMenu from '@igloo-ui/action-menu';
       value: 'copy',
     },
   ]}
+  renderReference={(refProps) => {
+    return (
+      <Button appearance="secondary" {...refProps}>
+        Button
+      </Button>
+    );
+  }}
 />;
 ```

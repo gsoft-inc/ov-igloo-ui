@@ -2,11 +2,13 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import MockDropdown from '@igloo-ui/dropdown/src/__mocks__/Dropdown.mock';
-import ActionMenu, { ActionMenuOption } from './ActionMenu';
+import Button from '@igloo-ui/button';
+import { OptionType } from '@igloo-ui/list';
+import ActionMenu, { ActionMenuOption, ActionMenuProps } from './ActionMenu';
 
-const textOnlyList: ActionMenuOption[] = [
+const actionMenuList: ActionMenuOption[] = [
   {
     label: 'Add Item',
     value: 'add',
@@ -22,12 +24,20 @@ const textOnlyList: ActionMenuOption[] = [
   },
 ];
 
-const setup = (props = { options: textOnlyList }) => {
-  return render(
-    <ActionMenu dataTest="ids-action-menu" {...props}>
-      Hello world
-    </ActionMenu>
-  );
+const actionMenuProps: ActionMenuProps = {
+  dataTest: 'ids-action-menu',
+  options: actionMenuList,
+  renderReference: (refProps: any) => {
+    return (
+      <Button appearance="secondary" {...refProps}>
+        Button
+      </Button>
+    );
+  },
+};
+
+const setup = (props = actionMenuProps) => {
+  return render(<ActionMenu {...props} />);
 };
 
 jest.mock('@igloo-ui/dropdown', () => ({
@@ -41,5 +51,28 @@ describe('ActionMenu', () => {
     const wrapper = screen.getByTestId('ids-action-menu');
     expect(wrapper).toBeInTheDocument();
     expect(baseElement).toMatchSnapshot();
+  });
+
+  test('It renders an option', () => {
+    setup();
+    const listItem = screen.getByText('Add Item');
+    expect(listItem).toBeInTheDocument();
+  });
+
+  test('It calls onOptionSelect', () => {
+    let selected = false;
+    setup({
+      onOptionSelect: (option: OptionType) => {
+        if (option.value === 'add') {
+          selected = true;
+        }
+      },
+      ...actionMenuProps,
+    });
+    const listItem = screen.getByText('Add Item');
+    if (listItem) {
+      fireEvent.click(listItem);
+    }
+    expect(selected).toBeTruthy();
   });
 });

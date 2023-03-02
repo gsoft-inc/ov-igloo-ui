@@ -1,5 +1,6 @@
 import React from 'react';
 import ActionMenu from '@igloo-ui/action-menu';
+import Button from '@igloo-ui/button';
 
 const Example = () => {
   return (
@@ -20,6 +21,13 @@ const Example = () => {
             value: 'copy',
           },
         ]}
+        renderReference={(refProps) => {
+          return (
+            <Button appearance="secondary" {...refProps}>
+              Button
+            </Button>
+          );
+        }}
       />
     </div>
   );

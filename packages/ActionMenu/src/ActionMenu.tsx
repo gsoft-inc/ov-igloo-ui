@@ -2,9 +2,7 @@ import * as React from 'react';
 import cx from 'classnames';
 
 import List, { OptionType, Option } from '@igloo-ui/list';
-import Dropdown, { Position, ReferenceProps } from '@igloo-ui/dropdown';
-import IconButton from '@igloo-ui/icon-button';
-import Kebab from '@igloo-ui/icons/dist/Kebab';
+import Dropdown, { Position } from '@igloo-ui/dropdown';
 
 import './action-menu.scss';
 
@@ -42,6 +40,11 @@ export interface ActionMenuProps extends React.ComponentProps<'div'> {
   options: ActionMenuOption[];
   /** Position of the action menu. */
   position?: Position;
+  /** Render the reference element to be able to add the
+   * reference props directly */
+  renderReference: (
+    props: React.HTMLProps<HTMLButtonElement>
+  ) => React.ReactElement;
 }
 
 const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
@@ -56,7 +59,8 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
     onMenuOpen,
     onOptionSelect,
     options,
-    position = 'bottom-start',
+    position = 'bottom-end',
+    renderReference,
     ...rest
   } = props;
 
@@ -214,6 +218,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
     <div className={actionMenuClassname} data-test={dataTest} {...rest}>
       <Dropdown
         key="selectDropdown"
+        role="menu"
         content={
           <List
             options={actionMenuOptions}
@@ -226,24 +231,13 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
         className="ids-action-menu__dropdown"
         position={position}
         onClose={() => toggleMenu(false)}
-        renderReference={({ ref, getReferenceProps }: ReferenceProps) => {
-          return (
-            <IconButton
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-              ref={ref}
-              icon={<Kebab size="medium" />}
-              appearance={{ type: 'ghost', variant: 'secondary' }}
-              className="ids-action-menu__trigger"
-              type="button"
-              size="medium"
-              onClick={() => toggleMenu(!showMenu)}
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-              onKeyDown={handleOnKeyDown}
-              {...getReferenceProps()}
-            />
-          );
+        renderReference={(refProps: React.HTMLProps<HTMLButtonElement>) => {
+          return renderReference({
+            onClick: () => toggleMenu(!showMenu),
+            onKeyDown: () => handleOnKeyDown,
+            className: 'ids-action-menu__trigger',
+            ...refProps,
+          });
         }}
       />
     </div>
