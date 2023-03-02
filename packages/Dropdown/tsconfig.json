@@ -4,7 +4,7 @@
     "src/**/*",
     "../../typings/**/*",
     "rollup.config.js",
-    "__mocks__"
+    "__mocks__*"
   ],
   "exclude": ["dist"],
   "compilerOptions": {

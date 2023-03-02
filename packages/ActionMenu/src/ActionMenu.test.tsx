@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import MockDropdown from '@igloo-ui/dropdown/__mocks__/dropdownMock';
+import MockDropdown from '@igloo-ui/dropdown/src/__mocks__/Dropdown.mock';
 import ActionMenu, { ActionMenuOption } from './ActionMenu';
 
 const textOnlyList: ActionMenuOption[] = [
