@@ -1,5 +1,15 @@
 # @igloo-ui/tooltip
 
+## 3.1.0
+
+### Minor Changes
+
+- bf0342e: Refactor: Replaced react spring and react popper with framer motion and/or floating-ui
+
+### Patch Changes
+
+- 9ed10b2: Updated jest and updated snapshots for popover and tooltip components
+
 ## 3.0.3
 
 ### Patch Changes
