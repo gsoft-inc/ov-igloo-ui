@@ -3,7 +3,6 @@ import ReactDom from 'react-dom';
 import cx from 'classnames';
 import { LazyMotion, domAnimation, m, AnimatePresence } from 'framer-motion';
 
-import { mergeProps } from '@react-aria/utils';
 import {
   OverlayProps,
   useOverlay,

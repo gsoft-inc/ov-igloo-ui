@@ -11,6 +11,7 @@ import {
   useInteractions,
   useTransitionStyles,
   useRole,
+  FloatingPortal,
 } from '@floating-ui/react';
 
 import './dropdown.scss';
@@ -135,32 +136,33 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
             {children}
           </div>
         )}
-
-        {isMounted && (
-          <FloatingFocusManager
-            context={context}
-            modal={false}
-            initialFocus={-1}
-          >
-            <div
-              ref={mergedDropdownRef}
-              className={dropdownClasses}
-              data-test={dataTest}
-              {...rest}
-              data-show={isOpen}
-              style={{
-                position: strategy,
-                top: y ?? 0,
-                left: x ?? 0,
-                ...styles,
-                ...style,
-              }}
-              {...getFloatingProps()}
+        <FloatingPortal>
+          {isMounted && (
+            <FloatingFocusManager
+              context={context}
+              modal={false}
+              initialFocus={-1}
             >
-              {content}
-            </div>
-          </FloatingFocusManager>
-        )}
+              <div
+                ref={mergedDropdownRef}
+                className={dropdownClasses}
+                data-test={dataTest}
+                {...rest}
+                data-show={isOpen}
+                style={{
+                  position: strategy,
+                  top: y ?? 0,
+                  left: x ?? 0,
+                  ...styles,
+                  ...style,
+                }}
+                {...getFloatingProps()}
+              >
+                {content}
+              </div>
+            </FloatingFocusManager>
+          )}
+        </FloatingPortal>
       </>
     );
   }

@@ -1,22 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dropdown It should render without error and a snapshot 1`] = `
-<DocumentFragment>
-  <div
-    class="ids-dropdown__ref"
-  >
-    <button>
-      Settings
-    </button>
+<body>
+  <div>
+    <div
+      aria-controls=":r0:"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      class="ids-dropdown__ref"
+      role="combobox"
+    >
+      <button>
+        Settings
+      </button>
+    </div>
+    <span
+      data-floating-ui-focus-guard=""
+      data-type="outside"
+      role="button"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+      tabindex="0"
+    />
+    <span
+      aria-owns=":r2:"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+    />
+    <span
+      data-floating-ui-focus-guard=""
+      data-type="outside"
+      role="button"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+      tabindex="0"
+    />
   </div>
   <div
-    class="ids-dropdown ids-dropdown--bottom-start"
-    data-show="true"
-    data-test="dropdown1"
-    style="position: fixed; top: 0px; left: 0px; opacity: 0; transform: translateY(1rem);"
-    tabindex="-1"
+    data-floating-ui-portal=""
+    id=":r2:"
   >
-    All settings
+    <span
+      data-floating-ui-focus-guard=""
+      data-type="inside"
+      role="button"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+      tabindex="0"
+    />
+    <div
+      class="ids-dropdown ids-dropdown--bottom-start"
+      data-show="true"
+      data-test="dropdown1"
+      id=":r0:"
+      role="listbox"
+      style="position: fixed; top: 0px; left: 0px; opacity: 0; transform: translateY(1rem);"
+      tabindex="-1"
+    >
+      All settings
+    </div>
+    <span
+      data-floating-ui-focus-guard=""
+      data-type="inside"
+      role="button"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+      tabindex="0"
+    />
   </div>
-</DocumentFragment>
+</body>
 `;

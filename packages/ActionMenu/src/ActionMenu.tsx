@@ -30,10 +30,12 @@ export interface ActionMenuProps extends React.ComponentProps<'div'> {
   closeOnSelect?: boolean | ((option: OptionType) => boolean);
   /** Add a data-test tag for automated tests */
   dataTest?: string;
-  /** Whether or not the action menu should be open */
+  /** Whether or not the action menu should be open by default */
   isOpen?: boolean;
   /** Callback when the action menu is closed  */
   onMenuClose?: () => void;
+  /** Callback when the action menu is opened  */
+  onMenuOpen?: () => void;
   /** Callback when an option is selected */
   onOptionSelect?: (option: OptionType) => void;
   /** A list of options to display in the action menu */
@@ -51,6 +53,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
     dataTest,
     isOpen = false,
     onMenuClose,
+    onMenuOpen,
     onOptionSelect,
     options,
     position = 'bottom-start',
@@ -82,6 +85,8 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
       if (onMenuClose) {
         onMenuClose();
       }
+    } else if (onMenuOpen) {
+      onMenuOpen();
     }
   };
 
@@ -94,12 +99,12 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
   };
 
   const selectOption = (option: OptionType): void => {
-    if (closeMenuOnSelect(option)) {
-      toggleMenu(false);
-    }
-
     if (onOptionSelect) {
       onOptionSelect(option);
+    }
+
+    if (closeMenuOnSelect(option)) {
+      toggleMenu(false);
     }
   };
 
@@ -232,7 +237,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
               className="ids-action-menu__trigger"
               type="button"
               size="medium"
-              onClick={() => setShowMenu(!showMenu)}
+              onClick={() => toggleMenu(!showMenu)}
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
               onKeyDown={handleOnKeyDown}

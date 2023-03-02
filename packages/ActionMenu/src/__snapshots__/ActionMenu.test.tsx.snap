@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionMenu It should render without errors 1`] = `
+<body>
+  <div>
+    <div
+      class="ids-action-menu"
+      data-test="ids-action-menu"
+    >
+      <button
+        class="ids-btn ids-icon-btn ids-icon-btn--medium ids-action-menu__trigger ids-btn--ghost-secondary"
+        title=""
+        type="button"
+      >
+        <span
+          class=""
+        >
+          <svg
+            class="ids-icon"
+            fill="none"
+            height="24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M13.75 5.5a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0Zm0 6.5a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0ZM12 20.25a1.75 1.75 0 1 0 0-3.5 1.75 1.75 0 0 0 0 3.5Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+      </button>
+      <div
+        class="ids-dropdown ids-action-menu__dropdown ids-dropdown--undefined ids-dropdown--bottom-start"
+        data-show="false"
+        style="position: fixed; top: 0px; left: 0px;"
+      >
+        <ul
+          class="ids-list ids-list--compact"
+          role="listbox"
+          tabindex="0"
+        >
+          <li
+            aria-selected="false"
+            class="ids-list-item ids-list-item--compact ids-list-item--selectable"
+            role="option"
+            tabindex="-1"
+          >
+            <div
+              class="ids-list-item__content"
+            >
+              <span
+                class="ids-list-item__text"
+              >
+                <span
+                  class="ids-list-item__text-label"
+                >
+                  Add Item
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-selected="false"
+            class="ids-list-item ids-list-item--compact ids-list-item--disabled"
+            role="option"
+            tabindex="-1"
+          >
+            <div
+              class="ids-list-item__content"
+            >
+              <span
+                class="ids-list-item__text"
+              >
+                <span
+                  class="ids-list-item__text-label"
+                >
+                  Delete Item
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-selected="false"
+            class="ids-list-item ids-list-item--compact ids-list-item--selectable"
+            role="option"
+            tabindex="-1"
+          >
+            <div
+              class="ids-list-item__content"
+            >
+              <span
+                class="ids-list-item__text"
+              >
+                <span
+                  class="ids-list-item__text-label"
+                >
+                  Copy Item
+                </span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+`;

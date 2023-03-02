@@ -1,8 +1,9 @@
 # ActionMenu
 
-TODO: Write your component description here.
+This component is used to display a kebab menu which will contain a list of menu options. The menu is dismissible if you click outside the dropdown.
 
-  <ReferenceLinks is="custom" />
+<Example is="custom" />
+<ReferenceLinks is="custom" />
 
 ## Installation
 
@@ -25,5 +26,21 @@ Then to use the component in your code just import it!
 ```jsx
 import ActionMenu from '@igloo-ui/action-menu';
 
-// TODO: Add your component usage here
+<ActionMenu
+  options={[
+    {
+      label: 'Add Item',
+      value: 'add',
+    },
+    {
+      label: 'Delete Item',
+      value: 'delete',
+      disabled: true,
+    },
+    {
+      label: 'Copy Item',
+      value: 'copy',
+    },
+  ]}
+/>;
 ```
