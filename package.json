@@ -27,7 +27,7 @@
     "build-storybook": "build-storybook",
     "prepublish-ci": "yarn build",
     "publish-ci": "npx lerna publish from-package -y",
-    "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN",
+    "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN --only-changed",
     "bootstrap": "node utils/bootstrap/component.mjs && npx lerna bootstrap && yarn fix:all"
   },
   "workspaces": [
@@ -71,7 +71,7 @@
     "babel-jest": "29.4.3",
     "babel-loader": "8.3.0",
     "camelcase": "6.3.0",
-    "chromatic": "6.5.3",
+    "chromatic": "^6.17.1",
     "css-loader": "5.2.7",
     "eslint": "8.22.0",
     "eslint-config-airbnb": "19.0.4",
