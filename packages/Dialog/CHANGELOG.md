@@ -1,5 +1,16 @@
 # @igloo-ui/dialog
 
+## 0.3.0
+
+### Minor Changes
+
+- bf0342e: Refactor: Replaced react spring and react popper with framer motion and/or floating-ui
+
+### Patch Changes
+
+- Updated dependencies [bf0342e]
+  - @igloo-ui/modal@1.2.0
+
 ## 0.2.0
 
 ### Minor Changes
