@@ -23,6 +23,12 @@ module.exports = {
     interactionsDebugger: true,
   },
   staticDirs: ['../assets'],
+  core: {
+    builder: 'webpack5',
+    options: {
+      fsCache: true,
+    },
+  },
   webpackFinal: (config) => {
     config.resolve.plugins = [
       ...(config.resolve.plugins || []),
