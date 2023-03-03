@@ -38,7 +38,7 @@ export interface ActionMenuProps extends React.ComponentProps<'div'> {
   onOptionSelect?: (option: OptionType) => void;
   /** A list of options to display in the action menu */
   options: ActionMenuOption[];
-  /** Position of the action menu. */
+  /** Position of the action menu */
   position?: Position;
   /** Render the reference element to be able to add the
    * reference props directly */
@@ -118,8 +118,9 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
 
   const focusOption = (direction: FocusDirection = 'first'): void => {
     const enabledOptions = actionMenuOptions.filter(
-      (option) => isOptionDisabled(option) !== true
+      (option) => !isOptionDisabled(option)
     );
+    console.log(enabledOptions);
     if (!enabledOptions.length) return;
 
     let currentFocusedIndex = -1;
@@ -154,7 +155,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
   };
 
   const handleOnKeyDown = (
-    keyboardEvent: React.KeyboardEvent<HTMLDivElement>
+    keyboardEvent: React.KeyboardEvent<HTMLButtonElement>
   ): void => {
     switch (keyboardEvent.key) {
       case Keys.Escape:
@@ -186,7 +187,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
       case Keys.ArrowDown:
         keyboardEvent.preventDefault();
         keyboardEvent.stopPropagation();
-
+        console.log('down');
         focusOption('down');
         break;
       case Keys.Home:
@@ -234,7 +235,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
         renderReference={(refProps: React.HTMLProps<HTMLButtonElement>) => {
           return renderReference({
             onClick: () => toggleMenu(!showMenu),
-            onKeyDown: () => handleOnKeyDown,
+            onKeyDown: handleOnKeyDown,
             className: 'ids-action-menu__trigger',
             ...refProps,
           });

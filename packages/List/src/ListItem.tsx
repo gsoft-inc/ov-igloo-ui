@@ -12,7 +12,7 @@ interface ListItem {
   color?: string;
   /** Icon displayed in front of the option label */
   icon?: React.ReactElement;
-  /** Unique id used in Intercom to link a components to a Product Tour step. */
+  /** Unique id used in Intercom to link a components to a Product Tour step */
   intercomTarget?: string;
   /** Specifies the url for the image to show */
   src?: string;

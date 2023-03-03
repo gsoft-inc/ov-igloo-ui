@@ -3,7 +3,7 @@ import isChromatic from 'chromatic/isChromatic';
 
 import IconButton from '@igloo-ui/icon-button';
 import Button from '@igloo-ui/button';
-import { OptionType } from '../../List/dist/List';
+import { OptionType } from '@igloo-ui/List/dist/List';
 import Kebab from '@igloo-ui/icons/dist/Kebab';
 import AddSolid from '@igloo-ui/icons/dist/AddSolid';
 import Delete from '@igloo-ui/icons/dist/Delete';
@@ -73,6 +73,7 @@ export default {
 } as ComponentMeta<typeof ActionMenu>;
 
 const kebab = (props: any) => {
+  console.log(props);
   return (
     <IconButton
       icon={<Kebab size="medium" />}
@@ -205,10 +206,7 @@ export const Events = () => {
           alert('The action menu was closed');
         }}
         closeOnSelect={(option: OptionType) => {
-          if (option.value === 'delete') {
-            return false;
-          }
-          return true;
+          return option.value !== 'delete';
         }}
       />
     </ChromaticWrapper>
