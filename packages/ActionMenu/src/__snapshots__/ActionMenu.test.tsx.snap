@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionMenu It should render without errors and a snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="ids-action-menu"
+      data-test="ids-action-menu"
+    >
+      <button
+        class="ids-btn ids-action-menu__trigger ids-btn--secondary"
+        title="Button"
+        type="button"
+      >
+        <span
+          class=""
+        >
+          Button
+        </span>
+      </button>
+      <div
+        class="ids-dropdown ids-action-menu__dropdown ids-dropdown--undefined ids-dropdown--bottom-end"
+        data-show="false"
+        style="position: fixed; top: 0px; left: 0px;"
+      >
+        <ul
+          class="ids-list ids-list--compact"
+          role="listbox"
+          tabindex="0"
+        >
+          <li
+            aria-selected="false"
+            class="ids-list-item ids-list-item--compact ids-list-item--selectable"
+            role="option"
+            tabindex="-1"
+          >
+            <div
+              class="ids-list-item__content"
+            >
+              <span
+                class="ids-list-item__text"
+              >
+                <span
+                  class="ids-list-item__text-label"
+                >
+                  Add Item
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-selected="false"
+            class="ids-list-item ids-list-item--compact ids-list-item--disabled"
+            role="option"
+            tabindex="-1"
+          >
+            <div
+              class="ids-list-item__content"
+            >
+              <span
+                class="ids-list-item__text"
+              >
+                <span
+                  class="ids-list-item__text-label"
+                >
+                  Delete Item
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-selected="false"
+            class="ids-list-item ids-list-item--compact ids-list-item--selectable"
+            role="option"
+            tabindex="-1"
+          >
+            <div
+              class="ids-list-item__content"
+            >
+              <span
+                class="ids-list-item__text"
+              >
+                <span
+                  class="ids-list-item__text-label"
+                >
+                  Copy Item
+                </span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+`;

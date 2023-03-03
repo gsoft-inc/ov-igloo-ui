@@ -102,7 +102,8 @@ Overview.args = {
   options: smallOptionList,
 };
 Overview.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
+  const body = canvasElement.ownerDocument.body;
+  const canvas = within(body);
 
   await userEvent.click(canvas.getByRole('button'));
   const firstOption = await canvas.findByText('Text option');

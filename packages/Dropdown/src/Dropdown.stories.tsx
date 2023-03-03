@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@igloo-ui/button';
+import Modal from '@igloo-ui/modal';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import readme from '../README.md';
@@ -78,4 +79,39 @@ const Template: ComponentStory<typeof Dropdown> = (args) => {
 export const Overview = Template.bind({});
 Overview.args = {
   isOpen: false,
+};
+
+export const DropdownInAModal = () => {
+  const [show, setShow] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setShow(true)}>open</Button>
+      <Modal isClosable isOpen={show} onClose={() => setShow(false)}>
+        <Dropdown
+          isOpen={open}
+          onClose={() => setOpen(false)}
+          content={
+            <List
+              items={[
+                'Organization details',
+                'Billing',
+                'Permissions',
+                'Segments',
+              ]}
+            />
+          }
+        >
+          <Button
+            appearance="secondary"
+            size="small"
+            onClick={() => setOpen(!open)}
+          >
+            Settings
+          </Button>
+        </Dropdown>
+      </Modal>
+    </>
+  );
 };

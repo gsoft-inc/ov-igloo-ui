@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@igloo-ui/action-menu": "*",
     "@igloo-ui/alert": "*",
     "@igloo-ui/area-chart": "*",
     "@igloo-ui/avatar": "*",

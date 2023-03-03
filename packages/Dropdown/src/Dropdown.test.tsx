@@ -8,13 +8,13 @@ import Dropdown from './Dropdown';
 
 describe('Dropdown', () => {
   test('It should render without error and a snapshot', () => {
-    const { asFragment } = render(
+    const { baseElement } = render(
       <Dropdown content="All settings" dataTest="dropdown1" isOpen>
         <button>Settings</button>
       </Dropdown>
     );
 
     expect(screen.getByTestId('dropdown1')).toBeInTheDocument();
-    expect(asFragment()).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 });
