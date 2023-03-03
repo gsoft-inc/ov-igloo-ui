@@ -27,9 +27,12 @@
     "@igloo-ui/tokens": "^2.0.0",
     "@igloo-ui/dropdown": "^1.1.1",
     "@igloo-ui/list": "^0.1.1",
-    "@igloo-ui/icons": "^1.6.0",
-    "@igloo-ui/icon-button": "^1.0.0",
     "classnames": "^2.3.2"
+  },
+  "devDependencies": {
+    "@igloo-ui/icons": "^1.6.0",
+    "@igloo-ui/button": "^0.4.0",
+    "@igloo-ui/icon-button": "^1.0.0"
   },
   "browserslist": [
     "> 1%",
