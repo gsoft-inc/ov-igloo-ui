@@ -73,7 +73,6 @@ export default {
 } as ComponentMeta<typeof ActionMenu>;
 
 const kebab = (props: any) => {
-  console.log(props);
   return (
     <IconButton
       icon={<Kebab size="medium" />}

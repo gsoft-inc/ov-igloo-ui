@@ -120,7 +120,6 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
     const enabledOptions = actionMenuOptions.filter(
       (option) => !isOptionDisabled(option)
     );
-    console.log(enabledOptions);
     if (!enabledOptions.length) return;
 
     let currentFocusedIndex = -1;
@@ -187,7 +186,6 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
       case Keys.ArrowDown:
         keyboardEvent.preventDefault();
         keyboardEvent.stopPropagation();
-        console.log('down');
         focusOption('down');
         break;
       case Keys.Home:
