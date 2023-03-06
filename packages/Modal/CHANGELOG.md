@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.2.1
+
+### Patch Changes
+
+- 3f50827: Made dropdown portal to the end of the document so that it works in Modals. Removed unused line in Modal.
+
 ## 1.2.0
 
 ### Minor Changes

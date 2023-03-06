@@ -1,5 +1,13 @@
 # @igloo-ui/combobox
 
+## 0.1.3
+
+### Patch Changes
+
+- 3f50827: Made dropdown portal to the end of the document so that it works in Modals. Removed unused line in Modal.
+- Updated dependencies [3f50827]
+  - @igloo-ui/dropdown@1.1.2
+
 ## 0.1.2
 
 ### Patch Changes
