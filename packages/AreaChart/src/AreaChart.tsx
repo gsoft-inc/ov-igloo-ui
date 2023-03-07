@@ -176,14 +176,13 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
   const [areaChartData, setAreaChartData] = React.useState<AreaChartData[]>();
 
   const formatSpecialMonth = (date: DateTime) => {
+    const utcDate = date.toUTC();
+
     if (date.locale !== 'en') {
-      return date.toLocaleString({
-        month: 'short',
-        day: 'numeric',
-      });
+      return utcDate.toFormat('dd MMM');
     }
 
-    const { month } = date;
+    const { month } = utcDate;
     let monthString = '';
     switch (month) {
       case 5:
@@ -201,7 +200,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
       default:
         monthString = date.toFormat('MMM.');
     }
-    return `${monthString} ${date.day}`;
+    return `${monthString} ${utcDate.day}`;
   };
 
   const dateFormatter = (date: number): string => {
@@ -210,7 +209,10 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = (
   };
 
   const tooltipDateFormatter = (date: number): string => {
-    return DateTime.fromMillis(date).toLocaleString(DateTime.DATE_FULL);
+    const utcDate = DateTime.fromMillis(date).toUTC();
+    const { locale } = utcDate;
+    const format = locale !== 'en' ? 'd MMMM y' : 'MMMM d, y';
+    return utcDate.toFormat(format);
   };
 
   const getNumberOfTicks = (linePoints: number, maxTicks: number): number => {
