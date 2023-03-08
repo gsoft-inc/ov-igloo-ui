@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 0.5.0
+
+### Minor Changes
+
+- 589b6ea: displays in the x-axis + tooltip the utc date instead of the local date
+
 ## 0.4.0
 
 ### Minor Changes
