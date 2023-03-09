@@ -6,6 +6,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
 import camelcase from 'camelcase';
+import alias from '@rollup/plugin-alias';
 
 import autoprefixer from 'autoprefixer';
 import flexbugs from 'postcss-flexbugs-fixes';
@@ -61,6 +62,12 @@ export function createRollupConfig(packageName) {
         plugins: [autoprefixer(), flexbugs()],
         extract: path.resolve(DIST, `${style}.css`),
         minimize: true,
+      }),
+      alias({
+        entries: {
+          find: '@shared/components',
+          replacement: '../../../shared/components',
+        },
       }),
       resolve(),
       json(),
