@@ -7,7 +7,7 @@
   "command": {
     "version": {
       "message": "chore(release): publish",
-      "allowBranch": ["main"],
+      "allowBranch": ["main", "fix/*"],
       "registry": "https://registry.npmjs.org"
     }
   },
