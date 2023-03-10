@@ -1,0 +1,117 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-stacked-bar-tooltip-font-family: #{tokens.$primary-font-family};
+  --ids-stacked-bar-tooltip-font-size: #{tokens.$font-size-7};
+  --ids-stacked-bar-tooltip-color: #{tokens.$grey-800};
+  --ids-stacked-bar-tooltip-background: #{tokens.$samoyed};
+  --ids-stacked-bar-tooltip-box-shadow: #{tokens.$shadow-12};
+  --ids-stacked-bar-tooltip-border-radius: #{tokens.$border-radius-sm};
+  --ids-stacked-bar-tooltip-padding: #{tokens.$space-3};
+  --ids-stacked-bar-tooltip-data-item-padding: #{tokens.$space-1} 0;
+  --ids-stacked-bar-tooltip-data-item-no-color: #{tokens.$grey-400};
+  --ids-stacked-bar-tooltip-data-item-strength-minus-2: #{tokens.$coral-500};
+  --ids-stacked-bar-tooltip-data-item-strength-minus-1: #{tokens.$coral-300};
+  --ids-stacked-bar-tooltip-data-item-strength-0: #{tokens.$creamsicle-150};
+  --ids-stacked-bar-tooltip-data-item-strength-1: #{tokens.$seaweed-300};
+  --ids-stacked-bar-tooltip-data-item-strength-2: #{tokens.$seaweed-500};
+
+  /* No Data */
+  --ids-stacked-bar-tooltip-no-data-color: #{tokens.$grey-600};
+  --ids-stacked-bar-tooltip-no-data-font-size: #{tokens.$font-size-2};
+  --ids-stacked-bar-tooltip-no-data-line-height: #{tokens.$line-height-xl};
+
+  /* Value */
+  --ids-stacked-bar-tooltip-value-color: #{tokens.$grey-800};
+  --ids-stacked-bar-tooltip-value-font-family: #{tokens.$secondary-font-family};
+  --ids-stacked-bar-tooltip-value-font-size: #{tokens.$font-size-6};
+  --ids-stacked-bar-tooltip-value-font-weight: #{tokens.$font-weight-semi-bold};
+  --ids-stacked-bar-tooltip-value-line-height: #{tokens.$line-height-lg};
+  --ids-stacked-bar-tooltip-value-margin: #{tokens.$space-2};
+
+  /* Label */
+  --ids-stacked-bar-tooltip-label-color: #{tokens.$grey-600};
+  --ids-stacked-bar-tooltip-label-font-size: #{tokens.$font-size-3};
+  --ids-stacked-bar-tooltip-label-line-height: #{tokens.$line-height-xxl};
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.ids-tooltip__container.ids-stacked-bar-tooltip {
+  display: block;
+  height: 100%;
+
+}
+
+.ids-stacked-bar-tooltip__no-data {
+  color: var(--ids-stacked-bar-tooltip-no-data-color);
+  font-family: var(--ids-stacked-bar-tooltip-font-family);
+  font-size: var(--ids-stacked-bar-tooltip-no-data-font-size);
+  line-height: var(--ids-stacked-bar-tooltip-no-data-line-height);
+}
+
+.ids-stacked-bar-tooltip__data {
+  font-family: var(--ids-stacked-bar-tooltip-font-family);
+  font-size: var(--ids-stacked-bar-tooltip-font-size);
+  margin: 0;
+  padding-left: var(--ids-stacked-bar-tooltip-font-size);
+  text-align: left;
+}
+
+.ids-stacked-bar-tooltip__data-item {
+  padding: var(--ids-stacked-bar-tooltip-data-item-padding);
+  
+  &--no-color {
+    color: var(--ids-stacked-bar-tooltip-data-item-no-color);
+  }
+
+  &--strength--2 {
+    color: var(--ids-stacked-bar-tooltip-data-item-strength-minus-2);
+  }
+
+  &--strength--1 {
+    color: var(--ids-stacked-bar-tooltip-data-item-strength-minus-1);
+  }
+
+  &--strength-0 {
+    color: var(--ids-stacked-bar-tooltip-data-item-strength-0);
+  }
+
+  &--strength-1 {
+    color: var(--ids-stacked-bar-tooltip-data-item-strength-1);
+  }
+
+  &--strength-2 {
+    color: var(--ids-stacked-bar-tooltip-data-item-strength-2);
+  }
+
+}
+
+.ids-stacked-bar-tooltip__data-item-content {
+  align-items: center;
+  display: flex;
+}
+
+.ids-stacked-bar-tooltip__value {
+  color: var(--ids-stacked-bar-tooltip-value-color);
+  display: inline-block;
+  flex: 0 0 auto;
+  font-family: var(--ids-stacked-bar-tooltip-value-font-family);
+  font-size: var(--ids-stacked-bar-tooltip-value-font-size);
+  font-weight: var(--ids-stacked-bar-tooltip-value-font-weight);
+  line-height: var(--ids-stacked-bar-tooltip-value-line-height);
+  margin-right: var(--ids-stacked-bar-tooltip-value-margin);
+}
+
+.ids-stacked-bar-tooltip__label {
+  color: var(--ids-stacked-bar-tooltip-label-color);
+  flex: 0 1 auto;
+  font-size: var(--ids-stacked-bar-tooltip-label-font-size);
+  line-height: var(--ids-stacked-bar-tooltip-label-line-height);
+  min-width: 0;
+}

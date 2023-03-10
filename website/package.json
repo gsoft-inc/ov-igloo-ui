@@ -42,6 +42,7 @@
     "@igloo-ui/progress-bar": "*",
     "@igloo-ui/radio": "*",
     "@igloo-ui/select": "*",
+    "@igloo-ui/stacked-bar": "*",
     "@igloo-ui/tabs": "*",
     "@igloo-ui/tag": "*",
     "@igloo-ui/tag-picker": "*",

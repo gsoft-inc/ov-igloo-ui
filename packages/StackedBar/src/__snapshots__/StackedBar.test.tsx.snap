@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StackedBar It should render a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ids-stacked-bar ids-stacked-bar--medium"
+    data-test="ids-stacked-bar"
+  >
+    <span
+      class="ids-tooltip__container ids-stacked-bar-tooltip"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="recharts-responsive-container"
+        style="width: 600px; height: 100%;"
+      >
+        <div
+          class="recharts-wrapper ids-stacked-bar__chart"
+          role="region"
+          style="position: relative; cursor: default; width: 600px; height: 600px;"
+        >
+          <svg
+            class="recharts-surface"
+            height="600"
+            viewBox="0 0 600 600"
+            width="600"
+          >
+            <title />
+            <desc />
+            <defs>
+              <clippath
+                id="recharts5-clip"
+              >
+                <rect
+                  height="600"
+                  width="600"
+                  x="0"
+                  y="0"
+                />
+              </clippath>
+            </defs>
+            <defs>
+              <filter
+                id="inset-shadow"
+              >
+                <feoffset
+                  dx="0"
+                  dy="2"
+                />
+                <fegaussianblur
+                  result="offset-blur"
+                  stdDeviation="2"
+                />
+                <fecomposite
+                  in="SourceGraphic"
+                  in2="offset-blur"
+                  operator="out"
+                  result="inverse"
+                />
+                <feflood
+                  flood-color="#253346"
+                  flood-opacity=".10"
+                  result="color"
+                />
+                <fecomposite
+                  in="color"
+                  in2="inverse"
+                  operator="in"
+                  result="shadow"
+                />
+                <fecomposite
+                  in="shadow"
+                  in2="SourceGraphic"
+                  operator="over"
+                />
+              </filter>
+            </defs>
+            <g
+              class="recharts-layer recharts-bar ids-stacked-bar__empty-bar--side"
+            >
+              <g
+                class="recharts-layer recharts-bar-rectangles"
+              >
+                <g
+                  class="recharts-layer recharts-bar-rectangle"
+                  role="img"
+                >
+                  <path
+                    class="recharts-rectangle ids-stacked-bar__empty-bar--side"
+                    d="M0,4A 4,4,0,0,1,4,0L 198,0L 198,600L 4,600A 4,4,0,0,1,
+        0,596Z"
+                    filter="url(#inset-shadow)"
+                    height="600"
+                    radius="4,0,0,4"
+                    width="198"
+                    x="0"
+                    y="0"
+                  />
+                </g>
+              </g>
+              <g
+                class="recharts-layer"
+              />
+            </g>
+            <g
+              class="recharts-layer recharts-bar ids-stacked-bar__empty-bar--middle"
+            >
+              <g
+                class="recharts-layer recharts-bar-rectangles"
+              >
+                <g
+                  class="recharts-layer recharts-bar-rectangle"
+                  role="img"
+                >
+                  <path
+                    class="recharts-rectangle ids-stacked-bar__empty-bar--middle"
+                    d="M 198,0 h 204 v 600 h -204 Z"
+                    filter="url(#inset-shadow)"
+                    height="600"
+                    radius="0"
+                    width="204"
+                    x="198"
+                    y="0"
+                  />
+                </g>
+              </g>
+              <g
+                class="recharts-layer"
+              />
+            </g>
+            <g
+              class="recharts-layer recharts-bar ids-stacked-bar__empty-bar--side"
+            >
+              <g
+                class="recharts-layer recharts-bar-rectangles"
+              >
+                <g
+                  class="recharts-layer recharts-bar-rectangle"
+                  role="img"
+                >
+                  <path
+                    class="recharts-rectangle ids-stacked-bar__empty-bar--side"
+                    d="M402,0L 596,0A 4,4,0,0,1,
+        600,4L 600,596A 4,4,0,0,1,
+        596,600L 402,600Z"
+                    filter="url(#inset-shadow)"
+                    height="600"
+                    radius="0,4,4,0"
+                    width="198"
+                    x="402"
+                    y="0"
+                  />
+                </g>
+              </g>
+              <g
+                class="recharts-layer"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </span>
+  </div>
+</DocumentFragment>
+`;

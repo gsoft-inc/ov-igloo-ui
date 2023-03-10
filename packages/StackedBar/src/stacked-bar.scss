@@ -1,0 +1,91 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-stacked-bar-font-family: #{tokens.$primary-font-family};
+  --ids-stacked-bar-font-size: #{tokens.$font-size-2};
+  --ids-stacked-bar-font-weight: #{tokens.$font-weight-semi-bold};
+  --ids-stacked-bar-color: #{tokens.$grey-800};
+  --ids-stacked-bar-height: #{tokens.$space-4};
+  --ids-stacked-bar-empty-fill-side: #{tokens.$grey-300};
+  --ids-stacked-bar-empty-fill-middle: #{tokens.$grey-250};
+
+  /* Hover */
+  --ids-stacked-bar-strength-minus-2-hover: #{tokens.$coral-500};
+  --ids-stacked-bar-strength-minus-1-hover: #{tokens.$coral-300};
+  --ids-stacked-bar-strength-0-hover: #{tokens.$creamsicle-150};
+  --ids-stacked-bar-strength-1-hover: #{tokens.$seaweed-300};
+  --ids-stacked-bar-strength-2-hover: #{tokens.$seaweed-500};
+  --ids-stacked-bar-no-color-hover: #{tokens.$grey-400};
+}
+
+.ids-stacked-bar {
+  font-family: var(--ids-stacked-bar-font-family);
+  font-size: var(--ids-stacked-bar-font-size);
+  height: var( --ids-stacked-bar-height);
+  width: 100%;
+
+  &--small {
+    --ids-stacked-bar-height: #{tokens.$space-2};
+  }
+
+  .recharts-surface {
+    display: block;
+  }
+}
+
+.ids-stacked-bar__empty-bar--side {
+  fill: var(--ids-stacked-bar-empty-fill-side);
+}
+
+.ids-stacked-bar__empty-bar--middle {
+  fill: var(--ids-stacked-bar-empty-fill-middle);
+}
+
+.ids-stacked-bar__label {
+  fill: var(--ids-stacked-bar-color);
+  font-weight: var(--ids-stacked-bar-font-weight);
+  opacity: 0;
+  transition: opacity .2s ease-out;
+
+  .ids-stacked-bar:hover & {
+    opacity: 1;
+  }
+}
+
+.ids-stacked-bar:hover .ids-stacked-bar__bar {
+  filter: brightness(98%);
+  transition: filter .3s ease-out, background .3s ease-out;
+
+  &--no-color {
+    fill: var(--ids-stacked-bar-no-color-hover);
+    filter: none;
+  }
+
+  &--strength--2 {
+    fill: var(--ids-stacked-bar-strength-minus-2-hover);
+    filter: none;
+  }
+
+  &--strength--1 {
+    fill: var(--ids-stacked-bar-strength-minus-1-hover);
+    filter: none;
+  }
+
+  &--strength-0 {
+    fill: var(--ids-stacked-bar-strength-0-hover);
+    filter: none;
+  }
+
+  &--strength-1 {
+    fill: var(--ids-stacked-bar-strength-1-hover);
+    filter: none;
+  }
+
+  &--strength-2 {
+    fill: var(--ids-stacked-bar-strength-2-hover);
+    filter: none;
+  }
+  
+}
