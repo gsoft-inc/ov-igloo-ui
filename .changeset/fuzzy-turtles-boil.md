@@ -6,4 +6,4 @@
 '@igloo-ui/tag-picker': patch
 ---
 
-fix error with empty package @sharde/components
+fix error with empty package @shared/components
