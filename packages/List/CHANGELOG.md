@@ -1,5 +1,11 @@
 # @igloo-ui/list
 
+## 0.1.2
+
+### Patch Changes
+
+- 55d12e3: fix error with empty package @shared/components
+
 ## 0.1.1
 
 ### Patch Changes
