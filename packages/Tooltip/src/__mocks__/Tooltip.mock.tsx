@@ -7,25 +7,25 @@ export type Appearance = 'dark' | 'light';
 export type Position = 'top' | 'right' | 'bottom' | 'left' | 'auto';
 
 export interface TooltipProps extends React.ComponentPropsWithoutRef<'div'> {
-  /** The target button, text, svg etc.. of the Tooltip. */
+  /** The target button, text, svg etc.. of the tooltip */
   children: React.ReactNode;
   /** Add a specific class to the tooltip */
   tooltipClassName?: string;
   /** The content to display inside the tooltip */
   content?: React.ReactNode;
-  /** The position the tooltip is on. */
+  /** The position the tooltip is on */
   position?: Position;
-  /** The appearance of the tooltip. */
+  /** The appearance of the tooltip */
   appearance?: Appearance;
   /** The max with of the tooltip */
   maxWidth?: number;
-  /** When True, manually show the Tooltip. */
+  /** When true, manually show the tooltip */
   active?: boolean;
   /** When True, disabled the tooltip */
   disabled?: boolean;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
-  /** When True, display the tooltip on a mobile device */
+  /** When true, display the tooltip on a mobile device */
   showOnMobile?: boolean;
 }
 

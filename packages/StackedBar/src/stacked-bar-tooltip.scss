@@ -5,11 +5,6 @@
   /* Default */
   --ids-stacked-bar-tooltip-font-family: #{tokens.$primary-font-family};
   --ids-stacked-bar-tooltip-font-size: #{tokens.$font-size-7};
-  --ids-stacked-bar-tooltip-color: #{tokens.$grey-800};
-  --ids-stacked-bar-tooltip-background: #{tokens.$samoyed};
-  --ids-stacked-bar-tooltip-box-shadow: #{tokens.$shadow-12};
-  --ids-stacked-bar-tooltip-border-radius: #{tokens.$border-radius-sm};
-  --ids-stacked-bar-tooltip-padding: #{tokens.$space-3};
   --ids-stacked-bar-tooltip-data-item-padding: #{tokens.$space-1} 0;
   --ids-stacked-bar-tooltip-data-item-no-color: #{tokens.$grey-400};
   --ids-stacked-bar-tooltip-data-item-strength-minus-2: #{tokens.$coral-500};
