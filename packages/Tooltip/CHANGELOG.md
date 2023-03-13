@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.1.1
+
+### Patch Changes
+
+- 49d3c6b: Added a mock for testing
+
 ## 3.1.0
 
 ### Minor Changes

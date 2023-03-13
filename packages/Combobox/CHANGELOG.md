@@ -1,5 +1,15 @@
 # @igloo-ui/combobox
 
+## 0.1.4
+
+### Patch Changes
+
+- 55d12e3: fix error with empty package @shared/components
+- Updated dependencies [55d12e3]
+- Updated dependencies [49d3c6b]
+  - @igloo-ui/list@0.1.2
+  - @igloo-ui/tooltip@3.1.1
+
 ## 0.1.3
 
 ### Patch Changes

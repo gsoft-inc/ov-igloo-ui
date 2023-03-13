@@ -1,5 +1,11 @@
 # @igloo-ui/tag
 
+## 1.0.5
+
+### Patch Changes
+
+- 55d12e3: fix error with empty package @shared/components
+
 ## 1.0.4
 
 ### Patch Changes
