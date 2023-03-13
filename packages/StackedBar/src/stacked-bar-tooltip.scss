@@ -37,10 +37,13 @@
   100% { opacity: 1; }
 }
 
-.ids-tooltip__container.ids-stacked-bar-tooltip {
+.ids-tooltip__container.ids-stacked-bar-tooltip__container {
   display: block;
   height: 100%;
+}
 
+.ids-stacked-bar-tooltip .ids-tooltip__arrow {
+  display: none;
 }
 
 .ids-stacked-bar-tooltip__no-data {
