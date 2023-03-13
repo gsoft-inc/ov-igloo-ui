@@ -7,7 +7,7 @@ exports[`StackedBar It should render a snapshot 1`] = `
     data-test="ids-stacked-bar"
   >
     <span
-      class="ids-tooltip__container ids-stacked-bar-tooltip"
+      class="ids-tooltip__container ids-stacked-bar-tooltip__container"
       role="button"
       tabindex="0"
     >
