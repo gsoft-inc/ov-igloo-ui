@@ -75,7 +75,9 @@ describe('StackedBar', () => {
   test('It should render a no data tooltip', () => {
     const message = 'No data';
     const { container } = setup({ noDataMessage: message });
-    const tooltip = container.querySelector('.ids-stacked-bar-tooltip');
+    const tooltip = container.querySelector(
+      '.ids-stacked-bar-tooltip__container'
+    );
     if (tooltip) {
       fireEvent.click(tooltip);
     }
@@ -84,7 +86,9 @@ describe('StackedBar', () => {
 
   test('It should render a tooltip with data', () => {
     const { container } = setup({ dataSet: dataSet });
-    const tooltip = container.querySelector('.ids-stacked-bar-tooltip');
+    const tooltip = container.querySelector(
+      '.ids-stacked-bar-tooltip__container'
+    );
     if (tooltip) {
       fireEvent.click(tooltip);
     }
@@ -98,7 +102,9 @@ describe('StackedBar', () => {
         return `${value} units`;
       },
     });
-    const tooltip = container.querySelector('.ids-stacked-bar-tooltip');
+    const tooltip = container.querySelector(
+      '.ids-stacked-bar-tooltip__container'
+    );
     if (tooltip) {
       fireEvent.click(tooltip);
     }

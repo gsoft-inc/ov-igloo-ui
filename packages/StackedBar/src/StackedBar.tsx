@@ -274,7 +274,8 @@ const StackedBar: React.FunctionComponent<StackedBarProps> = (
       <Tooltip
         content={barChart.tooltip}
         appearance="light"
-        className="ids-stacked-bar-tooltip"
+        className="ids-stacked-bar-tooltip__container"
+        tooltipClassName="ids-stacked-bar-tooltip"
         disabled={!hasData && !noDataMessage}
         maxWidth={600}
       >
