@@ -41,12 +41,12 @@ const MockDropdown: React.FunctionComponent<DropdownProps> = ({
   children,
   className,
   content,
-  size,
+  size = 'xsmall',
   onClose,
   dataTest,
-  isOpen = true,
-  position,
-  role,
+  isOpen = false,
+  position = 'bottom-start',
+  role = 'listbox',
   renderReference,
   ...rest
 }: DropdownProps) => {
@@ -83,20 +83,22 @@ const MockDropdown: React.FunctionComponent<DropdownProps> = ({
           {children}
         </div>
       )}
-      <div
-        ref={refs.setFloating}
-        className={dropdownClasses}
-        data-test={dataTest}
-        {...rest}
-        data-show={isOpen}
-        style={{
-          position: 'fixed',
-          top: y ?? 0,
-          left: x ?? 0,
-        }}
-      >
-        {content}
-      </div>
+      {isOpen && (
+        <div
+          ref={refs.setFloating}
+          className={dropdownClasses}
+          data-test={dataTest}
+          {...rest}
+          data-show={isOpen}
+          style={{
+            position: 'fixed',
+            top: y ?? 0,
+            left: x ?? 0,
+          }}
+        >
+          {content}
+        </div>
+      )}
     </>
   );
 };

@@ -37,7 +37,7 @@ export default {
           fontSize: '1.6rem',
         }}
       >
-        <Story />
+        {Story()}
       </div>
     ),
   ],

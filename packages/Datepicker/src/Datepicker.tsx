@@ -46,6 +46,8 @@ export interface DatepickerProps {
   isClearable?: boolean;
   /** Label for the clear button. Required if clearable is set to True */
   clearLabel?: string;
+  /** Highlights today's date if true */
+  highlightToday?: boolean;
 }
 
 const Datepicker: React.FunctionComponent<DatepickerProps> = (
@@ -65,6 +67,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = (
     onClose,
     onFocus,
     dataTest,
+    highlightToday = true,
     ...rest
   } = props;
 
@@ -119,6 +122,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = (
         value={formattedDate}
         onChange={handleChange}
         isDisabled={disabled}
+        highlightToday={highlightToday}
       />
       {isClearable && clearLabel && (
         <Button
