@@ -1,5 +1,13 @@
 # @igloo-ui/select
 
+## 1.0.4
+
+### Patch Changes
+
+- bf478b5: Added missing tests. Fixed missing code in stories when clicking 'Show code'. Updated Dropdown mock. Added new optional prop highlightToday to help with test snapshots.
+- Updated dependencies [bf478b5]
+  - @igloo-ui/dropdown@1.1.3
+
 ## 1.0.3
 
 ### Patch Changes
