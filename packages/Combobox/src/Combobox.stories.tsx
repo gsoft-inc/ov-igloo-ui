@@ -26,7 +26,7 @@ export default {
           minHeight: '34rem',
         }}
       >
-        <Story />
+        {Story()}
       </div>
     ),
   ],

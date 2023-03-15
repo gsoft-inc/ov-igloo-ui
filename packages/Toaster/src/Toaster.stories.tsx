@@ -26,7 +26,7 @@ export default {
           gap: '1.6rem',
         }}
       >
-        <Story />
+        {Story()}
       </div>
     ),
   ],

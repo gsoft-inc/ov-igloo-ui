@@ -25,6 +25,9 @@ export const parameters = {
     canvas: { title: 'Playground' },
   },
   docs: {
+    source: {
+      excludeDecorators: true,
+    },
     page: () => {
       const context = React.useContext(DocsContext);
       return (

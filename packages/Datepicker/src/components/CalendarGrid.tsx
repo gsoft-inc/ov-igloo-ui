@@ -8,7 +8,16 @@ import CalendarCell from './CalendarCell';
 
 type State = CalendarState | RangeCalendarState;
 
-const CalendarGrid = ({ state, ...props }: { state: State }): JSX.Element => {
+interface CalendarGridProps {
+  state: State;
+  highlightToday?: boolean;
+}
+
+const CalendarGrid = ({
+  state,
+  highlightToday,
+  ...props
+}: CalendarGridProps): JSX.Element => {
   const { locale } = useLocale();
   const { gridProps, headerProps, weekDays } = useCalendarGrid(props, state);
 
@@ -39,6 +48,7 @@ const CalendarGrid = ({ state, ...props }: { state: State }): JSX.Element => {
                     key={`ids-cell-${i.toString()}`}
                     state={state}
                     date={date}
+                    highlightToday={highlightToday}
                   />
                 ) : (
                   <td key={`ids-td-${i.toString()}`} />

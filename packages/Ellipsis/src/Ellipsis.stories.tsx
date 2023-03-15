@@ -17,11 +17,7 @@ export default {
     description: readme,
   },
   decorators: [
-    (Story) => (
-      <span style={{ fontSize: '1.6rem' }}>
-        <Story />
-      </span>
-    ),
+    (Story) => <span style={{ fontSize: '1.6rem' }}>{Story()}</span>,
   ],
 } as ComponentMeta<typeof Ellipsis>;
 

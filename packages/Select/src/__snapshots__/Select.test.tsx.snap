@@ -1,24 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ActionMenu It should render without errors and a snapshot 1`] = `
+exports[`Select It should render a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="ids-action-menu"
-    data-test="ids-action-menu"
+    class="ids-select ids-select--active"
+    data-test="select1"
+    role="button"
+    tabindex="0"
   >
-    <button
-      class="ids-btn ids-action-menu__trigger ids-btn--secondary"
-      title="Button"
-      type="button"
-    >
-      <span
-        class=""
-      >
-        Button
-      </span>
-    </button>
     <div
-      class="ids-dropdown ids-action-menu__dropdown ids-dropdown--bottom-end"
+      class="ids-dropdown__ref"
+    >
+      <div
+        class="ids-select__input"
+      >
+        <div
+          class="ids-select__value ids-select__value--placeholder"
+        >
+          Hello world
+        </div>
+        <div
+          class="ids-select__input-actions"
+        >
+          <svg
+            class="ids-icon ids-select__input__chevron"
+            fill="none"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M4.604 10.75c-.891 0-1.337-1.077-.708-1.707l3.397-3.397a1 1 0 0 1 1.414 0l-.497.497.497-.497 3.397 3.397c.63.63.183 1.707-.707 1.707H4.603Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ids-dropdown ids-select__dropdown undefined__dropdown ids-dropdown--bottom-start"
       data-show="true"
       style="position: fixed; top: 0px; left: 0px;"
     >
@@ -42,27 +64,7 @@ exports[`ActionMenu It should render without errors and a snapshot 1`] = `
               <span
                 class="ids-list-item__text-label"
               >
-                Add Item
-              </span>
-            </span>
-          </div>
-        </li>
-        <li
-          aria-selected="false"
-          class="ids-list-item ids-list-item--compact ids-list-item--disabled"
-          role="option"
-          tabindex="-1"
-        >
-          <div
-            class="ids-list-item__content"
-          >
-            <span
-              class="ids-list-item__text"
-            >
-              <span
-                class="ids-list-item__text-label"
-              >
-                Delete Item
+                Option 1
               </span>
             </span>
           </div>
@@ -82,7 +84,7 @@ exports[`ActionMenu It should render without errors and a snapshot 1`] = `
               <span
                 class="ids-list-item__text-label"
               >
-                Copy Item
+                Option 2
               </span>
             </span>
           </div>

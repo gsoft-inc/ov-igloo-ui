@@ -28,12 +28,13 @@ function createCalendar(identifier: string): CustomCalendar {
 interface CalendarProps extends ReactCalendarProps<DateValue> {
   className?: string;
   dataTest?: string;
+  highlightToday?: boolean;
 }
 
 const Calendar: React.FunctionComponent<CalendarProps> = (
   props: CalendarProps
 ) => {
-  const { className, dataTest } = props;
+  const { className, dataTest, highlightToday } = props;
   const { locale } = useLocale();
   const state = useCalendarState({
     ...props,
@@ -61,7 +62,7 @@ const Calendar: React.FunctionComponent<CalendarProps> = (
           <ChevronRight size="medium" />
         </CalendarButton>
       </div>
-      <CalendarGrid state={state} />
+      <CalendarGrid state={state} highlightToday={highlightToday} />
     </div>
   );
 };

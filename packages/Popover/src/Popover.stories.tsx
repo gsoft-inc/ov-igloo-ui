@@ -36,7 +36,7 @@ export default {
           paddingLeft: 60,
         }}
       >
-        <Story />
+        {Story()}
       </div>
     ),
   ],

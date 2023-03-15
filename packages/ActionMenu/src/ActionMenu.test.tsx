@@ -25,6 +25,7 @@ const actionMenuList: ActionMenuOption[] = [
 ];
 
 const actionMenuProps: ActionMenuProps = {
+  isOpen: true,
   dataTest: 'ids-action-menu',
   options: actionMenuList,
   renderReference: (refProps: any) => {
@@ -47,10 +48,10 @@ jest.mock('@igloo-ui/dropdown', () => ({
 
 describe('ActionMenu', () => {
   test('It should render without errors and a snapshot', () => {
-    const { baseElement } = setup();
+    const { asFragment } = setup();
     const wrapper = screen.getByTestId('ids-action-menu');
     expect(wrapper).toBeInTheDocument();
-    expect(baseElement).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('It renders an option', () => {
