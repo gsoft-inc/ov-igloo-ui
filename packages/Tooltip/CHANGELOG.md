@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.1.2
+
+### Patch Changes
+
+- bf478b5: Added missing tests. Fixed missing code in stories when clicking 'Show code'. Updated Dropdown mock. Added new optional prop highlightToday to help with test snapshots.
+
 ## 3.1.1
 
 ### Patch Changes

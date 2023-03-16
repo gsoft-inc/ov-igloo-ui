@@ -1,5 +1,11 @@
 # @igloo-ui/toaster
 
+## 1.0.3
+
+### Patch Changes
+
+- bf478b5: Added missing tests. Fixed missing code in stories when clicking 'Show code'. Updated Dropdown mock. Added new optional prop highlightToday to help with test snapshots.
+
 ## 1.0.2
 
 ### Patch Changes
