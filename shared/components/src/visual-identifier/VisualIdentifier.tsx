@@ -20,9 +20,7 @@ export interface VisualIdentifierProps extends React.ComponentProps<'div'> {
 }
 
 export const VisualIdentifier: React.FunctionComponent<VisualIdentifierProps> =
-  (props: VisualIdentifierProps) => {
-    const { className, color, icon, size = 'small', src } = props;
-
+  ({ className, color, icon, size = 'small', src }: VisualIdentifierProps) => {
     const classes = cx(
       'ids-visual-identifier',
       {

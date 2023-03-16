@@ -47,24 +47,20 @@ export interface TooltipProps extends React.ComponentPropsWithoutRef<'div'> {
   showOnMobile?: boolean;
 }
 
-const Tooltip: React.FunctionComponent<TooltipProps> = (
-  props: TooltipProps
-) => {
-  const {
-    children,
-    content,
-    tooltipClassName,
-    position = 'top',
-    appearance = 'dark',
-    maxWidth = 200,
-    className,
-    disabled,
-    active = false,
-    dataTest,
-    showOnMobile = false,
-    ...rest
-  } = props;
-
+const Tooltip: React.FunctionComponent<TooltipProps> = ({
+  children,
+  content,
+  tooltipClassName,
+  position = 'top',
+  appearance = 'dark',
+  maxWidth = 200,
+  className,
+  disabled,
+  active = false,
+  dataTest,
+  showOnMobile = false,
+  ...rest
+}: TooltipProps) => {
   const classes = cx('ids-tooltip__container', className);
 
   const arrowRef = React.useRef(null);

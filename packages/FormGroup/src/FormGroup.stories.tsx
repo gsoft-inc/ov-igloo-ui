@@ -1,7 +1,8 @@
 import React from 'react';
 import Input from '@igloo-ui/input';
 import Textarea from '@igloo-ui/textarea';
-import Select, { SelectOption } from '@igloo-ui/select';
+import Select from '@igloo-ui/select';
+import type { OptionType } from '@igloo-ui/list';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Section from '@components/section';
@@ -28,6 +29,7 @@ Overview.args = {
   label: 'First name',
   message: 'This field is required',
   showMessage: true,
+  messageType: 'error',
 };
 
 export const Label = () => (
@@ -104,7 +106,7 @@ export const OtherFormElements = () => {
   const [hasSelectError, setHasSelectError] = React.useState(true);
   const [hasTextareaError, setHasTextareaError] = React.useState(true);
 
-  const handleSelectOnChange = (option: SelectOption | undefined): void => {
+  const handleSelectOnChange = (option: OptionType | undefined): void => {
     setHasSelectError(!option?.value);
   };
 

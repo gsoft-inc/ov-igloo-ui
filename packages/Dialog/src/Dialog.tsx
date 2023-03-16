@@ -32,21 +32,19 @@ export interface DialogProps extends React.ComponentProps<'div'> {
   danger?: boolean;
 }
 
-const Dialog: React.FunctionComponent<DialogProps> = (props: DialogProps) => {
-  const {
-    className,
-    dataTest,
-    dismissText,
-    isOpen,
-    onDismiss,
-    onAfterDismiss,
-    onValidate,
-    subTitle,
-    title,
-    validateText,
-    danger,
-  } = props;
-
+const Dialog: React.FunctionComponent<DialogProps> = ({
+  className,
+  dataTest,
+  dismissText,
+  isOpen,
+  onDismiss,
+  onAfterDismiss,
+  onValidate,
+  subTitle,
+  title,
+  validateText,
+  danger,
+}: DialogProps) => {
   const classes = cx('ids-dialog', className);
 
   return (

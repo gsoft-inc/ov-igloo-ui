@@ -24,19 +24,15 @@ export interface DisclosureProps extends React.ComponentProps<'div'> {
   title?: string;
 }
 
-const Disclosure: React.FunctionComponent<DisclosureProps> = (
-  props: DisclosureProps
-) => {
-  const {
-    children,
-    className,
-    dataTest,
-    description,
-    icon,
-    isExpanded = false,
-    title,
-  } = props;
-
+const Disclosure: React.FunctionComponent<DisclosureProps> = ({
+  children,
+  className,
+  dataTest,
+  description,
+  icon,
+  isExpanded = false,
+  title,
+}: DisclosureProps) => {
   const btnRef = React.useRef<HTMLButtonElement>(null);
   const [expanded, setExpanded] = React.useState(isExpanded);
 

@@ -22,11 +22,11 @@ export interface BreadcrumbProps extends React.ComponentProps<'ol'> {
   items: Item[];
 }
 
-const Breadcrumb: React.FunctionComponent<BreadcrumbProps> = (
-  props: BreadcrumbProps
-) => {
-  const { className, dataTest, items } = props;
-
+const Breadcrumb: React.FunctionComponent<BreadcrumbProps> = ({
+  className,
+  dataTest,
+  items,
+}: BreadcrumbProps) => {
   const classes = cx('ids-breadcrumb', className);
 
   const listItems = items.map((item, index) => {

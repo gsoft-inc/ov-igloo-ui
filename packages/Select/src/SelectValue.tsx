@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { VisualIdentifier } from '@shared/components';
 
 import './select-value.scss';
@@ -22,20 +23,16 @@ export interface SelectValueProps extends React.ComponentPropsWithRef<'div'> {
   src?: string;
 }
 
-const SelectValue: React.FunctionComponent<SelectValueProps> = (
-  props: SelectValueProps
-) => {
-  const {
-    color,
-    disabled = false,
-    icon,
-    isCompact = false,
-    isPlaceholder = false,
-    label,
-    src,
-    ...rest
-  } = props;
-
+const SelectValue: React.FunctionComponent<SelectValueProps> = ({
+  color,
+  disabled = false,
+  icon,
+  isCompact = false,
+  isPlaceholder = false,
+  label,
+  src,
+  ...rest
+}: SelectValueProps) => {
   const shouldShowVisualIdentifier = src || color || icon;
 
   const selectValueClasses = cx('ids-select__value', {

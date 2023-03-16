@@ -16,12 +16,15 @@ export interface ButtonGroupItemProps extends React.ComponentProps<'button'> {
   icon?: React.ReactNode;
 }
 
-const ButtonGroupItem: React.FunctionComponent<ButtonGroupItemProps> = (
-  props: ButtonGroupItemProps
-) => {
-  const { children, icon, active, disabled, onClick, dataTest, ...rest } =
-    props;
-
+const ButtonGroupItem: React.FunctionComponent<ButtonGroupItemProps> = ({
+  children,
+  icon,
+  active,
+  disabled,
+  onClick,
+  dataTest,
+  ...rest
+}: ButtonGroupItemProps) => {
   const renderWithIcon = (
     <>
       {icon}{' '}

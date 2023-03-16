@@ -110,20 +110,18 @@ const renderAlertActionButton = (
   );
 };
 
-const Alert: React.FunctionComponent<AlertProps> = (props: AlertProps) => {
-  const {
-    title,
-    message,
-    type,
-    appearance = 'card',
-    className,
-    closable = true,
-    onClose,
-    button,
-    dataTest,
-    ...rest
-  } = props;
-
+const Alert: React.FunctionComponent<AlertProps> = ({
+  title,
+  message,
+  type,
+  appearance = 'card',
+  className,
+  closable = true,
+  onClose,
+  button,
+  dataTest,
+  ...rest
+}: AlertProps) => {
   const classes = classNames(
     'ids-alert',
     `ids-alert--${appearance}`,

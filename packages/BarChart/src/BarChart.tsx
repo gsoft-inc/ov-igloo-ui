@@ -24,11 +24,12 @@ export interface BarChartProps extends React.ComponentProps<'li'> {
   className?: string;
 }
 
-const BarChart: React.FunctionComponent<BarChartProps> = (
-  props: BarChartProps
-) => {
-  const { dataSet, className, dataTest, ...rest } = props;
-
+const BarChart: React.FunctionComponent<BarChartProps> = ({
+  dataSet,
+  className,
+  dataTest,
+  ...rest
+}: BarChartProps) => {
   const [animation, setAnimation] = React.useState(true);
 
   React.useEffect(() => {

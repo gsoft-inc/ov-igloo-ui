@@ -63,31 +63,27 @@ export interface ComboboxProps {
   selectedOption?: OptionType | OptionType[];
 }
 
-const Combobox: React.FunctionComponent<ComboboxProps> = (
-  props: ComboboxProps
-) => {
-  const {
-    autoWidth = false,
-    children,
-    className,
-    clear,
-    clearTooltipText,
-    closeOnSelect = true,
-    dataTest,
-    disabled = false,
-    error,
-    isCompact = false,
-    isOpen = false,
-    multiple = false,
-    noResultsText = 'No Results',
-    onChange,
-    onClear,
-    options,
-    search,
-    selectedOption,
-    ...rest
-  } = props;
-
+const Combobox: React.FunctionComponent<ComboboxProps> = ({
+  autoWidth = false,
+  children,
+  className,
+  clear,
+  clearTooltipText,
+  closeOnSelect = true,
+  dataTest,
+  disabled = false,
+  error,
+  isCompact = false,
+  isOpen = false,
+  multiple = false,
+  noResultsText = 'No Results',
+  onChange,
+  onClear,
+  options,
+  search,
+  selectedOption,
+  ...rest
+}: ComboboxProps) => {
   const comboboxOptions = options.map((option): OptionType => {
     return {
       ...option,

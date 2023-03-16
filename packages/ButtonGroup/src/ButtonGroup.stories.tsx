@@ -18,10 +18,6 @@ export default {
   parameters: {
     description: readme,
   },
-  argTypes: {
-    small: { table: { defaultValue: { summary: false } } },
-    compact: { table: { defaultValue: { summary: false } } },
-  },
 } as ComponentMeta<typeof ButtonGroup>;
 
 const Template: ComponentStory<any> = (args) => {

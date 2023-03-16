@@ -20,19 +20,15 @@ export interface CarouselProps extends React.ComponentProps<'div'> {
   secondaryAction?: React.ReactElement;
 }
 
-const Carousel: React.FunctionComponent<CarouselProps> = (
-  props: CarouselProps
-) => {
-  const {
-    children,
-    className,
-    currentSlide = 0,
-    dataTest,
-    onPageChange,
-    primaryAction,
-    secondaryAction,
-  } = props;
-
+const Carousel: React.FunctionComponent<CarouselProps> = ({
+  children,
+  className,
+  currentSlide = 0,
+  dataTest,
+  onPageChange,
+  primaryAction,
+  secondaryAction,
+}: CarouselProps) => {
   const classes = cx('ids-carousel', className, {
     'ids-carousel--has-actions': secondaryAction || secondaryAction,
   });

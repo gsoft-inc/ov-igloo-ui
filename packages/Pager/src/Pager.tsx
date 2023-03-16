@@ -26,18 +26,16 @@ export interface PagerProps extends React.ComponentProps<'div'> {
   totalCount: number;
 }
 
-const Pager: React.FunctionComponent<PagerProps> = (props: PagerProps) => {
-  const {
-    className,
-    currentPage,
-    dataTest,
-    onPageChange,
-    pageSize,
-    siblingCount = 1,
-    totalCount,
-    ...rest
-  } = props;
-
+const Pager: React.FunctionComponent<PagerProps> = ({
+  className,
+  currentPage,
+  dataTest,
+  onPageChange,
+  pageSize,
+  siblingCount = 1,
+  totalCount,
+  ...rest
+}: PagerProps) => {
   const paginationRange = usePagination({
     currentPage,
     pageSize,

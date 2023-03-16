@@ -13,10 +13,12 @@ export interface HelperTextProps extends React.ComponentProps<'div'> {
   error?: boolean;
 }
 
-const HelperText: React.FunctionComponent<HelperTextProps> = (
-  props: HelperTextProps
-) => {
-  const { children, error, className, ...rest } = props;
+const HelperText: React.FunctionComponent<HelperTextProps> = ({
+  children,
+  error,
+  className,
+  ...rest
+}: HelperTextProps) => {
   const classes = cx('ids-helperText', className, {
     [`ids-helperText--error`]: error,
   });

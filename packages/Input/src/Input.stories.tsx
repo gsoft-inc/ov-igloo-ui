@@ -15,9 +15,6 @@ export default {
   parameters: {
     description: readme,
   },
-  argTypes: {
-    type: { table: { defaultValue: { summary: 'text' } } },
-  },
 } as ComponentMeta<typeof Input>;
 
 const inputPlacehoder = 'ex: Lorem ipsum dolor';

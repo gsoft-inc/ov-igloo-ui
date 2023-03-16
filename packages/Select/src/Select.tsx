@@ -49,22 +49,20 @@ export interface SelectProps {
   selectedOption?: OptionType;
 }
 
-const Select: React.FunctionComponent<SelectProps> = (props: SelectProps) => {
-  const {
-    autoWidth = false,
-    children,
-    className,
-    dataTest,
-    disabled = false,
-    error,
-    isCompact = false,
-    isOpen = false,
-    onChange,
-    options,
-    selectedOption,
-    ...rest
-  } = props;
-
+const Select: React.FunctionComponent<SelectProps> = ({
+  autoWidth = false,
+  children,
+  className,
+  dataTest,
+  disabled = false,
+  error,
+  isCompact = false,
+  isOpen = false,
+  onChange,
+  options,
+  selectedOption,
+  ...rest
+}: SelectProps) => {
   const selectOptions = options.map((option): OptionType => {
     return {
       ...option,

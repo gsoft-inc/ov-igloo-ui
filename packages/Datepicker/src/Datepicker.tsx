@@ -50,27 +50,23 @@ export interface DatepickerProps {
   highlightToday?: boolean;
 }
 
-const Datepicker: React.FunctionComponent<DatepickerProps> = (
-  props: DatepickerProps
-) => {
-  const {
-    selectedDay,
-    value,
-    placeholder,
-    ariaLabel,
-    disabled = false,
-    isOpen = false,
-    error = false,
-    isClearable = false,
-    clearLabel,
-    onChange,
-    onClose,
-    onFocus,
-    dataTest,
-    highlightToday = true,
-    ...rest
-  } = props;
-
+const Datepicker: React.FunctionComponent<DatepickerProps> = ({
+  selectedDay,
+  value,
+  placeholder,
+  ariaLabel,
+  disabled = false,
+  isOpen = false,
+  error = false,
+  isClearable = false,
+  clearLabel,
+  onChange,
+  onClose,
+  onFocus,
+  dataTest,
+  highlightToday = true,
+  ...rest
+}: DatepickerProps) => {
   // the calendar receives an utc date and formats it locally
   const formattedDate = selectedDay
     ? parseAbsoluteToLocal(selectedDay)

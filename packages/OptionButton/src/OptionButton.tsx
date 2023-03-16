@@ -40,24 +40,20 @@ export interface OptionButtonProps extends React.ComponentProps<'input'> {
   unchecked?: boolean;
 }
 
-const OptionButton: React.FunctionComponent<OptionButtonProps> = (
-  props: OptionButtonProps
-) => {
-  const {
-    buttonType = 'text',
-    checked,
-    children,
-    className,
-    dataTest,
-    description,
-    disabled,
-    htmlFor,
-    icon,
-    onChange,
-    unchecked,
-    ...rest
-  } = props;
-
+const OptionButton: React.FunctionComponent<OptionButtonProps> = ({
+  buttonType = 'text',
+  checked,
+  children,
+  className,
+  dataTest,
+  description,
+  disabled,
+  htmlFor,
+  icon,
+  onChange,
+  unchecked,
+  ...rest
+}: OptionButtonProps) => {
   const renderIcon = (): React.ReactNode => {
     if (icon) {
       return icon;

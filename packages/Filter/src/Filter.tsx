@@ -18,17 +18,15 @@ export interface FilterProps extends React.ComponentProps<'button'> {
   selected?: boolean;
 }
 
-const Filter: React.FunctionComponent<FilterProps> = (props: FilterProps) => {
-  const {
-    children,
-    className,
-    dataTest,
-    disabled,
-    onClick,
-    selected,
-    ...rest
-  } = props;
-
+const Filter: React.FunctionComponent<FilterProps> = ({
+  children,
+  className,
+  dataTest,
+  disabled,
+  onClick,
+  selected,
+  ...rest
+}: FilterProps) => {
   const classes = cx('ids-filter', className, {
     'ids-filter--selected': selected,
   });

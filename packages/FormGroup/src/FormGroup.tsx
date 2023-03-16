@@ -26,20 +26,16 @@ export interface FormGroupProps extends React.ComponentProps<'div'> {
   showMessage?: boolean;
 }
 
-const FormGroup: React.FunctionComponent<FormGroupProps> = (
-  props: FormGroupProps
-) => {
-  const {
-    children,
-    className,
-    dataTest,
-    message,
-    messageType = 'error',
-    htmlFor,
-    label,
-    showMessage,
-  } = props;
-
+const FormGroup: React.FunctionComponent<FormGroupProps> = ({
+  children,
+  className,
+  dataTest,
+  message,
+  messageType = 'error',
+  htmlFor,
+  label,
+  showMessage,
+}: FormGroupProps) => {
   const classes = cx('ids-form-group', className);
 
   return (

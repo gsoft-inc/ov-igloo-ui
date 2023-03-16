@@ -23,8 +23,8 @@ export interface CheckboxProps extends React.ComponentPropsWithRef<'input'> {
 }
 
 const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
-  (props: CheckboxProps, ref: React.Ref<HTMLInputElement | null>) => {
-    const {
+  (
+    {
       children,
       className,
       dataTest,
@@ -34,8 +34,9 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
       disabled = false,
       indeterminate = false,
       ...rest
-    } = props;
-
+    }: CheckboxProps,
+    ref: React.Ref<HTMLInputElement | null>
+  ) => {
     const [status, setStatus] = React.useState(checked);
 
     const checkRef = React.useRef<HTMLInputElement>(null);

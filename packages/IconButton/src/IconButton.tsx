@@ -9,13 +9,12 @@ export type Size = 'xsmall' | 'small' | 'medium' | 'large';
 export type Ref = HTMLButtonElement;
 
 export interface IconButtonProps extends Omit<ButtonOwnProps, 'size'> {
-  /** Add class names to the surrounding DOM container. */
+  /** Add class names to the surrounding DOM container */
   className?: string;
   /** Icon React node to represent the value of the button */
   icon: React.ReactNode;
-  /** Callback function that will be called when the user clicks on the button.
-   * @returns {void}
-   */
+  /** Callback function that will be called
+   * when the user clicks on the button */
   onClick?: () => void;
   /** True if the control is disabled and shows a disabled state.
    * The user cannot click on the button */
@@ -31,34 +30,37 @@ export interface IconButtonProps extends Omit<ButtonOwnProps, 'size'> {
 const IconButton: React.FunctionComponent<IconButtonProps> = React.forwardRef<
   Ref,
   IconButtonProps
->((props: IconButtonProps, ref) => {
-  const {
-    className,
-    icon,
-    onClick,
-    disabled = false,
-    size = 'medium',
-    rounded = false,
-    dataTest,
-    ...rest
-  } = props;
+>(
+  (
+    {
+      className,
+      icon,
+      onClick,
+      disabled = false,
+      size = 'medium',
+      rounded = false,
+      dataTest,
+      ...rest
+    }: IconButtonProps,
+    ref
+  ) => {
+    const classes = cx('ids-icon-btn', `ids-icon-btn--${size}`, className, {
+      'ids-icon-btn--round': rounded,
+    });
 
-  const classes = cx('ids-icon-btn', `ids-icon-btn--${size}`, className, {
-    'ids-icon-btn--round': rounded,
-  });
-
-  return (
-    <Button
-      ref={ref}
-      className={classes}
-      onClick={onClick}
-      disabled={disabled}
-      data-test={dataTest}
-      {...rest}
-    >
-      {icon}
-    </Button>
-  );
-});
+    return (
+      <Button
+        ref={ref}
+        className={classes}
+        onClick={onClick}
+        disabled={disabled}
+        data-test={dataTest}
+        {...rest}
+      >
+        {icon}
+      </Button>
+    );
+  }
+);
 
 export default IconButton;

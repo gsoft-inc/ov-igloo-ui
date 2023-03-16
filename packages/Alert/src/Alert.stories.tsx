@@ -14,14 +14,9 @@ export default {
     description: readme,
   },
   argTypes: {
-    title: {
-      control: 'text',
-    },
     message: {
       control: 'text',
     },
-    appearance: { table: { defaultValue: { summary: 'card' } } },
-    closable: { table: { defaultValue: { summary: true } } },
   },
 } as ComponentMeta<typeof Alert>;
 
@@ -39,6 +34,8 @@ Overview.args = {
   button: { label: 'Button', onClick: () => {} },
   type: 'info',
   onClose: () => {},
+  appearance: 'card',
+  closable: true,
 };
 
 export const Types = () => (

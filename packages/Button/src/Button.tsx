@@ -77,10 +77,7 @@ type ButtonComponent = <C extends React.ElementType = 'button'>(
 
 const Button: ButtonComponent = React.forwardRef(
   <C extends React.ElementType = 'button'>(
-    props: ButtonProps<C>,
-    ref?: PolymorphicRef<C>
-  ) => {
-    const {
+    {
       children,
       disabled = false,
       active = false,
@@ -97,8 +94,9 @@ const Button: ButtonComponent = React.forwardRef(
       className,
       as,
       ...rest
-    } = props;
-
+    }: ButtonProps<C>,
+    ref?: PolymorphicRef<C>
+  ) => {
     const hasIconLeading = iconLeading !== undefined;
     const hasIconTrailing = iconTrailing !== undefined;
     const hasIcon = hasIconLeading || hasIconTrailing;

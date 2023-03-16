@@ -8,6 +8,7 @@ import IconButton from '@igloo-ui/icon-button';
 import Close from '@igloo-ui/icons/dist/Close';
 import Tooltip from '@igloo-ui/tooltip';
 import Input from '@igloo-ui/input';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { VisualIdentifier } from '@shared/components';
 
 import './combobox-input.scss';
@@ -41,26 +42,22 @@ export interface ComboboxInputProps extends React.ComponentProps<'div'> {
   src?: string;
 }
 
-const ComboboxInput: React.FunctionComponent<ComboboxInputProps> = (
-  props: ComboboxInputProps
-) => {
-  const {
-    clear = false,
-    clearTooltipText,
-    color,
-    disabled,
-    icon,
-    isOpen = false,
-    isPlaceholder,
-    label,
-    onClear,
-    onSearch,
-    search,
-    searchRef,
-    src,
-    ...rest
-  } = props;
-
+const ComboboxInput: React.FunctionComponent<ComboboxInputProps> = ({
+  clear = false,
+  clearTooltipText,
+  color,
+  disabled,
+  icon,
+  isOpen = false,
+  isPlaceholder,
+  label,
+  onClear,
+  onSearch,
+  search,
+  searchRef,
+  src,
+  ...rest
+}: ComboboxInputProps) => {
   const handleChange = ({
     target,
   }: React.ChangeEvent<HTMLInputElement>): void => {

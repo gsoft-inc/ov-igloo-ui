@@ -31,22 +31,18 @@ export interface HyperlinkProps extends React.ComponentPropsWithoutRef<'a'> {
   intercomTarget?: string;
 }
 
-const Hyperlink: React.FunctionComponent<HyperlinkProps> = (
-  props: HyperlinkProps
-) => {
-  const {
-    children,
-    size = 'medium',
-    appearance = 'primary',
-    underline = false,
-    dataTest,
-    iconLeading,
-    iconTrailing,
-    className,
-    intercomTarget,
-    ...rest
-  } = props;
-
+const Hyperlink: React.FunctionComponent<HyperlinkProps> = ({
+  children,
+  size = 'medium',
+  appearance = 'primary',
+  underline = false,
+  dataTest,
+  iconLeading,
+  iconTrailing,
+  className,
+  intercomTarget,
+  ...rest
+}: HyperlinkProps) => {
   const ref = React.useRef<HTMLSpanElement | HTMLAnchorElement>(null);
   const { linkProps } = useLink(
     {

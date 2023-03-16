@@ -15,9 +15,6 @@ export default {
   },
   argTypes: {
     children: { control: { type: 'text' } },
-    checked: { table: { defaultValue: { summary: false } } },
-    disabled: { table: { defaultValue: { summary: false } } },
-    indeterminate: { table: { defaultValue: { summary: false } } },
   },
 } as ComponentMeta<typeof Checkbox>;
 

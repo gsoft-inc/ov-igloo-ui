@@ -27,20 +27,18 @@ export interface ListProps extends React.ComponentProps<'ul'> {
   selectedOption?: OptionType | OptionType[] | null;
 }
 
-const List: React.FunctionComponent<ListProps> = (props: ListProps) => {
-  const {
-    className,
-    dataTest,
-    focusedOption,
-    isCompact = true,
-    multiple,
-    onOptionFocus,
-    onOptionChange,
-    options,
-    selectedOption,
-    ...rest
-  } = props;
-
+const List: React.FunctionComponent<ListProps> = ({
+  className,
+  dataTest,
+  focusedOption,
+  isCompact = true,
+  multiple,
+  onOptionFocus,
+  onOptionChange,
+  options,
+  selectedOption,
+  ...rest
+}: ListProps) => {
   const listClasses = cx('ids-list', className, {
     'ids-list--compact': isCompact,
     'ids-list--multi-select': multiple,

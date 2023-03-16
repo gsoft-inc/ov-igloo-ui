@@ -74,29 +74,25 @@ export interface TagPickerProps
   separators?: (Keys.Enter | Keys.Comma | Keys.Space)[];
 }
 
-const TagPicker: React.FunctionComponent<TagPickerProps> = (
-  props: TagPickerProps
-) => {
-  const {
-    className,
-    dataTest,
-    disabled,
-    maxHeight,
-    maxTags,
-    minSearchLength = 2,
-    noResultsText,
-    onBlur,
-    onInput,
-    onMaxTags,
-    onSelection,
-    onTagRemove,
-    placeholder,
-    results,
-    selectedResults,
-    separators = [Keys.Enter],
-    ...rest
-  } = props;
-
+const TagPicker: React.FunctionComponent<TagPickerProps> = ({
+  className,
+  dataTest,
+  disabled,
+  maxHeight,
+  maxTags,
+  minSearchLength = 2,
+  noResultsText,
+  onBlur,
+  onInput,
+  onMaxTags,
+  onSelection,
+  onTagRemove,
+  placeholder,
+  results,
+  selectedResults,
+  separators = [Keys.Enter],
+  ...rest
+}: TagPickerProps) => {
   const defaultKeyboardFocusIndex = -1;
   const inputRef = useRef<HTMLInputElement>(null);
   const tagPickerRef = useRef<HTMLDivElement>(null);

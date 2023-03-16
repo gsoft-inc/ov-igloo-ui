@@ -14,6 +14,9 @@ export default {
   parameters: {
     description: readme,
   },
+  args: {
+    currentSlide: 0,
+  },
 } as ComponentMeta<typeof Carousel>;
 
 const Template: ComponentStory<typeof Carousel> = (args) => {

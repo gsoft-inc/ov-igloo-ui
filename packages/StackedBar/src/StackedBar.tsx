@@ -67,23 +67,19 @@ export interface StackedBarProps extends React.ComponentProps<'div'> {
   valueRange?: ValueRange;
 }
 
-const StackedBar: React.FunctionComponent<StackedBarProps> = (
-  props: StackedBarProps
-) => {
-  const {
-    className,
-    dataSet,
-    dataTest,
-    formatValue = (value: number) => {
-      return `${value}%`;
-    },
-    noDataMessage,
-    showValue = false,
-    size = 'medium',
-    valueRange = { min: 0, max: 100 },
-    ...rest
-  } = props;
-
+const StackedBar: React.FunctionComponent<StackedBarProps> = ({
+  className,
+  dataSet,
+  dataTest,
+  formatValue = (value: number) => {
+    return `${value}%`;
+  },
+  noDataMessage,
+  showValue = false,
+  size = 'medium',
+  valueRange = { min: 0, max: 100 },
+  ...rest
+}: StackedBarProps) => {
   const xAxisConfig: XAxisProps = {
     type: 'number',
     hide: true,

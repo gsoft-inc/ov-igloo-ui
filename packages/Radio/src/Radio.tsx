@@ -25,8 +25,8 @@ export interface RadioProps extends React.ComponentPropsWithRef<'input'> {
 }
 
 const Radio: React.FunctionComponent<RadioProps> = React.forwardRef(
-  (props: RadioProps, ref: React.Ref<HTMLInputElement>) => {
-    const {
+  (
+    {
       children,
       className,
       dataTest,
@@ -37,8 +37,9 @@ const Radio: React.FunctionComponent<RadioProps> = React.forwardRef(
       checked,
       disabled,
       ...rest
-    } = props;
-
+    }: RadioProps,
+    ref: React.Ref<HTMLInputElement>
+  ) => {
     const classes = cx('ids-radio', className, {
       'ids-radio--small': small,
     });

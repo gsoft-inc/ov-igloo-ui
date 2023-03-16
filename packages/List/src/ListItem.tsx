@@ -3,6 +3,7 @@ import cx from 'classnames';
 
 import UserSolid from '@igloo-ui/icons/dist/UserSolid';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { VisualIdentifier } from '@shared/components';
 
 import './list-item.scss';
@@ -63,21 +64,17 @@ export interface ListItemProps extends React.ComponentProps<'li'> {
   option: OptionType;
 }
 
-const ListItem: React.FunctionComponent<ListItemProps> = (
-  props: ListItemProps
-) => {
-  const {
-    className,
-    isCompact = true,
-    isFocused = false,
-    isSelected = false,
-    useCheckbox,
-    onOptionFocus,
-    onOptionChange,
-    option,
-    ...rest
-  } = props;
-
+const ListItem: React.FunctionComponent<ListItemProps> = ({
+  className,
+  isCompact = true,
+  isFocused = false,
+  isSelected = false,
+  useCheckbox,
+  onOptionFocus,
+  onOptionChange,
+  option,
+  ...rest
+}: ListItemProps) => {
   const isOptionDisabled = (): boolean => {
     if (option?.type === 'list') {
       return option?.disabled ?? false;

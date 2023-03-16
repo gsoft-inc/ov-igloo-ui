@@ -13,11 +13,11 @@ export interface SelectInputProps extends React.ComponentProps<'div'> {
   /** Callback for when the clear button is clicked */
 }
 
-const SelectInput: React.FunctionComponent<SelectInputProps> = (
-  props: SelectInputProps
-) => {
-  const { children, isOpen = false, ...rest } = props;
-
+const SelectInput: React.FunctionComponent<SelectInputProps> = ({
+  children,
+  isOpen = false,
+  ...rest
+}: SelectInputProps) => {
   return (
     <div className="ids-select__input" {...rest}>
       {children}

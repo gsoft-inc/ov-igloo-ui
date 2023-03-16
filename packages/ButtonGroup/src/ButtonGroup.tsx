@@ -18,18 +18,14 @@ export interface ButtonGroupProps {
   className?: string;
 }
 
-const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (
-  props: ButtonGroupProps
-) => {
-  const {
-    children,
-    compact = false,
-    small = false,
-    className,
-    dataTest,
-    ...rest
-  } = props;
-
+const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = ({
+  children,
+  compact = false,
+  small = false,
+  className,
+  dataTest,
+  ...rest
+}: ButtonGroupProps) => {
   return (
     <div
       data-test={dataTest}
