@@ -1,5 +1,14 @@
 # @igloo-ui/alert
 
+## 0.1.16
+
+### Patch Changes
+
+- a41e1d4: Fix: moved destructuring of props to function parameters so that storybook will automatically show the default value in the props table. It was done in Modal because it needed to send props to useDialog. In this case, @default annotation was used in comments.
+- Updated dependencies [a41e1d4]
+  - @igloo-ui/button@0.4.1
+  - @igloo-ui/icon-button@1.0.1
+
 ## 0.1.15
 
 ### Patch Changes
