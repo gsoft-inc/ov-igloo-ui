@@ -2,7 +2,6 @@ import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import Section from '@components/section';
 import readme from '../README.md';
 
 import Ellipsis from './Ellipsis';
@@ -21,7 +20,13 @@ export default {
   ],
 } as ComponentMeta<typeof Ellipsis>;
 
-export const Overview = () => <Ellipsis>{ellipsisContent}</Ellipsis>;
+const Template: ComponentStory<typeof Ellipsis> = (args) => (
+  <Ellipsis {...args} />
+);
+export const Overview = Template.bind({});
+Overview.args = {
+  children: ellipsisContent,
+};
 
 export const WithTitle = () => (
   <Ellipsis title="This is a title">{ellipsisContent}</Ellipsis>

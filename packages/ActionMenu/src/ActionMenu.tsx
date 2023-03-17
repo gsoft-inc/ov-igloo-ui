@@ -47,23 +47,19 @@ export interface ActionMenuProps extends React.ComponentProps<'div'> {
   ) => React.ReactElement;
 }
 
-const ActionMenu: React.FunctionComponent<ActionMenuProps> = (
-  props: ActionMenuProps
-) => {
-  const {
-    className,
-    closeOnSelect = true,
-    dataTest,
-    isOpen = false,
-    onMenuClose,
-    onMenuOpen,
-    onOptionSelect,
-    options,
-    position = 'bottom-end',
-    renderReference,
-    ...rest
-  } = props;
-
+const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
+  className,
+  closeOnSelect = true,
+  dataTest,
+  isOpen = false,
+  onMenuClose,
+  onMenuOpen,
+  onOptionSelect,
+  options,
+  position = 'bottom-end',
+  renderReference,
+  ...rest
+}: ActionMenuProps) => {
   const actionMenuOptions = options.map((option): OptionType => {
     return {
       ...option,

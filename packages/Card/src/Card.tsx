@@ -18,9 +18,7 @@ export interface CardProps extends React.ComponentPropsWithRef<'div'> {
 const Card: React.FunctionComponent<CardProps> = React.forwardRef<
   Ref,
   CardProps
->((props, ref) => {
-  const { children, className, dataTest, size = 'large', ...rest } = props;
-
+>(({ children, className, dataTest, size = 'large', ...rest }, ref) => {
   const classes = classNames('ids-card', className, {
     [`ids-card--${size}`]: size !== 'large',
   });

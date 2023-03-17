@@ -40,8 +40,8 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
 }
 
 const Input: React.FunctionComponent<InputProps> = React.forwardRef(
-  (props: InputProps, ref: React.Ref<any>) => {
-    const {
+  (
+    {
       className,
       error,
       type = 'text',
@@ -54,8 +54,9 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       prefixIcon,
       suffixIcon,
       ...rest
-    } = props;
-
+    }: InputProps,
+    ref: React.Ref<any>
+  ) => {
     const classes = cx('ids-input', className, {
       'ids-input--compact': isCompact,
       'ids-input--error': error,

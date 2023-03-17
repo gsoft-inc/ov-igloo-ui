@@ -61,14 +61,6 @@ export default {
     closeOnSelect: {
       control: { type: 'boolean' },
     },
-    position: {
-      table: {
-        defaultValue: { summary: 'bottom-end' },
-      },
-      control: {
-        defaultValue: { summary: 'bottom-end' },
-      },
-    },
   },
 } as ComponentMeta<typeof ActionMenu>;
 
@@ -96,6 +88,7 @@ Overview.args = {
   options: actionMenuList,
   renderReference: kebab,
   isOpen: isChromatic(),
+  position: 'bottom-end',
 };
 
 export const Positioning = () => {

@@ -6,7 +6,9 @@ import Reminder from '@igloo-ui/icons/dist/Reminder';
 
 import readme from '../README.md';
 
-import List, { Option, Member, OptionType } from './List';
+import List from './List';
+import type { Option, Member, OptionType } from './List';
+import ListItem from './ListItem';
 
 export default {
   title: 'Components/List',

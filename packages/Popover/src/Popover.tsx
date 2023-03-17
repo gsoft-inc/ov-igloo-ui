@@ -46,24 +46,20 @@ export interface PopoverProps extends React.ComponentProps<'div'> {
   dataTest?: string;
 }
 
-const Popover: React.FunctionComponent<PopoverProps> = (
-  props: PopoverProps
-) => {
-  const {
-    children,
-    content,
-    position = 'auto',
-    maxWidth = 320,
-    active = false,
-    className,
-    popoverClassName,
-    title,
-    action,
-    isClosable = false,
-    dataTest,
-    ...rest
-  } = props;
-
+const Popover: React.FunctionComponent<PopoverProps> = ({
+  children,
+  content,
+  position = 'auto',
+  maxWidth = 320,
+  active = false,
+  className,
+  popoverClassName,
+  title,
+  action,
+  isClosable = false,
+  dataTest,
+  ...rest
+}: PopoverProps) => {
   const classes = cx('ids-popover__container', className);
 
   const [show, setShow] = React.useState<boolean>(active);

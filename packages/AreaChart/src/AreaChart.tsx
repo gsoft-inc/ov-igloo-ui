@@ -97,25 +97,21 @@ export interface AreaChartProps extends React.ComponentProps<'div'> {
   loading?: boolean;
 }
 
-const AreaChart: React.FunctionComponent<AreaChartProps> = (
-  props: AreaChartProps
-) => {
-  const {
-    className,
-    dataSet,
-    dataTest,
-    dateRange,
-    loading = false,
-    isResponsive = true,
-    locale = 'en',
-    range = { max: 'auto', min: 0 },
-    xAxisTickCount = 7,
-    scoreFormatter,
-    tooltipScoreFormatter,
-    unavailableDataMessage,
-    withColoredArea = true,
-  } = props;
-
+const AreaChart: React.FunctionComponent<AreaChartProps> = ({
+  className,
+  dataSet,
+  dataTest,
+  dateRange,
+  loading = false,
+  isResponsive = true,
+  locale = 'en',
+  range = { max: 'auto', min: 0 },
+  xAxisTickCount = 7,
+  scoreFormatter,
+  tooltipScoreFormatter,
+  unavailableDataMessage,
+  withColoredArea = true,
+}: AreaChartProps) => {
   const DEFAULT_SKELETON_WIDTH = 24;
   const DEFAULT_SKELETON_HEIGHT = 8;
 

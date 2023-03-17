@@ -53,8 +53,8 @@ export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
 }
 
 const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
-  (props: DropdownProps, ref: React.ForwardedRef<HTMLDivElement>) => {
-    const {
+  (
+    {
       children,
       className,
       content,
@@ -67,8 +67,9 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       role = 'listbox',
       renderReference,
       ...rest
-    } = props;
-
+    }: DropdownProps,
+    ref: React.ForwardedRef<HTMLDivElement>
+  ) => {
     const handleOnClose = (): void => {
       if (onClose) {
         onClose();

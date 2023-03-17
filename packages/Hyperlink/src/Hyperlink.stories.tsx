@@ -24,12 +24,6 @@ export default {
     },
   },
   argTypes: {
-    size: { table: { defaultValue: { summary: 'medium' } } },
-    appearance: {
-      table: {
-        defaultValue: { summary: 'primary' },
-      },
-    },
     onClick: {
       action: 'dynamic',
     },

@@ -20,19 +20,19 @@ export interface ToggleProps extends React.ComponentProps<'input'> {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Toggle: React.FunctionComponent<ToggleProps> = (props: ToggleProps) => {
-  const {
-    children,
-    className,
-    checked,
-    dataTest,
-    htmlFor,
-    helperText,
-    onChange,
-    ...rest
-  } = props;
-
-  const handleStopPropagation = (event: React.MouseEvent<HTMLInputElement>) => {
+const Toggle: React.FunctionComponent<ToggleProps> = ({
+  children,
+  className,
+  checked,
+  dataTest,
+  htmlFor,
+  helperText,
+  onChange,
+  ...rest
+}: ToggleProps) => {
+  const handleStopPropagation = (
+    event: React.MouseEvent<HTMLInputElement>
+  ): void => {
     event.stopPropagation();
   };
 

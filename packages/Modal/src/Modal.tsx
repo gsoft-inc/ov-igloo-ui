@@ -36,7 +36,9 @@ export interface ModalProps extends OverlayProps, AriaDialogProps {
   className?: string;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
-  /** Changes the modal width */
+  /** Changes the modal width
+   * @default small
+   */
   size?: Size;
   /** The content for the title of the modal */
   title?: string;
@@ -44,11 +46,13 @@ export interface ModalProps extends OverlayProps, AriaDialogProps {
   isClosable?: boolean;
   /** Whether the modal is open or not */
   isOpen: boolean;
-  /** Whether to close the overlay when the user interacts outside it. */
+  /** Whether to close the overlay when the user interacts outside it
+   * @default false
+   */
   isDismissable?: boolean;
-  /** Handler that is called when the overlay should close. */
+  /** Handler that is called when the overlay should close */
   onClose?: () => void;
-  /** Handler that is called when the modal is closed and no longer visible. */
+  /** Handler that is called when the modal is closed and no longer visible */
   onAfterClose?: () => void;
   /** The content for the aria-label on the close button */
   closeBtnAriaLabel?: string;

@@ -20,7 +20,6 @@ export default {
     },
     content: { control: 'text' },
     size: {
-      table: { defaultValue: { summary: 'xsmall' } },
       options: ['xsmall', 'small', 'medium', 'large'],
     },
   },

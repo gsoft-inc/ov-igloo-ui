@@ -11,17 +11,16 @@ export interface ToasterProps {
   toasts: [] | ToastArgs[];
 }
 
-const Toaster: React.FunctionComponent<ToasterProps> = (
-  props: ToasterProps
-) => {
-  const { toasts } = props;
+const Toaster: React.FunctionComponent<ToasterProps> = ({
+  toasts,
+}: ToasterProps) => {
   const [list, setList] = React.useState(toasts);
 
   React.useEffect(() => {
     setList([...toasts]);
   }, [toasts]);
 
-  const deleteToast = (id: string) => {
+  const deleteToast = (id: string): void => {
     const toast = list;
     const toastsListItem = toasts.findIndex((e) => e.id === id);
     toast[toastsListItem].isOpen = false;

@@ -18,19 +18,15 @@ export interface ProgressBarProps extends React.ComponentProps<'div'> {
   ariaLabel?: string;
 }
 
-const ProgressBar: React.FunctionComponent<ProgressBarProps> = (
-  props: ProgressBarProps
-) => {
-  const {
-    value,
-    isCompact,
-    isLowContrast,
-    className,
-    dataTest,
-    ariaLabel,
-    ...rest
-  } = props;
-
+const ProgressBar: React.FunctionComponent<ProgressBarProps> = ({
+  value,
+  isCompact,
+  isLowContrast,
+  className,
+  dataTest,
+  ariaLabel,
+  ...rest
+}: ProgressBarProps) => {
   let progress = value * 100;
   if (value > 1) {
     progress = 100;

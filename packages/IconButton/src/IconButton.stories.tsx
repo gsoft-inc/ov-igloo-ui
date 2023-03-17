@@ -26,7 +26,6 @@ export default {
   },
   argTypes: {
     size: {
-      table: { defaultValue: { summary: 'medium' } },
       options: ['xsmall', 'small', 'medium', 'large'],
     },
     appearance: {

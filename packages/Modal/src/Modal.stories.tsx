@@ -18,9 +18,6 @@ export default {
   parameters: {
     description: readme,
   },
-  argTypes: {
-    size: { table: { defaultValue: { summary: 'small' } } },
-  },
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = (args) => {

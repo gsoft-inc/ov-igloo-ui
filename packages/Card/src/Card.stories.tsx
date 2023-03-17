@@ -13,9 +13,11 @@ export default {
   parameters: {
     description: readme,
   },
+  args: {
+    size: 'large',
+  },
   argTypes: {
     size: {
-      table: { defaultValue: { summary: 'large' } },
       options: ['xsmall', 'small', 'medium', 'large'],
     },
   },

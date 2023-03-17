@@ -23,17 +23,15 @@ export interface ToastProps extends React.ComponentProps<'div'> {
   onDissmiss?: () => void;
 }
 
-const Toast: React.FunctionComponent<ToastProps> = (props: ToastProps) => {
-  const {
-    message,
-    error = false,
-    onDissmiss,
-    duration = TOAST_DURATION,
-    className,
-    dataTest,
-    ...rest
-  } = props;
-
+const Toast: React.FunctionComponent<ToastProps> = ({
+  message,
+  error = false,
+  onDissmiss,
+  duration = TOAST_DURATION,
+  className,
+  dataTest,
+  ...rest
+}: ToastProps) => {
   const toastRef = React.useRef<HTMLOutputElement>(null);
   let interval: NodeJS.Timer;
 

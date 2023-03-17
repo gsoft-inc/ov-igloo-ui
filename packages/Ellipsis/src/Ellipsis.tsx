@@ -21,21 +21,23 @@ export interface EllipsisProps extends React.ComponentPropsWithRef<'div'> {
 const Ellipsis: React.FunctionComponent<EllipsisProps> = React.forwardRef<
   Ref,
   EllipsisProps
->((props, ref) => {
-  const { children, className, containerClassName, dataTest, title, ...rest } =
-    props;
-
-  return (
-    <div
-      className={cx('ids-ellipsis', containerClassName)}
-      data-test={dataTest}
-      title={title}
-      ref={ref}
-      {...rest}
-    >
-      <div className={cx('ids-ellipsis__content', className)}>{children}</div>
-    </div>
-  );
-});
+>(
+  (
+    { children, className, containerClassName, dataTest, title, ...rest },
+    ref
+  ) => {
+    return (
+      <div
+        className={cx('ids-ellipsis', containerClassName)}
+        data-test={dataTest}
+        title={title}
+        ref={ref}
+        {...rest}
+      >
+        <div className={cx('ids-ellipsis__content', className)}>{children}</div>
+      </div>
+    );
+  }
+);
 
 export default Ellipsis;
