@@ -37,6 +37,6 @@
   "devDependencies": {
     "@igloo-ui/input": "^2.0.3",
     "@igloo-ui/select": "^1.0.0",
-    "@igloo-ui/textarea": "^0.1.4"
+    "@igloo-ui/textarea": "^0.2.0"
   }
 }

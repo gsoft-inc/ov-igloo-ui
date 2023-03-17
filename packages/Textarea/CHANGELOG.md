@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.2.0
+
+### Minor Changes
+
+- 7dbf543: Feat: added forward ref and autoFocus to textarea
+
 ## 0.1.5
 
 ### Patch Changes
