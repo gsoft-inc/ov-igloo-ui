@@ -35,6 +35,18 @@ Overview.args = {
   placeholder: 'Enter text here',
 };
 
+export const Autofocus = () => {
+  return (
+    <Section column>
+      <Textarea
+        autoFocus
+        placeholder="Do not allow a new line using enter"
+        allowNewline={false}
+      />
+    </Section>
+  );
+};
+
 export const States = () => (
   <Section column>
     <Textarea placeholder="Focus" className="ids-textarea--focus" />

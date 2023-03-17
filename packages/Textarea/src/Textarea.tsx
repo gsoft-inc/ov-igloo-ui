@@ -1,15 +1,18 @@
 import * as React from 'react';
 import cx from 'classnames';
 import autosize from 'autosize';
+import { mergeRefs } from '@react-aria/utils';
 
 import './textarea.scss';
 
-export interface TextareaProps extends React.ComponentProps<'textarea'> {
-  /** True if the textarea should allow new lines with Enter */
+export interface TextareaProps extends React.ComponentPropsWithRef<'textarea'> {
+  /** True if the textarea should allow new lines with Enter. */
   allowNewline?: boolean;
+  /** If the textarea should be automatically focused. */
+  autoFocus?: boolean;
   /** Add class names to the surrounding DOM container. */
   className?: string;
-  /** Add a data-test tag for automated tests */
+  /** Add a data-test tag for automated tests. */
   dataTest?: string;
   /** True if the textarea should be disabled. */
   disabled?: boolean;
@@ -31,89 +34,102 @@ export interface TextareaProps extends React.ComponentProps<'textarea'> {
   value?: string;
 }
 
-const Textarea: React.FunctionComponent<TextareaProps> = (
-  props: TextareaProps
-) => {
-  const {
-    allowNewline = true,
-    className,
-    dataTest,
-    disabled = false,
-    error = false,
-    isAutoResize = false,
-    maxLength,
-    onChange,
-    showCharactersIndicator = false,
-    value,
-    ...rest
-  } = props;
-  const textareaRef = React.useRef<HTMLTextAreaElement | null>(null);
-  const [currentCharLength, setCurrentCharLength] = React.useState(
-    value?.length ?? 0
-  );
-  const [currentValue, setCurrentValue] = React.useState(value ?? '');
-  const textareaMaxLength = maxLength ?? 0;
-  const displayCharIndicator = showCharactersIndicator && textareaMaxLength > 0;
+const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
+  (
+    {
+      allowNewline = true,
+      autoFocus = false,
+      className,
+      dataTest,
+      disabled = false,
+      error = false,
+      isAutoResize = false,
+      maxLength,
+      onChange,
+      showCharactersIndicator = false,
+      value,
+      ...rest
+    }: TextareaProps,
+    ref: React.Ref<HTMLTextAreaElement | null>
+  ) => {
+    const textareaRef = React.useRef<HTMLTextAreaElement | null>(null);
+    const mergedTextareaRef = mergeRefs(textareaRef, ref);
+    const [currentCharLength, setCurrentCharLength] = React.useState(
+      value?.length ?? 0
+    );
+    const [currentValue, setCurrentValue] = React.useState(value ?? '');
+    const textareaMaxLength = maxLength ?? 0;
+    const displayCharIndicator =
+      showCharactersIndicator && textareaMaxLength > 0;
 
-  const classes = cx('ids-textarea', className, {
-    'ids-textarea--has-char-count': displayCharIndicator,
-  });
+    const classes = cx('ids-textarea', className, {
+      'ids-textarea--has-char-count': displayCharIndicator,
+    });
 
-  const fieldClasses = cx('ids-textarea__field', {
-    'ids-textarea__field--error': error,
-    'ids-textarea__field--disabled': disabled,
-  });
+    const fieldClasses = cx('ids-textarea__field', {
+      'ids-textarea__field--error': error,
+      'ids-textarea__field--disabled': disabled,
+    });
 
-  const handleOnChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ): void => {
-    setCurrentValue(event.target.value);
-    if (onChange) {
-      onChange(event);
-    }
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>): void => {
-    if (e.key === 'Enter') {
-      e.stopPropagation();
-
-      if (!allowNewline) {
-        e.preventDefault();
+    const handleOnChange = (
+      event: React.ChangeEvent<HTMLTextAreaElement>
+    ): void => {
+      setCurrentValue(event.target.value);
+      if (onChange) {
+        onChange(event);
       }
-    }
-  };
+    };
 
-  React.useEffect(() => {
-    if (isAutoResize && textareaRef && textareaRef.current) {
-      autosize(textareaRef.current);
-      autosize.update(textareaRef.current);
-    }
-  }, [textareaRef, isAutoResize]);
+    const handleKeyDown = (
+      e: React.KeyboardEvent<HTMLTextAreaElement>
+    ): void => {
+      if (e.key === 'Enter') {
+        e.stopPropagation();
 
-  React.useEffect(() => {
-    setCurrentCharLength(currentValue?.length ?? 0);
-  }, [currentValue]);
+        if (!allowNewline) {
+          e.preventDefault();
+        }
+      }
+    };
 
-  return (
-    <div className={classes} data-test={dataTest}>
-      <textarea
-        ref={textareaRef}
-        className={fieldClasses}
-        maxLength={maxLength}
-        onChange={handleOnChange}
-        onKeyDown={handleKeyDown}
-        value={value}
-        disabled={disabled}
-        {...rest}
-      />
+    React.useEffect(() => {
+      if (autoFocus && textareaRef && textareaRef.current) {
+        textareaRef.current.focus();
+      }
+    }, [ref, autoFocus]);
 
-      {displayCharIndicator && (
-        <div className="ids-textarea__char-indicator">
-          {textareaMaxLength - currentCharLength}
-        </div>
-      )}
-    </div>
-  );
-};
+    React.useEffect(() => {
+      if (isAutoResize && textareaRef && textareaRef.current) {
+        autosize(textareaRef.current);
+        autosize.update(textareaRef.current);
+      }
+    }, [textareaRef, isAutoResize]);
+
+    React.useEffect(() => {
+      setCurrentCharLength(currentValue?.length ?? 0);
+    }, [currentValue]);
+
+    return (
+      <div className={classes} data-test={dataTest}>
+        <textarea
+          ref={mergedTextareaRef}
+          className={fieldClasses}
+          maxLength={maxLength}
+          onChange={handleOnChange}
+          onKeyDown={handleKeyDown}
+          value={value}
+          disabled={disabled}
+          {...rest}
+        />
+
+        {displayCharIndicator && (
+          <div className="ids-textarea__char-indicator">
+            {textareaMaxLength - currentCharLength}
+          </div>
+        )}
+      </div>
+    );
+  }
+);
 
 export default Textarea;
