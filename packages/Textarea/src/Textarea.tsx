@@ -109,6 +109,11 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
       setCurrentCharLength(currentValue?.length ?? 0);
     }, [currentValue]);
 
+    const characterDisplay =
+      currentCharLength > textareaMaxLength
+        ? 0
+        : textareaMaxLength - currentCharLength;
+
     return (
       <div className={classes} data-test={dataTest}>
         <textarea
@@ -123,9 +128,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
         />
 
         {displayCharIndicator && (
-          <div className="ids-textarea__char-indicator">
-            {textareaMaxLength - currentCharLength}
-          </div>
+          <div className="ids-textarea__char-indicator">{characterDisplay}</div>
         )}
       </div>
     );
