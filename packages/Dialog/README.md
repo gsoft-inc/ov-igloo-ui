@@ -54,4 +54,4 @@ const handleValidate = () => {
 
 In this case when you close the Dialog the Modal closes automatically, here is a workaround to remedy this.
 
-To solve the problem set the `isClosable` property of the Modal to `false` when the Dialog component is up and then return to `true` when it closes.
+To solve the problem, set the `isClosable` property of the Modal to `false` when the Dialog component is up and then return to `true` when it closes.
