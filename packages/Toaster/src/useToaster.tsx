@@ -17,7 +17,6 @@ export function useToaster() {
     duration?: number
   ) => {
     const id = Math.random().toString(36).substr(2, 9);
-    console.log(`${status} call ${id} message: ${message}`);
 
     const toastProperties: ToastArgs = {
       id,
