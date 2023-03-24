@@ -106,7 +106,17 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
     }, [textareaRef, isAutoResize]);
 
     React.useEffect(() => {
-      setCurrentCharLength(currentValue?.length ?? 0);
+      let currentValueLength = currentValue?.length ?? 0;
+
+      const emojiRegexExp =
+        /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/gi;
+      const hasEmoji = emojiRegexExp.test(currentValue);
+
+      if (currentValue.length === maxLength! - 1 && hasEmoji) {
+        currentValueLength = currentValue.length + 1;
+      }
+
+      setCurrentCharLength(currentValueLength);
     }, [currentValue]);
 
     return (
