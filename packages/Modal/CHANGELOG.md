@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.2.3
+
+### Patch Changes
+
+- 0e3cc82: added troubleshooting section in the readme for workaround about Closing Dialog on top of Modal will close both
+
 ## 1.2.2
 
 ### Patch Changes

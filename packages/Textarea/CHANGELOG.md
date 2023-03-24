@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.2.1
+
+### Patch Changes
+
+- a075fd0: Fix the display of the negative character count when adding an emoji
+
 ## 0.2.0
 
 ### Minor Changes
