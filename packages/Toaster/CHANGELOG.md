@@ -1,5 +1,11 @@
 # @igloo-ui/toaster
 
+## 1.0.5
+
+### Patch Changes
+
+- 345005f: Toasts in list being overridden
+
 ## 1.0.4
 
 ### Patch Changes
