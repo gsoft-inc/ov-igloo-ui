@@ -10,31 +10,30 @@ export interface ToastArgs {
 
 export function useToaster() {
   const [toastList, setToastList] = React.useState<[] | ToastArgs[]>([]);
-  let toastProperties: null | ToastArgs = null;
 
-  const id = Math.random().toString(36).substr(2, 9);
+  const createToast = (
+    status: 'success' | 'error',
+    message: string,
+    duration?: number
+  ) => {
+    const id = Math.random().toString(36).substr(2, 9);
+
+    const toastProperties: ToastArgs = {
+      id,
+      status,
+      isOpen: true,
+      message,
+      duration,
+    };
+
+    setToastList((prevList) => [...prevList, toastProperties]);
+  };
 
   const toast = {
-    success: (message: string, duration?: number) => {
-      toastProperties = {
-        id,
-        status: 'success',
-        isOpen: true,
-        message,
-        duration,
-      };
-      setToastList([...toastList, toastProperties]);
-    },
-    error: (message: string, duration?: number) => {
-      toastProperties = {
-        id,
-        status: 'error',
-        isOpen: true,
-        message,
-        duration,
-      };
-      setToastList([...toastList, toastProperties]);
-    },
+    success: (message: string, duration?: number) =>
+      createToast('success', message, duration),
+    error: (message: string, duration?: number) =>
+      createToast('error', message, duration),
   };
 
   return { toast, toastList, setToastList };
