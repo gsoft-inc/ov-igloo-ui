@@ -1,5 +1,11 @@
 # @igloo-ui/select
 
+## 1.0.6
+
+### Patch Changes
+
+- 412dbd5: Added the missing onClose event for the Dropdown component inside the Select.
+
 ## 1.0.5
 
 ### Patch Changes
