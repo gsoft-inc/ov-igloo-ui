@@ -277,6 +277,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
         isOpen={canShowMenu}
         style={{ width: autoWidth ? '' : selectRect?.width }}
         className={selectDropdownClassname}
+        onClose={() => toggleMenu(true)}
       >
         <SelectInput isOpen={canShowMenu}>
           <SelectValue
