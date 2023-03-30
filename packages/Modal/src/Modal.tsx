@@ -64,6 +64,8 @@ export interface ModalProps extends OverlayProps, AriaDialogProps {
   secondaryAction?: React.ReactElement;
   /** The object to build the carousel inside the modal */
   carousel?: CarouselInterface;
+  /** A unique key for the modal */
+  keyValue?: string;
 }
 
 const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
@@ -83,6 +85,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     primaryAction,
     secondaryAction,
     carousel,
+    keyValue = '',
   } = props;
 
   const displayBackBtn =
@@ -147,9 +150,10 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
 
   const modal = (
     <LazyMotion features={domAnimation} strict>
-      <AnimatePresence initial={false}>
+      <AnimatePresence>
         {isOpen && (
           <m.div
+            key={`${keyValue}_overlay`}
             className="ids-overlay"
             {...(underlayProps as any)}
             initial="close"
@@ -160,9 +164,10 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
           />
         )}
       </AnimatePresence>
-      <AnimatePresence initial={false} onExitComplete={onExitComplete}>
+      <AnimatePresence onExitComplete={onExitComplete}>
         {isOpen && (
           <m.div
+            key={`${keyValue}_modal`}
             className={classes}
             data-test={dataTest}
             {...(overlayProps as any)}
