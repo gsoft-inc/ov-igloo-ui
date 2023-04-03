@@ -260,6 +260,111 @@ export const WithSteps = () => {
   );
 };
 
+export interface keyModalInterface {
+  title?: string;
+  onAfterClose?: () => void;
+}
+
+export const ModalWithParentKey = () => {
+  const KeyModal = ({ title, onAfterClose }: keyModalInterface) => {
+    const [isOpen, setIsOpen] = useState(!!title);
+
+    const handleOnClose = () => {
+      setIsOpen(false);
+    };
+
+    const handleOnAfterClose = () => {
+      onAfterClose?.();
+    };
+
+    return (
+      <Modal
+        keyValue={title}
+        title={title}
+        isDismissable={true}
+        isClosable={true}
+        isOpen={isOpen}
+        closeBtnAriaLabel={`Close`}
+        onClose={handleOnClose}
+        onAfterClose={handleOnAfterClose}
+        fullContent
+      >
+        {title}
+      </Modal>
+    );
+  };
+
+  const [key, setKey] = useState<string | undefined>();
+
+  const clickPrimary = () => {
+    setKey('key 1');
+  };
+
+  const clickSecondary = () => {
+    setKey('key 2');
+  };
+
+  const handleOnAfterClose = () => {
+    setKey(undefined);
+  };
+
+  return (
+    <Section>
+      <Button appearance="primary" onClick={clickPrimary}>
+        key 1
+      </Button>
+      <Button appearance="secondary" onClick={clickSecondary}>
+        key 2
+      </Button>
+
+      <KeyModal key={key} title={key} onAfterClose={handleOnAfterClose} />
+    </Section>
+  );
+};
+
+export const ModalWithKey = () => {
+  const [key, setKey] = useState<string | undefined>();
+  const [isOpen, setIsOpen] = useState(!!key);
+
+  const clickPrimary = () => {
+    setKey('key 1');
+    setIsOpen(true);
+  };
+
+  const clickSecondary = () => {
+    setKey('key 2');
+    setIsOpen(true);
+  };
+
+  const handleOnClose = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <Section>
+      <Button appearance="primary" onClick={clickPrimary}>
+        key 1
+      </Button>
+      <Button appearance="secondary" onClick={clickSecondary}>
+        key 2
+      </Button>
+
+      <Modal
+        keyValue={key}
+        title={key}
+        isDismissable={true}
+        isClosable={true}
+        isOpen={isOpen}
+        closeBtnAriaLabel={`Close`}
+        onClose={handleOnClose}
+        fullContent
+      >
+        {key}
+      </Modal>
+    </Section>
+  );
+};
+
 // Chromatic configuration
 Sizes.bind({});
 Sizes.parameters = {
@@ -283,5 +388,15 @@ WithActions.parameters = {
 
 WithSteps.bind({});
 WithSteps.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+ModalWithParentKey.bind({});
+ModalWithParentKey.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+ModalWithKey.bind({});
+ModalWithKey.parameters = {
   chromatic: { disableSnapshot: true },
 };
