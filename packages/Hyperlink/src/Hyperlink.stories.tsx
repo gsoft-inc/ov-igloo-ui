@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { fireEvent, userEvent, within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 
 import readme from '../README.md';
 
@@ -92,3 +94,18 @@ export const Icons: React.VFC = () => (
     </Hyperlink>
   </Section>
 );
+
+export const FocusInteraction = Template.bind({});
+FocusInteraction.args = {
+  children: <a href="#">Read more</a>,
+};
+
+FocusInteraction.play = async ({ canvasElement }) => {
+  const body = canvasElement.ownerDocument.body;
+  const canvas = within(body);
+  const link = await canvas.findByText(/Read more/);
+
+  userEvent.tab();
+
+  await expect(link).toHaveFocus();
+};
