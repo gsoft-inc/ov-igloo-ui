@@ -46,4 +46,8 @@
   &--large {
     --ids-dropdown-padding: #{tokens.$space-5};
   }
+
+  &--hidden {
+    display: none;
+  }
 }

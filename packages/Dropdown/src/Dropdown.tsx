@@ -4,6 +4,7 @@ import {
   flip,
   useMergeRefs,
   offset,
+  hide,
   autoUpdate,
   useFloating,
   FloatingFocusManager,
@@ -82,19 +83,25 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       }
     };
 
-    const { x, y, strategy, refs, context } = useFloating({
+    const { x, y, strategy, refs, context, middlewareData } = useFloating({
       placement: position,
       open: isOpen,
       strategy: 'fixed',
       onOpenChange: handleOpenChange,
       whileElementsMounted: autoUpdate,
-      middleware: [offset(1), flip()],
+      middleware: [
+        offset(1),
+        flip(),
+        hide({
+          padding: 10,
+        }),
+      ],
     });
 
     const mergedDropdownRef = useMergeRefs([refs.setFloating, ref]);
 
     const { getReferenceProps, getFloatingProps } = useInteractions([
-      useDismiss(context, { ancestorScroll: true }),
+      useDismiss(context),
       useRole(context, { role }),
     ]);
 
@@ -117,6 +124,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
     const dropdownClasses = cx('ids-dropdown', className, {
       [`ids-dropdown--${size}`]: size !== 'xsmall',
       [`ids-dropdown--${position}`]: position !== 'bottom',
+      'ids-dropdown--hidden': middlewareData.hide?.referenceHidden,
     });
 
     return (

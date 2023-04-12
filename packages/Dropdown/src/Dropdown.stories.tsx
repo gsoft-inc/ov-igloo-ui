@@ -88,28 +88,33 @@ export const DropdownInAModal = () => {
     <>
       <Button onClick={() => setShow(true)}>open</Button>
       <Modal isClosable isOpen={show} onClose={() => setShow(false)}>
-        <Dropdown
-          isOpen={open}
-          onClose={() => setOpen(false)}
-          content={
-            <List
-              items={[
-                'Organization details',
-                'Billing',
-                'Permissions',
-                'Segments',
-              ]}
-            />
-          }
-        >
-          <Button
-            appearance="secondary"
-            size="small"
-            onClick={() => setOpen(!open)}
-          >
-            Settings
-          </Button>
-        </Dropdown>
+        <div style={{ height: 400, overflow: 'auto' }}>
+          Scroll down
+          <div style={{ height: 1000, paddingTop: 500 }}>
+            <Dropdown
+              isOpen={open}
+              onClose={() => setOpen(false)}
+              content={
+                <List
+                  items={[
+                    'Organization details',
+                    'Billing',
+                    'Permissions',
+                    'Segments',
+                  ]}
+                />
+              }
+            >
+              <Button
+                appearance="secondary"
+                size="small"
+                onClick={() => setOpen(!open)}
+              >
+                Settings
+              </Button>
+            </Dropdown>
+          </div>
+        </div>
       </Modal>
     </>
   );
