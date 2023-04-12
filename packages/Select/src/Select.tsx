@@ -47,6 +47,9 @@ export interface SelectProps {
   options: SelectOptiontype[];
   /** The initial selected option */
   selectedOption?: OptionType;
+  /** Whether or not to show the icon inside the
+   * dropdown list if it's available */
+  showListIcon?: boolean;
 }
 
 const Select: React.FunctionComponent<SelectProps> = ({
@@ -61,6 +64,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
   onChange,
   options,
   selectedOption,
+  showListIcon = true,
   ...rest
 }: SelectProps) => {
   const selectOptions = options.map((option): OptionType => {
@@ -272,6 +276,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
             onOptionChange={selectOption}
             selectedOption={currentSelectedOption}
             focusedOption={currentFocusedOption}
+            showIcon={showListIcon}
           />
         }
         isOpen={canShowMenu}

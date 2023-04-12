@@ -25,6 +25,9 @@ export interface ListProps extends React.ComponentProps<'ul'> {
   options: OptionType[];
   /** The initial selected option or a list of selected options */
   selectedOption?: OptionType | OptionType[] | null;
+  /** Whether or not to show the icon inside the
+   * list if it's available */
+  showIcon?: boolean;
 }
 
 const List: React.FunctionComponent<ListProps> = ({
@@ -37,6 +40,7 @@ const List: React.FunctionComponent<ListProps> = ({
   onOptionChange,
   options,
   selectedOption,
+  showIcon = true,
   ...rest
 }: ListProps) => {
   const listClasses = cx('ids-list', className, {
@@ -81,6 +85,7 @@ const List: React.FunctionComponent<ListProps> = ({
             isFocused={isFocused}
             isSelected={selected}
             useCheckbox={multiple}
+            showIcon={showIcon}
           />
         );
       })}

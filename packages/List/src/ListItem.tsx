@@ -62,6 +62,8 @@ export interface ListItemProps extends React.ComponentProps<'li'> {
   onOptionChange?: (option: OptionType) => void;
   /** A list of options */
   option: OptionType;
+  /** Whether or not to show the icon if it's available */
+  showIcon?: boolean;
 }
 
 const ListItem: React.FunctionComponent<ListItemProps> = ({
@@ -73,6 +75,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
   onOptionFocus,
   onOptionChange,
   option,
+  showIcon = true,
   ...rest
 }: ListItemProps) => {
   const isOptionDisabled = (): boolean => {
@@ -106,11 +109,12 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
     'ids-list-item--disabled': option.type === 'list' ? option.disabled : false,
   });
 
-  const shouldShowVisualIdentifier = option.src || option.color || option.icon;
+  const shouldShowVisualIdentifier =
+    (option.src || option.color || option.icon) && showIcon;
   const visualIdentifierContainerClasses = cx(
     'ids-list-item__visual-identifier-container',
     {
-      'ids-list-item__svg-container': option.icon,
+      'ids-list-item__svg-container': option.icon && showIcon,
     }
   );
 

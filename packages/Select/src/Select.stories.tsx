@@ -5,12 +5,14 @@ import { within, userEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
 import Happiness from '@igloo-ui/icons/dist/Happiness';
-import { Option, OptionType } from '@igloo-ui/list';
+import Lock from '@igloo-ui/icons/dist/Lock';
+import SharedSolid from '@igloo-ui/icons/dist/SharedSolid';
+import { OptionType } from '@igloo-ui/list';
 
 import Section from '@components/section';
 import readme from '../../Select/README.md';
 
-import Select from './Select';
+import Select, { SelectOptiontype } from './Select';
 
 export default {
   title: 'Components/Select',
@@ -34,64 +36,70 @@ export default {
 const selectPlaceholder = 'ex: Lorem ipsum dolor';
 
 const handleOnChange = (option: OptionType | undefined): void => {
-  const item = option as Option;
+  const item = option as SelectOptiontype;
   alert(`Option: ${item?.label}`);
 };
 
-const smallOptionList: Option[] = [
+const smallOptionList: SelectOptiontype[] = [
   {
-    type: 'list',
     label: 'Text option',
     value: 'text',
   },
   {
-    type: 'list',
     label: 'Disabled option',
     value: 'disabled',
     disabled: true,
   },
   {
-    type: 'list',
     label: 'Text option with icon',
     value: 'icon',
     icon: <Happiness size="small" />,
   },
 ];
 
-const largeOptionList: Option[] = [
+const largeOptionList: SelectOptiontype[] = [
   {
-    type: 'list',
     label: 'Text 1',
     value: '1',
   },
   {
-    type: 'list',
     label: 'Text 2 (disabled)',
     value: '2',
     disabled: true,
   },
   {
-    type: 'list',
     label: 'Text 3',
     value: '3',
     color: '#74DCC9',
   },
   {
-    type: 'list',
     label: 'Text 4',
     value: '4',
   },
   {
-    type: 'list',
     label: 'Text 5',
     value: '5',
     src: 'https://i.pravatar.cc/100',
   },
   {
-    type: 'list',
     label: 'Text 6',
     value: '6',
     icon: <Happiness size="small" />,
+  },
+];
+
+const listWithIcons: SelectOptiontype[] = [
+  {
+    label: 'Restricted',
+    value: 'restricted',
+    description: 'Only visible to you and executive managers',
+    icon: <Lock size="small" />,
+  },
+  {
+    label: 'Shared with team',
+    value: 'shared',
+    description: 'Visible to your team on Team Hub and Survey Report',
+    icon: <SharedSolid size="small" />,
   },
 ];
 
@@ -160,6 +168,14 @@ export const AutoWidth = () => (
   </Section>
 );
 
+export const HideListIcon = () => (
+  <Section>
+    <Select options={listWithIcons} showListIcon={false}>
+      Place holder text
+    </Select>
+  </Section>
+);
+
 // Chromatic configuration
 Sizes.bind({});
 Sizes.parameters = {
@@ -173,5 +189,10 @@ LargeOptionNumber.parameters = {
 
 AutoWidth.bind({});
 AutoWidth.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+HideListIcon.bind({});
+HideListIcon.parameters = {
   chromatic: { disableSnapshot: true },
 };
