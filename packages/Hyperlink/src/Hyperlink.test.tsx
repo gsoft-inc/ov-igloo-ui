@@ -2,10 +2,17 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { toHaveNoViolations } from 'jest-axe';
+
 import Plus from '@igloo-ui/icons/dist/Plus';
 
+import axe from '../../../axe-helper.js';
+
 import Hyperlink from './Hyperlink';
+import { userEvent } from '@storybook/testing-library';
+
+expect.extend(toHaveNoViolations);
 
 const setUp = (props = {}) => {
   return render(
@@ -53,5 +60,34 @@ describe('Hyperlink Component', () => {
   test('It should render a ghost appearance', (): void => {
     const { asFragment } = setUp({ appearance: 'ghost' });
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  test('It should have no accessibility violations', async () => {
+    const { container } = setUp();
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
+  test('It should have appropriate ARIA attributes', () => {
+    const { getByTestId } = setUp({
+      'aria-label': 'Click here for more information',
+    });
+
+    const link = getByTestId('ids-link');
+
+    expect(link).toHaveAttribute('role', 'link');
+    expect(link).toHaveAttribute(
+      'aria-label',
+      'Click here for more information'
+    );
+  });
+
+  test('It should be able to navigate to and focus on an element using the keyboard', async () => {
+    const { getByRole } = setUp();
+    const link = getByRole('link');
+
+    expect(link).not.toHaveFocus();
+    userEvent.tab();
+    expect(link).toHaveFocus();
   });
 });

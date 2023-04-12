@@ -13,15 +13,20 @@ import {
   useRole,
   FloatingPortal,
   useClick,
+  useHover,
   FloatingFocusManager,
+  safePolygon,
+  ReferenceType,
 } from '@floating-ui/react';
 
 import IconButton from '@igloo-ui/icon-button';
 import Close from '@igloo-ui/icons/dist/Close';
 
 import './popover.scss';
+import { Props } from '@floating-ui/react/src/hooks/useHover';
 
 export type Position = 'top' | 'right' | 'bottom' | 'left' | 'auto';
+export type TriggerEvent = 'click' | 'hover';
 
 export interface PopoverProps extends React.ComponentProps<'div'> {
   /** The target button, text, svg etc.. of the Popover. */
@@ -44,6 +49,12 @@ export interface PopoverProps extends React.ComponentProps<'div'> {
   isClosable?: boolean;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
+  /** The event that triggers the opening or closing of the popover */
+  triggerEvent?: TriggerEvent;
+  /** Whether or not the mouse is allowed inside the popover
+   * (This is only useful when the triggerEvent is set to 'hover')
+   */
+  interactive?: boolean;
 }
 
 const Popover: React.FunctionComponent<PopoverProps> = ({
@@ -58,6 +69,8 @@ const Popover: React.FunctionComponent<PopoverProps> = ({
   action,
   isClosable = false,
   dataTest,
+  triggerEvent = 'click',
+  interactive = true,
   ...rest
 }: PopoverProps) => {
   const classes = cx('ids-popover__container', className);
@@ -89,12 +102,25 @@ const Popover: React.FunctionComponent<PopoverProps> = ({
     ...floatingUIPlacement,
   });
 
-  const click = useClick(context);
+  const useHoverProps: Props<ReferenceType> = {
+    enabled: triggerEvent === 'hover',
+    restMs: 150,
+  };
+
+  if (interactive) {
+    useHoverProps.handleClose = safePolygon({
+      buffer: 1.5,
+    });
+  }
+
+  const click = useClick(context, { enabled: triggerEvent === 'click' });
+  const hover = useHover(context, useHoverProps);
   const dismiss = useDismiss(context);
   const role = useRole(context);
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
     click,
+    hover,
     dismiss,
     role,
   ]);

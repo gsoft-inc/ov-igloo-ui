@@ -1,5 +1,11 @@
 # @igloo-ui/popover
 
+## 0.3.0
+
+### Minor Changes
+
+- da2c3dd: Added two new props: triggerEvent and interactive. This is to allow the popover to show on hover.
+
 ## 0.2.2
 
 ### Patch Changes
