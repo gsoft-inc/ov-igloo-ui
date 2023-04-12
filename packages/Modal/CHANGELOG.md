@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.3.0
+
+### Minor Changes
+
+- 36f2566: Added stories to the Modal to illustrate the usage of keys. Also removed the initial prop on AnimatePresence to allow the animation to work when opened if the parent had a key change. In addition, the keyValue prop was added.
+
 ## 1.2.3
 
 ### Patch Changes
