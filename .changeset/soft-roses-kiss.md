@@ -3,4 +3,4 @@
 '@igloo-ui/dropdown': minor
 ---
 
-The dropdown component will not close when a user tries to scroll. Fixed combobox issue with this when the search field gains focus.
+The dropdown component will hide when the reference is out of view. This is applied to all components using Dropdown.
