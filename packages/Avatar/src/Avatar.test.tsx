@@ -3,6 +3,9 @@
  */
 import React from 'react';
 import { render, RenderResult, screen } from '@testing-library/react';
+import { toHaveNoViolations } from 'jest-axe';
+
+import axe from '../../../axe-helper.js';
 
 import Avatar, { Size } from './Avatar';
 
@@ -15,6 +18,8 @@ const setup = (props = {}) => {
     />
   );
 };
+
+expect.extend(toHaveNoViolations);
 
 describe('Avatar', () => {
   const expectToBeOfSize = (component: RenderResult, size: Size) => {
@@ -62,5 +67,11 @@ describe('Avatar', () => {
     const avatar = setup({ size: 'xlarge' });
 
     expectToBeOfSize(avatar, 'xlarge');
+  });
+
+  test('It should have no accessibility violations', async () => {
+    const { container } = setup();
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });
