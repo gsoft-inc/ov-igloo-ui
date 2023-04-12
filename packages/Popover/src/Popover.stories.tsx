@@ -100,3 +100,18 @@ export const QuantitativeContent = () => (
     </Section>
   </ChromaticWrapper>
 );
+
+export const HoverEvent = Template.bind({});
+HoverEvent.args = {
+  children: <div className="isb-trigger" />,
+  content: 'Popover copy',
+  title: 'Date',
+  action: (
+    <Hyperlink>
+      <a href="#">Learn more</a>
+    </Hyperlink>
+  ),
+  active: true,
+  isClosable: true,
+  triggerEvent: 'hover',
+};
