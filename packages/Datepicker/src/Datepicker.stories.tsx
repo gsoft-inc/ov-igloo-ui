@@ -60,6 +60,8 @@ const Template: ComponentStory<typeof Datepicker> = (args) => {
       error={args.error}
       isClearable={args.isClearable}
       clearLabel={args.clearLabel}
+      unavailableWeekendDate={args.unavailableWeekendDate}
+      minValue={args.minValue}
     />
   );
 };
@@ -96,6 +98,24 @@ Clearable.args = {
 };
 
 Clearable.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+export const MinValue = Template.bind({});
+MinValue.args = {
+  minValue: apiDate.toString(),
+};
+
+MinValue.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+export const UnavailableWeekend = Template.bind({});
+UnavailableWeekend.args = {
+  unavailableWeekendDate: true,
+};
+
+UnavailableWeekend.parameters = {
   chromatic: { disableSnapshot: true },
 };
 

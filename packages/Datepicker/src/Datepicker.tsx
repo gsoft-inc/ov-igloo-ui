@@ -8,10 +8,12 @@ import IconCalendar from '@igloo-ui/icons/dist/Calendar';
 
 import {
   getLocalTimeZone,
+  isWeekend,
   now,
   parseAbsoluteToLocal,
   ZonedDateTime,
 } from '@internationalized/date';
+import { DateValue } from '@react-types/calendar';
 
 import Calendar from './components/Calendar';
 
@@ -40,6 +42,8 @@ export interface DatepickerProps {
   onClose?: () => void;
   /** Function called when the element receives focus. */
   onFocus?: () => void;
+  /** Callback when they clear the date */
+  onClear?: () => void;
   /** Add a data-test tag for automated tests. */
   dataTest?: string;
   /** True if the control's value can be cleared. */
@@ -48,11 +52,16 @@ export interface DatepickerProps {
   clearLabel?: string;
   /** Highlights today's date if true */
   highlightToday?: boolean;
+  /** Disabled weekend date */
+  unavailableWeekendDate?: boolean;
+  /** The minimum allowed date that a user may select */
+  minValue?: string;
 }
 
 const Datepicker: React.FunctionComponent<DatepickerProps> = ({
   selectedDay,
   value,
+  minValue,
   placeholder,
   ariaLabel,
   disabled = false,
@@ -62,15 +71,23 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
   clearLabel,
   onChange,
   onClose,
+  onClear,
   onFocus,
   dataTest,
   highlightToday = true,
+  unavailableWeekendDate = false,
   ...rest
 }: DatepickerProps) => {
+  const [locale, setLocale] = React.useState<null | string>(null);
+
   // the calendar receives an utc date and formats it locally
-  const formattedDate = selectedDay
-    ? parseAbsoluteToLocal(selectedDay)
-    : undefined;
+  const formatDate = (date: string | undefined) => {
+    if (date) {
+      return parseAbsoluteToLocal(date);
+    }
+
+    return undefined;
+  };
 
   const dateTimeOfDay = now(getLocalTimeZone());
 
@@ -101,9 +118,25 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
   };
 
   const handleClear = () => {
+    if (onClear) {
+      onClear();
+    }
+
     if (onChange) {
       onChange(null);
     }
+  };
+
+  const isDateUnavailable = (date: DateValue) => {
+    if (unavailableWeekendDate && locale) {
+      return isWeekend(date, locale);
+    }
+
+    return false;
+  };
+
+  const getLocale = (locale: string) => {
+    setLocale(locale);
   };
 
   const classes = cx('ids-datepicker', {
@@ -115,10 +148,13 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
       <Calendar
         aria-label={ariaLabel}
         className={classes}
-        value={formattedDate}
+        value={formatDate(selectedDay)}
         onChange={handleChange}
         isDisabled={disabled}
         highlightToday={highlightToday}
+        isDateUnavailable={isDateUnavailable}
+        getLocale={getLocale}
+        minValue={formatDate(minValue)}
       />
       {isClearable && clearLabel && (
         <Button
