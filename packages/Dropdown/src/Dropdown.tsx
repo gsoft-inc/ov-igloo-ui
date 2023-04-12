@@ -94,7 +94,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
     const mergedDropdownRef = useMergeRefs([refs.setFloating, ref]);
 
     const { getReferenceProps, getFloatingProps } = useInteractions([
-      useDismiss(context),
+      useDismiss(context, { ancestorScroll: true }),
       useRole(context, { role }),
     ]);
 

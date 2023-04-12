@@ -22,7 +22,8 @@ export type FocusDirection = 'first' | 'last' | 'up' | 'down';
 
 export type ComboboxOption = Omit<Option, 'type'>;
 
-export interface ComboboxProps {
+export interface ComboboxProps
+  extends Omit<React.ComponentProps<'div'>, 'onChange'> {
   /** Set this to true and the dropdown will take the width of its content,
    * not the width of the select */
   autoWidth?: boolean;
@@ -115,7 +116,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     if (showMenu) {
       // Opening menu actions
       if (searchInputRef && searchInputRef.current) {
-        searchInputRef.current.focus();
+        searchInputRef.current.focus({ preventScroll: true });
       }
     }
   }, [options, showMenu]);
@@ -233,7 +234,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
         if (!targetIsClearBtn(target as HTMLElement)) {
           keyboardEvent.preventDefault();
           keyboardEvent.stopPropagation();
-          if (currentFocusedOption) {
+          if (currentFocusedOption && showMenu) {
             updateOption(currentFocusedOption);
           }
           if ((!currentFocusedOption && showMenu) || !showMenu) {
@@ -243,20 +244,26 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
         break;
       case Keys.Space:
         if (!showMenu && !targetIsClearBtn(target as HTMLElement)) {
+          keyboardEvent.preventDefault();
+          keyboardEvent.stopPropagation();
           toggleMenu(false);
         }
         break;
       case Keys.ArrowUp:
-        keyboardEvent.preventDefault();
-        keyboardEvent.stopPropagation();
+        if (showMenu) {
+          keyboardEvent.preventDefault();
+          keyboardEvent.stopPropagation();
 
-        focusOption('up');
+          focusOption('up');
+        }
         break;
       case Keys.ArrowDown:
-        keyboardEvent.preventDefault();
-        keyboardEvent.stopPropagation();
+        if (showMenu) {
+          keyboardEvent.preventDefault();
+          keyboardEvent.stopPropagation();
 
-        focusOption('down');
+          focusOption('down');
+        }
         break;
       case Keys.Tab:
         if (showMenu) {
@@ -354,7 +361,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
         isOpen={canShowMenu}
         style={{ width: autoWidth ? '' : comboboxRect?.width }}
         className={comboboxDropdownClassname}
-        onClose={() => toggleMenu(true)}
+        onClose={() => toggleMenu(true, true)}
       >
         {multiple ? (
           <ComboboxInput
