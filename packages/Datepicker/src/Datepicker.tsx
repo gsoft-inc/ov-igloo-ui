@@ -53,15 +53,15 @@ export interface DatepickerProps {
   /** Highlights today's date if true */
   highlightToday?: boolean;
   /** Disabled weekend date */
-  unavailableWeekendDate?: boolean;
+  weekendUnavailable?: boolean;
   /** The minimum allowed date that a user may select */
-  minValue?: string;
+  minDate?: string;
 }
 
 const Datepicker: React.FunctionComponent<DatepickerProps> = ({
   selectedDay,
   value,
-  minValue,
+  minDate,
   placeholder,
   ariaLabel,
   disabled = false,
@@ -75,7 +75,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
   onFocus,
   dataTest,
   highlightToday = true,
-  unavailableWeekendDate = false,
+  weekendUnavailable = false,
   ...rest
 }: DatepickerProps) => {
   const [locale, setLocale] = React.useState<null | string>(null);
@@ -128,7 +128,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
   };
 
   const isDateUnavailable = (date: DateValue) => {
-    if (unavailableWeekendDate && locale) {
+    if (weekendUnavailable && locale) {
       return isWeekend(date, locale);
     }
 
@@ -154,7 +154,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
         highlightToday={highlightToday}
         isDateUnavailable={isDateUnavailable}
         getLocale={getLocale}
-        minValue={formatDate(minValue)}
+        minValue={formatDate(minDate)}
       />
       {isClearable && clearLabel && (
         <Button

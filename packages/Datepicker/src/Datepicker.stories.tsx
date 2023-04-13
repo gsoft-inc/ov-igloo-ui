@@ -60,8 +60,9 @@ const Template: ComponentStory<typeof Datepicker> = (args) => {
       error={args.error}
       isClearable={args.isClearable}
       clearLabel={args.clearLabel}
-      unavailableWeekendDate={args.unavailableWeekendDate}
-      minValue={args.minValue}
+      onClear={args.onClear}
+      weekendUnavailable={args.weekendUnavailable}
+      minDate={args.minDate}
     />
   );
 };
@@ -103,7 +104,7 @@ Clearable.parameters = {
 
 export const MinValue = Template.bind({});
 MinValue.args = {
-  minValue: apiDate.toString(),
+  minDate: apiDate.toString(),
 };
 
 MinValue.parameters = {
@@ -112,7 +113,7 @@ MinValue.parameters = {
 
 export const UnavailableWeekend = Template.bind({});
 UnavailableWeekend.args = {
-  unavailableWeekendDate: true,
+  weekendUnavailable: true,
 };
 
 UnavailableWeekend.parameters = {
