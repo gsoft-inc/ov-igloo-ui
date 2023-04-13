@@ -76,7 +76,7 @@ Overview.args = {
   title: 'Date',
   action: (
     <Hyperlink>
-      <a href="#">Learn more</a>
+      <a href="#">Tell me more</a>
     </Hyperlink>
   ),
   active: true,
@@ -108,7 +108,7 @@ HoverEvent.args = {
   title: 'Date',
   action: (
     <Hyperlink>
-      <a href="#">Learn more</a>
+      <a href="#">Tell me more</a>
     </Hyperlink>
   ),
   active: true,
