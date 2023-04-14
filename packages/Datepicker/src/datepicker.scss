@@ -134,6 +134,28 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
     background: var(--ids-datepicker-content-background-selected);
     color: var(--ids-datepicker-content-color-selected);
   }
+
+  &[aria-disabled='true']:hover {
+    cursor: default;
+  }
+
+  &--unavailable,
+  &--disabled:not(.ids-datepicker__content--today) {
+    cursor: not-allowed;
+    color: var(--ids-datepicker-color-disabled);
+
+    &:hover {
+      color: var(--ids-datepicker-color-disabled);
+      background: transparent;
+    }
+  }
+
+  &--disabled.ids-datepicker__content--today {
+    &:hover {
+      color: var(--ids-datepicker-content-color-today);
+      background: transparent;
+    }
+  }
 }
 
 .ids-datepicker--disabled {
