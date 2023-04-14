@@ -1,5 +1,16 @@
 # @igloo-ui/datepicker
 
+## 0.1.0
+
+### Minor Changes
+
+- bdff22d: add option for disabled date and add new callback onClear()
+
+### Patch Changes
+
+- Updated dependencies [3c09b0d]
+  - @igloo-ui/dropdown@1.2.0
+
 ## 0.0.8
 
 ### Patch Changes
