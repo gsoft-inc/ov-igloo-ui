@@ -93,6 +93,13 @@ const ComboboxInput: React.FunctionComponent<ComboboxInputProps> = ({
           className="ids-combobox-input__search"
           type="text"
           onChange={handleChange}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+          onKeyUp={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          }}
           ref={searchRef}
         />
       ) : (
