@@ -33,7 +33,7 @@ import Hyperlink from '@igloo-ui/hyperlink';
   content="Popover copy"
   action={
     <Hyperlink>
-      <a href="#">Learn more</a>
+      <a href="#">Tell me more</a>
     </Hyperlink>
   }
 >

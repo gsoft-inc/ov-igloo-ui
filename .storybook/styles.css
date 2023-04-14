@@ -2,6 +2,7 @@
 
 body,
 .sb-show-main {
+  /* stylelint-disable-next-line value-keyword-case */
   text-rendering: geometricPrecision;
   font-family:
     -apple-system,
@@ -52,11 +53,13 @@ body,
 
 .isb-popover__item {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: var(--space-2);
+  line-height: var(--line-height-xxl);
 }
 
 .isb-popover__tag {
+  align-self: center;
   border-radius: 50%;
   width: var(--space-2);
   height: var(--space-2);
@@ -64,8 +67,10 @@ body,
 
 .isb-popover__value {
   font-size: var(--font-size-6);
-  font-weight: var(--font-weight-semi-bold);
+  font-family: var(--secondary-font-family);
+  font-weight: var(--font-weight-medium);
   color: var(--grey-800);
+  line-height: var(--line-height-lg);
 }
 
 .isb-option-button__item {

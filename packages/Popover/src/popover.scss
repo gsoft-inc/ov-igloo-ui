@@ -7,6 +7,7 @@
   --ids-popover-font-size: #{tokens.$font-size-3};
   --ids-popover-padding: #{tokens.$space-3};
   --ids-popover-border-radius: #{tokens.$border-radius-sm};
+  --ids-popover-line-height: #{tokens.$line-height-xxl};
   --ids-popover-z-index: #{tokens.$z-index-max};
   --ids-popover-spacing: #{tokens.$space-2};
   --ids-popover-width: 100%;
@@ -35,6 +36,7 @@
   background-color: var(--ids-popover-background);
   box-shadow: var(--ids-popover-shadow);
   box-sizing: border-box;
+  line-height: var(--ids-popover-line-height);
   min-width: var(--ids-popover-min-width, var(--ids-popover-width));
   width: var(--ids-popover-width);
 
@@ -64,7 +66,7 @@
     margin-top: tokens.$space-2;
 
     > * {
-      font-size: var(--ids-tooltip-font-size);
+      font-size: var(--ids-popover-font-size);
     }
   }
 }
