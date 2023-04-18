@@ -2739,7 +2739,7 @@ __metadata:
     "@testing-library/react": 14.0.0
     "@types/jest": 29.4.0
     "@types/jest-axe": 3.5.5
-    "@types/node": 16.4.10
+    "@types/node": 18.15.11
     "@types/react": ^18.0.37
     "@types/react-dom": 17.0.13
     "@typescript-eslint/eslint-plugin": 5.1.0
@@ -2773,7 +2773,7 @@ __metadata:
     postcss: 8.4.5
     postcss-flexbugs-fixes: 5.0.2
     postcss-scss: 4.0.3
-    prettier: 2.4.1
+    prettier: 2.8.7
     react: ^18.2.0
     react-docgen-typescript: 2.2.2
     react-dom: ^18.2.0
@@ -8615,17 +8615,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:18.15.11":
   version: 18.15.11
   resolution: "@types/node@npm:18.15.11"
   checksum: 977b4ad04708897ff0eb049ecf82246d210939c82461922d20f7d2dcfd81bbc661582ba3af28869210f7e8b1934529dcd46bff7d448551400f9d48b9d3bddec3
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:16.4.10":
-  version: 16.4.10
-  resolution: "@types/node@npm:16.4.10"
-  checksum: b2b550c2330df479a41b2c166814df6f1be45a62535742ad88a42bc0739897b79c1b2fef716635ae0ccd77c42af9a5e1e7c891215e909e10980c469bceebbfdc
   languageName: node
   linkType: hard
 
@@ -21410,16 +21403,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.4.1":
-  version: 2.4.1
-  resolution: "prettier@npm:2.4.1"
-  bin:
-    prettier: bin-prettier.js
-  checksum: cc6830588b401b0d742862fe9c46bc9118204fb307c3abe0e49e95b35ed23629573807ffdf9cdd65289c252a0bb51fc0171437f6626ee36378dea80f0ee80b91
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^2.7.1, prettier@npm:^2.8.0":
+"prettier@npm:2.8.7, prettier@npm:^2.7.1, prettier@npm:^2.8.0":
   version: 2.8.7
   resolution: "prettier@npm:2.8.7"
   bin:
