@@ -26,9 +26,13 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/tokens": "^2.0.0",
     "@floating-ui/react": "^0.19.1",
+    "@igloo-ui/tokens": "^2.0.0",
     "classnames": "^2.3.2"
+  },
+  "devDependencies": {
+    "@igloo-ui/button": "*",
+    "@igloo-ui/modal": "*"
   },
   "browserslist": [
     "> 1%",

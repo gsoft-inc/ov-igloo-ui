@@ -8,6 +8,6 @@
     "declarationDir": "./dist",
     "composite": true,
     "baseUrl": ".",
-    "typeRoots": ["../../typings", "../../node_modules/@types"]
+    "typeRoots": ["../../typings", "./.yarn/sdks/@types"]
   }
 }

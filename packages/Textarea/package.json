@@ -25,9 +25,9 @@
   },
   "dependencies": {
     "@igloo-ui/tokens": "^2.0.0",
-    "classnames": "^2.3.2",
+    "@react-aria/utils": "^3.15.0",
     "autosize": "^5.0.1",
-    "@react-aria/utils": "^3.15.0"
+    "classnames": "^2.3.2"
   },
   "browserslist": [
     "> 1%",

@@ -27,6 +27,9 @@
     "@igloo-ui/tokens": "^2.0.0",
     "classnames": "^2.3.2"
   },
+  "devDependencies": {
+    "@igloo-ui/icons": "*"
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",

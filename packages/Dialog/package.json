@@ -24,10 +24,10 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/tokens": "^2.0.0",
-    "classnames": "^2.3.2",
+    "@igloo-ui/button": "*",
     "@igloo-ui/modal": "*",
-    "@igloo-ui/button": "*"
+    "@igloo-ui/tokens": "^2.0.0",
+    "classnames": "^2.3.2"
   },
   "browserslist": [
     "> 1%",

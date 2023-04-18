@@ -22,9 +22,11 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/tokens": "^2.0.0",
-    "@igloo-ui/color": "*",
     "@igloo-ui/avatar": "*",
+    "@igloo-ui/color": "*",
+    "@igloo-ui/icons": "*",
+    "@igloo-ui/tokens": "^2.0.0",
+    "@storybook/react": "7.0.5",
     "classnames": "^2.3.2"
   }
 }

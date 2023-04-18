@@ -28,6 +28,10 @@
     "@igloo-ui/tokens": "^2.0.0",
     "classnames": "^2.3.2"
   },
+  "devDependencies": {
+    "@igloo-ui/button": "*",
+    "@igloo-ui/modal": "*"
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
