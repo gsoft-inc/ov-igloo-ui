@@ -1,5 +1,11 @@
 # @igloo-ui/popover
 
+## 0.3.1
+
+### Patch Changes
+
+- 6d3614a: Updated popover styling to match design.
+
 ## 0.3.0
 
 ### Minor Changes

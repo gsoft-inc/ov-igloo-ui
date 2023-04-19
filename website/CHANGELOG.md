@@ -1,5 +1,22 @@
 # docs
 
+## 0.1.3
+
+### Patch Changes
+
+- 6d3614a: Updated popover styling to match design.
+- Updated dependencies [6d3614a]
+- Updated dependencies [6d3614a]
+- Updated dependencies [6d3614a]
+- Updated dependencies [6d3614a]
+  - @igloo-ui/popover@0.3.1
+  - @igloo-ui/list@0.2.0
+  - @igloo-ui/select@1.1.0
+  - @igloo-ui/combobox@0.2.0
+  - @igloo-ui/dropdown@1.2.0
+  - @igloo-ui/datepicker@0.1.0
+  - @igloo-ui/action-menu@0.1.3
+
 ## 0.1.2
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # @igloo-ui/combobox
 
+## 0.2.0
+
+### Minor Changes
+
+- 6d3614a: The dropdown component will hide when the reference is out of view. This is applied to all components using Dropdown.
+
+### Patch Changes
+
+- Updated dependencies [6d3614a]
+- Updated dependencies [6d3614a]
+  - @igloo-ui/list@0.2.0
+  - @igloo-ui/dropdown@1.2.0
+
 ## 0.1.6
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # @igloo-ui/select
 
+## 1.1.0
+
+### Minor Changes
+
+- 6d3614a: Added the 'showListIcon' prop to the Select and the 'showIcon' prop to the List component.
+
+### Patch Changes
+
+- Updated dependencies [6d3614a]
+- Updated dependencies [6d3614a]
+  - @igloo-ui/list@0.2.0
+  - @igloo-ui/dropdown@1.2.0
+
 ## 1.0.6
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @igloo-ui/action-menu
 
+## 0.1.3
+
+### Patch Changes
+
+- Updated dependencies [6d3614a]
+- Updated dependencies [6d3614a]
+  - @igloo-ui/list@0.2.0
+  - @igloo-ui/dropdown@1.2.0
+
 ## 0.1.2
 
 ### Patch Changes
