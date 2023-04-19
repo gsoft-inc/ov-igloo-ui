@@ -1,11 +1,5 @@
 # @igloo-ui/list
 
-## 0.2.0
-
-### Minor Changes
-
-- e526c59: Added the 'showListIcon' prop to the Select and the 'showIcon' prop to the List component.
-
 ## 0.1.3
 
 ### Patch Changes

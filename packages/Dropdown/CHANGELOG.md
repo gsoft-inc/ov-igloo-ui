@@ -1,11 +1,5 @@
 # @igloo-ui/dropdown
 
-## 1.2.0
-
-### Minor Changes
-
-- 3c09b0d: The dropdown component will hide when the reference is out of view. This is applied to all components using Dropdown.
-
 ## 1.1.4
 
 ### Patch Changes
