@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/list",
-  "version": "0.2.0",
+  "version": "0.1.3",
   "main": "dist/List.js",
   "module": "dist/List.js",
   "types": "dist/List.d.ts",
