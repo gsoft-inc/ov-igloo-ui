@@ -46,6 +46,11 @@ const Template: ComponentStory<typeof Datepicker> = (args) => {
     }
   };
 
+  let minDate = undefined;
+  if (args.minDate) {
+    minDate = DateTime.fromMillis(Number(args.minDate)).toISO();
+  }
+
   return (
     <Datepicker
       disabled={args.disabled}
@@ -62,7 +67,7 @@ const Template: ComponentStory<typeof Datepicker> = (args) => {
       clearLabel={args.clearLabel}
       onClear={args.onClear}
       weekendUnavailable={args.weekendUnavailable}
-      minDate={args.minDate}
+      minDate={minDate}
     />
   );
 };
