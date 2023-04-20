@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -12,18 +12,26 @@ export default {
   title: 'Components/OptionButton',
   component: OptionButton,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
-} as ComponentMeta<typeof OptionButton>;
+} as Meta<typeof OptionButton>;
 
-const Template: ComponentStory<typeof OptionButton> = (args) => (
+const Template: StoryFn<typeof OptionButton> = (args) => (
   <OptionButton className="isb-option-button__item" {...args} />
 );
-export const Overview = Template.bind({});
-Overview.args = {
-  children: 'some text',
-  buttonType: 'multipleChoice',
-  htmlFor: 'optionButton1',
+
+export const Overview = {
+  render: Template,
+
+  args: {
+    children: 'some text',
+    buttonType: 'multipleChoice',
+    htmlFor: 'optionButton1',
+  },
 };
 
 export const ButtonType = () => (
@@ -63,40 +71,42 @@ export const ButtonType = () => (
   </Section>
 );
 
-export const States = () => (
-  <Section>
-    <OptionButton
-      className="isb-option-button__item"
-      htmlFor="focusBtn"
-      name="state"
-      buttonType="text"
-    >
-      Focus
-    </OptionButton>
-    <OptionButton
-      className="isb-option-button__item"
-      htmlFor="disabledBtn"
-      name="state"
-      buttonType="optionScale"
-      disabled
-    >
-      Disabled
-    </OptionButton>
-    <OptionButton
-      className="isb-option-button__item"
-      htmlFor="hoverBtn"
-      name="state"
-      buttonType="optionScale"
-    >
-      Hover
-    </OptionButton>
-  </Section>
-);
+export const States = {
+  render: () => (
+    <Section>
+      <OptionButton
+        className="isb-option-button__item"
+        htmlFor="focusBtn"
+        name="state"
+        buttonType="text"
+      >
+        Focus
+      </OptionButton>
+      <OptionButton
+        className="isb-option-button__item"
+        htmlFor="disabledBtn"
+        name="state"
+        buttonType="optionScale"
+        disabled
+      >
+        Disabled
+      </OptionButton>
+      <OptionButton
+        className="isb-option-button__item"
+        htmlFor="hoverBtn"
+        name="state"
+        buttonType="optionScale"
+      >
+        Hover
+      </OptionButton>
+    </Section>
+  ),
 
-States.parameters = {
-  pseudo: {
-    hover: ['#hoverBtn'],
-    focus: ['#focusBtn'],
+  parameters: {
+    pseudo: {
+      hover: ['#hoverBtn'],
+      focus: ['#focusBtn'],
+    },
   },
 };
 

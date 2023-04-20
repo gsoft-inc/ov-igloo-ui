@@ -27,9 +27,6 @@
     "@igloo-ui/tokens": "^2.0.0",
     "classnames": "^2.3.2"
   },
-  "devDependencies": {
-    "storybook-addon-state": "^1.0.3"
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions",

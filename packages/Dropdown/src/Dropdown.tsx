@@ -27,7 +27,8 @@ export type Position =
 export type Size = 'xsmall' | 'small' | 'medium' | 'large';
 export type Role = 'listbox' | 'menu';
 
-export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
+export interface DropdownProps
+  extends Omit<React.ComponentPropsWithRef<'div'>, 'content'> {
   /** The target button, text, svg etc.. of the Dropdown. */
   children?: React.ReactElement;
   /** Add a specific class to the dropdown. */

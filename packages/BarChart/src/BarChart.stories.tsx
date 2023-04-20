@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import tokens from '@igloo-ui/tokens/dist/base10/tokens.json';
 
 import readme from '../README.md';
@@ -11,10 +11,14 @@ export default {
   title: 'Components/BarChart',
   component: BarChart,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    },
     chromatic: { delay: 600 },
   },
-} as ComponentMeta<typeof BarChart>;
+} as Meta<typeof BarChart>;
 
 const mockData = [
   {
@@ -43,10 +47,8 @@ const mockData = [
   },
 ];
 
-const Template: ComponentStory<typeof BarChart> = (args) => (
-  <BarChart {...args} />
-);
-export const Overview = Template.bind({});
-Overview.args = {
-  dataSet: mockData,
+export const Overview = {
+  args: {
+    dataSet: mockData,
+  },
 };

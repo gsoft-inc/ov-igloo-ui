@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
@@ -15,7 +15,6 @@ export default {
   title: 'Components/Hyperlink',
   component: Hyperlink,
   parameters: {
-    description: readme,
     controls: {
       exclude: ['onClick'],
     },
@@ -23,6 +22,9 @@ export default {
       source: {
         type: 'auto',
       },
+      description: {
+        component: readme,
+      }
     },
   },
   argTypes: {
@@ -30,18 +32,18 @@ export default {
       action: 'dynamic',
     },
   },
-} as ComponentMeta<typeof Hyperlink>;
+} as Meta<typeof Hyperlink>;
 
-const Template: ComponentStory<typeof Hyperlink> = (args) => (
-  <Hyperlink {...args} />
-);
-
-export const Overview = Template.bind({});
-Overview.args = {
-  children: <a href="#">Read more</a>,
+export const Overview = {
+  args: {
+    children: <a href="#">Read more</a>,
+  },
 };
 
-export const Appearances: React.VFC = () => (
+
+type Story = StoryObj<typeof Hyperlink>;
+
+export const Appearances: React.FC = () => (
   <Section>
     <Hyperlink appearance="primary">
       <a href="#">Primary</a>
@@ -55,7 +57,7 @@ export const Appearances: React.VFC = () => (
   </Section>
 );
 
-export const Underline: React.VFC = () => (
+export const Underline: React.FC = () => (
   <Section>
     <Hyperlink underline appearance="primary">
       <a href="#">Primary</a>
@@ -69,7 +71,7 @@ export const Underline: React.VFC = () => (
   </Section>
 );
 
-export const Sizes: React.VFC = () => (
+export const Sizes: React.FC = () => (
   <Section>
     <Hyperlink size="medium">
       <a href="#">Medium</a>
@@ -83,7 +85,7 @@ export const Sizes: React.VFC = () => (
   </Section>
 );
 
-export const Icons: React.VFC = () => (
+export const Icons: React.FC = () => (
   <Section>
     <Hyperlink iconLeading={<Plus size="small" />}>
       <a href="#">Left icon</a>
@@ -95,17 +97,18 @@ export const Icons: React.VFC = () => (
   </Section>
 );
 
-export const FocusInteraction = Template.bind({});
-FocusInteraction.args = {
-  children: <a href="#">Read more</a>,
-};
+export const FocusInteraction: Story = {
+  args: {
+    children: <a href="#">Read more</a>,
+  },
 
-FocusInteraction.play = async ({ canvasElement }) => {
-  const body = canvasElement.ownerDocument.body;
-  const canvas = within(body);
-  const link = await canvas.findByText(/Read more/);
+  play: async ({ canvasElement }) => {
+    const body = canvasElement.ownerDocument.body;
+    const canvas = within(body);
+    const link = await canvas.findByText(/Read more/);
 
-  userEvent.tab();
+    userEvent.tab();
 
-  await expect(link).toHaveFocus();
+    await expect(link).toHaveFocus();
+  },
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@igloo-ui/button';
 
-import { ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import ChromaticWrapper from '@components/chromaticWrapper';
 
@@ -15,7 +15,11 @@ export default {
   component: Toast,
   subcomponents: { Toaster },
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   decorators: [
     (Story) => (
@@ -30,25 +34,31 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Toast>;
+} as Meta<typeof Toast>;
 
-export const Overview = () => {
-  const { toast, toastList } = useToaster();
-  return (
-    <>
-      <Button onClick={() => toast.success('Successfully toasted!')}>
-        Success
-      </Button>
-      <Button
-        appearance="secondary"
-        onClick={() => toast.error("This didn't work!")}
-      >
-        Error
-      </Button>
+export const Overview = {
+  render: () => {
+    const { toast, toastList } = useToaster();
+    return (
+      <>
+        <Button onClick={() => toast.success('Successfully toasted!')}>
+          Success
+        </Button>
+        <Button
+          appearance="secondary"
+          onClick={() => toast.error("This didn't work!")}
+        >
+          Error
+        </Button>
 
-      <Toaster toasts={toastList} />
-    </>
-  );
+        <Toaster toasts={toastList} />
+      </>
+    );
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };
 
 export const SuccessToast = () => {
@@ -84,10 +94,4 @@ export const ErrorToast = () => {
       )}
     </>
   );
-};
-
-// Chromatic configuration
-Overview.bind({});
-Overview.parameters = {
-  chromatic: { disableSnapshot: true },
 };

@@ -4,7 +4,7 @@ import Textarea from '@igloo-ui/textarea';
 import Select from '@igloo-ui/select';
 import type { OptionType } from '@igloo-ui/list';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import Section from '@components/section';
 
 import readme from '../README.md';
@@ -14,22 +14,29 @@ export default {
   title: 'Components/FormGroup',
   component: FormGroup,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
-} as ComponentMeta<typeof FormGroup>;
+} as Meta<typeof FormGroup>;
 
-const Template: ComponentStory<typeof FormGroup> = (args) => (
+const Template: StoryFn<typeof FormGroup> = (args) => (
   <FormGroup {...args}>
     <Input type="text" placeholder="John" error={args.showMessage} />
   </FormGroup>
 );
 
-export const Overview = Template.bind({});
-Overview.args = {
-  label: 'First name',
-  message: 'This field is required',
-  showMessage: true,
-  messageType: 'error',
+export const Overview = {
+  render: Template,
+
+  args: {
+    label: 'First name',
+    message: 'This field is required',
+    showMessage: true,
+    messageType: 'error',
+  },
 };
 
 export const Label = () => (

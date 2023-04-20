@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@igloo-ui/button';
 import Modal from '@igloo-ui/modal';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import readme from '../README.md';
 
@@ -11,7 +11,11 @@ export default {
   title: 'Components/Dropdown',
   component: Dropdown,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   argTypes: {
     children: {
@@ -40,7 +44,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Dropdown>;
+} as Meta<typeof Dropdown>;
 
 const List = ({ items }: { items: string[] }) => {
   const listItem = items.map((item, key) => (
@@ -51,7 +55,7 @@ const List = ({ items }: { items: string[] }) => {
   return <ul className="isb-list">{listItem}</ul>;
 };
 
-const Template: ComponentStory<typeof Dropdown> = (args) => {
+const Template: StoryFn<typeof Dropdown> = (args) => {
   const [show, setShow] = React.useState(args.isOpen);
   return (
     <Dropdown
@@ -75,9 +79,12 @@ const Template: ComponentStory<typeof Dropdown> = (args) => {
   );
 };
 
-export const Overview = Template.bind({});
-Overview.args = {
-  isOpen: false,
+export const Overview = {
+  render: Template,
+
+  args: {
+    isOpen: false,
+  },
 };
 
 export const DropdownInAModal = () => {

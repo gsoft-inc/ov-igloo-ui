@@ -1,7 +1,7 @@
 import React from 'react';
 import { DateTime } from 'luxon';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import Hyperlink from '@igloo-ui/hyperlink';
 
 import ChromaticWrapper from '@components/chromaticWrapper';
@@ -14,7 +14,11 @@ export default {
   title: 'Components/Popover',
   component: Popover,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    },
     chromatic: { diffThreshold: 0.792 },
   },
   argTypes: {
@@ -40,7 +44,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Popover>;
+} as Meta<typeof Popover>;
 
 const dt = DateTime.now();
 
@@ -64,23 +68,27 @@ const overviewContent = (
   </div>
 );
 
-const Template: ComponentStory<typeof Popover> = (args) => (
+const Template: StoryFn<typeof Popover> = (args) => (
   <ChromaticWrapper>
     <Popover {...args}>{args.children}</Popover>
   </ChromaticWrapper>
 );
-export const Overview = Template.bind({});
-Overview.args = {
-  children: <div className="isb-trigger" />,
-  content: 'Popover copy',
-  title: 'Date',
-  action: (
-    <Hyperlink>
-      <a href="#">Tell me more</a>
-    </Hyperlink>
-  ),
-  active: true,
-  isClosable: true,
+
+export const Overview = {
+  render: Template,
+
+  args: {
+    children: <div className="isb-trigger" />,
+    content: 'Popover copy',
+    title: 'Date',
+    action: (
+      <Hyperlink>
+        <a href="#">Tell me more</a>
+      </Hyperlink>
+    ),
+    active: true,
+    isClosable: true,
+  },
 };
 
 export const QuantitativeContent = () => (
@@ -101,17 +109,20 @@ export const QuantitativeContent = () => (
   </ChromaticWrapper>
 );
 
-export const HoverEvent = Template.bind({});
-HoverEvent.args = {
-  children: <div className="isb-trigger" />,
-  content: 'Popover copy',
-  title: 'Date',
-  action: (
-    <Hyperlink>
-      <a href="#">Tell me more</a>
-    </Hyperlink>
-  ),
-  active: true,
-  isClosable: true,
-  triggerEvent: 'hover',
+export const HoverEvent = {
+  render: Template,
+
+  args: {
+    children: <div className="isb-trigger" />,
+    content: 'Popover copy',
+    title: 'Date',
+    action: (
+      <Hyperlink>
+        <a href="#">Tell me more</a>
+      </Hyperlink>
+    ),
+    active: true,
+    isClosable: true,
+    triggerEvent: 'hover',
+  },
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import isChromatic from 'chromatic/isChromatic';
 
-import { ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import Tooltip, { TooltipProps } from './Tooltip';
 import Button from '@igloo-ui/button';
@@ -17,7 +17,11 @@ export default {
   title: 'Components/Tooltip',
   component: Tooltip,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    },
     chromatic: { disableSnapshot: true },
   },
   args: {
@@ -52,33 +56,41 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Tooltip>;
+} as Meta<typeof Tooltip>;
 
-export const Overview = (args: TooltipProps) => (
-  <Tooltip content={tooltipContent} {...args} />
-);
+export const Overview = {
+  render: (args: TooltipProps) => (
+    <Tooltip content={tooltipContent} {...args} />
+  ),
+};
 
-export const Appearances = () => (
-  <ChromaticWrapper>
-    <Section>
-      <Tooltip
-        active={isChromatic()}
-        content={tooltipContent}
-        appearance="dark"
-      >
-        Dark
-      </Tooltip>
-      <Tooltip
-        active={isChromatic()}
-        position={isChromatic() ? 'bottom' : 'auto'}
-        content={tooltipContent}
-        appearance="light"
-      >
-        Light
-      </Tooltip>
-    </Section>
-  </ChromaticWrapper>
-);
+export const Appearances = {
+  render: () => (
+    <ChromaticWrapper>
+      <Section>
+        <Tooltip
+          active={isChromatic()}
+          content={tooltipContent}
+          appearance="dark"
+        >
+          Dark
+        </Tooltip>
+        <Tooltip
+          active={isChromatic()}
+          position={isChromatic() ? 'bottom' : 'auto'}
+          content={tooltipContent}
+          appearance="light"
+        >
+          Light
+        </Tooltip>
+      </Section>
+    </ChromaticWrapper>
+  ),
+
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
+};
 
 export const Position = () => (
   <Section>
@@ -120,10 +132,4 @@ export const TooltipInAModal = () => {
       </Modal>
     </Section>
   );
-};
-
-// Chromatic configuration
-Appearances.bind({});
-Appearances.parameters = {
-  chromatic: { disableSnapshot: false },
 };

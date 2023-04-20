@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import readme from '../README.md';
 
@@ -13,19 +13,21 @@ export default {
   title: 'Components/Ellipsis',
   component: Ellipsis,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   decorators: [
     (Story) => <span style={{ fontSize: '1.6rem' }}>{Story()}</span>,
   ],
-} as ComponentMeta<typeof Ellipsis>;
+} as Meta<typeof Ellipsis>;
 
-const Template: ComponentStory<typeof Ellipsis> = (args) => (
-  <Ellipsis {...args} />
-);
-export const Overview = Template.bind({});
-Overview.args = {
-  children: ellipsisContent,
+export const Overview = {
+  args: {
+    children: ellipsisContent,
+  },
 };
 
 export const WithTitle = () => (

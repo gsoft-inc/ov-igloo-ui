@@ -42,7 +42,7 @@ exports[`Datapicker It should render a snapshot 1`] = `
     <div
       aria-label="March 2023"
       class="ids-datepicker"
-      id="react-aria-generated-id"
+      id="react-aria-generated-id-0"
       role="group"
     >
       <div
@@ -107,7 +107,7 @@ exports[`Datapicker It should render a snapshot 1`] = `
       <table
         aria-label="March 2023"
         class="ids-datepicker__table"
-        id="react-aria-generated-id"
+        id="react-aria-generated-id-1"
         role="grid"
       >
         <thead

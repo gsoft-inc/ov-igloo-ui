@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import useState from 'storybook-addon-state';
+import { Meta, StoryFn } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -12,35 +12,48 @@ export default {
   title: 'Components/Radio',
   component: Radio,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   argTypes: {
     disabled: { table: { defaultValue: { summary: false } } },
     checked: { table: { defaultValue: { summary: false } } },
     small: { table: { defaultValue: { summary: false } } },
   },
-} as ComponentMeta<typeof Radio>;
+} as Meta<typeof Radio>;
 
-const Template: ComponentStory<typeof Radio> = (args) => {
-  const [active, setActive] = useState('default', false);
+const Template: StoryFn<typeof Radio> = (args) => {
+  const [_, updateArgs] = useArgs();
+
+  const handleRadioChange = () => {
+    updateArgs({checked: !args.checked});
+  };
+  
   return (
-    <Radio {...args} onChange={() => setActive(!active)} checked={active} />
+    <Radio {...args} onChange={() => handleRadioChange()} checked={args.checked} />
   );
 };
 
-export const Overview = Template.bind({});
-Overview.args = {
-  htmlFor: 'ids-radio',
-  children: 'Label',
+export const Overview = {
+  render: Template,
+
+  args: {
+    htmlFor: 'ids-radio',
+    children: 'Label',
+    checked: false
+  },
 };
 
-export const Checked: React.VFC<unknown> = () => (
+export const Checked: React.FC<unknown> = () => (
   <Radio htmlFor="ids-radio-active" checked onChange={() => {}}>
     Label
   </Radio>
 );
 
-export const Disabled: React.VFC<unknown> = () => (
+export const Disabled: React.FC<unknown> = () => (
   <Section>
     <Radio htmlFor="ids-radio-disabled" disabled>
       Disabled
@@ -51,20 +64,20 @@ export const Disabled: React.VFC<unknown> = () => (
   </Section>
 );
 
-export const Small: React.VFC<unknown> = () => (
+export const Small: React.FC<unknown> = () => (
   <Radio htmlFor="ids-radio-small" small>
     Small
   </Radio>
 );
 
-export const WithHelperText: React.VFC<unknown> = () => (
+export const WithHelperText: React.FC<unknown> = () => (
   <Radio htmlFor="ids-radio-description" helperText="Helper text">
     Label
   </Radio>
 );
 
-export const Group: React.VFC<unknown> = () => {
-  const [selected, setSelected] = useState('default', '');
+export const Group: React.FC<unknown> = () => {
+  const [selected, setSelected] = React.useState("");
   return (
     <Section>
       <Radio

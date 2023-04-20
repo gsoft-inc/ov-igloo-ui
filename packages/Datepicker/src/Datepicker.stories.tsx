@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { DateTime } from 'luxon';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
@@ -13,7 +13,11 @@ export default {
   title: 'Components/Datepicker',
   component: Datepicker,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   decorators: [
     (Story) => (
@@ -26,9 +30,9 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Datepicker>;
+} as Meta<typeof Datepicker>;
 
-const Template: ComponentStory<typeof Datepicker> = (args) => {
+const Template: StoryFn<typeof Datepicker> = (args) => {
   const [showDatepicker, setShowDatepicker] = useState(args.isOpen);
   const [date, setDate] = useState(args.selectedDay);
 
@@ -67,72 +71,96 @@ const Template: ComponentStory<typeof Datepicker> = (args) => {
   );
 };
 
-export const Overview = Template.bind({});
-
 const local = DateTime.local().plus({ days: 2 });
 const apiDate = local.setZone('utc');
 
-Overview.args = {
-  selectedDay: apiDate.toString(),
-  disabled: false,
-  dataTest: 'ids-datepicker',
-  error: false,
-};
-Overview.parameters = {
-  chromatic: { disableSnapshot: true },
+type Story = StoryObj<typeof Datepicker>;
+
+export const Overview: Story = {
+  render: Template,
+
+  args: {
+    selectedDay: apiDate.toString(),
+    disabled: false,
+    dataTest: 'ids-datepicker',
+    error: false,
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
+export const Disabled: Story = {
+  render: Template,
+
+  args: {
+    disabled: true,
+  },
 };
 
-export const Error = Template.bind({});
-Error.args = {
-  error: true,
+export const Error = {
+  render: Template,
+
+  args: {
+    error: true,
+  },
 };
 
-export const Clearable = Template.bind({});
-Clearable.args = {
-  isClearable: true,
-  clearLabel: 'Clear',
+export const Clearable: Story = {
+  render: Template,
+
+  args: {
+    isClearable: true,
+    clearLabel: 'Clear',
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };
 
-Clearable.parameters = {
-  chromatic: { disableSnapshot: true },
+export const MinValue: Story = {
+  render: Template,
+
+  args: {
+    minDate: apiDate.toString(),
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };
 
-export const MinValue = Template.bind({});
-MinValue.args = {
-  minDate: apiDate.toString(),
-};
+export const UnavailableWeekend: Story = {
+  render: Template,
 
-MinValue.parameters = {
-  chromatic: { disableSnapshot: true },
-};
+  args: {
+    weekendUnavailable: true,
+  },
 
-export const UnavailableWeekend = Template.bind({});
-UnavailableWeekend.args = {
-  weekendUnavailable: true,
-};
-
-UnavailableWeekend.parameters = {
-  chromatic: { disableSnapshot: true },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };
 
 const DATE = DateTime.fromISO('2022-11-14');
 
-export const Interaction = Template.bind({});
-Interaction.args = {
-  selectedDay: DATE.toString(),
-  dataTest: 'ids-date-picker-interaction',
-};
-Interaction.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
+export const Interaction: Story = {
+  render: Template,
 
-  await userEvent.click(canvas.getByPlaceholderText(/Select date/));
+  args: {
+    selectedDay: DATE.toString(),
+    dataTest: 'ids-date-picker-interaction',
+  },
 
-  await expect(
-    canvas.getByDisplayValue(DATE.toLocaleString())
-  ).toBeInTheDocument();
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByPlaceholderText(/Select date/));
+
+    await expect(
+      canvas.getByDisplayValue(DATE.toLocaleString())
+    ).toBeInTheDocument();
+  },
 };

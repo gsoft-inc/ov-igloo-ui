@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import Plus from '@igloo-ui/icons/dist/Plus';
 
@@ -14,7 +14,11 @@ export default {
   title: 'Components/Button',
   component: Button,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   argTypes: {
     children: { description: 'The content to display inside the button' },
@@ -136,14 +140,18 @@ export default {
       options: ['button', 'a'],
     },
   },
-} as ComponentMeta<typeof Button>;
+} as Meta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Overview = Template.bind({});
-Overview.args = {
-  children: 'Button',
+type Story = StoryObj<typeof Button>;
+
+export const Overview: Story = {
+  args: {
+    children: 'Button',
+  },
 };
+
+Overview.name = 'test';
 
 export const Appearances = () => (
   <Section>
@@ -161,32 +169,34 @@ export const Appearances = () => (
   </Section>
 );
 
-export const Loading = () => (
-  <Section>
-    <Button loading>Loading</Button>
-    <Button loading appearance="secondary">
-      Loading
-    </Button>
-    <Button loading appearance="premium">
-      Premium
-    </Button>
-    <Button loading appearance="danger">
-      Danger
-    </Button>
-    <Button loading appearance="ghost">
-      Ghost
-    </Button>
-    <Button loading appearance={{ type: 'ghost', variant: 'secondary' }}>
-      Ghost Secondary
-    </Button>
-    <Button loading appearance={{ type: 'ghost', variant: 'danger' }}>
-      Ghost Danger
-    </Button>
-  </Section>
-);
+export const Loading = {
+  render: () => (
+    <Section>
+      <Button loading>Loading</Button>
+      <Button loading appearance="secondary">
+        Loading
+      </Button>
+      <Button loading appearance="premium">
+        Premium
+      </Button>
+      <Button loading appearance="danger">
+        Danger
+      </Button>
+      <Button loading appearance="ghost">
+        Ghost
+      </Button>
+      <Button loading appearance={{ type: 'ghost', variant: 'secondary' }}>
+        Ghost Secondary
+      </Button>
+      <Button loading appearance={{ type: 'ghost', variant: 'danger' }}>
+        Ghost Danger
+      </Button>
+    </Section>
+  ),
 
-Loading.parameters = {
-  chromatic: { disableSnapshot: true },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };
 
 export const Sizes = () => (

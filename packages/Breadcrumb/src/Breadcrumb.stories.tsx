@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 
@@ -13,28 +13,30 @@ export default {
   title: 'Components/Breadcrumb',
   component: Breadcrumb,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
-} as ComponentMeta<typeof Breadcrumb>;
+} as Meta<typeof Breadcrumb>;
 
-const Template: ComponentStory<typeof Breadcrumb> = (args) => (
-  <Breadcrumb {...args} />
-);
-export const Overview = Template.bind({});
-Overview.args = {
-  items: [
-    {
-      label: 'Home',
-      link: '#',
-    },
-    {
-      label: 'Careers',
-      link: '#',
-    },
-    {
-      label: 'Developer',
-    },
-  ],
+export const Overview = {
+  args: {
+    items: [
+      {
+        label: 'Home',
+        link: '#',
+      },
+      {
+        label: 'Careers',
+        link: '#',
+      },
+      {
+        label: 'Developer',
+      },
+    ],
+  },
 };
 
 export const Back = () => (

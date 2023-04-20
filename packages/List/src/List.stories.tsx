@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Reminder from '@igloo-ui/icons/dist/Reminder';
 
@@ -14,9 +14,13 @@ export default {
   title: 'Components/List',
   component: List,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
-} as ComponentMeta<typeof List>;
+} as Meta<typeof List>;
 
 const textOnlyList: Option[] = [
   {
@@ -255,7 +259,7 @@ const membersList: Member[] = [
   },
 ];
 
-const Template: ComponentStory<typeof List> = (args) => {
+const Template: StoryFn<typeof List> = (args) => {
   const [selectedOption, setSelectedOption] = React.useState<OptionType | null>(
     textOnlyList[3]
   );
@@ -280,23 +284,30 @@ const Template: ComponentStory<typeof List> = (args) => {
     />
   );
 };
-export const Overview = Template.bind({});
 
-Overview.args = {
-  options: textOnlyList,
+export const Overview = {
+  render: Template,
+
+  args: {
+    options: textOnlyList,
+  },
 };
 
-export const Members = Template.bind({});
+export const Members = {
+  render: Template,
 
-Members.args = {
-  options: membersList,
+  args: {
+    options: membersList,
+  },
 };
 
-export const NotCompact = Template.bind({});
+export const NotCompact = {
+  render: Template,
 
-NotCompact.args = {
-  options: textIconHelperTextList,
-  isCompact: false,
+  args: {
+    options: textIconHelperTextList,
+    isCompact: false,
+  },
 };
 
 export const Multiselect = () => {

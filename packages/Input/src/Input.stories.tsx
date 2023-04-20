@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import Search from '@igloo-ui/icons/dist/Search';
 import Percentage from '@igloo-ui/icons/dist/Percentage';
 
@@ -13,16 +13,20 @@ export default {
   title: 'Components/Input',
   component: Input,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
-} as ComponentMeta<typeof Input>;
+} as Meta<typeof Input>;
 
 const inputPlacehoder = 'ex: Lorem ipsum dolor';
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
-export const Overview = Template.bind({});
-Overview.args = {
-  placeholder: inputPlacehoder,
+export const Overview = {
+  args: {
+    placeholder: inputPlacehoder,
+  },
 };
 
 export const Types = () => (
@@ -39,6 +43,7 @@ export const Sizes = () => (
     <Input isCompact placeholder="Compact" />
   </Section>
 );
+
 export const States = () => (
   <Section column>
     <Input disabled placeholder="Disabled" />
@@ -46,6 +51,7 @@ export const States = () => (
     <Input error placeholder="Error" />
   </Section>
 );
+
 export const WithPrefix = () => (
   <Section column>
     <Input prefixIcon={<Search />} placeholder="Default" />
@@ -56,6 +62,7 @@ export const WithPrefix = () => (
     />
   </Section>
 );
+
 export const WithSuffix = () => (
   <Section column>
     <Input

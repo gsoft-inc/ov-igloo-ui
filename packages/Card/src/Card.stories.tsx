@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -11,7 +11,11 @@ export default {
   title: 'Components/Card',
   component: Card,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   args: {
     size: 'large',
@@ -21,13 +25,12 @@ export default {
       options: ['xsmall', 'small', 'medium', 'large'],
     },
   },
-} as ComponentMeta<typeof Card>;
+} as Meta<typeof Card>;
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
-
-export const Overview = Template.bind({});
-Overview.args = {
-  children: 'Overview card',
+export const Overview = {
+  args: {
+    children: 'Overview card',
+  },
 };
 
 export const Sizes = () => (

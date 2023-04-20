@@ -1,6 +1,6 @@
 # ActionMenu
 
-This component is used to display a menu which will contain a list of menu options. The menu is dismissible if you click outside the dropdown.
+This component is used to display a menu that will contain a list of menu options. The menu is dismissible if you click outside the dropdown.
 
 <Example is="custom" />
 <ReferenceLinks is="custom" />
