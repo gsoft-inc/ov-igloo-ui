@@ -13,16 +13,42 @@ jest.mock('@igloo-ui/dropdown', () => ({
   default: jest.fn(MockDropdown),
 }));
 
-jest.mock('@react-aria/ssr/dist/main', () => ({
-  ...jest.requireActual('@react-aria/ssr/dist/main'),
-  useSSRSafeId: () => 'react-aria-generated-id',
-}));
+/** 
+  * This function searches for the every react-aria SSR ids in a given HTMLElement node and replaces every attribute value with a static id 
+  * 
+  * This can be useful when you're trying to generate a snapshot of components using react-aria under the hood 
+  */ 
+function replaceReactAriaIds(container: HTMLElement) { 
+  const selectors = ['id', 'for', 'aria-labelledby']; 
+  const ariaSelector = (el: string) => `[${el}^="react-aria"]`; 
+  const regexp = /react-aria\d+-\d+/g; 
+  const staticId = 'react-aria-generated-id'; 
+ 
+  /** 
+   * keep a map of the replaceIds to keep the matching between input "id" and label "for" attributes 
+   */ 
+  const attributesMap: Record<string, string> = {}; 
+ 
+  container.querySelectorAll(selectors.map(ariaSelector).join(', ')).forEach((el, index) => { 
+    selectors.forEach((selector) => { 
+      const attr = el.getAttribute(selector); 
+ 
+      if (attr?.match(regexp)) { 
+        const newAttr = `${staticId}-${index}`; 
+ 
+        el.setAttribute(selector, attributesMap[attr] || newAttr); 
+ 
+        attributesMap[attr] = newAttr; 
+      } 
+    }); 
+  }); 
+} 
 
 function replaceAriaLabels(container: HTMLElement) {
   const selector = 'aria-label';
   const staticLabel = 'date-label';
 
-  container.querySelectorAll(`tbody [${selector}]`).forEach((el, index) => {
+  container.querySelectorAll(`tbody [${selector}]`).forEach((el) => {
     const newAttr = `${staticLabel}`;
 
     el.setAttribute(selector, newAttr);
@@ -49,6 +75,7 @@ describe('Datapicker', () => {
       highlightToday: false,
     });
     replaceAriaLabels(container);
+    replaceReactAriaIds(container);
     expect(container).toMatchSnapshot();
   });
 
