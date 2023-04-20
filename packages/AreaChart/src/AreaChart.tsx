@@ -16,7 +16,7 @@ import {
 } from 'recharts';
 import { CurveType } from 'recharts/types/shape/Curve';
 
-import * as variables from '@igloo-ui/tokens/dist/base10/tokens.json';
+import variables from '@igloo-ui/tokens/dist/base10/tokens.json';
 
 import ChartTooltip from './ChartTooltip';
 import './area-chart.scss';

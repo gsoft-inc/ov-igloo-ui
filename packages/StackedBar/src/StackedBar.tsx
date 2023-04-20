@@ -12,7 +12,7 @@ import {
 } from 'recharts';
 // eslint-disable-next-line max-len
 import { CategoricalChartProps } from 'recharts/types/chart/generateCategoricalChart';
-import * as variables from '@igloo-ui/tokens/dist/base10/tokens.json';
+import variables from '@igloo-ui/tokens/dist/base10/tokens.json';
 
 import Tooltip from '@igloo-ui/tooltip';
 

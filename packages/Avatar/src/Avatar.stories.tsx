@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -11,7 +11,11 @@ export default {
   title: 'Components/Avatar',
   component: Avatar,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   args: {
     size: 'medium',
@@ -21,14 +25,14 @@ export default {
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
     },
   },
-} as ComponentMeta<typeof Avatar>;
+} as Meta<typeof Avatar>;
 
 const imageSrc = 'https://i.pravatar.cc/100';
 
-const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
-export const Overview = Template.bind({});
-Overview.args = {
-  src: imageSrc,
+export const Overview = {
+  args: {
+    src: imageSrc,
+  },
 };
 
 export const Sizes = () => (

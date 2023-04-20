@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -11,31 +11,34 @@ export default {
   title: 'Components/Alert',
   component: Alert,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   argTypes: {
     message: {
       control: 'text',
     },
   },
-} as ComponentMeta<typeof Alert>;
+} as Meta<typeof Alert>;
 
 const mockContent = {
   title: 'Title of the alert',
   message: 'Alert message goes here',
 };
 
-const Template: ComponentStory<typeof Alert> = (args) => <Alert {...args} />;
-
-export const Overview = Template.bind({});
-Overview.args = {
-  title: mockContent.title,
-  message: mockContent.message,
-  button: { label: 'Button', onClick: () => {} },
-  type: 'info',
-  onClose: () => {},
-  appearance: 'card',
-  closable: true,
+export const Overview = {
+  args: {
+    title: mockContent.title,
+    message: mockContent.message,
+    button: { label: 'Button', onClick: () => {} },
+    type: 'info',
+    onClose: () => {},
+    appearance: 'card',
+    closable: true,
+  },
 };
 
 export const Types = () => (

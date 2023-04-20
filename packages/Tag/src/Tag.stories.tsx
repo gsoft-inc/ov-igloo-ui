@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -12,7 +12,11 @@ export default {
   title: 'Components/Tag',
   component: Tag,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   argTypes: {
     size: {
@@ -20,15 +24,15 @@ export default {
     },
     icon: { control: { type: null } },
   },
-} as ComponentMeta<typeof Tag>;
+} as Meta<typeof Tag>;
 
-const Template: ComponentStory<typeof Tag> = (args) => <Tag {...args} />;
-export const Overview = Template.bind({});
-Overview.args = {
-  children: 'Tag content',
-  dismissible: true,
-  color: '#FCD35A',
-  appearance: 'secondary',
+export const Overview = {
+  args: {
+    children: 'Tag content',
+    dismissible: true,
+    color: '#FCD35A',
+    appearance: 'secondary',
+  },
 };
 
 export const Appearances = () => (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
@@ -17,7 +17,11 @@ export default {
   title: 'Components/Combobox',
   component: Combobox,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   decorators: [
     (Story) => (
@@ -30,7 +34,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Combobox>;
+} as Meta<typeof Combobox>;
 
 const comboboxPlaceholder = 'ex: Lorem ipsum dolor';
 
@@ -86,38 +90,46 @@ const largeOptionList: ComboboxOption[] = [
   },
 ];
 
-const Template: ComponentStory<typeof Combobox> = (args) => (
-  <Combobox {...args} />
-);
-export const Overview = Template.bind({});
-Overview.args = {
-  children: comboboxPlaceholder,
-  options: smallOptionList,
+
+type Story = StoryObj<typeof Combobox>;
+
+export const Overview: Story = {
+  args: {
+    children: comboboxPlaceholder,
+    options: smallOptionList,
+  },
+
+  play: async ({ canvasElement }) => {
+    const body = canvasElement.ownerDocument.body;
+    const canvas = within(body);
+
+    await userEvent.click(canvas.getByRole('button'));
+    const firstOption = await canvas.findByText('Text option');
+
+    await expect(firstOption).toBeInTheDocument();
+  },
 };
-Overview.play = async ({ canvasElement }) => {
-  const body = canvasElement.ownerDocument.body;
-  const canvas = within(body);
 
-  await userEvent.click(canvas.getByRole('button'));
-  const firstOption = await canvas.findByText('Text option');
+export const Sizes: Story = {
+  render: () => (
+    <Section column>
+      <Combobox options={smallOptionList} onChange={handleOnChange}>
+        Default
+      </Combobox>
+      <Combobox
+        options={smallOptionList}
+        onChange={handleOnChange}
+        isCompact={true}
+      >
+        Compact
+      </Combobox>
+    </Section>
+  ),
 
-  await expect(firstOption).toBeInTheDocument();
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };
-
-export const Sizes = () => (
-  <Section column>
-    <Combobox options={smallOptionList} onChange={handleOnChange}>
-      Default
-    </Combobox>
-    <Combobox
-      options={smallOptionList}
-      onChange={handleOnChange}
-      isCompact={true}
-    >
-      Compact
-    </Combobox>
-  </Section>
-);
 
 export const States = () => (
   <Section column>
@@ -141,128 +153,130 @@ export const States = () => (
   </Section>
 );
 
-export const Search = () => (
-  <Section column>
-    <Combobox options={largeOptionList} onChange={handleOnChange} search={true}>
-      Place holder text
-    </Combobox>
-  </Section>
-);
-
-export const Clear = () => (
-  <Section column>
-    <Combobox
-      options={largeOptionList}
-      onChange={handleOnChange}
-      search={true}
-      clear
-      clearTooltipText="Remove Mapping"
-    >
-      Place holder text
-    </Combobox>
-  </Section>
-);
-
-export const AutoWidth = () => (
-  <Section column>
-    <Combobox options={largeOptionList} onChange={handleOnChange} autoWidth>
-      Place holder text
-    </Combobox>
-  </Section>
-);
-
-export const Multiple = () => {
-  const [selectedResults, setSelectedResults] = React.useState<OptionType[]>(
-    []
-  );
-
-  const removeItem = (optionValue: string): void => {
-    const filteredResults = selectedResults.filter(
-      (s) => s.value !== optionValue
-    );
-    setSelectedResults([...filteredResults]);
-  };
-
-  const handleOptionChange = (option: OptionType | undefined) => {
-    if (option) {
-      const selectedItem = selectedResults.filter((o) => {
-        return o.value === option.value;
-      });
-      const isChecked = !!selectedItem && selectedItem.length > 0;
-      if (isChecked) {
-        removeItem(option.value.toString());
-      } else {
-        setSelectedResults([...selectedResults, option]);
-      }
-    }
-  };
-
-  const handleTagRemove = (tagId: string): void => {
-    removeItem(tagId);
-  };
-
-  const handleClear = (): void => {
-    setSelectedResults([]);
-  };
-
-  return (
+export const Search: Story = {
+  render: () => (
     <Section column>
-      <div className="isb-combobox__tag-list">
-        {selectedResults.map((item: OptionType) => {
-          return (
-            <Tag
-              key={item.value}
-              id={item.value.toString()}
-              src={item.src}
-              color={item.color}
-              icon={item.icon}
-              dismissible={item.type === 'list' ? !item.disabled : true}
-              appearance="secondary"
-              onRemove={handleTagRemove}
-              className="isb-combobox__tag"
-            >
-              {item.type === 'list' ? item.label : item.member}
-            </Tag>
-          );
-        })}
-      </div>
       <Combobox
         options={largeOptionList}
-        multiple
-        search
-        onChange={handleOptionChange}
-        selectedOption={selectedResults}
-        clear
-        onClear={handleClear}
+        onChange={handleOnChange}
+        search={true}
       >
         Place holder text
       </Combobox>
     </Section>
-  );
+  ),
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };
 
-// Chromatic configuration
-Sizes.bind({});
-Sizes.parameters = {
-  chromatic: { disableSnapshot: true },
+export const Clear: Story = {
+  render: () => (
+    <Section column>
+      <Combobox
+        options={largeOptionList}
+        onChange={handleOnChange}
+        search={true}
+        clear
+        clearTooltipText="Remove Mapping"
+      >
+        Place holder text
+      </Combobox>
+    </Section>
+  ),
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };
 
-Search.bind({});
-Search.parameters = {
-  chromatic: { disableSnapshot: true },
+export const AutoWidth: Story = {
+  render: () => (
+    <Section column>
+      <Combobox options={largeOptionList} onChange={handleOnChange} autoWidth>
+        Place holder text
+      </Combobox>
+    </Section>
+  ),
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };
 
-Clear.bind({});
-Clear.parameters = {
-  chromatic: { disableSnapshot: true },
-};
+export const Multiple: Story = {
+  render: () => {
+    const [selectedResults, setSelectedResults] = React.useState<OptionType[]>(
+      []
+    );
 
-AutoWidth.bind({});
-AutoWidth.parameters = {
-  chromatic: { disableSnapshot: true },
-};
+    const removeItem = (optionValue: string): void => {
+      const filteredResults = selectedResults.filter(
+        (s) => s.value !== optionValue
+      );
+      setSelectedResults([...filteredResults]);
+    };
 
-Multiple.bind({});
-Multiple.parameters = {
-  chromatic: { disableSnapshot: true },
+    const handleOptionChange = (option: OptionType | undefined) => {
+      if (option) {
+        const selectedItem = selectedResults.filter((o) => {
+          return o.value === option.value;
+        });
+        const isChecked = !!selectedItem && selectedItem.length > 0;
+        if (isChecked) {
+          removeItem(option.value.toString());
+        } else {
+          setSelectedResults([...selectedResults, option]);
+        }
+      }
+    };
+
+    const handleTagRemove = (tagId: string): void => {
+      removeItem(tagId);
+    };
+
+    const handleClear = (): void => {
+      setSelectedResults([]);
+    };
+
+    return (
+      <Section column>
+        <div className="isb-combobox__tag-list">
+          {selectedResults.map((item: OptionType) => {
+            return (
+              <Tag
+                key={item.value}
+                id={item.value.toString()}
+                src={item.src}
+                color={item.color}
+                icon={item.icon}
+                dismissible={item.type === 'list' ? !item.disabled : true}
+                appearance="secondary"
+                onRemove={handleTagRemove}
+                className="isb-combobox__tag"
+              >
+                {item.type === 'list' ? item.label : item.member}
+              </Tag>
+            );
+          })}
+        </div>
+        <Combobox
+          options={largeOptionList}
+          multiple
+          search
+          onChange={handleOptionChange}
+          selectedOption={selectedResults}
+          clear
+          onClear={handleClear}
+        >
+          Place holder text
+        </Combobox>
+      </Section>
+    );
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };

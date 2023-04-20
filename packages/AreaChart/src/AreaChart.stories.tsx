@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -11,7 +11,11 @@ export default {
   title: 'Components/AreaChart',
   component: AreaChart,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    },
     chromatic: { delay: 1000 },
   },
   argTypes: {
@@ -20,7 +24,7 @@ export default {
       options: ['fr', 'en'],
     },
   },
-} as ComponentMeta<typeof AreaChart>;
+} as Meta<typeof AreaChart>;
 
 const nFormatter = (num: number): string => {
   const lookup = [
@@ -90,143 +94,141 @@ const weekDataset = [
   },
 ];
 
-const Template: ComponentStory<typeof AreaChart> = (args) => (
-  <AreaChart {...args} />
-);
-export const Overview = Template.bind({});
-Overview.args = {
-  dataSet: [
-    {
-      dateTimeStamp: '2022-10-01',
-      score: 48878,
-      name: 'sent',
-      secondaryName: 'sent',
+export const Overview = {
+  args: {
+    dataSet: [
+      {
+        dateTimeStamp: '2022-10-01',
+        score: 48878,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-04',
+        score: 49879,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-05',
+        score: 33587,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-06',
+        score: 0,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-07',
+        score: 0,
+        secondaryScore: 60000,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-08',
+        score: 0,
+        secondaryScore: 52677,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-09',
+        score: 67897,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-10',
+        score: 46777,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-11',
+        score: 40000,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-12',
+        score: 57900,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-14',
+        score: 57930,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-16',
+        score: 57089,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-18',
+        score: 30955,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-20',
+        score: 0,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-23',
+        score: 0,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-24',
+        score: 28050,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-26',
+        score: 24667,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-27',
+        score: 68588,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-28',
+        score: 40066,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+      {
+        dateTimeStamp: '2022-10-30',
+        score: 20000,
+        name: 'sent',
+        secondaryName: 'sent',
+      },
+    ],
+    dateRange: {
+      start: '2022-10-01',
+      end: '2022-10-30',
     },
-    {
-      dateTimeStamp: '2022-10-04',
-      score: 49879,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-05',
-      score: 33587,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-06',
-      score: 0,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-07',
-      score: 0,
-      secondaryScore: 60000,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-08',
-      score: 0,
-      secondaryScore: 52677,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-09',
-      score: 67897,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-10',
-      score: 46777,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-11',
-      score: 40000,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-12',
-      score: 57900,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-14',
-      score: 57930,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-16',
-      score: 57089,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-18',
-      score: 30955,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-20',
-      score: 0,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-23',
-      score: 0,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-24',
-      score: 28050,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-26',
-      score: 24667,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-27',
-      score: 68588,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-28',
-      score: 40066,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-    {
-      dateTimeStamp: '2022-10-30',
-      score: 20000,
-      name: 'sent',
-      secondaryName: 'sent',
-    },
-  ],
-  dateRange: {
-    start: '2022-10-01',
-    end: '2022-10-30',
+    scoreFormatter: nFormatter,
+    range: { min: 'auto', max: 'auto' },
+    locale: 'en',
+    loading: false,
   },
-  scoreFormatter: nFormatter,
-  range: { min: 'auto', max: 'auto' },
-  locale: 'en',
-  loading: false,
 };
 
 export const OneWeek = () => {

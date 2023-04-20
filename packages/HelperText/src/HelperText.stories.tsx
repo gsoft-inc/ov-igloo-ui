@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import readme from '../README.md';
 
@@ -10,17 +10,18 @@ export default {
   title: 'Components/HelperText',
   component: HelperText,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
-} as ComponentMeta<typeof HelperText>;
+} as Meta<typeof HelperText>;
 
-const Template: ComponentStory<typeof HelperText> = (args) => (
-  <HelperText {...args} />
-);
-
-export const Overview = Template.bind({});
-Overview.args = {
-  children: 'Information',
+export const Overview = {
+  args: {
+    children: 'Information',
+  },
 };
 
 export const Error = () => <HelperText error>Error</HelperText>;

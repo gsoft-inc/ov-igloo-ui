@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
-import * as variables from '@igloo-ui/tokens/dist/base10/tokens.json';
+import variables from '@igloo-ui/tokens/dist/base10/tokens.json';
 import Section from '@components/section';
 import readme from '../README.md';
 
@@ -12,20 +12,24 @@ export default {
   title: 'Components/Color',
   component: Color,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   argTypes: {
     children: {
       control: { type: 'text' },
     },
   },
-} as ComponentMeta<typeof Color>;
+} as Meta<typeof Color>;
 
-const Template: ComponentStory<typeof Color> = (args) => <Color {...args} />;
-export const Overview = Template.bind({});
-Overview.args = {
-  color: variables.sky100,
-  size: 'large',
+export const Overview = {
+  args: {
+    color: variables.sky100,
+    size: 'large',
+  },
 };
 
 export const Sizes = () => (

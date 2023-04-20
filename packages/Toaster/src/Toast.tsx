@@ -10,7 +10,7 @@ import ToasterContainer, { TOAST_CONTAINER_ID } from './ToasterContainer';
 const TOAST_DURATION = 4000 as const;
 const TOAST_INFINITE_TIME = 'infinite' as const;
 
-export interface ToastProps extends React.ComponentProps<'div'> {
+export interface ToastProps extends React.ComponentProps<'output'> {
   /** The content to display inside the Toast. */
   message: string;
   /** Display the error Toast. */

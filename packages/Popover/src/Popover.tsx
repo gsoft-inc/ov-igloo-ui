@@ -28,7 +28,8 @@ import { Props } from '@floating-ui/react/src/hooks/useHover';
 export type Position = 'top' | 'right' | 'bottom' | 'left' | 'auto';
 export type TriggerEvent = 'click' | 'hover';
 
-export interface PopoverProps extends React.ComponentProps<'div'> {
+export interface PopoverProps
+  extends Omit<React.ComponentProps<'div'>, 'content'> {
   /** The target button, text, svg etc.. of the Popover. */
   children: React.ReactNode;
   /** Add a specific class to the Popover */
