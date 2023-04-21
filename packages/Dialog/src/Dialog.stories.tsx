@@ -1,7 +1,7 @@
 import React from 'react';
 import isChromatic from 'chromatic/isChromatic';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Button from '@igloo-ui/button';
 import ChromaticWrapper from '@components/chromaticWrapper';
@@ -14,12 +14,16 @@ export default {
   title: 'Components/Dialog',
   component: Dialog,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    },
     chromatic: { pauseAnimationAtEnd: true },
   },
-} as ComponentMeta<typeof Dialog>;
+} as Meta<typeof Dialog>;
 
-const Template: ComponentStory<typeof Dialog> = (args) => {
+const Template: StoryFn<typeof Dialog> = (args) => {
   const [open, setOpen] = React.useState(args.isOpen);
 
   const handleOpen = () => {
@@ -39,13 +43,17 @@ const Template: ComponentStory<typeof Dialog> = (args) => {
     </ChromaticWrapper>
   );
 };
-export const Overview = Template.bind({});
-Overview.args = {
-  subTitle: 'This is a sub title',
-  title: 'Dialog title',
-  dismissText: 'Cancel',
-  validateText: 'Confirm',
-  isOpen: isChromatic(),
+
+export const Overview = {
+  render: Template,
+
+  args: {
+    subTitle: 'This is a sub title',
+    title: 'Dialog title',
+    dismissText: 'Cancel',
+    validateText: 'Confirm',
+    isOpen: isChromatic(),
+  },
 };
 
 export const LongText = () => {

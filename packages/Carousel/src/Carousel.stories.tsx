@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Button from '@igloo-ui/button';
 
@@ -12,14 +12,18 @@ export default {
   title: 'Components/Carousel',
   component: Carousel,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   args: {
     currentSlide: 0,
   },
-} as ComponentMeta<typeof Carousel>;
+} as Meta<typeof Carousel>;
 
-const Template: ComponentStory<typeof Carousel> = (args) => {
+const Template: StoryFn<typeof Carousel> = (args) => {
   const SLIDE_NUM = 3;
   const [selected, setSelected] = React.useState(0);
 
@@ -61,9 +65,11 @@ const Template: ComponentStory<typeof Carousel> = (args) => {
     </Carousel>
   );
 };
-export const Overview = Template.bind({});
 
-Overview.args = {};
+export const Overview = {
+  render: Template,
+  args: {},
+};
 
 export const NoActions = () => {
   const [selected, setSelected] = React.useState(0);

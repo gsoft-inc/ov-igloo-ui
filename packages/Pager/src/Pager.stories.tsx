@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { useArgs } from '@storybook/client-api';
+import { Meta, StoryFn } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -12,11 +12,15 @@ export default {
   title: 'Components/Pager',
   component: Pager,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
-} as ComponentMeta<typeof Pager>;
+} as Meta<typeof Pager>;
 
-const Template: ComponentStory<typeof Pager> = (args) => {
+const Template: StoryFn<typeof Pager> = (args) => {
   const [_, updateArgs] = useArgs();
   return (
     <Pager
@@ -25,11 +29,15 @@ const Template: ComponentStory<typeof Pager> = (args) => {
     />
   );
 };
-export const Overview = Template.bind({});
-Overview.args = {
-  pageSize: 10,
-  totalCount: 200,
-  currentPage: 1,
+
+export const Overview = {
+  render: Template,
+
+  args: {
+    pageSize: 10,
+    totalCount: 200,
+    currentPage: 1,
+  },
 };
 
 export const ManyPages = () => {

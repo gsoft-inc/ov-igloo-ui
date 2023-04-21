@@ -9,7 +9,7 @@ import AddSolid from '@igloo-ui/icons/dist/AddSolid';
 import Delete from '@igloo-ui/icons/dist/Delete';
 import Copy from '@igloo-ui/icons/dist/Copy';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import ChromaticWrapper from '@components/chromaticWrapper';
 import Section from '@components/section';
@@ -55,14 +55,18 @@ export default {
   title: 'Components/ActionMenu',
   component: ActionMenu,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   argTypes: {
     closeOnSelect: {
       control: { type: 'boolean' },
     },
   },
-} as ComponentMeta<typeof ActionMenu>;
+} as Meta<typeof ActionMenu>;
 
 const kebab = (props: any) => {
   return (
@@ -75,7 +79,7 @@ const kebab = (props: any) => {
   );
 };
 
-const Template: ComponentStory<typeof ActionMenu> = (args) => (
+const Template: StoryFn<typeof ActionMenu> = (args) => (
   <ChromaticWrapper>
     <ActionMenu
       {...args}
@@ -83,12 +87,16 @@ const Template: ComponentStory<typeof ActionMenu> = (args) => (
     />
   </ChromaticWrapper>
 );
-export const Overview = Template.bind({});
-Overview.args = {
-  options: actionMenuList,
-  renderReference: kebab,
-  isOpen: isChromatic(),
-  position: 'bottom-end',
+
+export const Overview = {
+  render: Template,
+
+  args: {
+    options: actionMenuList,
+    renderReference: kebab,
+    isOpen: isChromatic(),
+    position: 'bottom-end',
+  },
 };
 
 export const Positioning = () => {

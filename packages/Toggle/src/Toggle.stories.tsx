@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -11,23 +11,27 @@ export default {
   title: 'Components/Toggle',
   component: Toggle,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
-} as ComponentMeta<typeof Toggle>;
+} as Meta<typeof Toggle>;
 
-const Template: ComponentStory<typeof Toggle> = (args) => <Toggle {...args} />;
-
-export const Overview = Template.bind({});
-Overview.args = {
-  htmlFor: 'toggle-1',
-  children: 'Label',
+export const Overview = {
+  args: {
+    htmlFor: 'toggle-1',
+    children: 'Label',
+  },
 };
 
-export const Checked = Template.bind({});
-Checked.args = {
-  htmlFor: 'toggle-2',
-  checked: true,
-  children: 'Toggle Checked',
+export const Checked = {
+  args: {
+    htmlFor: 'toggle-2',
+    checked: true,
+    children: 'Toggle Checked',
+  },
 };
 
 export const Disabled = () => (
@@ -37,9 +41,10 @@ export const Disabled = () => (
   </Section>
 );
 
-export const WithHelperText = Template.bind({});
-WithHelperText.args = {
-  htmlFor: 'toggle-5',
-  children: 'Label',
-  helperText: 'This is a helper text',
+export const WithHelperText = {
+  args: {
+    htmlFor: 'toggle-5',
+    children: 'Label',
+    helperText: 'This is a helper text',
+  },
 };

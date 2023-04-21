@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -11,20 +11,22 @@ export default {
   title: 'Components/Checkbox',
   component: Checkbox,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   argTypes: {
     children: { control: { type: 'text' } },
   },
-} as ComponentMeta<typeof Checkbox>;
+} as Meta<typeof Checkbox>;
 
-const Template: ComponentStory<typeof Checkbox> = (args) => (
-  <Checkbox {...args} />
-);
-export const Overview = Template.bind({});
-Overview.args = {
-  htmlFor: 'ids-checkbox',
-  children: 'Label',
+export const Overview = {
+  args: {
+    htmlFor: 'ids-checkbox',
+    children: 'Label',
+  },
 };
 
 export const Checked: React.VFC<unknown> = () => (

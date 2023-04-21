@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import useState from 'storybook-addon-state';
+import { Meta, StoryFn } from '@storybook/react';
 
 import UnorderedList from '@igloo-ui/icons/dist/UnorderedList';
 import Tree from '@igloo-ui/icons/dist/Tree';
@@ -16,11 +15,15 @@ export default {
   component: ButtonGroup,
   subcomponents: { ButtonItem },
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
-} as ComponentMeta<typeof ButtonGroup>;
+} as Meta<typeof ButtonGroup>;
 
-const Template: ComponentStory<any> = (args) => {
+const Template: StoryFn<any> = (args) => {
   const { items } = args;
 
   return (
@@ -33,29 +36,33 @@ const Template: ComponentStory<any> = (args) => {
     </ButtonGroup>
   );
 };
-export const Overview = Template.bind({});
-Overview.args = {
-  items: [
-    {
-      children: 'Button 1',
-      active: false,
-      disabled: false,
-    },
-    {
-      children: 'Button 2',
-      active: false,
-      disabled: false,
-    },
-    {
-      children: 'Button 3',
-      active: false,
-      disabled: false,
-    },
-  ],
+
+export const Overview = {
+  render: Template,
+
+  args: {
+    items: [
+      {
+        children: 'Button 1',
+        active: false,
+        disabled: false,
+      },
+      {
+        children: 'Button 2',
+        active: false,
+        disabled: false,
+      },
+      {
+        children: 'Button 3',
+        active: false,
+        disabled: false,
+      },
+    ],
+  },
 };
 
 export const Compact = () => {
-  const [selected, setSelected] = useState('default', '0');
+  const [selected, setSelected] = React.useState('0');
 
   return (
     <Section>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import IconButton from './IconButton';
 
@@ -14,7 +14,11 @@ export default {
   title: 'Components/IconButton',
   component: IconButton,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    },
     controls: {
       exclude: [
         'iconTrailing',
@@ -56,15 +60,12 @@ export default {
     },
     icon: { control: { type: null } },
   },
-} as ComponentMeta<typeof IconButton>;
+} as Meta<typeof IconButton>;
 
-const Template: ComponentStory<typeof IconButton> = (args) => (
-  <IconButton {...args} />
-);
-
-export const Overview = Template.bind({});
-Overview.args = {
-  icon: <Plus />,
+export const Overview = {
+  args: {
+    icon: <Plus />,
+  },
 };
 
 export const Appearances = () => (

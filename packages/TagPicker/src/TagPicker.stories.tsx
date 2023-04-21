@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import readme from '../README.md';
 
@@ -12,7 +12,11 @@ export default {
   title: 'Components/TagPicker',
   component: TagPicker,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   decorators: [
     (Story) => (
@@ -25,9 +29,9 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof TagPicker>;
+} as Meta<typeof TagPicker>;
 
-const Template: ComponentStory<typeof TagPicker> = (args) => {
+const Template: StoryFn<typeof TagPicker> = (args) => {
   const [selected, setSelected] = React.useState<TagItem[]>([]);
 
   const select = (tagText: string): void => {
@@ -53,18 +57,25 @@ const Template: ComponentStory<typeof TagPicker> = (args) => {
     />
   );
 };
-export const Overview = Template.bind({});
-Overview.args = {
-  separators: [Keys.Enter, Keys.Comma, Keys.Space],
-  placeholder: 'Enter anything then press enter, comma or space',
+
+export const Overview = {
+  render: Template,
+
+  args: {
+    separators: [Keys.Enter, Keys.Comma, Keys.Space],
+    placeholder: 'Enter anything then press enter, comma or space',
+  },
 };
 
-export const DefaultSeparators = Template.bind({});
-DefaultSeparators.args = {
-  placeholder: 'Enter anything then press enter.',
+export const DefaultSeparators = {
+  render: Template,
+
+  args: {
+    placeholder: 'Enter anything then press enter.',
+  },
 };
 
-const SearchTemplate: ComponentStory<typeof TagPicker> = (args) => {
+const SearchTemplate: StoryFn<typeof TagPicker> = (args) => {
   const [selected, setSelected] = React.useState<TagItem[]>([]);
   const [results, setResults] = React.useState<TagItem[]>([]);
 
@@ -104,16 +115,22 @@ const SearchTemplate: ComponentStory<typeof TagPicker> = (args) => {
   );
 };
 
-export const WithSearching = SearchTemplate.bind({});
-WithSearching.args = {
-  placeholder: 'Enter Team or Bob',
+export const WithSearching = {
+  render: SearchTemplate,
+
+  args: {
+    placeholder: 'Enter Team or Bob',
+  },
 };
 
-export const MaxHeight = SearchTemplate.bind({});
-MaxHeight.args = {
-  placeholder: 'Enter multiple tags to see how the max height works.',
-  maxHeight: '16rem',
-  className: 'isb-tag-picker--small-width',
+export const MaxHeight = {
+  render: SearchTemplate,
+
+  args: {
+    placeholder: 'Enter multiple tags to see how the max height works.',
+    maxHeight: '16rem',
+    className: 'isb-tag-picker--small-width',
+  },
 };
 
 export const MaxTags = () => {

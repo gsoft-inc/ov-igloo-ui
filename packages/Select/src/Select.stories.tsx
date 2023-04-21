@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
@@ -18,7 +18,11 @@ export default {
   title: 'Components/Select',
   component: Select,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
   decorators: [
     (Story) => (
@@ -31,7 +35,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Select>;
+} as Meta<typeof Select>;
 
 const selectPlaceholder = 'ex: Lorem ipsum dolor';
 
@@ -103,36 +107,45 @@ const listWithIcons: SelectOptiontype[] = [
   },
 ];
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
-export const Overview = Template.bind({});
-Overview.args = {
-  children: selectPlaceholder,
-  options: smallOptionList,
+type Story = StoryObj<typeof Select>;
+
+export const Overview: Story = {
+  args: {
+    children: selectPlaceholder,
+    options: smallOptionList,
+  },
+
+  play: async ({ canvasElement }) => {
+    const body = canvasElement.ownerDocument.body;
+    const canvas = within(body);
+
+    await userEvent.click(canvas.getByRole('button'));
+    const firstOption = await canvas.findByText('Text option');
+
+    await expect(firstOption).toBeInTheDocument();
+  },
 };
-Overview.play = async ({ canvasElement }) => {
-  const body = canvasElement.ownerDocument.body;
-  const canvas = within(body);
 
-  await userEvent.click(canvas.getByRole('button'));
-  const firstOption = await canvas.findByText('Text option');
+export const Sizes: Story = {
+  render: () => (
+    <Section column>
+      <Select options={smallOptionList} onChange={handleOnChange}>
+        Default
+      </Select>
+      <Select
+        options={smallOptionList}
+        onChange={handleOnChange}
+        isCompact={true}
+      >
+        Compact
+      </Select>
+    </Section>
+  ),
 
-  await expect(firstOption).toBeInTheDocument();
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };
-
-export const Sizes = () => (
-  <Section column>
-    <Select options={smallOptionList} onChange={handleOnChange}>
-      Default
-    </Select>
-    <Select
-      options={smallOptionList}
-      onChange={handleOnChange}
-      isCompact={true}
-    >
-      Compact
-    </Select>
-  </Section>
-);
 
 export const States = () => (
   <Section column>
@@ -152,47 +165,44 @@ export const States = () => (
   </Section>
 );
 
-export const LargeOptionNumber = () => (
-  <Section>
-    <Select options={largeOptionList} onChange={handleOnChange}>
-      Place holder text
-    </Select>
-  </Section>
-);
+export const LargeOptionNumber: Story = {
+  render: () => (
+    <Section>
+      <Select options={largeOptionList} onChange={handleOnChange}>
+        Place holder text
+      </Select>
+    </Section>
+  ),
 
-export const AutoWidth = () => (
-  <Section>
-    <Select options={largeOptionList} onChange={handleOnChange} autoWidth>
-      Place holder text
-    </Select>
-  </Section>
-);
-
-export const HideListIcon = () => (
-  <Section>
-    <Select options={listWithIcons} showListIcon={false}>
-      Place holder text
-    </Select>
-  </Section>
-);
-
-// Chromatic configuration
-Sizes.bind({});
-Sizes.parameters = {
-  chromatic: { disableSnapshot: true },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };
 
-LargeOptionNumber.bind({});
-LargeOptionNumber.parameters = {
-  chromatic: { disableSnapshot: true },
+export const AutoWidth: Story = {
+  render: () => (
+    <Section>
+      <Select options={largeOptionList} onChange={handleOnChange} autoWidth>
+        Place holder text
+      </Select>
+    </Section>
+  ),
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };
 
-AutoWidth.bind({});
-AutoWidth.parameters = {
-  chromatic: { disableSnapshot: true },
-};
+export const HideListIcon: Story = {
+  render: () => (
+    <Section>
+      <Select options={listWithIcons} showListIcon={false}>
+        Place holder text
+      </Select>
+    </Section>
+  ),
 
-HideListIcon.bind({});
-HideListIcon.parameters = {
-  chromatic: { disableSnapshot: true },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -11,11 +11,15 @@ export default {
   title: 'Components/Textarea',
   component: Textarea,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
-} as ComponentMeta<typeof Textarea>;
+} as Meta<typeof Textarea>;
 
-const Template: ComponentStory<typeof Textarea> = (args) => {
+const Template: StoryFn<typeof Textarea> = (args) => {
   const [value, setValue] = React.useState(args.value ?? '');
   return (
     <Textarea
@@ -30,9 +34,13 @@ const Template: ComponentStory<typeof Textarea> = (args) => {
     />
   );
 };
-export const Overview = Template.bind({});
-Overview.args = {
-  placeholder: 'Enter text here',
+
+export const Overview = {
+  render: Template,
+
+  args: {
+    placeholder: 'Enter text here',
+  },
 };
 
 export const Autofocus = () => {

@@ -44,7 +44,8 @@
     position: relative;
   }
 
-  &__close {
+  /* Needs to be more specific to ensure it overrides .ids-btn */
+  & &__close {
     position: absolute;
     top: tokens.$space-3;
     right: tokens.$space-3;

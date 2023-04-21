@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -12,11 +12,15 @@ export default {
   title: 'Components/Tabs',
   component: Tabs,
   parameters: {
-    description: readme,
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
   },
-} as ComponentMeta<typeof Tabs>;
+} as Meta<typeof Tabs>;
 
-const Template: ComponentStory<typeof Tabs> = (args) => {
+const Template: StoryFn<typeof Tabs> = (args) => {
   const [selected, setSelected] = React.useState(0);
   return (
     <Tabs
@@ -26,23 +30,26 @@ const Template: ComponentStory<typeof Tabs> = (args) => {
     />
   );
 };
-export const Overview = Template.bind({});
 
-Overview.args = {
-  tabs: [
-    {
-      label: 'Tab 1',
-      children: 'Tab 1 Content',
-    },
-    {
-      label: 'Tab 2',
-      children: 'Tab 2 Content',
-    },
-    {
-      label: 'Tab 3',
-      children: 'Tab 3 Content',
-    },
-  ],
+export const Overview = {
+  render: Template,
+
+  args: {
+    tabs: [
+      {
+        label: 'Tab 1',
+        children: 'Tab 1 Content',
+      },
+      {
+        label: 'Tab 2',
+        children: 'Tab 2 Content',
+      },
+      {
+        label: 'Tab 3',
+        children: 'Tab 3 Content',
+      },
+    ],
+  },
 };
 
 export const Appearance = () => {

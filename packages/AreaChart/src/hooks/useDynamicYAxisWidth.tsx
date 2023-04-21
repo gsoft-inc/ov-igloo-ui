@@ -22,7 +22,8 @@ const useDynamicYAxisWidth = (props: undefined | Props): ReturnValues => {
   const [yAxisWidthState, setYAxisWidthState] = React.useState(DEFAULT_WIDTH);
 
   const setChartRef = React.useCallback(
-    (chartRef) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (chartRef: any) => {
       if (chartRef != null && chartRef.container != null) {
         const tickValueElements = chartRef.container.querySelectorAll(
           loading
