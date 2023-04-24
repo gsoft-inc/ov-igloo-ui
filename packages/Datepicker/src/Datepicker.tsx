@@ -56,12 +56,15 @@ export interface DatepickerProps {
   weekendUnavailable?: boolean;
   /** The minimum allowed date that a user may select */
   minDate?: string;
+  /** The maximum allowed date that a user may select */
+  maxDate?: string;
 }
 
 const Datepicker: React.FunctionComponent<DatepickerProps> = ({
   selectedDay,
   value,
   minDate,
+  maxDate,
   placeholder,
   ariaLabel,
   disabled = false,
@@ -80,7 +83,6 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
 }: DatepickerProps) => {
   const [locale, setLocale] = React.useState<null | string>(null);
 
-  // the calendar receives an utc date and formats it locally
   const formatDate = (date: string | undefined) => {
     if (date) {
       return parseAbsoluteToLocal(date);
@@ -155,6 +157,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
         isDateUnavailable={isDateUnavailable}
         getLocale={getLocale}
         minValue={formatDate(minDate)}
+        maxValue={formatDate(maxDate)}
       />
       {isClearable && clearLabel && (
         <Button
