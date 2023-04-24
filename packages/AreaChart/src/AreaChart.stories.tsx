@@ -247,6 +247,10 @@ export const OneWeek = () => {
 };
 
 export const ScoreMinMaxRange = () => {
+  const [loading, setLoading] = React.useState(true);
+  setTimeout(() => {
+    setLoading(false);
+  }, 5000);
   return (
     <Section column>
       <AreaChart
@@ -257,6 +261,7 @@ export const ScoreMinMaxRange = () => {
           end: '2022-10-07',
         }}
         dataSet={weekDataset}
+        loading={loading}
       />
     </Section>
   );
@@ -326,7 +331,7 @@ export const EmptyData = () => {
           start: '2022-10-01',
           end: '2022-10-07',
         }}
-        range={{ min: 0, max: 5 }}
+        range={{ min: 0, max: 6 }}
         dataSet={[]}
         unavailableDataMessage="This is an empty chart"
       />

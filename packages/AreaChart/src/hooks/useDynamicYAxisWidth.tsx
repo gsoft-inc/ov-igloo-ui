@@ -3,7 +3,7 @@ import * as React from 'react';
 // eslint-disable-next-line max-len
 const AXIS_TICK_VALUE_SELECTOR = `.recharts-cartesian-axis-tick-value[orientation="left"],
 .recharts-cartesian-axis-tick-value[orientation="right"]`;
-const AXIS_TICK_VALUE_ANIMATION_SELECTOR = `.recharts-cartesian-axis-tick-value[orientation="left"], .ids-area-chart-skeleton-animation`;
+const AXIS_TICK_VALUE_ANIMATION_SELECTOR = `.ids-area-chart-skeleton-animation.recharts-yAxis`;
 const DEFAULT_WIDTH = 60;
 
 type Props = {
@@ -47,7 +47,7 @@ const useDynamicYAxisWidth = (props: undefined | Props): ReturnValues => {
         setYAxisWidthState(highestWidth);
       }
     },
-    [setYAxisWidthState]
+    [setYAxisWidthState, loading]
   );
 
   const yAxisWidth = React.useMemo(() => {

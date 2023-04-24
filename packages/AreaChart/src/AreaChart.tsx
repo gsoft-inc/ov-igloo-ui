@@ -268,9 +268,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
         { length: range.max + 1 },
         (_, i) => i + (range.min as number)
       );
-    }
-
-    if (range && range.min === 'auto' && range.max === 'auto') {
+    } else {
       ticks = [1, 2, 3, 4, 5];
     }
 
