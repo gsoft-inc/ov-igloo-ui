@@ -171,7 +171,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
 
   const [areaChartData, setAreaChartData] = React.useState<AreaChartData[]>();
 
-  const formatSpecialMonth = (date: DateTime) => {
+  const formatSpecialMonth = (date: DateTime): string => {
     if (date.locale !== 'en') {
       return date.toLocaleString({
         month: 'short',
@@ -278,6 +278,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
   const { yAxisWidth, setChartRef } = useDynamicYAxisWidth({
     yAxisWidthModifier: (x) => x + 20,
     loading,
+    areaChartData,
   });
 
   const cartesianGridConfig = {
