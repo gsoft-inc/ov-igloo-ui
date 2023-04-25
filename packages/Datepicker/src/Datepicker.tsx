@@ -1,6 +1,8 @@
 import * as React from 'react';
 import cx from 'classnames';
 
+import { useLocale } from 'react-aria';
+
 import Dropdown from '@igloo-ui/dropdown';
 import Input from '@igloo-ui/input';
 import Button from '@igloo-ui/button';
@@ -83,7 +85,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
   weekendUnavailable = false,
   ...rest
 }: DatepickerProps) => {
-  const [locale, setLocale] = React.useState<null | string>(null);
+  const { locale } = useLocale();
 
   const formatDate = (date: string | undefined) => {
     if (date) {
@@ -139,10 +141,6 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     return false;
   };
 
-  const getLocale = (locale: string) => {
-    setLocale(locale);
-  };
-
   const classes = cx('ids-datepicker', {
     'ids-datepicker--disabled': disabled,
   });
@@ -157,7 +155,6 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
         isDisabled={disabled}
         highlightToday={highlightToday}
         isDateUnavailable={isDateUnavailable}
-        getLocale={getLocale}
         minValue={formatDate(minDate)}
         maxValue={formatDate(maxDate)}
       />

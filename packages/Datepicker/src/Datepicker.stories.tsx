@@ -56,14 +56,18 @@ const Template: StoryFn<typeof Datepicker> = (args) => {
     if (date !== args.selectedDay) {
       setDate(formattedStorybookDate(args.selectedDay));
     }
-    if (
-      rangeDate.minDate !== args.minDate ||
-      rangeDate.maxDate !== args.maxDate
-    ) {
+
+    if (rangeDate.maxDate !== args.maxDate) {
+      setRangeDate({
+        ...rangeDate,
+        maxDate: formattedStorybookDate(args.maxDate),
+      });
+    }
+
+    if (rangeDate.minDate !== args.minDate) {
       setRangeDate({
         ...rangeDate,
         minDate: formattedStorybookDate(args.minDate),
-        maxDate: formattedStorybookDate(args.maxDate),
       });
     }
   }, [args]);
