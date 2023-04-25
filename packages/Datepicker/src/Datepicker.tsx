@@ -22,7 +22,9 @@ import './datepicker.scss';
 type Date = { utc: string; local: string };
 
 export interface DatepickerProps {
-  /** Selected value for the date picker. */
+  /** Selected value for the date picker.
+   * These props represent the local date of the user
+   * */
   selectedDay?: string;
   /** Specifies the value inside the input. */
   value?: string;
