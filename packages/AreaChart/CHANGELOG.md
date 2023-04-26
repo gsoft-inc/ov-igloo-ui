@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 0.5.2
+
+### Patch Changes
+
+- 56c75d0: Fixed the y-axis width calculation hook to work properly when usign the loading prop.
+
 ## 0.5.1
 
 ### Patch Changes

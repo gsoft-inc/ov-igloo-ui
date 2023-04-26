@@ -1,5 +1,11 @@
 # @igloo-ui/datepicker
 
+## 0.1.0
+
+### Minor Changes
+
+- 6be3b59: Add `maxDate` props: The maximum allowed date that a user may select
+
 ## 0.0.8
 
 ### Patch Changes
