@@ -16,57 +16,81 @@ export default {
     docs: {
       description: {
         component: readme,
-      }
-    }
+      },
+    },
   },
-  decorators: [
-    (Story) => (
-      <div
-        style={{
-          minHeight: '35rem',
-        }}
-      >
-        {Story()}
-      </div>
-    ),
-  ],
 } as Meta<typeof Datepicker>;
 
+type Story = StoryObj<typeof Datepicker>;
+type Date = string | undefined;
+
+const formattedStorybookDate = (date: Date) => {
+  if (!date) {
+    return undefined;
+  }
+  return DateTime.fromMillis(Number(date)).toISO();
+};
+
+const formattedDate = (date: Date) => {
+  if (!date) {
+    return '';
+  }
+  return DateTime.fromISO(date).toLocaleString();
+};
+
 const Template: StoryFn<typeof Datepicker> = (args) => {
-  const [showDatepicker, setShowDatepicker] = useState(args.isOpen);
-  const [date, setDate] = useState(args.selectedDay);
+  const initialDate = args.selectedDay ? args.selectedDay : '';
+  const initialRangeDate = {
+    minDate: args.minDate ? args.minDate : '',
+    maxDate: args.maxDate ? args.maxDate : '',
+  };
+
+  const [showDatepicker, setShowDatepicker] = useState(false);
+  const [date, setDate] = useState<string | undefined>(initialDate);
+  const [rangeDate, setRangeDate] = useState<{
+    minDate: string | undefined;
+    maxDate: string | undefined;
+  }>(initialRangeDate);
+
+  React.useEffect(() => {
+    if (date !== args.selectedDay) {
+      setDate(formattedStorybookDate(args.selectedDay));
+    }
+
+    if (rangeDate.maxDate !== args.maxDate) {
+      setRangeDate({
+        ...rangeDate,
+        maxDate: formattedStorybookDate(args.maxDate),
+      });
+    }
+
+    if (rangeDate.minDate !== args.minDate) {
+      setRangeDate({
+        ...rangeDate,
+        minDate: formattedStorybookDate(args.minDate),
+      });
+    }
+  }, [args]);
 
   React.useEffect(() => {
     setShowDatepicker(false);
   }, [date]);
 
-  const formattedDate = date ? DateTime.fromISO(date).toLocaleString() : '';
-
   const handleChange = (date: { utc: string } | null) => {
-    if (!date) {
-      setDate('');
-    } else {
-      setDate(date.utc);
-    }
+    date ? setDate(date.utc) : setDate('');
   };
 
   return (
     <Datepicker
-      disabled={args.disabled}
-      ariaLabel="goal start date"
-      placeholder="Select date"
-      selectedDay={date}
-      value={formattedDate}
+      {...args}
       isOpen={showDatepicker}
+      selectedDay={date}
+      value={formattedDate(date)}
+      minDate={rangeDate.minDate}
+      maxDate={rangeDate.maxDate}
+      onFocus={() => setShowDatepicker(true)}
       onClose={() => setShowDatepicker(false)}
       onChange={handleChange}
-      onFocus={() => setShowDatepicker(!showDatepicker)}
-      error={args.error}
-      isClearable={args.isClearable}
-      clearLabel={args.clearLabel}
-      onClear={args.onClear}
-      weekendUnavailable={args.weekendUnavailable}
-      minDate={args.minDate}
     />
   );
 };
@@ -74,16 +98,23 @@ const Template: StoryFn<typeof Datepicker> = (args) => {
 const local = DateTime.local().plus({ days: 2 });
 const apiDate = local.setZone('utc');
 
-type Story = StoryObj<typeof Datepicker>;
-
 export const Overview: Story = {
   render: Template,
 
   args: {
+    ...Template.args,
     selectedDay: apiDate.toString(),
-    disabled: false,
     dataTest: 'ids-datepicker',
-    error: false,
+    placeholder: 'Select date',
+    ariaLabel: 'goal start date',
+  },
+
+  argTypes: {
+    selectedDay: {
+      control: {
+        type: 'date',
+      },
+    },
   },
 
   parameters: {
@@ -95,6 +126,7 @@ export const Disabled: Story = {
   render: Template,
 
   args: {
+    placeholder: 'Select date',
     disabled: true,
   },
 };
@@ -111,6 +143,7 @@ export const Clearable: Story = {
   render: Template,
 
   args: {
+    ...Overview.args,
     isClearable: true,
     clearLabel: 'Clear',
   },
@@ -124,7 +157,21 @@ export const MinValue: Story = {
   render: Template,
 
   args: {
+    ...Overview.args,
     minDate: apiDate.toString(),
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+};
+
+export const MaxValue: Story = {
+  render: Template,
+
+  args: {
+    ...Overview.args,
+    maxDate: apiDate.toString(),
   },
 
   parameters: {
@@ -136,6 +183,7 @@ export const UnavailableWeekend: Story = {
   render: Template,
 
   args: {
+    ...Overview.args,
     weekendUnavailable: true,
   },
 
@@ -150,6 +198,7 @@ export const Interaction: Story = {
   render: Template,
 
   args: {
+    ...Overview.args,
     selectedDay: DATE.toString(),
     dataTest: 'ids-date-picker-interaction',
   },

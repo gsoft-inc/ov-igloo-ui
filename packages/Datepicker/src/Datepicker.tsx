@@ -1,6 +1,8 @@
 import * as React from 'react';
 import cx from 'classnames';
 
+import { useLocale } from 'react-aria';
+
 import Dropdown from '@igloo-ui/dropdown';
 import Input from '@igloo-ui/input';
 import Button from '@igloo-ui/button';
@@ -22,7 +24,9 @@ import './datepicker.scss';
 type Date = { utc: string; local: string };
 
 export interface DatepickerProps {
-  /** Selected value for the date picker. */
+  /** Selected value for the date picker.
+   * These props represent the local date of the user
+   * */
   selectedDay?: string;
   /** Specifies the value inside the input. */
   value?: string;
@@ -56,12 +60,15 @@ export interface DatepickerProps {
   weekendUnavailable?: boolean;
   /** The minimum allowed date that a user may select */
   minDate?: string;
+  /** The maximum allowed date that a user may select */
+  maxDate?: string;
 }
 
 const Datepicker: React.FunctionComponent<DatepickerProps> = ({
   selectedDay,
   value,
   minDate,
+  maxDate,
   placeholder,
   ariaLabel,
   disabled = false,
@@ -78,9 +85,8 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
   weekendUnavailable = false,
   ...rest
 }: DatepickerProps) => {
-  const [locale, setLocale] = React.useState<null | string>(null);
+  const { locale } = useLocale();
 
-  // the calendar receives an utc date and formats it locally
   const formatDate = (date: string | undefined) => {
     if (date) {
       return parseAbsoluteToLocal(date);
@@ -135,10 +141,6 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     return false;
   };
 
-  const getLocale = (locale: string) => {
-    setLocale(locale);
-  };
-
   const classes = cx('ids-datepicker', {
     'ids-datepicker--disabled': disabled,
   });
@@ -153,8 +155,8 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
         isDisabled={disabled}
         highlightToday={highlightToday}
         isDateUnavailable={isDateUnavailable}
-        getLocale={getLocale}
         minValue={formatDate(minDate)}
+        maxValue={formatDate(maxDate)}
       />
       {isClearable && clearLabel && (
         <Button

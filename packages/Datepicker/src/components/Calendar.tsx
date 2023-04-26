@@ -29,23 +29,18 @@ interface CalendarProps extends ReactCalendarProps<DateValue> {
   className?: string;
   dataTest?: string;
   highlightToday?: boolean;
-  getLocale?: (locale: string) => void;
 }
 
 const Calendar: React.FunctionComponent<CalendarProps> = (
   props: CalendarProps
 ) => {
-  const { className, dataTest, highlightToday, getLocale } = props;
+  const { className, dataTest, highlightToday } = props;
   const { locale } = useLocale();
   const state = useCalendarState({
     ...props,
     locale,
     createCalendar,
   });
-
-  if (locale && getLocale) {
-    getLocale(locale);
-  }
 
   const ref = React.useRef<HTMLDivElement>(null);
   const { calendarProps, prevButtonProps, nextButtonProps, title } =
