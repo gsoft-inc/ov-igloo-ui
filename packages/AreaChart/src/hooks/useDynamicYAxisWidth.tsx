@@ -3,12 +3,13 @@ import * as React from 'react';
 // eslint-disable-next-line max-len
 const AXIS_TICK_VALUE_SELECTOR = `.recharts-cartesian-axis-tick-value[orientation="left"],
 .recharts-cartesian-axis-tick-value[orientation="right"]`;
-const AXIS_TICK_VALUE_ANIMATION_SELECTOR = `.recharts-cartesian-axis-tick-value[orientation="left"], .ids-area-chart-skeleton-animation`;
+const AXIS_TICK_VALUE_ANIMATION_SELECTOR = `.ids-area-chart-skeleton-animation.recharts-yAxis`;
 const DEFAULT_WIDTH = 60;
 
 type Props = {
   yAxisWidthModifier?: (width: number) => number;
   loading?: boolean;
+  areaChartData?: any[];
 };
 
 type ReturnValues = {
@@ -18,7 +19,7 @@ type ReturnValues = {
 };
 
 const useDynamicYAxisWidth = (props: undefined | Props): ReturnValues => {
-  const { yAxisWidthModifier, loading = false } = props || {};
+  const { yAxisWidthModifier, loading = false, areaChartData } = props || {};
   const [yAxisWidthState, setYAxisWidthState] = React.useState(DEFAULT_WIDTH);
 
   const setChartRef = React.useCallback(
@@ -47,7 +48,10 @@ const useDynamicYAxisWidth = (props: undefined | Props): ReturnValues => {
         setYAxisWidthState(highestWidth);
       }
     },
-    [setYAxisWidthState]
+    // Disabled this because I want the width
+    // to be recalculated when the chart data is updated
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [setYAxisWidthState, loading, areaChartData]
   );
 
   const yAxisWidth = React.useMemo(() => {
