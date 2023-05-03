@@ -59,7 +59,7 @@ export const getStoriesTemplate = (name) => {
 
   return `import React from 'react';
 
-  import { ComponentMeta, ComponentStory } from '@storybook/react';
+  import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
   import Section from '@components/section';
   import readme from '../README.md';
@@ -72,19 +72,27 @@ export const getStoriesTemplate = (name) => {
     parameters: {
       description: readme
     }
-  } as ComponentMeta<typeof ${pascalCaseName}>;
+  } as Meta<typeof ${pascalCaseName}>;
 
-  const Template: ComponentStory<typeof ${pascalCaseName}> = (args) => <${pascalCaseName} {...args} />;
-  export const Overview = Template.bind({});
-  Overview.args = {
-    children: 'Dummy starter component'
+  const Template: StoryFn<typeof ${pascalCaseName}> = (args) => <${pascalCaseName} {...args} />;
+  
+  type Story = StoryObj<typeof ${pascalCaseName}>;
+
+  export const Overview: Story = {
+    render: Template,
+    args: {
+      children: 'Dummy starter component',
+    },
   };
 
-  // export const Appearances = () => (
-  //   <Section>
-  //     ...
-  //   </Section>
-  // );
+  // export const Appearances: Story = {
+  //  render: () => {
+  //    return (
+  //      <Section>
+  //         ...
+  //      </Section>
+  //    );
+  //  };
 `;
 };
 
