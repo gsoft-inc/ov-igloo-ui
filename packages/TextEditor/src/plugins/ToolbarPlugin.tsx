@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-param-reassign */
 import React, { useCallback, useEffect, useState } from 'react';
 
@@ -37,9 +38,8 @@ import UnorderedList from '@igloo-ui/icons/dist/UnorderedList';
 
 import IconButton from '@igloo-ui/icon-button';
 import Button from '@igloo-ui/button';
-import Tooltip from '@igloo-ui/tooltip';
 
-import type { Messages } from 'src/RichTextEditor';
+import type { Messages } from 'src/TextEditor';
 import { sanitizeUrl } from '../utils/url';
 import { getSelectedNode } from '../utils/getSelectedNode';
 
@@ -50,7 +50,7 @@ export interface ToolbarProps extends React.ComponentProps<'div'> {
   disabled?: boolean;
   /** Whether or not the text can be cleared */
   isClearable?: boolean;
-  /** Messages for the buttons */
+  /** Messages for buttons, tooltips and text to localize the text editor */
   messages?: Messages;
   /** Whether or not the toolbar should show on focus and hide on blur */
   showOnFocus?: boolean;
@@ -192,148 +192,113 @@ const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
 
   return (
     <div className={classes}>
-      <Tooltip
-        content={messages?.bold?.tooltip}
-        appearance="light"
-        disabled={!messages?.bold?.tooltip}
-      >
-        <IconButton
-          size="small"
-          icon={<Bold size="medium" />}
-          className="ids-toolbar__btn"
-          active={isBold}
-          onClick={() => {
-            editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'bold');
-          }}
-          appearance={{ type: 'ghost', variant: 'secondary' }}
-          disabled={disabled}
-        />
-      </Tooltip>
+      <IconButton
+        size="small"
+        icon={<Bold size="medium" />}
+        className="ids-toolbar__btn"
+        active={isBold}
+        onClick={() => {
+          editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'bold');
+        }}
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+        disabled={disabled}
+        // @ts-ignore
+        title={messages?.bold?.tooltip}
+      />
 
-      <Tooltip
-        content={messages?.italic?.tooltip}
-        appearance="light"
-        disabled={!messages?.italic?.tooltip}
-      >
-        <IconButton
-          size="small"
-          icon={<Italic size="medium" />}
-          className="ids-toolbar__btn"
-          active={isItalic}
-          onClick={() => {
-            editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'italic');
-          }}
-          appearance={{ type: 'ghost', variant: 'secondary' }}
-          disabled={disabled}
-        />
-      </Tooltip>
+      <IconButton
+        size="small"
+        icon={<Italic size="medium" />}
+        className="ids-toolbar__btn"
+        active={isItalic}
+        onClick={() => {
+          editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'italic');
+        }}
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+        disabled={disabled}
+        // @ts-ignore
+        title={messages?.italic?.tooltip}
+      />
 
-      <Tooltip
-        content={messages?.underline?.tooltip}
-        appearance="light"
-        disabled={!messages?.underline?.tooltip}
-      >
-        <IconButton
-          size="small"
-          icon={<Underline size="medium" />}
-          className="ids-toolbar__btn"
-          active={isUnderline}
-          onClick={() => {
-            editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'underline');
-          }}
-          appearance={{ type: 'ghost', variant: 'secondary' }}
-          disabled={disabled}
-        />
-      </Tooltip>
+      <IconButton
+        size="small"
+        icon={<Underline size="medium" />}
+        className="ids-toolbar__btn"
+        active={isUnderline}
+        onClick={() => {
+          editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'underline');
+        }}
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+        disabled={disabled}
+        // @ts-ignore
+        title={messages?.underline?.tooltip}
+      />
 
-      <Tooltip
-        content={messages?.strikethrough?.tooltip}
-        appearance="light"
-        disabled={!messages?.strikethrough?.tooltip}
-      >
-        <IconButton
-          size="small"
-          icon={<Strikethrough size="medium" />}
-          className="ids-toolbar__btn"
-          active={isStrikethrough}
-          onClick={() => {
-            editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'strikethrough');
-          }}
-          appearance={{ type: 'ghost', variant: 'secondary' }}
-          disabled={disabled}
-        />
-      </Tooltip>
+      <IconButton
+        size="small"
+        icon={<Strikethrough size="medium" />}
+        className="ids-toolbar__btn"
+        active={isStrikethrough}
+        onClick={() => {
+          editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'strikethrough');
+        }}
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+        disabled={disabled}
+        // @ts-ignore
+        title={messages?.strikethrough?.tooltip}
+      />
 
       <Divider />
 
-      <Tooltip
-        content={messages?.link?.tooltip}
-        appearance="light"
-        disabled={!messages?.link?.tooltip}
-      >
-        <IconButton
-          size="small"
-          icon={<LinkIcon size="medium" />}
-          className="ids-toolbar__btn"
-          active={isLink}
-          onClick={insertLink}
-          appearance={{ type: 'ghost', variant: 'secondary' }}
-          disabled={disabled}
-        />
-      </Tooltip>
+      <IconButton
+        size="small"
+        icon={<LinkIcon size="medium" />}
+        className="ids-toolbar__btn"
+        active={isLink}
+        onClick={insertLink}
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+        disabled={disabled}
+        // @ts-ignore
+        title={messages?.link?.tooltip}
+      />
 
       <Divider />
 
-      <Tooltip
-        content={messages?.orderedList?.tooltip}
-        appearance="light"
-        disabled={!messages?.orderedList?.tooltip}
-      >
-        <IconButton
-          size="small"
-          icon={<OrderedList size="medium" />}
-          onClick={formatNumberedList}
-          className="ids-toolbar__btn"
-          appearance={{ type: 'ghost', variant: 'secondary' }}
-          disabled={disabled}
-        />
-      </Tooltip>
-      <Tooltip
-        content={messages?.unorderedList?.tooltip}
-        appearance="light"
-        disabled={!messages?.unorderedList?.tooltip}
-      >
-        <IconButton
-          size="small"
-          icon={<UnorderedList size="medium" />}
-          onClick={formatBulletList}
-          className="ids-toolbar__btn"
-          appearance={{ type: 'ghost', variant: 'secondary' }}
-          disabled={disabled}
-        />
-      </Tooltip>
+      <IconButton
+        size="small"
+        icon={<OrderedList size="medium" />}
+        onClick={formatNumberedList}
+        className="ids-toolbar__btn"
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+        disabled={disabled}
+        // @ts-ignore
+        title={messages?.orderedList?.tooltip}
+      />
+      <IconButton
+        size="small"
+        icon={<UnorderedList size="medium" />}
+        onClick={formatBulletList}
+        className="ids-toolbar__btn"
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+        disabled={disabled}
+        // @ts-ignore
+        title={messages?.unorderedList?.tooltip}
+      />
 
       {isClearable && (
-        <Tooltip
-          content={messages?.clear?.tooltip}
-          appearance="light"
-          disabled={!messages?.clear?.tooltip}
-          className="ids-toolbar__btn-clear-tooltip"
+        <Button
+          size="small"
+          className="ids-toolbar__btn-clear"
+          appearance={{ type: 'ghost', variant: 'secondary' }}
+          disabled={isEditorEmpty || disabled}
+          onClick={() => {
+            editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+            editor.focus();
+          }}
+          title={messages?.clear?.tooltip}
         >
-          <Button
-            size="small"
-            className="ids-toolbar__btn-clear"
-            appearance={{ type: 'ghost', variant: 'secondary' }}
-            disabled={isEditorEmpty || disabled}
-            title=""
-            onClick={() => {
-              editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
-              editor.focus();
-            }}
-          >
-            {messages?.clear?.text}
-          </Button>
-        </Tooltip>
+          {messages?.clear?.text}
+        </Button>
       )}
     </div>
   );

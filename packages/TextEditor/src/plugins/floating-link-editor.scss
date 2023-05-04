@@ -28,7 +28,6 @@
     left: 0;
     line-height: var(--ids-link-editor-line-height);
     max-width: 400px;
-    opacity: 0;
     padding: var(--ids-link-editor-padding);
     position: absolute;
     top: 0;
@@ -36,6 +35,10 @@
     width: var(--ids-link-editor-width);
     will-change: transform;
     z-index: var(--ids-link-editor-z-index);
+    
+    &--hidden {
+        display: none;
+    }
 }
 
 .ids-link-editor__view {

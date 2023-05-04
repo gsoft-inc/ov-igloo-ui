@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RichTextEditor It should render a snapshot 1`] = `
+exports[`TextEditor It should render a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="ids-rich-text-editor"
-    data-test="ids-rich-text-editor"
+    class="ids-text-editor"
+    data-test="ids-text-editor"
   >
     <div
       class="ids-toolbar"
@@ -245,16 +245,16 @@ exports[`RichTextEditor It should render a snapshot 1`] = `
       </span>
     </div>
     <div
-      class="ids-rich-text-editor__inner"
+      class="ids-text-editor__inner"
     >
       <div
-        class="ids-rich-text-editor__scroller"
+        class="ids-text-editor__scroller"
       >
         <div
-          class="ids-rich-text-editor__editor"
+          class="ids-text-editor__editor"
         >
           <div
-            class="ids-rich-text-editor__input"
+            class="ids-text-editor__input"
             contenteditable="true"
             data-lexical-editor="true"
             role="textbox"
@@ -262,7 +262,7 @@ exports[`RichTextEditor It should render a snapshot 1`] = `
             style="user-select: text; white-space: pre-wrap; word-break: break-word;"
           >
             <p
-              class="ids-rich-text-editor__paragraph"
+              class="ids-text-editor__paragraph"
             >
               <br />
             </p>
@@ -274,7 +274,7 @@ exports[`RichTextEditor It should render a snapshot 1`] = `
         </div>
       </div>
       <div
-        class="ids-rich-text-editor__placeholder"
+        class="ids-text-editor__placeholder"
       />
     </div>
   </div>

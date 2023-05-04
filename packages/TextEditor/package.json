@@ -1,10 +1,10 @@
 {
-  "name": "@igloo-ui/rich-text-editor",
+  "name": "@igloo-ui/text-editor",
   "version": "0.0.0",
-  "main": "dist/RichTextEditor.js",
-  "module": "dist/RichTextEditor.js",
-  "types": "dist/RichTextEditor.d.ts",
-  "styles": "dist/rich-text-editor.css",
+  "main": "dist/TextEditor.js",
+  "module": "dist/TextEditor.js",
+  "types": "dist/TextEditor.d.ts",
+  "styles": "dist/text-editor.css",
   "publishConfig": {
     "access": "public"
   },
@@ -39,6 +39,7 @@
     "@lexical/selection": "^0.10.0",
     "@lexical/utils": "^0.10.0",
     "@types/react-dom": "18.0.11",
+    "@floating-ui/react": "^0.19.1",
     "classnames": "^2.3.2",
     "lexical": "^0.10.0"
   },

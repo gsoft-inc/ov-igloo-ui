@@ -73,13 +73,10 @@ export const getStoriesTemplate = (name) => {
       description: readme
     }
   } as Meta<typeof ${pascalCaseName}>;
-
-  const Template: StoryFn<typeof ${pascalCaseName}> = (args) => <${pascalCaseName} {...args} />;
   
   type Story = StoryObj<typeof ${pascalCaseName}>;
 
   export const Overview: Story = {
-    render: Template,
     args: {
       children: 'Dummy starter component',
     },

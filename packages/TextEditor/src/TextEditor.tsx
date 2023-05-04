@@ -37,9 +37,9 @@ import FloatingLinkEditorPlugin from './plugins/FloatingLinkEditorPlugin';
 import LinkPlugin from './plugins/LinkPlugin';
 import CodeHighlightPlugin from './plugins/CodeHighlightPlugin';
 
-import EditorTheme from './themes/RichTextEditor.theme';
+import EditorTheme from './themes/TextEditor.theme';
 
-import './rich-text-editor.scss';
+import './text-editor.scss';
 
 export interface MessageOptions {
   text?: string;
@@ -62,7 +62,7 @@ export interface Messages {
   linkEditorSave?: MessageOptions;
 }
 
-export interface RichTextEditorProps
+export interface TextEditorProps
   extends Omit<React.ComponentProps<'div'>, 'onChange' | 'onFocus' | 'onBlur'> {
   /** Whether or not the editor should be focused on load */
   autoFocus?: boolean;
@@ -83,7 +83,7 @@ export interface RichTextEditorProps
   /** The maximum amount or characters allowed
    * (Automatically adds a character limit indicator) */
   maxLength?: number;
-  /** Messages for the buttons */
+  /** Messages for buttons, tooltips and text to localize the text editor */
   messages?: Messages;
   /** The event that is called when the editor loses focus */
   onBlur?: (editor?: LexicalEditor) => void;
@@ -102,7 +102,7 @@ export interface RichTextEditorProps
   showToolbarOnFocus?: boolean;
 }
 
-const RichTextEditor: React.FunctionComponent<RichTextEditorProps> = ({
+const TextEditor: React.FunctionComponent<TextEditorProps> = ({
   autoFocus = false,
   className,
   dataTest,
@@ -134,7 +134,7 @@ const RichTextEditor: React.FunctionComponent<RichTextEditorProps> = ({
   primaryBtn,
   showToolbar = true,
   showToolbarOnFocus = false,
-}: RichTextEditorProps) => {
+}: TextEditorProps) => {
   const [hasFocus, setHasFocus] = React.useState(autoFocus);
 
   const [floatingAnchorElem, setFloatingAnchorElem] =
@@ -147,13 +147,11 @@ const RichTextEditor: React.FunctionComponent<RichTextEditorProps> = ({
   };
 
   function Placeholder(): JSX.Element {
-    return (
-      <div className="ids-rich-text-editor__placeholder">{placeholder}</div>
-    );
+    return <div className="ids-text-editor__placeholder">{placeholder}</div>;
   }
 
   const editorConfig: InitialConfigType = {
-    namespace: 'ids-rich-text-editor',
+    namespace: 'ids-text-editor',
     theme: EditorTheme,
     editorState: initialState,
     editable: !disabled,
@@ -175,11 +173,11 @@ const RichTextEditor: React.FunctionComponent<RichTextEditorProps> = ({
     ],
   };
 
-  const classes = cx('ids-rich-text-editor', className, {
-    'ids-rich-text-editor--error': error,
-    'ids-rich-text-editor--private': isPrivate,
-    'ids-rich-text-editor--focus': hasFocus,
-    'ids-rich-text-editor--disabled': disabled,
+  const classes = cx('ids-text-editor', className, {
+    'ids-text-editor--error': error,
+    'ids-text-editor--private': isPrivate,
+    'ids-text-editor--focus': hasFocus,
+    'ids-text-editor--disabled': disabled,
   });
 
   const handleOnChange = (editorState: EditorState): void => {
@@ -209,12 +207,12 @@ const RichTextEditor: React.FunctionComponent<RichTextEditorProps> = ({
             showOnFocus={showToolbarOnFocus}
           />
         )}
-        <div className="ids-rich-text-editor__inner">
+        <div className="ids-text-editor__inner">
           <RichTextPlugin
             contentEditable={
-              <div className="ids-rich-text-editor__scroller">
-                <div className="ids-rich-text-editor__editor" ref={onRef}>
-                  <ContentEditable className="ids-rich-text-editor__input" />
+              <div className="ids-text-editor__scroller">
+                <div className="ids-text-editor__editor" ref={onRef}>
+                  <ContentEditable className="ids-text-editor__input" />
                 </div>
               </div>
             }
@@ -240,13 +238,10 @@ const RichTextEditor: React.FunctionComponent<RichTextEditorProps> = ({
           <CodeHighlightPlugin />
         </div>
         {showFooter && (
-          <div className="ids-rich-text-editor__footer">
+          <div className="ids-text-editor__footer">
             {isPrivate && (
-              <span className="ids-rich-text-editor__private">
-                <Lock
-                  size="small"
-                  className="ids-rich-text-editor__private-icon"
-                />
+              <span className="ids-text-editor__private">
+                <Lock size="small" className="ids-text-editor__private-icon" />
                 {messages.private?.text}
               </span>
             )}
@@ -259,7 +254,7 @@ const RichTextEditor: React.FunctionComponent<RichTextEditorProps> = ({
             {primaryBtn &&
               React.cloneElement(primaryBtn, {
                 className: cx(
-                  'ids-rich-text-editor__primary-btn',
+                  'ids-text-editor__primary-btn',
                   primaryBtn.props?.className
                 ),
               })}
@@ -270,4 +265,4 @@ const RichTextEditor: React.FunctionComponent<RichTextEditorProps> = ({
   );
 };
 
-export default RichTextEditor;
+export default TextEditor;

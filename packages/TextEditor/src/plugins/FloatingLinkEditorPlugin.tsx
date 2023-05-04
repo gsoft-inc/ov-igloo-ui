@@ -1,6 +1,21 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import * as React from 'react';
+import cx from 'classnames';
 import { Dispatch, useCallback, useEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
+import {
+  flip,
+  shift,
+  offset,
+  autoUpdate,
+  useFloating,
+  useDismiss,
+  useInteractions,
+  useTransitionStyles,
+  hide,
+  FloatingPortal,
+  useClick,
+  FloatingFocusManager,
+} from '@floating-ui/react';
 
 import {
   $isAutoLinkNode,
@@ -27,15 +42,12 @@ import {
 import IconButton from '@igloo-ui/icon-button';
 import Input from '@igloo-ui/input';
 import Checkmark from '@igloo-ui/icons/dist/Checkmark';
-import Tooltip from '@igloo-ui/tooltip';
 import Delete from '@igloo-ui/icons/dist/Delete';
 import Close from '@igloo-ui/icons/dist/Close';
 import Edit from '@igloo-ui/icons/dist/Edit';
 
-import type { Messages } from 'src/RichTextEditor';
+import type { Messages } from 'src/TextEditor';
 import { getSelectedNode } from '../utils/getSelectedNode';
-// eslint-disable-next-line max-len
-import { setFloatingElemPositionForLinkEditor } from '../utils/setFloatingElemPositionForLinkEditor';
 import { sanitizeUrl } from '../utils/url';
 
 import './floating-link-editor.scss';
@@ -53,14 +65,50 @@ function FloatingLinkEditor({
   anchorElem: HTMLElement;
   messages?: Messages;
 }): JSX.Element | null {
-  const editorRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [linkUrl, setLinkUrl] = useState('');
   const [editedLinkUrl, setEditedLinkUrl] = useState('');
   const [isEditMode, setEditMode] = useState(false);
+  const [show, setShow] = useState(false);
   const [lastSelection, setLastSelection] = useState<
     RangeSelection | GridSelection | NodeSelection | null
   >(null);
+
+  const { x, y, strategy, refs, context, middlewareData } = useFloating({
+    open: show,
+    strategy: 'fixed',
+    onOpenChange: setShow,
+    whileElementsMounted: autoUpdate,
+    placement: 'top-start',
+    middleware: [
+      offset(10),
+      flip({ fallbackAxisSideDirection: 'end' }),
+      shift(),
+      hide({
+        padding: 10,
+      }),
+    ],
+  });
+
+  const click = useClick(context);
+  const dismiss = useDismiss(context);
+
+  const { getFloatingProps } = useInteractions([click, dismiss]);
+
+  const { isMounted, styles } = useTransitionStyles(context, {
+    duration: {
+      open: 150,
+      close: 0,
+    },
+    initial: ({ side }) => ({
+      opacity: 0,
+      transform: side === 'bottom' ? 'translateY(1rem)' : 'translateY(-1rem)',
+    }),
+    open: {
+      opacity: 1,
+      transform: 'translateY(0rem)',
+    },
+  });
 
   const updateLinkEditor = useCallback(() => {
     const selection = $getSelection();
@@ -76,13 +124,8 @@ function FloatingLinkEditor({
         setLinkUrl('');
       }
     }
-    const editorElem = editorRef.current;
     const nativeSelection = window.getSelection();
     const { activeElement } = document;
-
-    if (editorElem === null) {
-      return;
-    }
 
     const rootElement = editor.getRootElement();
 
@@ -94,11 +137,12 @@ function FloatingLinkEditor({
       editor.isEditable() &&
       isLink
     ) {
-      const domRect: DOMRect | undefined =
-        nativeSelection.focusNode?.parentElement?.getBoundingClientRect();
-      if (domRect) {
-        domRect.y += 40;
-        setFloatingElemPositionForLinkEditor(domRect, editorElem, anchorElem);
+      const domRefElem: HTMLElement | null | undefined =
+        nativeSelection.focusNode?.parentElement || null;
+
+      refs.setReference(domRefElem);
+      if (domRefElem) {
+        setShow(true);
       }
       setLastSelection(selection);
     } else if (
@@ -106,13 +150,13 @@ function FloatingLinkEditor({
       activeElement.className !== 'ids-link-editor__input'
     ) {
       if (rootElement !== null) {
-        setFloatingElemPositionForLinkEditor(null, editorElem, anchorElem);
+        setShow(false);
       }
       setLastSelection(null);
       setEditMode(false);
       setLinkUrl('');
     }
-  }, [anchorElem, editor, isLink]);
+  }, [editor, isLink, refs]);
 
   useEffect(() => {
     const update = (): void => {
@@ -126,7 +170,7 @@ function FloatingLinkEditor({
     return () => {
       window.removeEventListener('resize', update);
     };
-  }, [anchorElem.parentElement, editor, updateLinkEditor]);
+  }, [anchorElem.parentElement, editor, updateLinkEditor, refs.floating]);
 
   useEffect(() => {
     return mergeRegister(
@@ -166,7 +210,7 @@ function FloatingLinkEditor({
 
   useEffect(() => {
     if (isEditMode && inputRef.current) {
-      inputRef.current.focus();
+      inputRef.current.focus({ preventScroll: true });
     }
   }, [isEditMode]);
 
@@ -204,36 +248,26 @@ function FloatingLinkEditor({
           monitorInputInteraction(event);
         }}
       />
-      <Tooltip
-        content={messages?.linkEditorCancel?.tooltip}
-        appearance="light"
-        disabled={!messages?.linkEditorCancel?.tooltip}
-        className="ids-link-editor__button-tooltip"
-      >
-        <IconButton
-          size="small"
-          icon={<Close size="medium" />}
-          className="ids-link-editor__cancel"
-          appearance={{ type: 'ghost', variant: 'secondary' }}
-          onClick={() => {
-            setEditMode(false);
-          }}
-        />
-      </Tooltip>
-      <Tooltip
-        content={messages?.linkEditorSave?.tooltip}
-        appearance="light"
-        disabled={!messages?.linkEditorSave?.tooltip}
-        className="ids-link-editor__button-tooltip"
-      >
-        <IconButton
-          size="small"
-          icon={<Checkmark size="medium" />}
-          className="ids-link-editor__confirm"
-          appearance="ghost"
-          onClick={handleLinkSubmission}
-        />
-      </Tooltip>
+      <IconButton
+        size="small"
+        icon={<Close size="medium" />}
+        className="ids-link-editor__cancel"
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+        onClick={() => {
+          setEditMode(false);
+        }}
+        // @ts-ignore
+        title={messages?.linkEditorCancel?.tooltip}
+      />
+      <IconButton
+        size="small"
+        icon={<Checkmark size="medium" />}
+        className="ids-link-editor__confirm"
+        appearance="ghost"
+        onClick={handleLinkSubmission}
+        // @ts-ignore
+        title={messages?.linkEditorSave?.tooltip}
+      />
     </>
   ) : (
     <div className="ids-link-editor__view">
@@ -246,47 +280,57 @@ function FloatingLinkEditor({
         {linkUrl}
       </a>
 
-      <Tooltip
-        content={messages?.linkEditorEdit?.tooltip}
-        appearance="light"
-        disabled={!messages?.linkEditorEdit?.tooltip}
-        className="ids-link-editor__button-tooltip"
-      >
-        <IconButton
-          size="small"
-          icon={<Edit size="medium" />}
-          className="ids-link-editor__edit"
-          appearance={{ type: 'ghost', variant: 'secondary' }}
-          onClick={() => {
-            setEditedLinkUrl(linkUrl);
-            setEditMode(true);
-          }}
-        />
-      </Tooltip>
+      <IconButton
+        size="small"
+        icon={<Edit size="medium" />}
+        className="ids-link-editor__edit"
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+        onClick={() => {
+          setEditedLinkUrl(linkUrl);
+          setEditMode(true);
+        }}
+        // @ts-ignore
+        title={messages?.linkEditorEdit?.tooltip}
+      />
 
-      <Tooltip
-        content={messages?.linkEditorRemove?.tooltip}
-        appearance="light"
-        disabled={!messages?.linkEditorRemove?.tooltip}
-        className="ids-link-editor__button-tooltip"
-      >
-        <IconButton
-          size="small"
-          icon={<Delete size="medium" />}
-          className="ids-link-editor__trash"
-          appearance={{ type: 'ghost', variant: 'secondary' }}
-          onClick={() => {
-            editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
-          }}
-        />
-      </Tooltip>
+      <IconButton
+        size="small"
+        icon={<Delete size="medium" />}
+        className="ids-link-editor__trash"
+        appearance={{ type: 'ghost', variant: 'secondary' }}
+        onClick={() => {
+          editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
+        }}
+        // @ts-ignore
+        title={messages?.linkEditorRemove?.tooltip}
+      />
     </div>
   );
 
+  const classes = cx('ids-link-editor', {
+    'ids-link-editor--hidden': middlewareData.hide?.referenceHidden,
+  });
+
   return (
-    <div ref={editorRef} className="ids-link-editor">
-      {!isLink ? null : linkEditorHTML}
-    </div>
+    <FloatingPortal>
+      {isMounted && (
+        <FloatingFocusManager context={context} modal={false} initialFocus={-1}>
+          <div
+            ref={refs.setFloating}
+            style={{
+              position: strategy,
+              top: y ?? 0,
+              left: x ?? 0,
+              ...styles,
+            }}
+            {...getFloatingProps()}
+            className={classes}
+          >
+            {!isLink ? null : linkEditorHTML}
+          </div>
+        </FloatingFocusManager>
+      )}
+    </FloatingPortal>
   );
 }
 
@@ -333,15 +377,14 @@ function useFloatingLinkEditorToolbar(
     );
   }, [editor, updateToolbar]);
 
-  return createPortal(
+  return (
     <FloatingLinkEditor
       editor={activeEditor}
       isLink={isLink}
       anchorElem={anchorElem}
       setIsLink={setIsLink}
       messages={messages}
-    />,
-    anchorElem
+    />
   );
 }
 

@@ -41,7 +41,7 @@
     "@igloo-ui/popover": "*",
     "@igloo-ui/progress-bar": "*",
     "@igloo-ui/radio": "*",
-    "@igloo-ui/rich-text-editor": "*",
+    "@igloo-ui/text-editor": "*",
     "@igloo-ui/select": "*",
     "@igloo-ui/stacked-bar": "*",
     "@igloo-ui/tabs": "*",

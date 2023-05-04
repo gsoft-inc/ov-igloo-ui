@@ -5,7 +5,7 @@
  import { render, screen } from '@testing-library/react';
  import MockTooltip from '@igloo-ui/tooltip/src/__mocks__/Tooltip.mock';
 
- import RichTextEditor from './RichTextEditor';
+ import TextEditor from './TextEditor';
 
  jest.mock('@igloo-ui/tooltip', () => ({
   __esModule: true,
@@ -14,14 +14,14 @@
 
  const setup = (props = {}) => {
   return render(
-    <RichTextEditor dataTest="ids-rich-text-editor" {...props} />
+    <TextEditor dataTest="ids-text-editor" {...props} />
   );
 };
 
- describe('RichTextEditor', () => {
+ describe('TextEditor', () => {
    test('It should render without errors', () => {
     setup();
-     const wrapper = screen.getByTestId('ids-rich-text-editor');
+     const wrapper = screen.getByTestId('ids-text-editor');
      expect(wrapper).toBeInTheDocument();
    });
 
