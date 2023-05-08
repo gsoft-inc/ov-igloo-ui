@@ -13,6 +13,7 @@
   --ids-text-editor-line-height: #{tokens.$line-height-xxxl};
   --ids-text-editor-placeholder-color: #{tokens.$grey-400};
   --ids-text-editor-min-height: 12rem;
+  --ids-text-editor-min-width: 31.4rem;
 
   /* Footer */
   --ids-text-editor-footer-spacing: #{tokens.$space-2};
@@ -88,6 +89,7 @@
   font-family: var(--ids-text-editor-font-family);
   font-size: var(--ids-text-editor-font-size);
   min-height: var(--ids-text-editor-min-height);
+  min-width: var(--ids-text-editor-min-width);
   transition: border .15s ease-out;
 
   &,

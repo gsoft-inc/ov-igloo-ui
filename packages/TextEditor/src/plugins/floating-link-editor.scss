@@ -14,6 +14,7 @@
     --ids-link-editor-text: #{tokens.$grey-600};
     --ids-link-editor-shadow: #{tokens.$shadow-12};
     --ids-link-editor-button-margin: #{tokens.$space-2};
+    --ids-link-editor-max-width: 30rem;
 }
 
 .ids-link-editor {
@@ -27,7 +28,7 @@
     font-size: var(--ids-link-editor-font-size);
     left: 0;
     line-height: var(--ids-link-editor-line-height);
-    max-width: 400px;
+    max-width: var(--ids-link-editor-max-width);
     padding: var(--ids-link-editor-padding);
     position: absolute;
     top: 0;
@@ -35,6 +36,11 @@
     width: var(--ids-link-editor-width);
     will-change: transform;
     z-index: var(--ids-link-editor-z-index);
+    
+    &,
+    & * {
+        box-sizing: border-box;
+    }
     
     &--hidden {
         display: none;

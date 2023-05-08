@@ -4,6 +4,7 @@ const EditorTheme = {
   placeholder: 'ids-text-editor__placeholder',
   paragraph: 'ids-text-editor__paragraph',
   quote: 'ids-text-editor__quote',
+  characterLimit: 'ids-text-editor__character-limit',
   heading: {
     h1: 'ids-text-editor__heading-h1',
     h2: 'ids-text-editor__heading-h2',
