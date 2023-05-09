@@ -15,7 +15,6 @@ import {
   $getRoot,
   $isParagraphNode,
   COMMAND_PRIORITY_CRITICAL,
-  LexicalEditor,
   $isRootOrShadowRoot,
 } from 'lexical';
 import {
@@ -58,10 +57,6 @@ export interface ToolbarProps extends React.ComponentProps<'div'> {
 
 function Divider(): JSX.Element {
   return <div className="ids-toolbar__divider" />;
-}
-
-export interface FloatingLinkEditorProps {
-  editor: LexicalEditor;
 }
 
 const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({

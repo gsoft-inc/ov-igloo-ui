@@ -91,13 +91,13 @@ export interface TextEditorProps
   onChange?: (editorState: string) => void;
   /** The event that's called when the editor gains focus */
   onFocus?: (editor?: LexicalEditor) => void;
-  /** The placeholder text to display int he editor */
+  /** The placeholder text to display in the editor */
   placeholder?: string;
   /** Usually the save button for the editor */
   primaryBtn?: React.ReactElement;
-  /** Wether or not the editor should display the toolbar */
+  /** Whether or not the editor should display the toolbar */
   showToolbar?: boolean;
-  /** Wether or not the editor should display
+  /** Whether or not the editor should display
    * the toolbar when editor is focused */
   showToolbarOnFocus?: boolean;
 }

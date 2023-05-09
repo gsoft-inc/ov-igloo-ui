@@ -53,7 +53,6 @@
   --ids-text-editor-token-punctuation: #{tokens.$grey-500};
   --ids-text-editor-token-property: #{tokens.$coral-900};
   --ids-text-editor-token-selector: #{tokens.$seaweed-800};
-  --ids-text-editor-token-variable: #{tokens.$dandelion-600};
   --ids-text-editor-token-function: #{tokens.$strawberry-fields-300};
   
   /* Paragraphs */
@@ -283,35 +282,35 @@
   top: 0;
 }
   
-.ids-text-editor__tokenComment {
+.ids-text-editor__token-comment {
   color: var(--ids-text-editor-token-comment);
 }
   
-.ids-text-editor__tokenPunctuation {
+.ids-text-editor__token-punctuation {
   color: var(--ids-text-editor-token-punctuation);
 }
   
-.ids-text-editor__tokenProperty {
+.ids-text-editor__token-property {
   color: var(--ids-text-editor-token-property);
 }
   
-.ids-text-editor__tokenSelector {
+.ids-text-editor__token-selector {
   color: var(--ids-text-editor-token-selector);
 }
   
-.ids-text-editor__tokenOperator {
+.ids-text-editor__token-operator {
   color: #9a6e3a;
 }
   
-.ids-text-editor__tokenAttr {
+.ids-text-editor__token-attr {
   color: #07a;
 }
   
-.ids-text-editor__tokenVariable {
+.ids-text-editor__token-variable {
   color: var(--ids-text-editor-token-variabl);
 }
   
-.ids-text-editor__tokenFunction {
+.ids-text-editor__token-function {
   color: var(--ids-text-editor-token-function);
 }
   
@@ -358,11 +357,11 @@
   margin: var(--ids-text-editor-quote-spacing);
 }
   
-.ids-text-editor__listitem {
+.ids-text-editor__list-item {
   margin: var(--ids-text-editor-list-margin);
 }
   
-.ids-text-editor__nested-listitem {
+.ids-text-editor__nested-list-item {
   list-style-type: none;
 }
   

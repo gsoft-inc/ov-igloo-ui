@@ -59,7 +59,7 @@ export const getStoriesTemplate = (name) => {
 
   return `import React from 'react';
 
-  import { Meta, StoryFn, StoryObj } from '@storybook/react';
+  import { Meta, StoryObj } from '@storybook/react';
 
   import Section from '@components/section';
   import readme from '../README.md';

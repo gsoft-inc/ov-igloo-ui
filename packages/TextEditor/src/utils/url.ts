@@ -1,5 +1,5 @@
 export function sanitizeUrl(url: string): string {
-  /** A pattern that matches safe  URLs. */
+  /** A pattern that matches safe URLs. */
   const SAFE_URL_PATTERN =
     /^(?:(?:https?|mailto|ftp|tel|file|sms):|[^&:/?#]*(?:[/?#]|$))/gi;
 

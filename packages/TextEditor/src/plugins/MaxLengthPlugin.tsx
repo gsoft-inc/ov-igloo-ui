@@ -1,4 +1,5 @@
-// eslint-disable-next-line max-len
+/* eslint-disable max-len */
+// Taken from https://github.com/facebook/lexical/blob/main/packages/lexical-playground/src/plugins/MaxLengthPlugin/index.tsx#L23
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { trimTextContentFromAnchor } from '@lexical/selection';
 import { $restoreEditorState } from '@lexical/utils';
