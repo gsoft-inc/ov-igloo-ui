@@ -47,6 +47,7 @@
     "@igloo-ui/tag": "*",
     "@igloo-ui/tag-picker": "*",
     "@igloo-ui/textarea": "*",
+    "@igloo-ui/text-editor": "*",
     "@igloo-ui/toaster": "*",
     "@igloo-ui/toggle": "*",
     "@igloo-ui/tooltip": "*",

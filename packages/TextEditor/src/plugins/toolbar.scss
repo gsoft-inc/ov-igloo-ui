@@ -1,0 +1,73 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-toolbar-font-family: #{tokens.$primary-font-family};
+  --ids-toolbar-font-size: #{tokens.$font-size-3};
+  --ids-toolbar-border-color: #{tokens.$grey-200};
+  --ids-toolbar-padding: #{tokens.$space-1} #{tokens.$space-3};
+
+  /* Buttons */
+  --ids-toolbar-btn-margin: #{tokens.$space-2};
+  --ids-toolbar-btn-color: #{tokens.$grey-600};
+  
+  /* Divider */
+  --ids-toolbar-divider-color: #{tokens.$grey-300};
+  --ids-toolbar-divider-height: #{tokens.$space-3};
+}
+  
+.ids-toolbar {
+  align-items: center;
+  border-bottom: 1px solid var(--ids-toolbar-border-color);
+  display: flex;
+  flex: 0 0 auto;
+  font-family: var(--ids-toolbar-font-family);
+  font-size: var(--ids-toolbar-font-size);
+  padding: var(--ids-toolbar-padding);
+}
+
+.ids-text-editor--private .ids-toolbar {
+  --ids-toolbar-border-color: #{tokens.$dandelion-100};
+}
+
+.ids-text-editor--disabled .ids-toolbar {
+  --ids-toolbar-border-color: #{tokens.$grey-300};
+}
+
+.ids-toolbar--show-on-focus {
+  display: none;
+}
+
+.ids-text-editor:focus-within .ids-toolbar--show-on-focus {
+  display: flex;
+}
+
+.ids-toolbar > .ids-toolbar__btn {
+  flex: 0 0 auto;
+  margin-right: var(--ids-toolbar-btn-margin);
+}
+
+.ids-toolbar .ids-toolbar__btn-clear {
+  margin-left: auto;
+  margin-right: 0;
+}
+  
+.ids-toolbar .ids-btn.ids-btn--active {
+  pointer-events: initial;
+  user-select: initial;
+}
+
+.ids-text-editor--disabled .ids-toolbar .ids-toolbar__btn:disabled,
+.ids-text-editor--disabled .ids-toolbar .ids-toolbar__btn-clear:disabled {
+  color: var(--ids-toolbar-btn-color);
+}
+
+.ids-toolbar__divider {
+  background: var(--ids-toolbar-divider-color);
+  height: var(--ids-toolbar-divider-height);
+  margin-right: var(--ids-toolbar-btn-margin);
+  width: 1px;
+}
+  
+  
