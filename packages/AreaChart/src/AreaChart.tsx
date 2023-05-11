@@ -19,10 +19,12 @@ import { CurveType } from 'recharts/types/shape/Curve';
 import variables from '@igloo-ui/tokens/dist/base10/tokens.json';
 
 import ChartTooltip from './ChartTooltip';
-import './area-chart.scss';
 import useDynamicYAxisWidth from './hooks/useDynamicYAxisWidth';
+import { getIndexOfNotNull } from './helper/unavailableData';
 
-interface DataSet {
+import './area-chart.scss';
+
+export interface DataSet {
   /** Date/time in ISO format */
   dateTimeStamp: string;
   /** The score displayed on the y axis */
@@ -33,6 +35,10 @@ interface DataSet {
   name?: string;
   /** The text displayed beside the secondary score in the tooltip */
   secondaryName?: string;
+}
+
+interface DataSetWithNull extends DataSet {
+  fakeScore?: number | null;
 }
 
 interface AreaChartData {
@@ -364,7 +370,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     dataKey: 'score',
     connectNulls: true,
     stroke: variables.grey400,
-    strokeWidth: '6',
+    strokeWidth: '3',
     strokeDasharray: '1,9',
     activeDot: false,
   };
@@ -391,18 +397,30 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     let updatedAreaChartData = [];
 
     if (dataSet.length) {
-      updatedAreaChartData = dataSet.map((dataSet) => {
+      const {
+        indexBeforeFirstNull,
+        indexAfterLastNull,
+        firstNullIndex,
+        firstScore,
+      } = getIndexOfNotNull(dataSet, 'score');
+
+      updatedAreaChartData = dataSet.map((dataSet: DataSetWithNull, index) => {
         const currentScore: number | null = dataSet.score;
+        if (index === indexBeforeFirstNull || index === indexAfterLastNull) {
+          dataSet.fakeScore = dataSet.score;
+        }
+
+        if (index === firstNullIndex) {
+          dataSet.fakeScore = firstScore;
+        }
 
         return {
+          ...dataSet,
           dateTimeStamp: DateTime.fromISO(dataSet.dateTimeStamp)
             .toUTC()
             .endOf('day')
             .valueOf(),
           score: currentScore,
-          secondaryScore: dataSet.secondaryScore,
-          name: dataSet.name,
-          secondaryName: dataSet.secondaryName,
         };
       });
     } else {
@@ -433,7 +451,14 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
       <XAxis {...xAxisConfig} />
       <YAxis {...yAxisConfig} />
       {dataSet.length && !loading ? (
-        <Area {...areaConfig} />
+        <>
+          <Area
+            {...unavailableDataConfig}
+            strokeLinecap="round"
+            dataKey="fakeScore"
+          />
+          <Area {...areaConfig} />
+        </>
       ) : (
         <>
           <ReferenceArea
