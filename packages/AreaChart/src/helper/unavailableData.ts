@@ -1,4 +1,4 @@
-import { DataSet } from '../AreaChart';
+import type { DataSet } from '../AreaChart';
 
 export function getFirstNullIndex(data: DataSet[], targetProperty: string) {
   return data.findIndex(

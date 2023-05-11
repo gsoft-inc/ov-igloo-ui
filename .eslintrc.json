@@ -21,6 +21,7 @@
   },
   "plugins": ["react", "@typescript-eslint", "react-hooks"],
   "rules": {
+    "no-param-reassign": ["error", { "props": false }],
     "no-use-before-define": "off",
     "no-shadow": "off",
     "max-len": ["warn", { "code": 80 }],
