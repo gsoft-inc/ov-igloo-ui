@@ -1,0 +1,66 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+    /* Default */
+    --ids-link-editor-font-family: #{tokens.$primary-font-family};
+    --ids-link-editor-font-size: #{tokens.$font-size-4};
+    --ids-link-editor-background: #{tokens.$samoyed};
+    --ids-link-editor-padding: #{tokens.$space-3};
+    --ids-link-editor-border-radius: #{tokens.$border-radius-sm};
+    --ids-link-editor-line-height: #{tokens.$line-height-xxl};
+    --ids-link-editor-z-index: #{tokens.$z-index-max};
+    --ids-link-editor-width: 100%;
+    --ids-link-editor-text: #{tokens.$grey-600};
+    --ids-link-editor-shadow: #{tokens.$shadow-12};
+    --ids-link-editor-button-margin: #{tokens.$space-2};
+    --ids-link-editor-max-width: 30rem;
+}
+
+.ids-link-editor {
+    align-items: center;
+    background-color: var(--ids-link-editor-background);
+    border-radius: var(--ids-link-editor-border-radius);
+    box-shadow: var(--ids-link-editor-shadow);
+    color: var(--ids-link-editor-text);
+    display: flex;
+    font-family: var(--ids-link-editor-font-family);
+    font-size: var(--ids-link-editor-font-size);
+    left: 0;
+    line-height: var(--ids-link-editor-line-height);
+    max-width: var(--ids-link-editor-max-width);
+    padding: var(--ids-link-editor-padding);
+    position: absolute;
+    top: 0;
+    transition: opacity 0.5s;
+    width: var(--ids-link-editor-width);
+    will-change: transform;
+    z-index: var(--ids-link-editor-z-index);
+    
+    &,
+    & * {
+        box-sizing: border-box;
+    }
+    
+    &--hidden {
+        display: none;
+    }
+}
+
+.ids-link-editor__view {
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.ids-link-editor__view > * {
+    flex: 0 0 auto;
+}
+
+.ids-link-editor__link {
+    margin-right: auto;
+}
+
+.ids-link-editor .ids-icon-btn {
+    margin-left: var(--ids-link-editor-button-margin);
+}
