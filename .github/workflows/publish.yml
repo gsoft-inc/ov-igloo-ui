@@ -88,6 +88,11 @@ jobs:
     name: Release
     needs: [test_and_build]
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
+
     strategy:
       matrix:
         node-version: [ 18 ]
