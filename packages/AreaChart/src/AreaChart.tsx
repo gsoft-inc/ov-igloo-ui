@@ -20,7 +20,7 @@ import variables from '@igloo-ui/tokens/dist/base10/tokens.json';
 
 import ChartTooltip from './ChartTooltip';
 import useDynamicYAxisWidth from './hooks/useDynamicYAxisWidth';
-import { getIndexOfNotNull } from './helper/unavailableData';
+import { getNullSequenceRanges, getFakeScore } from './helper/unavailableData';
 
 import './area-chart.scss';
 
@@ -37,7 +37,7 @@ export interface DataSet {
   secondaryName?: string;
 }
 
-interface DataSetWithNull extends DataSet {
+export interface DataSetWithNull extends DataSet {
   fakeScore?: number | null;
 }
 
@@ -397,32 +397,23 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     let updatedAreaChartData = [];
 
     if (dataSet.length) {
-      const {
-        indexBeforeFirstNull,
-        indexAfterLastNull,
-        firstNullIndex,
-        firstScore,
-      } = getIndexOfNotNull(dataSet, 'score');
+      const sequenceRanges = getNullSequenceRanges(dataSet);
+      const dataWithFakeScore = getFakeScore(dataSet, sequenceRanges);
 
-      updatedAreaChartData = dataSet.map((dataSet: DataSetWithNull, index) => {
-        const currentScore: number | null = dataSet.score;
-        if (index === indexBeforeFirstNull || index === indexAfterLastNull) {
-          dataSet.fakeScore = dataSet.score;
+      updatedAreaChartData = dataWithFakeScore.map(
+        (dataSet: DataSetWithNull) => {
+          const currentScore: number | null = dataSet.score;
+
+          return {
+            ...dataSet,
+            dateTimeStamp: DateTime.fromISO(dataSet.dateTimeStamp)
+              .toUTC()
+              .endOf('day')
+              .valueOf(),
+            score: currentScore,
+          };
         }
-
-        if (index === firstNullIndex) {
-          dataSet.fakeScore = firstScore;
-        }
-
-        return {
-          ...dataSet,
-          dateTimeStamp: DateTime.fromISO(dataSet.dateTimeStamp)
-            .toUTC()
-            .endOf('day')
-            .valueOf(),
-          score: currentScore,
-        };
-      });
+      );
     } else {
       const dates = getTicks();
       updatedAreaChartData = dates
