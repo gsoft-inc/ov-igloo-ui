@@ -71,9 +71,13 @@ type ButtonProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<
   ButtonOwnProps
 >;
 
-type ButtonComponent = <C extends React.ElementType = 'button'>(
-  props: ButtonProps<C>
-) => React.ReactElement | null;
+type ButtonComponent<C extends React.ElementType = 'button'> = {
+  <T extends React.ElementType = C>(
+    props: ButtonProps<T>
+  ): React.ReactElement | null;
+
+  displayName?: string;
+};
 
 const Button: ButtonComponent = React.forwardRef(
   <C extends React.ElementType = 'button'>(
@@ -117,9 +121,9 @@ const Button: ButtonComponent = React.forwardRef(
       };
     };
 
-    const apperanceClasses = normalizeAppearanceClass(appearance);
+    const appearanceClasses = normalizeAppearanceClass(appearance);
 
-    const classes = cx('ids-btn', className, apperanceClasses, {
+    const classes = cx('ids-btn', className, appearanceClasses, {
       'ids-btn--small': size === 'small',
       'ids-btn--active': active,
       'ids-btn--loading': loading,
@@ -176,5 +180,7 @@ const Button: ButtonComponent = React.forwardRef(
     );
   }
 );
+
+Button.displayName = 'Button'; // This fixed issue OV-42946
 
 export default Button;
