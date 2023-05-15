@@ -20,7 +20,11 @@ import variables from '@igloo-ui/tokens/dist/base10/tokens.json';
 
 import ChartTooltip from './ChartTooltip';
 import useDynamicYAxisWidth from './hooks/useDynamicYAxisWidth';
-import { getNullSequenceRanges, getFakeScore } from './helper/unavailableData';
+import {
+  getNullSequenceRanges,
+  getFakeScore,
+  getUniqueKeys,
+} from './helper/unavailableData';
 
 import './area-chart.scss';
 
@@ -431,6 +435,11 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataSet]);
 
+  const uniqueKeysOfNulls = getUniqueKeys(dataSet);
+  const areaForNulls = uniqueKeysOfNulls.map((key) => (
+    <Area {...unavailableDataConfig} strokeLinecap="round" dataKey={key} />
+  ));
+
   const areaChart = (
     <RechartsAreaChart
       data={areaChartData}
@@ -443,11 +452,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
       <YAxis {...yAxisConfig} />
       {dataSet.length && !loading ? (
         <>
-          <Area
-            {...unavailableDataConfig}
-            strokeLinecap="round"
-            dataKey="fakeScore"
-          />
+          {areaForNulls}
           <Area {...areaConfig} />
         </>
       ) : (

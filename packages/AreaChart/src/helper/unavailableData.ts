@@ -1,5 +1,20 @@
 import type { DataSet, DataSetWithNull } from '../AreaChart';
 
+export function getUniqueKeys(data: DataSet[]) {
+  return data.reduce((keys: string[], data) => {
+    const keysStartingWithFakeScore = Object.keys(data).filter((key) =>
+      key.startsWith('fakeScore')
+    );
+
+    keysStartingWithFakeScore.map((key) => {
+      if (!keys.includes(key)) {
+        keys.push(key);
+      }
+    });
+    return keys;
+  }, []);
+}
+
 export function getNullSequenceRanges(data: DataSet[]): number[][] {
   const sequenceRanges = [];
   let start = null;
@@ -21,27 +36,32 @@ export function getNullSequenceRanges(data: DataSet[]): number[][] {
 }
 
 export function getFakeScore(
-  data: DataSetWithNull[],
+  data: DataSet[],
   sequenceRanges: number[][]
 ): DataSetWithNull[] {
-  sequenceRanges.map((range) => {
+  sequenceRanges.map((range, index) => {
     const [first, last] = range;
+    const fakeScore = `fakeScore${index}`;
 
     if (first === 0) {
-      data[first].fakeScore = data[last + 1].score;
+      // @ts-ignore
+      data[first][fakeScore] = data[last + 1].score;
     }
 
     if (last === data.length - 1) {
-      data[last].fakeScore = data[first - 1].score;
+      // @ts-ignore
+      data[last][fakeScore] = data[first - 1].score;
     }
 
     data.map((item: DataSetWithNull, index) => {
       if (index === first - 1) {
-        item.fakeScore = item.score;
+        // @ts-ignore
+        item[fakeScore] = item.score;
       }
 
       if (index === last + 1) {
-        item.fakeScore = item.score;
+        // @ts-ignore
+        item[fakeScore] = item.score;
       }
 
       return null;
