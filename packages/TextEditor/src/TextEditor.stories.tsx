@@ -13,8 +13,12 @@ export default {
   title: 'Components/TextEditor',
   component: TextEditor,
   parameters: {
-    description: readme
-  }
+    docs: {
+      description: {
+        component: readme,
+      }
+    }
+  },
 } as Meta<typeof TextEditor>;
 
 type Story = StoryObj<typeof TextEditor>;

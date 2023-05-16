@@ -58,7 +58,17 @@
 }
 
 .ids-link-editor__link {
+    color: var(--ids-text-editor-link-color);
+    cursor: pointer;
+    font-weight: var(--ids-text-editor-link-font-weight);
     margin-right: auto;
+    text-decoration: none;
+  
+    &:focus,
+    &:hover {
+        cursor: pointer;
+        color: var(--ids-text-editor-link-hover);
+    }
 }
 
 .ids-link-editor .ids-icon-btn {

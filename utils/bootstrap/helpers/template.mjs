@@ -70,7 +70,11 @@ export const getStoriesTemplate = (name) => {
     title: 'Components/${pascalCaseName}',
     component: ${pascalCaseName},
     parameters: {
-      description: readme
+      docs: {
+        description: {
+          component: readme,
+        }
+      }
     }
   } as Meta<typeof ${pascalCaseName}>;
   
