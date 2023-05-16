@@ -437,22 +437,33 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     return (
       <>
         <Area
-          {...areaConfig}
-          style={{ transform: 'translateY(1px)' }}
-          stroke="transparent"
-          connectNulls
-          dataKey="render.uiScoreBackground"
-        />
-        <Area
           {...unavailableDataConfig}
           strokeLinecap="round"
           dataKey={`render.${key}`}
           fill="none"
         />
-        <Area {...areaConfig} dataKey="score" fill="none" />
       </>
     );
   });
+
+  const buildArea = (): JSX.Element => {
+    if (renderAreaForNulls) {
+      return (
+        <>
+          <Area
+            {...areaConfig}
+            style={{ transform: 'translateY(1px)' }}
+            stroke="transparent"
+            connectNulls
+            dataKey="render.uiScoreBackground"
+          />
+          <Area {...areaConfig} dataKey="score" fill="none" />
+          {areaForNulls}
+        </>
+      );
+    }
+    return <Area {...areaConfig} />;
+  };
 
   const areaChart = (
     <RechartsAreaChart
@@ -465,11 +476,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
       <XAxis {...xAxisConfig} />
       <YAxis {...yAxisConfig} />
       {dataSet.length && !loading ? (
-        renderAreaForNulls ? (
-          areaForNulls
-        ) : (
-          <Area {...areaConfig} />
-        )
+        buildArea()
       ) : (
         <>
           <ReferenceArea
