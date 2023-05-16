@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Meta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -14,7 +14,7 @@ export default {
     docs: {
       description: {
         component: readme,
-      }
+      },
     },
     chromatic: { delay: 1000 },
   },
@@ -25,6 +25,8 @@ export default {
     },
   },
 } as Meta<typeof AreaChart>;
+
+type Story = StoryObj<typeof AreaChart>;
 
 const nFormatter = (num: number): string => {
   const lookup = [
@@ -352,4 +354,166 @@ export const Loading = () => {
       dataSet={[]}
     />
   );
+};
+
+export const NullEntry: Story = {
+  args: {
+    dateRange: {
+      start: '2023-03-25',
+      end: '2023-04-23',
+    },
+    unavailableDataMessage: 'No data available',
+    dataSet: [
+      {
+        dateTimeStamp: '2023-03-25T00:00:00.000-04:00',
+        score: null,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-03-26T00:00:00.000-04:00',
+        score: null,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-03-27T00:00:00.000-04:00',
+        score: null,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-03-28T00:00:00.000-04:00',
+        score: null,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-03-29T00:00:00.000-04:00',
+        score: null,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-03-30T00:00:00.000-04:00',
+        score: null,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-03-31T00:00:00.000-04:00',
+        score: null,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-01T00:00:00.000-04:00',
+        score: null,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-02T00:00:00.000-04:00',
+        score: null,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-03T00:00:00.000-04:00',
+        score: null,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-04T00:00:00.000-04:00',
+        score: 10,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-05T00:00:00.000-04:00',
+        score: 10,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-06T00:00:00.000-04:00',
+        score: 10,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-07T00:00:00.000-04:00',
+        score: 10,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-08T00:00:00.000-04:00',
+        score: 10,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-09T00:00:00.000-04:00',
+        score: 10,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-10T00:00:00.000-04:00',
+        score: 10,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-11T00:00:00.000-04:00',
+        score: 10,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-12T00:00:00.000-04:00',
+        score: 10,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-13T00:00:00.000-04:00',
+        score: 5.6,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-14T00:00:00.000-04:00',
+        score: 5.6,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-15T00:00:00.000-04:00',
+        score: 5.6,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-16T00:00:00.000-04:00',
+        score: 5.6,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-17T00:00:00.000-04:00',
+        score: 5.6,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-18T00:00:00.000-04:00',
+        score: 5.6,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-19T00:00:00.000-04:00',
+        score: 5.6,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-20T00:00:00.000-04:00',
+        score: 5.6,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-21T00:00:00.000-04:00',
+        score: 5.6,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-22T00:00:00.000-04:00',
+        score: 5.6,
+        name: 'foo',
+      },
+      {
+        dateTimeStamp: '2023-04-23T00:00:00.000-04:00',
+        score: 5.6,
+        name: 'foo',
+      },
+    ],
+  },
 };

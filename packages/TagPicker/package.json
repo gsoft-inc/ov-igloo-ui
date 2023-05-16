@@ -35,6 +35,9 @@
     "@igloo-ui/form-group": "^1.0.2",
     "@shared/components": "0.1.1"
   },
+  "bundledDependencies": [
+    "@shared/components"
+  ],
   "browserslist": [
     "> 1%",
     "last 2 versions",

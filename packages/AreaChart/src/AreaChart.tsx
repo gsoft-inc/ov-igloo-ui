@@ -19,10 +19,16 @@ import { CurveType } from 'recharts/types/shape/Curve';
 import variables from '@igloo-ui/tokens/dist/base10/tokens.json';
 
 import ChartTooltip from './ChartTooltip';
-import './area-chart.scss';
 import useDynamicYAxisWidth from './hooks/useDynamicYAxisWidth';
+import {
+  getNullSequenceRanges,
+  getFakeScore,
+  getUniqueKeys,
+} from './helper/unavailableData';
 
-interface DataSet {
+import './area-chart.scss';
+
+export interface DataSet {
   /** Date/time in ISO format */
   dateTimeStamp: string;
   /** The score displayed on the y axis */
@@ -364,7 +370,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     dataKey: 'score',
     connectNulls: true,
     stroke: variables.grey400,
-    strokeWidth: '6',
+    strokeWidth: '3',
     strokeDasharray: '1,9',
     activeDot: false,
   };
@@ -391,18 +397,19 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     let updatedAreaChartData = [];
 
     if (dataSet.length) {
-      updatedAreaChartData = dataSet.map((dataSet) => {
+      const sequenceRanges = getNullSequenceRanges(dataSet);
+      const dataWithFakeScore = getFakeScore(dataSet, sequenceRanges);
+
+      updatedAreaChartData = dataWithFakeScore.map((dataSet: DataSet) => {
         const currentScore: number | null = dataSet.score;
 
         return {
+          ...dataSet,
           dateTimeStamp: DateTime.fromISO(dataSet.dateTimeStamp)
             .toUTC()
             .endOf('day')
             .valueOf(),
           score: currentScore,
-          secondaryScore: dataSet.secondaryScore,
-          name: dataSet.name,
-          secondaryName: dataSet.secondaryName,
         };
       });
     } else {
@@ -422,6 +429,41 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataSet]);
 
+  const uniqueKeysOfNulls = getUniqueKeys(dataSet);
+  const renderAreaForNulls = dataSet.find((data) => data.score === null);
+
+  const areaForNulls = uniqueKeysOfNulls.map((key) => {
+    return (
+      <>
+        <Area
+          {...unavailableDataConfig}
+          strokeLinecap="round"
+          dataKey={`render.${key}`}
+          fill="none"
+        />
+      </>
+    );
+  });
+
+  const buildArea = (): JSX.Element => {
+    if (renderAreaForNulls) {
+      return (
+        <>
+          <Area
+            {...areaConfig}
+            style={{ transform: 'translateY(1px)' }}
+            stroke="transparent"
+            connectNulls
+            dataKey="render.uiScoreBackground"
+          />
+          <Area {...areaConfig} dataKey="score" fill="none" />
+          {areaForNulls}
+        </>
+      );
+    }
+    return <Area {...areaConfig} />;
+  };
+
   const areaChart = (
     <RechartsAreaChart
       data={areaChartData}
@@ -433,7 +475,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
       <XAxis {...xAxisConfig} />
       <YAxis {...yAxisConfig} />
       {dataSet.length && !loading ? (
-        <Area {...areaConfig} />
+        buildArea()
       ) : (
         <>
           <ReferenceArea
