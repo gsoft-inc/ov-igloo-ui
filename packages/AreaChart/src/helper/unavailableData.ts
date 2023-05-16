@@ -18,6 +18,7 @@ export function getUniqueKeys(data: DataWithRender[]) {
         if (!keys.includes(key)) {
           keys.push(key);
         }
+        return null;
       });
     }
 
