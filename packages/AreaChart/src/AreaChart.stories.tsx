@@ -496,12 +496,12 @@ export const NullEntry: Story = {
       },
       {
         dateTimeStamp: '2023-04-20T00:00:00.000-04:00',
-        score: null,
+        score: 5.6,
         name: 'foo',
       },
       {
         dateTimeStamp: '2023-04-21T00:00:00.000-04:00',
-        score: null,
+        score: 5.6,
         name: 'foo',
       },
       {

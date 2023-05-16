@@ -1,16 +1,26 @@
-import type { DataSet, DataSetWithNull } from '../AreaChart';
+import type { DataSet } from '../AreaChart';
 
-export function getUniqueKeys(data: DataSet[]) {
+type DataWithRender = DataSet & {
+  render?: {
+    [index: string]: number | null;
+    uiScoreBackground: number | null;
+  };
+};
+
+export function getUniqueKeys(data: DataWithRender[]) {
   return data.reduce((keys: string[], data) => {
-    const keysStartingWithFakeScore = Object.keys(data).filter((key) =>
-      key.startsWith('fakeScore')
-    );
+    if (data.render) {
+      const keysStartingWithFakeScore = Object.keys(data.render).filter((key) =>
+        key.startsWith('fakeScore')
+      );
 
-    keysStartingWithFakeScore.map((key) => {
-      if (!keys.includes(key)) {
-        keys.push(key);
-      }
-    });
+      keysStartingWithFakeScore.map((key) => {
+        if (!keys.includes(key)) {
+          keys.push(key);
+        }
+      });
+    }
+
     return keys;
   }, []);
 }
@@ -35,33 +45,58 @@ export function getNullSequenceRanges(data: DataSet[]): number[][] {
   return sequenceRanges;
 }
 
+interface Options {
+  options: {
+    [index: string]: null | number;
+    uiScoreBackground: null | number;
+  };
+}
+
 export function getFakeScore(
-  data: DataSet[],
+  data: DataWithRender[],
   sequenceRanges: number[][]
-): DataSetWithNull[] {
+) {
   sequenceRanges.map((range, index) => {
     const [first, last] = range;
     const fakeScore = `fakeScore${index}`;
 
     if (first === 0) {
-      // @ts-ignore
-      data[first][fakeScore] = data[last + 1].score;
+      data[first].render = {
+        ...data[first].render,
+        [fakeScore]: data[last + 1].score,
+        uiScoreBackground: data[last + 1].score,
+      };
     }
 
     if (last === data.length - 1) {
-      // @ts-ignore
-      data[last][fakeScore] = data[first - 1].score;
+      data[last].render = {
+        ...data[last].render,
+        [fakeScore]: data[first - 1].score,
+        uiScoreBackground: data[first - 1].score,
+      };
     }
 
-    data.map((item: DataSetWithNull, index) => {
+    data.map((item: DataWithRender, index) => {
+      if (item.render === undefined) {
+        item.render = {
+          uiScoreBackground: item.score,
+        };
+      }
+
       if (index === first - 1) {
-        // @ts-ignore
-        item[fakeScore] = item.score;
+        item.render = {
+          ...item.render,
+          [fakeScore]: item.score,
+          uiScoreBackground: item.score,
+        };
       }
 
       if (index === last + 1) {
-        // @ts-ignore
-        item[fakeScore] = item.score;
+        item.render = {
+          ...item.render,
+          [fakeScore]: item.score,
+          uiScoreBackground: item.score,
+        };
       }
 
       return null;

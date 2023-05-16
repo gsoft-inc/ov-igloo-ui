@@ -7,6 +7,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  Line,
   ResponsiveContainer,
   CartesianGrid,
   XAxisProps,
@@ -39,10 +40,6 @@ export interface DataSet {
   name?: string;
   /** The text displayed beside the secondary score in the tooltip */
   secondaryName?: string;
-}
-
-export interface DataSetWithNull extends DataSet {
-  fakeScore?: number | null;
 }
 
 interface AreaChartData {
@@ -404,20 +401,18 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
       const sequenceRanges = getNullSequenceRanges(dataSet);
       const dataWithFakeScore = getFakeScore(dataSet, sequenceRanges);
 
-      updatedAreaChartData = dataWithFakeScore.map(
-        (dataSet: DataSetWithNull) => {
-          const currentScore: number | null = dataSet.score;
+      updatedAreaChartData = dataWithFakeScore.map((dataSet: DataSet) => {
+        const currentScore: number | null = dataSet.score;
 
-          return {
-            ...dataSet,
-            dateTimeStamp: DateTime.fromISO(dataSet.dateTimeStamp)
-              .toUTC()
-              .endOf('day')
-              .valueOf(),
-            score: currentScore,
-          };
-        }
-      );
+        return {
+          ...dataSet,
+          dateTimeStamp: DateTime.fromISO(dataSet.dateTimeStamp)
+            .toUTC()
+            .endOf('day')
+            .valueOf(),
+          score: currentScore,
+        };
+      });
     } else {
       const dates = getTicks();
       updatedAreaChartData = dates
@@ -436,9 +431,28 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
   }, [dataSet]);
 
   const uniqueKeysOfNulls = getUniqueKeys(dataSet);
-  const areaForNulls = uniqueKeysOfNulls.map((key) => (
-    <Area {...unavailableDataConfig} strokeLinecap="round" dataKey={key} />
-  ));
+  const renderAreaForNulls = dataSet.find((data) => data.score === null);
+
+  const areaForNulls = uniqueKeysOfNulls.map((key) => {
+    return (
+      <>
+        <Area
+          {...areaConfig}
+          style={{ transform: 'translateY(1px)' }}
+          stroke="transparent"
+          connectNulls
+          dataKey="render.uiScoreBackground"
+        />
+        <Area
+          {...unavailableDataConfig}
+          strokeLinecap="round"
+          dataKey={`render.${key}`}
+          fill="none"
+        />
+        <Area {...areaConfig} dataKey="score" fill="none" />
+      </>
+    );
+  });
 
   const areaChart = (
     <RechartsAreaChart
@@ -451,10 +465,11 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
       <XAxis {...xAxisConfig} />
       <YAxis {...yAxisConfig} />
       {dataSet.length && !loading ? (
-        <>
-          {areaForNulls}
+        renderAreaForNulls ? (
+          areaForNulls
+        ) : (
           <Area {...areaConfig} />
-        </>
+        )
       ) : (
         <>
           <ReferenceArea
