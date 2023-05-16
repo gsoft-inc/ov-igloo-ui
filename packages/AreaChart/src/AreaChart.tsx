@@ -7,7 +7,6 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Line,
   ResponsiveContainer,
   CartesianGrid,
   XAxisProps,

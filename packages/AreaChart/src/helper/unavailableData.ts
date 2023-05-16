@@ -7,7 +7,7 @@ type DataWithRender = DataSet & {
   };
 };
 
-export function getUniqueKeys(data: DataWithRender[]) {
+export function getUniqueKeys(data: DataWithRender[]): string[] {
   return data.reduce((keys: string[], data) => {
     if (data.render) {
       const keysStartingWithFakeScore = Object.keys(data.render).filter((key) =>
@@ -46,17 +46,10 @@ export function getNullSequenceRanges(data: DataSet[]): number[][] {
   return sequenceRanges;
 }
 
-interface Options {
-  options: {
-    [index: string]: null | number;
-    uiScoreBackground: null | number;
-  };
-}
-
 export function getFakeScore(
   data: DataWithRender[],
   sequenceRanges: number[][]
-) {
+): DataWithRender[] {
   sequenceRanges.map((range, index) => {
     const [first, last] = range;
     const fakeScore = `fakeScore${index}`;
