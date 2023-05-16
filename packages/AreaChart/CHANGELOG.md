@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 0.6.0
+
+### Minor Changes
+
+- a1bcd80: Add dotted line area for null values
+
 ## 0.5.2
 
 ### Patch Changes

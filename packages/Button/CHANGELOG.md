@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.4.2
+
+### Patch Changes
+
+- 949db42: Added a display name to the Button so that it displays properly in storybook's code snippet.
+
 ## 0.4.1
 
 ### Patch Changes
