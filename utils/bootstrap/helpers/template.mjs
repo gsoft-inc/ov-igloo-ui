@@ -13,8 +13,7 @@ export interface ${pascalCaseName}Props extends React.ComponentProps<'div'> {
   dataTest?: string;
 }
 
-const ${pascalCaseName}: React.FunctionComponent<${pascalCaseName}Props> = (props: ${pascalCaseName}Props) => {
-  const { children, dataTest } = props;
+const ${pascalCaseName}: React.FunctionComponent<${pascalCaseName}Props> = ({ children, dataTest }: ${pascalCaseName}Props) => {
   return <div className="ids-${name}" data-test={dataTest}>{children}</div>;
 };
 

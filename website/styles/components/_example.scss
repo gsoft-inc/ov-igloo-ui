@@ -142,3 +142,21 @@
     }
   }
 }
+
+
+//Special style for the example of Stepper
+.ex-stepper-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+    padding: 0 2rem;;
+  }
+
+  .ex-stepper {
+    width: 100%;
+  }
+}

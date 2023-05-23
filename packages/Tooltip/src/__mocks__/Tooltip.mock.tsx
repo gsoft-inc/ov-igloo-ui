@@ -6,7 +6,8 @@ import '../tooltip.scss';
 export type Appearance = 'dark' | 'light';
 export type Position = 'top' | 'right' | 'bottom' | 'left' | 'auto';
 
-export interface TooltipProps extends React.ComponentPropsWithoutRef<'div'> {
+export interface TooltipProps
+  extends Omit<React.ComponentPropsWithoutRef<'div'>, 'content'> {
   /** The target button, text, svg etc.. of the tooltip */
   children: React.ReactNode;
   /** Add a specific class to the tooltip */
