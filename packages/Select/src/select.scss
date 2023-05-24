@@ -49,13 +49,13 @@
   cursor: pointer;
   user-select: none;
 
-  &:hover {
-    border-color: var(--ids-select-border-color-hover);
-  }
-
   &,
   & * {
     box-sizing: border-box;
+  }
+
+  &:hover {
+    border-color: var(--ids-select-border-color-hover);
   }
 
   &:focus,

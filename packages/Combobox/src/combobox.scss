@@ -52,13 +52,13 @@
   transition: border-color 200ms ease 0s;
   user-select: none;
 
-  &:hover {
-    border-color: var(--ids-combobox-border-color-hover);
-  }
-
   &,
   & * {
     box-sizing: border-box;
+  }
+
+  &:hover {
+    border-color: var(--ids-combobox-border-color-hover);
   }
 
   &:focus,
