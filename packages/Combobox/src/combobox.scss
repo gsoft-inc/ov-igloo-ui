@@ -16,6 +16,9 @@
   --ids-combobox-font-size-compact: #{tokens.$font-size-3};
   --ids-combobox-line-height-compact: #{tokens.$line-height-xxl};
 
+  /* Hover */
+  --ids-combobox-border-color-hover: #{tokens.$grey-600};
+
   /* Active */
   --ids-combobox-border-color-active: #{tokens.$electric-blue-500};
 
@@ -54,6 +57,10 @@
     box-sizing: border-box;
   }
 
+  &:hover {
+    border-color: var(--ids-combobox-border-color-hover);
+  }
+
   &:focus,
   &.focus {
     outline: 0;
@@ -77,6 +84,10 @@
     background: var(--ids-combobox-background-disabled);
     border-color: var(--ids-combobox-border-color-disabled);
     cursor: not-allowed;
+
+    &:hover {
+      border-color: var(--ids-combobox-border-color-disabled);
+    }
   }
 
   &--error {
