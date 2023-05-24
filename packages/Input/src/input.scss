@@ -38,7 +38,7 @@
   --ids-input-color-placeholder: #{tokens.$grey-400};
 
   /* Hover */
-  --ids-input-border-color-hover: #{tokens.$grey-500};
+  --ids-input-border-color-hover: #{tokens.$grey-600};
 
   /* Active */
   --ids-input-border-color-active: #{tokens.$electric-blue-500};
@@ -78,6 +78,10 @@
   appearance: textfield;
   transition: border-color 200ms ease 0s;
   margin: var(--ids-input-margin);
+
+  &:hover {
+    border-color: var(--ids-input-border-color-hover);
+  }
 }
 
 .ids-input__wrapper {
@@ -174,6 +178,10 @@
   background-color: var(--ids-input-background-disabled);
   border-color: var(--ids-input-border-color-disabled);
   cursor: not-allowed;
+
+  &:hover {
+    border-color: var(--ids-input-border-color-disabled);
+  }
 }
 
 .ids-input--disabled:active,

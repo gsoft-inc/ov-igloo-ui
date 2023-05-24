@@ -17,6 +17,9 @@
   --ids-select-font-size-compact: #{tokens.$font-size-3};
   --ids-select-line-height-compact: #{tokens.$line-height-xxl};
 
+  /* Hover */
+  --ids-select-border-color-hover: #{tokens.$grey-600};
+
   /* Active */
   --ids-select-border-color-active: #{tokens.$electric-blue-500};
 
@@ -46,6 +49,10 @@
   cursor: pointer;
   user-select: none;
 
+  &:hover {
+    border-color: var(--ids-select-border-color-hover);
+  }
+
   &,
   & * {
     box-sizing: border-box;
@@ -74,6 +81,10 @@
     background-color: var(--ids-select-background-disabled);
     border-color: var(--ids-select-border-color-disabled);
     cursor: not-allowed;
+
+    &:hover {
+      border-color: var(--ids-select-border-color-disabled);
+    }
   }
 
   &--error {
