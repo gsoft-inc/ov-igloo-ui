@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.0.5
+
+### Patch Changes
+
+- 84e2d78: Adding a hover effect
+
 ## 2.0.4
 
 ### Patch Changes
