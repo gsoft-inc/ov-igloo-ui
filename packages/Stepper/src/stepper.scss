@@ -1,0 +1,44 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-stepper-font-family: #{tokens.$primary-font-family};
+  --ids-stepper-font-size: #{tokens.$font-size-4};
+
+  /* Divider */
+  --ids-stepper-divider-background: #{tokens.$grey-300};
+  --ids-stepper-divider-border-radius: 1rem;
+  --ids-stepper-divider-height: 0.2rem;
+  --ids-stepper-divider-margin: 0 #{tokens.$space-2};
+  --ids-stepper-divider-width: 5rem;
+}
+
+.ids-stepper {
+  align-items: center;
+  display: flex;
+  font-family: var(--ids-stepper-font-family);
+  font-size: var(--ids-stepper-font-size);
+  justify-content: center;
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.ids-stepper__divider {
+  background: var(--ids-stepper-divider-background);
+  border-radius: var(--ids-stepper-divider-border-radius);
+  display: block;
+  flex: 0 1 var(--ids-stepper-divider-width);
+  height: var(--ids-stepper-divider-height);
+  margin: var(--ids-stepper-divider-margin);
+  min-width: 0;
+}
+
+.ids-step__wrapper--complete + .ids-stepper__divider {
+  --ids-stepper-divider-background: #{tokens.$electric-blue-500};
+  --ids-stepper-divider-height: #{tokens.$space-1};
+}
+  

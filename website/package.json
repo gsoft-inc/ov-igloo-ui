@@ -43,6 +43,7 @@
     "@igloo-ui/radio": "*",
     "@igloo-ui/select": "*",
     "@igloo-ui/stacked-bar": "*",
+    "@igloo-ui/stepper": "*",
     "@igloo-ui/tabs": "*",
     "@igloo-ui/tag": "*",
     "@igloo-ui/tag-picker": "*",

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stepper It should render a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ids-stepper"
+    data-test="ids-stepper"
+  >
+    <span
+      class="ids-tooltip__container ids-step__wrapper ids-step__wrapper--current"
+      role="button"
+      tabindex="0"
+    >
+      <button
+        aria-label="Step 1"
+        class="ids-step ids-step--current"
+        tabindex="-1"
+        type="button"
+      />
+    </span>
+    <div
+      class="ids-stepper__divider"
+    />
+    <span
+      class="ids-tooltip__container ids-step__wrapper ids-step__wrapper--inactive"
+      role="button"
+      tabindex="0"
+    >
+      <button
+        aria-label="Step 2"
+        class="ids-step ids-step--inactive"
+        disabled=""
+        tabindex="0"
+        type="button"
+      />
+    </span>
+    <div
+      class="ids-stepper__divider"
+    />
+    <span
+      class="ids-tooltip__container ids-step__wrapper ids-step__wrapper--inactive"
+      role="button"
+      tabindex="0"
+    >
+      <button
+        aria-label="Step 3"
+        class="ids-step ids-step--inactive"
+        disabled=""
+        tabindex="0"
+        type="button"
+      />
+    </span>
+  </div>
+</DocumentFragment>
+`;

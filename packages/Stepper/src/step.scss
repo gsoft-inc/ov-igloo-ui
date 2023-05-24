@@ -1,0 +1,96 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-step-font-family: #{tokens.$primary-font-family};
+  --ids-step-font-size: #{tokens.$font-size-4};
+  --ids-step-background: #{tokens.$samoyed};
+  --ids-step-border: #{tokens.$grey-300};
+  --ids-step-size: 2rem;
+  --ids-step-complete-color: #{tokens.$samoyed};
+  --ids-step-complete-background: #{tokens.$electric-blue-500};
+  --ids-step-focus: #{tokens.$focus};
+
+  /* Hover */
+  --ids-step-border-hover: #{tokens.$grey-800};
+  --ids-step-complete-background-hover: #{tokens.$electric-blue-600};
+
+  /* Current Step */
+  --ids-step-current-dot-background: #{tokens.$electric-blue-500};
+  --ids-step-current-dot-size: 1rem;
+}
+
+.ids-step__wrapper {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  min-width: 0;
+  position: relative;
+
+}
+
+.ids-step {
+  align-items: center;
+  background: var(--ids-step-background);
+  border: 1px solid var(--ids-step-border);
+  border-radius: 100%;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: var(--ids-step-font-family);
+  font-size: var(--ids-step-font-size);
+  height: var(--ids-step-size);
+  justify-content: center;
+  outline: 0;
+  padding: 0;
+  transition: border .2s, background .2s;
+  width: var(--ids-step-size);
+}
+
+.ids-step--clickable {
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--ids-step-border-hover);
+  }
+
+  &.ids-step--focus-visible {
+    box-shadow: var(--ids-step-focus);
+  }
+}
+
+.ids-step--complete {
+  background: var(--ids-step-complete-background);
+  border-color: var(--ids-step-complete-background);
+  color: var(--ids-step-complete-color);
+
+  &:hover {
+    background: var(--ids-step-complete-background-hover);
+    border-color: var(--ids-step-complete-background-hover);
+  }
+}
+
+.ids-step--current {
+  pointer-events: none;
+
+  &:hover {
+    border-color: var( --ids-step-border);
+  }
+
+  &::after {
+    background: var(--ids-step-current-dot-background);
+    border-radius: 100%;
+    content: '';
+    display: block;
+    flex: 0 0 auto;
+    height: var(--ids-step-current-dot-size);
+    width: var(--ids-step-current-dot-size);
+  }
+}
+
+.ids-step__checkmark {
+  flex: 0 0 auto;
+}
+
+  
