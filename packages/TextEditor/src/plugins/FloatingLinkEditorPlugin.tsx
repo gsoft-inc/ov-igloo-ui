@@ -388,7 +388,7 @@ function useFloatingLinkEditorToolbar(
   );
 }
 
-export default function FloatingLinkEditorPlugin({
+export function FloatingLinkEditorPlugin({
   anchorElem = document.body,
   messages,
 }: {
