@@ -1,5 +1,13 @@
 # @igloo-ui/combobox
 
+## 0.1.7
+
+### Patch Changes
+
+- 84e2d78: Adding a hover effect
+- Updated dependencies [84e2d78]
+  - @igloo-ui/input@2.0.5
+
 ## 0.1.6
 
 ### Patch Changes

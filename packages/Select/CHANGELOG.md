@@ -1,5 +1,13 @@
 # @igloo-ui/select
 
+## 1.0.7
+
+### Patch Changes
+
+- 84e2d78: Adding a hover effect
+- Updated dependencies [84e2d78]
+  - @igloo-ui/input@2.0.5
+
 ## 1.0.6
 
 ### Patch Changes
