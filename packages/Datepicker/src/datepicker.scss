@@ -123,6 +123,7 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
 
   &:hover {
     @extend %active-date;
+
     cursor: pointer;
   }
 
