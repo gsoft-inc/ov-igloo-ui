@@ -124,7 +124,6 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
   &:hover {
     color: var(--ids-datepicker-content-color-hover);
     background-color: var(--ids-datepicker-content-background-hover);
-
     cursor: pointer;
   }
 
