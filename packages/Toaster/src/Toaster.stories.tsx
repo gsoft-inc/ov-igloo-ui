@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from '@igloo-ui/button';
-import Checkbox from '@igloo-ui/checkbox';
 
 import { Meta } from '@storybook/react';
 
@@ -36,7 +35,7 @@ export default {
   ],
 } as Meta<typeof Toast>;
 
-/* export const Overview = {
+export const Overview = {
   render: () => {
     return (
       <>
@@ -99,28 +98,4 @@ export const ErrorToast = () => {
         <Toaster />
     </ChromaticWrapper>
   );
-}; */
-
-export const Multiple = {
-  render: () => {
-    let [isMounted1, setMounted1] = React.useState(true);
-    let [isMounted2, setMounted2] = React.useState(true);
-
-    return (
-      <>
-        <Checkbox checked={isMounted1} onChange={() => setMounted1(!isMounted1)} htmlFor="hi">First mounted</Checkbox>
-        {isMounted1 && <Toaster />}
-          <Button onClick={() => toast.success("I will not close until I'm told", 'infinite', true)}>
-            Closable
-          </Button>
-          
-        <Checkbox checked={isMounted2} onChange={() => setMounted2(!isMounted2)} htmlFor="hi2">Second mounted</Checkbox>
-        {isMounted2 && <Toaster />}
-      </>
-    );
-  },
-
-  parameters: {
-    chromatic: { disableSnapshot: true },
-  },
 };

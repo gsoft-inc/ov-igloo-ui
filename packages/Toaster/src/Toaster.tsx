@@ -97,14 +97,11 @@ const Toaster: React.FunctionComponent<AriaToastRegionProps> = (
   // We use a ref to do this, since it will have a stable identity
   // over the lifetime of the component.
   const ref = React.useRef();
-  toastProviders.add(ref);
-
-  console.log('toast provider: ', toastProviders);
 
   React.useEffect(() => {
-    console.log('mounted');
+    toastProviders.add(ref);
+
     return () => {
-      console.log('unmounted!');
       // When this toast provider unmounts, reset all animations so that
       // when the new toast provider renders, it is seamless.
       getGlobalToastQueue().visibleToasts.forEach((toast) => {
@@ -125,11 +122,6 @@ const Toaster: React.FunctionComponent<AriaToastRegionProps> = (
   // and there are visible toasts.
   const activeToastContainer = useActiveToastContainer();
   const toastState = useToastQueue(getGlobalToastQueue());
-
-  console.log('ref:', ref);
-  console.log('activeToastContainer:', activeToastContainer);
-  console.log('equal:', ref === activeToastContainer);
-
   if (ref === activeToastContainer && toastState.visibleToasts.length > 0) {
     const container = <ToastRegion state={toastState} {...props} />;
 
