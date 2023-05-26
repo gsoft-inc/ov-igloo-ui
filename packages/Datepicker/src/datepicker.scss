@@ -142,6 +142,10 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
     &[aria-invalid='true'] {
       @extend %active-date;
     }
+
+    &.ids-datepicker__content--selected {
+      color: var(--ids-datepicker-content-color-selected);
+    }
   }
 
   &[aria-disabled='true']:hover {
