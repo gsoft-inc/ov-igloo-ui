@@ -12852,10 +12852,10 @@ levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-lexical@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/lexical/-/lexical-0.10.0.tgz#d3c5ce34480bf7914af2e03c3dcbdad7f401ce15"
-  integrity sha512-/lYJVpjQPOzFVfQWhnxRSP6HHBywiltzx9/pWRsByzXDZL+FTty3yjTsSFiCWy4PoVZaXqH8gYBe9dkxZK7+Hg==
+lexical@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/lexical/-/lexical-0.11.1.tgz#a4ca061c16d9798b3c0b9f2f8e89cc077385e4ea"
+  integrity sha512-PhAGADxqzwJldmkVK5tvkaARTULCdeJjfhxWTnJQXTAlApE9heJir7SWxbxeUx1G5gdKZQFicGhOQlDXJmma2Q==
 
 libnpmaccess@^6.0.3:
   version "6.0.4"
