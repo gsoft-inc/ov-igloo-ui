@@ -33,6 +33,15 @@
   --ids-input-width-suffix: #{tokens.$space-7};
   --ids-input-width-suffix-compact: #{tokens.$space-6};
   --ids-input-padding-suffix: #{tokens.$space-2} #{tokens.$space-3} #{tokens.$space-2} #{tokens.$space-2};
+  --ids-input-padding-suffix-with-indicator: #{tokens.$space-2} #{tokens.$space-2} #{tokens.$space-2} #{tokens.$space-2};
+
+  /* With character indicator */
+  --ids-input-padding-character-indicator: #{tokens.$space-1} #{tokens.$space-3} #{tokens.$space-1} #{tokens.$space-2};
+  --ids-input-width-character-indicator: #{tokens.$space-6};
+  --ids-input-font-size-character-indicator: #{tokens.$font-size-2};
+  --ids-input-min-width-character-indicator: #{tokens.$space-4};
+  --ids-input-width-character-indicator-suffix: #{tokens.$space-9};
+  --ids-input-width-character-indicator-suffix-compact: #{tokens.$space-8};
 
   /* Placeholder */
   --ids-input-color-placeholder: #{tokens.$grey-400};
@@ -85,7 +94,14 @@
 }
 
 .ids-input__wrapper {
+  font-family: var(--ids-input-font-family);
   position: relative;
+}
+
+.ids-input__asset-wrapper {
+  @extend %ids-input-asset;
+
+  right: 0;
 }
 
 .ids-input__asset {
@@ -99,11 +115,28 @@
 
   &--suffix {
     @extend %ids-input-asset;
-
-    right: 0;
-    width: var(--ids-input-width-suffix);
+    
     padding: var(--ids-input-padding-suffix);
+    position: relative;
+    width: var(--ids-input-width-suffix);
+
+    .ids-input__asset-wrapper--has-char-indicator & {
+      display: inline-block;
+      padding-right: 0;
+      width: auto;
+    }
   }
+}
+
+.ids-input__char-indicator {
+  font-size: var(--ids-input-font-size-character-indicator);
+  min-width: var(--ids-input-min-width-character-indicator);
+  padding: var(--ids-input-padding-character-indicator);
+  text-align: right;
+}
+
+.ids-input--has-char-indicator {
+  padding-right: var(--ids-input-width-character-indicator);
 }
 
 .ids-input--prefixIcon {
@@ -112,6 +145,10 @@
 
 .ids-input--suffixIcon {
   padding-right: var(--ids-input-width-suffix);
+}
+
+.ids-input--has-char-indicator.ids-input--suffixIcon {
+  padding-right: var(--ids-input-width-character-indicator-suffix);
 }
 
 .ids-input__asset--prefix--compact {
@@ -124,12 +161,16 @@
   width: var(--ids-input-width-suffix-compact);
 }
 
-.ids-input__asset--prefix--compact + .ids-input--prefixIcon {
+.ids-input--compact.ids-input--prefixIcon {
   padding-left: var(--ids-input-width-prefix-compact);
 }
 
-.ids-input__asset--suffix--compact + .ids-input--suffixIcon {
+.ids-input--compact.ids-input--suffixIcon {
   padding-right: var(--ids-input-width-prefix-compact);
+}
+
+.ids-input--compact.ids-input--has-char-indicator.ids-input--suffixIcon {
+  padding-right: var(--ids-input-width-character-indicator-suffix-compact);
 }
 
 .ids-input--compact {

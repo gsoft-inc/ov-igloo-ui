@@ -1,15 +1,18 @@
 import * as React from 'react';
 import cx from 'classnames';
 
+import useCharLength from './hooks/useCharLength';
+
 import './input.scss';
 
 const KeyCodes = {
-  Comma: 44,
-  Minus: 45,
-  Nine: 57,
-  Period: 46,
-  Plus: 43,
-  Zero: 48,
+  Comma: ',',
+  Minus: '-',
+  Nine: '9',
+  Period: '.',
+  Plus: '+',
+  Zero: '0',
+  Backspace: 'Backspace',
 };
 
 export type InputType = 'email' | 'text' | 'password' | 'number';
@@ -37,6 +40,14 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   prefixIcon?: React.ReactNode;
   /** Use a suffix for add an icon after the input text */
   suffixIcon?: React.ReactNode;
+  /** The maximum number of characters allowed. Required if
+   *  "showCharactersIndicator" is enabled.
+   * Should not be used for type 'number' inputs */
+  maxLength?: number;
+  /** True to display the number of remaining allowed characters
+   *  on the right of the input. Requires a valid
+   *  value in the "maxLength" prop. */
+  showCharactersIndicator?: boolean;
 }
 
 const Input: React.FunctionComponent<InputProps> = React.forwardRef(
@@ -53,16 +64,26 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       dataTest,
       prefixIcon,
       suffixIcon,
+      maxLength,
+      showCharactersIndicator,
       ...rest
     }: InputProps,
     ref: React.Ref<any>
   ) => {
+    const [currentValue, setCurrentValue] = React.useState(
+      value?.toString() ?? ''
+    );
+    const inputMaxLength = maxLength ?? 0;
+    const charLength = useCharLength(currentValue, inputMaxLength);
+    const displayCharIndicator = showCharactersIndicator && inputMaxLength > 0;
+
     const classes = cx('ids-input', className, {
       'ids-input--compact': isCompact,
       'ids-input--error': error,
       'ids-input--disabled': disabled,
       'ids-input--prefixIcon': prefixIcon,
       'ids-input--suffixIcon': suffixIcon,
+      'ids-input--has-char-indicator': displayCharIndicator,
     });
 
     React.useEffect(() => {
@@ -72,24 +93,26 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       }
     }, [ref, autoFocus]);
 
-    const handleOnChange = (e: any) => {
+    const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+      setCurrentValue(e.target.value);
       if (onChange) {
         onChange(e);
-
-        return;
       }
+    };
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
       // Firefox doesn't support type="number", so here's a workaround
       // Input type="number" on Chrome supports "+", "-", "," et "."
       if (type === 'number') {
-        const { charCode } = e.charCode;
+        const charCode = e.key;
 
         if (
           charCode !== KeyCodes.Comma &&
           charCode !== KeyCodes.Period &&
           charCode !== KeyCodes.Minus &&
           charCode !== KeyCodes.Plus &&
-          (charCode < KeyCodes.Zero || charCode > KeyCodes.Nine)
+          (charCode < KeyCodes.Zero || charCode > KeyCodes.Nine) &&
+          charCode !== KeyCodes.Backspace
         ) {
           e.preventDefault();
         } else if (
@@ -118,7 +141,9 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
         value={value}
         readOnly={disabled}
         onChange={handleOnChange}
+        onKeyDown={handleKeyDown}
         data-test={dataTest}
+        maxLength={maxLength}
         {...rest}
       />
     );
@@ -143,11 +168,25 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       </span>
     );
 
-    return prefixIcon || suffixIcon ? (
+    return prefixIcon || suffixIcon || displayCharIndicator ? (
       <div className="ids-input__wrapper">
         {prefixIcon && addPrefixIcon}
         {inputRender}
-        {suffixIcon && addSuffixIcon}
+        {suffixIcon || displayCharIndicator ? (
+          <div
+            className={cx('ids-input__asset-wrapper', {
+              'ids-input__asset-wrapper--has-char-indicator':
+                displayCharIndicator,
+            })}
+          >
+            {suffixIcon && addSuffixIcon}
+            {displayCharIndicator && (
+              <div className="ids-input__char-indicator">
+                {inputMaxLength - charLength}
+              </div>
+            )}
+          </div>
+        ) : null}
       </div>
     ) : (
       inputRender

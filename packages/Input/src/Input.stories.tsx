@@ -82,3 +82,37 @@ export const WithSuffix = () => (
     />
   </Section>
 );
+
+export const WithCharacterLimit = () => (
+  <Section column>
+    <Input
+      placeholder="Default"
+      showCharactersIndicator
+      maxLength={100}
+    />
+    <Input
+      isCompact
+      placeholder="Compact"
+      showCharactersIndicator
+      maxLength={10}
+    />
+  </Section>
+);
+
+export const WithCharacterLimitAndSuffix = () => (
+  <Section column>
+    <Input
+      suffixIcon={<Percentage />}
+      placeholder="Default"
+      showCharactersIndicator
+      maxLength={100}
+    />
+    <Input
+      suffixIcon={<Percentage size="small" />}
+      isCompact
+      placeholder="Compact"
+      showCharactersIndicator
+      maxLength={5}
+    />
+  </Section>
+);
