@@ -1,73 +1,42 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
 import cx from 'classnames';
+import type { QueuedToast, ToastState } from '@react-stately/toast';
+import { useToast } from '@react-aria/toast';
 
+import IconButton from '@igloo-ui/icon-button';
+import Close from '@igloo-ui/icons/dist/Close';
 import SuccessSolid from '@igloo-ui/icons/dist/SuccessSolid';
 import RemoveSolid from '@igloo-ui/icons/dist/RemoveSolid';
+import type { ToastArgs } from './Toaster';
 
-import ToasterContainer, { TOAST_CONTAINER_ID } from './ToasterContainer';
-
-const TOAST_DURATION = 4000 as const;
-const TOAST_INFINITE_TIME = 'infinite' as const;
-
-export interface ToastProps extends React.ComponentProps<'output'> {
-  /** The content to display inside the Toast. */
-  message: string;
-  /** Display the error Toast. */
-  error?: boolean;
-  /** The length of time in milliseconds the toast message should persist. */
-  duration?: number | 'infinite';
-  /** Add a data-test tag for automated tests. */
-  dataTest?: string;
-  /** Handler that is called when the overlay should close. */
-  onDissmiss?: () => void;
+export interface ToastProps<T> {
+  /** The toast state used by react-aria */
+  state: ToastState<T>;
+  /** The toast to render */
+  toast: QueuedToast<T>;
 }
 
-const Toast: React.FunctionComponent<ToastProps> = ({
-  message,
-  error = false,
-  onDissmiss,
-  duration = TOAST_DURATION,
-  className,
-  dataTest,
-  ...rest
-}: ToastProps) => {
+const Toast: React.FunctionComponent<ToastProps<ToastArgs>> = ({
+  state,
+  toast,
+}: ToastProps<ToastArgs>) => {
+  const error = toast.content.status === 'error';
+  const duration = toast.timeout;
+  const { message, isClosable } = toast.content;
   const toastRef = React.useRef<HTMLOutputElement>(null);
-  let interval: NodeJS.Timer;
+  const { toastProps, titleProps, closeButtonProps } = useToast(
+    { toast },
+    state,
+    toastRef
+  );
 
-  const setAnimation = (duration: number) => {
-    document.documentElement.style.setProperty('--_duration', `${duration}ms`);
-    interval = setInterval(() => {
-      if (toastRef && toastRef.current) {
-        toastRef.current.classList.add('ids-toast--hidden');
-      }
-    }, duration);
-
-    return () => clearInterval(interval);
-  };
+  delete closeButtonProps.onPress;
 
   React.useEffect(() => {
-    if (duration === TOAST_INFINITE_TIME) {
-      return;
+    if (duration === undefined) {
+      toastRef.current?.style.setProperty('--_duration', `${duration}ms`);
     }
-
-    setAnimation(duration);
-  }, []);
-
-  React.useEffect(() => {
-    if (duration === TOAST_INFINITE_TIME) {
-      return;
-    }
-
-    interval = setInterval(() => {
-      if (onDissmiss) {
-        onDissmiss();
-      }
-    }, duration + 500);
-
-    // eslint-disable-next-line
-    return () => clearInterval(interval);
-  }, [onDissmiss]);
+  }, [duration, toastRef]);
 
   const statusIcon = !error ? (
     <SuccessSolid className="ids-toast__icon" />
@@ -75,26 +44,50 @@ const Toast: React.FunctionComponent<ToastProps> = ({
     <RemoveSolid className="ids-toast__icon" />
   );
 
-  const classes = cx('ids-toast', className, {
+  const classes = cx('ids-toast', {
     'ids-toast--error': error,
-    'ids-toast--reduce-motion': duration === TOAST_INFINITE_TIME,
+    'ids-toast--reduce-motion': duration === undefined,
   });
 
-  const container = document.getElementById(TOAST_CONTAINER_ID);
-
-  const toast = (
-    <output ref={toastRef} className={classes} data-test={dataTest} {...rest}>
-      {statusIcon} {message}
+  const toastElem = (
+    <output
+      {...toastProps}
+      ref={toastRef}
+      className={classes}
+      data-animation={toast.animation}
+      onAnimationEnd={() => {
+        // Remove the toast when the exiting animation completes.
+        if (toast.animation === 'exiting') {
+          state.remove(toast.key);
+        }
+      }}
+    >
+      <div {...titleProps} className="ids-toast__title">
+        {statusIcon} {message}
+      </div>
+      {isClosable && (
+        <IconButton
+          {...closeButtonProps}
+          className="ids-toast__close"
+          onClick={() => {
+            state.close(toast.key);
+          }}
+          appearance={{
+            type: 'ghost',
+            variant: 'secondary',
+          }}
+          icon={<Close size="medium" />}
+        />
+      )}
+      <div
+        className="ids-toast__progress-indicator"
+        onAnimationEnd={(e) => {
+          e.stopPropagation();
+        }}
+      />
     </output>
   );
 
-  if (!container) {
-    return ReactDOM.createPortal(
-      <ToasterContainer>{toast}</ToasterContainer>,
-      document.body
-    );
-  }
-
-  return toast;
+  return toastElem;
 };
 export default Toast;

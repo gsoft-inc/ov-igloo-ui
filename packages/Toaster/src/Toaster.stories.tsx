@@ -1,11 +1,12 @@
 import React from 'react';
 import Button from '@igloo-ui/button';
+import Checkbox from '@igloo-ui/checkbox';
 
 import { Meta } from '@storybook/react';
 
 import ChromaticWrapper from '@components/chromaticWrapper';
 
-import Toaster, { useToaster } from './Toaster';
+import Toaster, { toast } from './Toaster';
 import Toast from './Toast';
 
 import readme from '../README.md';
@@ -13,7 +14,6 @@ import readme from '../README.md';
 export default {
   title: 'Components/Toaster',
   component: Toast,
-  subcomponents: { Toaster },
   parameters: {
     docs: {
       description: {
@@ -36,9 +36,8 @@ export default {
   ],
 } as Meta<typeof Toast>;
 
-export const Overview = {
+/* export const Overview = {
   render: () => {
-    const { toast, toastList } = useToaster();
     return (
       <>
         <Button onClick={() => toast.success('Successfully toasted!')}>
@@ -51,7 +50,24 @@ export const Overview = {
           Error
         </Button>
 
-        <Toaster toasts={toastList} />
+        <Toaster />
+      </>
+    );
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+};
+
+export const Closable = {
+  render: () => {
+    return (
+      <>
+        <Button onClick={() => toast.success("I will not close until I'm told", 'infinite', true)}>
+          Closable
+        </Button>
+        <Toaster />
       </>
     );
   },
@@ -62,36 +78,49 @@ export const Overview = {
 };
 
 export const SuccessToast = () => {
-  const [showToast, setShowToast] = React.useState(false);
+
   return (
     <ChromaticWrapper>
-      <Button appearance="secondary" onClick={() => setShowToast(true)}>
+      <Button appearance="secondary" onClick={() => toast.success("Andrew's profile has been deleted")}>
         Remove profile
       </Button>
-      {showToast && (
-        <Toast
-          message="Andrew's profile has been deleted "
-          onDissmiss={() => setShowToast(false)}
-        />
-      )}
+        <Toaster />
     </ChromaticWrapper>
   );
 };
 
 export const ErrorToast = () => {
-  const [showToast, setShowToast] = React.useState(false);
+
   return (
-    <>
-      <Button appearance="secondary" onClick={() => setShowToast(true)}>
+    <ChromaticWrapper>
+      <Button appearance="secondary" onClick={() => toast.error("Sorry Andrew, your account could not be activated")}>
         Validate inscription
       </Button>
-      {showToast && (
-        <Toast
-          message="Sorry Andrew, your account could not be activated"
-          error
-          onDissmiss={() => setShowToast(false)}
-        />
-      )}
-    </>
+        <Toaster />
+    </ChromaticWrapper>
   );
+}; */
+
+export const Multiple = {
+  render: () => {
+    let [isMounted1, setMounted1] = React.useState(true);
+    let [isMounted2, setMounted2] = React.useState(true);
+
+    return (
+      <>
+        <Checkbox checked={isMounted1} onChange={() => setMounted1(!isMounted1)} htmlFor="hi">First mounted</Checkbox>
+        {isMounted1 && <Toaster />}
+          <Button onClick={() => toast.success("I will not close until I'm told", 'infinite', true)}>
+            Closable
+          </Button>
+          
+        <Checkbox checked={isMounted2} onChange={() => setMounted2(!isMounted2)} htmlFor="hi2">Second mounted</Checkbox>
+        {isMounted2 && <Toaster />}
+      </>
+    );
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };

@@ -27,19 +27,17 @@ yarn add @igloo-ui/toaster
 Then to use the component in your code just import it!
 
 ```jsx
-import { Toast } from '@igloo-ui/toaster';
+import Toaster, { toast } from '@igloo-ui/toaster';
+import Button from '@igloo-ui/button';
 
 const App = () => {
-  const [showToast, setShowToast] = React.useState(false);
   return (
     <div>
-      <button onClick={() => setShowToast(true)}>Make me a toast</button>
-      {showToast && (
-        <Toast
-          message="Here is your toast."
-          onDissmiss={() => setShowToast(false)}
-        />
-      )}
+      <Button onClick={() => toast.success('Successfully toasted!')}>
+        Success
+      </Button>
+
+      <Toaster />
     </div>
   );
 };
@@ -50,17 +48,23 @@ const App = () => {
 Then to use the component in your code just import it!
 
 ```jsx
-import Toaster, { useToaster } from '@igloo-ui/toaster';
+import Toaster, { toast } from '@igloo-ui/toaster';
+import Button from '@igloo-ui/button';
 
 const App = () => {
-  const { toast, toastList } = useToaster();
   return (
     <div>
-      <button onClick={() => toast.success('Successfully toasted!')}>
+      <Button onClick={() => toast.success('Successfully toasted!')}>
         Success
-      </button>
-      <button onClick={() => toast.error("This didn't work!")}>Error</button>
-      <Toaster toasts={toastList} />
+      </Button>
+      <Button
+        appearance="secondary"
+        onClick={() => toast.error("This didn't work!")}
+      >
+        Error
+      </Button>
+
+      <Toaster />
     </div>
   );
 };

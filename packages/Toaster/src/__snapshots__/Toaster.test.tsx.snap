@@ -1,3 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Toast It should render without error and a snapshot 1`] = `<DocumentFragment />`;
+exports[`Toast It should open and close without error and render a snapshot when open 1`] = `
+<body>
+  <div>
+    <div>
+      <button
+        class="ids-btn"
+        title="Success"
+        type="button"
+      >
+        <span
+          class=""
+        >
+          Success
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    aria-label="Notifications"
+    class="ids-toast__overlay"
+    data-react-aria-top-layer="true"
+    role="region"
+    tabindex="-1"
+  >
+    <output
+      aria-labelledby="react-aria-generated-id-0"
+      class="ids-toast ids-toast--reduce-motion"
+      data-animation="entering"
+      role="alert"
+      style="--_duration: undefinedms;"
+    >
+      <div
+        class="ids-toast__title"
+        id="react-aria-generated-id-0"
+      >
+        <svg
+          class="ids-icon ids-toast__icon"
+          fill="none"
+          height="24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm4.555-9.995a.75.75 0 0 0-1.11-1.01l-4.47 4.919L8.53 11.47a.75.75 0 0 0-1.06 1.06l2.629 2.63a1.25 1.25 0 0 0 1.809-.043l4.647-5.113Z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+         
+        DefaultToast
+      </div>
+      <button
+        aria-label="Close"
+        class="ids-btn ids-icon-btn ids-icon-btn--medium ids-toast__close ids-btn--ghost-secondary"
+        title=""
+        type="button"
+      >
+        <span
+          class=""
+        >
+          <svg
+            class="ids-icon"
+            fill="none"
+            height="24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16.216 17.276a.75.75 0 0 0 1.06-1.06L13.062 12l4.216-4.216a.75.75 0 0 0-1.06-1.06L12 10.938 7.784 6.723a.75.75 0 0 0-1.06 1.06L10.938 12l-4.216 4.216a.75.75 0 1 0 1.061 1.06L12 13.06l4.216 4.216Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+      </button>
+      <div
+        class="ids-toast__progress-indicator"
+      />
+    </output>
+  </div>
+</body>
+`;
