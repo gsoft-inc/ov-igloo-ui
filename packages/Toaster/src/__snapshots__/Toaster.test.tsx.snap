@@ -29,7 +29,6 @@ exports[`Toast It should open and close without error and render a snapshot when
       class="ids-toast ids-toast--reduce-motion"
       data-animation="entering"
       role="alert"
-      style="--_duration: undefinedms;"
     >
       <div
         class="ids-toast__title"

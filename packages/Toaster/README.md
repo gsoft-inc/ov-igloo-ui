@@ -43,7 +43,7 @@ const App = () => {
 };
 ```
 
-### Displaying multiple toasts
+### Displaying multiple toasts with custom duration
 
 Then to use the component in your code just import it!
 
@@ -54,12 +54,12 @@ import Button from '@igloo-ui/button';
 const App = () => {
   return (
     <div>
-      <Button onClick={() => toast.success('Successfully toasted!')}>
+      <Button onClick={() => toast.success('Successfully toasted!', {duration: 6000})}>
         Success
       </Button>
       <Button
         appearance="secondary"
-        onClick={() => toast.error("This didn't work!")}
+        onClick={() => toast.error("This didn't work!", {duration: 3000}))}
       >
         Error
       </Button>

@@ -14,17 +14,14 @@ export interface ToastArgs {
   message: string;
 }
 
+export interface ToastQueueOptionsProps {
+  duration?: number | 'infinite';
+  isClosable?: boolean;
+}
+
 export interface ToastQueueProps {
-  success: (
-    message: string,
-    duration?: number | 'infinite',
-    isClosable?: boolean
-  ) => void;
-  error: (
-    message: string,
-    duration?: number | 'infinite',
-    isClosable?: boolean
-  ) => void;
+  success: (message: string, options?: ToastQueueOptionsProps) => void;
+  error: (message: string, options?: ToastQueueOptionsProps) => void;
 }
 
 const TOAST_DURATION = 4000 as const;
@@ -81,10 +78,12 @@ const addToast = (
 };
 
 const toastQueue: ToastQueueProps = {
-  success: (message, duration = TOAST_DURATION, isClosable = false) => {
+  success: (message, options: ToastQueueOptionsProps = {}) => {
+    const { duration = TOAST_DURATION, isClosable = false } = options;
     addToast(message, 'success', duration, isClosable);
   },
-  error: (message, duration = TOAST_DURATION, isClosable = false) => {
+  error: (message, options: ToastQueueOptionsProps = {}) => {
+    const { duration = TOAST_DURATION, isClosable = false } = options;
     addToast(message, 'error', duration, isClosable);
   },
 };

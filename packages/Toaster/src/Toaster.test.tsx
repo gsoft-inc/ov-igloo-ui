@@ -50,7 +50,7 @@ function replaceReactAriaIds(container: HTMLElement) {
 function RenderToastButton(props: ToastQueueTypeProps = {}) {
   return (
     <div>
-      <Button onClick={() => toast[props.status || 'success'](props.message || 'DefaultToast', props.duration, props.isClosable)}>
+      <Button onClick={() => toast[props.status || 'success'](props.message || 'DefaultToast', {duration: props.duration, isClosable: props.isClosable })}>
           Success
         </Button>
     </div>
@@ -168,7 +168,7 @@ describe('Toast', () => {
     expect(queryByRole('alert')).toBeNull();
   });
 
-  test('it should render multiple toast', () => {
+  test('It should render multiple toast', () => {
     const {getByRole, queryByRole, getAllByRole} = renderComponent(<RenderToastButton status="error" isClosable duration="infinite" />);
     let button = getByRole('button');
     

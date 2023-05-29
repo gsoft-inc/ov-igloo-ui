@@ -33,7 +33,7 @@ const Toast: React.FunctionComponent<ToastProps<ToastArgs>> = ({
   delete closeButtonProps.onPress;
 
   React.useEffect(() => {
-    if (duration === undefined) {
+    if (duration !== undefined) {
       toastRef.current?.style.setProperty('--_duration', `${duration}ms`);
     }
   }, [duration, toastRef]);

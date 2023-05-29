@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useFocusWithin, useHover } from '@react-aria/interactions';
 import { useToastRegion } from '@react-aria/toast';
 import type { AriaToastRegionProps } from '@react-aria/toast';
-import type { ToastState } from '@react-stately/toast';
+import type { ToastState, QueuedToast } from '@react-stately/toast';
 import type { ToastArgs } from './Toaster';
 
 import Toast from './Toast';
@@ -46,7 +46,7 @@ const ToastRegion: React.FunctionComponent<ToastRegionProps<ToastArgs>> = ({
       {...focusWithinProps}
       {...hoverProps}
     >
-      {state.visibleToasts.map((toast) => (
+      {state.visibleToasts.map((toast: QueuedToast<ToastArgs>) => (
         <Toast key={toast.key} toast={toast} state={state} />
       ))}
     </div>

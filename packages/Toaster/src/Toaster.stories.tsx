@@ -59,12 +59,29 @@ export const Overview = {
   },
 };
 
+export const Duration = {
+  render: () => {
+    return (
+      <>
+        <Button onClick={() => toast.success("I will last 6 seconds", { duration: 6000 })}>
+          Open Toast
+        </Button>
+        <Toaster />
+      </>
+    );
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+};
+
 export const Closable = {
   render: () => {
     return (
       <>
-        <Button onClick={() => toast.success("I will not close until I'm told", 'infinite', true)}>
-          Closable
+        <Button onClick={() => toast.success("I will not close until I'm told", { duration: 'infinite', isClosable: true })}>
+          Open Closable Toast
         </Button>
         <Toaster />
       </>

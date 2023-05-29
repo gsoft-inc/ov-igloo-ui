@@ -24,7 +24,6 @@
   --ids-toaster-status-color-error: #{tokens.$coral-500};
 
   /* Overlay */
-  --ids-toaster-overlay-padding: 0 #{tokens.$space-3};
   --ids-toaster-z-index: #{tokens.$z-index-max};
 }
 
@@ -186,6 +185,5 @@
     --ids-toaster-inset: #{tokens.$space-3} 0 auto 0;
     --ids-toaster-border-radius: #{tokens.$border-radius-sm};
     --ids-toaster-padding: #{tokens.$space-3} #{tokens.$space-3} calc(#{tokens.$space-3} + #{tokens.$space-1}) #{tokens.$space-3};
-    --ids-toaster-overlay-padding: 0;
   }
 }
