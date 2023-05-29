@@ -3,6 +3,8 @@ import cx from 'classnames';
 import autosize from 'autosize';
 import { mergeRefs } from '@react-aria/utils';
 
+import useCharLength from './hooks/useCharLength';
+
 import './textarea.scss';
 
 export interface TextareaProps extends React.ComponentPropsWithRef<'textarea'> {
@@ -54,11 +56,9 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
   ) => {
     const textareaRef = React.useRef<HTMLTextAreaElement | null>(null);
     const mergedTextareaRef = mergeRefs(textareaRef, ref);
-    const [currentCharLength, setCurrentCharLength] = React.useState(
-      value?.length ?? 0
-    );
     const [currentValue, setCurrentValue] = React.useState(value ?? '');
     const textareaMaxLength = maxLength ?? 0;
+    const charLength = useCharLength(currentValue, textareaMaxLength);
     const displayCharIndicator =
       showCharactersIndicator && textareaMaxLength > 0;
 
@@ -105,20 +105,6 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
       }
     }, [textareaRef, isAutoResize]);
 
-    React.useEffect(() => {
-      let currentValueLength = currentValue?.length ?? 0;
-
-      const emojiRegexExp =
-        /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/gi;
-      const hasEmoji = emojiRegexExp.test(currentValue);
-
-      if (currentValue.length === maxLength! - 1 && hasEmoji) {
-        currentValueLength = currentValue.length + 1;
-      }
-
-      setCurrentCharLength(currentValueLength);
-    }, [currentValue]);
-
     return (
       <div className={classes} data-test={dataTest}>
         <textarea
@@ -134,7 +120,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
 
         {displayCharIndicator && (
           <div className="ids-textarea__char-indicator">
-            {textareaMaxLength - currentCharLength}
+            {textareaMaxLength - charLength}
           </div>
         )}
       </div>
