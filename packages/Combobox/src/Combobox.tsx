@@ -350,9 +350,11 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
               isCompact
               onOptionFocus={hoverOption}
               onOptionChange={updateOption}
+              onOptionBlur={() => setCurrentFocusedOption(undefined)}
               selectedOption={multiple ? selectedOption : currentSelectedOption}
               focusedOption={currentFocusedOption}
               multiple={multiple}
+              disableTabbing
             />
           ) : (
             <div className="ids-combobox__no-results">{noResultsText}</div>
