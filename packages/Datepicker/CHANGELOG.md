@@ -1,5 +1,11 @@
 # @igloo-ui/datepicker
 
+## 0.1.2
+
+### Patch Changes
+
+- b4fb540: cursor display on hover of an inactive date
+
 ## 0.1.1
 
 ### Patch Changes
