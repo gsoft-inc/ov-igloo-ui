@@ -60,15 +60,18 @@ describe('ActionMenu', () => {
     expect(listItem).toBeInTheDocument();
   });
 
-  test('It calls onOptionSelect', () => {
+  test('It calls the onClick of the option', () => {
     let selected = false;
     setup({
-      onOptionSelect: (option: OptionType) => {
-        if (option.value === 'add') {
-          selected = true;
-        }
-      },
-      ...actionMenuProps,
+      ...actionMenuProps, options: [
+        {
+          label: 'Add Item',
+          value: 'add',
+          onClick: () => {
+            selected = true;
+          }
+        },
+      ]
     });
     const listItem = screen.getByText('Add Item');
     if (listItem) {
