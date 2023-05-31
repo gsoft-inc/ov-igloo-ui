@@ -2,6 +2,7 @@ import * as React from 'react';
 import cx from 'classnames';
 
 import useCharLength from './hooks/useCharLength';
+import useTruncateValue from './hooks/useTruncateValue';
 
 import './input.scss';
 
@@ -86,6 +87,8 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       'ids-input--has-char-indicator': displayCharIndicator,
     });
 
+    const truncateValue = useTruncateValue();
+
     React.useEffect(() => {
       const refObject = ref as React.RefObject<HTMLInputElement>;
       if (autoFocus && refObject && refObject.current) {
@@ -93,8 +96,14 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       }
     }, [ref, autoFocus]);
 
+    React.useEffect(() => {
+      const newValue = truncateValue(value?.toString() ?? '', maxLength);
+      setCurrentValue(newValue);
+    }, [value, maxLength, truncateValue]);
+
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-      setCurrentValue(e.target.value);
+      const newValue = truncateValue(e.target.value, maxLength);
+      setCurrentValue(newValue);
       if (onChange) {
         onChange(e);
       }
@@ -138,7 +147,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
         ref={ref}
         className={classes}
         type={type}
-        value={value}
+        value={currentValue}
         readOnly={disabled}
         onChange={handleOnChange}
         onKeyDown={handleKeyDown}

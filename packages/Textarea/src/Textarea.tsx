@@ -4,6 +4,7 @@ import autosize from 'autosize';
 import { mergeRefs } from '@react-aria/utils';
 
 import useCharLength from './hooks/useCharLength';
+import useTruncateValue from './hooks/useTruncateValue';
 
 import './textarea.scss';
 
@@ -61,6 +62,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
     const charLength = useCharLength(currentValue, textareaMaxLength);
     const displayCharIndicator =
       showCharactersIndicator && textareaMaxLength > 0;
+    const truncateValue = useTruncateValue();
 
     const classes = cx('ids-textarea', className, {
       'ids-textarea--has-char-count': displayCharIndicator,
@@ -74,7 +76,8 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
     const handleOnChange = (
       event: React.ChangeEvent<HTMLTextAreaElement>
     ): void => {
-      setCurrentValue(event.target.value);
+      const newValue = truncateValue(event.target.value, maxLength);
+      setCurrentValue(newValue);
       if (onChange) {
         onChange(event);
       }
@@ -105,6 +108,11 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
       }
     }, [textareaRef, isAutoResize]);
 
+    React.useEffect(() => {
+      const newValue = truncateValue(value?.toString() ?? '', maxLength);
+      setCurrentValue(newValue);
+    }, [value, maxLength, truncateValue]);
+
     return (
       <div className={classes} data-test={dataTest}>
         <textarea
@@ -113,7 +121,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
           maxLength={maxLength}
           onChange={handleOnChange}
           onKeyDown={handleKeyDown}
-          value={value}
+          value={currentValue}
           disabled={disabled}
           {...rest}
         />

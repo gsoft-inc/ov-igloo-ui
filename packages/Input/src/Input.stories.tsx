@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta } from '@storybook/react';
 import Search from '@igloo-ui/icons/dist/Search';
 import Percentage from '@igloo-ui/icons/dist/Percentage';
 
@@ -19,13 +19,20 @@ export default {
       }
     }
   },
+  argTypes: {
+    value: {
+      control: {
+        type: null,
+      },
+    },
+  },
 } as Meta<typeof Input>;
 
-const inputPlacehoder = 'ex: Lorem ipsum dolor';
+const inputPlaceholder = 'ex: Lorem ipsum dolor';
 
 export const Overview = {
   args: {
-    placeholder: inputPlacehoder,
+    placeholder: inputPlaceholder,
   },
 };
 
