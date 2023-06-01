@@ -17,6 +17,13 @@ export default {
       }
     }
   },
+  argTypes: {
+    value: {
+      control: {
+        type: null,
+      },
+    },
+  },
 } as Meta<typeof Textarea>;
 
 const Template: StoryFn<typeof Textarea> = (args) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta } from '@storybook/react';
 import Search from '@igloo-ui/icons/dist/Search';
 import Percentage from '@igloo-ui/icons/dist/Percentage';
 
@@ -19,13 +19,20 @@ export default {
       }
     }
   },
+  argTypes: {
+    value: {
+      control: {
+        type: null,
+      },
+    },
+  },
 } as Meta<typeof Input>;
 
-const inputPlacehoder = 'ex: Lorem ipsum dolor';
+const inputPlaceholder = 'ex: Lorem ipsum dolor';
 
 export const Overview = {
   args: {
-    placeholder: inputPlacehoder,
+    placeholder: inputPlaceholder,
   },
 };
 
@@ -79,6 +86,40 @@ export const WithSuffix = () => (
       min="0"
       isCompact
       placeholder="Compact"
+    />
+  </Section>
+);
+
+export const WithCharacterLimit = () => (
+  <Section column>
+    <Input
+      placeholder="Default"
+      showCharactersIndicator
+      maxLength={100}
+    />
+    <Input
+      isCompact
+      placeholder="Compact"
+      showCharactersIndicator
+      maxLength={10}
+    />
+  </Section>
+);
+
+export const WithCharacterLimitAndSuffix = () => (
+  <Section column>
+    <Input
+      suffixIcon={<Percentage />}
+      placeholder="Default"
+      showCharactersIndicator
+      maxLength={100}
+    />
+    <Input
+      suffixIcon={<Percentage size="small" />}
+      isCompact
+      placeholder="Compact"
+      showCharactersIndicator
+      maxLength={5}
     />
   </Section>
 );
