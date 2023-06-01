@@ -5,7 +5,7 @@ import { Meta } from '@storybook/react';
 
 import ChromaticWrapper from '@components/chromaticWrapper';
 
-import Toaster, { useToaster } from './Toaster';
+import Toaster, { toast } from './Toaster';
 import Toast from './Toast';
 
 import readme from '../README.md';
@@ -13,7 +13,6 @@ import readme from '../README.md';
 export default {
   title: 'Components/Toaster',
   component: Toast,
-  subcomponents: { Toaster },
   parameters: {
     docs: {
       description: {
@@ -38,7 +37,6 @@ export default {
 
 export const Overview = {
   render: () => {
-    const { toast, toastList } = useToaster();
     return (
       <>
         <Button onClick={() => toast.success('Successfully toasted!')}>
@@ -51,7 +49,41 @@ export const Overview = {
           Error
         </Button>
 
-        <Toaster toasts={toastList} />
+        <Toaster />
+      </>
+    );
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+};
+
+export const Duration = {
+  render: () => {
+    return (
+      <>
+        <Button onClick={() => toast.success("I will last 6 seconds", { duration: 6000 })}>
+          Open Toast
+        </Button>
+        <Toaster />
+      </>
+    );
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+};
+
+export const Closable = {
+  render: () => {
+    return (
+      <>
+        <Button onClick={() => toast.success("I will not close until I'm told", { duration: 'infinite', isClosable: true })}>
+          Open Closable Toast
+        </Button>
+        <Toaster />
       </>
     );
   },
@@ -62,36 +94,25 @@ export const Overview = {
 };
 
 export const SuccessToast = () => {
-  const [showToast, setShowToast] = React.useState(false);
+
   return (
     <ChromaticWrapper>
-      <Button appearance="secondary" onClick={() => setShowToast(true)}>
+      <Button appearance="secondary" onClick={() => toast.success("Andrew's profile has been deleted")}>
         Remove profile
       </Button>
-      {showToast && (
-        <Toast
-          message="Andrew's profile has been deleted "
-          onDissmiss={() => setShowToast(false)}
-        />
-      )}
+        <Toaster />
     </ChromaticWrapper>
   );
 };
 
 export const ErrorToast = () => {
-  const [showToast, setShowToast] = React.useState(false);
+
   return (
-    <>
-      <Button appearance="secondary" onClick={() => setShowToast(true)}>
+    <ChromaticWrapper>
+      <Button appearance="secondary" onClick={() => toast.error("Sorry Andrew, your account could not be activated")}>
         Validate inscription
       </Button>
-      {showToast && (
-        <Toast
-          message="Sorry Andrew, your account could not be activated"
-          error
-          onDissmiss={() => setShowToast(false)}
-        />
-      )}
-    </>
+        <Toaster />
+    </ChromaticWrapper>
   );
 };
