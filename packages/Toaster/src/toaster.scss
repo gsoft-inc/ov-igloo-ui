@@ -24,8 +24,69 @@
   --ids-toaster-status-color-error: #{tokens.$coral-500};
 
   /* Overlay */
-  --ids-toaster-overlay-padding: 0 #{tokens.$space-3};
   --ids-toaster-z-index: #{tokens.$z-index-max};
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(var(--_travel-distance, -64px));
+  }
+  
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(var(--_travel-distance, -64px));
+  }
+}
+
+@keyframes remove-space {
+  from {
+    max-height: 8rem;
+    padding: var(--ids-toaster-padding);
+  }
+
+  to {
+    max-height: 0;
+    padding: 0;
+  }
+}
+
+@keyframes time {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 .ids-toast__overlay {
@@ -60,24 +121,17 @@
   box-shadow: var(--ids-toaster-shadow);
   box-sizing: border-box;
   will-change: transform;
-  animation: fade-in 0.3s ease, slide-in 0.3s ease;
 
-  &::after {
-    position: absolute;
-    inset: auto 0 0 0;
-    display: block;
-    content: '';
-    height: var(--ids-toaster-status-height);
-    background: var(--_state);
-    animation-name: time;
-    animation-duration: var(--_duration, 4000ms);
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
+  &__title {
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+    gap: var(--ids-toaster-gap);
   }
 
   &__icon {
     box-sizing: border-box;
-    flex: 0 1 auto;
+    flex: 0 0 auto;
     min-width: var(--ids-toaster-status-icon-size);
     color: var(--_state);
   }
@@ -86,58 +140,43 @@
     --_state: var(--ids-toaster-status-color-error);
   }
 
-  &--hidden {
+  &[data-animation='entering'] {
+    animation: fade-in 0.3s ease, slide-in 0.3s ease;
+  }
+  
+  &[data-animation='exiting'] {
     animation: fade-out 0.15s ease, slide-out 0.15s ease, remove-space 0.15s ease;
     animation-fill-mode: forwards;
   }
+}
 
-  &--reduce-motion {
-    &::after {
-      animation: none;
-    }
+.ids-toast__close {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.ids-toast__progress-indicator {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: block;
+  content: '';
+  height: var(--ids-toaster-status-height);
+  background: var(--_state);
+  animation-name: time;
+  animation-duration: var(--_duration, 4000ms);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  
+  .ids-toast__overlay--focus & {
+    animation-play-state: paused;
+  }
+
+  .ids-toast--reduce-motion & {
+    animation: none;
   }
 }
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-}
 
-@keyframes fade-out {
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes slide-in {
-  from {
-    transform: translateY(var(--_travel-distance, -64px));
-  }
-}
-
-@keyframes slide-out {
-  to {
-    transform: translateY(var(--_travel-distance, -64px));
-  }
-}
-
-@keyframes remove-space {
-  to {
-    height: 0;
-    padding: 0;
-  }
-}
-
-@keyframes time {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-100%);
-  }
-}
 
 @media (min-width: 600px) {
   :root {
@@ -146,6 +185,5 @@
     --ids-toaster-inset: #{tokens.$space-3} 0 auto 0;
     --ids-toaster-border-radius: #{tokens.$border-radius-sm};
     --ids-toaster-padding: #{tokens.$space-3} #{tokens.$space-3} calc(#{tokens.$space-3} + #{tokens.$space-1}) #{tokens.$space-3};
-    --ids-toaster-overlay-padding: 0;
   }
 }

@@ -1,5 +1,11 @@
 # @igloo-ui/toaster
 
+## 2.0.0
+
+### Major Changes
+
+- a5622f7: Changed the way the toaster is used. Also added a close button.
+
 ## 1.0.5
 
 ### Patch Changes

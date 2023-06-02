@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/input",
-  "version": "2.0.5",
+  "version": "2.1.0",
   "main": "dist/Input.js",
   "module": "dist/Input.js",
   "types": "dist/Input.d.ts",
@@ -25,7 +25,8 @@
   },
   "dependencies": {
     "@igloo-ui/tokens": "^2.0.0",
-    "classnames": "^2.3.2"
+    "classnames": "^2.3.2",
+    "graphemer": "^1.4.0"
   },
   "devDependencies": {
     "@igloo-ui/icons": "^1.6.0"

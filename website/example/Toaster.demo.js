@@ -1,21 +1,18 @@
 import React from 'react';
-import { Toast } from '@igloo-ui/toaster';
 import Button from '@igloo-ui/button';
+import Toaster, { toast } from '@igloo-ui/toaster';
 
 const Example = () => {
-  const [showToast, setShowToast] = React.useState(false);
-
   return (
     <div className="example">
-      <Button appearance="secondary" onClick={() => setShowToast(true)}>
-        Make me a toast
+
+      <Button onClick={() => {
+        toast.success('Successfully toasted!');
+      }}>
+        Success
       </Button>
-      {showToast && (
-        <Toast
-          message="Your reminder is on the way!"
-          onDissmiss={() => setShowToast(false)}
-        />
-      )}
+      
+      <Toaster />
     </div>
   );
 };

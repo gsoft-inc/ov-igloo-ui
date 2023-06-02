@@ -3723,6 +3723,17 @@
     "@react-types/shared" "^3.18.0"
     "@swc/helpers" "^0.4.14"
 
+"@react-aria/landmark@3.0.0-beta.0":
+  version "3.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@react-aria/landmark/-/landmark-3.0.0-beta.0.tgz#1d26f6b05e95005f1a8015a48eb806f35726036b"
+  integrity sha512-ms6xS2qbpoEed1J0nwH8u7xaTlyf6TyoXF/6w7hSIma24TmxxqpIRfSrhO+y3z65zZPMMTV8V+qDBRP86+poQA==
+  dependencies:
+    "@react-aria/focus" "^3.12.0"
+    "@react-aria/utils" "^3.16.0"
+    "@react-types/shared" "^3.18.0"
+    "@swc/helpers" "^0.4.14"
+    use-sync-external-store "^1.2.0"
+
 "@react-aria/link@^3.3.5", "@react-aria/link@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@react-aria/link/-/link-3.5.0.tgz#6c8e14b8f11f2a67a0f910f77670c0d4f274dda4"
@@ -3999,6 +4010,20 @@
     "@react-aria/utils" "^3.16.0"
     "@react-types/shared" "^3.18.0"
     "@react-types/textfield" "^3.7.1"
+    "@swc/helpers" "^0.4.14"
+
+"@react-aria/toast@^3.0.0-beta.0":
+  version "3.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@react-aria/toast/-/toast-3.0.0-beta.0.tgz#78c2fe3f329c3c1a7db7c142e1f0f4dfa828e12c"
+  integrity sha512-7TiTaZ+2x5VG41JW+V8RUh6sV1cUECRWlcssaRMXio5anV55x4auDXkjnkH0ejcnpMOBfGvQmK0SlOY6fG/wuQ==
+  dependencies:
+    "@react-aria/i18n" "^3.7.1"
+    "@react-aria/interactions" "^3.15.0"
+    "@react-aria/landmark" "3.0.0-beta.0"
+    "@react-aria/utils" "^3.16.0"
+    "@react-stately/toast" "3.0.0-beta.0"
+    "@react-types/button" "^3.7.2"
+    "@react-types/shared" "^3.18.0"
     "@swc/helpers" "^0.4.14"
 
 "@react-aria/toggle@^3.6.0":
@@ -4289,6 +4314,14 @@
     "@react-types/shared" "^3.18.0"
     "@react-types/tabs" "^3.2.1"
     "@swc/helpers" "^0.4.14"
+
+"@react-stately/toast@3.0.0-beta.0", "@react-stately/toast@^3.0.0-beta.0":
+  version "3.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/toast/-/toast-3.0.0-beta.0.tgz#4f43dc4402583f63f2147db9d138d33ad0b06c15"
+  integrity sha512-oQ1i2yD3BM37rNx/RoIwyPE3Cxsk8mQrNfGHvPTH6GQxd8gPXnJgIeRL772sNE5sWruZf0znjDieMmbNd5V/gw==
+  dependencies:
+    "@swc/helpers" "^0.4.14"
+    use-sync-external-store "^1.2.0"
 
 "@react-stately/toggle@^3.5.1":
   version "3.5.1"
@@ -6277,6 +6310,11 @@
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.6.tgz#250a7b16c3b91f672a24552ec64678eeb1d3a08d"
   integrity sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==
+
+"@types/use-sync-external-store@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@types/use-sync-external-store/-/use-sync-external-store-0.0.3.tgz#b6725d5f4af24ace33b36fafd295136e75509f43"
+  integrity sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==
 
 "@types/webpack-env@^1.17.0":
   version "1.18.0"
@@ -10979,6 +11017,11 @@ grapheme-splitter@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/grapheme-splitter/-/grapheme-splitter-1.0.4.tgz#9cf3a665c6247479896834af35cf1dbb4400767e"
   integrity sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==
+
+graphemer@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/graphemer/-/graphemer-1.4.0.tgz#fb2f1d55e0e3a1849aeffc90c4fa0dd53a0e66c6"
+  integrity sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==
 
 gray-matter@^4.0.3:
   version "4.0.3"
@@ -18947,6 +18990,11 @@ use-resize-observer@^9.1.0:
   integrity sha512-R25VqO9Wb3asSD4eqtcxk8sJalvIOYBqS8MNZlpDSQ4l4xMQxC/J7Id9HoTqPq8FwULIn0PVW+OAqF2dyYbjow==
   dependencies:
     "@juggle/resize-observer" "^3.3.1"
+
+use-sync-external-store@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz#7dbefd6ef3fe4e767a0cf5d7287aacfb5846928a"
+  integrity sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==
 
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"

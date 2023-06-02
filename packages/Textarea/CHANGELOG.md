@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.2.2
+
+### Patch Changes
+
+- e876d94: Update textarea to use the same character count hook as the input component
+
 ## 0.2.1
 
 ### Patch Changes
