@@ -319,7 +319,11 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         onFocus={handleGainFocus}
-        onBlur={handleLoseFocus}
+        onBlur={() => {
+          if (!shouldShowResults) {
+            handleLoseFocus();
+          }
+        }}
         value={inputValue}
       />
     </div>
