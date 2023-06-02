@@ -48,6 +48,8 @@ export type OptionType = Option | Member;
 export interface ListItemProps extends React.ComponentProps<'li'> {
   /** Add a specific class to the Select */
   className?: string;
+  /** Whether or not to disable tabbing of list items */
+  disableTabbing?: boolean;
   /** True for a compact appearance */
   isCompact?: boolean;
   /** If the option is focused/hovered */
@@ -60,6 +62,9 @@ export interface ListItemProps extends React.ComponentProps<'li'> {
   onOptionFocus?: (option: OptionType) => void;
   /** Called when an option is selected */
   onOptionChange?: (option: OptionType) => void;
+  /** Called when the mouse moves outside of the option
+   * or the option loses focus */
+  onOptionBlur?: (option: OptionType) => void;
   /** A list of options */
   option: OptionType;
   /** Whether or not to show the icon if it's available */
@@ -68,12 +73,14 @@ export interface ListItemProps extends React.ComponentProps<'li'> {
 
 const ListItem: React.FunctionComponent<ListItemProps> = ({
   className,
+  disableTabbing = false,
   isCompact = true,
   isFocused = false,
   isSelected = false,
   useCheckbox,
   onOptionFocus,
   onOptionChange,
+  onOptionBlur,
   option,
   showIcon = true,
   ...rest
@@ -91,6 +98,15 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
       (option.type === 'member' && onOptionFocus)
     ) {
       onOptionFocus(option);
+    }
+  };
+
+  const onListItemBlur = (option: OptionType): void => {
+    if (
+      (option.type === 'list' && !option.disabled && onOptionBlur) ||
+      (option.type === 'member' && onOptionBlur)
+    ) {
+      onOptionBlur(option);
     }
   };
 
@@ -151,10 +167,14 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
         handleOptionChange(option);
       }}
       onMouseOver={() => onListItemFocus(option)}
+      onMouseOut={() => onListItemBlur(option)}
+      onBlur={() => onListItemBlur(option)}
       onFocus={() => onListItemFocus(option)}
       role="option"
       aria-selected={isSelected}
-      tabIndex={-1}
+      tabIndex={
+        disableTabbing || isOptionDisabled() || !onOptionChange ? -1 : 0
+      }
       key={option.value}
       data-intercom-target={option?.intercomTarget}
       {...rest}

@@ -274,9 +274,11 @@ const Select: React.FunctionComponent<SelectProps> = ({
             isCompact
             onOptionFocus={hoverOption}
             onOptionChange={selectOption}
+            onOptionBlur={() => setCurrentFocusedOption(undefined)}
             selectedOption={currentSelectedOption}
             focusedOption={currentFocusedOption}
             showIcon={showListIcon}
+            disableTabbing
           />
         }
         isOpen={canShowMenu}

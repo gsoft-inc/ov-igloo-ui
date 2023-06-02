@@ -3,7 +3,6 @@ import isChromatic from 'chromatic/isChromatic';
 
 import IconButton from '@igloo-ui/icon-button';
 import Button from '@igloo-ui/button';
-import { OptionType } from '@igloo-ui/List/dist/List';
 import Kebab from '@igloo-ui/icons/dist/Kebab';
 import AddSolid from '@igloo-ui/icons/dist/AddSolid';
 import Delete from '@igloo-ui/icons/dist/Delete';
@@ -48,6 +47,34 @@ const actionMenuList2: ActionMenuOption[] = [
     label: 'Copy Item',
     value: 'copy',
     icon: <Copy size="medium" />,
+  },
+];
+
+const actionMenuListEvents: ActionMenuOption[] = [
+  {
+    label: 'Add Item',
+    value: 'add',
+    icon: <AddSolid size="medium" />,
+    onClick: () => {
+      alert('"Add Item" was clicked');
+    }
+  },
+  {
+    label: 'Delete Item',
+    value: 'delete',
+    icon: <Delete size="medium" />,
+    onClick: () => {
+      alert('"Delete Item" was clicked');
+    },
+    closeOnSelect: false,
+  },
+  {
+    label: 'Copy Item',
+    value: 'copy',
+    icon: <Copy size="medium" />,
+    onClick: () => {
+      alert('"Copy Item" was clicked');
+    }
   },
 ];
 
@@ -194,19 +221,13 @@ export const Events = () => {
       </p>
       <ActionMenu
         renderReference={kebab}
-        options={actionMenuList2}
+        options={actionMenuListEvents}
         style={{ display: 'flex', justifyContent: 'center' }}
-        onOptionSelect={(option: OptionType) => {
-          alert(`The "${option.value}" item was selected.`);
-        }}
         onMenuOpen={() => {
           alert('The action menu was opened');
         }}
         onMenuClose={() => {
           alert('The action menu was closed');
-        }}
-        closeOnSelect={(option: OptionType) => {
-          return option.value !== 'delete';
         }}
       />
     </ChromaticWrapper>

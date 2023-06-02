@@ -23,6 +23,8 @@ yarn add @igloo-ui/action-menu
 
 Then to use the component in your code just import it!
 
+### Displaying an action menu
+
 ```jsx
 import ActionMenu from '@igloo-ui/action-menu';
 import Button from '@igloo-ui/button';
@@ -41,6 +43,54 @@ import Button from '@igloo-ui/button';
     {
       label: 'Copy Item',
       value: 'copy',
+    },
+  ]}
+  renderReference={(refProps) => {
+    return (
+      <Button appearance="secondary" {...refProps}>
+        Button
+      </Button>
+    );
+  }}
+/>;
+```
+
+### Calling option events
+
+```jsx
+import ActionMenu from '@igloo-ui/action-menu';
+import Button from '@igloo-ui/button';
+
+<ActionMenu
+  options={[
+    {
+      label: 'Add Item',
+      value: 'add',
+      icon: <AddSolid size="medium" />,
+      onClick: () => {
+        alert('"Add Item" was clicked');
+      },
+    },
+    {
+      label: 'Delete Item',
+      value: 'delete',
+      icon: <Delete size="medium" />,
+      onClick: () => {
+        alert('"Delete Item" was clicked');
+      },
+      closeOnSelect: () => {
+        // Put some condition here
+        // It can also just be a boolean and not a function
+        return false;
+      },
+    },
+    {
+      label: 'Copy Item',
+      value: 'copy',
+      icon: <Copy size="medium" />,
+      onClick: () => {
+        alert('"Copy Item" was clicked');
+      },
     },
   ]}
   renderReference={(refProps) => {

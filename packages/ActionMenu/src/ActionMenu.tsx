@@ -19,13 +19,16 @@ export enum Keys {
 
 export type FocusDirection = 'first' | 'last' | 'up' | 'down';
 
-export type ActionMenuOption = Omit<Option, 'type'>;
+export interface ActionMenuOption extends Omit<Option, 'type'> {
+  /** Whether or not the action menu should close when an option is selected */
+  closeOnSelect?: boolean | ((option: OptionType) => boolean);
+  /** Callback when an option is selected */
+  onClick?: () => void;
+}
 
 export interface ActionMenuProps extends React.ComponentProps<'div'> {
   /** Add a specific class to the action menu */
   className?: string;
-  /** Whether or not the action menu should close when an option is selected */
-  closeOnSelect?: boolean | ((option: OptionType) => boolean);
   /** Add a data-test tag for automated tests */
   dataTest?: string;
   /** Whether or not the action menu should be open by default */
@@ -34,8 +37,6 @@ export interface ActionMenuProps extends React.ComponentProps<'div'> {
   onMenuClose?: () => void;
   /** Callback when the action menu is opened  */
   onMenuOpen?: () => void;
-  /** Callback when an option is selected */
-  onOptionSelect?: (option: OptionType) => void;
   /** A list of options to display in the action menu */
   options: ActionMenuOption[];
   /** Position of the action menu */
@@ -49,12 +50,10 @@ export interface ActionMenuProps extends React.ComponentProps<'div'> {
 
 const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
   className,
-  closeOnSelect = true,
   dataTest,
   isOpen = false,
   onMenuClose,
   onMenuOpen,
-  onOptionSelect,
   options,
   position = 'bottom-end',
   renderReference,
@@ -82,6 +81,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
     setShowMenu(open);
 
     if (!open) {
+      setCurrentFocusedOption(undefined);
       if (onMenuClose) {
         onMenuClose();
       }
@@ -91,6 +91,10 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
   };
 
   const closeMenuOnSelect = (option: OptionType): boolean => {
+    const actionMenuOption = options.find(
+      (actionMenuOption) => actionMenuOption.value === option.value
+    );
+    const closeOnSelect = actionMenuOption?.closeOnSelect ?? true;
     if (typeof closeOnSelect === 'function') {
       return closeOnSelect(option);
     }
@@ -99,8 +103,12 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
   };
 
   const selectOption = (option: OptionType): void => {
+    const actionMenuOption = options.find(
+      (actionMenuOption) => actionMenuOption.value === option.value
+    );
+    const onOptionSelect = actionMenuOption?.onClick;
     if (onOptionSelect) {
-      onOptionSelect(option);
+      onOptionSelect();
     }
 
     if (closeMenuOnSelect(option)) {
@@ -169,6 +177,8 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
         }
         break;
       case Keys.Space:
+        keyboardEvent.preventDefault();
+        keyboardEvent.stopPropagation();
         if (!showMenu) {
           toggleMenu(true);
         }
@@ -218,8 +228,10 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
           <List
             options={actionMenuOptions}
             onOptionFocus={hoverOption}
+            onOptionBlur={() => setCurrentFocusedOption(undefined)}
             onOptionChange={selectOption}
             focusedOption={currentFocusedOption}
+            disableTabbing
           />
         }
         isOpen={showMenu}

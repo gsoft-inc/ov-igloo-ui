@@ -10,6 +10,8 @@ export interface ListProps extends React.ComponentProps<'ul'> {
   className?: string;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
+  /** Whether or not to disable tabbing of list items */
+  disableTabbing?: boolean;
   /** The option that is currently being focused or hovered */
   focusedOption?: OptionType | null;
   /** True for a compact appearance */
@@ -21,6 +23,9 @@ export interface ListProps extends React.ComponentProps<'ul'> {
   onOptionFocus?: (option: OptionType) => void;
   /** Called when an option is selected */
   onOptionChange?: (option: OptionType) => void;
+  /** Called when the mouse moves outside of the option
+   * or the option loses focus */
+  onOptionBlur?: (option: OptionType) => void;
   /** A list of options */
   options: OptionType[];
   /** The initial selected option or a list of selected options */
@@ -33,11 +38,13 @@ export interface ListProps extends React.ComponentProps<'ul'> {
 const List: React.FunctionComponent<ListProps> = ({
   className,
   dataTest,
+  disableTabbing = false,
   focusedOption,
   isCompact = true,
   multiple,
   onOptionFocus,
   onOptionChange,
+  onOptionBlur,
   options,
   selectedOption,
   showIcon = true,
@@ -52,7 +59,7 @@ const List: React.FunctionComponent<ListProps> = ({
     <ul
       className={listClasses}
       data-test={dataTest}
-      tabIndex={0}
+      tabIndex={disableTabbing ? 0 : -1}
       role="listbox"
       {...rest}
     >
@@ -81,11 +88,13 @@ const List: React.FunctionComponent<ListProps> = ({
             option={option}
             onOptionChange={onOptionChange}
             onOptionFocus={onOptionFocus}
+            onOptionBlur={onOptionBlur}
             isCompact={isCompact}
             isFocused={isFocused}
             isSelected={selected}
             useCheckbox={multiple}
             showIcon={showIcon}
+            disableTabbing={disableTabbing}
           />
         );
       })}
