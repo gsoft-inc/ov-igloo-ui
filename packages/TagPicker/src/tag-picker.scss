@@ -6,10 +6,16 @@
   /* Default */
   --ids-tag-picker-border-color: #{tokens.$grey-400};
   --ids-tag-picker-border-color-focus: #{tokens.$electric-blue-500};
+  --ids-tag-picker-border-color-error: #{tokens.$coral-500};
   --ids-tag-picker-border-radius: #{tokens.$border-radius-sm};
   --ids-tag-picker-font-family: #{tokens.$primary-font-family};
   --ids-tag-picker-font-size: #{tokens.$font-size-4};
   --ids-tag-picker-disabled: #{tokens.$grey-250};
+
+  
+  /* Search icon */
+  --ids-tag-picker-search-icon-color: #{tokens.$grey-400};
+  --ids-tag-picker-search-icon-margin: 0 #{tokens.$space-2} 0 #{tokens.$space-3};
 
   /* Tag */
   --ids-tag-picker-tag-margin: #{tokens.$space-1};
@@ -35,6 +41,10 @@
   &,
   & * {
     box-sizing: border-box;
+  }
+
+  &--error {
+    border: 1px solid var(--ids-tag-picker-border-color-error);
   }
 
   &--focused {
@@ -63,12 +73,29 @@
   margin: var(--ids-tag-picker-tag-margin);
 }
 
-.ids-tag-picker__input {
+.ids-tag-picker__input-wrapper {
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.ids-tag-picker__search-icon {
+  color: var(--ids-tag-picker-search-icon-color);
+  flex: 0 0 auto;
+  margin: var(--ids-tag-picker-search-icon-margin);
+}
+
+.ids-tag-picker .ids-tag-picker__input {
   border: none;
+  outline: none;
 
   &:focus {
     border: none;
   }
+}
+
+.ids-tag-picker .ids-tag-picker__search-icon + .ids-tag-picker__input {
+  padding-left: 0;
 }
 
 .ids-tag-picker__results {

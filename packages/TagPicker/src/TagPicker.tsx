@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 
 import cx from 'classnames';
 
+import Search from '@igloo-ui/icons/dist/Search';
 import Tag from '@igloo-ui/tag';
 import Dropdown from '@igloo-ui/dropdown';
 import Input from '@igloo-ui/input';
@@ -45,6 +46,8 @@ export interface TagPickerProps
   dataTest?: string;
   /** Determines whether the tag picker is disabled (no interaction possible) */
   disabled?: boolean;
+  /** Indicate whether the tag picker has an error or not */
+  error?: boolean;
   /** Results of the current search to display
    * in the pop-up when the tag picker is focused */
   results?: TagItem[];
@@ -70,6 +73,8 @@ export interface TagPickerProps
   placeholder?: string;
   /** Selected results to display as tags */
   selectedResults: TagItem[];
+  /** Specify whether to show the search icon */
+  showSearchIcon?: boolean;
   /** KeyCodes used to separate the different tags */
   separators?: (Keys.Enter | Keys.Comma | Keys.Space)[];
 }
@@ -78,6 +83,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
   className,
   dataTest,
   disabled,
+  error,
   maxHeight,
   maxTags,
   minSearchLength = 2,
@@ -90,15 +96,18 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
   placeholder,
   results,
   selectedResults,
+  showSearchIcon,
   separators = [Keys.Enter],
   ...rest
 }: TagPickerProps) => {
   const defaultKeyboardFocusIndex = -1;
   const inputRef = useRef<HTMLInputElement>(null);
+  const [inputValue, setInputValue] = useState('');
   const tagPickerRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState(false);
   const [inputDisabled, setInputDisabled] = useState(false);
+  const [tagRemoved, setTagRemoved] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [keyboardFocusIndex, setKeyboardFocusIndex] = useState(
     defaultKeyboardFocusIndex
@@ -113,6 +122,8 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
   }: React.ChangeEvent<HTMLInputElement>): void => {
     const { value } = target;
 
+    setInputValue(value);
+
     if (onInput) {
       onInput(value);
     }
@@ -121,8 +132,8 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
   };
 
   const resetSearch = (): void => {
-    if (inputRef && inputRef.current) {
-      inputRef.current.value = '';
+    if (inputRef && inputRef.current && inputValue !== '') {
+      setInputValue('');
     }
     setShowResults(false);
   };
@@ -145,7 +156,6 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     if (focused) {
       setFocused(false);
       resetKeyboardFocus();
-
       if (inputRef.current) {
         inputRef.current.blur();
       }
@@ -168,6 +178,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
 
     if (maxTags && selectedResultsCount === maxTags - 1) {
       setInputDisabled(true);
+      setTagRemoved(false);
       onMaxTags?.();
     } else {
       handleGainFocus();
@@ -204,6 +215,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
 
   const handleTagRemove = (tagId: string): void => {
     setInputDisabled(false);
+    setTagRemoved(true);
     setSelectedResultsCount((prevCount) => prevCount - 1);
     onTagRemove(tagId);
   };
@@ -295,15 +307,22 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
   };
 
   const input = (
-    <Input
-      ref={inputRef}
-      className="ids-tag-picker__input"
-      disabled={disabled}
-      placeholder={selectedResults.length === 0 ? placeholder : ''}
-      onChange={handleChange}
-      onKeyDown={handleKeyDown}
-      onFocus={handleGainFocus}
-    />
+    <div className="ids-tag-picker__input-wrapper">
+      {showSearchIcon && (
+        <Search size="medium" className="ids-tag-picker__search-icon" />
+      )}
+      <Input
+        ref={inputRef}
+        className="ids-tag-picker__input"
+        disabled={disabled}
+        placeholder={selectedResults.length === 0 ? placeholder : ''}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        onFocus={handleGainFocus}
+        onBlur={handleLoseFocus}
+        value={inputValue}
+      />
+    </div>
   );
 
   const classes = cx(
@@ -314,7 +333,8 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     { 'ids-tag-picker--focused': focused && !inputDisabled },
     {
       'ids-tag-picker--empty': selectedResults.length === 0,
-    }
+    },
+    { 'ids-tag-picker--error': error }
   );
 
   useEffect(() => {
@@ -324,10 +344,10 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
   }, [results, resetKeyboardFocus]);
 
   useEffect(() => {
-    if (!inputDisabled) {
+    if (tagRemoved && !inputDisabled) {
       handleGainFocus();
     }
-  }, [inputDisabled, handleGainFocus]);
+  }, [tagRemoved, inputDisabled, handleGainFocus]);
 
   return (
     <div
