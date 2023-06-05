@@ -1,5 +1,18 @@
 # @igloo-ui/combobox
 
+## 0.2.0
+
+### Minor Changes
+
+- 4ff1942: Added new optional props to List called 'disableTabbing' and 'onOptionBlur'. Also fixed some styling for the List component.
+
+### Patch Changes
+
+- Updated dependencies [4ff1942]
+- Updated dependencies [0b8a62f]
+  - @igloo-ui/list@0.2.0
+  - @igloo-ui/dropdown@1.2.0
+
 ## 0.1.7
 
 ### Patch Changes
