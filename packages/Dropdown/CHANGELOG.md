@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.2.0
+
+### Minor Changes
+
+- 0b8a62f: The dropdown will now follow the reference element if it changes positions without screen resize or scoll.
+
 ## 1.1.4
 
 ### Patch Changes
