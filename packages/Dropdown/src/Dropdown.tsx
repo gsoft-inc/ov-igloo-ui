@@ -89,7 +89,10 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       open: isOpen,
       strategy: 'fixed',
       onOpenChange: handleOpenChange,
-      whileElementsMounted: autoUpdate,
+      whileElementsMounted: (...args) => {
+        const cleanup = autoUpdate(...args, { animationFrame: true });
+        return cleanup;
+      },
       middleware: [
         offset(1),
         flip(),

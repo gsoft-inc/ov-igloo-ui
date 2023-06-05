@@ -6,7 +6,7 @@ exports[`List It should render a snapshot 1`] = `
     class="ids-list ids-list--compact"
     data-test="ids-list"
     role="listbox"
-    tabindex="0"
+    tabindex="-1"
   >
     <li
       aria-selected="false"

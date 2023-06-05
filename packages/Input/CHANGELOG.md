@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.1.0
+
+### Minor Changes
+
+- e876d94: Added max length and character indicator
+
 ## 2.0.5
 
 ### Patch Changes

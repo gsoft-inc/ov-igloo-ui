@@ -28,6 +28,7 @@
   --ids-list-item-icon-size: #{tokens.$space-4};
   --ids-list-item-icon-margin: 0.25rem #{tokens.$space-2} 0 0.25rem;
   --ids-list-item-svg-margin: 0 #{tokens.$space-2} 0 0;
+  --ids-list-item-svg-color: #{tokens.$grey-600};
   --ids-list-item-icon-member-size: #{tokens.$space-5};
 
   /* Manager */
@@ -122,7 +123,8 @@
     background: var(--ids-list-item-background-selected-multi);
   }
 
-  &--focused {
+  &--focused,
+  &--selectable:focus {
     background: var(--ids-list-item-background-focused);
   }
 
@@ -159,6 +161,7 @@
 }
 
 .ids-list-item__svg-container {
+  color: var(--ids-list-item-svg-color);
   margin: var(--ids-list-item-svg-margin);
 }
 
