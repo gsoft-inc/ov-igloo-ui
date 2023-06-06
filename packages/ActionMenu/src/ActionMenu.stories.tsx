@@ -14,7 +14,7 @@ import ChromaticWrapper from '@components/chromaticWrapper';
 import Section from '@components/section';
 import readme from '../README.md';
 
-import ActionMenu, { ActionMenuOption } from './ActionMenu';
+import ActionMenu, { ActionMenuOption, ActionMenuProps } from './ActionMenu';
 
 const actionMenuList: ActionMenuOption[] = [
   {
@@ -123,6 +123,26 @@ export const Overview = {
     renderReference: kebab,
     isOpen: isChromatic(),
     position: 'bottom-end',
+  },
+};
+
+export const WithinContainer = {
+  render: (args: ActionMenuProps) => (
+    <ChromaticWrapper>
+      <div className="isb-action-menu__card">
+        <ActionMenu
+          {...args}
+        />
+      </div>
+    </ChromaticWrapper>
+  ),
+
+  args: {
+    options: actionMenuList,
+    renderReference: kebab,
+    isOpen: isChromatic(),
+    position: 'bottom-end',
+    disablePortal: true,
   },
 };
 

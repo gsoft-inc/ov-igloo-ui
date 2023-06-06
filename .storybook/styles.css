@@ -175,3 +175,20 @@ body,
 .isb-disclosure__desc-tag {
   margin-right: 0.4rem;
 }
+
+.isb-action-menu__card {
+  align-items: center;
+  box-shadow: 0 1px 6px rgb(35 48 67 / 10%);
+  display: flex;
+  height: 10rem;
+  justify-content: flex-end;
+  margin: 4rem 0 10rem;
+  position: relative;
+  transform: translateY(0);
+  transition: transform .4s, box-shadow .4s, opacity .4s;
+}
+
+.isb-action-menu__card:hover {
+  box-shadow: 0 0.4rem 1rem 0.4rem rgb(35 48 67 / 10%);
+  transform: translateY(-.2rem);
+}

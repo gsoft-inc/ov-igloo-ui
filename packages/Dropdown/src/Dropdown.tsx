@@ -35,6 +35,9 @@ export interface DropdownProps
   className?: string;
   /** Default value displayed in the Dropdown. */
   content: React.ReactNode;
+  /** Whether or not the dropdown should use ReactPortal
+   * to append to the body */
+  disablePortal?: boolean;
   /** Position of the Dropdown. */
   position?: Position;
   /** Changes the size of the card, giving it more or less padding. */
@@ -63,6 +66,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       size = 'xsmall',
       onClose,
       dataTest,
+      disablePortal = false,
       isOpen = false,
       position = 'bottom-start',
       style,
@@ -131,6 +135,28 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       'ids-dropdown--hidden': middlewareData.hide?.referenceHidden,
     });
 
+    const floatingElem = isMounted && (
+      <FloatingFocusManager context={context} modal={false} initialFocus={-1}>
+        <div
+          ref={mergedDropdownRef}
+          className={dropdownClasses}
+          data-test={dataTest}
+          {...rest}
+          data-show={isOpen}
+          style={{
+            position: strategy,
+            top: y ?? 0,
+            left: x ?? 0,
+            ...styles,
+            ...style,
+          }}
+          {...getFloatingProps()}
+        >
+          {content}
+        </div>
+      </FloatingFocusManager>
+    );
+
     return (
       <>
         {renderReference ? (
@@ -144,33 +170,11 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
             {children}
           </div>
         )}
-        <FloatingPortal>
-          {isMounted && (
-            <FloatingFocusManager
-              context={context}
-              modal={false}
-              initialFocus={-1}
-            >
-              <div
-                ref={mergedDropdownRef}
-                className={dropdownClasses}
-                data-test={dataTest}
-                {...rest}
-                data-show={isOpen}
-                style={{
-                  position: strategy,
-                  top: y ?? 0,
-                  left: x ?? 0,
-                  ...styles,
-                  ...style,
-                }}
-                {...getFloatingProps()}
-              >
-                {content}
-              </div>
-            </FloatingFocusManager>
-          )}
-        </FloatingPortal>
+        {disablePortal ? (
+          floatingElem
+        ) : (
+          <FloatingPortal>{floatingElem}</FloatingPortal>
+        )}
       </>
     );
   }

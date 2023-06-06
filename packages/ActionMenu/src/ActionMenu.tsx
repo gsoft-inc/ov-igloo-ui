@@ -31,6 +31,9 @@ export interface ActionMenuProps extends React.ComponentProps<'div'> {
   className?: string;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
+  /** Whether or not the menu should use ReactPortal
+   * to append to the body */
+  disablePortal?: boolean;
   /** Whether or not the action menu should be open by default */
   isOpen?: boolean;
   /** Callback when the action menu is closed  */
@@ -51,6 +54,7 @@ export interface ActionMenuProps extends React.ComponentProps<'div'> {
 const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
   className,
   dataTest,
+  disablePortal = false,
   isOpen = false,
   onMenuClose,
   onMenuOpen,
@@ -224,6 +228,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
       <Dropdown
         key="selectDropdown"
         role="menu"
+        disablePortal={disablePortal}
         content={
           <List
             options={actionMenuOptions}
