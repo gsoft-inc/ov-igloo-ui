@@ -1,5 +1,22 @@
 # @igloo-ui/action-menu
 
+## 1.0.0
+
+### Major Changes
+
+- 4ff1942: Fixed some styling issues with the Action Menu. Moved two callbacks in action menu from ActionMenuProps to the props of the option.
+
+  ## BREAKING CHANGE
+
+  ActionMenu is called differently when using the callbacks for when an option is clicked or determining if the menu is closed on select. They were removed from ActionMenuProps and added to the option props instead.
+
+### Patch Changes
+
+- Updated dependencies [4ff1942]
+- Updated dependencies [0b8a62f]
+  - @igloo-ui/list@0.2.0
+  - @igloo-ui/dropdown@1.2.0
+
 ## 0.1.2
 
 ### Patch Changes
