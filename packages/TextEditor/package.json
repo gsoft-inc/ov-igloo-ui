@@ -24,6 +24,7 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.19.1",
     "@igloo-ui/button": "^0.4.2",
     "@igloo-ui/icon-button": "^1.0.1",
     "@igloo-ui/input": "^2.0.4",
@@ -34,14 +35,13 @@
     "@lexical/list": "^0.10.0",
     "@lexical/markdown": "^0.10.0",
     "@lexical/overflow": "^0.10.0",
-    "@lexical/react": "^0.10.0",
-    "@lexical/rich-text": "^0.10.0",
+    "@lexical/react": "^0.11.1",
+    "@lexical/rich-text": "^0.11.1",
     "@lexical/selection": "^0.10.0",
-    "@lexical/utils": "^0.10.0",
+    "@lexical/utils": "^0.11.1",
     "@types/react-dom": "18.0.11",
-    "@floating-ui/react": "^0.19.1",
     "classnames": "^2.3.2",
-    "lexical": "^0.10.0"
+    "lexical": "^0.11.1"
   },
   "browserslist": [
     "> 1%",

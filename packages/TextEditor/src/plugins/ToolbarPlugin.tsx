@@ -59,7 +59,7 @@ function Divider(): JSX.Element {
   return <div className="ids-toolbar__divider" />;
 }
 
-const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
+export const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
   disabled,
   isClearable,
   messages,
@@ -298,5 +298,3 @@ const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
     </div>
   );
 };
-
-export default ToolbarPlugin;

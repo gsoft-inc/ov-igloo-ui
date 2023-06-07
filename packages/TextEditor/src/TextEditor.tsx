@@ -29,13 +29,15 @@ import { CodeNode, CodeHighlightNode } from '@lexical/code';
 import { TRANSFORMERS } from '@lexical/markdown';
 
 import Lock from '@igloo-ui/icons/dist/Lock';
-import ToolbarPlugin from './plugins/ToolbarPlugin';
+
+import { ToolbarPlugin } from './plugins/ToolbarPlugin';
 import { OnFocusPlugin } from './plugins/OnFocusPlugin';
 import { DisablePlugin } from './plugins/DisablePlugin';
 import { MaxLengthPlugin } from './plugins/MaxLengthPlugin';
-import FloatingLinkEditorPlugin from './plugins/FloatingLinkEditorPlugin';
-import LinkPlugin from './plugins/LinkPlugin';
-import CodeHighlightPlugin from './plugins/CodeHighlightPlugin';
+import { OnContentIsEmptyPlugin } from './plugins/OnContentIsEmptyPlugin';
+import { FloatingLinkEditorPlugin } from './plugins/FloatingLinkEditorPlugin';
+import { LinkPlugin } from './plugins/LinkPlugin';
+import { CodeHighlightPlugin } from './plugins/CodeHighlightPlugin';
 
 import EditorTheme from './themes/TextEditor.theme';
 
@@ -91,6 +93,8 @@ export interface TextEditorProps
   onChange?: (editorState: string) => void;
   /** The event that's called when the editor gains focus */
   onFocus?: (editor?: LexicalEditor) => void;
+  /** The event that's called for validate if the editor is empty */
+  onContentIsEmpty?: (empty: boolean) => void;
   /** The placeholder text to display in the editor */
   placeholder?: string;
   /** Usually the save button for the editor */
@@ -130,6 +134,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
   onBlur,
   onChange,
   onFocus,
+  onContentIsEmpty,
   placeholder,
   primaryBtn,
   showToolbar = true,
@@ -261,6 +266,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
           </div>
         )}
       </div>
+      <OnContentIsEmptyPlugin onContentIsEmpty={onContentIsEmpty} />
     </LexicalComposer>
   );
 };
