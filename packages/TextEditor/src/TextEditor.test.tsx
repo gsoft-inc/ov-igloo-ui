@@ -53,6 +53,16 @@
     expect(wrapper).toHaveClass('ids-text-editor--disabled');
   });
 
+  test('Shows read only state', () => {
+    setup({ readOnly: true });
+    const wrapper = screen.getByTestId('ids-text-editor');
+    const textbox = wrapper.querySelector('.ids-text-editor__input');
+    const toolbar = wrapper.querySelector('.ids-toolbar');
+    expect(textbox).toHaveAttribute('contenteditable', 'false');
+    expect(wrapper).toHaveClass('ids-text-editor--read-only');
+    expect(toolbar).not.toBeInTheDocument();
+  });
+
   test('Shows error state', () => {
     setup({ error: true });
     const wrapper = screen.getByTestId('ids-text-editor');
