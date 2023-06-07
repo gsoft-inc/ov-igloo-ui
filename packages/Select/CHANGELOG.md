@@ -5,7 +5,11 @@
 ### Patch Changes
 
 - 08a062e: update packages
+- Updated dependencies [6e2e96a]
 - Updated dependencies [08a062e]
+- Updated dependencies [6e2e96a]
+- Updated dependencies [08a062e]
+  - @igloo-ui/dropdown@1.3.0
   - @igloo-ui/list@0.2.1
 
 ## 1.1.0
