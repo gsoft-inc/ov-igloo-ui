@@ -121,20 +121,14 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     open: {
       opacity: 1,
       scale: 1,
-      x: '-50%',
-      y: '-50%',
     },
     close: {
       opacity: 0,
       scale: 1,
-      x: '-50%',
-      y: '-50%',
     },
     initial: {
       opacity: 0,
       scale: 0.95,
-      x: '-50%',
-      y: '-50%',
     },
   };
 
@@ -166,88 +160,90 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
       </AnimatePresence>
       <AnimatePresence onExitComplete={onExitComplete}>
         {isOpen && (
-          <m.div
-            key={`${keyValue}_modal`}
-            className={classes}
-            data-test={dataTest}
-            {...(overlayProps as any)}
-            {...dialogProps}
-            initial="initial"
-            animate="open"
-            exit="close"
-            variants={modalVariants}
-            transition={{ duration: 0.2 }}
-            ref={ref}
-          >
-            <div
-              className={cx('ids-modal__header', {
-                'ids-modal__header--with-back-btn': displayBackBtn,
-              })}
+          <m.div className="ids-modal__wrapper">
+            <m.div
+              key={`${keyValue}_modal`}
+              className={classes}
+              data-test={dataTest}
+              {...(overlayProps as any)}
+              {...dialogProps}
+              initial="initial"
+              animate="open"
+              exit="close"
+              variants={modalVariants}
+              transition={{ duration: 0.2 }}
+              ref={ref}
             >
-              {displayBackBtn ? (
+              <div
+                className={cx('ids-modal__header', {
+                  'ids-modal__header--with-back-btn': displayBackBtn,
+                })}
+              >
+                {displayBackBtn ? (
+                  <IconButton
+                    size="small"
+                    className="ids-modal__back"
+                    onClick={() => {
+                      if (carousel && carousel.currentSlide) {
+                        handleOnPageChange(carousel.currentSlide - 1);
+                      }
+                    }}
+                    appearance={{ type: 'ghost', variant: 'secondary' }}
+                    icon={<ChevronLeft size="medium" />}
+                  />
+                ) : (
+                  <></>
+                )}
+
+                {title && <h5 className="ids-modal__title">{title}</h5>}
+
                 <IconButton
                   size="small"
-                  className="ids-modal__back"
-                  onClick={() => {
-                    if (carousel && carousel.currentSlide) {
-                      handleOnPageChange(carousel.currentSlide - 1);
-                    }
-                  }}
+                  className="ids-modal__close"
+                  onClick={onClose}
                   appearance={{ type: 'ghost', variant: 'secondary' }}
-                  icon={<ChevronLeft size="medium" />}
+                  aria-label={closeBtnAriaLabel}
+                  icon={<Close />}
                 />
-              ) : (
-                <></>
-              )}
+              </div>
+              <div className="ids-modal__content">
+                {children}
 
-              {title && <h5 className="ids-modal__title">{title}</h5>}
-
-              <IconButton
-                size="small"
-                className="ids-modal__close"
-                onClick={onClose}
-                appearance={{ type: 'ghost', variant: 'secondary' }}
-                aria-label={closeBtnAriaLabel}
-                icon={<Close />}
-              />
-            </div>
-            <div className="ids-modal__content">
-              {children}
-
-              {carousel && (
-                <Carousel
-                  onPageChange={carousel.onPageChange}
-                  currentSlide={carousel.currentSlide}
-                  primaryAction={primaryAction}
-                  secondaryAction={secondaryAction}
-                  className="ids-modal__carousel"
-                >
-                  {carousel.slides.map((slide, index) => {
-                    return (
-                      <div
-                        key={`slide_${index.toString()}`}
-                        className="ids-modal__carousel-slide"
-                      >
-                        {slide}
-                      </div>
-                    );
-                  })}
-                </Carousel>
-              )}
-
-              {(primaryAction || secondaryAction) && !carousel && (
-                <div className="ids-modal__footer">
-                  {secondaryAction &&
-                    React.cloneElement(secondaryAction, {
-                      className: 'ids-modal__footer-action',
+                {carousel && (
+                  <Carousel
+                    onPageChange={carousel.onPageChange}
+                    currentSlide={carousel.currentSlide}
+                    primaryAction={primaryAction}
+                    secondaryAction={secondaryAction}
+                    className="ids-modal__carousel"
+                  >
+                    {carousel.slides.map((slide, index) => {
+                      return (
+                        <div
+                          key={`slide_${index.toString()}`}
+                          className="ids-modal__carousel-slide"
+                        >
+                          {slide}
+                        </div>
+                      );
                     })}
-                  {primaryAction &&
-                    React.cloneElement(primaryAction, {
-                      className: 'ids-modal__footer-action',
-                    })}
-                </div>
-              )}
-            </div>
+                  </Carousel>
+                )}
+
+                {(primaryAction || secondaryAction) && !carousel && (
+                  <div className="ids-modal__footer">
+                    {secondaryAction &&
+                      React.cloneElement(secondaryAction, {
+                        className: 'ids-modal__footer-action',
+                      })}
+                    {primaryAction &&
+                      React.cloneElement(primaryAction, {
+                        className: 'ids-modal__footer-action',
+                      })}
+                  </div>
+                )}
+              </div>
+            </m.div>
           </m.div>
         )}
       </AnimatePresence>
