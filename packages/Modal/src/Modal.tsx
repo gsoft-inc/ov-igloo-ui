@@ -160,7 +160,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
       </AnimatePresence>
       <AnimatePresence onExitComplete={onExitComplete}>
         {isOpen && (
-          <m.div className="ids-modal-wrapper">
+          <m.div className="ids-modal__wrapper">
             <m.div
               key={`${keyValue}_modal`}
               className={classes}
