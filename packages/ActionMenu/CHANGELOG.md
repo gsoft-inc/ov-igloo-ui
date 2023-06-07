@@ -1,5 +1,19 @@
 # @igloo-ui/action-menu
 
+## 1.1.0
+
+### Minor Changes
+
+- 6e2e96a: Added the disablePortal prop for when you don't want the dropdown to be appended to the end of the body. False by default so it won't break the current behavior.
+
+### Patch Changes
+
+- Updated dependencies [6e2e96a]
+- Updated dependencies [08a062e]
+- Updated dependencies [6e2e96a]
+  - @igloo-ui/dropdown@1.3.0
+  - @igloo-ui/list@0.2.1
+
 ## 1.0.0
 
 ### Major Changes

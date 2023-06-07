@@ -1,5 +1,16 @@
 # @igloo-ui/combobox
 
+## 0.2.1
+
+### Patch Changes
+
+- 08a062e: update packages
+- Updated dependencies [6e2e96a]
+- Updated dependencies [08a062e]
+- Updated dependencies [6e2e96a]
+  - @igloo-ui/dropdown@1.3.0
+  - @igloo-ui/list@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes

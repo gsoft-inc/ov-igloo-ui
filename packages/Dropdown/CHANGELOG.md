@@ -1,5 +1,12 @@
 # @igloo-ui/dropdown
 
+## 1.3.0
+
+### Minor Changes
+
+- 6e2e96a: Added the disablePortal prop for when you don't want the dropdown to be appended to the end of the body. False by default so it won't break the current behavior.
+- 6e2e96a: The dropdown will now follow the reference element if it changes positions without screen resize or scoll.
+
 ## 1.2.0
 
 ### Minor Changes

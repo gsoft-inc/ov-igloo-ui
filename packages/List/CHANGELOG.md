@@ -1,5 +1,11 @@
 # @igloo-ui/list
 
+## 0.2.1
+
+### Patch Changes
+
+- 08a062e: update packages
+
 ## 0.2.0
 
 ### Minor Changes
