@@ -1,5 +1,11 @@
 # @igloo-ui/text-editor
 
+## 0.2.0
+
+### Minor Changes
+
+- 5abc4f4: Adding new props called `onContentIsEmpty` to indicate whether the content is empty or not.
+
 ## 0.1.1
 
 ### Patch Changes
