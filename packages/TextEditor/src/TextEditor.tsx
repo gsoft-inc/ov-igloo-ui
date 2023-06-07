@@ -99,6 +99,8 @@ export interface TextEditorProps
   placeholder?: string;
   /** Usually the save button for the editor */
   primaryBtn?: React.ReactElement;
+  /** Whether or not the editor is read only */
+  readOnly?: boolean;
   /** Whether or not the editor should display the toolbar */
   showToolbar?: boolean;
   /** Whether or not the editor should display
@@ -137,6 +139,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
   onContentIsEmpty,
   placeholder,
   primaryBtn,
+  readOnly = false,
   showToolbar = true,
   showToolbarOnFocus = false,
 }: TextEditorProps) => {
@@ -159,7 +162,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
     namespace: 'ids-text-editor',
     theme: EditorTheme,
     editorState: initialState,
-    editable: !disabled,
+    editable: !disabled && !readOnly,
     // Handling of errors during update
     onError(error) {
       throw error;
@@ -180,9 +183,10 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
 
   const classes = cx('ids-text-editor', className, {
     'ids-text-editor--error': error,
-    'ids-text-editor--private': isPrivate,
+    'ids-text-editor--private': isPrivate && !readOnly,
     'ids-text-editor--focus': hasFocus,
     'ids-text-editor--disabled': disabled,
+    'ids-text-editor--read-only': readOnly,
   });
 
   const handleOnChange = (editorState: EditorState): void => {
@@ -199,12 +203,13 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
     onBlur?.(editor);
   };
 
-  const showFooter = !!maxLength || isPrivate || !!primaryBtn;
+  const showFooter = (!!maxLength || isPrivate || !!primaryBtn) && !readOnly;
+  const hideToolbar = !showToolbar || readOnly;
 
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div className={classes} data-test={dataTest}>
-        {showToolbar && (
+        {!hideToolbar && (
           <ToolbarPlugin
             disabled={disabled}
             isClearable={isClearable}
@@ -225,22 +230,25 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
             ErrorBoundary={LexicalErrorBoundary}
           />
           <HistoryPlugin />
-          {autoFocus && <AutoFocusPlugin />}
-          <DisablePlugin disabled={disabled} />
-          <OnChangePlugin onChange={handleOnChange} ignoreSelectionChange />
-          <OnFocusPlugin onFocus={handleOnFocus} onBlur={handleOnBlur} />
+          <DisablePlugin disabled={disabled || readOnly} />
           <ListPlugin />
           <LinkPlugin />
-          {floatingAnchorElem && (
-            <FloatingLinkEditorPlugin
-              anchorElem={floatingAnchorElem}
-              messages={messages}
-            />
-          )}
-          {isClearable && <ClearEditorPlugin />}
-          <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
-
           <CodeHighlightPlugin />
+          {!readOnly && (
+            <>
+              <OnChangePlugin onChange={handleOnChange} ignoreSelectionChange />
+              <OnFocusPlugin onFocus={handleOnFocus} onBlur={handleOnBlur} />
+              {autoFocus && <AutoFocusPlugin />}
+              {floatingAnchorElem && (
+                <FloatingLinkEditorPlugin
+                  anchorElem={floatingAnchorElem}
+                  messages={messages}
+                />
+              )}
+              {isClearable && <ClearEditorPlugin />}
+              <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+            </>
+          )}
         </div>
         {showFooter && (
           <div className="ids-text-editor__footer">
