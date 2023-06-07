@@ -78,6 +78,18 @@
   z-index: var(--ids-modal-overlay-index);
 }
 
+.ids-modal-wrapper {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--ids-modal-index);
+}
+
 .ids-modal {
   background-color: var(--ids-modal-background);
   border-radius: var(--ids-modal-radius);
@@ -90,12 +102,7 @@
   max-height: 100%;
   max-width: var(--ids-modal-max-width);
   overflow-y: auto;
-  left: 50%;
-  position: fixed;
-  top: 50%;
-  transform: translate3d(-50%, -50%, 0);
   width: var(--ids-modal-width);
-  z-index: var(--ids-modal-index);
 
   /* Removes the focus-within outline around the modal */
   outline: none;
