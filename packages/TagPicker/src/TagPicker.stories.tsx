@@ -257,3 +257,44 @@ export const Error = () => {
     />
   );
 };
+
+export const SelectedOptions = () => {
+  const [selected, setSelected] = React.useState<TagItem[]>([mockData[0], mockData[1]]);
+  const [results, setResults] = React.useState<TagItem[]>([]);
+
+  const onInput = (value: string): void => {
+    setResults(
+      mockData.filter(
+        (d) =>
+          d.text.toLowerCase().includes(value.toLowerCase()) &&
+          !selected.includes(d)
+      )
+    );
+  };
+
+  const select = (id: string): void => {
+    const selectedItem = mockData.find((d) => d.id === id);
+    if (selectedItem) {
+      setSelected([...selected, selectedItem]);
+    } else {
+      setSelected([...selected]);
+    }
+  };
+
+  const remove = (id: string) => {
+    setSelected(selected.filter((s) => s.id !== id));
+  };
+
+  return (
+    <TagPicker
+      results={results}
+      selectedResults={selected}
+      onInput={onInput}
+      onSelection={select}
+      onTagRemove={remove}
+      noResultsText="No results"
+      placeholder="Enter more options"
+      showSearchIcon
+    />
+  );
+};

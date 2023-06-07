@@ -121,21 +121,22 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     target,
   }: React.ChangeEvent<HTMLInputElement>): void => {
     const { value } = target;
+    const shouldShowResults = value.length >= minSearchLength;
 
     setInputValue(value);
 
-    if (onInput) {
+    setShowResults(shouldShowResults);
+
+    if (onInput && shouldShowResults) {
       onInput(value);
     }
-
-    setShowResults(value.length >= minSearchLength);
   };
 
   const resetSearch = (): void => {
+    setShowResults(false);
     if (inputRef && inputRef.current && inputValue !== '') {
       setInputValue('');
     }
-    setShowResults(false);
   };
 
   const resetKeyboardFocus = useCallback((): void => {
@@ -266,6 +267,18 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     }
   };
 
+  useEffect(() => {
+    if (results && results.length === 0) {
+      resetKeyboardFocus();
+    }
+  }, [results, resetKeyboardFocus]);
+
+  useEffect(() => {
+    if (tagRemoved && !inputDisabled) {
+      handleGainFocus();
+    }
+  }, [tagRemoved, inputDisabled, handleGainFocus]);
+
   const renderSelectedResults = selectedResults.map((s) => {
     const tagClasses = cx('ids-tag-picker__tag', {
       'ids-tag-picker__tag--error': s.hasError,
@@ -306,9 +319,11 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     return <div className="ids-tag-picker__no-results">{noResultsText}</div>;
   };
 
+  const showIcon = showSearchIcon && selectedResults.length === 0;
+
   const input = (
-    <div className="ids-tag-picker__input-wrapper">
-      {showSearchIcon && (
+    <div className="ids-tag-picker__input-wrapper" data-value={inputValue}>
+      {showIcon && (
         <Search size="medium" className="ids-tag-picker__search-icon" />
       )}
       <Input
@@ -338,55 +353,44 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     {
       'ids-tag-picker--empty': selectedResults.length === 0,
     },
+    {
+      'ids-tag-picker--has-selected': selectedResults.length > 0,
+    },
     { 'ids-tag-picker--error': error }
   );
 
-  useEffect(() => {
-    if (results && results.length === 0) {
-      resetKeyboardFocus();
-    }
-  }, [results, resetKeyboardFocus]);
-
-  useEffect(() => {
-    if (tagRemoved && !inputDisabled) {
-      handleGainFocus();
-    }
-  }, [tagRemoved, inputDisabled, handleGainFocus]);
-
-  return (
+  const tagPickerElem = (
     <div
       ref={tagPickerRef}
       className={classes}
       data-test={dataTest}
       style={{ maxHeight }}
+      role="button"
+      tabIndex={-1}
+      onClick={() => {
+        handleGainFocus();
+      }}
       {...rest}
     >
-      {selectedResults.length > 0 && (
-        <div
-          role="button"
-          tabIndex={-1}
-          className="ids-tag-picker__selected-results"
-          onClick={() => {
-            handleGainFocus();
-          }}
-        >
-          {renderSelectedResults}
-        </div>
-      )}
-      {results
-        ? !inputDisabled && (
-            <Dropdown
-              ref={dropdownRef}
-              content={<List items={results} />}
-              isOpen={shouldShowResults}
-              onClose={handleLoseFocus}
-              onClick={handleGainFocus}
-            >
-              {input}
-            </Dropdown>
-          )
-        : !inputDisabled && input}
+      <div className="ids-tag-picker__content">
+        {selectedResults.length > 0 && renderSelectedResults}
+        {!inputDisabled && input}
+      </div>
     </div>
+  );
+
+  return results ? (
+    <Dropdown
+      ref={dropdownRef}
+      content={<List items={results} />}
+      isOpen={shouldShowResults}
+      onClose={handleLoseFocus}
+      onClick={handleGainFocus}
+    >
+      {tagPickerElem}
+    </Dropdown>
+  ) : (
+    tagPickerElem
   );
 };
 
