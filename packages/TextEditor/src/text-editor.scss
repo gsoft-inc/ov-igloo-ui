@@ -120,6 +120,15 @@
 
     cursor: not-allowed;
   }
+
+  &--read-only,
+  &--read-only:hover {
+    background: none;
+    border: none;
+    min-height: auto;
+    min-width: auto;
+  }
+
 }
 
 .ids-text-editor__inner {
@@ -165,6 +174,10 @@
   flex: 1 1 auto;
   outline: 0;
   padding: var(--ids-text-editor-padding);
+
+  .ids-text-editor--read-only & {
+    padding: 0;
+  }
 }
 
 .ids-text-editor__footer {
