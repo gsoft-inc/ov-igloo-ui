@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Meta } from '@storybook/react';
 
+import Tooltip from '@igloo-ui/tooltip';
+import Hyperlink from '@igloo-ui/hyperlink';
 import Section from '@components/section';
 import readme from '../README.md';
 
@@ -107,5 +109,28 @@ export const Closable = () => (
       title={mockContent.title}
       message={mockContent.message}
     />
+  </Section>
+);
+
+
+export const Metadata = () => (
+  <Section column>
+    <Alert type="warning" title={<><Hyperlink>{'{#}'} participants</Hyperlink> missing a Direct Manager</>}
+      message={
+        <div>
+          <p>Participants without a Direct Manager will automatically be removed from this cycle. A Direct Manager is someone a team member directly reports to. Together they will discuss, track, and evaluate performance in Officevibe.</p>
+          <p>How to assign Direct Managers to participants <Hyperlink>Tell me more</Hyperlink></p>
+          <ul>
+            <li>Bulk assign Direct Managers using bulk provisioning</li>
+            <li>Manually assign Direct Managers in members settings</li>
+          </ul>
+        </div>
+      }
+      closable={false}
+      metadata={
+        <Tooltip content="April 24, 2023 - 8:00 PM">
+          Updated today at 8:00
+        </Tooltip>
+      } />
   </Section>
 );

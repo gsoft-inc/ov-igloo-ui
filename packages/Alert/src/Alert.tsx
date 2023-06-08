@@ -23,11 +23,13 @@ export interface AlertButton {
   onClick: () => void;
 }
 
-export interface AlertProps extends React.ComponentProps<'div'> {
+export interface AlertProps extends Omit<React.ComponentProps<'div'>, 'title'> {
   /** The title of the alert */
-  title?: string;
+  title?: React.ReactNode;
   /** The content to display inside the Alert */
   message?: React.ReactNode;
+  /** Additional text to display at the top right of the Alert */
+  metadata?: React.ReactNode;
   /** Change the type of the Alert */
   type: Type;
   /** Change the Alert appearance */
@@ -113,6 +115,7 @@ const renderAlertActionButton = (
 const Alert: React.FunctionComponent<AlertProps> = ({
   title,
   message,
+  metadata,
   type,
   appearance = 'card',
   className,
@@ -146,7 +149,10 @@ const Alert: React.FunctionComponent<AlertProps> = ({
         {!isHorizontal && renderIcon(appearance, hasButton, type)}
 
         <div className="ids-alert__body">
-          <p className="ids-alert__title">{title}</p>
+          <div className="ids-alert__header">
+            <p className="ids-alert__title">{title}</p>
+            <p className="ids-alert__metadata">{metadata}</p>
+          </div>
           {!isHorizontal && <div className="ids-alert__content">{message}</div>}
           {hasButton && renderAlertActionButton(appearance, button)}
         </div>
