@@ -1,5 +1,11 @@
 # @igloo-ui/tag-picker
 
+## 0.2.0
+
+### Minor Changes
+
+- d0d54c9: TagPicker: Added search icon with 'showSearchIcon' prop, added error prop, and fixed issue where the tag picker was being auto focused.
+
 ## 0.1.4
 
 ### Patch Changes

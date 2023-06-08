@@ -1,5 +1,11 @@
 # @igloo-ui/text-editor
 
+## 0.3.0
+
+### Minor Changes
+
+- 58a790e: Added a read-only mode to the text editor to allow a way to display the text entered in the text editor.
+
 ## 0.2.0
 
 ### Minor Changes
