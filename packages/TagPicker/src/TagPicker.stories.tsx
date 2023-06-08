@@ -35,8 +35,8 @@ const Template: StoryFn<typeof TagPicker> = (args) => {
   const [selected, setSelected] = React.useState<TagItem[]>([]);
 
   const select = (tagText: string): void => {
-    setSelected([
-      ...selected,
+    setSelected((prevSelected) => [
+      ...prevSelected,
       {
         id: Date.now().toString(),
         text: tagText,
@@ -120,6 +120,7 @@ export const WithSearching = {
 
   args: {
     placeholder: 'Enter Team or Bob',
+    showSearchIcon: true,
   },
 };
 
@@ -182,6 +183,7 @@ export const MaxTags = () => {
         placeholder="Try entering more than 5 tags"
         maxTags={5}
         onMaxTags={onMaxTags}
+        showSearchIcon
       />
     </FormGroup>
   );
@@ -211,6 +213,88 @@ export const Disabled = () => {
       noResultsText="No results"
       placeholder="Disabled tag picker"
       disabled
+    />
+  );
+};
+
+export const Error = () => {
+  const [selected, setSelected] = React.useState<TagItem[]>([]);
+  const [results, setResults] = React.useState<TagItem[]>([]);
+
+  const onInput = (value: string): void => {
+    setResults(
+      mockData.filter(
+        (d) =>
+          d.text.toLowerCase().includes(value.toLowerCase()) &&
+          !selected.includes(d)
+      )
+    );
+  };
+
+  const select = (id: string): void => {
+    const selectedItem = mockData.find((d) => d.id === id);
+    if (selectedItem) {
+      setSelected([...selected, selectedItem]);
+    } else {
+      setSelected([...selected]);
+    }
+  };
+
+  const remove = (id: string) => {
+    setSelected(selected.filter((s) => s.id !== id));
+  };
+
+  return (
+    <TagPicker
+      results={results}
+      selectedResults={selected}
+      onInput={onInput}
+      onSelection={select}
+      onTagRemove={remove}
+      noResultsText="No results"
+      placeholder="Disabled tag picker"
+      error
+    />
+  );
+};
+
+export const SelectedOptions = () => {
+  const [selected, setSelected] = React.useState<TagItem[]>([mockData[0], mockData[1]]);
+  const [results, setResults] = React.useState<TagItem[]>([]);
+
+  const onInput = (value: string): void => {
+    setResults(
+      mockData.filter(
+        (d) =>
+          d.text.toLowerCase().includes(value.toLowerCase()) &&
+          !selected.includes(d)
+      )
+    );
+  };
+
+  const select = (id: string): void => {
+    const selectedItem = mockData.find((d) => d.id === id);
+    if (selectedItem) {
+      setSelected([...selected, selectedItem]);
+    } else {
+      setSelected([...selected]);
+    }
+  };
+
+  const remove = (id: string) => {
+    setSelected(selected.filter((s) => s.id !== id));
+  };
+
+  return (
+    <TagPicker
+      results={results}
+      selectedResults={selected}
+      onInput={onInput}
+      onSelection={select}
+      onTagRemove={remove}
+      noResultsText="No results"
+      placeholder="Enter more options"
+      showSearchIcon
     />
   );
 };
