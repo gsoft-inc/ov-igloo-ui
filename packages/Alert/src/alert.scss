@@ -21,6 +21,7 @@
   --ids-alert-icon-size-medium: 40px;
   --ids-alert-link-color: #{tokens.$electric-blue-500};
   --ids-alert-btn-margin-top: #{tokens.$space-3};
+  --ids-alert-metadata-color: #{tokens.$grey-600};
 
   /* Announcement */
   --ids-alert-color-announcement: #{tokens.$seaweed-500};
@@ -117,10 +118,23 @@
     font-weight: var(--ids-alert-title-font-weight);
     color: var(--ids-alert-text-color-title);
     margin: 0;
+  }
+
+  &__header {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 
     + .ids-alert__content {
       margin-top: tokens.$space-1;
     }
+  }
+
+  &__metadata {
+    color: var(--ids-alert-metadata-color);
+    margin: 0;
   }
 
   &__icon {
@@ -157,7 +171,7 @@
     flex-direction: row;
     align-items: center;
 
-    > .ids-alert__title {
+    > .ids-alert__header {
       flex: 1 1 auto;
     }
 

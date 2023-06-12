@@ -46,9 +46,16 @@ exports[`Alert It should render a snapshot 1`] = `
     <div
       class="ids-alert__body"
     >
-      <p
-        class="ids-alert__title"
-      />
+      <div
+        class="ids-alert__header"
+      >
+        <p
+          class="ids-alert__title"
+        />
+        <p
+          class="ids-alert__metadata"
+        />
+      </div>
       <div
         class="ids-alert__content"
       />
