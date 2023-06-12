@@ -1,5 +1,12 @@
 # @igloo-ui/text-editor
 
+## 0.3.1
+
+### Patch Changes
+
+- a570d38: Fix linting on textEditor
+- 917fdc2: Fixed a bug where onBlur would be called multiple times (once for each render since last call).
+
 ## 0.3.0
 
 ### Minor Changes
