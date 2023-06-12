@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.2.0
+
+### Minor Changes
+
+- 4cb0334: Added metadata prop to be display in top right corner of the alert. Also changed the title prop to be ReactNode.
+
 ## 0.1.16
 
 ### Patch Changes
