@@ -29,6 +29,9 @@
     "framer-motion": "^6.5.1",
     "react-aria": "^3.22.0"
   },
+  "devDependencies": {
+    "@igloo-ui/button": "^0.4.1"
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
