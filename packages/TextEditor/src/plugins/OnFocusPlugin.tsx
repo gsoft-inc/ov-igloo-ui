@@ -29,6 +29,8 @@ export function OnFocusPlugin({
         COMMAND_PRIORITY_LOW
       );
     }
+
+    return () => null;
   }, [editor, onFocus]);
 
   useLayoutEffect(() => {
@@ -42,6 +44,8 @@ export function OnFocusPlugin({
         COMMAND_PRIORITY_LOW
       );
     }
+
+    return () => null;
   }, [editor, onBlur]);
 
   return null;
