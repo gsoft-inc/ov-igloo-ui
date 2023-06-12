@@ -20,7 +20,7 @@ export function OnFocusPlugin({
 
   useLayoutEffect(() => {
     if (onFocus) {
-      editor.registerCommand(
+      return editor.registerCommand(
         FOCUS_COMMAND,
         () => {
           onFocus(editor);
@@ -33,7 +33,7 @@ export function OnFocusPlugin({
 
   useLayoutEffect(() => {
     if (onBlur) {
-      editor.registerCommand(
+      return editor.registerCommand(
         BLUR_COMMAND,
         () => {
           onBlur(editor);
