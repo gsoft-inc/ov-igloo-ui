@@ -214,4 +214,26 @@ describe('Alert', () => {
 
     expect(findIcon).toBeInTheDocument();
   });
+
+  test('It should render an Alert with no icon', () => {
+    const container = setup({
+      type: 'success',
+      appearance: 'card',
+      icon: null
+    }).container;
+    const findIcon = container.querySelector('.ids-alert__icon');
+
+    expect(findIcon).not.toBeInTheDocument();
+  });
+
+  test('It should render an Alert with a custom icon', () => {
+    const container = setup({
+      type: 'success',
+      appearance: 'card',
+      icon: <span className="ids-alert__custom-icon" />
+    }).container;
+    const findIcon = container.querySelector('.ids-alert__custom-icon');
+
+    expect(findIcon).toBeInTheDocument();
+  });
 });

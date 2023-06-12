@@ -38,6 +38,7 @@ export interface AlertProps extends Omit<React.ComponentProps<'div'>, 'title'> {
   className?: string;
   /** Set if the Alert can be closed by the user */
   closable?: boolean;
+  icon?: React.ReactElement | null;
   /** Action on Alert close button click */
   onClose?: () => void;
   /** Alert button */
@@ -49,7 +50,8 @@ export interface AlertProps extends Omit<React.ComponentProps<'div'>, 'title'> {
 const renderIcon = (
   style: Appearance,
   hasButton: boolean,
-  type: Type
+  type: Type,
+  icon?: React.ReactElement
 ): JSX.Element => {
   const classes = classNames('ids-alert__icon', `ids-alert__icon--${style}`, {
     'ids-alert__icon--small-top': hasButton,
@@ -58,11 +60,15 @@ const renderIcon = (
 
   return (
     <div className={classes}>
-      {type === 'announcement' && <TadaIcon />}
-      {type === 'info' && <InfoIcon />}
-      {type === 'premium' && <CrownIcon />}
-      {type === 'success' && <SuccessIcon />}
-      {type === 'warning' && <WarningIcon />}
+      {icon || (
+        <>
+          {type === 'announcement' && <TadaIcon />}
+          {type === 'info' && <InfoIcon />}
+          {type === 'premium' && <CrownIcon />}
+          {type === 'success' && <SuccessIcon />}
+          {type === 'warning' && <WarningIcon />}
+        </>
+      )}
     </div>
   );
 };
@@ -120,6 +126,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
   appearance = 'card',
   className,
   closable = true,
+  icon,
   onClose,
   button,
   dataTest,
@@ -146,7 +153,9 @@ const Alert: React.FunctionComponent<AlertProps> = ({
         data-test={dataTest}
         {...rest}
       >
-        {!isHorizontal && renderIcon(appearance, hasButton, type)}
+        {icon !== null &&
+          !isHorizontal &&
+          renderIcon(appearance, hasButton, type, icon)}
 
         <div className="ids-alert__body">
           <div className="ids-alert__header">
