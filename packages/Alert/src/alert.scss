@@ -121,7 +121,7 @@
   }
 
   &__header {
-    align-items: center;
+    align-items: baseline;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -134,7 +134,13 @@
 
   &__metadata {
     color: var(--ids-alert-metadata-color);
+    display: none;
+    flex: 0 0 auto;
     margin: 0;
+    
+    @media (min-width: tokens.$breakpoints-sm) {
+      display: block;
+    }
   }
 
   &__icon {
