@@ -128,7 +128,7 @@
     width: 100%;
 
     + .ids-alert__content {
-      margin-top: tokens.$space-1;
+      margin-top: #{tokens.$space-1};
     }
   }
 
@@ -138,7 +138,7 @@
     flex: 0 0 auto;
     margin: 0;
     
-    @media (min-width: tokens.$breakpoints-sm) {
+    @media screen and (min-width: #{tokens.$breakpoints-sm}) {
       display: block;
     }
   }
