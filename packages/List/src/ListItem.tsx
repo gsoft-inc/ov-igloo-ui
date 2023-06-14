@@ -22,8 +22,10 @@ interface ListItem {
 }
 
 export interface Option extends ListItem {
+  /** The option action element that will be displayed on hover */
+  action?: React.ReactElement;
   /** Descriptive text to display below the label */
-  description?: string;
+  description?: React.ReactNode;
   /** Whether or not the option is disabled */
   disabled?: boolean;
   /** The option label */
@@ -136,14 +138,19 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
 
   const listItemContent =
     option.type === 'list' ? (
-      <>
-        <span className="ids-list-item__text-label">{option.label}</span>
-        {option.description && (
-          <span className="ids-list-item__text-description">
-            {option.description}
-          </span>
+      <span className="ids-list-item__text-body">
+        <span className="ids-list-item__text-content">
+          <span className="ids-list-item__text-label">{option.label}</span>
+          {option.description && (
+            <span className="ids-list-item__text-description">
+              {option.description}
+            </span>
+          )}
+        </span>
+        {option.action && (
+          <span className="ids-list-item__text-action">{option.action}</span>
         )}
-      </>
+      </span>
     ) : (
       <>
         <span className="ids-list-item__text-member">
@@ -164,7 +171,13 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
       onClick={(e: React.MouseEvent<HTMLLIElement>) => {
         e.stopPropagation();
         e.preventDefault();
-        handleOptionChange(option);
+        const { target } = e;
+        if (
+          !(target as HTMLElement).closest('a') &&
+          !(target as HTMLElement).closest('button')
+        ) {
+          handleOptionChange(option);
+        }
       }}
       onMouseOver={() => onListItemFocus(option)}
       onMouseOut={() => onListItemBlur(option)}

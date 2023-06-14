@@ -43,6 +43,8 @@ export interface ComboboxProps
   disabled?: boolean;
   /** The Select is in an error state */
   error?: boolean;
+  /** The footer content of the combobox */
+  footer?: React.ReactNode;
   /** True for a compact appearance */
   isCompact?: boolean;
   /** True if the option list is displayed */
@@ -56,6 +58,10 @@ export interface ComboboxProps
   onChange?: (option: OptionType | undefined) => void;
   /** Callback called when selected is cleared */
   onClear?: () => void;
+  /** Callback when the dropdown is closed */
+  onClose?: () => void;
+  /** Callback when the dropdown is opened */
+  onOpen?: () => void;
   /** List of available options. */
   options: ComboboxOption[];
   /** Whether or not to display a search box when open */
@@ -74,23 +80,30 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
   dataTest,
   disabled = false,
   error,
+  footer,
   isCompact = false,
   isOpen = false,
   multiple = false,
   noResultsText = 'No Results',
   onChange,
   onClear,
+  onClose,
+  onOpen,
   options,
   search,
   selectedOption,
   ...rest
 }: ComboboxProps) => {
-  const comboboxOptions = options.map((option): OptionType => {
-    return {
-      ...option,
-      type: 'list',
-    };
-  });
+  const comboboxOptions = React.useMemo(
+    () =>
+      options.map((option): OptionType => {
+        return {
+          ...option,
+          type: 'list',
+        };
+      }),
+    [options]
+  );
 
   const comboboxRef = React.useRef<HTMLDivElement>(null);
   const searchInputRef = React.useRef<HTMLInputElement>(null);
@@ -147,6 +160,10 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
         comboboxRef.current.focus();
       }
 
+      if (onClose) {
+        onClose();
+      }
+
       setTimeout(
         () => setResults(comboboxOptions),
         DROPDOWN_ANIMATION_DURATION
@@ -154,6 +171,10 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     } else if (currentFocusedOption !== currentSelectedOption) {
       // This happens when the user doesn't select an option by keyboard.
       setCurrentFocusedOption(currentSelectedOption);
+    }
+
+    if (!isOpen && onOpen) {
+      onOpen();
     }
 
     setShowMenu(!isOpen);
@@ -220,6 +241,10 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     return !!element.closest('.ids-combobox-input__clear');
   };
 
+  const targetIsFooter = (element: HTMLElement): boolean => {
+    return !!element.closest('.ids-combobox__footer');
+  };
+
   const handleOnKeyDown = (
     keyboardEvent: React.KeyboardEvent<HTMLDivElement>
   ): void => {
@@ -277,10 +302,13 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
   };
   const handleOnClick = (e: React.MouseEvent<HTMLDivElement>): void => {
     const { target } = e;
-    if (disabled || targetIsClearBtn(target as HTMLDivElement)) {
+    if (
+      disabled ||
+      targetIsClearBtn(target as HTMLDivElement) ||
+      targetIsFooter(target as HTMLDivElement)
+    ) {
       return;
     }
-
     toggleMenu(showMenu, true);
   };
 
@@ -313,6 +341,14 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     setCurrentFocusedOption(undefined);
   };
 
+  React.useEffect(() => {
+    if (showMenu !== isOpen) {
+      toggleMenu(!isOpen);
+    }
+    // Adding toggleMenu to the dependency array causes unwanted affects
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
+
   const canShowMenu = showMenu && !disabled;
 
   const comboboxClassname = cx('ids-combobox', className, {
@@ -327,6 +363,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     `${className}__dropdown`,
     {
       'ids-combobox__dropdown--compact': isCompact,
+      'ids-combobox__dropdown--has-footer': !!footer,
     }
   );
 
@@ -344,26 +381,34 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
       <Dropdown
         key="comboboxDropdown"
         content={
-          results && results.length ? (
-            <List
-              options={results}
-              isCompact
-              onOptionFocus={hoverOption}
-              onOptionChange={updateOption}
-              onOptionBlur={() => setCurrentFocusedOption(undefined)}
-              selectedOption={multiple ? selectedOption : currentSelectedOption}
-              focusedOption={currentFocusedOption}
-              multiple={multiple}
-              disableTabbing
-            />
-          ) : (
-            <div className="ids-combobox__no-results">{noResultsText}</div>
-          )
+          <>
+            {results && results.length ? (
+              <List
+                options={results}
+                isCompact
+                onOptionFocus={hoverOption}
+                onOptionChange={updateOption}
+                onOptionBlur={() => setCurrentFocusedOption(undefined)}
+                selectedOption={
+                  multiple ? selectedOption : currentSelectedOption
+                }
+                focusedOption={currentFocusedOption}
+                multiple={multiple}
+                disableTabbing
+                className="ids-combobox__list"
+              />
+            ) : (
+              <div className="ids-combobox__no-results">{noResultsText}</div>
+            )}
+            {footer && <div className="ids-combobox__footer">{footer}</div>}
+          </>
         }
         isOpen={canShowMenu}
         style={{ width: autoWidth ? '' : comboboxRect?.width }}
         className={comboboxDropdownClassname}
-        onClose={() => toggleMenu(true, true)}
+        onClose={() => {
+          toggleMenu(true, true);
+        }}
       >
         {multiple ? (
           <ComboboxInput

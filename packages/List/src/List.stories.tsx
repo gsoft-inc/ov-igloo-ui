@@ -3,12 +3,13 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 
 import Reminder from '@igloo-ui/icons/dist/Reminder';
+import Button from '@igloo-ui/button';
+import Tag from '@igloo-ui/tag';
 
 import readme from '../README.md';
 
 import List from './List';
 import type { Option, Member, OptionType } from './List';
-import ListItem from './ListItem';
 
 export default {
   title: 'Components/List',
@@ -206,6 +207,29 @@ const textIconHelperTextList: Option[] = [
   },
 ];
 
+const listWithAction: OptionType[] = [
+  {
+    type: 'list',
+    label: 'Quarterly Performance Discussion',
+    value: '1',
+    description: <Tag appearance="grey" size="xsmall">Self review</Tag>,
+    action: <Button appearance={'ghost'} size="small">Preview</Button>,
+  },
+  {
+    type: 'list',
+    label: 'Clarifying Role and Expectations',
+    value: '2',
+    action: <Button appearance={'ghost'} size="small">Preview</Button>,
+  },
+  {
+    type: 'list',
+    label: 'Discussing progress on individual goals',
+    value: '3',
+    action: <Button appearance={'ghost'} size="small">Preview</Button>,
+    description: 'Description',
+  }
+];
+
 const membersList: Member[] = [
   {
     type: 'member',
@@ -278,6 +302,7 @@ const Template: StoryFn<typeof List> = (args) => {
       {...args}
       onOptionChange={handleOptionSelect}
       onOptionFocus={handleOptionFocus}
+      onOptionBlur={() => setFocusedOption(undefined)}
       selectedOption={selectedOption}
       focusedOption={focusedOption}
       style={{ maxWidth: '40rem' }}
@@ -341,6 +366,7 @@ export const Multiselect = () => {
       multiple
       onOptionChange={handleOptionChange}
       onOptionFocus={handleOptionFocus}
+      onOptionBlur={() => setFocusedOption(undefined)}
       focusedOption={focusedOption}
       selectedOption={selectedResults}
       style={{ maxWidth: '40rem' }}
@@ -355,5 +381,28 @@ export const TextAndIcon = () => {
 export const TextIconAndHelperText = () => {
   return (
     <List options={textIconHelperTextList} style={{ maxWidth: '40rem' }} />
+  );
+};
+
+export const Action = () => {
+  const [selectedOption, setSelectedOption] = React.useState<OptionType | null>();
+  const [focusedOption, setFocusedOption] = React.useState<OptionType | null>();
+
+  function handleOptionSelect(option: OptionType) {
+    setSelectedOption(option);
+  }
+
+  function handleOptionFocus(option: OptionType) {
+    setFocusedOption(option);
+  }
+
+  return (
+    <List options={listWithAction} 
+    onOptionChange={handleOptionSelect}
+    onOptionFocus={handleOptionFocus}
+    onOptionBlur={() => setFocusedOption(undefined)}
+    selectedOption={selectedOption}
+    focusedOption={focusedOption}
+    style={{ maxWidth: '40rem' }} />
   );
 };

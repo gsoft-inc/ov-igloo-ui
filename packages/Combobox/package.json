@@ -35,6 +35,7 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
+    "@igloo-ui/button": "^0.4.1",
     "@igloo-ui/tag": "^1.0.6",
     "@shared/components": "0.1.1"
   },

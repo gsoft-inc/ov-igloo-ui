@@ -1,5 +1,6 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
+@use 'mixins';
 
 :root {
   /* Default */
@@ -10,7 +11,6 @@
   --ids-combobox-background: #{tokens.$samoyed};
   --ids-combobox-border-color: #{tokens.$grey-300};
   --ids-combobox-border-radius: #{tokens.$border-radius-sm};
-  --ids-combobox-number-of-option-to-display: 4;
 
   /* Compact */
   --ids-combobox-font-size-compact: #{tokens.$font-size-3};
@@ -35,6 +35,10 @@
   --ids-combobox-no-results-font-size: #{tokens.$font-size-3};
   --ids-combobox-no-results-padding: #{tokens.$space-3};
   --ids-combobox-no-results-line-height: #{tokens.$line-height-xxl};
+
+  /* Footer */
+  --ids-combobox-footer-background: #{tokens.$samoyed};
+  --ids-combobox-footer-padding: #{tokens.$space-2} #{tokens.$space-3};
 }
 
 .ids-combobox {
@@ -96,12 +100,20 @@
 }
 
 .ids-combobox__dropdown {
-  max-height: calc(var(--ids-combobox-height) * var(--ids-combobox-number-of-option-to-display));
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
 
-  &--compact {
-    max-height: calc(var(--ids-combobox-height-compact) * var(--ids-combobox-number-of-option-to-display));
-  }
+.ids-combobox__list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  
+  @include mixins.fancy-webkit-scrollbar;
+}
+
+.ids-combobox__dropdown--has-footer .ids-combobox__list {
+  padding-bottom: 0;
 }
 
 .ids-combobox__no-results {
@@ -109,4 +121,10 @@
   font-size: var(--ids-combobox-no-results-font-size);
   line-height: var(--ids-combobox-no-results-line-height);
   padding: var(--ids-combobox-no-results-padding);
+}
+
+.ids-combobox__footer {
+  background: var(--ids-combobox-footer-background);
+  flex: 0 0 auto;
+  padding: var(--ids-combobox-footer-padding);
 }
