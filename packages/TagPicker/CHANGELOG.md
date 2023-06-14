@@ -1,5 +1,11 @@
 # @igloo-ui/tag-picker
 
+## 0.2.1
+
+### Patch Changes
+
+- 3ce5df5: Removed the reference to the `@shared/components` package to fix the error during installation
+
 ## 0.2.0
 
 ### Minor Changes
