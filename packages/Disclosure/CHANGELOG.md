@@ -1,5 +1,11 @@
 # @igloo-ui/disclosure
 
+## 0.2.0
+
+### Minor Changes
+
+- 210d1a8: Added isLowContrast, onClose and onOpen props. isExpended will now update the open and close state whenever updated.
+
 ## 0.1.1
 
 ### Patch Changes
