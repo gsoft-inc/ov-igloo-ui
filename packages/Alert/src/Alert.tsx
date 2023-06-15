@@ -38,6 +38,7 @@ export interface AlertProps extends Omit<React.ComponentProps<'div'>, 'title'> {
   className?: string;
   /** Set if the Alert can be closed by the user */
   closable?: boolean;
+  /** Custom icon for alert (Use 'null' to have no icon) */
   icon?: React.ReactElement | null;
   /** Action on Alert close button click */
   onClose?: () => void;
