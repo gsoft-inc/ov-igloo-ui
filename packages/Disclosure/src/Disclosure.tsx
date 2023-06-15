@@ -18,8 +18,14 @@ export interface DisclosureProps extends React.ComponentProps<'div'> {
   description?: React.ReactNode;
   /** An icon to show as the first element in disclosure */
   icon?: React.ReactNode;
-  /** Whether or not the disclosure is expanded by default */
+  /** Whether or not the disclosure is expanded */
   isExpanded?: boolean;
+  /** True for a light appearance (no shadow, icon or border) */
+  isLowContrast?: boolean;
+  /** Callback when the disclosure is closed */
+  onClose?: () => void;
+  /** Callback when the disclosure is opened */
+  onOpen?: () => void;
   /** The title of the disclosure */
   title?: string;
 }
@@ -31,6 +37,9 @@ const Disclosure: React.FunctionComponent<DisclosureProps> = ({
   description,
   icon,
   isExpanded = false,
+  isLowContrast = false,
+  onClose,
+  onOpen,
   title,
 }: DisclosureProps) => {
   const btnRef = React.useRef<HTMLButtonElement>(null);
@@ -45,7 +54,22 @@ const Disclosure: React.FunctionComponent<DisclosureProps> = ({
     btnRef
   );
 
-  const classes = cx('ids-disclosure', className);
+  React.useEffect(() => {
+    setExpanded(isExpanded);
+  }, [isExpanded]);
+
+  React.useEffect(() => {
+    if (expanded && onOpen) {
+      onOpen();
+    }
+    if (!expanded && onClose) {
+      onClose();
+    }
+  }, [expanded, onOpen, onClose]);
+
+  const classes = cx('ids-disclosure', className, {
+    'ids-disclosure--low-contrast': isLowContrast,
+  });
 
   return (
     <div className={classes} data-test={dataTest}>
@@ -64,7 +88,12 @@ const Disclosure: React.FunctionComponent<DisclosureProps> = ({
             <span className="ids-disclosure__header-desc">{description}</span>
           )}
         </span>
-        <ChevronDown size="medium" className="ids-disclosure__header-chevron" />
+        {!isLowContrast && (
+          <ChevronDown
+            size="medium"
+            className="ids-disclosure__header-chevron"
+          />
+        )}
       </button>
       <LazyMotion features={domAnimation} strict>
         <AnimatePresence initial={false}>
