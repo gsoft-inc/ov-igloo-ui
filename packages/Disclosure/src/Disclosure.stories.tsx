@@ -6,8 +6,6 @@ import Substract from '@igloo-ui/icons/dist/Substract';
 import ArrowUp from '@igloo-ui/icons/dist/ArrowUp';
 import Settings from '@igloo-ui/icons/dist/Settings';
 import Button from '@igloo-ui/button';
-
-
 import Tag from '@igloo-ui/tag';
 
 import readme from '../README.md';
