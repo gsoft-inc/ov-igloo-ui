@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.3.0
+
+### Minor Changes
+
+- 3635440: Added ability to add a custom icon. If set to null, no icon will be rendered.
+
 ## 0.2.0
 
 ### Minor Changes
