@@ -51,7 +51,7 @@ exports[`Combobox It should render a snapshot 1`] = `
       <ul
         class="ids-list ids-combobox__list ids-list--compact"
         role="listbox"
-        tabindex="0"
+        tabindex="-1"
       >
         <li
           aria-selected="false"
