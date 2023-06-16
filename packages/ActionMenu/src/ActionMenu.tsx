@@ -245,10 +245,13 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
         onClose={() => toggleMenu(false)}
         renderReference={(refProps: React.HTMLProps<HTMLButtonElement>) => {
           return renderReference({
-            onClick: () => toggleMenu(!showMenu),
-            onKeyDown: handleOnKeyDown,
-            className: 'ids-action-menu__trigger',
             ...refProps,
+            onClick: () => toggleMenu(!showMenu),
+            onKeyDown: (e) => {
+              handleOnKeyDown(e);
+            },
+            tabIndex: 0,
+            className: 'ids-action-menu__trigger',
           });
         }}
       />
