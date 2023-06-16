@@ -7,6 +7,9 @@ import Hyperlink from '@igloo-ui/hyperlink';
 import Section from '@components/section';
 import readme from '../README.md';
 
+import {
+  InfoIcon,
+} from './svgs';
 import Alert from './Alert';
 
 export default {
@@ -29,6 +32,14 @@ export default {
 const mockContent = {
   title: 'Title of the alert',
   message: 'Alert message goes here',
+  message2: (<div>
+  <p>Participants without a Direct Manager will automatically be removed from this cycle. A Direct Manager is someone a team member directly reports to. Together they will discuss, track, and evaluate performance in Officevibe.</p>
+  <p>How to assign Direct Managers to participants <Hyperlink>Tell me more</Hyperlink></p>
+  <ul>
+    <li>Bulk assign Direct Managers using bulk provisioning</li>
+    <li>Manually assign Direct Managers in members settings</li>
+  </ul>
+</div>)
 };
 
 export const Overview = {
@@ -116,16 +127,7 @@ export const Closable = () => (
 export const Metadata = () => (
   <Section column>
     <Alert type="warning" title={<><Hyperlink>{'{#}'} participants</Hyperlink> missing a Direct Manager</>}
-      message={
-        <div>
-          <p>Participants without a Direct Manager will automatically be removed from this cycle. A Direct Manager is someone a team member directly reports to. Together they will discuss, track, and evaluate performance in Officevibe.</p>
-          <p>How to assign Direct Managers to participants <Hyperlink>Tell me more</Hyperlink></p>
-          <ul>
-            <li>Bulk assign Direct Managers using bulk provisioning</li>
-            <li>Manually assign Direct Managers in members settings</li>
-          </ul>
-        </div>
-      }
+      message={mockContent.message2}
       closable={false}
       metadata={
         <Tooltip content="April 24, 2023 - 8:00 PM">
@@ -134,3 +136,27 @@ export const Metadata = () => (
       } />
   </Section>
 );
+
+
+export const CustomIcon = () => (
+  <Section column>
+    <Alert type="warning" title={<><Hyperlink>{'{#}'} participants</Hyperlink> missing a Direct Manager</>}
+      message={mockContent.message2}
+      closable={false}
+      icon={<InfoIcon />}
+      />
+  </Section>
+);
+
+export const NoIcon = () => (
+  <Section column>
+    <Alert
+      type="announcement"
+      appearance="inline"
+      title="Inline"
+      message={mockContent.message}
+      icon={null}
+    />
+  </Section>
+);
+
