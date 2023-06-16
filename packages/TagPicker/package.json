@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/tag-picker",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/TagPicker.js",
   "module": "dist/TagPicker.js",
   "types": "dist/TagPicker.d.ts",
@@ -35,9 +35,6 @@
     "@igloo-ui/form-group": "^1.0.2",
     "@shared/components": "0.1.1"
   },
-  "bundledDependencies": [
-    "@shared/components"
-  ],
   "browserslist": [
     "> 1%",
     "last 2 versions",

@@ -3,6 +3,8 @@ import React from 'react';
 import cx from 'classnames';
 
 import Ellipsis from '@igloo-ui/ellipsis';
+
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { VisualIdentifier } from '@shared/components';
 import type { TagItem } from './TagPicker';
 
