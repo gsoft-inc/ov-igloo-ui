@@ -11,6 +11,11 @@
   :root {
     --io-main-top-padding: #{token.$space-10};
     --io-main-right-padding: #{token.$space-4};
+  }
+}
+
+@include media.mq(large) {
+  :root {
     --io-toc-display: block;
   }
 }
@@ -20,6 +25,10 @@
   position: absolute;
   top: var(--io-main-top-padding);
   right: 0;
-  padding-right: var(--io-main-right-padding);
+  width: min(100% - var(--io-main-right-padding), 20rem);
   height: 100%;
+
+  .toc-level-3 {
+    padding-left: #{token.$space-3};
+  }
 }
