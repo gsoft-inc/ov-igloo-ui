@@ -1,21 +1,5 @@
 @use '../tokens' as token;
 @use '../abstract/function' as *;
-@use '../base/media-query' as media;
-
-:root {
-  --io-example-padding: #{token.$space-3};
-  --io-example-margin: #{token.$space-6} 0;
-  --io-example-direction: column;
-  --io-subnav-getting-started-padding: 0 0 #{token.$space-2};
-}
-
-@include media.mq(medium) {
-  :root {
-    --io-example-padding: #{token.$space-5} 0;
-    --io-example-margin: #{token.$space-6} #{rebase(-4rem)};
-    --io-example-direction: row;
-  }
-}
 
 .io-subnav__getting-started-list {
   padding: var(--io-subnav-getting-started-padding);

@@ -18,7 +18,12 @@ export default function Components(props) {
 
     return (
       <Card
-        icon={<Image src={cardImage} />}
+        icon={
+          <Image
+            alt={`illustration of component: ${component}`}
+            src={cardImage}
+          />
+        }
         key={index.toString()}
         component
         title={component}
