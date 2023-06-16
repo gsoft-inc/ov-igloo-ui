@@ -250,7 +250,6 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
             onKeyDown: (e) => {
               handleOnKeyDown(e);
             },
-            tabIndex: 0,
             className: 'ids-action-menu__trigger',
           });
         }}
