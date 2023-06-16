@@ -95,6 +95,7 @@
   align-items: center;
   display: flex;
   min-height: var(--ids-list-item-min-height);
+  outline: none;
   padding: var(--ids-list-item-padding);
   user-select: none;
 
@@ -123,8 +124,7 @@
     background: var(--ids-list-item-background-selected-multi);
   }
 
-  &--focused,
-  &--selectable:focus {
+  &--focused {
     background: var(--ids-list-item-background-focused);
     outline: 0;
   }
@@ -187,8 +187,7 @@
   opacity: 0;
   transition: opacity .2s ease-out;
 
-  .ids-list-item--selectable:hover &,
-  .ids-list-item--selectable:focus-within & {
+  .ids-list-item--focused & {
     opacity: 1;
   }
 

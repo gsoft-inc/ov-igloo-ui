@@ -241,8 +241,18 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     return !!element.closest('.ids-combobox-input__clear');
   };
 
+  const targetIsActionBtn = (element: HTMLElement): boolean => {
+    return !!element.closest('.ids-list-item__text-action');
+  };
+
   const targetIsFooter = (element: HTMLElement): boolean => {
     return !!element.closest('.ids-combobox__footer');
+  };
+
+  const resetComboboxFocus = (): void => {
+    if (comboboxRef && comboboxRef.current) {
+      comboboxRef.current.focus();
+    }
   };
 
   const handleOnKeyDown = (
@@ -256,7 +266,10 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
         }
         break;
       case Keys.Enter:
-        if (!targetIsClearBtn(target as HTMLElement)) {
+        if (
+          !targetIsClearBtn(target as HTMLElement) &&
+          !targetIsActionBtn(target as HTMLElement)
+        ) {
           keyboardEvent.preventDefault();
           keyboardEvent.stopPropagation();
           if (currentFocusedOption && showMenu) {
@@ -279,6 +292,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
           keyboardEvent.preventDefault();
           keyboardEvent.stopPropagation();
 
+          resetComboboxFocus();
           focusOption('up');
         }
         break;
@@ -287,14 +301,9 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
           keyboardEvent.preventDefault();
           keyboardEvent.stopPropagation();
 
+          resetComboboxFocus();
           focusOption('down');
         }
-        break;
-      case Keys.Tab:
-        if (showMenu) {
-          toggleMenu(showMenu);
-        }
-
         break;
       default:
         break;
