@@ -26,21 +26,21 @@ export default function Home() {
         <div className="io-section__content">
           <Card
             className="io-card--tokens"
-            icon={<Image layout="fixed" src={iconToken} />}
+            icon={<Image alt="icon for tokens" src={iconToken} />}
             title="Tokens"
             description="Are visual values that construct the foundational pieces of our products"
             link={link.TOKENS}
           />
           <Card
             className="io-card--icons"
-            icon={<Image layout="fixed" src={iconIcon} />}
+            icon={<Image alt="icon for icons section" src={iconIcon} />}
             title="Icons"
             description="Help assist users in finding certain actions on a page"
             link={link.ICONS}
           />
           <Card
             className="io-card--components"
-            icon={<Image layout="fixed" src={iconComponent} />}
+            icon={<Image alt="icon for components" src={iconComponent} />}
             title="Components"
             description="A set of React components for building the interfaces of our products"
             link={link.COMPONENTS}

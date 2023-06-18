@@ -42,7 +42,12 @@ export default function ReferenceLinks({ component, version }) {
             className="reference__link"
             target="_blank"
           >
-            <Image width={16} height={16} src={storybook} />
+            <Image
+              alt="storybook logo"
+              width={16}
+              height={16}
+              src={storybook}
+            />
             Storybook
           </Link>
         </li>
