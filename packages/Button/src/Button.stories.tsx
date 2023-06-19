@@ -17,8 +17,8 @@ export default {
     docs: {
       description: {
         component: readme,
-      }
-    }
+      },
+    },
   },
   argTypes: {
     children: { description: 'The content to display inside the button' },
@@ -139,9 +139,13 @@ export default {
       control: { type: 'radio' },
       options: ['button', 'a'],
     },
+    resetSizeOnMobile: {
+      description: 'Reset the size of the button on mobile',
+      table: { type: { summary: 'boolean' } },
+      control: { type: 'boolean' },
+    },
   },
 } as Meta<typeof Button>;
-
 
 type Story = StoryObj<typeof Button>;
 
@@ -287,3 +291,9 @@ export const AsLink = () => {
     </Section>
   );
 };
+
+export const ResetSizeOnMobile = () => (
+  <Button size="small" resetSizeOnMobile>
+    Small
+  </Button>
+);
