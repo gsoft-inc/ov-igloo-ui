@@ -64,7 +64,7 @@ export interface ButtonOwnProps {
   intercomTarget?: string;
   /** Add a specific class to the button */
   className?: string;
-  //** Return to the default size on mobile */
+  //* * Return to the default size on mobile */
   resetSizeOnMobile?: boolean;
 }
 
