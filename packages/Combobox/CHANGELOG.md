@@ -1,5 +1,16 @@
 # @igloo-ui/combobox
 
+## 0.3.0
+
+### Minor Changes
+
+- 0482ec6: Added action prop and updated description type to ReactNode for ListItem. Added footer and a way for the user to open and close the combobox through props.
+
+### Patch Changes
+
+- Updated dependencies [0482ec6]
+  - @igloo-ui/list@0.3.0
+
 ## 0.2.1
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @igloo-ui/action-menu
 
+## 1.1.1
+
+### Patch Changes
+
+- 957387b: Other props for the action menu reference were overriding the onKeyDown event. Rearranged the order to fix this.
+- Updated dependencies [0482ec6]
+  - @igloo-ui/list@0.3.0
+
 ## 1.1.0
 
 ### Minor Changes
