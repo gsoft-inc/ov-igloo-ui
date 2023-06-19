@@ -5,7 +5,7 @@ import ListItem, { Option, Member, OptionType } from './ListItem';
 
 import './list.scss';
 
-export interface ListProps extends React.ComponentProps<'ul'> {
+export interface ListProps extends React.ComponentPropsWithRef<'ul'> {
   /** Add a specific class to the Select */
   className?: string;
   /** Add a data-test tag for automated tests */
@@ -35,72 +35,78 @@ export interface ListProps extends React.ComponentProps<'ul'> {
   showIcon?: boolean;
 }
 
-const List: React.FunctionComponent<ListProps> = ({
-  className,
-  dataTest,
-  disableTabbing = false,
-  focusedOption,
-  isCompact = true,
-  multiple,
-  onOptionFocus,
-  onOptionChange,
-  onOptionBlur,
-  options,
-  selectedOption,
-  showIcon = true,
-  ...rest
-}: ListProps) => {
-  const listClasses = cx('ids-list', className, {
-    'ids-list--compact': isCompact,
-    'ids-list--multi-select': multiple,
-  });
+const List: React.FunctionComponent<ListProps> = React.forwardRef(
+  (
+    {
+      className,
+      dataTest,
+      disableTabbing = false,
+      focusedOption,
+      isCompact = true,
+      multiple,
+      onOptionFocus,
+      onOptionChange,
+      onOptionBlur,
+      options,
+      selectedOption,
+      showIcon = true,
+      ...rest
+    }: ListProps,
+    ref: React.ForwardedRef<HTMLUListElement>
+  ) => {
+    const listClasses = cx('ids-list', className, {
+      'ids-list--compact': isCompact,
+      'ids-list--multi-select': multiple,
+    });
 
-  return (
-    <ul
-      className={listClasses}
-      data-test={dataTest}
-      tabIndex={disableTabbing ? 0 : -1}
-      role="listbox"
-      {...rest}
-    >
-      {options.map((option: OptionType) => {
-        let selected = false;
+    return (
+      <ul
+        ref={ref}
+        className={listClasses}
+        data-test={dataTest}
+        tabIndex={-1}
+        role="listbox"
+        {...rest}
+      >
+        {options.map((option: OptionType) => {
+          let selected = false;
 
-        if (multiple) {
-          if (Array.isArray(selectedOption)) {
-            const selectedItem = selectedOption.filter((o) => {
-              return o.value === option.value;
-            });
-            selected = !!selectedItem && selectedItem.length > 0;
+          if (multiple) {
+            if (Array.isArray(selectedOption)) {
+              const selectedItem = selectedOption.filter((o) => {
+                return o.value === option.value;
+              });
+              selected = !!selectedItem && selectedItem.length > 0;
+            }
+          } else if (selectedOption && !Array.isArray(selectedOption)) {
+            selected = selectedOption.value === option.value;
           }
-        } else if (selectedOption && !Array.isArray(selectedOption)) {
-          selected = selectedOption.value === option.value;
-        }
 
-        let isFocused = false;
-        if (focusedOption) {
-          isFocused = focusedOption.value === option.value;
-        }
+          let isFocused = false;
+          if (focusedOption) {
+            isFocused = focusedOption.value === option.value;
+          }
 
-        return (
-          <ListItem
-            key={option.value}
-            option={option}
-            onOptionChange={onOptionChange}
-            onOptionFocus={onOptionFocus}
-            onOptionBlur={onOptionBlur}
-            isCompact={isCompact}
-            isFocused={isFocused}
-            isSelected={selected}
-            useCheckbox={multiple}
-            showIcon={showIcon}
-            disableTabbing={disableTabbing}
-          />
-        );
-      })}
-    </ul>
-  );
-};
+          return (
+            <ListItem
+              key={option.value}
+              option={option}
+              onOptionChange={onOptionChange}
+              onOptionFocus={onOptionFocus}
+              onOptionBlur={onOptionBlur}
+              isCompact={isCompact}
+              isFocused={isFocused}
+              isSelected={selected}
+              useCheckbox={multiple}
+              showIcon={showIcon}
+              disableTabbing={disableTabbing}
+            />
+          );
+        })}
+      </ul>
+    );
+  }
+);
 
 export default List;
 export type { Option, Member, OptionType };

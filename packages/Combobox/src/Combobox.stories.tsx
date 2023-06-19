@@ -7,6 +7,7 @@ import { expect } from '@storybook/jest';
 import Tag from '@igloo-ui/tag';
 import Happiness from '@igloo-ui/icons/dist/Happiness';
 import { OptionType } from '@igloo-ui/list';
+import Button from '@igloo-ui/button';
 
 import Section from '@components/section';
 import readme from '../../Combobox/README.md';
@@ -88,6 +89,26 @@ const largeOptionList: ComboboxOption[] = [
     label: 'Text 6',
     value: '6',
   },
+];
+
+const listWithAction: ComboboxOption[] = [
+  {
+    label: 'Quarterly Performance Discussion',
+    value: '1',
+    description: <Tag appearance="grey" size="xsmall">Self review</Tag>,
+    action: <Button appearance={'ghost'} size="small">Preview</Button>,
+  },
+  {
+    label: 'Clarifying Role and Expectations',
+    value: '2',
+    action: <Button appearance={'ghost'} size="small">Preview</Button>,
+  },
+  {
+    label: 'Discussing progress on individual goals',
+    value: '3',
+    action: <Button appearance={'ghost'} size="small">Preview</Button>,
+    description: 'Description',
+  }
 ];
 
 
@@ -274,6 +295,48 @@ export const Multiple: Story = {
         </Combobox>
       </Section>
     );
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+};
+
+export const WithActions: Story = {
+  render: () => {
+    return (
+      <Section column>
+        <Combobox options={listWithAction}>
+          Place holder text
+        </Combobox>
+      </Section>
+    )
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+};
+
+export const WithFooter: Story = {
+  render: () => {
+    const [open, setOpen] = React.useState(false);
+    const onClose = (): void => {
+      setOpen(false);
+    };
+    
+    const onOpen = (): void => {
+      setOpen(true);
+    };
+
+    return (
+      <Section column>
+        <Combobox options={listWithAction} onClose={onClose} onOpen={onOpen} isOpen={open}
+          footer={<Button appearance={'ghost'} size="small" onClick={() => setOpen(false)}>Start from scratch</Button>}>
+          Place holder text
+        </Combobox>
+      </Section>
+    )
   },
 
   parameters: {

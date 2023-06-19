@@ -21,14 +21,22 @@ exports[`List It should render a snapshot 1`] = `
           class="ids-list-item__text"
         >
           <span
-            class="ids-list-item__text-label"
+            class="ids-list-item__text-body"
           >
-            Item 1
-          </span>
-          <span
-            class="ids-list-item__text-description"
-          >
-            just adding some description
+            <span
+              class="ids-list-item__text-content"
+            >
+              <span
+                class="ids-list-item__text-label"
+              >
+                Item 1
+              </span>
+              <span
+                class="ids-list-item__text-description"
+              >
+                just adding some description
+              </span>
+            </span>
           </span>
         </span>
       </div>
@@ -46,9 +54,17 @@ exports[`List It should render a snapshot 1`] = `
           class="ids-list-item__text"
         >
           <span
-            class="ids-list-item__text-label"
+            class="ids-list-item__text-body"
           >
-            Item 2 (disabled)
+            <span
+              class="ids-list-item__text-content"
+            >
+              <span
+                class="ids-list-item__text-label"
+              >
+                Item 2 (disabled)
+              </span>
+            </span>
           </span>
         </span>
       </div>
@@ -84,14 +100,22 @@ exports[`List It should render a snapshot 1`] = `
           class="ids-list-item__text"
         >
           <span
-            class="ids-list-item__text-label"
+            class="ids-list-item__text-body"
           >
-            Item 3 (focused)
-          </span>
-          <span
-            class="ids-list-item__text-description"
-          >
-            just adding some description
+            <span
+              class="ids-list-item__text-content"
+            >
+              <span
+                class="ids-list-item__text-label"
+              >
+                Item 3 (focused)
+              </span>
+              <span
+                class="ids-list-item__text-description"
+              >
+                just adding some description
+              </span>
+            </span>
           </span>
         </span>
       </div>
@@ -109,9 +133,17 @@ exports[`List It should render a snapshot 1`] = `
           class="ids-list-item__text"
         >
           <span
-            class="ids-list-item__text-label"
+            class="ids-list-item__text-body"
           >
-            Item 4 (selected)
+            <span
+              class="ids-list-item__text-content"
+            >
+              <span
+                class="ids-list-item__text-label"
+              >
+                Item 4 (selected)
+              </span>
+            </span>
           </span>
         </span>
       </div>
@@ -137,9 +169,17 @@ exports[`List It should render a snapshot 1`] = `
           class="ids-list-item__text"
         >
           <span
-            class="ids-list-item__text-label"
+            class="ids-list-item__text-body"
           >
-            Item 5
+            <span
+              class="ids-list-item__text-content"
+            >
+              <span
+                class="ids-list-item__text-label"
+              >
+                Item 5
+              </span>
+            </span>
           </span>
         </span>
       </div>
@@ -157,9 +197,17 @@ exports[`List It should render a snapshot 1`] = `
           class="ids-list-item__text"
         >
           <span
-            class="ids-list-item__text-label"
+            class="ids-list-item__text-body"
           >
-            Item 6
+            <span
+              class="ids-list-item__text-content"
+            >
+              <span
+                class="ids-list-item__text-label"
+              >
+                Item 6
+              </span>
+            </span>
           </span>
         </span>
       </div>
@@ -177,9 +225,17 @@ exports[`List It should render a snapshot 1`] = `
           class="ids-list-item__text"
         >
           <span
-            class="ids-list-item__text-label"
+            class="ids-list-item__text-body"
           >
-            Item 7
+            <span
+              class="ids-list-item__text-content"
+            >
+              <span
+                class="ids-list-item__text-label"
+              >
+                Item 7
+              </span>
+            </span>
           </span>
         </span>
       </div>

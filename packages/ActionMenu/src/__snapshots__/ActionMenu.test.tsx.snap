@@ -25,7 +25,7 @@ exports[`ActionMenu It should render without errors and a snapshot 1`] = `
       <ul
         class="ids-list ids-list--compact"
         role="listbox"
-        tabindex="0"
+        tabindex="-1"
       >
         <li
           aria-selected="false"
@@ -40,9 +40,17 @@ exports[`ActionMenu It should render without errors and a snapshot 1`] = `
               class="ids-list-item__text"
             >
               <span
-                class="ids-list-item__text-label"
+                class="ids-list-item__text-body"
               >
-                Add Item
+                <span
+                  class="ids-list-item__text-content"
+                >
+                  <span
+                    class="ids-list-item__text-label"
+                  >
+                    Add Item
+                  </span>
+                </span>
               </span>
             </span>
           </div>
@@ -60,9 +68,17 @@ exports[`ActionMenu It should render without errors and a snapshot 1`] = `
               class="ids-list-item__text"
             >
               <span
-                class="ids-list-item__text-label"
+                class="ids-list-item__text-body"
               >
-                Delete Item
+                <span
+                  class="ids-list-item__text-content"
+                >
+                  <span
+                    class="ids-list-item__text-label"
+                  >
+                    Delete Item
+                  </span>
+                </span>
               </span>
             </span>
           </div>
@@ -80,9 +96,17 @@ exports[`ActionMenu It should render without errors and a snapshot 1`] = `
               class="ids-list-item__text"
             >
               <span
-                class="ids-list-item__text-label"
+                class="ids-list-item__text-body"
               >
-                Copy Item
+                <span
+                  class="ids-list-item__text-content"
+                >
+                  <span
+                    class="ids-list-item__text-label"
+                  >
+                    Copy Item
+                  </span>
+                </span>
               </span>
             </span>
           </div>
