@@ -64,6 +64,8 @@ export interface ButtonOwnProps {
   intercomTarget?: string;
   /** Add a specific class to the button */
   className?: string;
+  /** Return to the default size on mobile */
+  resetSizeOnMobile?: boolean;
 }
 
 type ButtonProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<
@@ -94,6 +96,7 @@ const Button: ButtonComponent = React.forwardRef(
       iconLeading,
       iconTrailing,
       showOnlyIconOnMobile,
+      resetSizeOnMobile = false,
       intercomTarget,
       className,
       as,
@@ -132,6 +135,7 @@ const Button: ButtonComponent = React.forwardRef(
       'has-icon': hasIcon,
       'has-icon--leading': hasIconLeading,
       'has-icon--trailing': hasIconTrailing,
+      'ids-btn--size-mobile': resetSizeOnMobile,
     });
 
     const renderContent = (): JSX.Element => {

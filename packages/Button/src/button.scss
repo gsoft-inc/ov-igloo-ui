@@ -144,6 +144,10 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+
+  &.ids-btn--size-mobile {
+    width: auto;
+  }
 }
 
 .ids-btn:focus,
