@@ -35,4 +35,9 @@ describe('Checkbox', () => {
     const { asFragment } = setUp({ indeterminate: true });
     expect(asFragment()).toMatchSnapshot();
   });
+
+  test('It should render a completion appearance', () => {
+    setUp({ appearance: "completion" });
+    expect(screen.getByRole('checkbox')).toHaveClass('ids-checkbox--completion');
+  });
 });
