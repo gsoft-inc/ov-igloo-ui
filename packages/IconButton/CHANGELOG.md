@@ -1,5 +1,12 @@
 # @igloo-ui/icon-button
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [357133d]
+  - @igloo-ui/button@0.5.0
+
 ## 1.0.1
 
 ### Patch Changes
