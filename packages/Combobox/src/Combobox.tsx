@@ -463,6 +463,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
             label={optionText(currentSelectedOption) || children}
             src={currentSelectedOption?.src}
             color={currentSelectedOption?.color}
+            showSearchIcon={showSearchIcon}
           />
         )}
       </Dropdown>

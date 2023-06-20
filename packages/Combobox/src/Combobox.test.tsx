@@ -186,4 +186,28 @@ describe('Combobox', () => {
 
     expect(comboboxCheckbox).toBeInTheDocument();
   });
+
+  test('It should render a search icon by default', () => {
+    setup({ isOpen: true, search: true });
+    const combobox = screen.getByTestId('combobox1');
+    const comboboxCheckbox = combobox.querySelector('.ids-combobox-input__search-icon');
+
+    expect(comboboxCheckbox).toBeInTheDocument();
+  });
+
+  test('It should render a search icon', () => {
+    setup({ isOpen: true, search: true, showSearchIcon: true });
+    const combobox = screen.getByTestId('combobox1');
+    const comboboxCheckbox = combobox.querySelector('.ids-combobox-input__search-icon');
+
+    expect(comboboxCheckbox).toBeInTheDocument();
+  });
+
+  test('It should not render a search icon', () => {
+    setup({ isOpen: true, search: true, showSearchIcon: false });
+    const combobox = screen.getByTestId('combobox1');
+    const comboboxCheckbox = combobox.querySelector('.ids-combobox-input__search-icon');
+
+    expect(comboboxCheckbox).not.toBeInTheDocument();
+  });
 });
