@@ -75,16 +75,16 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
 
     return (
       <span
-        className={cx(
-          'ids-form-control',
-          className,
-          `ids-form-control--${appearance}`
-        )}
+        className={cx('ids-form-control', className, {
+          [`ids-form-control--${appearance}`]: appearance !== 'default',
+        })}
       >
         <input
           ref={checkRef}
           id={htmlFor}
-          className={cx('ids-checkbox', `ids-checkbox--${appearance}`)}
+          className={cx('ids-checkbox', {
+            [`ids-checkbox--${appearance}`]: appearance !== 'default',
+          })}
           data-test={dataTest}
           checked={status}
           disabled={disabled}
@@ -94,10 +94,9 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
         />
         {showLabel && (
           <label
-            className={cx(
-              'ids-checkbox__label',
-              `ids-checkbox__label--${appearance}`
-            )}
+            className={cx('ids-checkbox__label', {
+              [`ids-checkbox__label--${appearance}`]: appearance !== 'default',
+            })}
             htmlFor={htmlFor}
           >
             {appearance === 'completion' && (
