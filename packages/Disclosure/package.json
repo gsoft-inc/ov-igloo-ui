@@ -30,7 +30,7 @@
     "react-aria": "^3.22.0"
   },
   "devDependencies": {
-    "@igloo-ui/button": "^0.4.1"
+    "@igloo-ui/button": "^0.5.0"
   },
   "browserslist": [
     "> 1%",

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.0
+
+### Minor Changes
+
+- 357133d: Add new props for reset the size to the default on mobile
+
 ## 0.4.2
 
 ### Patch Changes

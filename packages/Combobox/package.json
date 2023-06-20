@@ -27,7 +27,7 @@
     "@igloo-ui/dropdown": "^1.3.0",
     "@igloo-ui/list": "^0.3.0",
     "@igloo-ui/icons": "^1.6.0",
-    "@igloo-ui/icon-button": "^1.0.1",
+    "@igloo-ui/icon-button": "^1.0.2",
     "@igloo-ui/input": "^2.0.5",
     "@igloo-ui/tokens": "^2.0.0",
     "@igloo-ui/tooltip": "^3.1.3",
@@ -35,7 +35,7 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@igloo-ui/button": "^0.4.1",
+    "@igloo-ui/button": "^0.5.0",
     "@igloo-ui/tag": "^1.0.6",
     "@shared/components": "0.1.1"
   },
