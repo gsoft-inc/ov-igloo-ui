@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -22,41 +22,81 @@ export default {
   },
 } as Meta<typeof Checkbox>;
 
-export const Overview = {
+
+type Story = StoryObj<typeof Checkbox>;
+
+export const Overview: Story = {
   args: {
     htmlFor: 'ids-checkbox',
-    children: 'Label',
-  },
+    children: 'Label'
+  }
 };
 
-export const Checked: React.VFC<unknown> = () => (
-  <Checkbox htmlFor="ids-checkbox-active" checked>
-    Label
-  </Checkbox>
-);
+export const Checked: Story = {
+  render: () => {
+    return (
+      <Section>
+        <Checkbox htmlFor="ids-checkbox-active" checked>
+          Label
+        </Checkbox>
+      </Section>
+    )
+  }
+};
 
-export const Indeterminate: React.VFC<unknown> = () => (
-  <Checkbox htmlFor="ids-checkbox-indeterminate" indeterminate>
-    Label
-  </Checkbox>
-);
+export const Indeterminate: Story = {
+  render: () => {
+    return (
+      <Section>
+        <Checkbox htmlFor="ids-checkbox-indeterminate" indeterminate>
+          Label
+        </Checkbox>
+      </Section>
+    )
+  }
+};
 
-export const Disabled: React.VFC<unknown> = () => (
-  <Section>
-    <Checkbox htmlFor="ids-checkbox-disabled" disabled>
-      Label
-    </Checkbox>
+export const Disabled: Story = {
+  render: () => {
+    return (
+      <Section>
+        <Checkbox htmlFor="ids-checkbox-disabled" disabled>
+          Label
+        </Checkbox>
+    
+        <Checkbox htmlFor="ids-checkbox-disabled-active" checked disabled>
+          Label
+        </Checkbox>
+    
+        <Checkbox
+          htmlFor="ids-checkbox-disabled-indeterminate"
+          indeterminate
+          disabled
+        >
+          Label
+        </Checkbox>
+      </Section>
+    )
+  }
+};
 
-    <Checkbox htmlFor="ids-checkbox-disabled-active" checked disabled>
-      Label
-    </Checkbox>
-
-    <Checkbox
-      htmlFor="ids-checkbox-disabled-indeterminate"
-      indeterminate
-      disabled
-    >
-      Label
-    </Checkbox>
-  </Section>
-);
+export const CompletionCheckbox: Story = {
+  render: () => {
+    return (
+      <Section>
+        <Checkbox htmlFor="ids-checkbox-completion-default" appearance="completion">
+          Label
+        </Checkbox>
+        <Checkbox htmlFor="ids-checkbox-completion-active" checked appearance="completion">
+          Label
+        </Checkbox>
+        <Checkbox htmlFor="ids-checkbox-completion-disabled" disabled appearance="completion">
+          Label
+        </Checkbox>
+        <Checkbox htmlFor="ids-checkbox-completion-disabled-active" checked disabled appearance="completion">
+          Label
+        </Checkbox>
+      </Section>
+    )
+  }
+};

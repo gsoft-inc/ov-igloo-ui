@@ -3,11 +3,11 @@
 exports[`Checkbox It should render a checked state 1`] = `
 <DocumentFragment>
   <span
-    class="ids-form-control"
+    class="ids-form-control ids-form-control--default"
   >
     <input
       checked=""
-      class="ids-checkbox"
+      class="ids-checkbox ids-checkbox--default"
       id="checkbox-master"
       type="checkbox"
     />
@@ -18,10 +18,10 @@ exports[`Checkbox It should render a checked state 1`] = `
 exports[`Checkbox It should render a disabled state 1`] = `
 <DocumentFragment>
   <span
-    class="ids-form-control"
+    class="ids-form-control ids-form-control--default"
   >
     <input
-      class="ids-checkbox"
+      class="ids-checkbox ids-checkbox--default"
       disabled=""
       id="checkbox-master"
       type="checkbox"
@@ -33,10 +33,10 @@ exports[`Checkbox It should render a disabled state 1`] = `
 exports[`Checkbox It should render a indeterminate state 1`] = `
 <DocumentFragment>
   <span
-    class="ids-form-control"
+    class="ids-form-control ids-form-control--default"
   >
     <input
-      class="ids-checkbox"
+      class="ids-checkbox ids-checkbox--default"
       id="checkbox-master"
       type="checkbox"
     />

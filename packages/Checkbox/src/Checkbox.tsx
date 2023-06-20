@@ -1,9 +1,15 @@
 import * as React from 'react';
 import cx from 'classnames';
 
+import Checkmark from '@igloo-ui/icons/dist/Checkmark';
+
 import './checkbox.scss';
 
+export type CheckboxAppearance = 'default' | 'completion';
+
 export interface CheckboxProps extends React.ComponentPropsWithRef<'input'> {
+  /** The appearance of the checkbox */
+  appearance?: CheckboxAppearance;
   /** The content to display inside the label */
   children?: React.ReactNode;
   /** Add a specific class to the checkbox */
@@ -25,6 +31,7 @@ export interface CheckboxProps extends React.ComponentPropsWithRef<'input'> {
 const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
   (
     {
+      appearance = 'default',
       children,
       className,
       dataTest,
@@ -64,12 +71,20 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
       setStatus(!status);
     };
 
+    const showLabel = appearance === 'completion' || children;
+
     return (
-      <span className={cx('ids-form-control', className)}>
+      <span
+        className={cx(
+          'ids-form-control',
+          className,
+          `ids-form-control--${appearance}`
+        )}
+      >
         <input
           ref={checkRef}
           id={htmlFor}
-          className="ids-checkbox"
+          className={cx('ids-checkbox', `ids-checkbox--${appearance}`)}
           data-test={dataTest}
           checked={status}
           disabled={disabled}
@@ -77,9 +92,22 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
           onChange={handleOnChange}
           {...rest}
         />
-        {children && (
-          <label className="ids-checkbox__label" htmlFor={htmlFor}>
-            {children}
+        {showLabel && (
+          <label
+            className={cx(
+              'ids-checkbox__label',
+              `ids-checkbox__label--${appearance}`
+            )}
+            htmlFor={htmlFor}
+          >
+            {appearance === 'completion' && (
+              <span className="ids-checkbox__box">
+                <Checkmark size="small" className="ids-checkbox__check" />
+              </span>
+            )}
+            {children && (
+              <span className="ids-checkbox__label-text">{children}</span>
+            )}
           </label>
         )}
       </span>
