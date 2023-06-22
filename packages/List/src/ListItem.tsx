@@ -58,8 +58,8 @@ export interface ListItemProps extends React.ComponentProps<'li'> {
   isFocused?: boolean;
   /** If the option is selected */
   isSelected?: boolean;
-  /** Use a checkbox to show selected state */
-  useCheckbox?: boolean;
+  /** Whether or not the list is loading */
+  loading?: boolean;
   /** Called when an option becomes focused or hovered */
   onOptionFocus?: (option: OptionType) => void;
   /** Called when an option is selected */
@@ -68,9 +68,13 @@ export interface ListItemProps extends React.ComponentProps<'li'> {
    * or the option loses focus */
   onOptionBlur?: (option: OptionType) => void;
   /** A list of options */
-  option: OptionType;
+  option?: OptionType;
+  /** The option key that should be set when an option is not set */
+  optionKey?: string;
   /** Whether or not to show the icon if it's available */
   showIcon?: boolean;
+  /** Use a checkbox to show selected state */
+  useCheckbox?: boolean;
 }
 
 const ListItem: React.FunctionComponent<ListItemProps> = ({
@@ -79,12 +83,14 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
   isCompact = true,
   isFocused = false,
   isSelected = false,
-  useCheckbox,
+  loading,
   onOptionFocus,
   onOptionChange,
   onOptionBlur,
   option,
+  optionKey,
   showIcon = true,
+  useCheckbox,
   ...rest
 }: ListItemProps) => {
   const isOptionDisabled = (): boolean => {
@@ -121,23 +127,37 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
   const listItemClasses = cx('ids-list-item', className, {
     'ids-list-item--compact': isCompact,
     'ids-list-item--selectable': !isOptionDisabled() && onOptionChange,
-    'ids-list-item--member': option.type === 'member',
+    'ids-list-item--member': option?.type === 'member',
     'ids-list-item--selected': isSelected,
     'ids-list-item--focused': isFocused,
-    'ids-list-item--disabled': option.type === 'list' ? option.disabled : false,
+    'ids-list-item--disabled':
+      option?.type === 'list' ? option?.disabled : false,
+    'ids-list-item--loading': loading,
   });
 
   const shouldShowVisualIdentifier =
-    (option.src || option.color || option.icon) && showIcon;
+    (option?.src || option?.color || option?.icon) && showIcon;
   const visualIdentifierContainerClasses = cx(
     'ids-list-item__visual-identifier-container',
     {
-      'ids-list-item__svg-container': option.icon && showIcon,
+      'ids-list-item__svg-container': option?.icon && showIcon,
     }
   );
 
+  const visualIdentifierElement = shouldShowVisualIdentifier && option && (
+    <div className={visualIdentifierContainerClasses}>
+      <VisualIdentifier
+        className="ids-list-item__visual"
+        icon={option?.icon}
+        color={option?.color}
+        src={option?.src}
+        size={option?.type === 'member' ? 'medium' : 'small'}
+      />
+    </div>
+  );
+
   const listItemContent =
-    option.type === 'list' ? (
+    option?.type === 'list' ? (
       <span className="ids-list-item__text-body">
         <span className="ids-list-item__text-content">
           <span className="ids-list-item__text-label">{option.label}</span>
@@ -154,12 +174,12 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
     ) : (
       <>
         <span className="ids-list-item__text-member">
-          {option.member}
-          {option.manager && (
+          {option?.member}
+          {option?.manager && (
             <UserSolid size="small" className="ids-list-item__manager" />
           )}
         </span>
-        {option.role && (
+        {option?.role && (
           <span className="ids-list-item__text-role">{option.role}</span>
         )}
       </>
@@ -176,37 +196,33 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
           !(target as HTMLElement).closest('a') &&
           !(target as HTMLElement).closest('button')
         ) {
-          handleOptionChange(option);
+          if (option) {
+            handleOptionChange(option);
+          }
         }
       }}
-      onMouseOver={() => onListItemFocus(option)}
-      onMouseOut={() => onListItemBlur(option)}
-      onBlur={() => onListItemBlur(option)}
-      onFocus={() => onListItemFocus(option)}
+      onMouseOver={() => option && onListItemFocus(option)}
+      onMouseOut={() => option && onListItemBlur(option)}
+      onBlur={() => option && onListItemBlur(option)}
+      onFocus={() => option && onListItemFocus(option)}
       role="option"
       aria-selected={isSelected}
       tabIndex={
         disableTabbing || isOptionDisabled() || !onOptionChange ? -1 : 0
       }
-      key={option.value}
+      key={option ? option?.value : `loading_${optionKey}`}
       data-intercom-target={option?.intercomTarget}
       {...rest}
     >
       <div className="ids-list-item__content">
         {useCheckbox && <span className="ids-list-item__checkbox" />}
 
-        {shouldShowVisualIdentifier && (
-          <div className={visualIdentifierContainerClasses}>
-            <VisualIdentifier
-              className="ids-list-item__visual"
-              icon={option.icon}
-              color={option.color}
-              src={option.src}
-              size={option.type === 'member' ? 'medium' : 'small'}
-            />
-          </div>
+        {loading ? (
+          <span className="ids-list-item__thumbnail" />
+        ) : (
+          visualIdentifierElement
         )}
-        <span className="ids-list-item__text">{listItemContent}</span>
+        <span className="ids-list-item__text">{option && listItemContent}</span>
       </div>
     </li>
   );

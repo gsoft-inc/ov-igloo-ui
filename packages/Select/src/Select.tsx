@@ -41,10 +41,12 @@ export interface SelectProps {
   isCompact?: boolean;
   /** True if the option list is displayed */
   isOpen?: boolean;
+  /** Whether or not the list is loading */
+  loading?: boolean;
   /** Callback when selected content changes */
   onChange?: (option: OptionType | undefined) => void;
   /** List of available options */
-  options: SelectOptiontype[];
+  options?: SelectOptiontype[];
   /** The initial selected option */
   selectedOption?: OptionType;
   /** Whether or not to show the icon inside the
@@ -61,13 +63,14 @@ const Select: React.FunctionComponent<SelectProps> = ({
   error,
   isCompact = false,
   isOpen = false,
+  loading,
   onChange,
   options,
   selectedOption,
   showListIcon = true,
   ...rest
 }: SelectProps) => {
-  const selectOptions = options.map((option): OptionType => {
+  const selectOptions = options?.map((option): OptionType => {
     return {
       ...option,
       type: 'list',
@@ -80,7 +83,9 @@ const Select: React.FunctionComponent<SelectProps> = ({
   const [currentSelectedOption, setCurrentSelectedOption] =
     React.useState(selectedOption);
   const [showMenu, setShowMenu] = React.useState(isOpen);
-  const [results, setResults] = React.useState<OptionType[]>(selectOptions);
+  const [results, setResults] = React.useState<OptionType[]>(
+    selectOptions || []
+  );
 
   const [selectRect, setSelectRect] = React.useState<DOMRectReadOnly>();
   useResizeObserver(selectRef, (entry) => {
@@ -108,7 +113,10 @@ const Select: React.FunctionComponent<SelectProps> = ({
         selectRef.current.focus();
       }
 
-      setTimeout(() => setResults(selectOptions), DROPDOWN_ANIMATION_DURATION);
+      setTimeout(
+        () => setResults(selectOptions || []),
+        DROPDOWN_ANIMATION_DURATION
+      );
     } else if (currentFocusedOption !== currentSelectedOption) {
       // This happens when the user doesn't select an option by keyboard.
       setCurrentFocusedOption(currentSelectedOption);
@@ -279,6 +287,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
             focusedOption={currentFocusedOption}
             showIcon={showListIcon}
             disableTabbing
+            loading={loading}
           />
         }
         isOpen={canShowMenu}

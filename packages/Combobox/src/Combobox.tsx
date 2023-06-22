@@ -49,6 +49,8 @@ export interface ComboboxProps
   isCompact?: boolean;
   /** True if the option list is displayed */
   isOpen?: boolean;
+  /** Whether or not the list is loading */
+  loading?: boolean;
   /** The Combobox gains checkboxes beside each option
    * to be able to select multiple options */
   multiple?: boolean;
@@ -63,7 +65,7 @@ export interface ComboboxProps
   /** Callback when the dropdown is opened */
   onOpen?: () => void;
   /** List of available options. */
-  options: ComboboxOption[];
+  options?: ComboboxOption[];
   /** Whether or not to display a search box when open */
   search?: boolean;
   /** The initial selected option or a list of selected options */
@@ -83,6 +85,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
   footer,
   isCompact = false,
   isOpen = false,
+  loading,
   multiple = false,
   noResultsText = 'No Results',
   onChange,
@@ -96,7 +99,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
 }: ComboboxProps) => {
   const comboboxOptions = React.useMemo(
     () =>
-      options.map((option): OptionType => {
+      options?.map((option): OptionType => {
         return {
           ...option,
           type: 'list',
@@ -114,7 +117,9 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     !Array.isArray(selectedOption) ? selectedOption : undefined
   );
   const [showMenu, setShowMenu] = React.useState(isOpen);
-  const [results, setResults] = React.useState<OptionType[]>(comboboxOptions);
+  const [results, setResults] = React.useState<OptionType[]>(
+    comboboxOptions || []
+  );
 
   const [comboboxRect, setComboboxRect] = React.useState<DOMRectReadOnly>();
   useResizeObserver(comboboxRef, (entry) => {
@@ -165,7 +170,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
       }
 
       setTimeout(
-        () => setResults(comboboxOptions),
+        () => setResults(comboboxOptions || []),
         DROPDOWN_ANIMATION_DURATION
       );
     } else if (currentFocusedOption !== currentSelectedOption) {
@@ -322,15 +327,15 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
   };
 
   const handleSearch = (searchTerm: string): void => {
-    const filteredOptions = comboboxOptions.filter((option: OptionType) => {
+    const filteredOptions = comboboxOptions?.filter((option: OptionType) => {
       return optionText(option)
         ?.toString()
         .toLowerCase()
         .includes(searchTerm.toLowerCase());
     });
-    setResults(filteredOptions);
+    setResults(filteredOptions || []);
 
-    if (currentFocusedOption) {
+    if (currentFocusedOption && filteredOptions) {
       const isFocusedVisible =
         filteredOptions.indexOf(currentFocusedOption) >= 0;
       if (!isFocusedVisible) {
@@ -376,6 +381,17 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     }
   );
 
+  const noResultsOrLoading = loading ? (
+    <List
+      isCompact
+      loading
+      multiple={multiple}
+      className="ids-combobox__list"
+    />
+  ) : (
+    <div className="ids-combobox__no-results">{noResultsText}</div>
+  );
+
   return (
     <div
       ref={comboboxRef}
@@ -407,7 +423,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
                 className="ids-combobox__list"
               />
             ) : (
-              <div className="ids-combobox__no-results">{noResultsText}</div>
+              noResultsOrLoading
             )}
             {footer && <div className="ids-combobox__footer">{footer}</div>}
           </>

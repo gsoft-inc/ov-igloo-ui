@@ -406,3 +406,9 @@ export const Action = () => {
     style={{ maxWidth: '40rem' }} />
   );
 };
+
+export const Loading = () => {
+  return (
+    <List loading style={{ maxWidth: '40rem' }} />
+  );
+};

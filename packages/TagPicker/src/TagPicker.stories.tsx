@@ -298,3 +298,32 @@ export const SelectedOptions = () => {
     />
   );
 };
+
+export const LoadingOptions = () => {
+  const [selected, setSelected] = React.useState<TagItem[]>([]);
+
+  const select = (id: string): void => {
+    const selectedItem = mockData.find((d) => d.id === id);
+    if (selectedItem) {
+      setSelected([...selected, selectedItem]);
+    } else {
+      setSelected([...selected]);
+    }
+  };
+
+  const remove = (id: string) => {
+    setSelected(selected.filter((s) => s.id !== id));
+  };
+
+  return (
+    <TagPicker
+      selectedResults={selected}
+      onSelection={select}
+      onTagRemove={remove}
+      noResultsText="No results"
+      placeholder="Enter more options"
+      showSearchIcon
+      loading
+    />
+  );
+};

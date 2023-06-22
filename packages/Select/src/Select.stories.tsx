@@ -206,3 +206,17 @@ export const HideListIcon: Story = {
     chromatic: { disableSnapshot: true },
   },
 };
+
+export const Loading: Story = {
+  render: () => (
+    <Section>
+      <Select loading>
+        Place holder text
+      </Select>
+    </Section>
+  ),
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+};
