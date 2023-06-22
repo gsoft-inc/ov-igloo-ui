@@ -192,6 +192,24 @@ export const Search: Story = {
   },
 };
 
+export const NoSearchIcon: Story = {
+  render: () => (
+    <Section column>
+      <Combobox
+        options={largeOptionList}
+        onChange={handleOnChange}
+        search={true}
+        showSearchIcon={false}
+      >
+        Place holder text
+      </Combobox>
+    </Section>
+  ),
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+};
+
 export const Clear: Story = {
   render: () => (
     <Section column>

@@ -25,6 +25,10 @@
   /* Visual Identifier */
   --ids-combobox-input-icon-size: #{tokens.$space-4};
   --ids-combobox-input-icon-margin-right: #{tokens.$space-2};
+  
+  /* Search icon */
+  --ids-combobox-input-search-icon-color: #{tokens.$grey-400};
+  --ids-combobox-input-search-icon-margin: 0 #{tokens.$space-2} 0 #{tokens.$space-3};
 }
 
 .ids-combobox-input {
@@ -56,6 +60,12 @@
   }
 }
 
+.ids-combobox-input__search-icon {
+  color: var(--ids-combobox-input-search-icon-color);
+  flex: 0 0 auto;
+  margin: var(--ids-combobox-input-search-icon-margin);
+}
+
 .ids-combobox-input .ids-combobox-input__search {
   background: none;
   border: none;
@@ -69,6 +79,10 @@
   &:focus {
     border: none;
   }
+}
+
+.ids-combobox-input .ids-combobox-input__search-icon + .ids-combobox-input__search {
+  padding-left: 0;
 }
 
 .ids-combobox-input__actions {

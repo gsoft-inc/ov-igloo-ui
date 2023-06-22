@@ -68,6 +68,8 @@ export interface ComboboxProps
   search?: boolean;
   /** The initial selected option or a list of selected options */
   selectedOption?: OptionType | OptionType[];
+  /** Whether or not to display the search icon */
+  showSearchIcon?: boolean;
 }
 
 const Combobox: React.FunctionComponent<ComboboxProps> = ({
@@ -92,6 +94,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
   options,
   search,
   selectedOption,
+  showSearchIcon = true,
   ...rest
 }: ComboboxProps) => {
   const comboboxOptions = React.useMemo(
@@ -250,8 +253,14 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
   };
 
   const resetComboboxFocus = (): void => {
-    if (comboboxRef && comboboxRef.current) {
-      comboboxRef.current.focus();
+    if (search && searchInputRef && searchInputRef.current) {
+      if (document.activeElement !== searchInputRef.current) {
+        searchInputRef.current.focus();
+      }
+    } else if (comboboxRef && comboboxRef.current) {
+      if (document.activeElement !== comboboxRef.current) {
+        comboboxRef.current.focus();
+      }
     }
   };
 
@@ -437,6 +446,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
             disabled={disabled}
             isPlaceholder
             label={children}
+            showSearchIcon={showSearchIcon}
           />
         ) : (
           <ComboboxInput
@@ -453,6 +463,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
             label={optionText(currentSelectedOption) || children}
             src={currentSelectedOption?.src}
             color={currentSelectedOption?.color}
+            showSearchIcon={showSearchIcon}
           />
         )}
       </Dropdown>

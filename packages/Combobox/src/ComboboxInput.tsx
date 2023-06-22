@@ -6,6 +6,7 @@ import ChevronUp from '@igloo-ui/icons/dist/TableChevronSelectedUp';
 import ChevronDown from '@igloo-ui/icons/dist/TableChevronSelectedDown';
 import IconButton from '@igloo-ui/icon-button';
 import Close from '@igloo-ui/icons/dist/Close';
+import Search from '@igloo-ui/icons/dist/Search';
 import Tooltip from '@igloo-ui/tooltip';
 import Input from '@igloo-ui/input';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -38,6 +39,8 @@ export interface ComboboxInputProps extends React.ComponentProps<'div'> {
   search?: boolean;
   /** The ref for the search field */
   searchRef?: React.RefObject<HTMLInputElement>;
+  /** Whether or not to display the search icon */
+  showSearchIcon?: boolean;
   /** Specifies the url for the image to show */
   src?: string;
 }
@@ -55,6 +58,7 @@ const ComboboxInput: React.FunctionComponent<ComboboxInputProps> = ({
   onSearch,
   search,
   searchRef,
+  showSearchIcon = true,
   src,
   ...rest
 }: ComboboxInputProps) => {
@@ -89,19 +93,24 @@ const ComboboxInput: React.FunctionComponent<ComboboxInputProps> = ({
   return (
     <div className={comboboxInputClasses} {...rest}>
       {search && isOpen ? (
-        <Input
-          className="ids-combobox-input__search"
-          type="text"
-          onChange={handleChange}
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-          onKeyUp={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-          }}
-          ref={searchRef}
-        />
+        <>
+          {showSearchIcon && (
+            <Search size="medium" className="ids-combobox-input__search-icon" />
+          )}
+          <Input
+            className="ids-combobox-input__search"
+            type="text"
+            onChange={handleChange}
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+            onKeyUp={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+            ref={searchRef}
+          />
+        </>
       ) : (
         <div className="ids-combobox-input__value">
           {shouldShowVisualIdentifier && (
