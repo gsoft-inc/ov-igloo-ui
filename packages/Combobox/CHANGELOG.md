@@ -1,5 +1,19 @@
 # @igloo-ui/combobox
 
+## 1.0.0
+
+### Major Changes
+
+- ffeaeb7: Added a search icon with the showSearchIcon prop to the combobox. Also fixed keyboard navigation when searchbox is visible.
+
+  ## BREAKING CHANGE
+
+  The search icon is displayed by default beside the search field. To hide it, the user must add showSearch="false".
+
+### Patch Changes
+
+- @igloo-ui/list@0.3.1
+
 ## 0.3.0
 
 ### Minor Changes
