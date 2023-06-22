@@ -1,5 +1,11 @@
 # @igloo-ui/checkbox
 
+## 0.2.0
+
+### Minor Changes
+
+- e5b4c2e: Added a new appearance called 'completion' to the checkbox component.
+
 ## 0.1.9
 
 ### Patch Changes
