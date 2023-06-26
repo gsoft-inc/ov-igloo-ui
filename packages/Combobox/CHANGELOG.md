@@ -1,5 +1,16 @@
 # @igloo-ui/combobox
 
+## 1.1.0
+
+### Minor Changes
+
+- 9b707d1: Added a loading feature to List, Combobox, Select and Tagpicker components.
+
+### Patch Changes
+
+- Updated dependencies [9b707d1]
+  - @igloo-ui/list@0.4.0
+
 ## 1.0.0
 
 ### Major Changes
