@@ -16,6 +16,8 @@ export interface ListProps extends React.ComponentPropsWithRef<'ul'> {
   focusedOption?: OptionType | null;
   /** True for a compact appearance */
   isCompact?: boolean;
+  /** Whether or not the list is loading */
+  loading?: boolean;
   /** The List gains checkboxes beside each option
    * to be able to select multiple options */
   multiple?: boolean;
@@ -27,7 +29,7 @@ export interface ListProps extends React.ComponentPropsWithRef<'ul'> {
    * or the option loses focus */
   onOptionBlur?: (option: OptionType) => void;
   /** A list of options */
-  options: OptionType[];
+  options?: OptionType[];
   /** The initial selected option or a list of selected options */
   selectedOption?: OptionType | OptionType[] | null;
   /** Whether or not to show the icon inside the
@@ -43,6 +45,7 @@ const List: React.FunctionComponent<ListProps> = React.forwardRef(
       disableTabbing = false,
       focusedOption,
       isCompact = true,
+      loading,
       multiple,
       onOptionFocus,
       onOptionChange,
@@ -59,6 +62,53 @@ const List: React.FunctionComponent<ListProps> = React.forwardRef(
       'ids-list--multi-select': multiple,
     });
 
+    const optionsAreLoading = loading || options?.length === 0;
+
+    const loadingOptions = Array.from({ length: 6 }, (_, index) => (
+      <ListItem
+        loading
+        optionKey={(index + 1).toString()}
+        key={(index + 1).toString()}
+        isCompact={isCompact}
+      />
+    ));
+
+    const listItemOptions = options?.map((option: OptionType) => {
+      let selected = false;
+
+      if (multiple) {
+        if (Array.isArray(selectedOption)) {
+          const selectedItem = selectedOption.filter((o) => {
+            return o.value === option.value;
+          });
+          selected = !!selectedItem && selectedItem.length > 0;
+        }
+      } else if (selectedOption && !Array.isArray(selectedOption)) {
+        selected = selectedOption.value === option.value;
+      }
+
+      let isFocused = false;
+      if (focusedOption) {
+        isFocused = focusedOption.value === option.value;
+      }
+
+      return (
+        <ListItem
+          key={option.value}
+          option={option}
+          onOptionChange={onOptionChange}
+          onOptionFocus={onOptionFocus}
+          onOptionBlur={onOptionBlur}
+          isCompact={isCompact}
+          isFocused={isFocused}
+          isSelected={selected}
+          useCheckbox={multiple}
+          showIcon={showIcon}
+          disableTabbing={disableTabbing}
+        />
+      );
+    });
+
     return (
       <ul
         ref={ref}
@@ -68,41 +118,7 @@ const List: React.FunctionComponent<ListProps> = React.forwardRef(
         role="listbox"
         {...rest}
       >
-        {options.map((option: OptionType) => {
-          let selected = false;
-
-          if (multiple) {
-            if (Array.isArray(selectedOption)) {
-              const selectedItem = selectedOption.filter((o) => {
-                return o.value === option.value;
-              });
-              selected = !!selectedItem && selectedItem.length > 0;
-            }
-          } else if (selectedOption && !Array.isArray(selectedOption)) {
-            selected = selectedOption.value === option.value;
-          }
-
-          let isFocused = false;
-          if (focusedOption) {
-            isFocused = focusedOption.value === option.value;
-          }
-
-          return (
-            <ListItem
-              key={option.value}
-              option={option}
-              onOptionChange={onOptionChange}
-              onOptionFocus={onOptionFocus}
-              onOptionBlur={onOptionBlur}
-              isCompact={isCompact}
-              isFocused={isFocused}
-              isSelected={selected}
-              useCheckbox={multiple}
-              showIcon={showIcon}
-              disableTabbing={disableTabbing}
-            />
-          );
-        })}
+        {optionsAreLoading ? loadingOptions : listItemOptions}
       </ul>
     );
   }

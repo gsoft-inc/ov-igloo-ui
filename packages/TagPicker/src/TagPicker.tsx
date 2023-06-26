@@ -51,6 +51,8 @@ export interface TagPickerProps
   /** Results of the current search to display
    * in the pop-up when the tag picker is focused */
   results?: TagItem[];
+  /** Whether or not the list is loading */
+  loading?: boolean;
   /** The max height of the tag picker container */
   maxHeight?: string;
   /** The max number of tags that can be selected */
@@ -84,6 +86,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
   dataTest,
   disabled,
   error,
+  loading,
   maxHeight,
   maxTags,
   minSearchLength = 2,
@@ -115,7 +118,8 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
   const [selectedResultsCount, setSelectedResultsCount] = useState(0);
 
   const hasResults = !!results;
-  const shouldShowResults = !disabled && focused && showResults && hasResults;
+  const shouldShowResults =
+    !disabled && focused && showResults && (hasResults || loading);
 
   const handleChange = ({
     target,
@@ -319,6 +323,20 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     return <div className="ids-tag-picker__no-results">{noResultsText}</div>;
   };
 
+  const loadingList = (
+    <ul className="ids-tag-picker__results ids-tag-picker__results--loading">
+      {Array.from({ length: 6 }, (_, index) => (
+        <li
+          className="ids-tag-picker-result ids-tag-picker-result--loading"
+          key={`loading_${index.toString()}`}
+        >
+          <span className="ids-tag-picker-result__loading-thumbnail" />
+          <span className="ids-tag-picker-result__loading-text" />
+        </li>
+      ))}
+    </ul>
+  );
+
   const showIcon = showSearchIcon && selectedResults.length === 0;
 
   const input = (
@@ -379,10 +397,10 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     </div>
   );
 
-  return results ? (
+  return results || loading ? (
     <Dropdown
       ref={dropdownRef}
-      content={<List items={results} />}
+      content={loading ? loadingList : <List items={results} />}
       isOpen={shouldShowResults}
       onClose={handleLoseFocus}
       onClick={handleGainFocus}

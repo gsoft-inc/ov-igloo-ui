@@ -361,3 +361,19 @@ export const WithFooter: Story = {
     chromatic: { disableSnapshot: true },
   },
 };
+
+export const Loading: Story = {
+  render: () => {
+    return (
+      <Section column>
+        <Combobox loading>
+          Place holder text
+        </Combobox>
+      </Section>
+    )
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+};
