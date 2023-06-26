@@ -1,5 +1,11 @@
 # @igloo-ui/tag-picker
 
+## 0.3.0
+
+### Minor Changes
+
+- 9b707d1: Added a loading feature to List, Combobox, Select and Tagpicker components.
+
 ## 0.2.1
 
 ### Patch Changes
