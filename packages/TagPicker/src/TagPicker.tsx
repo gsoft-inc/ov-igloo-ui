@@ -404,6 +404,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
       isOpen={shouldShowResults}
       onClose={handleLoseFocus}
       onClick={handleGainFocus}
+      isScrollable
     >
       {tagPickerElem}
     </Dropdown>

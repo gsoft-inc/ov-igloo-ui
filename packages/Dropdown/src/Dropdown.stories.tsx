@@ -101,9 +101,26 @@ export const DropdownInAModal = () => {
             <Dropdown
               isOpen={open}
               onClose={() => setOpen(false)}
+              isScrollable
               content={
                 <List
                   items={[
+                    'Organization details',
+                    'Billing',
+                    'Permissions',
+                    'Segments',
+                    'Organization details',
+                    'Billing',
+                    'Permissions',
+                    'Segments',
+                    'Organization details',
+                    'Billing',
+                    'Permissions',
+                    'Segments',
+                    'Organization details',
+                    'Billing',
+                    'Permissions',
+                    'Segments',
                     'Organization details',
                     'Billing',
                     'Permissions',

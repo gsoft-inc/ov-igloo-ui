@@ -91,12 +91,3 @@
     border-color: var(--ids-select-border-color-error);
   }
 }
-
-.ids-select__dropdown {
-  max-height: calc(var(--ids-select-height) * var(--ids-select-number-of-option-to-display));
-  overflow: auto;
-
-  &--compact {
-    max-height: calc(var(--ids-select-height-compact) * var(--ids-select-number-of-option-to-display));
-  }
-}

@@ -2,6 +2,7 @@ import * as React from 'react';
 import cx from 'classnames';
 import {
   flip,
+  size as fuiSize,
   useMergeRefs,
   offset,
   hide,
@@ -55,6 +56,13 @@ export interface DropdownProps
   renderReference?: (
     props: React.HTMLProps<HTMLButtonElement>
   ) => React.ReactElement;
+  /** Whether or not the dropdown should take the
+   * width of the reference element */
+  isReferenceWidth?: boolean;
+  /** Whether or not the dropdown should be scrollable */
+  isScrollable?: boolean;
+  /** The footer content of the dropdown */
+  footer?: React.ReactNode;
 }
 
 const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
@@ -72,6 +80,9 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       style,
       role = 'listbox',
       renderReference,
+      isReferenceWidth = false,
+      isScrollable = false,
+      footer,
       ...rest
     }: DropdownProps,
     ref: React.ForwardedRef<HTMLDivElement>
@@ -93,13 +104,28 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       open: isOpen,
       strategy: 'fixed',
       onOpenChange: handleOpenChange,
-      whileElementsMounted: (...args) => {
-        const cleanup = autoUpdate(...args, { animationFrame: true });
+      whileElementsMounted: (referenceEl, floatingEl, updatePosition) => {
+        const cleanup = autoUpdate(referenceEl, floatingEl, updatePosition, {
+          animationFrame: true,
+        });
         return cleanup;
       },
       middleware: [
         offset(1),
-        flip(),
+        flip({ padding: 10 }),
+        fuiSize({
+          apply({ rects, elements, availableHeight }) {
+            const styleProps: React.CSSProperties = {};
+            if (isScrollable) {
+              styleProps.maxHeight = `${Math.max(60, availableHeight)}px`;
+            }
+            if (isReferenceWidth) {
+              styleProps.width = `${rects.reference.width}px`;
+            }
+            Object.assign(elements.floating.style, styleProps);
+          },
+          padding: 10,
+        }),
         hide({
           padding: 10,
         }),
@@ -133,6 +159,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       [`ids-dropdown--${size}`]: size !== 'xsmall',
       [`ids-dropdown--${position}`]: position !== 'bottom',
       'ids-dropdown--hidden': middlewareData.hide?.referenceHidden,
+      'ids-dropdown--scrollable': isScrollable,
     });
 
     const floatingElem = isMounted && (
@@ -152,7 +179,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
           }}
           {...getFloatingProps()}
         >
-          {content}
+          <div className="ids-dropdown__scroll-content">{content}</div>
+          {footer && <div className="ids-dropdown__footer">{footer}</div>}
         </div>
       </FloatingFocusManager>
     );

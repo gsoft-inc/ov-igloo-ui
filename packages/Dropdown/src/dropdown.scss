@@ -1,5 +1,6 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
+@use 'mixins';
 
 :root {
   /* Default */
@@ -13,6 +14,10 @@
 
   /* Click Handler */
   --ids-dropdown-zindex-click-handler: #{tokens.$z-index-90};
+
+  /* Footer */
+  --ids-dropdown-footer-background: #{tokens.$samoyed};
+  --ids-dropdown-footer-padding: #{tokens.$space-2} #{tokens.$space-3};
 }
 
 .ids-dropdown {
@@ -47,7 +52,28 @@
     --ids-dropdown-padding: #{tokens.$space-5};
   }
 
+  &--scrollable {
+    display: flex;
+    flex-direction: column;
+
+  }
+
   &--hidden {
     display: none;
   }
+}
+
+
+.ids-dropdown--scrollable .ids-dropdown__scroll-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+
+  @include mixins.fancy-webkit-scrollbar;
+}
+
+.ids-dropdown__footer {
+  background: var(--ids-dropdown-footer-background);
+  flex: 0 0 auto;
+  padding: var(--ids-dropdown-footer-padding);
 }
