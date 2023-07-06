@@ -102,7 +102,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
     const { x, y, strategy, refs, context, middlewareData } = useFloating({
       placement: position,
       open: isOpen,
-      strategy: 'fixed',
+      strategy: disablePortal ? 'absolute' : 'fixed',
       onOpenChange: handleOpenChange,
       whileElementsMounted: (referenceEl, floatingEl, updatePosition) => {
         const cleanup = autoUpdate(referenceEl, floatingEl, updatePosition, {

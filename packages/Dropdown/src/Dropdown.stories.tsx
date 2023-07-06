@@ -94,8 +94,8 @@ export const DropdownInAModal = () => {
   return (
     <>
       <Button onClick={() => setShow(true)}>open</Button>
-      <Modal isClosable isOpen={show} onClose={() => setShow(false)}>
-        <div style={{ height: 400, overflow: 'auto' }}>
+      <Modal isClosable isDismissable isOpen={show} onClose={() => setShow(false)}>
+        <div style={{ height: 400 }}>
           Scroll down
           <div style={{ height: 1000, paddingTop: 500 }}>
             <Dropdown
