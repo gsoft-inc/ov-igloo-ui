@@ -1,5 +1,13 @@
 # @igloo-ui/action-menu
 
+## 1.1.3
+
+### Patch Changes
+
+- 9d9d72a: Fixed WithinContainer story to show two cards and address z-index issues.
+- Updated dependencies [9d9d72a]
+  - @igloo-ui/dropdown@1.4.0
+
 ## 1.1.2
 
 ### Patch Changes

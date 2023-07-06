@@ -1,5 +1,13 @@
 # @igloo-ui/text-editor
 
+## 0.3.3
+
+### Patch Changes
+
+- 9d9d72a: Updated floating-ui so that each component uses the same version.
+- Updated dependencies [9d9d72a]
+  - @igloo-ui/tooltip@3.1.4
+
 ## 0.3.2
 
 ### Patch Changes
