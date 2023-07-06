@@ -44,7 +44,7 @@ exports[`Combobox It should render a snapshot 1`] = `
       </div>
     </div>
     <div
-      class="ids-dropdown ids-combobox__dropdown undefined__dropdown ids-dropdown--bottom-start"
+      class="ids-dropdown ids-combobox__dropdown ids-dropdown--bottom-start"
       data-show="true"
       style="position: fixed; top: 0px; left: 0px;"
     >

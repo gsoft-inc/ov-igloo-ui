@@ -127,16 +127,38 @@ export const Overview = {
 };
 
 export const WithinContainer = {
-  render: (args: ActionMenuProps) => (
-    <ChromaticWrapper>
-      <div className="isb-action-menu__card">
-        <ActionMenu
-          {...args}
-        />
-      </div>
-    </ChromaticWrapper>
-  ),
+  render: (args: ActionMenuProps) => {
+    const [openedIndex, setOpenedIndex] = React.useState<number | null>(null);
 
+    return (
+      <ChromaticWrapper>
+        <div className="isb-action-menu__card"
+            style={{zIndex: openedIndex === 0 ? 5 : 0}}>
+          <ActionMenu
+            {...args}
+            onMenuOpen={() => {
+              setOpenedIndex(0);
+            }}
+            onMenuClose={() => {
+              setOpenedIndex(null);
+            }}
+          />
+        </div>
+        <div className="isb-action-menu__card" 
+            style={{zIndex: openedIndex === 1 ? 5 : 0}}>
+          <ActionMenu
+            {...args}
+            onMenuOpen={() => {
+              setOpenedIndex(1);
+            }}
+            onMenuClose={() => {
+              setOpenedIndex(null);
+            }}
+          />
+        </div>
+      </ChromaticWrapper>
+    )
+  },
   args: {
     options: actionMenuList,
     renderReference: kebab,
