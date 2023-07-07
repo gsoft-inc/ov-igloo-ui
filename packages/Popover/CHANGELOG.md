@@ -1,5 +1,13 @@
 # @igloo-ui/popover
 
+## 0.3.1
+
+### Patch Changes
+
+- 9d9d72a: Updated floating-ui so that each component uses the same version.
+- Updated dependencies [9d9d72a]
+  - @igloo-ui/tooltip@3.1.4
+
 ## 0.3.0
 
 ### Minor Changes
