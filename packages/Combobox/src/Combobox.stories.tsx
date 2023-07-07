@@ -89,6 +89,30 @@ const largeOptionList: ComboboxOption[] = [
     label: 'Text 6',
     value: '6',
   },
+  {
+    label: 'Text 7',
+    value: '7',
+  },
+  {
+    label: 'Text 8',
+    value: '8',
+  },
+  {
+    label: 'Text 9',
+    value: '9',
+  },
+  {
+    label: 'Text 10',
+    value: '10',
+  },
+  {
+    label: 'Text 11',
+    value: '11',
+  },
+  {
+    label: 'Text 12',
+    value: '12',
+  },
 ];
 
 const listWithAction: ComboboxOption[] = [

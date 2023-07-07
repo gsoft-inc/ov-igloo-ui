@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.1.4
+
+### Patch Changes
+
+- 9d9d72a: Updated floating-ui so that each component uses the same version.
+
 ## 3.1.3
 
 ### Patch Changes

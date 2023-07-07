@@ -1,6 +1,5 @@
 import * as React from 'react';
 import cx from 'classnames';
-import useResizeObserver from '@react-hook/resize-observer';
 
 import Dropdown from '@igloo-ui/dropdown';
 import List, { OptionType, Option } from '@igloo-ui/list';
@@ -86,11 +85,6 @@ const Select: React.FunctionComponent<SelectProps> = ({
   const [results, setResults] = React.useState<OptionType[]>(
     selectOptions || []
   );
-
-  const [selectRect, setSelectRect] = React.useState<DOMRectReadOnly>();
-  useResizeObserver(selectRef, (entry) => {
-    setSelectRect(entry.contentRect);
-  });
 
   const optionText = (option: OptionType | undefined): string | undefined => {
     if (option?.type === 'member') {
@@ -291,9 +285,10 @@ const Select: React.FunctionComponent<SelectProps> = ({
           />
         }
         isOpen={canShowMenu}
-        style={{ width: autoWidth ? '' : selectRect?.width }}
         className={selectDropdownClassname}
         onClose={() => toggleMenu(true)}
+        isReferenceWidth={!autoWidth}
+        isScrollable
       >
         <SelectInput isOpen={canShowMenu}>
           <SelectValue

@@ -94,7 +94,6 @@
     box-shadow: none;
   }
 
-
   &.keyboard-focus {
     background: var(--ids-metric-hover-background);
     box-shadow: none;
@@ -166,7 +165,6 @@
 
 .ids-metric__content {
   flex: 1 1 auto;
-
 }
 
 .ids-metric__score-group {
@@ -193,7 +191,6 @@
   &--tooltip {
     color: var(--ids-metric-status-color);
     opacity: 0;
-
   }
 
   .ids-metric:hover &--tooltip {

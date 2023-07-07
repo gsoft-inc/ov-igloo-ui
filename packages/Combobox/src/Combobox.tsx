@@ -1,6 +1,5 @@
 import * as React from 'react';
 import cx from 'classnames';
-import useResizeObserver from '@react-hook/resize-observer';
 
 import Dropdown from '@igloo-ui/dropdown';
 import List, { OptionType, Option } from '@igloo-ui/list';
@@ -123,11 +122,6 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
   const [results, setResults] = React.useState<OptionType[]>(
     comboboxOptions || []
   );
-
-  const [comboboxRect, setComboboxRect] = React.useState<DOMRectReadOnly>();
-  useResizeObserver(comboboxRef, (entry) => {
-    setComboboxRect(entry.contentRect);
-  });
 
   const keepOpen = !closeOnSelect || multiple;
 
@@ -381,14 +375,11 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     'ids-combobox--error': error,
   });
 
-  const comboboxDropdownClassname = cx(
-    'ids-combobox__dropdown',
-    `${className}__dropdown`,
-    {
-      'ids-combobox__dropdown--compact': isCompact,
-      'ids-combobox__dropdown--has-footer': !!footer,
-    }
-  );
+  const comboboxDropdownClassname = cx('ids-combobox__dropdown', {
+    [`${className}__dropdown`]: !!className,
+    'ids-combobox__dropdown--compact': isCompact,
+    'ids-combobox__dropdown--has-footer': !!footer,
+  });
 
   const noResultsOrLoading = loading ? (
     <List
@@ -415,31 +406,28 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
       <Dropdown
         key="comboboxDropdown"
         content={
-          <>
-            {results && results.length ? (
-              <List
-                options={results}
-                isCompact
-                onOptionFocus={hoverOption}
-                onOptionChange={updateOption}
-                onOptionBlur={() => setCurrentFocusedOption(undefined)}
-                selectedOption={
-                  multiple ? selectedOption : currentSelectedOption
-                }
-                focusedOption={currentFocusedOption}
-                multiple={multiple}
-                disableTabbing
-                className="ids-combobox__list"
-              />
-            ) : (
-              noResultsOrLoading
-            )}
-            {footer && <div className="ids-combobox__footer">{footer}</div>}
-          </>
+          results && results.length ? (
+            <List
+              options={results}
+              isCompact
+              onOptionFocus={hoverOption}
+              onOptionChange={updateOption}
+              onOptionBlur={() => setCurrentFocusedOption(undefined)}
+              selectedOption={multiple ? selectedOption : currentSelectedOption}
+              focusedOption={currentFocusedOption}
+              multiple={multiple}
+              disableTabbing
+              className="ids-combobox__list"
+            />
+          ) : (
+            noResultsOrLoading
+          )
         }
+        footer={footer}
+        isScrollable
         isOpen={canShowMenu}
-        style={{ width: autoWidth ? '' : comboboxRect?.width }}
         className={comboboxDropdownClassname}
+        isReferenceWidth={!autoWidth}
         onClose={() => {
           toggleMenu(true, true);
         }}

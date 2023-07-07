@@ -1,5 +1,18 @@
 # @igloo-ui/combobox
 
+## 1.2.0
+
+### Minor Changes
+
+- 9d9d72a: Allow Combobox, Select, TagPicker and Dropdown components to scroll if it's too long and runs out of room in the viewport. New properties added to Dropdown are: isReferenceWidth, isScrollable and footer. The display of the footer was moved to the dropdown instead of leaving it in combobox because the dropdown handles the scroll styles and the footer is sticky.
+
+### Patch Changes
+
+- Updated dependencies [9d9d72a]
+- Updated dependencies [9d9d72a]
+  - @igloo-ui/tooltip@3.1.4
+  - @igloo-ui/dropdown@1.4.0
+
 ## 1.1.0
 
 ### Minor Changes

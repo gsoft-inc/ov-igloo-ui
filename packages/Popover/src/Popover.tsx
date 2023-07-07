@@ -23,7 +23,7 @@ import IconButton from '@igloo-ui/icon-button';
 import Close from '@igloo-ui/icons/dist/Close';
 
 import './popover.scss';
-import { Props } from '@floating-ui/react/src/hooks/useHover';
+import { UseHoverProps } from '@floating-ui/react/src/hooks/useHover';
 
 export type Position = 'top' | 'right' | 'bottom' | 'left' | 'auto';
 export type TriggerEvent = 'click' | 'hover';
@@ -103,7 +103,7 @@ const Popover: React.FunctionComponent<PopoverProps> = ({
     ...floatingUIPlacement,
   });
 
-  const useHoverProps: Props<ReferenceType> = {
+  const useHoverProps: UseHoverProps<ReferenceType> = {
     enabled: triggerEvent === 'hover',
     restMs: 150,
   };

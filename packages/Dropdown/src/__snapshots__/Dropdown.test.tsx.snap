@@ -51,9 +51,13 @@ exports[`Dropdown It should render without error and a snapshot 1`] = `
       id=":r0:"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px; opacity: 0; transform: translateY(1rem);"
-      tabindex="-1"
+      tabindex="0"
     >
-      All settings
+      <div
+        class="ids-dropdown__scroll-content"
+      >
+        All settings
+      </div>
     </div>
     <span
       data-floating-ui-focus-guard=""
