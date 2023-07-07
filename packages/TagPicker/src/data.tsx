@@ -1,7 +1,8 @@
 import React from 'react';
 import IconLockSolid from '@igloo-ui/icons/dist/LockSolid';
+import { TagItem } from './TagPicker';
 
-export const mockData = [
+export const mockData: TagItem[] = [
   {
     id: '1',
     text: 'A team',

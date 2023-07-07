@@ -299,6 +299,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
         dismissible={!disabled}
         appearance="secondary"
         onRemove={handleTagRemove}
+        hasError={s.hasError}
       >
         {s.text}
       </Tag>

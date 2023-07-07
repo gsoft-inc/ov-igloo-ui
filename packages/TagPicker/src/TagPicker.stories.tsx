@@ -234,6 +234,7 @@ export const Error = () => {
   const select = (id: string): void => {
     const selectedItem = mockData.find((d) => d.id === id);
     if (selectedItem) {
+      selectedItem.hasError = true;
       setSelected([...selected, selectedItem]);
     } else {
       setSelected([...selected]);
