@@ -1,5 +1,11 @@
 # @igloo-ui/tag-picker
 
+## 0.3.1
+
+### Patch Changes
+
+- 8812669: Tags in TagPicker were not receiving the hasError prop so it was added to fix this.
+
 ## 0.3.0
 
 ### Minor Changes
