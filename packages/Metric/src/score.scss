@@ -1,0 +1,76 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-score-font-family: #{tokens.$secondary-font-family};
+  --ids-score-font-size: #{tokens.$font-size-5};
+  --ids-score-font-weight: #{tokens.$font-weight-medium};
+  --ids-score-color: #{tokens.$grey-800};
+  --ids-score-line-height: #{tokens.$line-height-xl};
+
+  /* Variation */
+  --ids-score-variation-font-family: #{tokens.$primary-font-family};
+  --ids-score-variation-font-size: #{tokens.$font-size-3};
+  --ids-score-variation-font-weight: #{tokens.$font-weight-regular};
+  --ids-score-variation-line-height: #{tokens.$line-height-xxl};
+  --ids-score-single-variation-font-size: #{tokens.$font-size-9};
+  --ids-score-single-variation-color: #{tokens.$grey-600};
+  --ids-score-single-variation-line-height: #{tokens.$line-height-xxxs};
+
+  /* Arrows */
+  --ids-score-arrow-color-positive: #{tokens.$seaweed-500};
+  --ids-score-arrow-color-negative: #{tokens.$coral-500};
+  --ids-score-arrow-color-selected: #{tokens.$electric-blue-500};
+  --ids-score-arrow-margin-right: #{tokens.$space-1};
+}
+
+.ids-score {
+  color: var(--ids-score-color);
+  font-family: var(--ids-score-font-family);
+  font-size: var(--ids-score-font-size);
+  font-weight: var(--ids-score-font-weight);
+  line-height: var(--ids-score-line-height);
+
+  &--variation {
+    align-items: baseline;
+    color: var(--ids-score-single-variation-color);
+    display: flex;
+    font-family: var(--ids-score-variation-font-family);
+    font-size: var(--ids-score-single-variation-font-size);
+    font-weight: var(--ids-score-variation-font-weight);
+    line-height: var(--ids-score-single-variation-line-height);
+  }
+
+  .ids-score ~ &--variation {
+    color: var(--ids-score-color);
+    font-size: var(--ids-score-variation-font-size);
+    font-weight: var(--ids-score-variation-font-weight);
+    line-height: var(--ids-score-variation-line-height);
+  }
+}
+
+.ids-score__arrow {
+  align-self: center;
+  flex: 0 0 auto;
+  font-size: var(--ids-score-font-size);
+  margin-right: var(--ids-score-arrow-margin-right);
+
+  &--positive {
+    color: var( --ids-score-arrow-color-positive);
+  }
+  
+  &--negative {
+    color: var( --ids-score-arrow-color-negative);
+  }
+  
+  &--selected {
+    color: var( --ids-score-arrow-color-selected);
+  }
+}
+
+.ids-score__postfix {
+  font-size: var(--ids-score-variation-font-size);
+  line-height: var(--ids-score-variation-line-height);
+}
+  

@@ -35,6 +35,7 @@
     "@igloo-ui/icon-button": "*",
     "@igloo-ui/input": "*",
     "@igloo-ui/list": "*",
+    "@igloo-ui/metric": "*",
     "@igloo-ui/modal": "*",
     "@igloo-ui/option-button": "*",
     "@igloo-ui/pager": "*",
