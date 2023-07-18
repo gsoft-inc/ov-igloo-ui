@@ -5,7 +5,6 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import MockDropdown from '@igloo-ui/dropdown/src/__mocks__/Dropdown.mock';
 import Button from '@igloo-ui/button';
-import { OptionType } from '@igloo-ui/list';
 import ActionMenu, { ActionMenuOption, ActionMenuProps } from './ActionMenu';
 
 const actionMenuList: ActionMenuOption[] = [

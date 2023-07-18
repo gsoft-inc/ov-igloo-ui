@@ -1,0 +1,48 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-pie-chart-font-family: #{tokens.$primary-font-family};
+  --ids-pie-chart-font-size: #{tokens.$font-size-2};
+  --ids-pie-chart-line-height: #{tokens.$line-height-xl};
+
+  /* Rate */
+  --ids-pie-chart-rate-font-family: #{tokens.$secondary-font-family};
+  --ids-pie-chart-rate-font-size: #{tokens.$font-size-10};
+  --ids-pie-chart-rate-font-weight: #{tokens.$font-weight-medium};
+  --ids-pie-chart-rate-line-height: #{tokens.$line-height-xs};
+  --ids-pie-chart-rate-color: #{tokens.$grey-800};
+  
+  /* Symbol */
+  --ids-pie-chart-symbol-font-size: #{tokens.$font-size-5};
+  --ids-pie-chart-symbol-color: #{tokens.$grey-500};
+
+  /* Label */
+  --ids-pie-chart-label-color: #{tokens.$grey-600};
+}
+
+.ids-pie-chart {
+  font-family: var(--ids-pie-chart-font-family);
+  font-size: var(--ids-pie-chart-font-size);
+  line-height: var(--ids-pie-chart-line-height);
+}
+
+.ids-pie-chart__rate {
+  fill: var(--ids-pie-chart-rate-color);
+  font-family: var(--ids-pie-chart-rate-font-family);
+  font-size: var(--ids-pie-chart-rate-font-size);
+  font-weight: var(--ids-pie-chart-rate-font-weight);
+  line-height: var(--ids-pie-chart-rate-line-height);
+}
+
+.ids-pie-chart__symbol {
+  fill: var(--ids-pie-chart-symbol-color);
+  font-size: var(--ids-pie-chart-symbol-font-size);
+}
+
+.ids-pie-chart__label {
+  fill: var(--ids-pie-chart-label-color);
+
+}
+  

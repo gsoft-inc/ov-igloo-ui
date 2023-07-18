@@ -11,13 +11,17 @@ export type Position =
 export type Size = 'xsmall' | 'small' | 'medium' | 'large';
 export type Role = 'listbox' | 'menu';
 
-export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
+export interface DropdownProps
+  extends Omit<React.ComponentPropsWithRef<'div'>, 'content'> {
   /** The target button, text, svg etc.. of the Dropdown. */
   children?: React.ReactElement;
   /** Add a specific class to the dropdown. */
   className?: string;
   /** Default value displayed in the Dropdown. */
   content: React.ReactNode;
+  /** Whether or not the dropdown should use ReactPortal
+   * to append to the body */
+  disablePortal?: boolean;
   /** Position of the Dropdown. */
   position?: Position;
   /** Changes the size of the card, giving it more or less padding. */
@@ -35,6 +39,13 @@ export interface DropdownProps extends React.ComponentPropsWithRef<'div'> {
   renderReference?: (
     props: React.HTMLProps<HTMLButtonElement>
   ) => React.ReactElement;
+  /** Whether or not the dropdown should take the
+   * width of the reference element */
+  isReferenceWidth?: boolean;
+  /** Whether or not the dropdown should be scrollable */
+  isScrollable?: boolean;
+  /** The footer content of the dropdown */
+  footer?: React.ReactNode;
 }
 
 const MockDropdown: React.FunctionComponent<DropdownProps> = ({
@@ -44,10 +55,15 @@ const MockDropdown: React.FunctionComponent<DropdownProps> = ({
   size = 'xsmall',
   onClose,
   dataTest,
+  disablePortal = false,
   isOpen = false,
   position = 'bottom-start',
+  style,
   role = 'listbox',
   renderReference,
+  isReferenceWidth = false,
+  isScrollable = false,
+  footer,
   ...rest
 }: DropdownProps) => {
   const { x, y, refs } = {
@@ -70,6 +86,7 @@ const MockDropdown: React.FunctionComponent<DropdownProps> = ({
     className,
     size !== 'xsmall' && `ids-dropdown--${size}`,
     position !== 'bottom' && `ids-dropdown--${position}`,
+    isScrollable && 'ids-dropdown--scrollable',
   ]
     .filter(Boolean)
     .join(' ');
@@ -91,12 +108,14 @@ const MockDropdown: React.FunctionComponent<DropdownProps> = ({
           {...rest}
           data-show={isOpen}
           style={{
-            position: 'fixed',
+            position: disablePortal ? 'absolute' : 'fixed',
             top: y ?? 0,
             left: x ?? 0,
+            ...style,
           }}
         >
-          {content}
+          <div className="ids-dropdown__scroll-content">{content}</div>
+          {footer && <div className="ids-dropdown__footer">{footer}</div>}
         </div>
       )}
     </>

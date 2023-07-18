@@ -39,6 +39,7 @@
     "@igloo-ui/modal": "*",
     "@igloo-ui/option-button": "*",
     "@igloo-ui/pager": "*",
+    "@igloo-ui/pieChart": "*",
     "@igloo-ui/popover": "*",
     "@igloo-ui/progress-bar": "*",
     "@igloo-ui/radio": "*",
