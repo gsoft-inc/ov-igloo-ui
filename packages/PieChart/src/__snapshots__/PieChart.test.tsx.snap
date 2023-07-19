@@ -26,10 +26,10 @@ exports[`PieChart It should render a snapshot 1`] = `
             id="recharts3-clip"
           >
             <rect
-              height="170"
-              width="170"
-              x="5"
-              y="5"
+              height="176"
+              width="176"
+              x="2"
+              y="2"
             />
           </clippath>
         </defs>
@@ -46,14 +46,14 @@ exports[`PieChart It should render a snapshot 1`] = `
               color="#D5D9DE"
               cx="90"
               cy="90"
-              d="M 90,5
-    A 85,85,0,
+              d="M 90,2
+    A 88,88,0,
     1,1,
-    89.99851647013588,5.000000012946245
-  L 89.99853130543453,5.850000012816778
-            A 84.15,84.15,0,
+    89.99846411025833,2.0000000134031666
+  L 89.99847946915575,2.8800000132691252
+            A 87.12,87.12,0,
             1,0,
-            90,5.849999999999994 Z"
+            90,2.8799999999999955 Z"
               fill="#D5D9DE"
               id="empty"
               name="empty"
@@ -74,7 +74,7 @@ exports[`PieChart It should render a snapshot 1`] = `
             <tspan
               alignment-baseline="middle"
               class="ids-pie-chart__rate"
-              x="99"
+              x="98"
             >
               0
             </tspan>
@@ -85,12 +85,17 @@ exports[`PieChart It should render a snapshot 1`] = `
             >
               %
             </tspan>
-            <tspan
-              class="ids-pie-chart__label"
-              dy="2.8rem"
-              x="90"
-            />
           </text>
+          <foreignobject
+            height="30"
+            width="180"
+            x="0"
+            y="106"
+          >
+            <div
+              class="ids-pie-chart__label"
+            />
+          </foreignobject>
         </g>
       </svg>
     </div>
