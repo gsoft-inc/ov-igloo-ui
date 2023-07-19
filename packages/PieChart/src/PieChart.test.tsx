@@ -1,30 +1,28 @@
 /**
-  * @jest-environment jsdom
-  */
- import React from 'react';
- import { render, screen } from '@testing-library/react';
+ * @jest-environment jsdom
+ */
+import React from 'react';
+import { render, screen } from '@testing-library/react';
 
- import PieChart from './PieChart';
+import PieChart from './PieChart';
 
- const setup = (props = {}) => {
-  return render(
-    <PieChart dataTest="ids-pie-chart" {...props} />
-  );
+const setup = (props = {}) => {
+  return render(<PieChart dataTest="ids-pie-chart" {...props} />);
 };
 
- describe('PieChart', () => {
-   test('It should render without errors', () => {
+describe('PieChart', () => {
+  test('It should render without errors', () => {
     setup();
-     const wrapper = screen.getByTestId('ids-pie-chart');
-     expect(wrapper).toBeInTheDocument();
-   });
+    const wrapper = screen.getByTestId('ids-pie-chart');
+    expect(wrapper).toBeInTheDocument();
+  });
 
-   test('It should render a snapshot', () => {
-     const {asFragment} = setup();
-     expect(asFragment()).toMatchSnapshot();
-   });
+  test('It should render a snapshot', () => {
+    const { asFragment } = setup();
+    expect(asFragment()).toMatchSnapshot();
+  });
 
-   test('It should render the provided data elements', () => {
+  test('It should render the provided data elements', () => {
     const data = [
       { id: 'data1', percentage: 30 },
       { id: 'data2', percentage: 20 },
@@ -72,4 +70,4 @@
     const emptyDataElement = container.querySelector('.ids-pie-chart--empty');
     expect(emptyDataElement).toBeInTheDocument();
   });
- });
+});

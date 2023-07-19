@@ -37,39 +37,47 @@ export interface PieChartProps extends React.ComponentProps<'div'> {
 }
 
 const CustomLabel = (labelObj: any): React.ReactElement => {
-  const { viewBox, rate, label } = labelObj;
+  const { viewBox, rate, label, width } = labelObj;
   const { cx, cy } = viewBox;
-  const halfOfSymbolFontSize = 9;
-  const halfOfRateHeight = '2.8rem';
+  const halfOfSymbolFontSize = 8; // Seemed more centered with 8 than 9
+  const labelOffset = 16;
+  const labelHeight = 30; // Cannot be in rem to work on safari
 
   return (
-    <text
-      x={cx}
-      y={cy - 5}
-      fill="#3d405c"
-      className="recharts-text recharts-label"
-      textAnchor="middle"
-      dominantBaseline="central"
-      alignmentBaseline="middle"
-    >
-      <tspan
-        x={cx + halfOfSymbolFontSize}
+    <>
+      <text
+        x={cx}
+        y={cy - 5}
+        fill="#3d405c"
+        className="recharts-text recharts-label"
+        textAnchor="middle"
+        dominantBaseline="central"
         alignmentBaseline="middle"
-        className="ids-pie-chart__rate"
       >
-        {rate}
-      </tspan>
-      <tspan
-        baselineShift="super"
-        alignmentBaseline="middle"
-        className="ids-pie-chart__symbol"
+        <tspan
+          x={cx + halfOfSymbolFontSize}
+          alignmentBaseline="middle"
+          className="ids-pie-chart__rate"
+        >
+          {rate}
+        </tspan>
+        <tspan
+          baselineShift="super"
+          alignmentBaseline="middle"
+          className="ids-pie-chart__symbol"
+        >
+          %
+        </tspan>
+      </text>
+      <foreignObject
+        x={0}
+        y={cy + labelOffset}
+        width={width}
+        height={labelHeight}
       >
-        %
-      </tspan>
-      <tspan x={cx} dy={halfOfRateHeight} className="ids-pie-chart__label">
-        {label}
-      </tspan>
-    </text>
+        <div className="ids-pie-chart__label">{label}</div>
+      </foreignObject>
+    </>
   );
 };
 
@@ -99,7 +107,11 @@ const PieChart: React.FunctionComponent<PieChartProps> = ({
 
   return (
     <div className={classes} data-test={dataTest}>
-      <RPieChart width={chartSize} height={chartSize}>
+      <RPieChart
+        width={chartSize}
+        height={chartSize}
+        margin={{ top: 2, left: 2, right: 2, bottom: 2 }}
+      >
         <Pie
           data={data}
           dataKey="percentage"
@@ -112,9 +124,10 @@ const PieChart: React.FunctionComponent<PieChartProps> = ({
         >
           {isLarge && (
             <Label
-              width={30}
               position="center"
-              content={<CustomLabel rate={rate} label={label} />}
+              content={
+                <CustomLabel rate={rate} label={label} width={chartSize} />
+              }
             />
           )}
           {data &&

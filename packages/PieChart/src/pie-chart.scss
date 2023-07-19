@@ -20,12 +20,18 @@
 
   /* Label */
   --ids-pie-chart-label-color: #{tokens.$grey-600};
+  --ids-pie-chart-label-padding: #{tokens.$space-4};
 }
 
 .ids-pie-chart {
   font-family: var(--ids-pie-chart-font-family);
   font-size: var(--ids-pie-chart-font-size);
   line-height: var(--ids-pie-chart-line-height);
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
 }
 
 .ids-pie-chart__rate {
@@ -43,6 +49,10 @@
 
 .ids-pie-chart__label {
   fill: var(--ids-pie-chart-label-color);
-
+  overflow: hidden;
+  padding: 0 var(--ids-pie-chart-label-padding);
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
   
