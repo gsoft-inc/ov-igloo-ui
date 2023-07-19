@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 0.6.1
+
+### Patch Changes
+
+- 89d10c5: Updated recharts version and fixed dropdown mock
+
 ## 0.6.0
 
 ### Minor Changes

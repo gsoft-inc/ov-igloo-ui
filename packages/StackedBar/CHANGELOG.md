@@ -1,5 +1,11 @@
 # @igloo-ui/stacked-bar
 
+## 0.1.3
+
+### Patch Changes
+
+- 89d10c5: Updated recharts version and fixed dropdown mock
+
 ## 0.1.2
 
 ### Patch Changes
