@@ -26,30 +26,30 @@ export const getTestTemplate = (name) => {
 
   return `/**
   * @jest-environment jsdom
-  */
- import React from 'react';
- import { render, screen } from '@testing-library/react';
+*/
+import React from 'react';
+import { render, screen } from '@testing-library/react';
 
- import ${pascalCaseName} from './${pascalCaseName}';
+import ${pascalCaseName} from './${pascalCaseName}';
 
- const setup = (props = {}) => {
+const setup = (props = {}) => {
   return render(
     <${pascalCaseName} dataTest="ids-${name}" {...props}>Hello world</${pascalCaseName}>
   );
 };
 
- describe('${pascalCaseName}', () => {
-   test('It should render without errors', () => {
-    setup();
-     const wrapper = screen.getByTestId('ids-${name}');
-     expect(wrapper).toBeInTheDocument();
-   });
+describe('${pascalCaseName}', () => {
+  test('It should render without errors', () => {
+  setup();
+    const wrapper = screen.getByTestId('ids-${name}');
+    expect(wrapper).toBeInTheDocument();
+  });
 
-   test('It should render a snapshot', () => {
-     const {asFragment} = setup();
-     expect(asFragment()).toMatchSnapshot();
-   });
- });
+  test('It should render a snapshot', () => {
+    const {asFragment} = setup();
+    expect(asFragment()).toMatchSnapshot();
+  });
+});
 `;
 };
 
@@ -58,41 +58,41 @@ export const getStoriesTemplate = (name) => {
 
   return `import React from 'react';
 
-  import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
-  import Section from '@components/section';
-  import readme from '../README.md';
+import Section from '@components/section';
+import readme from '../README.md';
 
-  import ${pascalCaseName} from './${pascalCaseName}';
+import ${pascalCaseName} from './${pascalCaseName}';
 
-  export default {
-    title: 'Components/${pascalCaseName}',
-    component: ${pascalCaseName},
-    parameters: {
-      docs: {
-        description: {
-          component: readme,
-        }
+export default {
+  title: 'Components/${pascalCaseName}',
+  component: ${pascalCaseName},
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
       }
     }
-  } as Meta<typeof ${pascalCaseName}>;
-  
-  type Story = StoryObj<typeof ${pascalCaseName}>;
+  }
+} as Meta<typeof ${pascalCaseName}>;
 
-  export const Overview: Story = {
-    args: {
-      children: 'Dummy starter component',
-    },
-  };
+type Story = StoryObj<typeof ${pascalCaseName}>;
 
-  // export const Appearances: Story = {
-  //  render: () => {
-  //    return (
-  //      <Section>
-  //         ...
-  //      </Section>
-  //    );
-  //  };
+export const Overview: Story = {
+  args: {
+    children: 'Dummy starter component',
+  },
+};
+
+// export const Appearances: Story = {
+//  render: () => {
+//    return (
+//      <Section>
+//         ...
+//      </Section>
+//    );
+//  };
 `;
 };
 
@@ -101,49 +101,49 @@ export const getReadmeTemplate = (name) => {
 
   return `# ${pascalCaseName}
 
-  TODO: Write your component description here.
+TODO: Write your component description here.
 
-  <ReferenceLinks is="custom" />
+<ReferenceLinks is="custom" />
 
-  ## Installation
+## Installation
 
-  To install \`@igloo-ui/${name}\` in your project, you will need to run the following command using [npm](https://www.npmjs.com/):
+To install \`@igloo-ui/${name}\` in your project, you will need to run the following command using [npm](https://www.npmjs.com/):
 
-  \`\`\`bash
-  npm install @igloo-ui/${name}
-  \`\`\`
+\`\`\`bash
+npm install @igloo-ui/${name}
+\`\`\`
 
-  If you prefer [Yarn](https://classic.yarnpkg.com/en/), use the following command instead:
+If you prefer [Yarn](https://classic.yarnpkg.com/en/), use the following command instead:
 
-  \`\`\`bash
-  yarn add @igloo-ui/${name}
-  \`\`\`
+\`\`\`bash
+yarn add @igloo-ui/${name}
+\`\`\`
 
-  ## Usage
+## Usage
 
-  Then to use the component in your code just import it!
+Then to use the component in your code just import it!
 
-  \`\`\`jsx
-  import ${pascalCaseName} from '@igloo-ui/${name}';
+\`\`\`jsx
+import ${pascalCaseName} from '@igloo-ui/${name}';
 
-  // TODO: Add your component usage here
-  \`\`\`
-  `;
+// TODO: Add your component usage here
+\`\`\`
+`;
 };
 
 export const getCssTemplate = (name) => {
   return `@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-  :root {
-    /* Default */
-    --ids-${name}-font-family: #{tokens.$primary-font-family};
-    --ids-${name}-font-size: #{tokens.$font-size-4};
-  }
+:root {
+  /* Default */
+  --ids-${name}-font-family: #{tokens.$primary-font-family};
+  --ids-${name}-font-size: #{tokens.$font-size-4};
+}
 
-  .ids-${name} {
-    font-family: var(--ids-${name}-font-family);
-    font-size: var(--ids-${name}-font-size);
-  }
-  `;
+.ids-${name} {
+  font-family: var(--ids-${name}-font-family);
+  font-size: var(--ids-${name}-font-size);
+}
+`;
 };

@@ -36,8 +36,8 @@ export interface DropdownProps
   className?: string;
   /** Default value displayed in the Dropdown. */
   content: React.ReactNode;
-  /** Whether or not the dropdown should use ReactPortal
-   * to append to the body */
+  /** Disables the component from appending the dropdown
+   * to the end of the body using ReactPortal */
   disablePortal?: boolean;
   /** Position of the Dropdown. */
   position?: Position;

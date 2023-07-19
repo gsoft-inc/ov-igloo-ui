@@ -22,96 +22,100 @@ exports[`ActionMenu It should render without errors and a snapshot 1`] = `
       data-show="true"
       style="position: fixed; top: 0px; left: 0px;"
     >
-      <ul
-        class="ids-list ids-list--compact"
-        role="listbox"
-        tabindex="-1"
+      <div
+        class="ids-dropdown__scroll-content"
       >
-        <li
-          aria-selected="false"
-          class="ids-list-item ids-list-item--compact ids-list-item--selectable"
-          role="option"
+        <ul
+          class="ids-list ids-list--compact"
+          role="listbox"
           tabindex="-1"
         >
-          <div
-            class="ids-list-item__content"
+          <li
+            aria-selected="false"
+            class="ids-list-item ids-list-item--compact ids-list-item--selectable"
+            role="option"
+            tabindex="-1"
           >
-            <span
-              class="ids-list-item__text"
+            <div
+              class="ids-list-item__content"
             >
               <span
-                class="ids-list-item__text-body"
+                class="ids-list-item__text"
               >
                 <span
-                  class="ids-list-item__text-content"
+                  class="ids-list-item__text-body"
                 >
                   <span
-                    class="ids-list-item__text-label"
+                    class="ids-list-item__text-content"
                   >
-                    Add Item
+                    <span
+                      class="ids-list-item__text-label"
+                    >
+                      Add Item
+                    </span>
                   </span>
                 </span>
               </span>
-            </span>
-          </div>
-        </li>
-        <li
-          aria-selected="false"
-          class="ids-list-item ids-list-item--compact ids-list-item--disabled"
-          role="option"
-          tabindex="-1"
-        >
-          <div
-            class="ids-list-item__content"
+            </div>
+          </li>
+          <li
+            aria-selected="false"
+            class="ids-list-item ids-list-item--compact ids-list-item--disabled"
+            role="option"
+            tabindex="-1"
           >
-            <span
-              class="ids-list-item__text"
+            <div
+              class="ids-list-item__content"
             >
               <span
-                class="ids-list-item__text-body"
+                class="ids-list-item__text"
               >
                 <span
-                  class="ids-list-item__text-content"
+                  class="ids-list-item__text-body"
                 >
                   <span
-                    class="ids-list-item__text-label"
+                    class="ids-list-item__text-content"
                   >
-                    Delete Item
+                    <span
+                      class="ids-list-item__text-label"
+                    >
+                      Delete Item
+                    </span>
                   </span>
                 </span>
               </span>
-            </span>
-          </div>
-        </li>
-        <li
-          aria-selected="false"
-          class="ids-list-item ids-list-item--compact ids-list-item--selectable"
-          role="option"
-          tabindex="-1"
-        >
-          <div
-            class="ids-list-item__content"
+            </div>
+          </li>
+          <li
+            aria-selected="false"
+            class="ids-list-item ids-list-item--compact ids-list-item--selectable"
+            role="option"
+            tabindex="-1"
           >
-            <span
-              class="ids-list-item__text"
+            <div
+              class="ids-list-item__content"
             >
               <span
-                class="ids-list-item__text-body"
+                class="ids-list-item__text"
               >
                 <span
-                  class="ids-list-item__text-content"
+                  class="ids-list-item__text-body"
                 >
                   <span
-                    class="ids-list-item__text-label"
+                    class="ids-list-item__text-content"
                   >
-                    Copy Item
+                    <span
+                      class="ids-list-item__text-label"
+                    >
+                      Copy Item
+                    </span>
                   </span>
                 </span>
               </span>
-            </span>
-          </div>
-        </li>
-      </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </DocumentFragment>

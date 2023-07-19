@@ -84,7 +84,6 @@ exports[`StackedBar It should render a snapshot 1`] = `
               >
                 <g
                   class="recharts-layer recharts-bar-rectangle"
-                  role="img"
                 >
                   <path
                     class="recharts-rectangle ids-stacked-bar__empty-bar--side"
@@ -111,7 +110,6 @@ exports[`StackedBar It should render a snapshot 1`] = `
               >
                 <g
                   class="recharts-layer recharts-bar-rectangle"
-                  role="img"
                 >
                   <path
                     class="recharts-rectangle ids-stacked-bar__empty-bar--middle"
@@ -137,7 +135,6 @@ exports[`StackedBar It should render a snapshot 1`] = `
               >
                 <g
                   class="recharts-layer recharts-bar-rectangle"
-                  role="img"
                 >
                   <path
                     class="recharts-rectangle ids-stacked-bar__empty-bar--side"

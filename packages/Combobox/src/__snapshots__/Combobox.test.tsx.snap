@@ -44,72 +44,76 @@ exports[`Combobox It should render a snapshot 1`] = `
       </div>
     </div>
     <div
-      class="ids-dropdown ids-combobox__dropdown ids-dropdown--bottom-start"
+      class="ids-dropdown ids-combobox__dropdown ids-dropdown--bottom-start ids-dropdown--scrollable"
       data-show="true"
       style="position: fixed; top: 0px; left: 0px;"
     >
-      <ul
-        class="ids-list ids-combobox__list ids-list--compact"
-        role="listbox"
-        tabindex="-1"
+      <div
+        class="ids-dropdown__scroll-content"
       >
-        <li
-          aria-selected="false"
-          class="ids-list-item ids-list-item--compact ids-list-item--selectable"
-          role="option"
+        <ul
+          class="ids-list ids-combobox__list ids-list--compact"
+          role="listbox"
           tabindex="-1"
         >
-          <div
-            class="ids-list-item__content"
+          <li
+            aria-selected="false"
+            class="ids-list-item ids-list-item--compact ids-list-item--selectable"
+            role="option"
+            tabindex="-1"
           >
-            <span
-              class="ids-list-item__text"
+            <div
+              class="ids-list-item__content"
             >
               <span
-                class="ids-list-item__text-body"
+                class="ids-list-item__text"
               >
                 <span
-                  class="ids-list-item__text-content"
+                  class="ids-list-item__text-body"
                 >
                   <span
-                    class="ids-list-item__text-label"
+                    class="ids-list-item__text-content"
                   >
-                    Option 1
+                    <span
+                      class="ids-list-item__text-label"
+                    >
+                      Option 1
+                    </span>
                   </span>
                 </span>
               </span>
-            </span>
-          </div>
-        </li>
-        <li
-          aria-selected="false"
-          class="ids-list-item ids-list-item--compact ids-list-item--selectable"
-          role="option"
-          tabindex="-1"
-        >
-          <div
-            class="ids-list-item__content"
+            </div>
+          </li>
+          <li
+            aria-selected="false"
+            class="ids-list-item ids-list-item--compact ids-list-item--selectable"
+            role="option"
+            tabindex="-1"
           >
-            <span
-              class="ids-list-item__text"
+            <div
+              class="ids-list-item__content"
             >
               <span
-                class="ids-list-item__text-body"
+                class="ids-list-item__text"
               >
                 <span
-                  class="ids-list-item__text-content"
+                  class="ids-list-item__text-body"
                 >
                   <span
-                    class="ids-list-item__text-label"
+                    class="ids-list-item__text-content"
                   >
-                    Option 2
+                    <span
+                      class="ids-list-item__text-label"
+                    >
+                      Option 2
+                    </span>
                   </span>
                 </span>
               </span>
-            </span>
-          </div>
-        </li>
-      </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </DocumentFragment>

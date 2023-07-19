@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PieChart It should render a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ids-pie-chart ids-pie-chart--empty ids-pie-chart--large"
+    data-test="ids-pie-chart"
+  >
+    <div
+      class="recharts-wrapper"
+      role="region"
+      style="position: relative; cursor: default; width: 180px; height: 180px;"
+    >
+      <svg
+        class="recharts-surface"
+        cx="50%"
+        cy="50%"
+        height="180"
+        viewBox="0 0 180 180"
+        width="180"
+      >
+        <title />
+        <desc />
+        <defs>
+          <clippath
+            id="recharts3-clip"
+          >
+            <rect
+              height="176"
+              width="176"
+              x="2"
+              y="2"
+            />
+          </clippath>
+        </defs>
+        <g
+          class="recharts-layer recharts-pie"
+          tabindex="0"
+        >
+          <g
+            class="recharts-layer recharts-pie-sector"
+            tabindex="-1"
+          >
+            <path
+              class="recharts-sector ids-pie-chart__empty"
+              color="#D5D9DE"
+              cx="90"
+              cy="90"
+              d="M 90,2
+    A 88,88,0,
+    1,1,
+    89.99846411025833,2.0000000134031666
+  L 89.99847946915575,2.8800000132691252
+            A 87.12,87.12,0,
+            1,0,
+            90,2.8799999999999955 Z"
+              fill="#D5D9DE"
+              id="empty"
+              name="empty"
+              role="img"
+              stroke="#D5D9DE"
+              tabindex="-1"
+            />
+          </g>
+          <text
+            alignment-baseline="middle"
+            class="recharts-text recharts-label"
+            dominant-baseline="central"
+            fill="#3d405c"
+            text-anchor="middle"
+            x="90"
+            y="85"
+          >
+            <tspan
+              alignment-baseline="middle"
+              class="ids-pie-chart__rate"
+              x="98"
+            >
+              0
+            </tspan>
+            <tspan
+              alignment-baseline="middle"
+              baseline-shift="super"
+              class="ids-pie-chart__symbol"
+            >
+              %
+            </tspan>
+          </text>
+          <foreignobject
+            height="30"
+            width="180"
+            x="0"
+            y="106"
+          >
+            <div
+              class="ids-pie-chart__label"
+            />
+          </foreignobject>
+        </g>
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;
