@@ -1,0 +1,34 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-vertical-bar-chart-font-family: #{tokens.$primary-font-family};
+  --ids-vertical-bar-chart-font-size: #{tokens.$font-size-3};
+  --ids-vertical-bar-chart-line-color: #{tokens.$grey-400};
+  --ids-vertical-bar-chart-tick-color: #{tokens.$grey-600};
+  --ids-vertical-bar-chart-tick-font-size: #{tokens.$font-size-3};
+  --ids-vertical-bar-chart-label-line-height: #{tokens.$line-height-xxl};
+}
+
+.ids-vertical-bar-chart {
+  font-family: var(--ids-vertical-bar-chart-font-family);
+  font-size: var(--ids-vertical-bar-chart-font-size);
+
+  .recharts-cartesian-axis-line {
+    stroke: var(--ids-vertical-bar-chart-line-color);
+  }
+
+  .recharts-cartesian-axis-tick-value {
+    font-size: var(--ids-vertical-bar-chart-tick-font-size);
+    stroke: var(--ids-vertical-bar-chart-tick-color);
+  }
+}
+
+.ids-vertical-bar-chart__labels {
+  color: var(--ids-vertical-bar-chart-tick-color);
+  display: flex;
+  justify-content: space-between;
+  line-height: var(--ids-vertical-bar-chart-label-line-height);
+}
+  

@@ -21,7 +21,7 @@ jest.mock('@igloo-ui/dropdown', () => ({
 function replaceReactAriaIds(container: HTMLElement) { 
   const selectors = ['id', 'for', 'aria-labelledby']; 
   const ariaSelector = (el: string) => `[${el}^="react-aria"]`; 
-  const regexp = /react-aria\d+-\d+/g; 
+  const regexp = /react-aria\d+-.*/g;
   const staticId = 'react-aria-generated-id'; 
  
   /** 

@@ -38,6 +38,7 @@ exports[`Toast It should open and close without error and render a snapshot when
           class="ids-icon ids-toast__icon"
           fill="none"
           height="24"
+          viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -64,6 +65,7 @@ exports[`Toast It should open and close without error and render a snapshot when
             class="ids-icon"
             fill="none"
             height="24"
+            viewBox="0 0 24 24"
             width="24"
             xmlns="http://www.w3.org/2000/svg"
           >

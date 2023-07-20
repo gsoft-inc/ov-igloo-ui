@@ -24,7 +24,7 @@ export interface ToastQueueTypeProps {
 function replaceReactAriaIds(container: HTMLElement) { 
   const selectors = ['id', 'for', 'aria-labelledby']; 
   const ariaSelector = (el: string) => `[${el}^="react-aria"]`; 
-  const regexp = /react-aria\d+-\d+/g; 
+  const regexp = /react-aria\d+-.*/g;
   const staticId = 'react-aria-generated-id'; 
  
   /** 
@@ -35,10 +35,10 @@ function replaceReactAriaIds(container: HTMLElement) {
   container.querySelectorAll(selectors.map(ariaSelector).join(', ')).forEach((el, index) => { 
     selectors.forEach((selector) => { 
       const attr = el.getAttribute(selector); 
- 
+
       if (attr?.match(regexp)) { 
         const newAttr = `${staticId}-${index}`; 
- 
+
         el.setAttribute(selector, attributesMap[attr] || newAttr); 
  
         attributesMap[attr] = newAttr; 

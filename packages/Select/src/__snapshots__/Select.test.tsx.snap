@@ -26,6 +26,7 @@ exports[`Select It should render a snapshot 1`] = `
             class="ids-icon ids-select__input__chevron"
             fill="none"
             height="16"
+            viewBox="0 0 16 16"
             width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
