@@ -54,6 +54,7 @@
     "@igloo-ui/toaster": "*",
     "@igloo-ui/toggle": "*",
     "@igloo-ui/tooltip": "*",
+    "@igloo-ui/vertical-bar-chart": "*",
     "fuse.js": "^6.5.3",
     "next": "^13.2.1",
     "react": "^18.2.0",
