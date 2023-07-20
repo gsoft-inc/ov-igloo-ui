@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/pie-chart",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "dist/PieChart.js",
   "module": "dist/PieChart.js",
   "types": "dist/PieChart.d.ts",

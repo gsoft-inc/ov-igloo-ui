@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.4.1
+
+### Patch Changes
+
+- 89d10c5: Updated recharts version and fixed dropdown mock
+
 ## 1.4.0
 
 ### Minor Changes
