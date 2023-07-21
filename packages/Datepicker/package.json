@@ -31,7 +31,6 @@
     "@igloo-ui/tokens": "^2.0.0",
     "@internationalized/date": "^3.3.0",
     "@react-stately/calendar": "^3.3.0",
-    "@react-types/calendar": "^3.3.0",
     "classnames": "^2.3.2",
     "react-aria": "^3.26.0",
     "react-stately": "^3.24.0"
