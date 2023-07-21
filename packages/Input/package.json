@@ -29,7 +29,7 @@
     "graphemer": "^1.4.0"
   },
   "devDependencies": {
-    "@igloo-ui/icons": "^1.6.0"
+    "@igloo-ui/icons": "^1.11.0"
   },
   "browserslist": [
     "> 1%",

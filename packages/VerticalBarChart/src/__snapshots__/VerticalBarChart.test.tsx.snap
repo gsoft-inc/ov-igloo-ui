@@ -1,0 +1,520 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VerticalBarChart It should render a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ids-vertical-bar-chart"
+    data-test="ids-vertical-bar-chart"
+  >
+    <div
+      class="recharts-responsive-container"
+      style="width: 800px; height: 200px;"
+    >
+      <div
+        class="recharts-wrapper"
+        role="region"
+        style="position: relative; cursor: default; width: 800px; height: 200px;"
+      >
+        <svg
+          class="recharts-surface"
+          height="200"
+          viewBox="0 0 800 200"
+          width="800"
+        >
+          <title />
+          <desc />
+          <defs>
+            <clippath
+              id="recharts4-clip"
+            >
+              <rect
+                height="166"
+                width="796"
+                x="2"
+                y="2"
+              />
+            </clippath>
+          </defs>
+          <g
+            class="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis"
+          >
+            <line
+              class="recharts-cartesian-axis-line"
+              fill="none"
+              height="30"
+              orientation="bottom"
+              stroke="#666"
+              stroke-width="1px"
+              width="796"
+              x="2"
+              x1="2"
+              x2="798"
+              y="168"
+              y1="168"
+              y2="168"
+            />
+            <g
+              class="recharts-cartesian-axis-ticks"
+            >
+              <g
+                class="recharts-layer recharts-cartesian-axis-tick"
+              >
+                <text
+                  class="recharts-text recharts-cartesian-axis-tick-value"
+                  fill="#666"
+                  height="30"
+                  orientation="bottom"
+                  stroke="none"
+                  stroke-width="0"
+                  text-anchor="middle"
+                  width="796"
+                  x="38.18181818181818"
+                  y="176"
+                >
+                  <tspan
+                    dy="0.71em"
+                    x="38.18181818181818"
+                  >
+                    0
+                  </tspan>
+                </text>
+              </g>
+              <g
+                class="recharts-layer recharts-cartesian-axis-tick"
+              >
+                <text
+                  class="recharts-text recharts-cartesian-axis-tick-value"
+                  fill="#666"
+                  height="30"
+                  orientation="bottom"
+                  stroke="none"
+                  stroke-width="0"
+                  text-anchor="middle"
+                  width="796"
+                  x="110.54545454545453"
+                  y="176"
+                >
+                  <tspan
+                    dy="0.71em"
+                    x="110.54545454545453"
+                  >
+                    1
+                  </tspan>
+                </text>
+              </g>
+              <g
+                class="recharts-layer recharts-cartesian-axis-tick"
+              >
+                <text
+                  class="recharts-text recharts-cartesian-axis-tick-value"
+                  fill="#666"
+                  height="30"
+                  orientation="bottom"
+                  stroke="none"
+                  stroke-width="0"
+                  text-anchor="middle"
+                  width="796"
+                  x="182.9090909090909"
+                  y="176"
+                >
+                  <tspan
+                    dy="0.71em"
+                    x="182.9090909090909"
+                  >
+                    2
+                  </tspan>
+                </text>
+              </g>
+              <g
+                class="recharts-layer recharts-cartesian-axis-tick"
+              >
+                <text
+                  class="recharts-text recharts-cartesian-axis-tick-value"
+                  fill="#666"
+                  height="30"
+                  orientation="bottom"
+                  stroke="none"
+                  stroke-width="0"
+                  text-anchor="middle"
+                  width="796"
+                  x="255.27272727272725"
+                  y="176"
+                >
+                  <tspan
+                    dy="0.71em"
+                    x="255.27272727272725"
+                  >
+                    3
+                  </tspan>
+                </text>
+              </g>
+              <g
+                class="recharts-layer recharts-cartesian-axis-tick"
+              >
+                <text
+                  class="recharts-text recharts-cartesian-axis-tick-value"
+                  fill="#666"
+                  height="30"
+                  orientation="bottom"
+                  stroke="none"
+                  stroke-width="0"
+                  text-anchor="middle"
+                  width="796"
+                  x="327.6363636363636"
+                  y="176"
+                >
+                  <tspan
+                    dy="0.71em"
+                    x="327.6363636363636"
+                  >
+                    4
+                  </tspan>
+                </text>
+              </g>
+              <g
+                class="recharts-layer recharts-cartesian-axis-tick"
+              >
+                <text
+                  class="recharts-text recharts-cartesian-axis-tick-value"
+                  fill="#666"
+                  height="30"
+                  orientation="bottom"
+                  stroke="none"
+                  stroke-width="0"
+                  text-anchor="middle"
+                  width="796"
+                  x="400"
+                  y="176"
+                >
+                  <tspan
+                    dy="0.71em"
+                    x="400"
+                  >
+                    5
+                  </tspan>
+                </text>
+              </g>
+              <g
+                class="recharts-layer recharts-cartesian-axis-tick"
+              >
+                <text
+                  class="recharts-text recharts-cartesian-axis-tick-value"
+                  fill="#666"
+                  height="30"
+                  orientation="bottom"
+                  stroke="none"
+                  stroke-width="0"
+                  text-anchor="middle"
+                  width="796"
+                  x="472.3636363636363"
+                  y="176"
+                >
+                  <tspan
+                    dy="0.71em"
+                    x="472.3636363636363"
+                  >
+                    6
+                  </tspan>
+                </text>
+              </g>
+              <g
+                class="recharts-layer recharts-cartesian-axis-tick"
+              >
+                <text
+                  class="recharts-text recharts-cartesian-axis-tick-value"
+                  fill="#666"
+                  height="30"
+                  orientation="bottom"
+                  stroke="none"
+                  stroke-width="0"
+                  text-anchor="middle"
+                  width="796"
+                  x="544.7272727272726"
+                  y="176"
+                >
+                  <tspan
+                    dy="0.71em"
+                    x="544.7272727272726"
+                  >
+                    7
+                  </tspan>
+                </text>
+              </g>
+              <g
+                class="recharts-layer recharts-cartesian-axis-tick"
+              >
+                <text
+                  class="recharts-text recharts-cartesian-axis-tick-value"
+                  fill="#666"
+                  height="30"
+                  orientation="bottom"
+                  stroke="none"
+                  stroke-width="0"
+                  text-anchor="middle"
+                  width="796"
+                  x="617.090909090909"
+                  y="176"
+                >
+                  <tspan
+                    dy="0.71em"
+                    x="617.090909090909"
+                  >
+                    8
+                  </tspan>
+                </text>
+              </g>
+              <g
+                class="recharts-layer recharts-cartesian-axis-tick"
+              >
+                <text
+                  class="recharts-text recharts-cartesian-axis-tick-value"
+                  fill="#666"
+                  height="30"
+                  orientation="bottom"
+                  stroke="none"
+                  stroke-width="0"
+                  text-anchor="middle"
+                  width="796"
+                  x="689.4545454545454"
+                  y="176"
+                >
+                  <tspan
+                    dy="0.71em"
+                    x="689.4545454545454"
+                  >
+                    9
+                  </tspan>
+                </text>
+              </g>
+              <g
+                class="recharts-layer recharts-cartesian-axis-tick"
+              >
+                <text
+                  class="recharts-text recharts-cartesian-axis-tick-value"
+                  fill="#666"
+                  height="30"
+                  orientation="bottom"
+                  stroke="none"
+                  stroke-width="0"
+                  text-anchor="middle"
+                  width="796"
+                  x="761.8181818181818"
+                  y="176"
+                >
+                  <tspan
+                    dy="0.71em"
+                    x="761.8181818181818"
+                  >
+                    10
+                  </tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+          <g
+            class="recharts-layer recharts-bar"
+          >
+            <g
+              class="recharts-layer recharts-bar-rectangles"
+            >
+              <g
+                class="recharts-layer recharts-bar-rectangle"
+              >
+                <path
+                  class="recharts-rectangle ids-vertical-bar-chart__bar"
+                  color="#FF7160"
+                  d="M12.854545454545455,139.8A 5,5,0,0,1,17.854545454545455,134.8L 57.85454545454546,134.8A 5,5,0,0,1,
+        62.85454545454546,139.8L 62.85454545454546,168L 12.854545454545455,168Z"
+                  fill="#FF7160"
+                  height="33.19999999999999"
+                  radius="5,5,0,0"
+                  width="50"
+                  x="12.854545454545455"
+                  y="134.8"
+                />
+              </g>
+              <g
+                class="recharts-layer recharts-bar-rectangle"
+              >
+                <path
+                  class="recharts-rectangle ids-vertical-bar-chart__bar"
+                  color="#FF7160"
+                  d="M85.21818181818182,117.66666666666669A 5,5,0,0,1,90.21818181818182,112.66666666666669L 130.21818181818182,112.66666666666669A 5,5,0,0,1,
+        135.21818181818182,117.66666666666669L 135.21818181818182,168L 85.21818181818182,168Z"
+                  fill="#FF7160"
+                  height="55.333333333333314"
+                  radius="5,5,0,0"
+                  width="50"
+                  x="85.21818181818182"
+                  y="112.66666666666669"
+                />
+              </g>
+              <g
+                class="recharts-layer recharts-bar-rectangle"
+              >
+                <path
+                  class="recharts-rectangle ids-vertical-bar-chart__bar"
+                  color="#FFC3BA"
+                  d="M157.58181818181816,76.16666666666667A 5,5,0,0,1,162.58181818181816,71.16666666666667L 202.58181818181816,71.16666666666667A 5,5,0,0,1,
+        207.58181818181816,76.16666666666667L 207.58181818181816,168L 157.58181818181816,168Z"
+                  fill="#FFC3BA"
+                  height="96.83333333333333"
+                  radius="5,5,0,0"
+                  width="50"
+                  x="157.58181818181816"
+                  y="71.16666666666667"
+                />
+              </g>
+              <g
+                class="recharts-layer recharts-bar-rectangle"
+              >
+                <path
+                  class="recharts-rectangle ids-vertical-bar-chart__bar"
+                  color="#FFC3BA"
+                  d="M229.9454545454545,123.19999999999999A 5,5,0,0,1,234.9454545454545,118.19999999999999L 274.9454545454545,118.19999999999999A 5,5,0,0,1,
+        279.9454545454545,123.19999999999999L 279.9454545454545,168L 229.9454545454545,168Z"
+                  fill="#FFC3BA"
+                  height="49.80000000000001"
+                  radius="5,5,0,0"
+                  width="50"
+                  x="229.9454545454545"
+                  y="118.19999999999999"
+                />
+              </g>
+              <g
+                class="recharts-layer recharts-bar-rectangle"
+              >
+                <path
+                  class="recharts-rectangle ids-vertical-bar-chart__bar"
+                  color="#FFE3C2"
+                  d="M302.3090909090909,163.85A 4.150000000000006,4.150000000000006,0,0,1,306.45909090909095,159.7L 348.1590909090909,159.7A 4.150000000000006,4.150000000000006,0,0,1,
+        352.3090909090909,163.85L 352.3090909090909,168L 302.3090909090909,168Z"
+                  fill="#FFE3C2"
+                  height="8.300000000000011"
+                  radius="5,5,0,0"
+                  width="50"
+                  x="302.3090909090909"
+                  y="159.7"
+                />
+              </g>
+              <g
+                class="recharts-layer recharts-bar-rectangle"
+              >
+                <path
+                  class="recharts-rectangle ids-vertical-bar-chart__bar"
+                  color="#FFE3C2"
+                  d="M374.6727272727273,56.800000000000004A 5,5,0,0,1,379.6727272727273,51.800000000000004L 419.6727272727273,51.800000000000004A 5,5,0,0,1,
+        424.6727272727273,56.800000000000004L 424.6727272727273,168L 374.6727272727273,168Z"
+                  fill="#FFE3C2"
+                  height="116.19999999999999"
+                  radius="5,5,0,0"
+                  width="50"
+                  x="374.6727272727273"
+                  y="51.800000000000004"
+                />
+              </g>
+              <g
+                class="recharts-layer recharts-bar-rectangle"
+              >
+                <path
+                  class="recharts-rectangle ids-vertical-bar-chart__bar"
+                  color="#9FE9DC"
+                  d="M447.0363636363636,7A 5,5,0,0,1,452.0363636363636,2L 492.0363636363636,2A 5,5,0,0,1,
+        497.0363636363636,7L 497.0363636363636,168L 447.0363636363636,168Z"
+                  fill="#9FE9DC"
+                  height="166"
+                  radius="5,5,0,0"
+                  width="50"
+                  x="447.0363636363636"
+                  y="2"
+                />
+              </g>
+              <g
+                class="recharts-layer recharts-bar-rectangle"
+              >
+                <path
+                  class="recharts-rectangle ids-vertical-bar-chart__bar"
+                  color="#9FE9DC"
+                  d="M519.4,81.69999999999999A 5,5,0,0,1,524.4,76.69999999999999L 564.4,76.69999999999999A 5,5,0,0,1,
+        569.4,81.69999999999999L 569.4,168L 519.4,168Z"
+                  fill="#9FE9DC"
+                  height="91.30000000000001"
+                  radius="5,5,0,0"
+                  width="50"
+                  x="519.4"
+                  y="76.69999999999999"
+                />
+              </g>
+              <g
+                class="recharts-layer recharts-bar-rectangle"
+              >
+                <path
+                  class="recharts-rectangle ids-vertical-bar-chart__bar"
+                  color="#9FE9DC"
+                  d="M591.7636363636364,128.73333333333335A 5,5,0,0,1,596.7636363636364,123.73333333333335L 636.7636363636364,123.73333333333335A 5,5,0,0,1,
+        641.7636363636364,128.73333333333335L 641.7636363636364,168L 591.7636363636364,168Z"
+                  fill="#9FE9DC"
+                  height="44.26666666666665"
+                  radius="5,5,0,0"
+                  width="50"
+                  x="591.7636363636364"
+                  y="123.73333333333335"
+                />
+              </g>
+              <g
+                class="recharts-layer recharts-bar-rectangle"
+              >
+                <path
+                  class="recharts-rectangle ids-vertical-bar-chart__bar"
+                  color="#30C9AD"
+                  d="M664.1272727272727,54.03333333333333A 5,5,0,0,1,669.1272727272727,49.03333333333333L 709.1272727272727,49.03333333333333A 5,5,0,0,1,
+        714.1272727272727,54.03333333333333L 714.1272727272727,168L 664.1272727272727,168Z"
+                  fill="#30C9AD"
+                  height="118.96666666666667"
+                  radius="5,5,0,0"
+                  width="50"
+                  x="664.1272727272727"
+                  y="49.03333333333333"
+                />
+              </g>
+              <g
+                class="recharts-layer recharts-bar-rectangle"
+              >
+                <path
+                  class="recharts-rectangle ids-vertical-bar-chart__bar"
+                  color="#30C9AD"
+                  d="M736.4909090909091,131.5A 5,5,0,0,1,741.4909090909091,126.5L 781.4909090909091,126.5A 5,5,0,0,1,
+        786.4909090909091,131.5L 786.4909090909091,168L 736.4909090909091,168Z"
+                  fill="#30C9AD"
+                  height="41.5"
+                  radius="5,5,0,0"
+                  width="50"
+                  x="736.4909090909091"
+                  y="126.5"
+                />
+              </g>
+            </g>
+            <g
+              class="recharts-layer"
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div
+      class="ids-vertical-bar-chart__labels"
+    >
+      <span
+        class="ids-vertical-bar-chart__min-label"
+      >
+        0
+      </span>
+      <span
+        class="ids-vertical-bar-chart__max-label"
+      >
+        10
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

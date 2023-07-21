@@ -15,6 +15,7 @@ exports[`Datapicker It should render a snapshot 1`] = `
           class="ids-icon"
           fill="none"
           height="24"
+          viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -46,7 +47,7 @@ exports[`Datapicker It should render a snapshot 1`] = `
         aria-label="March 2023"
         class="ids-datepicker"
         id="react-aria-generated-id-0"
-        role="group"
+        role="application"
       >
         <div
           class="ids-datepicker__header"
@@ -69,6 +70,7 @@ exports[`Datapicker It should render a snapshot 1`] = `
                 class="ids-icon"
                 fill="none"
                 height="24"
+                viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -94,6 +96,7 @@ exports[`Datapicker It should render a snapshot 1`] = `
                 class="ids-icon"
                 fill="none"
                 height="24"
+                viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
               >

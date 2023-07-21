@@ -15,6 +15,7 @@ exports[`IconButton Component It should render a danger appearance 1`] = `
         class="ids-icon"
         fill="none"
         height="16"
+        viewBox="0 0 16 16"
         width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -47,6 +48,7 @@ exports[`IconButton Component It should render a default theme 1`] = `
         class="ids-icon"
         fill="none"
         height="16"
+        viewBox="0 0 16 16"
         width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -78,6 +80,7 @@ exports[`IconButton Component It should render a ghost appearance 1`] = `
         class="ids-icon"
         fill="none"
         height="16"
+        viewBox="0 0 16 16"
         width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -109,6 +112,7 @@ exports[`IconButton Component It should render a premium appearance 1`] = `
         class="ids-icon"
         fill="none"
         height="16"
+        viewBox="0 0 16 16"
         width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -140,6 +144,7 @@ exports[`IconButton Component It should render a primary appearance 1`] = `
         class="ids-icon"
         fill="none"
         height="16"
+        viewBox="0 0 16 16"
         width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -172,6 +177,7 @@ exports[`IconButton Component It should render a round theme 1`] = `
         class="ids-icon"
         fill="none"
         height="16"
+        viewBox="0 0 16 16"
         width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -203,6 +209,7 @@ exports[`IconButton Component It should render a secondary appearance 1`] = `
         class="ids-icon"
         fill="none"
         height="16"
+        viewBox="0 0 16 16"
         width="16"
         xmlns="http://www.w3.org/2000/svg"
       >

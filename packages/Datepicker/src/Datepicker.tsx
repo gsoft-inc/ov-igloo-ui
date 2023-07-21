@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import { useLocale } from 'react-aria';
+import { useLocale, DateValue } from 'react-aria';
 
 import Dropdown from '@igloo-ui/dropdown';
 import Input from '@igloo-ui/input';
@@ -15,7 +15,6 @@ import {
   parseAbsoluteToLocal,
   ZonedDateTime,
 } from '@internationalized/date';
-import { DateValue } from '@react-types/calendar';
 
 import Calendar from './components/Calendar';
 

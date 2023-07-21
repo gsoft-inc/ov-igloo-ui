@@ -24,6 +24,7 @@ exports[`Breadcrumb It should render without error and a snapshot 1`] = `
           class="ids-icon ids-breadcrumb__chevron"
           fill="none"
           height="16"
+          viewBox="0 0 16 16"
           width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -50,6 +51,7 @@ exports[`Breadcrumb It should render without error and a snapshot 1`] = `
           class="ids-icon ids-breadcrumb__chevron"
           fill="none"
           height="16"
+          viewBox="0 0 16 16"
           width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
