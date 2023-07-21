@@ -1612,7 +1612,7 @@
   resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-2.0.0.tgz#a7977f0f7875659de8751f9413e4fc72ad2bdcd4"
   integrity sha512-pkwNI08nUBq6021auftK6LcaPpIro6jhQqBU87RDRfrH+Y3783jghYH5rsCsty5UJRVP3OUUEZLSjHAgh5cTdA==
 
-"@internationalized/date@^3.0.1", "@internationalized/date@^3.2.0":
+"@internationalized/date@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@internationalized/date/-/date-3.2.0.tgz#1d266e5e5543a059cf8cca9b954fa033c3e58a75"
   integrity sha512-VDMHN1m33L4eqPs5BaihzgQJXyaORbMoHOtrapFxx179J8ucY5CRIHYsq5RRLKPHZWgjNfa5v6amWWDkkMFywA==
@@ -4720,7 +4720,7 @@
     "@swc/helpers" "^0.5.0"
     clsx "^1.1.1"
 
-"@react-stately/calendar@^3.0.2", "@react-stately/calendar@^3.2.0":
+"@react-stately/calendar@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@react-stately/calendar/-/calendar-3.2.0.tgz#ecfd9469e4c26ec9e372658409b37e9cce52ac5e"
   integrity sha512-A13QSmlzLI5rtpIu2QIkij4ST29MWkCJd1kM6WFDS/1if8lSzfPL3kI4tdFDaFzFCwmv2Hb2cIfv9soIG8KASQ==
@@ -4810,13 +4810,13 @@
     "@react-types/shared" "^3.18.1"
     "@swc/helpers" "^0.5.0"
 
-"@react-stately/data@^3.9.1":
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/@react-stately/data/-/data-3.9.1.tgz#bfa817330f78b6308595c1ddab53cbdffab252f8"
-  integrity sha512-UClgI8jQTF3hVR/WLa2ht7Gjd2x2PRnYycDmfY+mfbd+ONBD7rX/m3KWGgrR8AvO05qSpQoSlab8D+cfLXvgWA==
+"@react-stately/data@^3.10.0":
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/data/-/data-3.10.0.tgz#a87206f29d517c7a8946e3ea2f1f5ab12f24e698"
+  integrity sha512-B5GqSNvvgTxVziR2nJW84HhvLOEI9AYPm/cyEdkumams7BFP8XEQStSS/SiRCMuufdHe4pnzHAQr5ynfRObwkg==
   dependencies:
-    "@react-types/shared" "^3.18.0"
-    "@swc/helpers" "^0.4.14"
+    "@react-types/shared" "^3.18.1"
+    "@swc/helpers" "^0.5.0"
 
 "@react-stately/datepicker@^3.4.0":
   version "3.4.0"
@@ -5286,7 +5286,7 @@
   dependencies:
     "@react-types/shared" "^3.18.1"
 
-"@react-types/calendar@^3.0.2", "@react-types/calendar@^3.2.0":
+"@react-types/calendar@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@react-types/calendar/-/calendar-3.2.0.tgz#7e5dae7cf7a2ec3795ece0b445a3d6c40a424e4e"
   integrity sha512-MunGx/lQgf/Lf9v2MrWoqKTZhJJcyAhUno2MewytdMQNXwtY2FB1X4fUufMMrKHwhVnFVkGfEQJCh4FAm5P9JA==
@@ -17638,33 +17638,33 @@ react-smooth@^2.0.2:
     fast-equals "^4.0.3"
     react-transition-group "2.9.0"
 
-react-stately@^3.19.0:
-  version "3.22.0"
-  resolved "https://registry.yarnpkg.com/react-stately/-/react-stately-3.22.0.tgz#c72c82401b7db5815f9906a742a0883839a65363"
-  integrity sha512-w5itlPtjfUpxy+195LxRbaCNaGN1NVfPHelhYXuoPoKNgUvmy54uKXvP1Ek1ETZ9e55BaXuMs83yXv94wIMdpQ==
+react-stately@^3.24.0:
+  version "3.24.0"
+  resolved "https://registry.yarnpkg.com/react-stately/-/react-stately-3.24.0.tgz#87a3ac6fee7c9480970a595bc3e2e97675b00d25"
+  integrity sha512-4jNCR7rQBqvV8aKxm8giUWms/Wxlo9MMLUDDKfg75LEiCaqLcnxSC99HsEVKSao3RI0JCCj2ihewh6grRW/AgQ==
   dependencies:
-    "@react-stately/calendar" "^3.2.0"
-    "@react-stately/checkbox" "^3.4.1"
-    "@react-stately/collections" "^3.7.0"
-    "@react-stately/combobox" "^3.5.0"
-    "@react-stately/data" "^3.9.1"
-    "@react-stately/datepicker" "^3.4.0"
-    "@react-stately/dnd" "^3.2.0"
-    "@react-stately/list" "^3.8.0"
-    "@react-stately/menu" "^3.5.1"
-    "@react-stately/numberfield" "^3.4.1"
-    "@react-stately/overlays" "^3.5.1"
-    "@react-stately/radio" "^3.8.0"
-    "@react-stately/searchfield" "^3.4.1"
-    "@react-stately/select" "^3.5.0"
-    "@react-stately/selection" "^3.13.0"
-    "@react-stately/slider" "^3.3.1"
-    "@react-stately/table" "^3.9.0"
-    "@react-stately/tabs" "^3.4.0"
-    "@react-stately/toggle" "^3.5.1"
-    "@react-stately/tooltip" "^3.4.0"
-    "@react-stately/tree" "^3.6.0"
-    "@react-types/shared" "^3.18.0"
+    "@react-stately/calendar" "^3.3.0"
+    "@react-stately/checkbox" "^3.4.3"
+    "@react-stately/collections" "^3.9.0"
+    "@react-stately/combobox" "^3.5.2"
+    "@react-stately/data" "^3.10.0"
+    "@react-stately/datepicker" "^3.5.0"
+    "@react-stately/dnd" "^3.2.2"
+    "@react-stately/list" "^3.9.0"
+    "@react-stately/menu" "^3.5.3"
+    "@react-stately/numberfield" "^3.5.0"
+    "@react-stately/overlays" "^3.6.0"
+    "@react-stately/radio" "^3.8.2"
+    "@react-stately/searchfield" "^3.4.3"
+    "@react-stately/select" "^3.5.2"
+    "@react-stately/selection" "^3.13.2"
+    "@react-stately/slider" "^3.4.0"
+    "@react-stately/table" "^3.10.0"
+    "@react-stately/tabs" "^3.5.0"
+    "@react-stately/toggle" "^3.6.0"
+    "@react-stately/tooltip" "^3.4.2"
+    "@react-stately/tree" "^3.7.0"
+    "@react-types/shared" "^3.18.1"
 
 react-syntax-highlighter@^15.5.0:
   version "15.5.0"
