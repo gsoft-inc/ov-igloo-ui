@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.1.1
+
+### Patch Changes
+
+- c3efaf5: Fixed tests and snapshots since react-aria generated ids changed and viewBox was added to icons.
+
 ## 2.1.0
 
 ### Minor Changes

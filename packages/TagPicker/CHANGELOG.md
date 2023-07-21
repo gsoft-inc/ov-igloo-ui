@@ -1,5 +1,14 @@
 # @igloo-ui/tag-picker
 
+## 0.3.2
+
+### Patch Changes
+
+- c3efaf5: Fixed tests and snapshots since react-aria generated ids changed and viewBox was added to icons.
+- Updated dependencies [c3efaf5]
+  - @igloo-ui/input@2.1.1
+  - @igloo-ui/tag@1.0.7
+
 ## 0.3.1
 
 ### Patch Changes

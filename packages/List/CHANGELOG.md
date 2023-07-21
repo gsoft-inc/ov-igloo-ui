@@ -1,5 +1,11 @@
 # @igloo-ui/list
 
+## 0.4.1
+
+### Patch Changes
+
+- c3efaf5: Fixed tests and snapshots since react-aria generated ids changed and viewBox was added to icons.
+
 ## 0.4.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # @igloo-ui/combobox
 
+## 1.2.1
+
+### Patch Changes
+
+- c3efaf5: Fixed tests and snapshots since react-aria generated ids changed and viewBox was added to icons.
+- Updated dependencies [c3efaf5]
+  - @igloo-ui/icon-button@1.0.3
+  - @igloo-ui/input@2.1.1
+  - @igloo-ui/list@0.4.1
+
 ## 1.2.0
 
 ### Minor Changes

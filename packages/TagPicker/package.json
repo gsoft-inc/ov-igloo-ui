@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/tag-picker",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "main": "dist/TagPicker.js",
   "module": "dist/TagPicker.js",
   "types": "dist/TagPicker.d.ts",
@@ -25,14 +25,14 @@
   },
   "dependencies": {
     "@igloo-ui/dropdown": "^1.1.4",
-    "@igloo-ui/input": "^2.0.4",
-    "@igloo-ui/tag": "^1.0.6",
+    "@igloo-ui/input": "^2.1.1",
+    "@igloo-ui/tag": "^1.0.7",
     "@igloo-ui/tokens": "^2.0.0",
     "classnames": "^2.3.2",
     "react-aria": "^3.26.0"
   },
   "devDependencies": {
-    "@igloo-ui/form-group": "^1.0.2",
+    "@igloo-ui/form-group": "^1.0.3",
     "@shared/components": "0.1.1"
   },
   "browserslist": [
