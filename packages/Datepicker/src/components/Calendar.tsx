@@ -2,16 +2,17 @@ import * as React from 'react';
 import ChevronLeft from '@igloo-ui/icons/dist/ChevronLeft';
 import ChevronRight from '@igloo-ui/icons/dist/ChevronRight';
 
-import { useCalendar, useLocale } from 'react-aria';
+import {
+  useCalendar,
+  useLocale,
+  DateValue,
+  AriaCalendarProps,
+} from 'react-aria';
 import { useCalendarState } from 'react-stately';
 import {
   GregorianCalendar,
   Calendar as CustomCalendar,
 } from '@internationalized/date';
-import {
-  CalendarProps as ReactCalendarProps,
-  DateValue,
-} from '@react-types/calendar';
 
 import CalendarButton from './CalendarButton';
 import CalendarGrid from './CalendarGrid';
@@ -25,7 +26,7 @@ function createCalendar(identifier: string): CustomCalendar {
   }
 }
 
-interface CalendarProps extends ReactCalendarProps<DateValue> {
+interface CalendarProps extends AriaCalendarProps<DateValue> {
   className?: string;
   dataTest?: string;
   highlightToday?: boolean;
