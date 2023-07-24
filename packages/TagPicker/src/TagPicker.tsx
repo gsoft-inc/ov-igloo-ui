@@ -115,7 +115,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
   const [keyboardFocusIndex, setKeyboardFocusIndex] = useState(
     defaultKeyboardFocusIndex
   );
-  const [selectedResultsCount, setSelectedResultsCount] = useState(0);
+  const selectedResultsCount = selectedResults.length;
 
   const hasResults = !!results;
   const shouldShowResults =
@@ -194,8 +194,6 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
         });
       }, 5);
     }
-
-    setSelectedResultsCount((prevCount) => prevCount + 1);
   };
 
   const handleKeyboardSelection = (index: number): void => {
@@ -221,7 +219,6 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
   const handleTagRemove = (tagId: string): void => {
     setInputDisabled(false);
     setTagRemoved(true);
-    setSelectedResultsCount((prevCount) => prevCount - 1);
     onTagRemove(tagId);
   };
 
