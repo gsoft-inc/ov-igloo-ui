@@ -135,7 +135,7 @@ export const MaxHeight = {
 };
 
 export const MaxTags = () => {
-  const [selected, setSelected] = React.useState<TagItem[]>([]);
+  const [selected, setSelected] = React.useState<TagItem[]>([mockData[0], mockData[1]]);
   const [results, setResults] = React.useState<TagItem[]>([]);
   const [showMessage, setShowMessage] = React.useState(false);
 
