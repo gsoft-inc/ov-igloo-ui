@@ -1,5 +1,11 @@
 # @igloo-ui/text-editor
 
+## 0.3.5
+
+### Patch Changes
+
+- 99c9d26: Updated everything Lexical to the latest version to make sure there was nothing conflicting and this allowed the link editor to function again.
+
 ## 0.3.4
 
 ### Patch Changes
