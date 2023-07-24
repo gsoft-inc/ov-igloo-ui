@@ -1,5 +1,13 @@
 # @igloo-ui/tag
 
+## 1.0.7
+
+### Patch Changes
+
+- c3efaf5: Fixed tests and snapshots since react-aria generated ids changed and viewBox was added to icons.
+- Updated dependencies [c3efaf5]
+  - @igloo-ui/icon-button@1.0.3
+
 ## 1.0.6
 
 ### Patch Changes

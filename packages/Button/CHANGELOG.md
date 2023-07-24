@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.1
+
+### Patch Changes
+
+- c3efaf5: Fixed tests and snapshots since react-aria generated ids changed and viewBox was added to icons.
+
 ## 0.5.0
 
 ### Minor Changes

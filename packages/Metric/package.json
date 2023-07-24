@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/metric",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/Metric.js",
   "module": "dist/Metric.js",
   "types": "dist/Metric.d.ts",

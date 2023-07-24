@@ -1,5 +1,13 @@
 # @igloo-ui/action-menu
 
+## 1.1.4
+
+### Patch Changes
+
+- c3efaf5: Fixed tests and snapshots since react-aria generated ids changed and viewBox was added to icons.
+- Updated dependencies [c3efaf5]
+  - @igloo-ui/list@0.4.1
+
 ## 1.1.3
 
 ### Patch Changes

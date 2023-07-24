@@ -1,5 +1,11 @@
 # @igloo-ui/breadcrumb
 
+## 0.1.4
+
+### Patch Changes
+
+- c3efaf5: Fixed tests and snapshots since react-aria generated ids changed and viewBox was added to icons.
+
 ## 0.1.3
 
 ### Patch Changes

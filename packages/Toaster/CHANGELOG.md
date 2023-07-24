@@ -1,5 +1,13 @@
 # @igloo-ui/toaster
 
+## 2.0.1
+
+### Patch Changes
+
+- c3efaf5: Fixed tests and snapshots since react-aria generated ids changed and viewBox was added to icons.
+- Updated dependencies [c3efaf5]
+  - @igloo-ui/icon-button@1.0.3
+
 ## 2.0.0
 
 ### Major Changes
