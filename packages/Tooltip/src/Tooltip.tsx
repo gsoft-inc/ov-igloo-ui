@@ -100,7 +100,9 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
   } = useFloating({
     open: showTooltip,
     strategy: 'fixed',
-    onOpenChange: setShow,
+    onOpenChange: (open) => {
+      setShow(open);
+    },
     whileElementsMounted: autoUpdate,
     ...floatingUIPlacement,
   });

@@ -5,7 +5,10 @@ import { Meta } from '@storybook/react';
 
 import Tooltip, { TooltipProps } from './Tooltip';
 import Button from '@igloo-ui/button';
+import IconButton from '@igloo-ui/icon-button';
 import Modal from '@igloo-ui/modal';
+import Delete from '@igloo-ui/icons/dist/Delete';
+
 
 import ChromaticWrapper from '@components/chromaticWrapper';
 import Section from '@components/section';
@@ -115,6 +118,16 @@ export const DisabledButton = () => (
       <Button appearance="secondary" disabled>
         Update profile
       </Button>
+    </Tooltip>
+  </Section>
+);
+
+export const ActiveButton = () => (
+  <Section>
+    <Tooltip content="Please complete all fields">
+      <IconButton onClick={() => {
+        console.log('clicked');
+      }} icon={<Delete size="medium" />} />
     </Tooltip>
   </Section>
 );
