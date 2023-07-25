@@ -1,5 +1,11 @@
 # @igloo-ui/tag-picker
 
+## 0.3.3
+
+### Patch Changes
+
+- 7c1e286: Fixed the way TagPicker handles the count of selected results. Now it includes results selected on load.
+
 ## 0.3.2
 
 ### Patch Changes
