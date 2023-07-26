@@ -24,7 +24,7 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@floating-ui/react": "^0.24.3",
+    "@floating-ui/react": "^0.24.8",
     "@igloo-ui/button": "^0.5.1",
     "@igloo-ui/icon-button": "^1.0.3",
     "@igloo-ui/input": "^2.1.1",
