@@ -40,6 +40,8 @@ export interface TagItem {
 
 export interface TagPickerProps
   extends Omit<React.ComponentProps<'div'>, 'results' | 'onInput'> {
+  /** Determines whether the tag picker should be focused on render */
+  autoFocus?: boolean;
   /** Add a specific class to the tag picker */
   className?: string;
   /** Add a data-test tag for automated tests */
@@ -82,6 +84,7 @@ export interface TagPickerProps
 }
 
 const TagPicker: React.FunctionComponent<TagPickerProps> = ({
+  autoFocus,
   className,
   dataTest,
   disabled,
@@ -275,10 +278,10 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
   }, [results, resetKeyboardFocus]);
 
   useEffect(() => {
-    if (tagRemoved && !inputDisabled) {
+    if ((tagRemoved && !inputDisabled) || autoFocus) {
       handleGainFocus();
     }
-  }, [tagRemoved, inputDisabled, handleGainFocus]);
+  }, [tagRemoved, inputDisabled, handleGainFocus, autoFocus]);
 
   const renderSelectedResults = selectedResults.map((s) => {
     const tagClasses = cx('ids-tag-picker__tag', {
