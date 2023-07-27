@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.4.2
+
+### Patch Changes
+
+- 8baa499: Updated floating-ui version and also updated tooltip's onOpenChange function so that it does not use the event.
+
 ## 1.4.1
 
 ### Patch Changes
