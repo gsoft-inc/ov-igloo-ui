@@ -62,7 +62,6 @@ const Template: StoryFn<typeof Dropdown> = (args) => {
       {...args}
       isOpen={show}
       onClose={() => {
-        console.log('onClose');
         setShow(false);
       }}
       content={
