@@ -36,6 +36,8 @@ export interface ActionMenuProps extends React.ComponentProps<'div'> {
   disablePortal?: boolean;
   /** Whether or not the action menu should be open by default */
   isOpen?: boolean;
+  /** Callback when the action menu is closed and animations are done */
+  onAfterMenuClose?: () => void;
   /** Callback when the action menu is closed  */
   onMenuClose?: () => void;
   /** Callback when the action menu is opened  */
@@ -56,6 +58,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
   dataTest,
   disablePortal = false,
   isOpen = false,
+  onAfterMenuClose,
   onMenuClose,
   onMenuOpen,
   options,
@@ -243,6 +246,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
         className="ids-action-menu__dropdown"
         position={position}
         onClose={() => toggleMenu(false)}
+        onAfterClose={onAfterMenuClose}
         renderReference={(refProps: React.HTMLProps<HTMLButtonElement>) => {
           return renderReference({
             ...refProps,

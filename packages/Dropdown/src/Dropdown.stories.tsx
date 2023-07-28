@@ -61,7 +61,9 @@ const Template: StoryFn<typeof Dropdown> = (args) => {
     <Dropdown
       {...args}
       isOpen={show}
-      onClose={() => setShow(false)}
+      onClose={() => {
+        setShow(false);
+      }}
       content={
         <List
           items={['Organization details', 'Billing', 'Permissions', 'Segments']}
@@ -84,6 +86,15 @@ export const Overview = {
 
   args: {
     isOpen: false,
+  },
+};
+
+export const OnAfterClose = {
+  render: Template,
+
+  args: {
+    isOpen: false,
+    onAfterClose: () => console.log('onAfterClose'),
   },
 };
 

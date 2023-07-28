@@ -271,6 +271,9 @@ export const Events = () => {
         onMenuClose={() => {
           alert('The action menu was closed');
         }}
+        onAfterMenuClose={() => {
+          alert('The action menu was closed and animations are done');
+        }}
       />
     </ChromaticWrapper>
   );

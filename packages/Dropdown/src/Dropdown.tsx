@@ -30,26 +30,28 @@ export type Role = 'listbox' | 'menu';
 
 export interface DropdownProps
   extends Omit<React.ComponentPropsWithRef<'div'>, 'content'> {
-  /** The target button, text, svg etc.. of the Dropdown. */
+  /** The target button, text, svg etc.. of the Dropdown */
   children?: React.ReactElement;
-  /** Add a specific class to the dropdown. */
+  /** Add a specific class to the dropdown */
   className?: string;
   /** Default value displayed in the Dropdown. */
   content: React.ReactNode;
   /** Disables the component from appending the dropdown
    * to the end of the body using ReactPortal */
   disablePortal?: boolean;
-  /** Position of the Dropdown. */
+  /** Position of the Dropdown */
   position?: Position;
-  /** Changes the size of the card, giving it more or less padding. */
+  /** Changes the size of the card, giving it more or less padding */
   size?: Size;
-  /** True if the Dropdown list is displayed. */
+  /** True if the Dropdown list is displayed */
   isOpen?: boolean;
   /** Callback when the user clicks outside the Dropdown. */
   onClose?: () => void;
-  /** Add a data-test tag for automated tests. */
+  /** Callback when the Dropdown is closed and animations are done */
+  onAfterClose?: () => void;
+  /** Add a data-test tag for automated tests */
   dataTest?: string;
-  /** The role of the dropdown for aria purposes. */
+  /** The role of the dropdown for aria purposes */
   role?: Role;
   /** Render the reference element to be able to add the
    * reference props directly. This overrides children */
@@ -73,6 +75,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       content,
       size = 'xsmall',
       onClose,
+      onAfterClose,
       dataTest,
       disablePortal = false,
       isOpen = false,
@@ -87,6 +90,9 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
     }: DropdownProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
+    const [dropdownPreviouslyOpen, setDropdownPreviouslyOpen] =
+      React.useState(false);
+
     const handleOnClose = (): void => {
       if (onClose) {
         onClose();
@@ -184,6 +190,15 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
         </div>
       </FloatingFocusManager>
     );
+
+    React.useEffect(() => {
+      if (isMounted && !dropdownPreviouslyOpen) {
+        setDropdownPreviouslyOpen(true);
+      }
+      if (!isMounted && dropdownPreviouslyOpen && onAfterClose) {
+        onAfterClose();
+      }
+    }, [isMounted, onAfterClose, dropdownPreviouslyOpen]);
 
     return (
       <>

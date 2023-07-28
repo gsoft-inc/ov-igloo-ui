@@ -30,6 +30,8 @@ export interface DropdownProps
   isOpen?: boolean;
   /** Callback when the user clicks outside the Dropdown. */
   onClose?: () => void;
+  /** Callback when the Dropdown is closed and animations are done */
+  onAfterClose?: () => void;
   /** Add a data-test tag for automated tests. */
   dataTest?: string;
   /** The role of the dropdown for aria purposes. */
@@ -54,6 +56,7 @@ const MockDropdown: React.FunctionComponent<DropdownProps> = ({
   content,
   size = 'xsmall',
   onClose,
+  onAfterClose,
   dataTest,
   disablePortal = false,
   isOpen = false,
