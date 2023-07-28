@@ -1,5 +1,16 @@
 # @igloo-ui/tag-picker
 
+## 0.4.0
+
+### Minor Changes
+
+- 9bfc1ae: Added an autoFocus prop to the tag picker.
+
+### Patch Changes
+
+- Updated dependencies [5ed6021]
+  - @igloo-ui/dropdown@1.5.0
+
 ## 0.3.3
 
 ### Patch Changes
