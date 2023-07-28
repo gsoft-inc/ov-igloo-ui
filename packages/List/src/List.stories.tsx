@@ -223,10 +223,10 @@ const listWithAction: OptionType[] = [
   },
   {
     type: 'list',
-    label: 'Discussing progress on individual goals',
+    label: 'Discussing progress on individual goals long titleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
     value: '3',
     action: <Button appearance={'ghost'} size="small">Preview</Button>,
-    description: 'Description',
+    description: 'Description is also longgggggggggggggggggggggggggggggggggggggg',
   }
 ];
 

@@ -98,6 +98,12 @@
   padding-bottom: 0;
 }
 
+.ids-combobox__dropdown .ids-list-item__text-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .ids-combobox__no-results {
   color: var(--ids-combobox-no-results-color);
   font-size: var(--ids-combobox-no-results-font-size);

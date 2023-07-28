@@ -140,7 +140,7 @@ const listWithAction: ComboboxOption[] = [
     ),
   },
   {
-    label: 'Discussing progress on individual goals',
+    label: 'Discussing progress on individual goals. Adding some looooooooooooooooonnnnnnnnnnnnnggggggggggggggggggggggggggggggggggg text for testing purposes.',
     value: '3',
     action: (
       <Button appearance={'ghost'} size="small">
