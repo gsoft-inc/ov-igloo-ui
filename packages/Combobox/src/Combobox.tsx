@@ -22,7 +22,7 @@ export type FocusDirection = 'first' | 'last' | 'up' | 'down';
 export type ComboboxOption = Omit<Option, 'type'>;
 
 export interface ComboboxProps
-  extends Omit<React.ComponentProps<'div'>, 'onChange'> {
+  extends Omit<React.ComponentProps<'div'>, 'onChange' | 'onInput'> {
   /** Set this to true and the dropdown will take the width of its content,
    * not the width of the select */
   autoWidth?: boolean;
@@ -55,16 +55,25 @@ export interface ComboboxProps
   multiple?: boolean;
   /** Specify the text to display when there are no results found */
   noResultsText?: string;
+  /** Callback when the dropdown is closed and animations are done */
+  onAfterClose?: () => void;
   /** Callback when selected content changes */
   onChange?: (option: OptionType | undefined) => void;
   /** Callback called when selected is cleared */
   onClear?: () => void;
   /** Callback when the dropdown is closed */
   onClose?: () => void;
+  /** Callback when the user types in the search box */
+  onInput?: (value: string) => void;
   /** Callback when the dropdown is opened */
   onOpen?: () => void;
+  /** Callback when the user scrolls to the end of the dropdown */
+  onScrollEnd?: () => void;
   /** List of available options. */
   options?: ComboboxOption[];
+  /** The threshold in pixels from the bottom of the dropdown
+   * to trigger the onScrollEnd callback */
+  scrollEndThreshold?: number;
   /** Whether or not to display a search box when open */
   search?: boolean;
   /** The initial selected option or a list of selected options */
@@ -89,11 +98,15 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
   loading,
   multiple = false,
   noResultsText = 'No Results',
+  onAfterClose,
   onChange,
   onClear,
   onClose,
+  onInput,
   onOpen,
+  onScrollEnd,
   options,
+  scrollEndThreshold,
   search,
   selectedOption,
   showSearchIcon = true,
@@ -112,6 +125,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
 
   const comboboxRef = React.useRef<HTMLDivElement>(null);
   const searchInputRef = React.useRef<HTMLInputElement>(null);
+  const [inputValue, setInputValue] = React.useState('');
   const [currentFocusedOption, setCurrentFocusedOption] = React.useState(
     !Array.isArray(selectedOption) ? selectedOption : undefined
   );
@@ -136,6 +150,12 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     }
   }, [options, showMenu]);
 
+  React.useEffect(() => {
+    if (comboboxOptions) {
+      setResults(comboboxOptions);
+    }
+  }, [comboboxOptions]);
+
   const optionText = (option: OptionType | undefined): string | undefined => {
     if (option?.type === 'member') {
       return option?.member;
@@ -151,11 +171,10 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
   };
 
   const toggleMenu = (isOpen: boolean, keepFocus = false): void => {
-    const DROPDOWN_ANIMATION_DURATION = 150;
     if (isOpen) {
       // Closing menu actions
       if (searchInputRef && searchInputRef.current) {
-        searchInputRef.current.value = '';
+        setInputValue('');
       }
 
       if (keepFocus && comboboxRef && comboboxRef.current) {
@@ -165,11 +184,6 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
       if (onClose) {
         onClose();
       }
-
-      setTimeout(
-        () => setResults(comboboxOptions || []),
-        DROPDOWN_ANIMATION_DURATION
-      );
     } else if (currentFocusedOption !== currentSelectedOption) {
       // This happens when the user doesn't select an option by keyboard.
       setCurrentFocusedOption(currentSelectedOption);
@@ -330,21 +344,11 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
   };
 
   const handleSearch = (searchTerm: string): void => {
-    const filteredOptions = comboboxOptions?.filter((option: OptionType) => {
-      return optionText(option)
-        ?.toString()
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
-    });
-    setResults(filteredOptions || []);
-
-    if (currentFocusedOption && filteredOptions) {
-      const isFocusedVisible =
-        filteredOptions.indexOf(currentFocusedOption) >= 0;
-      if (!isFocusedVisible) {
-        setCurrentFocusedOption(undefined);
-      }
+    if (onInput) {
+      onInput(searchTerm);
     }
+
+    setInputValue(searchTerm);
   };
 
   const handleClear = (): void => {
@@ -365,6 +369,15 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     // Adding toggleMenu to the dependency array causes unwanted affects
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
+
+  React.useEffect(() => {
+    if (currentFocusedOption && results.length) {
+      const isFocusedVisible = results.indexOf(currentFocusedOption) >= 0;
+      if (!isFocusedVisible) {
+        setCurrentFocusedOption(undefined);
+      }
+    }
+  }, [currentFocusedOption, results]);
 
   const canShowMenu = showMenu && !disabled;
 
@@ -431,6 +444,9 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
         onClose={() => {
           toggleMenu(true, true);
         }}
+        onAfterClose={onAfterClose}
+        onScrollEnd={onScrollEnd}
+        scrollEndThreshold={scrollEndThreshold}
       >
         {multiple ? (
           <ComboboxInput
@@ -468,6 +484,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
             src={currentSelectedOption?.src}
             color={currentSelectedOption?.color}
             showSearchIcon={showSearchIcon}
+            value={inputValue}
           />
         )}
       </Dropdown>

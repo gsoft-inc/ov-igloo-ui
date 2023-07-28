@@ -21,8 +21,8 @@ export default {
     docs: {
       description: {
         component: readme,
-      }
-    }
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -119,22 +119,37 @@ const listWithAction: ComboboxOption[] = [
   {
     label: 'Quarterly Performance Discussion',
     value: '1',
-    description: <Tag appearance="grey" size="xsmall">Self review</Tag>,
-    action: <Button appearance={'ghost'} size="small">Preview</Button>,
+    description: (
+      <Tag appearance="grey" size="xsmall">
+        Self review
+      </Tag>
+    ),
+    action: (
+      <Button appearance={'ghost'} size="small">
+        Preview
+      </Button>
+    ),
   },
   {
     label: 'Clarifying Role and Expectations',
     value: '2',
-    action: <Button appearance={'ghost'} size="small">Preview</Button>,
+    action: (
+      <Button appearance={'ghost'} size="small">
+        Preview
+      </Button>
+    ),
   },
   {
     label: 'Discussing progress on individual goals',
     value: '3',
-    action: <Button appearance={'ghost'} size="small">Preview</Button>,
+    action: (
+      <Button appearance={'ghost'} size="small">
+        Preview
+      </Button>
+    ),
     description: 'Description',
-  }
+  },
 ];
-
 
 type Story = StoryObj<typeof Combobox>;
 
@@ -199,17 +214,94 @@ export const States = () => (
 );
 
 export const Search: Story = {
-  render: () => (
-    <Section column>
-      <Combobox
-        options={largeOptionList}
-        onChange={handleOnChange}
-        search={true}
-      >
-        Place holder text
-      </Combobox>
-    </Section>
-  ),
+  render: () => {
+    const [results, setResults] =
+      React.useState<ComboboxOption[]>(largeOptionList);
+    const onInput = (value: string) => {
+      const filteredOptions = largeOptionList?.filter(
+        (option: ComboboxOption) => {
+          return option?.label
+            ?.toString()
+            .toLowerCase()
+            .includes(value.toLowerCase());
+        }
+      );
+      setResults(filteredOptions || []);
+    };
+
+    return (
+      <Section column>
+        <Combobox
+          options={results}
+          onChange={handleOnChange}
+          search={true}
+          onInput={onInput}
+          onAfterClose={() => setResults(largeOptionList)}
+        >
+          Place holder text
+        </Combobox>
+      </Section>
+    );
+  },
+
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+};
+
+export const InfiniteScroll: Story = {
+  render: () => {
+    const [optionIndex, setOptionIndex] = React.useState(0);
+    const [results, setResults] =
+      React.useState<ComboboxOption[]>(largeOptionList);
+    const onInput = (value: string) => {
+      const filteredOptions = largeOptionList?.filter(
+        (option: ComboboxOption) => {
+          return option?.label
+            ?.toString()
+            .toLowerCase()
+            .includes(value.toLowerCase());
+        }
+      );
+      setResults(filteredOptions || []);
+    };
+
+    return (
+      <>
+        <style>
+          {`
+          .infinite-scroll__dropdown .ids-dropdown__scroll-content {
+            max-height: 200px;
+          }
+        `}
+        </style>
+        <Section column>
+          <Combobox
+            options={results}
+            onChange={handleOnChange}
+            search={true}
+            onInput={onInput}
+            className="infinite-scroll"
+            onScrollEnd={() => {
+              const options = smallOptionList.map((option) => {
+                return {
+                  ...option,
+                  label: `New ${option.label} ${optionIndex}`,
+                  value: `${option.value} ${optionIndex}`,
+                };
+              });
+              setOptionIndex((prevOptionIndex) => prevOptionIndex + 1);
+              const newResults = [...results, ...options];
+              setResults(newResults);
+            }}
+            onAfterClose={() => setResults(largeOptionList)}
+          >
+            Place holder text
+          </Combobox>
+        </Section>
+      </>
+    );
+  },
 
   parameters: {
     chromatic: { disableSnapshot: true },
@@ -217,37 +309,72 @@ export const Search: Story = {
 };
 
 export const NoSearchIcon: Story = {
-  render: () => (
-    <Section column>
-      <Combobox
-        options={largeOptionList}
-        onChange={handleOnChange}
-        search={true}
-        showSearchIcon={false}
-      >
-        Place holder text
-      </Combobox>
-    </Section>
-  ),
+  render: () => {
+    const [results, setResults] =
+      React.useState<ComboboxOption[]>(largeOptionList);
+    const onInput = (value: string) => {
+      const filteredOptions = largeOptionList?.filter(
+        (option: ComboboxOption) => {
+          return option?.label
+            ?.toString()
+            .toLowerCase()
+            .includes(value.toLowerCase());
+        }
+      );
+      setResults(filteredOptions || []);
+    };
+
+    return (
+      <Section column>
+        <Combobox
+          options={results}
+          onChange={handleOnChange}
+          search={true}
+          showSearchIcon={false}
+          onInput={onInput}
+          onAfterClose={() => setResults(largeOptionList)}
+        >
+          Place holder text
+        </Combobox>
+      </Section>
+    );
+  },
   parameters: {
     chromatic: { disableSnapshot: true },
   },
 };
 
 export const Clear: Story = {
-  render: () => (
-    <Section column>
-      <Combobox
-        options={largeOptionList}
-        onChange={handleOnChange}
-        search={true}
-        clear
-        clearTooltipText="Remove Mapping"
-      >
-        Place holder text
-      </Combobox>
-    </Section>
-  ),
+  render: () => {
+    const [results, setResults] =
+      React.useState<ComboboxOption[]>(largeOptionList);
+    const onInput = (value: string) => {
+      const filteredOptions = largeOptionList?.filter(
+        (option: ComboboxOption) => {
+          return option?.label
+            ?.toString()
+            .toLowerCase()
+            .includes(value.toLowerCase());
+        }
+      );
+      setResults(filteredOptions || []);
+    };
+    return (
+      <Section column>
+        <Combobox
+          options={results}
+          onChange={handleOnChange}
+          search={true}
+          clear
+          clearTooltipText="Remove Mapping"
+          onInput={onInput}
+          onAfterClose={() => setResults(largeOptionList)}
+        >
+          Place holder text
+        </Combobox>
+      </Section>
+    );
+  },
 
   parameters: {
     chromatic: { disableSnapshot: true },
@@ -273,6 +400,19 @@ export const Multiple: Story = {
     const [selectedResults, setSelectedResults] = React.useState<OptionType[]>(
       []
     );
+    const [results, setResults] =
+      React.useState<ComboboxOption[]>(largeOptionList);
+    const onInput = (value: string) => {
+      const filteredOptions = largeOptionList?.filter(
+        (option: ComboboxOption) => {
+          return option?.label
+            ?.toString()
+            .toLowerCase()
+            .includes(value.toLowerCase());
+        }
+      );
+      setResults(filteredOptions || []);
+    };
 
     const removeItem = (optionValue: string): void => {
       const filteredResults = selectedResults.filter(
@@ -325,13 +465,15 @@ export const Multiple: Story = {
           })}
         </div>
         <Combobox
-          options={largeOptionList}
+          options={results}
           multiple
           search
           onChange={handleOptionChange}
           selectedOption={selectedResults}
           clear
           onClear={handleClear}
+          onInput={onInput}
+          onAfterClose={() => setResults(largeOptionList)}
         >
           Place holder text
         </Combobox>
@@ -348,11 +490,9 @@ export const WithActions: Story = {
   render: () => {
     return (
       <Section column>
-        <Combobox options={listWithAction}>
-          Place holder text
-        </Combobox>
+        <Combobox options={listWithAction}>Place holder text</Combobox>
       </Section>
-    )
+    );
   },
 
   parameters: {
@@ -366,19 +506,32 @@ export const WithFooter: Story = {
     const onClose = (): void => {
       setOpen(false);
     };
-    
+
     const onOpen = (): void => {
       setOpen(true);
     };
 
     return (
       <Section column>
-        <Combobox options={listWithAction} onClose={onClose} onOpen={onOpen} isOpen={open}
-          footer={<Button appearance={'ghost'} size="small" onClick={() => setOpen(false)}>Start from scratch</Button>}>
+        <Combobox
+          options={listWithAction}
+          onClose={onClose}
+          onOpen={onOpen}
+          isOpen={open}
+          footer={
+            <Button
+              appearance={'ghost'}
+              size="small"
+              onClick={() => setOpen(false)}
+            >
+              Start from scratch
+            </Button>
+          }
+        >
           Place holder text
         </Combobox>
       </Section>
-    )
+    );
   },
 
   parameters: {
@@ -390,11 +543,9 @@ export const Loading: Story = {
   render: () => {
     return (
       <Section column>
-        <Combobox loading>
-          Place holder text
-        </Combobox>
+        <Combobox loading>Place holder text</Combobox>
       </Section>
-    )
+    );
   },
 
   parameters: {

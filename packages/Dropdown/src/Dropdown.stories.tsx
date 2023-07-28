@@ -113,6 +113,7 @@ export const DropdownInAModal = () => {
               isOpen={open}
               onClose={() => setOpen(false)}
               isScrollable
+              onScrollEnd={() => console.log('end')}
               content={
                 <List
                   items={[
