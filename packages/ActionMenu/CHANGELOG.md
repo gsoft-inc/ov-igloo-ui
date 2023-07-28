@@ -1,5 +1,16 @@
 # @igloo-ui/action-menu
 
+## 1.2.0
+
+### Minor Changes
+
+- 5ed6021: Added the onAfterMenuClose callback to the action menu and dropdown components.
+
+### Patch Changes
+
+- Updated dependencies [5ed6021]
+  - @igloo-ui/dropdown@1.5.0
+
 ## 1.1.4
 
 ### Patch Changes
