@@ -23,7 +23,7 @@ export interface DialogProps extends React.ComponentProps<'div'> {
   /** Handler that is called when the validate button is clicked */
   onValidate: () => void;
   /** The text for the subtitle of the dialog */
-  subTitle?: string;
+  subTitle?: React.ReactNode;
   /** The text for the title of the dialog */
   title: string;
   /** The text for the validate button */

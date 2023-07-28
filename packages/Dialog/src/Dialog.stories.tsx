@@ -155,3 +155,44 @@ export const Danger = () => {
     </ChromaticWrapper>
   );
 };
+
+export const CustomSubTitle = () => {
+  const [open, setOpen] = React.useState(isChromatic());
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleValidate = () => {
+    setOpen(false);
+  };
+
+  return (
+    <ChromaticWrapper>
+      <Button appearance="secondary" onClick={handleOpen}>
+        open
+      </Button>
+      <Dialog
+        title="I only have a title, a validate action and an X to close this dialog"
+        subTitle={
+          <div>
+            <p>
+              I am a custom subtitle, I can be a <strong>JSX</strong> element
+            </p>
+            <p>
+              I can also be a <strong>string</strong>
+            </p>
+          </div>
+        }
+        validateText="Confirm"
+        isOpen={open}
+        onDismiss={handleClose}
+        onValidate={handleValidate}
+      />
+    </ChromaticWrapper>
+  );
+};
