@@ -1,5 +1,22 @@
 # @igloo-ui/combobox
 
+## 2.0.0
+
+### Major Changes
+
+- 1a5bb05: Added onAfterClose, onInput, onScrollEnd and scrollEndThreshold props to the Combobox.
+
+  ## BREAKING CHANGE
+
+  The search no longer does the filtering itself. The user must use the onInput callback to filter the results as well as add any debouncing needed. Since it is the user filtering the results, they must also reset the results in the onAfterClose callback.
+
+### Patch Changes
+
+- Updated dependencies [1a5bb05]
+- Updated dependencies [1a5bb05]
+  - @igloo-ui/dropdown@1.6.0
+  - @igloo-ui/list@0.4.2
+
 ## 1.2.1
 
 ### Patch Changes

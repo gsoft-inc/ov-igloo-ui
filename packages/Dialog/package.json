@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/dialog",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "main": "dist/Dialog.js",
   "module": "dist/Dialog.js",
   "types": "dist/Dialog.d.ts",
