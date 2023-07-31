@@ -43,6 +43,8 @@ export interface ComboboxInputProps extends React.ComponentProps<'div'> {
   showSearchIcon?: boolean;
   /** Specifies the url for the image to show */
   src?: string;
+  /** The value of the input */
+  value?: string;
 }
 
 const ComboboxInput: React.FunctionComponent<ComboboxInputProps> = ({
@@ -60,6 +62,7 @@ const ComboboxInput: React.FunctionComponent<ComboboxInputProps> = ({
   searchRef,
   showSearchIcon = true,
   src,
+  value,
   ...rest
 }: ComboboxInputProps) => {
   const handleChange = ({
@@ -109,6 +112,7 @@ const ComboboxInput: React.FunctionComponent<ComboboxInputProps> = ({
               e.stopPropagation();
             }}
             ref={searchRef}
+            value={value}
           />
         </>
       ) : (

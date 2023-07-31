@@ -65,6 +65,11 @@ export interface DropdownProps
   isScrollable?: boolean;
   /** The footer content of the dropdown */
   footer?: React.ReactNode;
+  /** Callback when the user scrolls to the end of the Dropdown */
+  onScrollEnd?: () => void;
+  /** The threshold in pixels from the bottom of the dropdown
+   * to trigger the onScrollEnd callback */
+  scrollEndThreshold?: number;
 }
 
 const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
@@ -86,12 +91,16 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       isReferenceWidth = false,
       isScrollable = false,
       footer,
+      onScrollEnd,
+      scrollEndThreshold = 30,
       ...rest
     }: DropdownProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const [dropdownPreviouslyOpen, setDropdownPreviouslyOpen] =
       React.useState(false);
+
+    const [scrollEndTriggered, setScrollEndTriggered] = React.useState(false);
 
     const handleOnClose = (): void => {
       if (onClose) {
@@ -102,6 +111,25 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
     const handleOpenChange = (open: boolean): void => {
       if (!open) {
         handleOnClose();
+      }
+    };
+
+    const onDropdownScroll = (e: React.UIEvent<HTMLDivElement>): void => {
+      const { scrollHeight, scrollTop, clientHeight } = e.currentTarget;
+      const threshold = scrollEndThreshold || 1;
+
+      if (scrollEndTriggered) {
+        if (scrollHeight - scrollTop - clientHeight > threshold) {
+          setScrollEndTriggered(false);
+        }
+        return;
+      }
+
+      if (scrollHeight - scrollTop - clientHeight <= threshold) {
+        if (onScrollEnd) {
+          setScrollEndTriggered(true);
+          onScrollEnd();
+        }
       }
     };
 
@@ -167,6 +195,12 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       'ids-dropdown--hidden': middlewareData.hide?.referenceHidden,
       'ids-dropdown--scrollable': isScrollable,
     });
+    const dropdownScrollProps: React.HTMLAttributes<HTMLDivElement> = {
+      className: 'ids-dropdown__scroll-content',
+    };
+    if (onScrollEnd) {
+      dropdownScrollProps.onScroll = onDropdownScroll;
+    }
 
     const floatingElem = isMounted && (
       <FloatingFocusManager context={context} modal={false} initialFocus={-1}>
@@ -185,7 +219,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
           }}
           {...getFloatingProps()}
         >
-          <div className="ids-dropdown__scroll-content">{content}</div>
+          <div {...dropdownScrollProps}>{content}</div>
           {footer && <div className="ids-dropdown__footer">{footer}</div>}
         </div>
       </FloatingFocusManager>
