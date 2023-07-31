@@ -1,5 +1,11 @@
 # @igloo-ui/list
 
+## 0.4.2
+
+### Patch Changes
+
+- 1a5bb05: Made sure either the label of description of the list item will wrap if the wor is too long and added a left margin to the action.
+
 ## 0.4.1
 
 ### Patch Changes

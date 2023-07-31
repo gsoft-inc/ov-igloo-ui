@@ -1,5 +1,11 @@
 # @igloo-ui/dialog
 
+## 0.4.0
+
+### Minor Changes
+
+- c7273b3: Update Dialog prop, subTitle, to be a ReactNode.
+
 ## 0.3.2
 
 ### Patch Changes

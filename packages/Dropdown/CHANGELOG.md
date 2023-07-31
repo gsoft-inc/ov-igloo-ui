@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.6.0
+
+### Minor Changes
+
+- 1a5bb05: Added onScrollEnd and scrollEndTheshold props to the Dropdown.
+
 ## 1.5.0
 
 ### Minor Changes
