@@ -394,16 +394,35 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     'ids-combobox__dropdown--has-footer': !!footer,
   });
 
-  const noResultsOrLoading = loading ? (
-    <List
-      isCompact
-      loading
-      multiple={multiple}
-      className="ids-combobox__list"
-    />
-  ) : (
+  let dropdownContent = (
     <div className="ids-combobox__no-results">{noResultsText}</div>
   );
+
+  if (loading) {
+    dropdownContent = (
+      <List
+        isCompact
+        loading
+        multiple={multiple}
+        className="ids-combobox__list"
+      />
+    );
+  } else if (results && results.length) {
+    dropdownContent = (
+      <List
+        options={results}
+        isCompact
+        onOptionFocus={hoverOption}
+        onOptionChange={updateOption}
+        onOptionBlur={() => setCurrentFocusedOption(undefined)}
+        selectedOption={multiple ? selectedOption : currentSelectedOption}
+        focusedOption={currentFocusedOption}
+        multiple={multiple}
+        disableTabbing
+        className="ids-combobox__list"
+      />
+    );
+  }
 
   return (
     <div
@@ -418,24 +437,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     >
       <Dropdown
         key="comboboxDropdown"
-        content={
-          results && results.length ? (
-            <List
-              options={results}
-              isCompact
-              onOptionFocus={hoverOption}
-              onOptionChange={updateOption}
-              onOptionBlur={() => setCurrentFocusedOption(undefined)}
-              selectedOption={multiple ? selectedOption : currentSelectedOption}
-              focusedOption={currentFocusedOption}
-              multiple={multiple}
-              disableTabbing
-              className="ids-combobox__list"
-            />
-          ) : (
-            noResultsOrLoading
-          )
-        }
+        content={dropdownContent}
         footer={footer}
         isScrollable
         isOpen={canShowMenu}
