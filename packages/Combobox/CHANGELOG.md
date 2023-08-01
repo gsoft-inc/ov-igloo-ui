@@ -1,5 +1,11 @@
 # @igloo-ui/combobox
 
+## 2.0.1
+
+### Patch Changes
+
+- 1a85f2a: Fixed the Combobox so that the loading shows up if it's true, even if there are results.
+
 ## 2.0.0
 
 ### Major Changes
