@@ -335,7 +335,7 @@ export const EmptyData = () => {
         }}
         range={{ min: 0, max: 6 }}
         dataSet={[]}
-        unavailableDataMessage="This is an empty chart"
+        unavailableDataMessage="You have less than 3 survey answers. To protect anonymity, they are not part of this score."
       />
     </Section>
   );

@@ -464,6 +464,22 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     return <Area {...areaConfig} />;
   };
 
+  const CustomEmptyLabel = (props: any): JSX.Element | null => {
+    const { message, viewBox } = props;
+    const { x, y, width, height } = viewBox;
+    if (!message) {
+      return null;
+    }
+
+    return (
+      <foreignObject x={x} y={y} width={width} height={height}>
+        <div className="ids-area-chart__empty-label">
+          <div className="ids-area-chart__empty-label-text">{message}</div>
+        </div>
+      </foreignObject>
+    );
+  };
+
   const areaChart = (
     <RechartsAreaChart
       data={areaChartData}
@@ -482,11 +498,8 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
             x1={startDate.valueOf()}
             x2={endDate.valueOf()}
             {...onlyUnavailableDataConfig}
-            label={unavailableDataMessage}
+            label={<CustomEmptyLabel message={unavailableDataMessage} />}
           />
-          {!loading && (
-            <Area {...unavailableDataConfig} strokeLinecap="round" />
-          )}
         </>
       )}
       {dataSet.length ? (
