@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 0.6.2
+
+### Patch Changes
+
+- f07b40f: Fixed the AreaChart styling for the empty data message. It is also responsive now.
+
 ## 0.6.1
 
 ### Patch Changes
