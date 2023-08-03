@@ -8,6 +8,7 @@
   --ids-helper-font-weight: #{tokens.$font-weight-regular};
   --ids-helper-line-height: #{tokens.$line-height-xxl};
   --ids-helper-text: #{tokens.$grey-600};
+  --ids-helper-text-icon-margin: 1px #{tokens.$space-1} 0 0;
 
   /* Error */
   --ids-helper-text-error: #{tokens.$coral-500};
@@ -15,7 +16,7 @@
 
 .ids-helperText {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   font-family: var(--ids-helper-font-family);
   font-size: var(--ids-helper-font-size);
   font-weight: var(--ids-helper-font-weight);
@@ -27,6 +28,6 @@
   }
 
   > .ids-helperText__icon {
-    margin-right: tokens.$space-1;
+    margin: var(--ids-helper-text-icon-margin);
   }
 }
