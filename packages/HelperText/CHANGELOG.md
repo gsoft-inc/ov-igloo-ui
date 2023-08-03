@@ -1,5 +1,11 @@
 # @igloo-ui/message
 
+## 0.2.11
+
+### Patch Changes
+
+- 3b587d2: Fixed the icon alignment in HelperText so that it is centered with the first line only.
+
 ## 0.2.10
 
 ### Patch Changes
