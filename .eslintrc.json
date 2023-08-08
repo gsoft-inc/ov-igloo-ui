@@ -1,15 +1,13 @@
 {
+    "$schema": "https://json.schemastore.org/eslintrc",
   "root": true,
   "env": {
     "browser": true,
     "es2021": true
   },
   "extends": [
-    "plugin:react/recommended",
-    "airbnb",
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "plugin:prettier/recommended"
+    "plugin:@workleap/react-library",
+    "plugin:storybook/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -21,10 +19,11 @@
   },
   "plugins": ["react", "@typescript-eslint", "react-hooks"],
   "rules": {
+    "@typescript-eslint/no-implicit-any-catch": "off",
     "no-param-reassign": ["error", { "props": false }],
     "no-use-before-define": "off",
     "no-shadow": "off",
-    "max-len": ["warn", { "code": 80 }],
+    "max-len": ["warn", { "code": 110 }],
     "@typescript-eslint/no-use-before-define": ["error"],
     "@typescript-eslint/explicit-function-return-type": [
       "warn",

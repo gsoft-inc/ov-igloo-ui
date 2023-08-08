@@ -28,7 +28,7 @@
 
   /* Needed to add a 0.1px blur to fix a bug where
   chrome would have a lingering blue line when focusing in and out */
-  --ids-filter-focus: 0 0 0 2px #fff, 0 0 0.1px 3.5px #0c46d0;
+  --ids-filter-focus: 0 0 0 .2rem #ffffff, 0 0 .01rem .35rem #0c46d0;
 }
 
 %default-style {

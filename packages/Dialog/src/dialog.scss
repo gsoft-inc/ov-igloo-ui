@@ -20,7 +20,8 @@
   --ids-dialog-button-margin: #{tokens.$space-2} #{tokens.$space-0};
 }
 
-@media (min-width: #{tokens.$breakpoints-sm}) {
+/* stylelint-disable-next-line media-query-no-invalid */
+@media (width >= #{tokens.$breakpoints-sm}) {
   :root {
     --ids-dialog-header-padding: #{tokens.$space-4} #{tokens.$space-4} #{tokens.$space-2};
     --ids-dialog-close-margin: -#{tokens.$space-2} -#{tokens.$space-2} #{tokens.$space-0} #{tokens.$space-0};
@@ -73,7 +74,8 @@
 .ids-dialog__buttons {
   margin: var(--ids-dialog-buttons-margin);
 
-  @media (min-width: #{tokens.$breakpoints-sm}) {
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media (width >= #{tokens.$breakpoints-sm}) {
     align-items: center;
     display: flex;
     flex-wrap: nowrap;
@@ -84,7 +86,8 @@
 .ids-dialog__validate-btn {
   margin: var(--ids-dialog-button-margin);
 
-  @media (min-width: #{tokens.$breakpoints-sm}) {
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media (width >= #{tokens.$breakpoints-sm}) {
     flex: 1 1 auto;
   }
 }

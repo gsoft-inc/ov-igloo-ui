@@ -8,7 +8,7 @@
   --ids-helper-font-weight: #{tokens.$font-weight-regular};
   --ids-helper-line-height: #{tokens.$line-height-xxl};
   --ids-helper-text: #{tokens.$grey-600};
-  --ids-helper-text-icon-margin: 1px #{tokens.$space-1} 0 0;
+  --ids-helper-text-icon-margin: .1rem #{tokens.$space-1} 0 0;
 
   /* Error */
   --ids-helper-text-error: #{tokens.$coral-500};

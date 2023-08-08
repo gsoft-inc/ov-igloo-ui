@@ -34,7 +34,7 @@
 }
 
 .ids-tag-picker {
-  border: 1px solid var(--ids-tag-picker-border-color);
+  border: .1rem solid var(--ids-tag-picker-border-color);
   border-radius: var(--ids-tag-picker-border-radius);
   font-family: var(--ids-tag-picker-font-family);
   font-size: var(--ids-tag-picker-font-size);
@@ -48,16 +48,16 @@
   }
 
   &--error {
-    border: 1px solid var(--ids-tag-picker-border-color-error);
+    border: .1rem solid var(--ids-tag-picker-border-color-error);
   }
 
   &--focused {
-    border: 1px solid var(--ids-tag-picker-border-color-focus);
+    border: .1rem solid var(--ids-tag-picker-border-color-focus);
   }
 
   &--disabled {
     background: var(--ids-tag-picker-disabled);
-    border: 1px solid var(--ids-tag-picker-disabled);
+    border: .1rem solid var(--ids-tag-picker-disabled);
     cursor: not-allowed;
   }
 

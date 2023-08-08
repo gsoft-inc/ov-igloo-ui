@@ -47,10 +47,10 @@
 
     &--round {
       border-radius: 50%;
+    }
 
-      &:focus::after {
-        border-radius: 50%;
-      }
+    &--round:focus::after {
+      border-radius: 50%;
     }
   }
 
@@ -60,6 +60,7 @@
     }
 
     > span {
+      /* stylelint-disable-next-line unit-allowed-list */
       margin: -1px; // Since there is a 1px border for ids-btn
     }
   }

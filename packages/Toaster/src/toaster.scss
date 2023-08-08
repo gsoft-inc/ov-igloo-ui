@@ -1,8 +1,6 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-/* stylelint-disable custom-property-pattern, max-line-length  */
-
 :root {
   /* Default */
   --ids-toaster-font-family: #{tokens.$primary-font-family};
@@ -49,7 +47,7 @@
 
 @keyframes slide-in {
   from {
-    transform: translateY(var(--_travel-distance, -64px));
+    transform: translateY(var(--travel-distance, -6.4rem));
   }
   
   to {
@@ -63,7 +61,7 @@
   }
 
   to {
-    transform: translateY(var(--_travel-distance, -64px));
+    transform: translateY(var(--travel-distance, -6.4rem));
   }
 }
 
@@ -101,7 +99,7 @@
 }
 
 .ids-toast {
-  --_state: var(--ids-toaster-status-color);
+  --state: var(--ids-toaster-status-color);
 
   position: relative;
   pointer-events: auto;
@@ -133,11 +131,11 @@
     box-sizing: border-box;
     flex: 0 0 auto;
     min-width: var(--ids-toaster-status-icon-size);
-    color: var(--_state);
+    color: var(--state);
   }
 
   &--error {
-    --_state: var(--ids-toaster-status-color-error);
+    --state: var(--ids-toaster-status-color-error);
   }
 
   &[data-animation='entering'] {
@@ -161,9 +159,9 @@
   display: block;
   content: '';
   height: var(--ids-toaster-status-height);
-  background: var(--_state);
+  background: var(--state);
   animation-name: time;
-  animation-duration: var(--_duration, 4000ms);
+  animation-duration: var(--duration, 4s);
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
   
@@ -178,7 +176,7 @@
 
 
 
-@media (width >= 600px) {
+@media (width >= 60rem) {
   :root {
     --ids-toaster-font-size: #{tokens.$font-size-4};
     --ids-toaster-font-weight: #{tokens.$font-weight-bold};

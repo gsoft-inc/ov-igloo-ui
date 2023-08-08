@@ -17,7 +17,8 @@
   --ids-popover-title-padding: #{tokens.$space-5};
 }
 
-@media (min-width: #{tokens.$breakpoints-sm}) {
+/* stylelint-disable-next-line media-query-no-invalid */
+@media (width >= #{tokens.$breakpoints-sm}) {
   :root {
     --ids-popover-min-width: 3.2rem;
     --ids-popover-width: 100%;

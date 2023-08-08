@@ -6,4 +6,5 @@ dist
 coverage
 __snapshots__
 
-*.css
+*
+!**/*.css

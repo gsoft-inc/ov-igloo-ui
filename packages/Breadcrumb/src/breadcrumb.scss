@@ -12,7 +12,7 @@
 
   /* Link */
   --ids-breadcrumb-link-color: #{tokens.$grey-600};
-  --ids-breadcrumb-link-border: 1px solid #{tokens.$grey-600};
+  --ids-breadcrumb-link-border: .1rem solid #{tokens.$grey-600};
 
   /* Chevron */
   --ids-breadcrumb-chevron-color: #{tokens.$grey-800};
@@ -39,7 +39,7 @@
 
   .ids-breadcrumb__link {
     color: var(--ids-breadcrumb-link-color);
-    border-bottom: 1px solid transparent;
+    border-bottom: .1rem solid transparent;
     outline: none;
     text-decoration: none;
     transition: border 0.2s ease-out;

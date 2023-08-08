@@ -42,10 +42,10 @@
   padding: 0 var(--ids-select-padding);
   position: relative;
   background-color: var(--ids-select-background);
-  border: 1px solid var(--ids-select-border-color);
+  border: .1rem solid var(--ids-select-border-color);
   border-radius: var(--ids-select-border-radius);
   box-sizing: border-box;
-  transition: border-color 200ms ease 0s;
+  transition: border-color .2s ease 0s;
   cursor: pointer;
   user-select: none;
 

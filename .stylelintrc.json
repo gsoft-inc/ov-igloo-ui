@@ -1,17 +1,8 @@
 {
-  "extends": "stylelint-config-standard-scss",
+  "extends": "@workleap/stylelint-config",
   "ignoreFiles": ["**/dist/*.css", "website/**/*.scss"],
   "customSyntax": "postcss-scss",
-  "plugins": [
-    "stylelint-stylistic"
-  ],
   "rules": {
-    "selector-class-pattern": [
-      "^[a-zA-Z][a-zA-Z0-9-_]*$",
-      {
-        "message": "Selector class names must be lowercase alphanumeric with dashes and underscores"
-      }
-    ],
-    "stylistic/string-quotes": "single"
+    "at-rule-no-unknown": null
   }
 }

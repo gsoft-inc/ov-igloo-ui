@@ -86,7 +86,7 @@
 }
 
 .ids-tag-picker-result__loading-thumbnail {
-  animation: loading-pulse-light ease-in-out 1500ms infinite both;
+  animation: loading-pulse-light ease-in-out 1.5s infinite both;
   border-radius: var(--ids-tag-picker-loading-thumbnail-border-radius);
   flex: 0 0 auto;
   height: var(--ids-tag-picker-result-visual-size);
@@ -95,7 +95,7 @@
 }
 
 .ids-tag-picker-result__loading-text {
-  animation: loading-pulse-light ease-in-out 1500ms infinite both;
+  animation: loading-pulse-light ease-in-out 1.5s infinite both;
   border-radius: var(--ids-tag-picker-loading-text-border-radius);
   flex: 0 1 var(--ids-tag-picker-loading-text-width);
   height: var(--ids-tag-picker-loading-text-height);

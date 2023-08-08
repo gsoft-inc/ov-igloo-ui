@@ -2,7 +2,11 @@
 '@igloo-ui/action-menu': patch
 '@igloo-ui/alert': patch
 '@igloo-ui/area-chart': patch
+'@igloo-ui/breadcrumb': patch
 '@igloo-ui/button': patch
+'@igloo-ui/button-group': patch
+'@igloo-ui/card': patch
+'@igloo-ui/carousel': patch
 '@igloo-ui/checkbox': patch
 '@igloo-ui/combobox': patch
 '@igloo-ui/datepicker': patch
@@ -10,10 +14,13 @@
 '@igloo-ui/disclosure': patch
 '@igloo-ui/dropdown': patch
 '@igloo-ui/ellipsis': patch
+'@igloo-ui/filter': patch
+'@igloo-ui/helper-text': patch
 '@igloo-ui/hyperlink': patch
 '@igloo-ui/icon-button': patch
 '@igloo-ui/input': patch
 '@igloo-ui/list': patch
+'@igloo-ui/metric': patch
 '@igloo-ui/modal': patch
 '@igloo-ui/pager': patch
 '@igloo-ui/pie-chart': patch

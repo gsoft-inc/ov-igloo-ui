@@ -20,8 +20,8 @@
   --ids-checkbox-border: #{tokens.$grey-400};
   --ids-checkbox-border-hover: #{tokens.$grey-800};
   --ids-checkbox-border-checked: #{tokens.$electric-blue-500};
-  --ids-checkbox-check-width: 4px;
-  --ids-checkbox-check-height: 8px;
+  --ids-checkbox-check-width: .4rem;
+  --ids-checkbox-check-height: .8rem;
 
   /* Completion */
   --ids-checkbox-completion-size: #{tokens.$space-4};
@@ -38,7 +38,7 @@
 %check {
   width: var(--ids-checkbox-check-width);
   height: var(--ids-checkbox-check-height);
-  border: 2px solid currentcolor;
+  border: .2rem solid currentcolor;
   border-bottom: 0;
   border-left: 0;
   transform: scaleX(-0.9) rotate(135deg);
@@ -46,8 +46,8 @@
 }
 
 %indeterminate {
-  width: 6px;
-  border: 2px solid currentcolor;
+  width: .6rem;
+  border: .2rem solid currentcolor;
   border-top: 0;
   border-left: 0;
 }
@@ -78,12 +78,12 @@
   height: var(--ids-checkbox-size);
   width: var(--ids-checkbox-size);
   flex-shrink: 0;
-  margin: 2px 0 0;
+  margin: .2rem 0 0;
   display: inline-block;
   position: relative;
   cursor: pointer;
   color: var(--ids-checkbox-check);
-  border: 1px solid var(--ids-checkbox-border);
+  border: .1rem solid var(--ids-checkbox-border);
   border-radius: var(--ids-checkbox-radius);
   background: var(--ids-checkbox-background);
   box-sizing: content-box;
@@ -135,8 +135,8 @@
     @extend %check;
 
     display: block;
-    left: 2px;
-    top: 7px;
+    left: .2rem;
+    top: .7rem;
     animation: check-animation ease-out 0.25s 0.15s both;
   }
 
@@ -159,17 +159,17 @@
 
 .ids-checkbox--completion {
   position: absolute;
-  clip: rect(1px, 1px, 1px, 1px);
+  clip: rect(.1rem, .1rem, .1rem, .1rem);
   padding: 0;
   border: 0;
-  height: 1px;
-  width: 1px;
+  height: .1rem;
+  width: .1rem;
   overflow: hidden;
 }
 
 .ids-checkbox__box {
   background: var(--ids-checkbox-background);
-  border: 1px solid var(--ids-checkbox-border);
+  border: .1rem solid var(--ids-checkbox-border);
   border-radius: var(--ids-checkbox-completion-radius);
   box-sizing: border-box;
   color: var(--ids-checkbox-check);

@@ -1,541 +1,544 @@
-import * as React from 'react';
-import cx from 'classnames';
-import { DateTime, Settings } from 'luxon';
+import * as React from "react";
+import cx from "classnames";
+import { DateTime, Settings } from "luxon";
 import {
-  AreaChart as RechartsAreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  CartesianGrid,
-  XAxisProps,
-  YAxisProps,
-  DotProps,
-  ReferenceArea,
-  LabelProps,
-} from 'recharts';
-import { CurveType } from 'recharts/types/shape/Curve';
-import type { CartesianViewBox } from 'recharts/types/util/types';
+    AreaChart as RechartsAreaChart,
+    Area,
+    XAxis,
+    YAxis,
+    Tooltip,
+    ResponsiveContainer,
+    CartesianGrid,
+    type XAxisProps,
+    type YAxisProps,
+    type DotProps,
+    ReferenceArea,
+    type LabelProps
+} from "recharts";
+import type { CurveType } from "recharts/types/shape/Curve";
+import type { CartesianViewBox } from "recharts/types/util/types";
 
-import variables from '@igloo-ui/tokens/dist/base10/tokens.json';
+import variables from "@igloo-ui/tokens/dist/base10/tokens.json";
 
-import ChartTooltip from './ChartTooltip';
-import useDynamicYAxisWidth from './hooks/useDynamicYAxisWidth';
+import ChartTooltip from "./ChartTooltip";
+import useDynamicYAxisWidth from "./hooks/useDynamicYAxisWidth";
 import {
-  getNullSequenceRanges,
-  getFakeScore,
-  getUniqueKeys,
-} from './helper/unavailableData';
+    getNullSequenceRanges,
+    getFakeScore,
+    getUniqueKeys
+} from "./helper/unavailableData";
 
-import './area-chart.scss';
+import "./area-chart.scss";
 
 export interface DataSet {
-  /** Date/time in ISO format */
-  dateTimeStamp: string;
-  /** The score displayed on the y axis */
-  score: number | null;
-  /** The secondary score that is displayed inside the tooltip */
-  secondaryScore?: number;
-  /** The text displayed beside the score in the tooltip */
-  name?: string;
-  /** The text displayed beside the secondary score in the tooltip */
-  secondaryName?: string;
+    /** Date/time in ISO format */
+    dateTimeStamp: string;
+    /** The score displayed on the y axis */
+    score: number | null;
+    /** The secondary score that is displayed inside the tooltip */
+    secondaryScore?: number;
+    /** The text displayed beside the score in the tooltip */
+    name?: string;
+    /** The text displayed beside the secondary score in the tooltip */
+    secondaryName?: string;
 }
 
 interface AreaChartData {
-  /** Date/time displayed as a number */
-  dateTimeStamp: number;
-  /** The score displayed on the y axis */
-  score: number | null;
-  /** The secondary score that is displayed inside the tooltip */
-  secondaryScore?: number;
-  /** The text displayed beside the score in the tooltip */
-  name?: string;
-  /** The text displayed beside the secondary score in the tooltip */
-  secondaryName?: string;
+    /** Date/time displayed as a number */
+    dateTimeStamp: number;
+    /** The score displayed on the y axis */
+    score: number | null;
+    /** The secondary score that is displayed inside the tooltip */
+    secondaryScore?: number;
+    /** The text displayed beside the score in the tooltip */
+    name?: string;
+    /** The text displayed beside the secondary score in the tooltip */
+    secondaryName?: string;
 }
 interface EmptyLabelProps extends LabelProps {
-  message?: string;
+    message?: string;
 }
 
 interface DataRange {
-  /** The min value of the y axis score
+    /** The min value of the y axis score
    * (Possible values: number, 'auto', 'dataMin' or 'dataMax')
    */
-  min: number | string;
-  /** The min value of the y axis score
+    min: number | string;
+    /** The min value of the y axis score
    * (Possible values: number, 'auto', 'dataMin' or 'dataMax')
    */
-  max: number | string;
+    max: number | string;
 }
 
 interface DateTimeRange {
-  /** Start date/time in ISO format */
-  start: string;
-  /** End date/time in ISO format */
-  end: string;
+    /** Start date/time in ISO format */
+    start: string;
+    /** End date/time in ISO format */
+    end: string;
 }
 
-export interface AreaChartProps extends React.ComponentProps<'div'> {
-  /** Add a specific class to the area chart component */
-  className?: string;
-  /** The data object that will be used for the area chart */
-  dataSet: DataSet[];
-  /** Add a data-test tag for automated tests */
-  dataTest?: string;
-  /** The start date and end date for the x axis */
-  dateRange: DateTimeRange;
-  /** Whether or not the chart should resize */
-  isResponsive?: boolean;
-  /** Update the default locale */
-  locale?: string;
-  /** The min and max value of the y-axis
+export interface AreaChartProps extends React.ComponentProps<"div"> {
+    /** Add a specific class to the area chart component */
+    className?: string;
+    /** The data object that will be used for the area chart */
+    dataSet: DataSet[];
+    /** Add a data-test tag for automated tests */
+    dataTest?: string;
+    /** The start date and end date for the x axis */
+    dateRange: DateTimeRange;
+    /** Whether or not the chart should resize */
+    isResponsive?: boolean;
+    /** Update the default locale */
+    locale?: string;
+    /** The min and max value of the y-axis
    * (Possible values: number, 'auto', 'dataMin' or 'dataMax')
    */
-  range?: DataRange;
-  /** The maximum elements of the x-axis */
-  xAxisTickCount?: number;
-  /** The formatter function for the y-axis */
-  scoreFormatter?: (score: number) => string;
-  /** The formatter function for the score on the tooltip */
-  tooltipScoreFormatter?: (score: number) => string;
-  /** The message that is displayed when data is unavailable */
-  unavailableDataMessage?: string;
-  /** Whether or not to show the colored area below the line */
-  withColoredArea?: boolean;
-  /** Replaces AreaChart label with a skeleton */
-  loading?: boolean;
+    range?: DataRange;
+    /** The maximum elements of the x-axis */
+    xAxisTickCount?: number;
+    /** The formatter function for the y-axis */
+    scoreFormatter?: (score: number) => string;
+    /** The formatter function for the score on the tooltip */
+    tooltipScoreFormatter?: (score: number) => string;
+    /** The message that is displayed when data is unavailable */
+    unavailableDataMessage?: string;
+    /** Whether or not to show the colored area below the line */
+    withColoredArea?: boolean;
+    /** Replaces AreaChart label with a skeleton */
+    loading?: boolean;
 }
 
 const AreaChart: React.FunctionComponent<AreaChartProps> = ({
-  className,
-  dataSet,
-  dataTest,
-  dateRange,
-  loading = false,
-  isResponsive = true,
-  locale = 'en',
-  range = { max: 'auto', min: 0 },
-  xAxisTickCount = 7,
-  scoreFormatter,
-  tooltipScoreFormatter,
-  unavailableDataMessage,
-  withColoredArea = true,
-}: AreaChartProps) => {
-  const DEFAULT_SKELETON_WIDTH = 24;
-  const DEFAULT_SKELETON_HEIGHT = 8;
-
-  Settings.defaultLocale = locale;
-
-  const SkeletonAxisTick = ({
-    x,
-    y,
     className,
-    payload,
-    skeletonWidth = DEFAULT_SKELETON_WIDTH,
-    skeletonHeight = DEFAULT_SKELETON_HEIGHT,
-    orientation,
-  }: {
-    x?: number;
-    y?: number;
-    className?: string;
-    payload?: { offset: number };
-    skeletonWidth?: number;
-    skeletonHeight?: number;
-    orientation?: string;
-  }): React.ReactElement => {
-    let positionX;
-    let positionY;
+    dataSet,
+    dataTest,
+    dateRange,
+    loading = false,
+    isResponsive = true,
+    locale = "en",
+    range = { max: "auto", min: 0 },
+    xAxisTickCount = 7,
+    scoreFormatter,
+    tooltipScoreFormatter,
+    unavailableDataMessage,
+    withColoredArea = true
+}: AreaChartProps) => {
+    const DEFAULT_SKELETON_WIDTH = 24;
+    const DEFAULT_SKELETON_HEIGHT = 8;
 
-    if (x && y && payload) {
-      const positionBottomCenter = x - skeletonWidth / 2 + payload.offset / 2;
-      const positionLeft = x - skeletonWidth;
+    Settings.defaultLocale = locale;
 
-      positionX =
-        orientation === 'bottom' ? positionBottomCenter : positionLeft;
-      positionY = y - skeletonHeight / 2 + payload.offset / 2;
-    }
+    const SkeletonAxisTick = ({
+        x,
+        y,
+        className,
+        payload,
+        skeletonWidth = DEFAULT_SKELETON_WIDTH,
+        skeletonHeight = DEFAULT_SKELETON_HEIGHT,
+        orientation
+    }: {
+        x?: number;
+        y?: number;
+        className?: string;
+        payload?: { offset: number };
+        skeletonWidth?: number;
+        skeletonHeight?: number;
+        orientation?: string;
+    }): React.ReactElement => {
+        let positionX;
+        let positionY;
 
-    return (
-      <g>
-        <rect
-          x={positionX}
-          y={positionY}
-          className={cx('ids-area-chart-skeleton-animation', className)}
-          width={skeletonWidth}
-          height={skeletonHeight}
-          rx="4"
-        />
-      </g>
-    );
-  };
+        if (x && y && payload) {
+            const positionBottomCenter = x - skeletonWidth / 2 + payload.offset / 2;
+            const positionLeft = x - skeletonWidth;
 
-  const classes = cx('ids-area-chart', className);
+            positionX =
+        orientation === "bottom" ? positionBottomCenter : positionLeft;
+            positionY = y - skeletonHeight / 2 + payload.offset / 2;
+        }
 
-  const startDate = DateTime.fromISO(dateRange.start, { zone: 'utc' })
-    .endOf('day')
-    .toUTC();
-  const endDate = DateTime.fromISO(dateRange.end, { zone: 'utc' })
-    .endOf('day')
-    .toUTC();
+        return (
+            <g>
+                <rect
+                    x={positionX}
+                    y={positionY}
+                    className={cx("ids-area-chart-skeleton-animation", className)}
+                    width={skeletonWidth}
+                    height={skeletonHeight}
+                    rx="4"
+                />
+            </g>
+        );
+    };
 
-  const [areaChartData, setAreaChartData] = React.useState<AreaChartData[]>();
+    const classes = cx("ids-area-chart", className);
 
-  const formatSpecialMonth = (date: DateTime): string => {
-    if (date.locale !== 'en') {
-      return date.toLocaleString({
-        month: 'short',
-        day: 'numeric',
-        timeZone: 'utc',
-      });
-    }
+    const startDate = DateTime.fromISO(dateRange.start, { zone: "utc" })
+        .endOf("day")
+        .toUTC();
+    const endDate = DateTime.fromISO(dateRange.end, { zone: "utc" })
+        .endOf("day")
+        .toUTC();
 
-    const utcDate = date.toUTC();
-    const { month } = utcDate;
-    let monthString = '';
-    switch (month) {
-      case 5:
-        monthString = 'May';
-        break;
-      case 6:
-        monthString = 'June';
-        break;
-      case 7:
-        monthString = 'July';
-        break;
-      case 9:
-        monthString = 'Sept.';
-        break;
-      default:
-        monthString = date.toFormat('MMM.');
-    }
-    return `${monthString} ${utcDate.day}`;
-  };
+    const [areaChartData, setAreaChartData] = React.useState<AreaChartData[]>();
 
-  const dateFormatter = (date: number): string => {
-    const newDatefromMillis = DateTime.fromMillis(date);
-    return formatSpecialMonth(newDatefromMillis);
-  };
+    const formatSpecialMonth = (date: DateTime): string => {
+        if (date.locale !== "en") {
+            return date.toLocaleString({
+                month: "short",
+                day: "numeric",
+                timeZone: "utc"
+            });
+        }
 
-  const tooltipDateFormatter = (date: number): string => {
-    return DateTime.fromMillis(date).toLocaleString({
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      timeZone: 'utc',
+        const utcDate = date.toUTC();
+        const { month } = utcDate;
+        let monthString = "";
+        switch (month) {
+            case 5:
+                monthString = "May";
+                break;
+            case 6:
+                monthString = "June";
+                break;
+            case 7:
+                monthString = "July";
+                break;
+            case 9:
+                monthString = "Sept.";
+                break;
+            default:
+                monthString = date.toFormat("MMM.");
+        }
+
+        return `${monthString} ${utcDate.day}`;
+    };
+
+    const dateFormatter = (date: number): string => {
+        const newDatefromMillis = DateTime.fromMillis(date);
+
+        return formatSpecialMonth(newDatefromMillis);
+    };
+
+    const tooltipDateFormatter = (date: number): string => {
+        return DateTime.fromMillis(date).toLocaleString({
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            timeZone: "utc"
+        });
+    };
+
+    const getNumberOfTicks = (linePoints: number, maxTicks: number): number => {
+        let bestTick = 0;
+        let bestScore = 0;
+
+        for (let i = maxTicks; i > 2; i -= 1) {
+            const score = ((linePoints - i) / (i - 1)) % 1;
+            if (score === 0) {
+                bestTick = i;
+                break;
+            }
+
+            if (!bestScore || score > bestScore) {
+                bestTick = i;
+                bestScore = score;
+            }
+        }
+
+        return bestTick;
+    };
+
+    const getTicks = (): number[] => {
+        const numberOfDays = endDate.diff(startDate, ["days"]).days + 1;
+        const numberOfTicks = getNumberOfTicks(numberOfDays, xAxisTickCount);
+        const ticksArr = [];
+        const daysBetween = Math.ceil(numberOfDays / numberOfTicks);
+        let currentDate = endDate;
+
+        ticksArr.push(endDate.valueOf());
+        for (let i = numberOfTicks; i > 0; i -= 1) {
+            currentDate = currentDate.minus({ days: daysBetween });
+            if (currentDate.valueOf() <= startDate.valueOf()) {
+                break;
+            }
+            ticksArr.push(currentDate.valueOf());
+        }
+
+        ticksArr.push(startDate.valueOf());
+
+        return ticksArr;
+    };
+
+    const geYtTicks = (): number[] => {
+        let ticks: number[] = [];
+        if (
+            range &&
+      typeof range.min === "number" &&
+      typeof range.max === "number"
+        ) {
+            ticks = Array.from(
+                { length: range.max + 1 },
+                (_, i) => i + (range.min as number)
+            );
+        } else {
+            ticks = [1, 2, 3, 4, 5];
+        }
+
+        return ticks;
+    };
+
+    const { yAxisWidth, setChartRef } = useDynamicYAxisWidth({
+        yAxisWidthModifier: x => x + 20,
+        loading,
+        areaChartData
     });
-  };
 
-  const getNumberOfTicks = (linePoints: number, maxTicks: number): number => {
-    let bestTick = 0;
-    let bestScore = 0;
+    const cartesianGridConfig = {
+        stroke: variables.grey200,
+        strokeOpacity: 1,
+        vertical: false
+    };
 
-    for (let i = maxTicks; i > 2; i -= 1) {
-      const score = ((linePoints - i) / (i - 1)) % 1;
-      if (score === 0) {
-        bestTick = i;
-        break;
-      }
+    const tickStyle = {
+        fill: variables.grey600,
+        fontSize: variables.fontSize2,
+        fillOpacity: 1
+    };
 
-      if (!bestScore || score > bestScore) {
-        bestTick = i;
-        bestScore = score;
-      }
+    const xAxisConfig: XAxisProps = {
+        dataKey: "dateTimeStamp",
+        scale: "time",
+        tickFormatter: dateFormatter,
+        type: "number",
+        domain: [startDate.valueOf(), endDate.valueOf()],
+        interval: "preserveStartEnd",
+        ticks: getTicks(),
+        tick: tickStyle,
+        tickLine: false,
+        minTickGap: 20,
+        tickMargin: 10,
+        allowDataOverflow: true,
+        axisLine: {
+            stroke: variables.grey400
+        }
+    };
+
+    const yAxisConfig: YAxisProps = {
+        allowDecimals: true,
+        type: "number",
+        tickFormatter: scoreFormatter,
+        tickLine: false,
+        tickMargin: 10,
+        tick: tickStyle,
+        domain: [range.min, range.max],
+        axisLine: {
+            stroke: variables.grey400
+        },
+        width: yAxisWidth
+    };
+
+    if (!dataSet.length) {
+        yAxisConfig.ticks = geYtTicks();
     }
 
-    return bestTick;
-  };
-
-  const getTicks = (): number[] => {
-    const numberOfDays = endDate.diff(startDate, ['days']).days + 1;
-    const numberOfTicks = getNumberOfTicks(numberOfDays, xAxisTickCount);
-    const ticksArr = [];
-    const daysBetween = Math.ceil(numberOfDays / numberOfTicks);
-    let currentDate = endDate;
-
-    ticksArr.push(endDate.valueOf());
-    for (let i = numberOfTicks; i > 0; i -= 1) {
-      currentDate = currentDate.minus({ days: daysBetween });
-      if (currentDate.valueOf() <= startDate.valueOf()) {
-        break;
-      }
-      ticksArr.push(currentDate.valueOf());
+    if (loading) {
+        yAxisConfig.ticks = geYtTicks();
+        yAxisConfig.tick = <SkeletonAxisTick />;
+        xAxisConfig.tick = <SkeletonAxisTick skeletonWidth={32} />;
     }
 
-    ticksArr.push(startDate.valueOf());
+    const dotConfig: DotProps = {
+        r: 4,
+        strokeWidth: 1,
+        stroke: "#FFF",
+        fill: variables.electricBlue500
+    };
 
-    return ticksArr;
-  };
+    const commonAreaConfig = {
+        type: "monotone" as CurveType,
+        strokeWidth: 3,
+        fill: withColoredArea ? "url(#curveAreaFillGradient)" : "none",
+        fillOpacity: 1
+    };
 
-  const geYtTicks = (): number[] => {
-    let ticks: number[] = [];
-    if (
-      range &&
-      typeof range.min === 'number' &&
-      typeof range.max === 'number'
-    ) {
-      ticks = Array.from(
-        { length: range.max + 1 },
-        (_, i) => i + (range.min as number),
-      );
-    } else {
-      ticks = [1, 2, 3, 4, 5];
-    }
+    const areaConfig = {
+        ...commonAreaConfig,
+        dataKey: "score",
+        connectNulls: false,
+        stroke: variables.electricBlue500,
+        activeDot: {
+            ...dotConfig
+        }
+    };
 
-    return ticks;
-  };
+    const unavailableDataConfig = {
+        ...commonAreaConfig,
+        dataKey: "score",
+        connectNulls: true,
+        stroke: variables.grey400,
+        strokeWidth: "3",
+        strokeDasharray: "1,9",
+        activeDot: false
+    };
 
-  const { yAxisWidth, setChartRef } = useDynamicYAxisWidth({
-    yAxisWidthModifier: (x) => x + 20,
-    loading,
-    areaChartData,
-  });
+    const onlyUnavailableDataConfig = {
+        type: "basis",
+        stroke: "none",
+        fill: "none"
+    };
 
-  const cartesianGridConfig = {
-    stroke: variables.grey200,
-    strokeOpacity: 1,
-    vertical: false,
-  };
+    const buildAreaDefs = (): JSX.Element => {
+        return (
+            <defs>
+                <linearGradient id="curveAreaFillGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop stopColor={variables.electricBlue50} />
+                    <stop offset="78%" stopColor="#EDF6FF" />
+                    <stop offset="96%" stopColor={variables.samoyed} />
+                </linearGradient>
+            </defs>
+        );
+    };
 
-  const tickStyle = {
-    fill: variables.grey600,
-    fontSize: variables.fontSize2,
-    fillOpacity: 1,
-  };
+    React.useEffect(() => {
+        let updatedAreaChartData = [];
 
-  const xAxisConfig: XAxisProps = {
-    dataKey: 'dateTimeStamp',
-    scale: 'time',
-    tickFormatter: dateFormatter,
-    type: 'number',
-    domain: [startDate.valueOf(), endDate.valueOf()],
-    interval: 'preserveStartEnd',
-    ticks: getTicks(),
-    tick: tickStyle,
-    tickLine: false,
-    minTickGap: 20,
-    tickMargin: 10,
-    allowDataOverflow: true,
-    axisLine: {
-      stroke: variables.grey400,
-    },
-  };
+        if (dataSet.length) {
+            const sequenceRanges = getNullSequenceRanges(dataSet);
+            const dataWithFakeScore = getFakeScore(dataSet, sequenceRanges);
 
-  const yAxisConfig: YAxisProps = {
-    allowDecimals: true,
-    type: 'number',
-    tickFormatter: scoreFormatter,
-    tickLine: false,
-    tickMargin: 10,
-    tick: tickStyle,
-    domain: [range.min, range.max],
-    axisLine: {
-      stroke: variables.grey400,
-    },
-    width: yAxisWidth,
-  };
+            updatedAreaChartData = dataWithFakeScore.map((dataSet: DataSet) => {
+                const currentScore: number | null = dataSet.score;
 
-  if (!dataSet.length) {
-    yAxisConfig.ticks = geYtTicks();
-  }
+                return {
+                    ...dataSet,
+                    dateTimeStamp: DateTime.fromISO(dataSet.dateTimeStamp)
+                        .toUTC()
+                        .endOf("day")
+                        .valueOf(),
+                    score: currentScore
+                };
+            });
+        } else {
+            const dates = getTicks();
+            updatedAreaChartData = dates
+                .map(date => {
+                    return {
+                        dateTimeStamp: date,
+                        score: 0
+                    };
+                })
+                .reverse();
+        }
 
-  if (loading) {
-    yAxisConfig.ticks = geYtTicks();
-    yAxisConfig.tick = <SkeletonAxisTick />;
-    xAxisConfig.tick = <SkeletonAxisTick skeletonWidth={32} />;
-  }
-
-  const dotConfig: DotProps = {
-    r: 4,
-    strokeWidth: 1,
-    stroke: '#FFF',
-    fill: variables.electricBlue500,
-  };
-
-  const commonAreaConfig = {
-    type: 'monotone' as CurveType,
-    strokeWidth: 3,
-    fill: withColoredArea ? 'url(#curveAreaFillGradient)' : 'none',
-    fillOpacity: 1,
-  };
-
-  const areaConfig = {
-    ...commonAreaConfig,
-    dataKey: 'score',
-    connectNulls: false,
-    stroke: variables.electricBlue500,
-    activeDot: {
-      ...dotConfig,
-    },
-  };
-
-  const unavailableDataConfig = {
-    ...commonAreaConfig,
-    dataKey: 'score',
-    connectNulls: true,
-    stroke: variables.grey400,
-    strokeWidth: '3',
-    strokeDasharray: '1,9',
-    activeDot: false,
-  };
-
-  const onlyUnavailableDataConfig = {
-    type: 'basis',
-    stroke: 'none',
-    fill: 'none',
-  };
-
-  const buildAreaDefs = (): JSX.Element => {
-    return (
-      <defs>
-        <linearGradient id="curveAreaFillGradient" x1="0" y1="0" x2="0" y2="1">
-          <stop stopColor={variables.electricBlue50} />
-          <stop offset="78%" stopColor="#EDF6FF" />
-          <stop offset="96%" stopColor={variables.samoyed} />
-        </linearGradient>
-      </defs>
-    );
-  };
-
-  React.useEffect(() => {
-    let updatedAreaChartData = [];
-
-    if (dataSet.length) {
-      const sequenceRanges = getNullSequenceRanges(dataSet);
-      const dataWithFakeScore = getFakeScore(dataSet, sequenceRanges);
-
-      updatedAreaChartData = dataWithFakeScore.map((dataSet: DataSet) => {
-        const currentScore: number | null = dataSet.score;
-
-        return {
-          ...dataSet,
-          dateTimeStamp: DateTime.fromISO(dataSet.dateTimeStamp)
-            .toUTC()
-            .endOf('day')
-            .valueOf(),
-          score: currentScore,
-        };
-      });
-    } else {
-      const dates = getTicks();
-      updatedAreaChartData = dates
-        .map((date) => {
-          return {
-            dateTimeStamp: date,
-            score: 0,
-          };
-        })
-        .reverse();
-    }
-
-    setAreaChartData(updatedAreaChartData);
+        setAreaChartData(updatedAreaChartData);
     // If getTicks() is added to dependency array, it creates an infinite loop
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dataSet]);
+    }, [dataSet]);
 
-  const uniqueKeysOfNulls = getUniqueKeys(dataSet);
-  const renderAreaForNulls = dataSet.find((data) => data.score === null);
+    const uniqueKeysOfNulls = getUniqueKeys(dataSet);
+    const renderAreaForNulls = dataSet.find(data => data.score === null);
 
-  const areaForNulls = uniqueKeysOfNulls.map((key) => {
-    return (
-      <>
-        <Area
-          {...unavailableDataConfig}
-          strokeLinecap="round"
-          dataKey={`render.${key}`}
-          fill="none"
-        />
-      </>
+    const areaForNulls = uniqueKeysOfNulls.map(key => {
+        return (
+            <>
+                <Area
+                    {...unavailableDataConfig}
+                    strokeLinecap="round"
+                    dataKey={`render.${key}`}
+                    fill="none"
+                />
+            </>
+        );
+    });
+
+    const buildArea = (): JSX.Element => {
+        if (renderAreaForNulls) {
+            return (
+                <>
+                    <Area
+                        {...areaConfig}
+                        style={{ transform: "translateY(1px)" }}
+                        stroke="transparent"
+                        connectNulls
+                        dataKey="render.uiScoreBackground"
+                    />
+                    <Area {...areaConfig} dataKey="score" fill="none" />
+                    {areaForNulls}
+                </>
+            );
+        }
+
+        return <Area {...areaConfig} />;
+    };
+
+    const CustomEmptyLabel = (props: EmptyLabelProps): JSX.Element | null => {
+        const { message, viewBox } = props;
+        const { x, y, width, height } = viewBox as CartesianViewBox;
+        if (!message) {
+            return null;
+        }
+
+        return (
+            <foreignObject x={x} y={y} width={width} height={height}>
+                <div className="ids-area-chart__empty-label">
+                    <div className="ids-area-chart__empty-label-text">{message}</div>
+                </div>
+            </foreignObject>
+        );
+    };
+
+    const areaChart = (
+        <RechartsAreaChart
+            data={areaChartData}
+            margin={{ right: 26, top: 10, bottom: 10, left: 0 }}
+            ref={setChartRef}
+        >
+            {withColoredArea && buildAreaDefs()}
+            <CartesianGrid {...cartesianGridConfig} />
+            <XAxis {...xAxisConfig} />
+            <YAxis {...yAxisConfig} />
+            {dataSet.length && !loading ? (
+                buildArea()
+            ) : (
+                <>
+                    <ReferenceArea
+                        x1={startDate.valueOf()}
+                        x2={endDate.valueOf()}
+                        {...onlyUnavailableDataConfig}
+                        label={<CustomEmptyLabel message={unavailableDataMessage} />}
+                    />
+                </>
+            )}
+            {dataSet.length ? (
+                <Tooltip
+                    filterNull={false}
+                    cursor={false}
+                    content={
+                        <ChartTooltip
+                            dateFormatter={tooltipDateFormatter}
+                            scoreFormatter={tooltipScoreFormatter}
+                            unavailableDataMessage={unavailableDataMessage}
+                        />
+                    }
+                />
+            ) : (
+                ""
+            )}
+        </RechartsAreaChart>
     );
-  });
-
-  const buildArea = (): JSX.Element => {
-    if (renderAreaForNulls) {
-      return (
-        <>
-          <Area
-            {...areaConfig}
-            style={{ transform: 'translateY(1px)' }}
-            stroke="transparent"
-            connectNulls
-            dataKey="render.uiScoreBackground"
-          />
-          <Area {...areaConfig} dataKey="score" fill="none" />
-          {areaForNulls}
-        </>
-      );
-    }
-    return <Area {...areaConfig} />;
-  };
-
-  const CustomEmptyLabel = (props: EmptyLabelProps): JSX.Element | null => {
-    const { message, viewBox } = props;
-    const { x, y, width, height } = viewBox as CartesianViewBox;
-    if (!message) {
-      return null;
-    }
 
     return (
-      <foreignObject x={x} y={y} width={width} height={height}>
-        <div className="ids-area-chart__empty-label">
-          <div className="ids-area-chart__empty-label-text">{message}</div>
+        <div className={classes} data-test={dataTest}>
+            {isResponsive ? (
+                <ResponsiveContainer width="100%" height={220}>
+                    {areaChart}
+                </ResponsiveContainer>
+            ) : (
+                areaChart
+            )}
         </div>
-      </foreignObject>
     );
-  };
-
-  const areaChart = (
-    <RechartsAreaChart
-      data={areaChartData}
-      margin={{ right: 26, top: 10, bottom: 10, left: 0 }}
-      ref={setChartRef}
-    >
-      {withColoredArea && buildAreaDefs()}
-      <CartesianGrid {...cartesianGridConfig} />
-      <XAxis {...xAxisConfig} />
-      <YAxis {...yAxisConfig} />
-      {dataSet.length && !loading ? (
-        buildArea()
-      ) : (
-        <>
-          <ReferenceArea
-            x1={startDate.valueOf()}
-            x2={endDate.valueOf()}
-            {...onlyUnavailableDataConfig}
-            label={<CustomEmptyLabel message={unavailableDataMessage} />}
-          />
-        </>
-      )}
-      {dataSet.length ? (
-        <Tooltip
-          filterNull={false}
-          cursor={false}
-          content={
-            <ChartTooltip
-              dateFormatter={tooltipDateFormatter}
-              scoreFormatter={tooltipScoreFormatter}
-              unavailableDataMessage={unavailableDataMessage}
-            />
-          }
-        />
-      ) : (
-        ''
-      )}
-    </RechartsAreaChart>
-  );
-
-  return (
-    <div className={classes} data-test={dataTest}>
-      {isResponsive ? (
-        <ResponsiveContainer width="100%" height={220}>
-          {areaChart}
-        </ResponsiveContainer>
-      ) : (
-        areaChart
-      )}
-    </div>
-  );
 };
 
 export default AreaChart;

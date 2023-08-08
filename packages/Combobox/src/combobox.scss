@@ -38,7 +38,7 @@
 
 .ids-combobox {
   background: var(--ids-combobox-background);
-  border: 1px solid var(--ids-combobox-border-color);
+  border: .1rem solid var(--ids-combobox-border-color);
   border-radius: var(--ids-combobox-border-radius);
   cursor: pointer;
   font-size: var(--ids-combobox-font-size);
@@ -48,7 +48,7 @@
   padding: 0 var(--ids-combobox-padding);
   position: relative;
   box-sizing: border-box;
-  transition: border-color 200ms ease 0s;
+  transition: border-color .2s ease 0s;
   user-select: none;
 
   &,

@@ -54,12 +54,12 @@
   height: var(--ids-radio-size);
   width: var(--ids-radio-size);
   flex-shrink: 0;
-  margin: 2px 0 0;
+  margin: .2rem 0 0;
   display: inline-block;
   position: relative;
   cursor: pointer;
   color: var(--ids-radio-check);
-  border: 1px solid var(--ids-radio-border);
+  border: .1rem solid var(--ids-radio-border);
   border-radius: 50%;
   background: var(--ids-radio-background);
   box-sizing: border-box;
