@@ -1,7 +1,6 @@
 {
   "name": "@igloo-ui/monorepo",
   "private": true,
-  "type": "module",
   "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
   "author": "Officevibe Inc.",
   "contributors": [
