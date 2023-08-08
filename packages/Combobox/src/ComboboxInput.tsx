@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import cx from 'classnames';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { VisualIdentifier } from '@shared/components';
 import ChevronUp from '@igloo-ui/icons/dist/TableChevronSelectedUp';
 import ChevronDown from '@igloo-ui/icons/dist/TableChevronSelectedDown';
 import IconButton from '@igloo-ui/icon-button';
@@ -9,8 +11,6 @@ import Close from '@igloo-ui/icons/dist/Close';
 import Search from '@igloo-ui/icons/dist/Search';
 import Tooltip from '@igloo-ui/tooltip';
 import Input from '@igloo-ui/input';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { VisualIdentifier } from '@shared/components';
 
 import './combobox-input.scss';
 

@@ -90,7 +90,7 @@
     flex: 0 0 auto;
     margin: -1rem -1rem 0 0;
 
-    @media screen and (max-width: 600px) {
+    @media screen and (width <= 600px) {
       &.ids-btn {
         display: none;
       }
@@ -149,12 +149,12 @@
     + .ids-alert__body {
       margin-left: var(--ids-alert-flex-gap-component);
 
-      @media screen and (max-width: 600px) {
+      @media screen and (width <= 600px) {
         margin-left: 0;
       }
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (width <= 600px) {
       display: none;
     }
 

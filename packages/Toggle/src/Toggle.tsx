@@ -31,7 +31,7 @@ const Toggle: React.FunctionComponent<ToggleProps> = ({
   ...rest
 }: ToggleProps) => {
   const handleStopPropagation = (
-    event: React.MouseEvent<HTMLInputElement>
+    event: React.MouseEvent<HTMLInputElement>,
   ): void => {
     event.stopPropagation();
   };

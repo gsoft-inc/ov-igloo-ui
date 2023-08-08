@@ -83,7 +83,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
     React.useState(selectedOption);
   const [showMenu, setShowMenu] = React.useState(isOpen);
   const [results, setResults] = React.useState<OptionType[]>(
-    selectOptions || []
+    selectOptions || [],
   );
 
   const optionText = (option: OptionType | undefined): string | undefined => {
@@ -109,7 +109,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
 
       setTimeout(
         () => setResults(selectOptions || []),
-        DROPDOWN_ANIMATION_DURATION
+        DROPDOWN_ANIMATION_DURATION,
       );
     } else if (currentFocusedOption !== currentSelectedOption) {
       // This happens when the user doesn't select an option by keyboard.
@@ -141,7 +141,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
 
   const focusOption = (direction: FocusDirection = 'first'): void => {
     const options = results.filter(
-      (option) => isOptionDisabled(option) !== true
+      (option) => isOptionDisabled(option) !== true,
     );
     if (!options.length) return;
 
@@ -159,12 +159,12 @@ const Select: React.FunctionComponent<SelectProps> = ({
             currentFocusedIndex > 0
               ? currentFocusedIndex - 1
               : options.length - 1
-          ]
+          ],
         );
         break;
       case 'down':
         setCurrentFocusedOption(
-          options[(currentFocusedIndex + 1) % options.length]
+          options[(currentFocusedIndex + 1) % options.length],
         );
         break;
       case 'last':
@@ -181,7 +181,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
   };
 
   const handleOnKeyDown = (
-    keyboardEvent: React.KeyboardEvent<HTMLDivElement>
+    keyboardEvent: React.KeyboardEvent<HTMLDivElement>,
   ): void => {
     const { target } = keyboardEvent;
     switch (keyboardEvent.key) {
@@ -254,7 +254,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
     `${className}__dropdown`,
     {
       'ids-select__dropdown--compact': isCompact,
-    }
+    },
   );
 
   return (

@@ -27,7 +27,7 @@ const Toast: React.FunctionComponent<ToastProps<ToastArgs>> = ({
   const { toastProps, titleProps, closeButtonProps } = useToast(
     { toast },
     state,
-    toastRef
+    toastRef,
   );
 
   delete closeButtonProps.onPress;

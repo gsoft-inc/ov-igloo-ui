@@ -38,7 +38,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.forwardRef(
       disabled,
       ...rest
     }: RadioProps,
-    ref: React.Ref<HTMLInputElement>
+    ref: React.Ref<HTMLInputElement>,
   ) => {
     const classes = cx('ids-radio', className, {
       'ids-radio--small': small,
@@ -71,7 +71,7 @@ const Radio: React.FunctionComponent<RadioProps> = React.forwardRef(
         )}
       </span>
     );
-  }
+  },
 );
 
 export default Radio;

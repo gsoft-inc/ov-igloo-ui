@@ -53,7 +53,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
       value,
       ...rest
     }: TextareaProps,
-    ref: React.Ref<HTMLTextAreaElement | null>
+    ref: React.Ref<HTMLTextAreaElement | null>,
   ) => {
     const textareaRef = React.useRef<HTMLTextAreaElement | null>(null);
     const mergedTextareaRef = mergeRefs(textareaRef, ref);
@@ -74,7 +74,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
     });
 
     const handleOnChange = (
-      event: React.ChangeEvent<HTMLTextAreaElement>
+      event: React.ChangeEvent<HTMLTextAreaElement>,
     ): void => {
       const newValue = truncateValue(event.target.value, maxLength);
       setCurrentValue(newValue);
@@ -84,7 +84,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
     };
 
     const handleKeyDown = (
-      e: React.KeyboardEvent<HTMLTextAreaElement>
+      e: React.KeyboardEvent<HTMLTextAreaElement>,
     ): void => {
       if (e.key === 'Enter') {
         e.stopPropagation();
@@ -133,7 +133,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
         )}
       </div>
     );
-  }
+  },
 );
 
 export default Textarea;

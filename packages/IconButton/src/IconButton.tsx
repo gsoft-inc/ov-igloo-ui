@@ -42,7 +42,7 @@ const IconButton: React.FunctionComponent<IconButtonProps> = React.forwardRef<
       dataTest,
       ...rest
     }: IconButtonProps,
-    ref
+    ref,
   ) => {
     const classes = cx('ids-icon-btn', `ids-icon-btn--${size}`, className, {
       'ids-icon-btn--round': rounded,
@@ -60,7 +60,7 @@ const IconButton: React.FunctionComponent<IconButtonProps> = React.forwardRef<
         {icon}
       </Button>
     );
-  }
+  },
 );
 
 export default IconButton;

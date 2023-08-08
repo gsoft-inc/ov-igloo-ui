@@ -116,7 +116,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
   const [tagRemoved, setTagRemoved] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [keyboardFocusIndex, setKeyboardFocusIndex] = useState(
-    defaultKeyboardFocusIndex
+    defaultKeyboardFocusIndex,
   );
   const selectedResultsCount = selectedResults.length;
 
@@ -375,7 +375,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     {
       'ids-tag-picker--has-selected': selectedResults.length > 0,
     },
-    { 'ids-tag-picker--error': error }
+    { 'ids-tag-picker--error': error },
   );
 
   const tagPickerElem = (

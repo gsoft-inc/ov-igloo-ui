@@ -42,7 +42,7 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
       indeterminate = false,
       ...rest
     }: CheckboxProps,
-    ref: React.Ref<HTMLInputElement | null>
+    ref: React.Ref<HTMLInputElement | null>,
   ) => {
     const [status, setStatus] = React.useState(checked);
 
@@ -60,7 +60,7 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
     }, [indeterminate]);
 
     const handleOnChange = (
-      event: React.ChangeEvent<HTMLInputElement>
+      event: React.ChangeEvent<HTMLInputElement>,
     ): void => {
       if (onChange) {
         onChange(event);
@@ -111,6 +111,6 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
         )}
       </span>
     );
-  }
+  },
 );
 export default Checkbox;

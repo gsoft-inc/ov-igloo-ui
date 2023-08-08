@@ -60,7 +60,7 @@ const useActiveToastContainer = (): unknown => {
   return useSyncExternalStore(
     subscribe,
     getActiveToastContainer,
-    getActiveToastContainer
+    getActiveToastContainer,
   );
 };
 
@@ -68,12 +68,12 @@ const addToast = (
   message: string,
   status: 'success' | 'error',
   duration: number | 'infinite',
-  isClosable: boolean
+  isClosable: boolean,
 ): void => {
   const queue = getGlobalToastQueue();
   queue.add(
     { message, status, isClosable },
-    { timeout: duration === 'infinite' ? undefined : duration }
+    { timeout: duration === 'infinite' ? undefined : duration },
   );
 };
 
@@ -89,7 +89,7 @@ const toastQueue: ToastQueueProps = {
 };
 
 const Toaster: React.FunctionComponent<AriaToastRegionProps> = (
-  props: AriaToastRegionProps
+  props: AriaToastRegionProps,
 ) => {
   // Track all toast provider instances in a set.
   // Only the first one will actually render.

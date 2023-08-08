@@ -48,7 +48,7 @@ const Hyperlink: React.FunctionComponent<HyperlinkProps> = ({
     {
       elementType: typeof children === 'string' ? 'span' : 'a',
     },
-    ref
+    ref,
   );
 
   const hasIconLeading = iconLeading !== undefined;
@@ -56,7 +56,7 @@ const Hyperlink: React.FunctionComponent<HyperlinkProps> = ({
   const hasIcon = hasIconLeading || hasIconTrailing;
 
   const getWrappedElement = (
-    children: string | React.ReactElement | React.ReactNode
+    children: string | React.ReactElement | React.ReactNode,
   ): React.ReactElement => {
     const isTranslation =
       Array.isArray(children) &&

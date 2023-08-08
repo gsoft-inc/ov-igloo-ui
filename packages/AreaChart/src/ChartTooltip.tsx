@@ -23,7 +23,7 @@ export interface TooltipScoreProps {
 }
 
 const ChartTooltip: React.FunctionComponent<ChartTooltipProps> = (
-  props: ChartTooltipProps
+  props: ChartTooltipProps,
 ) => {
   const {
     active,
@@ -58,7 +58,7 @@ const ChartTooltip: React.FunctionComponent<ChartTooltipProps> = (
   if (active && payload && payload[0]) {
     const isPrimaryScoreValid = isValidScore(payload[0].payload.score);
     const isSecondaryScoreValid = isValidScore(
-      payload[0].payload.secondaryScore
+      payload[0].payload.secondaryScore,
     );
 
     return (

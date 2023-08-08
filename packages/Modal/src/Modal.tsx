@@ -99,7 +99,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const { overlayProps, underlayProps } = useOverlay(
     { isOpen, onClose, isDismissable },
-    ref
+    ref,
   );
 
   usePreventScroll({ isDisabled: !isOpen });
@@ -149,7 +149,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
           <m.div
             key={`${keyValue}_overlay`}
             className="ids-overlay"
-            {...(underlayProps as any)}
+            {...(underlayProps as unknown)}
             initial="close"
             animate="open"
             exit="close"
@@ -165,8 +165,8 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
               key={`${keyValue}_modal`}
               className={classes}
               data-test={dataTest}
-              {...(overlayProps as any)}
-              {...dialogProps}
+              {...(overlayProps as unknown)}
+              {...(dialogProps as unknown)}
               initial="initial"
               animate="open"
               exit="close"

@@ -3,7 +3,7 @@
 import React from 'react';
 
 export const TextIcon: React.FunctionComponent<React.ComponentProps<'svg'>> = (
-  props: React.ComponentProps<'svg'>
+  props: React.ComponentProps<'svg'>,
 ) => (
   <svg
     {...props}
@@ -164,41 +164,42 @@ export const MultipleChoiceIcon: React.FunctionComponent<
   </svg>
 );
 
-export const LikertIcon: React.FunctionComponent<React.ComponentProps<'svg'>> =
-  (props: React.ComponentProps<'svg'>) => (
-    <svg
-      {...props}
-      width="32"
-      height="32"
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g clipPath="url(#clip0_10101_20294)">
-        <circle cx="16" cy="16" r="16" fill="#B2DDF2" />
-        <path
-          d="M6 17.7601L6.21611 13.7108C7.41054 7.32656 12.1414 5.88058 14.5795 6.00747C20.0045 6.00747 22.3671 6.88485 25.0264 12.5655C25.2056 12.9483 25.3591 13.3304 25.4883 13.7108L26 17.7601C25.6971 21.3363 23.4148 24.2816 20.6427 25.3637C16.8593 26.8406 6.83219 26.29 6 17.7601Z"
-          fill="white"
-        />
-        <path
-          d="M30.4861 3L15.6129 21.0849L10.0903 14.8"
-          stroke="#233043"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M21.6682 7.72961C20.2412 6.27698 17.6443 6.17441 16.2636 6.04412C14.5746 5.88476 12.9662 6.17695 11.5989 6.60191C10.2317 7.02687 7.20243 9.31108 6.45181 12.7905C5.70118 16.27 5.53587 20.8007 8.78411 23.4679C12.6981 26.6817 19.9429 26.7173 22.6773 24.2471C24.8648 22.271 25.6579 20.1823 25.8699 18.7929C26.0819 17.4036 26.0877 15.2098 25.4817 13.5441"
-          stroke="#233043"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </g>
-      <defs>
-        <clipPath id="clip0_10101_20294">
-          <rect width="32" height="32" fill="white" />
-        </clipPath>
-      </defs>
-    </svg>
-  );
+export const LikertIcon: React.FunctionComponent<
+  React.ComponentProps<'svg'>
+> = (props: React.ComponentProps<'svg'>) => (
+  <svg
+    {...props}
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g clipPath="url(#clip0_10101_20294)">
+      <circle cx="16" cy="16" r="16" fill="#B2DDF2" />
+      <path
+        d="M6 17.7601L6.21611 13.7108C7.41054 7.32656 12.1414 5.88058 14.5795 6.00747C20.0045 6.00747 22.3671 6.88485 25.0264 12.5655C25.2056 12.9483 25.3591 13.3304 25.4883 13.7108L26 17.7601C25.6971 21.3363 23.4148 24.2816 20.6427 25.3637C16.8593 26.8406 6.83219 26.29 6 17.7601Z"
+        fill="white"
+      />
+      <path
+        d="M30.4861 3L15.6129 21.0849L10.0903 14.8"
+        stroke="#233043"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M21.6682 7.72961C20.2412 6.27698 17.6443 6.17441 16.2636 6.04412C14.5746 5.88476 12.9662 6.17695 11.5989 6.60191C10.2317 7.02687 7.20243 9.31108 6.45181 12.7905C5.70118 16.27 5.53587 20.8007 8.78411 23.4679C12.6981 26.6817 19.9429 26.7173 22.6773 24.2471C24.8648 22.271 25.6579 20.1823 25.8699 18.7929C26.0819 17.4036 26.0877 15.2098 25.4817 13.5441"
+        stroke="#233043"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_10101_20294">
+        <rect width="32" height="32" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);

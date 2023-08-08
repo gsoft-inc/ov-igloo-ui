@@ -13,8 +13,10 @@ import {
   YAxisProps,
   DotProps,
   ReferenceArea,
+  LabelProps,
 } from 'recharts';
 import { CurveType } from 'recharts/types/shape/Curve';
+import type { CartesianViewBox } from 'recharts/types/util/types';
 
 import variables from '@igloo-ui/tokens/dist/base10/tokens.json';
 
@@ -52,6 +54,9 @@ interface AreaChartData {
   name?: string;
   /** The text displayed beside the secondary score in the tooltip */
   secondaryName?: string;
+}
+interface EmptyLabelProps extends LabelProps {
+  message?: string;
 }
 
 interface DataRange {
@@ -272,7 +277,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     ) {
       ticks = Array.from(
         { length: range.max + 1 },
-        (_, i) => i + (range.min as number)
+        (_, i) => i + (range.min as number),
       );
     } else {
       ticks = [1, 2, 3, 4, 5];
@@ -464,9 +469,9 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     return <Area {...areaConfig} />;
   };
 
-  const CustomEmptyLabel = (props: any): JSX.Element | null => {
+  const CustomEmptyLabel = (props: EmptyLabelProps): JSX.Element | null => {
     const { message, viewBox } = props;
-    const { x, y, width, height } = viewBox;
+    const { x, y, width, height } = viewBox as CartesianViewBox;
     if (!message) {
       return null;
     }

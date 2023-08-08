@@ -19,32 +19,39 @@ export interface VisualIdentifierProps extends React.ComponentProps<'div'> {
   src?: string;
 }
 
-export const VisualIdentifier: React.FunctionComponent<VisualIdentifierProps> =
-  ({ className, color, icon, size = 'small', src }: VisualIdentifierProps) => {
-    const classes = cx(
-      'ids-visual-identifier',
-      {
-        'ids-visual-identifier__icon': icon,
-        'ids-visual-identifier__color': color && !icon,
-        'ids-visual-identifier__avatar': src && !icon && !color,
-      },
-      className
-    );
+export const VisualIdentifier: React.FunctionComponent<
+  VisualIdentifierProps
+> = ({
+  className,
+  color,
+  icon,
+  size = 'small',
+  src,
+}: VisualIdentifierProps) => {
+  const classes = cx(
+    'ids-visual-identifier',
+    {
+      'ids-visual-identifier__icon': icon,
+      'ids-visual-identifier__color': color && !icon,
+      'ids-visual-identifier__avatar': src && !icon && !color,
+    },
+    className,
+  );
 
-    const renderIcon = (): JSX.Element | null => {
-      if (icon) {
-        return React.cloneElement(icon, {
-          className: classes,
-        });
-      }
-      if (color) {
-        return <Color className={classes} color={color} size={size} />;
-      }
-      if (src) {
-        return <Avatar className={classes} src={src} size={size} />;
-      }
-      return null;
-    };
-
-    return <>{renderIcon()}</>;
+  const renderIcon = (): JSX.Element | null => {
+    if (icon) {
+      return React.cloneElement(icon, {
+        className: classes,
+      });
+    }
+    if (color) {
+      return <Color className={classes} color={color} size={size} />;
+    }
+    if (src) {
+      return <Avatar className={classes} src={src} size={size} />;
+    }
+    return null;
   };
+
+  return <>{renderIcon()}</>;
+};

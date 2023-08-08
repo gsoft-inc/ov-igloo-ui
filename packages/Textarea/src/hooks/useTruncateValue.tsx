@@ -3,7 +3,7 @@ import Graphemer from 'graphemer';
 
 const useTruncateValue = (): ((
   inputValue: string,
-  inputMaxLength?: number
+  inputMaxLength?: number,
 ) => string) => {
   const truncateValue = React.useCallback(
     (inputValue: string, inputMaxLength?: number): string => {
@@ -31,7 +31,7 @@ const useTruncateValue = (): ((
       }
       return inputValue;
     },
-    []
+    [],
   );
 
   return truncateValue;

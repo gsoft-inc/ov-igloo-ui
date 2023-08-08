@@ -56,7 +56,7 @@ export interface DropdownProps
   /** Render the reference element to be able to add the
    * reference props directly. This overrides children */
   renderReference?: (
-    props: React.HTMLProps<HTMLButtonElement>
+    props: React.HTMLProps<HTMLButtonElement>,
   ) => React.ReactElement;
   /** Whether or not the dropdown should take the
    * width of the reference element */
@@ -95,7 +95,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
       scrollEndThreshold = 30,
       ...rest
     }: DropdownProps,
-    ref: React.ForwardedRef<HTMLDivElement>
+    ref: React.ForwardedRef<HTMLDivElement>,
   ) => {
     const [dropdownPreviouslyOpen, setDropdownPreviouslyOpen] =
       React.useState(false);
@@ -254,7 +254,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
         )}
       </>
     );
-  }
+  },
 );
 
 export default Dropdown;

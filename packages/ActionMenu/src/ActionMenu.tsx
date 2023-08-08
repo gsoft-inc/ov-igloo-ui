@@ -49,7 +49,7 @@ export interface ActionMenuProps extends React.ComponentProps<'div'> {
   /** Render the reference element to be able to add the
    * reference props directly */
   renderReference: (
-    props: React.HTMLProps<HTMLButtonElement>
+    props: React.HTMLProps<HTMLButtonElement>,
   ) => React.ReactElement;
 }
 
@@ -99,7 +99,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
 
   const closeMenuOnSelect = (option: OptionType): boolean => {
     const actionMenuOption = options.find(
-      (actionMenuOption) => actionMenuOption.value === option.value
+      (actionMenuOption) => actionMenuOption.value === option.value,
     );
     const closeOnSelect = actionMenuOption?.closeOnSelect ?? true;
     if (typeof closeOnSelect === 'function') {
@@ -111,7 +111,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
 
   const selectOption = (option: OptionType): void => {
     const actionMenuOption = options.find(
-      (actionMenuOption) => actionMenuOption.value === option.value
+      (actionMenuOption) => actionMenuOption.value === option.value,
     );
     const onOptionSelect = actionMenuOption?.onClick;
     if (onOptionSelect) {
@@ -129,14 +129,14 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
 
   const focusOption = (direction: FocusDirection = 'first'): void => {
     const enabledOptions = actionMenuOptions.filter(
-      (option) => !isOptionDisabled(option)
+      (option) => !isOptionDisabled(option),
     );
     if (!enabledOptions.length) return;
 
     let currentFocusedIndex = -1;
     if (currentFocusedOption) {
       currentFocusedIndex = enabledOptions.findIndex(
-        (enabledOption) => enabledOption.value === currentFocusedOption.value
+        (enabledOption) => enabledOption.value === currentFocusedOption.value,
       );
     }
 
@@ -147,12 +147,12 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
             currentFocusedIndex > 0
               ? currentFocusedIndex - 1
               : enabledOptions.length - 1
-          ]
+          ],
         );
         break;
       case 'down':
         setCurrentFocusedOption(
-          enabledOptions[(currentFocusedIndex + 1) % enabledOptions.length]
+          enabledOptions[(currentFocusedIndex + 1) % enabledOptions.length],
         );
         break;
       case 'last':
@@ -165,7 +165,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
   };
 
   const handleOnKeyDown = (
-    keyboardEvent: React.KeyboardEvent<HTMLButtonElement>
+    keyboardEvent: React.KeyboardEvent<HTMLButtonElement>,
   ): void => {
     switch (keyboardEvent.key) {
       case Keys.Escape:

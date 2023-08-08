@@ -24,7 +24,7 @@ const Ellipsis: React.FunctionComponent<EllipsisProps> = React.forwardRef<
 >(
   (
     { children, className, containerClassName, dataTest, title, ...rest },
-    ref
+    ref,
   ) => {
     return (
       <div
@@ -37,7 +37,7 @@ const Ellipsis: React.FunctionComponent<EllipsisProps> = React.forwardRef<
         <div className={cx('ids-ellipsis__content', className)}>{children}</div>
       </div>
     );
-  }
+  },
 );
 
 export default Ellipsis;

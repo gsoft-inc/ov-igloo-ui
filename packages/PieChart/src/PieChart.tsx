@@ -1,10 +1,20 @@
 import * as React from 'react';
 import cx from 'classnames';
-import { PieChart as RPieChart, Cell, Label, Pie } from 'recharts';
+import { PieChart as RPieChart, Cell, Label, Pie, LabelProps } from 'recharts';
+import type { PolarViewBox } from 'recharts/types/util/types';
 
 import tokens from '@igloo-ui/tokens/dist/base10/tokens.json';
 
 import './pie-chart.scss';
+
+interface CustomLabelProps extends LabelProps {
+  /** The rate of the chart in percentage */
+  rate: number;
+  /** The label displayed in the center of the chart */
+  label: React.ReactNode;
+  /** The width of the chart */
+  width: number;
+}
 
 export interface DataProps {
   /** The class name of the data element in the chart */
@@ -36,12 +46,18 @@ export interface PieChartProps extends React.ComponentProps<'div'> {
   size?: 'regular' | 'large';
 }
 
-const CustomLabel = (labelObj: any): React.ReactElement => {
+const CustomLabel = (labelObj: CustomLabelProps): React.ReactElement => {
   const { viewBox, rate, label, width } = labelObj;
-  const { cx, cy } = viewBox;
+  let { cx, cy } = viewBox as PolarViewBox;
   const halfOfSymbolFontSize = 8; // Seemed more centered with 8 than 9
   const labelOffset = 16;
   const labelHeight = 30; // Cannot be in rem to work on safari
+  if (!cx) {
+    cx = 0;
+  }
+  if (!cy) {
+    cy = 0;
+  }
 
   return (
     <>

@@ -9,7 +9,7 @@ const DEFAULT_WIDTH = 60;
 type Props = {
   yAxisWidthModifier?: (width: number) => number;
   loading?: boolean;
-  areaChartData?: any[];
+  areaChartData?: unknown[];
 };
 
 type ReturnValues = {
@@ -29,7 +29,7 @@ const useDynamicYAxisWidth = (props: undefined | Props): ReturnValues => {
         const tickValueElements = chartRef.container.querySelectorAll(
           loading
             ? AXIS_TICK_VALUE_ANIMATION_SELECTOR
-            : AXIS_TICK_VALUE_SELECTOR
+            : AXIS_TICK_VALUE_SELECTOR,
         );
         const highestWidth = [...tickValueElements]
           .map((el) => {
@@ -51,7 +51,7 @@ const useDynamicYAxisWidth = (props: undefined | Props): ReturnValues => {
     // Disabled this because I want the width
     // to be recalculated when the chart data is updated
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [setYAxisWidthState, loading, areaChartData]
+    [setYAxisWidthState, loading, areaChartData],
   );
 
   const yAxisWidth = React.useMemo(() => {

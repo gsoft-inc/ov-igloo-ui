@@ -3,11 +3,6 @@ import cx from 'classnames';
 
 import { useLocale, DateValue } from 'react-aria';
 
-import Dropdown from '@igloo-ui/dropdown';
-import Input from '@igloo-ui/input';
-import Button from '@igloo-ui/button';
-import IconCalendar from '@igloo-ui/icons/dist/Calendar';
-
 import {
   getLocalTimeZone,
   isWeekend,
@@ -15,6 +10,10 @@ import {
   parseAbsoluteToLocal,
   ZonedDateTime,
 } from '@internationalized/date';
+import Dropdown from '@igloo-ui/dropdown';
+import Input from '@igloo-ui/input';
+import Button from '@igloo-ui/button';
+import IconCalendar from '@igloo-ui/icons/dist/Calendar';
 
 import Calendar from './components/Calendar';
 
@@ -110,7 +109,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
       minute,
       hour,
       second,
-      millisecond
+      millisecond,
     );
 
     // the calendar return an object with utc and local

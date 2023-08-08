@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import * as React from 'react';
 
@@ -39,7 +40,7 @@ export interface DropdownProps
   /** Render the reference element to be able to add the
    * reference props directly. This overrides children */
   renderReference?: (
-    props: React.HTMLProps<HTMLButtonElement>
+    props: React.HTMLProps<HTMLButtonElement>,
   ) => React.ReactElement;
   /** Whether or not the dropdown should take the
    * width of the reference element */

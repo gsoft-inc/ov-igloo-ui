@@ -1,8 +1,8 @@
 import * as React from 'react';
 
+import cx from 'classnames';
 import Button from '@igloo-ui/button';
 import Modal from '@igloo-ui/modal';
-import cx from 'classnames';
 
 import './dialog.scss';
 
