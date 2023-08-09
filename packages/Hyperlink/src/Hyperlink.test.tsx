@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { toHaveNoViolations } from 'jest-axe';
 
 import Plus from '@igloo-ui/icons/dist/Plus';
@@ -87,7 +87,7 @@ describe('Hyperlink Component', () => {
     const link = getByRole('link');
 
     expect(link).not.toHaveFocus();
-    userEvent.tab();
+    await userEvent.tab();
     expect(link).toHaveFocus();
   });
 });

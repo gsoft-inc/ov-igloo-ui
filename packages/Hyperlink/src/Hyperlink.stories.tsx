@@ -107,8 +107,8 @@ export const FocusInteraction: Story = {
     const canvas = within(body);
     const link = await canvas.findByText(/Read more/);
 
-    userEvent.tab();
+    await userEvent.tab();
 
-    await expect(link).toHaveFocus();
+    expect(link).toHaveFocus();
   },
 };
