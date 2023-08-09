@@ -4033,14 +4033,14 @@
     "@netlify/esbuild-windows-64" "0.14.39"
     "@netlify/esbuild-windows-arm64" "0.14.39"
 
-"@netlify/functions@^1.3.0", "@netlify/functions@^1.6.0":
+"@netlify/functions@^1.6.0":
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@netlify/functions/-/functions-1.6.0.tgz#c373423e6fef0e6f7422ac0345e8bbf2cb692366"
   integrity sha512-6G92AlcpFrQG72XU8YH8pg94eDnq7+Q0YJhb8x4qNpdGsvuzvrfHWBmqFGp/Yshmv4wex9lpsTRZOocdrA2erQ==
   dependencies:
     is-promise "^4.0.0"
 
-"@netlify/ipx@^1.3.1":
+"@netlify/ipx@^1.4.2":
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/@netlify/ipx/-/ipx-1.4.2.tgz#38b11dd3b533d30bc91bb9e2005cd6129736dc3c"
   integrity sha512-BWZn793fArFFqcRdl4NbsSwvZyaGkelOEskpgU2MziJXeho+dH/dOC3iLPwazvbYpMmXiFbfNOn+u5izXvSouw==
@@ -4056,16 +4056,17 @@
     ufo "^1.0.0"
     unstorage "^1.0.0"
 
-"@netlify/plugin-nextjs@4.29.2":
-  version "4.29.2"
-  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-4.29.2.tgz#b59e484d12ccc50c54282dd49fcfe27cc692e7d0"
-  integrity sha512-Sxaf+eITuDEMUOQ5ySMMDibwi3KmLgbQ5gLVDFuOnm/YDe9l3cHTwJf0Sn4BkvDPTaz6p0kkxAHo2ANt91qwuA==
+"@netlify/plugin-nextjs@4.39.3":
+  version "4.39.3"
+  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-4.39.3.tgz#eb575eeb4283aeef27082d7d7de52ca400183d01"
+  integrity sha512-WbGW1CQ8jOW59gjAQVaG3Vcn6B4CoXfu8NV9DSDV0bvzHkapGfPV9YOa0u/2ipMO+9NG7yu3UNq3RLFHwk0F4Q==
   dependencies:
     "@netlify/esbuild" "0.14.39"
-    "@netlify/functions" "^1.3.0"
-    "@netlify/ipx" "^1.3.1"
+    "@netlify/functions" "^1.6.0"
+    "@netlify/ipx" "^1.4.2"
     "@vercel/node-bridge" "^2.1.0"
     chalk "^4.1.2"
+    chokidar "^3.5.3"
     destr "^1.1.1"
     execa "^5.1.1"
     follow-redirects "^1.15.2"
@@ -4077,19 +4078,19 @@
     node-stream-zip "^1.15.0"
     outdent "^0.8.0"
     p-limit "^3.1.0"
-    pathe "^0.2.0"
+    pathe "^0.3.0"
     pretty-bytes "^5.6.0"
     regexp-tree "^0.1.24"
     semver "^7.3.5"
     slash "^3.0.0"
     tiny-glob "^0.2.9"
 
-"@next/bundle-analyzer@13.4.12":
-  version "13.4.12"
-  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-13.4.12.tgz#8d837d61b3cfb7d7c749ece3094749472f9fffdf"
-  integrity sha512-WjeNsoWGAkbn7XU2jBVkaI7/DVfg2mzRF7spTohsknnwQ/dDgSHlgZj80mt1/SHYconWjZSY0KIWFaxR4/mNsA==
+"@next/bundle-analyzer@12.3.1":
+  version "12.3.1"
+  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-12.3.1.tgz#df168652c43ed0dc3e91a5108e34cdcc8fc7f05a"
+  integrity sha512-2f/eei0YqZZBMTs4g1+HbgHyAFH5MbI/w9wLXmE8ly9SFze2D40sRH46JcC//EFVM/TIynVBh5sxn9CVO/vtxg==
   dependencies:
-    webpack-bundle-analyzer "4.7.0"
+    webpack-bundle-analyzer "4.3.0"
 
 "@next/env@13.3.0":
   version "13.3.0"
@@ -9977,7 +9978,7 @@ commander@^2.19.0, commander@^2.20.0, commander@^2.20.3:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
-commander@^6.2.1:
+commander@^6.2.0, commander@^6.2.1:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
   integrity sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==
@@ -17874,10 +17875,10 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-pathe@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.2.0.tgz#30fd7bbe0a0d91f0e60bae621f5d19e9e225c339"
-  integrity sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw==
+pathe@^0.3.0:
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.3.9.tgz#4baff768f37f03e3d9341502865fb93116f65191"
+  integrity sha512-6Y6s0vT112P3jD8dGfuS6r+lpa0qqNrLyHPOwvXMnyNTQaYiwgau2DP3aNDsR13xqtGj7rrPo+jFUATpU6/s+g==
 
 pathe@^1.1.0:
   version "1.1.0"
@@ -22314,15 +22315,15 @@ webidl-conversions@^7.0.0:
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-7.0.0.tgz#256b4e1882be7debbf01d05f0aa2039778ea080a"
   integrity sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==
 
-webpack-bundle-analyzer@4.7.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-4.7.0.tgz#33c1c485a7fcae8627c547b5c3328b46de733c66"
-  integrity sha512-j9b8ynpJS4K+zfO5GGwsAcQX4ZHpWV+yRiHDiL+bE0XHJ8NiPYLTNVQdlFYWxtpg9lfAQNlwJg16J9AJtFSXRg==
+webpack-bundle-analyzer@4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-4.3.0.tgz#2f3c0ca9041d5ee47fa418693cf56b4a518b578b"
+  integrity sha512-J3TPm54bPARx6QG8z4cKBszahnUglcv70+N+8gUqv2I5KOFHJbzBiLx+pAp606so0X004fxM7hqRu10MLjJifA==
   dependencies:
     acorn "^8.0.4"
     acorn-walk "^8.0.0"
     chalk "^4.1.0"
-    commander "^7.2.0"
+    commander "^6.2.0"
     gzip-size "^6.0.0"
     lodash "^4.17.20"
     opener "^1.5.2"
