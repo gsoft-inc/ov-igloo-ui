@@ -6,7 +6,7 @@
   package = "@netlify/plugin-nextjs"
 
 [functions]
-included_files = ["!node_modules/A_LARGE_MODULE/**/*"]
+  included_files = ["!node_modules/A_LARGE_MODULE/**/*"]
 
 [build.environment]
   NODE_OPTIONS = "--max_old_space_size=8192"
