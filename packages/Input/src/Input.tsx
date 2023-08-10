@@ -34,7 +34,7 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   /** True if you need the input to be readonly. */
   disabled?: boolean;
   /** Function called when the value changes. */
-  onChange?: (e: any) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   /** Add a data-test tag for automated tests */
   dataTest?: string;
   /** Use a prefix for add an icon before the input text */
@@ -69,10 +69,10 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
       showCharactersIndicator,
       ...rest
     }: InputProps,
-    ref: React.Ref<any>
+    ref: React.Ref<HTMLInputElement>,
   ) => {
     const [currentValue, setCurrentValue] = React.useState(
-      value?.toString() ?? ''
+      value?.toString() ?? '',
     );
     const inputMaxLength = maxLength ?? 0;
     const charLength = useCharLength(currentValue, inputMaxLength);
@@ -200,7 +200,7 @@ const Input: React.FunctionComponent<InputProps> = React.forwardRef(
     ) : (
       inputRender
     );
-  }
+  },
 );
 
 export default Input;

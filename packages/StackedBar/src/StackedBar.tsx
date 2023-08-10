@@ -217,7 +217,7 @@ const StackedBar: React.FunctionComponent<StackedBarProps> = ({
                   barInfo.strength !== undefined,
                 'ids-stacked-bar__bar--no-color':
                   barInfo.strength === undefined && !barInfo.color,
-              }
+              },
             )}
             dataKey={dataKey}
             label={getLabel(dataKey)}

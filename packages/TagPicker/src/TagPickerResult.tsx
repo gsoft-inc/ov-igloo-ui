@@ -2,10 +2,10 @@ import React from 'react';
 
 import cx from 'classnames';
 
-import Ellipsis from '@igloo-ui/ellipsis';
-
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { VisualIdentifier } from '@shared/components';
+import Ellipsis from '@igloo-ui/ellipsis';
+
 import type { TagItem } from './TagPicker';
 
 import './tag-picker-result.scss';
@@ -32,7 +32,7 @@ export interface TagPickerResultProps {
 }
 
 const TagPickerResult: React.FunctionComponent<TagPickerResultProps> = (
-  props: TagPickerResultProps
+  props: TagPickerResultProps,
 ) => {
   const { focused, onSelect, onHover, result } = props;
   const classes = cx('ids-tag-picker-result', {

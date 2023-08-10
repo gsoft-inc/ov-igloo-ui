@@ -11,7 +11,7 @@ export function getUniqueKeys(data: DataWithRender[]): string[] {
   return data.reduce((keys: string[], data) => {
     if (data.render) {
       const keysStartingWithFakeScore = Object.keys(data.render).filter((key) =>
-        key.startsWith('fakeScore')
+        key.startsWith('fakeScore'),
       );
 
       keysStartingWithFakeScore.map((key) => {
@@ -48,7 +48,7 @@ export function getNullSequenceRanges(data: DataSet[]): number[][] {
 
 export function getFakeScore(
   data: DataWithRender[],
-  sequenceRanges: number[][]
+  sequenceRanges: number[][],
 ): DataWithRender[] {
   sequenceRanges.map((range, index) => {
     const [first, last] = range;

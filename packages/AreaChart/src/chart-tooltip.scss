@@ -38,7 +38,7 @@
 }
 
 .ids-chart-tooltip {
-  animation: fade-in 400ms forwards;
+  animation: fade-in .4s forwards;
   background: var(--ids-chart-tooltip-background);
   border-radius: var(--ids-chart-tooltip-border-radius);
   box-shadow: var(--ids-chart-tooltip-box-shadow);

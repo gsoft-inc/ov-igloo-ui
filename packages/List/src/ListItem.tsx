@@ -1,10 +1,9 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import UserSolid from '@igloo-ui/icons/dist/UserSolid';
-
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { VisualIdentifier } from '@shared/components';
+import UserSolid from '@igloo-ui/icons/dist/UserSolid';
 
 import './list-item.scss';
 
@@ -141,7 +140,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
     'ids-list-item__visual-identifier-container',
     {
       'ids-list-item__svg-container': option?.icon && showIcon,
-    }
+    },
   );
 
   const visualIdentifierElement = shouldShowVisualIdentifier && option && (

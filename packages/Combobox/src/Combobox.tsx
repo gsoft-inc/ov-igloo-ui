@@ -120,21 +120,21 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
           type: 'list',
         };
       }),
-    [options]
+    [options],
   );
 
   const comboboxRef = React.useRef<HTMLDivElement>(null);
   const searchInputRef = React.useRef<HTMLInputElement>(null);
   const [inputValue, setInputValue] = React.useState('');
   const [currentFocusedOption, setCurrentFocusedOption] = React.useState(
-    !Array.isArray(selectedOption) ? selectedOption : undefined
+    !Array.isArray(selectedOption) ? selectedOption : undefined,
   );
   const [currentSelectedOption, setCurrentSelectedOption] = React.useState(
-    !Array.isArray(selectedOption) ? selectedOption : undefined
+    !Array.isArray(selectedOption) ? selectedOption : undefined,
   );
   const [showMenu, setShowMenu] = React.useState(isOpen);
   const [results, setResults] = React.useState<OptionType[]>(
-    comboboxOptions || []
+    comboboxOptions || [],
   );
 
   const keepOpen = !closeOnSelect || multiple;
@@ -236,12 +236,12 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
             currentFocusedIndex > 0
               ? currentFocusedIndex - 1
               : options.length - 1
-          ]
+          ],
         );
         break;
       case 'down':
         setCurrentFocusedOption(
-          options[(currentFocusedIndex + 1) % options.length]
+          options[(currentFocusedIndex + 1) % options.length],
         );
         break;
       case 'last':
@@ -278,7 +278,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
   };
 
   const handleOnKeyDown = (
-    keyboardEvent: React.KeyboardEvent<HTMLDivElement>
+    keyboardEvent: React.KeyboardEvent<HTMLDivElement>,
   ): void => {
     const { target } = keyboardEvent;
     switch (keyboardEvent.key) {

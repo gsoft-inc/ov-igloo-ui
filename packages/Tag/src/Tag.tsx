@@ -2,12 +2,11 @@ import * as React from 'react';
 
 import cx from 'classnames';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { VisualIdentifier } from '@shared/components';
 import IconButton from '@igloo-ui/icon-button';
 import Ellipsis from '@igloo-ui/ellipsis';
 import Close from '@igloo-ui/icons/dist/Close';
-
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { VisualIdentifier } from '@shared/components';
 
 import './tag.scss';
 
@@ -99,7 +98,7 @@ const Tag: React.FunctionComponent<TagProps> = ({
       'ids-tag--rounded': rounded,
       'ids-tag--has-error': hasError,
     },
-    className
+    className,
   );
 
   if (show) {

@@ -20,7 +20,7 @@
 
   /* Needed to add a 0.1px blur to fix a bug where
     chrome would have a lingering blue line when focusing in and out */
-  --ids-carousel-action-focus: 0 0 0 2px #fff, 0 0 0.1px 3.5px #0c46d0;
+  --ids-carousel-action-focus: 0 0 0 .2rem #ffffff, 0 0 .01rem .35rem #0c46d0;
 }
 
 .ids-carousel {
@@ -54,7 +54,8 @@
   justify-content: space-between;
   margin: var(--ids-carousel-nav-margin);
 
-  @media (max-width: #{tokens.$breakpoints-sm}) {
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media (width <= #{tokens.$breakpoints-sm}) {
     .ids-carousel--has-actions & {
       display: block;
     }
@@ -65,7 +66,8 @@
   display: flex;
   margin: var(--ids-carousel-bullet-list-margin);
 
-  @media (max-width: #{tokens.$breakpoints-sm}) {
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media (width <= #{tokens.$breakpoints-sm}) {
     .ids-carousel--has-actions & {
       display: none;
     }
@@ -129,7 +131,8 @@
     box-shadow: none;
   }
 
-  @media (min-width: #{tokens.$breakpoints-sm}) {
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media (width <= #{tokens.$breakpoints-sm}) {
     border: none;
     padding: 0;
 

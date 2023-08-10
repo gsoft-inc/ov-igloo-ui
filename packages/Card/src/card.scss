@@ -7,7 +7,7 @@
   --ids-card-font-size: #{tokens.$font-size-4};
   --ids-card-background: #{tokens.$samoyed};
   --ids-card-padding: #{tokens.$space-3};
-  --ids-card-shadow: 0 1px 6px rgb(35 48 67 / 10%);
+  --ids-card-shadow: 0 .1rem .6rem rgb(35 48 67 / 10%);
   --ids-card-radius: #{tokens.$border-radius-sm};
 
   /* Medium */
@@ -33,7 +33,8 @@
   padding: var(--ids-card-padding-xsmall);
 }
 
-@media (min-width: tokens.$breakpoints-sm) {
+/* stylelint-disable-next-line media-query-no-invalid */
+@media (width >= #{tokens.$breakpoints-sm}) {
   :root {
     --ids-card-padding: #{tokens.$space-5};
   }

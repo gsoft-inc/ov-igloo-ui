@@ -1,6 +1,4 @@
 import * as React from 'react';
-import ChevronLeft from '@igloo-ui/icons/dist/ChevronLeft';
-import ChevronRight from '@igloo-ui/icons/dist/ChevronRight';
 
 import {
   useCalendar,
@@ -13,6 +11,8 @@ import {
   GregorianCalendar,
   Calendar as CustomCalendar,
 } from '@internationalized/date';
+import ChevronRight from '@igloo-ui/icons/dist/ChevronRight';
+import ChevronLeft from '@igloo-ui/icons/dist/ChevronLeft';
 
 import CalendarButton from './CalendarButton';
 import CalendarGrid from './CalendarGrid';
@@ -33,7 +33,7 @@ interface CalendarProps extends AriaCalendarProps<DateValue> {
 }
 
 const Calendar: React.FunctionComponent<CalendarProps> = (
-  props: CalendarProps
+  props: CalendarProps,
 ) => {
   const { className, dataTest, highlightToday } = props;
   const { locale } = useLocale();

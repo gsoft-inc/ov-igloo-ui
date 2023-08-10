@@ -26,7 +26,7 @@ export function OnFocusPlugin({
           onFocus(editor);
           return false;
         },
-        COMMAND_PRIORITY_LOW
+        COMMAND_PRIORITY_LOW,
       );
     }
 
@@ -41,7 +41,7 @@ export function OnFocusPlugin({
           onBlur(editor);
           return false;
         },
-        COMMAND_PRIORITY_LOW
+        COMMAND_PRIORITY_LOW,
       );
     }
 

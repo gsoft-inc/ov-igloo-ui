@@ -40,7 +40,7 @@ const UserImage: React.FunctionComponent<UserImageProps> = ({
         alt=""
         className={cx(
           'ids-user-image__image',
-          `ids-user-image__image--${size}`
+          `ids-user-image__image--${size}`,
         )}
         src={checkImgSrc()}
       />

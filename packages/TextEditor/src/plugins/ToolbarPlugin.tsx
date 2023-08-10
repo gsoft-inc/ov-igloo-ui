@@ -125,7 +125,7 @@ export const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
         setActiveEditor(newEditor);
         return false;
       },
-      COMMAND_PRIORITY_CRITICAL
+      COMMAND_PRIORITY_CRITICAL,
     );
   }, [editor, updateToolbar]);
 

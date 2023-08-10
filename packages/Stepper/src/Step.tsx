@@ -29,7 +29,7 @@ const Stepper: React.FunctionComponent<StepProps> = ({
   const ref = React.useRef<HTMLButtonElement>(null);
   const { buttonProps } = useButton(
     { isDisabled: disabled, ...rest, 'aria-label': title },
-    ref
+    ref,
   );
 
   const { isFocusVisible, focusProps } = useFocusRing();

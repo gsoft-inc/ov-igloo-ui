@@ -1,8 +1,6 @@
 import * as React from 'react';
-import IconButton, { IconButtonProps } from '@igloo-ui/icon-button';
-
 import { useButton, AriaButtonProps } from 'react-aria';
-import { ButtonOwnProps } from '@igloo-ui/button';
+import IconButton from '@igloo-ui/icon-button';
 
 export interface ButtonProps extends AriaButtonProps {
   className: string;

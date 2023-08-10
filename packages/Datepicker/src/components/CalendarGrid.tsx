@@ -52,7 +52,7 @@ const CalendarGrid = ({
                   />
                 ) : (
                   <td key={`ids-td-${i.toString()}`} />
-                )
+                ),
               )}
           </tr>
         ))}

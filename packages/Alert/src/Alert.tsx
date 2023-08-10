@@ -52,7 +52,7 @@ const renderIcon = (
   style: Appearance,
   hasButton: boolean,
   type: Type,
-  icon?: React.ReactElement
+  icon?: React.ReactElement,
 ): JSX.Element => {
   const classes = classNames('ids-alert__icon', `ids-alert__icon--${style}`, {
     'ids-alert__icon--small-top': hasButton,
@@ -77,7 +77,7 @@ const renderIcon = (
 const renderDismissButton = (
   ref: React.RefObject<HTMLDivElement>,
   setShow: (show: boolean) => void,
-  onDismissClick?: () => void
+  onDismissClick?: () => void,
 ): JSX.Element => {
   const action = (): void => {
     if (onDismissClick) {
@@ -101,7 +101,7 @@ const renderDismissButton = (
 
 const renderAlertActionButton = (
   style: Appearance,
-  button?: AlertButton
+  button?: AlertButton,
 ): JSX.Element => {
   if (button == null || button.onClick == null || button.label == null) {
     return <></>;
@@ -137,7 +137,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
     'ids-alert',
     `ids-alert--${appearance}`,
     `ids-alert--${type}`,
-    className
+    className,
   );
 
   const parentElement = React.useRef<HTMLDivElement>(null);

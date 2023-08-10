@@ -56,7 +56,7 @@
 .ids-metric {
   align-items: center;
   background: var(--ids-metric-background);
-  border: 1.5px solid transparent;
+  border: .15rem solid transparent;
   border-radius: var(--ids-metric-border-radius);
   display: flex;
   font-family: var(--ids-metric-font-family);
@@ -101,7 +101,7 @@
 }
 
 .ids-metric--subMetric {
-  border: 1px solid var(--ids-metric-sub-metric-border-color);
+  border: .1rem solid var(--ids-metric-sub-metric-border-color);
   padding-left: var(--ids-metric-sub-metric-padding-left);
 
   &:hover {

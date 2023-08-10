@@ -67,7 +67,7 @@
 
   &__label {
     align-items: center;
-    border: 1px solid var(--ids-option-button-border-color);
+    border: .1rem solid var(--ids-option-button-border-color);
     border-radius: var(--ids-option-button-border-radius);
     cursor: pointer;
     display: flex;
@@ -85,14 +85,14 @@
   }
 
   &__radio:checked ~ &__label {
-    border: 1px solid var(--ids-option-button-border-color);
+    border: .1rem solid var(--ids-option-button-border-color);
     box-shadow: var(--ids-option-button-checked-box-shadow);
     cursor: default;
     outline: none;
   }
 
   &__radio:disabled ~ &__label {
-    border: 1px solid var(--ids-option-button-border-color);
+    border: .1rem solid var(--ids-option-button-border-color);
     box-shadow: none;
     cursor: not-allowed;
     outline: none;

@@ -17,7 +17,7 @@ export interface StackedBarTooltipProps {
 }
 
 const StackedBarTooltip: React.FunctionComponent<StackedBarTooltipProps> = (
-  props: StackedBarTooltipProps
+  props: StackedBarTooltipProps,
 ) => {
   const { dataSet, formatValue, hasData = false, noDataMessage } = props;
 

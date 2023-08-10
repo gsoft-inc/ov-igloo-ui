@@ -21,13 +21,13 @@ type PropsToOmit<C extends React.ElementType, P> = keyof (AsProp<C> & P);
 
 type PolymorphicComponentProp<
   C extends React.ElementType,
-  Props = {}
+  Props = {},
 > = React.PropsWithChildren<Props & AsProp<C>> &
   Omit<React.ComponentPropsWithoutRef<C>, PropsToOmit<C, Props>>;
 
 type PolymorphicComponentPropWithRef<
   C extends React.ElementType,
-  Props = {}
+  Props = {},
 > = PolymorphicComponentProp<C, Props> & { ref?: PolymorphicRef<C> };
 
 type PolymorphicRef<C extends React.ElementType> =
@@ -75,7 +75,7 @@ type ButtonProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<
 
 type ButtonComponent<C extends React.ElementType = 'button'> = {
   <T extends React.ElementType = C>(
-    props: ButtonProps<T>
+    props: ButtonProps<T>,
   ): React.ReactElement | null;
 
   displayName?: string;
@@ -102,7 +102,7 @@ const Button: ButtonComponent = React.forwardRef(
       as,
       ...rest
     }: ButtonProps<C>,
-    ref?: PolymorphicRef<C>
+    ref?: PolymorphicRef<C>,
   ) => {
     const hasIconLeading = iconLeading !== undefined;
     const hasIconTrailing = iconTrailing !== undefined;
@@ -182,7 +182,7 @@ const Button: ButtonComponent = React.forwardRef(
         {renderContent()}
       </Component>
     );
-  }
+  },
 );
 
 Button.displayName = 'Button'; // This fixed issue OV-42946

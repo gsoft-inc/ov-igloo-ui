@@ -7,7 +7,7 @@ const useClickOutside = <T extends HTMLElement = HTMLElement>(
     | Array<RefObject<T> | HTMLElement | undefined | null>
     | RefObject<T>
     | HTMLElement,
-  callback?: (event: Event) => void
+  callback?: (event: Event) => void,
 ): void => {
   useEffect(() => {
     const handleClickOutside = (event: Event): unknown => {

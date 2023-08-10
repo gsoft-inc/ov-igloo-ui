@@ -53,8 +53,8 @@
   --ids-btn-text-ghost-disabled: #{tokens.$electric-blue-300};
   --ids-btn-background-ghost: transparent;
   --ids-loader-size: 1.2rem;
-  --ids-loader-border: 2px solid rgb(255 255 255 / 30%);
-  --ids-loader-border-ghost: 2px solid rgb(16 83 255 / 30%);
+  --ids-loader-border: .2rem solid rgb(255 255 255 / 30%);
+  --ids-loader-border-ghost: .2rem solid rgb(16 83 255 / 30%);
   --ids-loader-primary: #{tokens.$samoyed};
   --ids-loader-premium: #{tokens.$grey-800};
   --ids-loader-premium-disabled: #{tokens.$grey-600};
@@ -68,18 +68,18 @@
   --ids-btn-text-ghost-danger: #{tokens.$coral-500};
   --ids-btn-text-ghost-danger-hover: #{tokens.$coral-600};
   --ids-btn-text-ghost-danger-disabled: #{tokens.$coral-300};
-  --ids-loader-border-ghost-danger: 2px solid rgb(249 97 85 / 30%);
+  --ids-loader-border-ghost-danger: .2rem solid rgb(249 97 85 / 30%);
   --ids-loader-ghost-danger: #{tokens.$coral-500};
 
   /* Ghost, variant: Secondary */
   --ids-btn-text-ghost-secondary: #{tokens.$grey-600};
   --ids-btn-text-ghost-secondary-hover: #{tokens.$grey-800};
   --ids-btn-text-ghost-secondary-disabled: #{tokens.$grey-400};
-  --ids-loader-border-ghost-secondary: 2px solid rgb(96 107 121 / 30%);
+  --ids-loader-border-ghost-secondary: .2rem solid rgb(96 107 121 / 30%);
   --ids-loader-ghost-secondary: #{tokens.$grey-600};
 
   /* Calculate negative margin for  IE11 compatibility */
-  --ids-loader-position: calc(-0.6rem - 1px);
+  --ids-loader-position: calc(-0.6rem - .1rem);
 }
 
 /* Placeholder selector for IE11 compatibility */
@@ -109,7 +109,7 @@
   border: var(--ids-loader-border);
   border-left-color: var(--ids-loader-primary);
   border-radius: 50%;
-  animation: spin 750ms infinite linear;
+  animation: spin .75s infinite linear;
 }
 
 .ids-btn {
@@ -122,7 +122,7 @@
   font-weight: var(--ids-btn-font-weight);
   color: var(--ids-btn-text-primary);
   background: var(--ids-btn-background-primary);
-  border: 1px solid var(--ids-btn-border-primary);
+  border: .1rem solid var(--ids-btn-border-primary);
   border-radius: var(--ids-btn-border-radius);
   width: 100%;
   height: var(--ids-btn-height);
@@ -246,20 +246,20 @@
 %btn-secondary-disabled {
   color: var(--ids-btn-text-secondary-disabled);
   background: var(--ids-btn-background-secondary-disabled);
-  border: 1px solid var(--ids-btn-background-secondary-disabled);
+  border: .1rem solid var(--ids-btn-background-secondary-disabled);
 }
 
 .ids-btn--secondary {
   color: var(--ids-btn-text-secondary);
   background: var(--ids-btn-background-secondary);
-  border: 1px solid var(--ids-btn-border-secondary);
+  border: .1rem solid var(--ids-btn-border-secondary);
 }
 
 .ids-btn--secondary:active,
 .ids-btn--secondary.ids-btn--active {
   color: var(--ids-btn-text-secondary-active);
   background: var(--ids-btn-background-secondary-active);
-  border: 1px solid var(--ids-btn-border-secondary-active);
+  border: .1rem solid var(--ids-btn-border-secondary-active);
 }
 
 .ids-btn--secondary:disabled {
@@ -273,7 +273,7 @@
 .ids-btn--secondary.ids-btn--active:hover {
   color: var(--ids-btn-text-secondary-hover);
   background: var(--ids-btn-background-secondary-hover);
-  border: 1px solid var(--ids-btn-border-secondary-hover);
+  border: .1rem solid var(--ids-btn-border-secondary-hover);
 }
 
 .ids-btn--secondary.ids-btn--disabled,
@@ -407,7 +407,7 @@
   display: none;
 }
 
-@media (min-width: 600px) {
+@media (width >= 60rem) {
   .ids-btn {
     width: auto;
   }

@@ -26,7 +26,7 @@ const ColorIcon: React.FunctionComponent<ColorIconProps> = ({
   const classes = cx(
     'ids-team-color-icon',
     `ids-team-color-icon--${size}`,
-    className
+    className,
   );
 
   return (

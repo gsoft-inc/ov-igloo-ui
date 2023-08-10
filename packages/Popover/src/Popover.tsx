@@ -17,13 +17,13 @@ import {
   FloatingFocusManager,
   safePolygon,
   ReferenceType,
+  UseHoverProps,
 } from '@floating-ui/react';
 
 import IconButton from '@igloo-ui/icon-button';
 import Close from '@igloo-ui/icons/dist/Close';
 
 import './popover.scss';
-import { UseHoverProps } from '@floating-ui/react/src/hooks/useHover';
 
 export type Position = 'top' | 'right' | 'bottom' | 'left' | 'auto';
 export type TriggerEvent = 'click' | 'hover';

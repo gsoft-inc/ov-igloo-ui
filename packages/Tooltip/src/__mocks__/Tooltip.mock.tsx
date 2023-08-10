@@ -31,7 +31,7 @@ export interface TooltipProps
 }
 
 const MockTooltip: React.FunctionComponent<TooltipProps> = (
-  props: TooltipProps
+  props: TooltipProps,
 ) => {
   const {
     children,

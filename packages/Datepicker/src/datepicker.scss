@@ -7,10 +7,10 @@ $cell-size: tokens.$space-6;
 $cell-number: 7;
 
 // Border on each side of the calendar
-$cell-border: 2px;
+$cell-border: .2rem;
 
 // Negative space between each cell
-$cell-empty-border: calc(6 * 0.5px);
+$cell-empty-border: calc(6 * .05rem);
 
 // Calculation of the width of the datepicker to obtain a square cell
 $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-border);
@@ -23,7 +23,7 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
   --ids-datepicker-color-disabled: #{tokens.$grey-600};
   --ids-datepicker-table-width: 100%;
   --ids-datepicker-table-margin: #{tokens.$space-3};
-  --ids-datepicker-table-border: 1px solid #{tokens.$grey-250};
+  --ids-datepicker-table-border: .1rem solid #{tokens.$grey-250};
   --ids-datepicker-thead-font-size: #{tokens.$font-size-3};
   --ids-datepicker-thead-line-height: 1.25;
   --ids-datepicker-thead-color: #{tokens.$electric-blue-500};
@@ -35,12 +35,12 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
   --ids-datepicker-content-color-hover: #{tokens.$samoyed};
   --ids-datepicker-content-background-selected: #{tokens.$electric-blue-500};
   --ids-datepicker-content-color-selected: #{tokens.$samoyed};
-  --ids-datepicker-content-focus: #{tokens.$electric-blue-600} solid 1.5px;
+  --ids-datepicker-content-focus: #{tokens.$electric-blue-600} solid .15rem;
 
   // Disabled state
   --ids-datepicker-disabled-background-hover: #f0f8ff;
   --ids-datepicker-disabled-background-selected: #51a0fa;
-  --ids-datepicker-disabled-table-border: 1px solid #eff1f5;
+  --ids-datepicker-disabled-table-border: .1rem solid #eff1f5;
 }
 
 %active-date {
@@ -116,10 +116,10 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
 }
 
 .ids-datepicker__content {
-  line-height: 38px;
+  line-height: 3.8rem;
   border: var(--ids-datepicker-table-border);
-  margin-right: -1px;
-  margin-top: -1px;
+  margin-right: -.1rem;
+  margin-top: -.1rem;
 
   &:hover {
     color: var(--ids-datepicker-content-color-hover);
@@ -144,11 +144,11 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
 
     &.ids-datepicker__content--selected {
       color: var(--ids-datepicker-content-color-selected);
-
-      &:hover {
-        cursor: default;
-        background: var(--ids-datepicker-content-background-selected);
-      }
+    }
+    
+    &.ids-datepicker__content--selected:hover {
+      cursor: default;
+      background: var(--ids-datepicker-content-background-selected);
     }
   }
 

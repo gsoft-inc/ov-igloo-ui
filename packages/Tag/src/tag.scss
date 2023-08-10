@@ -151,10 +151,10 @@
 
     .ids-tag__dismiss-btn.ids-icon-btn {
       color: var(--ids-tag-secondary-dismiss-btn-color);
-
-      &:hover {
-        color: var(--ids-tag-secondary-dismiss-btn-hover-color);
-      }
+    }
+    
+    .ids-tag__dismiss-btn.ids-icon-btn:hover {
+      color: var(--ids-tag-secondary-dismiss-btn-hover-color);
     }
   }
 

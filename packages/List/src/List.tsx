@@ -55,7 +55,7 @@ const List: React.FunctionComponent<ListProps> = React.forwardRef(
       showIcon = true,
       ...rest
     }: ListProps,
-    ref: React.ForwardedRef<HTMLUListElement>
+    ref: React.ForwardedRef<HTMLUListElement>,
   ) => {
     const listClasses = cx('ids-list', className, {
       'ids-list--compact': isCompact,
@@ -121,7 +121,7 @@ const List: React.FunctionComponent<ListProps> = React.forwardRef(
         {optionsAreLoading ? loadingOptions : listItemOptions}
       </ul>
     );
-  }
+  },
 );
 
 export default List;

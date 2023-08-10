@@ -51,7 +51,7 @@ const Disclosure: React.FunctionComponent<DisclosureProps> = ({
         setExpanded(!expanded);
       },
     },
-    btnRef
+    btnRef,
   );
 
   React.useEffect(() => {

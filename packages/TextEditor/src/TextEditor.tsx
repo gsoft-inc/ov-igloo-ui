@@ -268,7 +268,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
               React.cloneElement(primaryBtn, {
                 className: cx(
                   'ids-text-editor__primary-btn',
-                  primaryBtn.props?.className
+                  primaryBtn.props?.className,
                 ),
               })}
           </div>

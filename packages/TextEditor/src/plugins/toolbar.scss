@@ -19,7 +19,7 @@
   
 .ids-toolbar {
   align-items: center;
-  border-bottom: 1px solid var(--ids-toolbar-border-color);
+  border-bottom: .1rem solid var(--ids-toolbar-border-color);
   display: flex;
   flex: 0 0 auto;
   font-family: var(--ids-toolbar-font-family);
@@ -67,7 +67,7 @@
   background: var(--ids-toolbar-divider-color);
   height: var(--ids-toolbar-divider-height);
   margin-right: var(--ids-toolbar-btn-margin);
-  width: 1px;
+  width: .1rem;
 }
   
   

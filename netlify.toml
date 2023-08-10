@@ -5,5 +5,8 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+[functions]
+  included_files = ["!node_modules/.cache/**/*", "!node_modules/@swc/**/*"]
+
 [build.environment]
   NODE_OPTIONS = "--max_old_space_size=8192"
