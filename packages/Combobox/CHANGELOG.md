@@ -1,5 +1,17 @@
 # @igloo-ui/combobox
 
+## 2.0.2
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+- Updated dependencies [bf4ddef]
+  - @igloo-ui/dropdown@1.6.1
+  - @igloo-ui/icon-button@1.0.4
+  - @igloo-ui/input@2.1.2
+  - @igloo-ui/list@0.4.3
+  - @igloo-ui/tooltip@3.1.6
+
 ## 2.0.1
 
 ### Patch Changes

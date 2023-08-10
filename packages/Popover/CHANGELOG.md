@@ -1,5 +1,14 @@
 # @igloo-ui/popover
 
+## 0.3.4
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+- Updated dependencies [bf4ddef]
+  - @igloo-ui/icon-button@1.0.4
+  - @igloo-ui/tooltip@3.1.6
+
 ## 0.3.3
 
 ### Patch Changes

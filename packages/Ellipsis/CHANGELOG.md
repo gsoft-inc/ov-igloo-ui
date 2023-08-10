@@ -1,5 +1,11 @@
 # @igloo-ui/ellipsis
 
+## 0.1.11
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+
 ## 0.1.10
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @igloo-ui/action-menu
 
+## 1.2.1
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+- Updated dependencies [bf4ddef]
+  - @igloo-ui/dropdown@1.6.1
+  - @igloo-ui/list@0.4.3
+
 ## 1.2.0
 
 ### Minor Changes

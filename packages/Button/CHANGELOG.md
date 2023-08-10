@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.2
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+
 ## 0.5.1
 
 ### Patch Changes

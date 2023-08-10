@@ -1,5 +1,15 @@
 # @igloo-ui/tag-picker
 
+## 0.4.1
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+- Updated dependencies [bf4ddef]
+  - @igloo-ui/dropdown@1.6.1
+  - @igloo-ui/input@2.1.2
+  - @igloo-ui/tag@1.0.8
+
 ## 0.4.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @shared/components
 
+## 0.1.2
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+
 ## 0.1.1
 
 ### Patch Changes

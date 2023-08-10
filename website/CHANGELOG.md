@@ -1,5 +1,49 @@
 # docs
 
+## 0.1.3
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+- Updated dependencies [bf4ddef]
+  - @igloo-ui/action-menu@1.2.1
+  - @igloo-ui/alert@0.3.3
+  - @igloo-ui/area-chart@0.6.3
+  - @igloo-ui/breadcrumb@0.1.5
+  - @igloo-ui/button@0.5.2
+  - @igloo-ui/button-group@0.2.8
+  - @igloo-ui/card@0.0.13
+  - @igloo-ui/carousel@0.1.3
+  - @igloo-ui/checkbox@0.2.1
+  - @igloo-ui/combobox@2.0.2
+  - @igloo-ui/datepicker@0.1.5
+  - @igloo-ui/dialog@0.4.1
+  - @igloo-ui/disclosure@0.2.2
+  - @igloo-ui/dropdown@1.6.1
+  - @igloo-ui/ellipsis@0.1.11
+  - @igloo-ui/filter@0.1.4
+  - @igloo-ui/helper-text@0.2.12
+  - @igloo-ui/hyperlink@0.1.15
+  - @igloo-ui/icon-button@1.0.4
+  - @igloo-ui/input@2.1.2
+  - @igloo-ui/list@0.4.3
+  - @igloo-ui/metric@0.1.2
+  - @igloo-ui/modal@1.3.3
+  - @igloo-ui/pager@0.1.5
+  - @igloo-ui/pie-chart@0.1.1
+  - @igloo-ui/popover@0.3.4
+  - @igloo-ui/radio@0.1.10
+  - @igloo-ui/select@1.3.2
+  - @igloo-ui/stacked-bar@0.1.4
+  - @igloo-ui/stepper@0.1.1
+  - @igloo-ui/tag@1.0.8
+  - @igloo-ui/tag-picker@0.4.1
+  - @igloo-ui/text-editor@0.3.7
+  - @igloo-ui/textarea@0.2.3
+  - @igloo-ui/toaster@2.0.2
+  - @igloo-ui/toggle@1.0.5
+  - @igloo-ui/tooltip@3.1.6
+
 ## 0.1.2
 
 ### Patch Changes

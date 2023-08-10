@@ -1,5 +1,13 @@
 # @igloo-ui/metric
 
+## 0.1.2
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+- Updated dependencies [bf4ddef]
+  - @igloo-ui/tooltip@3.1.6
+
 ## 0.1.1
 
 ### Patch Changes

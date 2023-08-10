@@ -1,5 +1,15 @@
 # @igloo-ui/datepicker
 
+## 0.1.5
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+- Updated dependencies [bf4ddef]
+  - @igloo-ui/button@0.5.2
+  - @igloo-ui/dropdown@1.6.1
+  - @igloo-ui/icon-button@1.0.4
+
 ## 0.1.4
 
 ### Patch Changes

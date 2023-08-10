@@ -1,5 +1,11 @@
 # @igloo-ui/button-group
 
+## 0.2.8
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+
 ## 0.2.7
 
 ### Patch Changes
