@@ -144,30 +144,6 @@ describe('Toast', () => {
     expect(queryByRole('alert')).toBeNull();
   });
 
-/*   test('Pauses timers when hovering', async () => {
-    const {getByRole, queryByRole} = renderComponent(<RenderToastButton duration={5000} />);
-    const button = getByRole('button');
-
-    fireEvent.click(button);
-
-    const toast = getByRole('alert');
-    expect(toast).toBeVisible();
-
-    act(() => jest.advanceTimersByTime(1000));
-    await userEvent.hover(toast);
-
-    act(() => jest.advanceTimersByTime(7000));
-    expect(toast).not.toHaveAttribute('data-animation', 'exiting');
-
-    await userEvent.unhover(toast);
-
-    act(() => jest.advanceTimersByTime(4000));
-    expect(toast).toHaveAttribute('data-animation', 'exiting');
-
-    fireAnimationEnd(toast);
-    expect(queryByRole('alert')).toBeNull();
-  }); */
-
   test('It should render multiple toast', () => {
     const {getByRole, queryByRole, getAllByRole} = renderComponent(<RenderToastButton status="error" isClosable duration="infinite" />);
     let button = getByRole('button');
