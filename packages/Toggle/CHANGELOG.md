@@ -1,5 +1,11 @@
 # @igloo-ui/toggle
 
+## 1.0.5
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+
 ## 1.0.4
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @igloo-ui/select
 
+## 1.3.2
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+- Updated dependencies [bf4ddef]
+  - @igloo-ui/dropdown@1.6.1
+  - @igloo-ui/icon-button@1.0.4
+  - @igloo-ui/input@2.1.2
+  - @igloo-ui/list@0.4.3
+
 ## 1.3.1
 
 ### Patch Changes

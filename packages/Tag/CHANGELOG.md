@@ -1,5 +1,14 @@
 # @igloo-ui/tag
 
+## 1.0.8
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+- Updated dependencies [bf4ddef]
+  - @igloo-ui/ellipsis@0.1.11
+  - @igloo-ui/icon-button@1.0.4
+
 ## 1.0.7
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 0.6.3
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+
 ## 0.6.2
 
 ### Patch Changes

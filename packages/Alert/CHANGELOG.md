@@ -1,5 +1,14 @@
 # @igloo-ui/alert
 
+## 0.3.3
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+- Updated dependencies [bf4ddef]
+  - @igloo-ui/button@0.5.2
+  - @igloo-ui/icon-button@1.0.4
+
 ## 0.3.2
 
 ### Patch Changes

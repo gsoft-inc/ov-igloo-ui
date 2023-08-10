@@ -1,5 +1,14 @@
 # @igloo-ui/modal
 
+## 1.3.3
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+- Updated dependencies [bf4ddef]
+  - @igloo-ui/carousel@0.1.3
+  - @igloo-ui/icon-button@1.0.4
+
 ## 1.3.2
 
 ### Patch Changes

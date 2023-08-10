@@ -1,5 +1,11 @@
 # @igloo-ui/carousel
 
+## 0.1.3
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+
 ## 0.1.2
 
 ### Patch Changes

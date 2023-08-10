@@ -1,5 +1,11 @@
 # @igloo-ui/checkbox
 
+## 0.2.1
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+
 ## 0.2.0
 
 ### Minor Changes

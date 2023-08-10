@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.6.1
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+
 ## 1.6.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @igloo-ui/text-editor
 
+## 0.3.7
+
+### Patch Changes
+
+- bf4ddef: Updated storybook version and linting. Made linting fixes in these components.
+- Updated dependencies [bf4ddef]
+  - @igloo-ui/button@0.5.2
+  - @igloo-ui/icon-button@1.0.4
+  - @igloo-ui/input@2.1.2
+  - @igloo-ui/tooltip@3.1.6
+
 ## 0.3.6
 
 ### Patch Changes
