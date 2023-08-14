@@ -55,12 +55,12 @@ export const Overview = {
 export const Appearance = () => {
   const [selected, setSelected] = React.useState(0);
   const handleTabChange = React.useCallback(
-    (selectedTabIndex) => setSelected(selectedTabIndex),
+    (selectedTabIndex: number) => setSelected(selectedTabIndex),
     []
   );
   const [selected2, setSelected2] = React.useState(0);
   const handleTabChange2 = React.useCallback(
-    (selectedTabIndex) => setSelected2(selectedTabIndex),
+    (selectedTabIndex: number) => setSelected2(selectedTabIndex),
     []
   );
   return (
@@ -103,7 +103,7 @@ export const Appearance = () => {
 export const TabTypes = () => {
   const [selected, setSelected] = React.useState(0);
   const handleTabChange = React.useCallback(
-    (selectedTabIndex) => setSelected(selectedTabIndex),
+    (selectedTabIndex: number) => setSelected(selectedTabIndex),
     []
   );
   return (
@@ -137,7 +137,7 @@ export const TabTypes = () => {
 export const DefaultTabIndex = () => {
   const [selected, setSelected] = React.useState(1);
   const handleTabChange = React.useCallback(
-    (selectedTabIndex) => setSelected(selectedTabIndex),
+    (selectedTabIndex: number) => setSelected(selectedTabIndex),
     []
   );
   return (
@@ -167,7 +167,7 @@ export const DefaultTabIndex = () => {
 export const RedirectTab = () => {
   const [selected, setSelected] = React.useState(0);
   const handleTabChange = React.useCallback(
-    (selectedTabIndex) => setSelected(selectedTabIndex),
+    (selectedTabIndex: number) => setSelected(selectedTabIndex),
     []
   );
 
@@ -183,6 +183,7 @@ export const RedirectTab = () => {
                   Home
                 </NavLink>
               ),
+              premium: true,
               children: (
                 <Routes>
                   <Route path="*" element={<div>Home page</div>} />
@@ -195,6 +196,7 @@ export const RedirectTab = () => {
                   About
                 </NavLink>
               ),
+              notification: true,
               children: (
                 <Routes>
                   <Route path="/about" element={<div>About page</div>} />
