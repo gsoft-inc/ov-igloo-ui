@@ -1,5 +1,11 @@
 # @igloo-ui/dialog
 
+## 0.5.0
+
+### Minor Changes
+
+- 522d3cf: Added a loading feature to the Dialog when the validate button is clicked.
+
 ## 0.4.1
 
 ### Patch Changes
