@@ -196,3 +196,39 @@ export const CustomSubTitle = () => {
     </ChromaticWrapper>
   );
 };
+
+export const Loading = () => {
+  const [open, setOpen] = React.useState(isChromatic());
+  const [loading, setLoading] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setLoading(false);
+  };
+
+  const handleValidate = () => {
+    setLoading(true);
+  };
+
+  return (
+    <ChromaticWrapper>
+      <Button appearance="secondary" onClick={handleOpen}>
+        open
+      </Button>
+      <Dialog
+        title="Loading"
+        subTitle="Click validate to see the loading state"
+        dismissText="Dismiss"
+        validateText="Validate"
+        isOpen={open}
+        onDismiss={handleClose}
+        onValidate={handleValidate}
+        loading={loading}
+      />
+    </ChromaticWrapper>
+  );
+};
