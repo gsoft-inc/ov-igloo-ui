@@ -1,5 +1,11 @@
 # @igloo-ui/dialog
 
+## 0.5.1
+
+### Patch Changes
+
+- cfdea66: Fixed Dialog's button width so that they are equal. Also fixed dialog header's styling. It was using a no longer used class.
+
 ## 0.5.0
 
 ### Minor Changes
