@@ -274,7 +274,7 @@
 
 .ids-btn--secondary.ids-btn--disabled,
 .ids-btn--secondary.ids-btn--disabled:hover,
-.ids-btn--secondary:hover:disabled, {
+.ids-btn--secondary:hover:disabled {
   @extend %btn-secondary-disabled;
 }
 
