@@ -18,6 +18,7 @@
   --ids-dialog-close-align: flex-end;
   --ids-dialog-buttons-margin: #{tokens.$space-5} -#{tokens.$space-0} -#{tokens.$space-2};
   --ids-dialog-button-margin: #{tokens.$space-2} #{tokens.$space-0};
+  --ids-dialog-button-width: #{tokens.$space-5};
 }
 
 /* stylelint-disable-next-line media-query-no-invalid */
@@ -42,7 +43,8 @@
   }
 }
 
-.ids-dialog.ids-modal--with-header .ids-modal__header {
+.ids-dialog.ids-modal--with-title .ids-modal__header,
+.ids-dialog.ids-modal--closable .ids-modal__header {
   align-items: center;
   border: none;
   display: flex;
@@ -50,6 +52,10 @@
   min-height: var(--ids-dialog-header-height);
   padding: var(--ids-dialog-header-padding);
   position: relative;
+
+  &::before {
+    display: none;
+  }
 }
 
 .ids-dialog .ids-modal__title {
@@ -85,9 +91,12 @@
 .ids-dialog__dismiss-btn,
 .ids-dialog__validate-btn {
   margin: var(--ids-dialog-button-margin);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   /* stylelint-disable-next-line media-query-no-invalid */
   @media (width >= #{tokens.$breakpoints-sm}) {
-    flex: 1 1 auto;
+    flex: 1 1 var(--ids-dialog-button-width);
   }
 }
