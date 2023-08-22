@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.3
+
+### Patch Changes
+
+- 7662390: Removed the :active styles for Button since they were not needed or wanted. .ids-btn--active remains the same.
+
 ## 0.5.2
 
 ### Patch Changes
