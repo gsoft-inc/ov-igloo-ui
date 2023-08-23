@@ -10,18 +10,19 @@ import readme from '../README.md';
 
 import ButtonGroup, { ButtonItem } from './ButtonGroup';
 
-export default {
+const meta: Meta<typeof ButtonGroup> = {
   title: 'Components/ButtonGroup',
   component: ButtonGroup,
-  subcomponents: { ButtonItem },
   parameters: {
     docs: {
       description: {
         component: readme,
       }
     }
-  },
-} as Meta<typeof ButtonGroup>;
+  }
+};
+
+export default meta;
 
 const Template: StoryFn<any> = (args) => {
   const { items } = args;

@@ -151,34 +151,34 @@ describe('Tag', () => {
     expectToBeOfStyle(tag, 'primary');
   });
 
-  test('It should render a secondary style tag', () => {
-    const tag = setup({ children: 'Secondary Tag', appearance: 'secondary' });
+  test('It should render a neutral style tag', () => {
+    const tag = setup({ children: 'Neutral Tag', appearance: 'neutral' });
 
-    expectToBeOfStyle(tag, 'secondary');
+    expectToBeOfStyle(tag, 'neutral');
   });
 
-  test('It should render a info style tag', () => {
-    const tag = setup({ children: 'Info Tag', appearance: 'info' });
+  test('It should render a progress style tag', () => {
+    const tag = setup({ children: 'Progress Tag', appearance: 'progress' });
 
-    expectToBeOfStyle(tag, 'info');
+    expectToBeOfStyle(tag, 'progress');
   });
 
-  test('It should render a success style tag', () => {
-    const tag = setup({ children: 'Success Tag', appearance: 'success' });
+  test('It should render a positive style tag', () => {
+    const tag = setup({ children: 'Positive Tag', appearance: 'positive' });
 
-    expectToBeOfStyle(tag, 'success');
+    expectToBeOfStyle(tag, 'positive');
   });
 
-  test('It should render a warning style tag', () => {
-    const tag = setup({ children: 'Warning Tag', appearance: 'warning' });
+  test('It should render a caution style tag', () => {
+    const tag = setup({ children: 'Caution Tag', appearance: 'caution' });
 
-    expectToBeOfStyle(tag, 'warning');
+    expectToBeOfStyle(tag, 'caution');
   });
 
-  test('It should render a error style tag', () => {
-    const tag = setup({ children: 'Error Tag', appearance: 'error' });
+  test('It should render a negative style tag', () => {
+    const tag = setup({ children: 'Negative Tag', appearance: 'negative' });
 
-    expectToBeOfStyle(tag, 'error');
+    expectToBeOfStyle(tag, 'negative');
   });
 
   /* Size */
@@ -211,7 +211,7 @@ describe('Tag', () => {
     setup({
       children: 'Tag with an error',
       dataTest: 'ids-tag-error',
-      appearance: 'secondary',
+      appearance: 'neutral',
       hasError: true,
     });
 

@@ -37,7 +37,7 @@ export const Overview = {
       <div className="isb-disclosure__desc">
         <Tag
           className="isb-disclosure__desc-tag"
-          appearance="success"
+          appearance="positive"
           size="xsmall"
           icon={<ArrowUp size="small" />}
         >

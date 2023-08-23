@@ -1,11 +1,13 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
   /* Default */
   --ids-icon-btn-height: #{tokens.$space-5};
   --ids-icon-btn-width: #{tokens.$space-5};
-  --ids-icon-btn-active: #{tokens.$electric-blue-500};
 
   /* XSmall */
   --ids-icon-btn-height-xsmall: #{tokens.$space-3};
@@ -18,6 +20,24 @@
   /* Large */
   --ids-icon-btn-height-large: #{tokens.$space-6};
   --ids-icon-btn-width-large: #{tokens.$space-6};
+}
+
+[data-brand="workleap"] {
+  /* Default */
+  --ids-icon-btn-height: var(--hop-space-inset-xl);
+  --ids-icon-btn-width: var(--hop-space-inset-xl);
+
+  /* XSmall */
+  --ids-icon-btn-height-xsmall: var(--hop-space-inset-md);
+  --ids-icon-btn-width-xsmall: var(--hop-space-inset-md);
+
+  /* Small */
+  --ids-icon-btn-height-small: var(--hop-space-inset-lg);
+  --ids-icon-btn-width-small: var(--hop-space-inset-lg);
+
+  /* Large */
+  --ids-icon-btn-height-large: var(--hop-space-400);
+  --ids-icon-btn-width-large: var(--hop-space-400);
 }
 
 .ids-icon-btn {
@@ -55,10 +75,6 @@
   }
 
   &.ids-btn {
-    &--active {
-      color: var(--ids-icon-btn-active);
-    }
-
     > span {
       /* stylelint-disable-next-line unit-allowed-list */
       margin: -1px; // Since there is a 1px border for ids-btn

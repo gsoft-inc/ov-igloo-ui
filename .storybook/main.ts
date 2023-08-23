@@ -19,14 +19,6 @@ const config: StorybookConfig = {
   stories: [...getStories(), ...getSharedStories()],
   addons: [getAbsolutePath("@storybook/addon-links"), getAbsolutePath("@storybook/addon-essentials"), getAbsolutePath("@storybook/addon-a11y"), getAbsolutePath("storybook-addon-pseudo-states"), getAbsolutePath("@storybook/addon-interactions"), getAbsolutePath("@storybook/addon-mdx-gfm")],
   staticDirs: ['../assets'],
-  core: {
-    builder: {
-      name: '@storybook/builder-webpack5',
-      options: {
-        fsCache: true,
-      },
-    },
-  },
   webpackFinal: async (config) => {
     if (config.resolve) {
       config.resolve.plugins = [...(config.resolve.plugins || []), new TsconfigPathsPlugin({
@@ -34,7 +26,7 @@ const config: StorybookConfig = {
       })];
       if (config.resolve.alias) {
         config.resolve.alias['@components'] = path.resolve(__dirname, './components');
-        }
+      }
     }
     if (config.module && config.module.rules) {
       config.module.rules.push({
@@ -42,12 +34,16 @@ const config: StorybookConfig = {
         include: /node_modules/,
         type: 'javascript/auto'
       });
-    } 
+    }
     return config;
   },
   framework: {
     name: "@storybook/nextjs",
-    options: {}
+    options: {
+      builder: {
+        fsCache: true
+      }
+    }
   },
   docs: {
     autodocs: true

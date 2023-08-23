@@ -1,6 +1,9 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
   --ids-avatar-border-radius: #{tokens.$border-radius-sm};
   --ids-avatar-border-radius-xs: #{tokens.$border-radius-xs};
@@ -11,6 +14,18 @@
   --ids-avatar-size-m: #{tokens.$font-size-9};
   --ids-avatar-size-l: #{tokens.$font-size-10};
   --ids-avatar-size-xl: #{tokens.$space-8};
+}
+
+[data-brand="workleap"] {
+  --ids-avatar-border-radius: var(--hop-shape-circle);
+  --ids-avatar-border-radius-xs: var(--hop-shape-circle);
+
+  /* Sizes */
+  --ids-avatar-size-xs: 1rem;
+  --ids-avatar-size-s: 1.5rem;
+  --ids-avatar-size-m: 2rem;
+  --ids-avatar-size-l: 3rem;
+  --ids-avatar-size-xl: 4rem;
 }
 
 .ids-avatar {

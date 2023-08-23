@@ -212,7 +212,7 @@ const listWithAction: OptionType[] = [
     type: 'list',
     label: 'Quarterly Performance Discussion',
     value: '1',
-    description: <Tag appearance="grey" size="xsmall">Self review</Tag>,
+    description: <Tag size="xsmall">Self review</Tag>,
     action: <Button appearance={'ghost'} size="small">Preview</Button>,
   },
   {

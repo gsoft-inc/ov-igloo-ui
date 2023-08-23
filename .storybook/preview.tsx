@@ -9,9 +9,30 @@ import {
   Stories,
 } from '@storybook/blocks';
 
+import {useBrand} from './useBrand';
+
 import './styles.css';
 
 const preview: Preview = {
+  decorators: [useBrand],
+  globalTypes: {
+    brand: {
+      description: 'Global brand for components',
+      defaultValue: 'igloo',
+      toolbar: {
+        title: 'Brand',
+        icon: 'circlehollow',
+        items: [{
+          value: 'igloo',
+          title: 'Igloo',
+        }, {
+          value: 'workleap',
+          title: 'Workleap',
+        }],
+        dynamicTitle: true,
+      },
+    },
+  },
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {

@@ -31,26 +31,25 @@ export const Overview = {
     children: 'Tag content',
     dismissible: true,
     color: '#FCD35A',
-    appearance: 'secondary',
+    appearance: 'default',
   },
 };
 
 export const Appearances = () => (
   <Section style={{ flexWrap: 'wrap', gap: 'var(--space-3) 0' }}>
     <Tag appearance="default">Default Tag</Tag>
-    <Tag appearance="info">Info Tag</Tag>
-    <Tag appearance="success">Success Tag</Tag>
-    <Tag appearance="warning">Warning Tag</Tag>
-    <Tag appearance="error">Error Tag</Tag>
+    <Tag appearance="progress">Progress Tag</Tag>
+    <Tag appearance="positive">Positive Tag</Tag>
+    <Tag appearance="caution">Caution Tag</Tag>
+    <Tag appearance="negative">Negative Tag</Tag>
     <Tag appearance="primary">Primary Tag</Tag>
-    <Tag appearance="secondary">Secondary Tag</Tag>
-    <Tag appearance="grey">Grey Tag</Tag>
+    <Tag appearance="neutral">Neutral Tag</Tag>
   </Section>
 );
 
 export const Dismissible = () => (
   <Section>
-    <Tag appearance="secondary" dismissible>
+    <Tag dismissible>
       Dismissible Tag
     </Tag>
   </Section>
@@ -61,12 +60,11 @@ export const Icons = () => (
     style={{ alignItems: 'center', flexWrap: 'wrap', gap: 'var(--space-3) 0' }}
   >
     <Tag icon={<LabelSolid size="small" />}>Tag with Icon</Tag>
-    <Tag color="#9A3842" appearance="secondary">
+    <Tag color="#9A3842">
       Tag with a color icon from color
     </Tag>
     <Tag
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEB3tCC4oJsa4ZZsiEDIhWi06EyN3iHYMoOg&usqp=CAU"
-      appearance="secondary"
     >
       Tag with an image icon
     </Tag>
@@ -93,7 +91,7 @@ export const Sizes = () => (
 
 export const Ellipsis = () => (
   <Section>
-    <Tag color="#00A587" appearance="secondary">
+    <Tag color="#00A587" appearance="neutral">
       Really long text so that the ellipsis will show
     </Tag>
   </Section>
@@ -101,7 +99,7 @@ export const Ellipsis = () => (
 
 export const Error = () => (
   <Section>
-    <Tag color="#00A587" appearance="secondary" hasError>
+    <Tag color="#00A587" hasError>
       Really long text so that the ellipsis will show
     </Tag>
   </Section>
