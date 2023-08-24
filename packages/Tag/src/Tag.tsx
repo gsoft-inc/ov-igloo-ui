@@ -12,7 +12,7 @@ import "./tag.scss";
 
 export type Size = "medium" | "small" | "xsmall" | "micro";
 
-export type Appearance =
+export type AppearanceNew =
   | "default"
   | "primary"
   | "progress"
@@ -20,6 +20,17 @@ export type Appearance =
   | "caution"
   | "negative"
   | "neutral";
+
+/** @Deprecated This will be removed Nov. 1, 2023 */
+export type AppearanceDep =
+  | "info"
+  | "success"
+  | "warning"
+  | "error"
+  | "secondary"
+  | "grey";
+
+export type Appearance = AppearanceNew | AppearanceDep;
 
 export interface TagProps extends React.ComponentProps<"div"> {
     /** The different appearances of the Tag */
@@ -67,6 +78,42 @@ const Tag: React.FunctionComponent<TagProps> = ({
 }) => {
     const [show, setShow] = React.useState(true);
 
+    const printDeprecationWarning = (oldValue: string, newValue: string): void => {
+        console.warn(`Warning: Tag's '${oldValue}' appearance is deprecated and will be removed ` +
+        `Nov. 1, 2023. Use '${newValue}' instead. `);
+    };
+
+    const mapDeprecatedAppearance = (appearanceValue: Appearance): AppearanceNew => {
+        switch (appearanceValue) {
+            case "info":
+                printDeprecationWarning("info", "progress");
+
+                return "progress";
+            case "success":
+                printDeprecationWarning("success", "positive");
+
+                return "positive";
+            case "warning":
+                printDeprecationWarning("warning", "caution");
+
+                return "caution";
+            case "error":
+                printDeprecationWarning("error", "negative");
+
+                return "negative";
+            case "grey":
+                printDeprecationWarning("grey", "default");
+
+                return "default";
+            case "secondary":
+                printDeprecationWarning("secondary", "neutral");
+
+                return "neutral";
+            default:
+                return appearanceValue as AppearanceNew;
+        }
+    };
+
     const renderDismissButton = (): JSX.Element => {
         const action = (): void => {
             if (onRemove && id) {
@@ -91,7 +138,7 @@ const Tag: React.FunctionComponent<TagProps> = ({
 
     const classes = cx(
         "ids-tag",
-        `ids-tag--${appearance}`,
+        `ids-tag--${mapDeprecatedAppearance(appearance)}`,
         `ids-tag--${size}`,
         {
             "ids-tag--rounded": rounded,

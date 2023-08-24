@@ -23,6 +23,23 @@ export default {
       options: ['medium', 'small', 'xsmall', 'micro'],
     },
     icon: { control: { type: null } },
+    appearance: {
+      table: {
+        type: {
+          summary:
+            'default | primary | progress | positive | caution | negative | neutral',
+        },
+      },
+      options: [
+        'default',
+        'primary',
+        'progress',
+        'positive',
+        'caution',
+        'negative',
+        'neutral',
+      ],
+    },
   },
 } as Meta<typeof Tag>;
 
