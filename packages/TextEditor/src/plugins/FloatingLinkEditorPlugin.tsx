@@ -45,6 +45,7 @@ import Checkmark from '@igloo-ui/icons/dist/Checkmark';
 import Delete from '@igloo-ui/icons/dist/Delete';
 import Close from '@igloo-ui/icons/dist/Close';
 import Edit from '@igloo-ui/icons/dist/Edit';
+import External from '@igloo-ui/icons/dist/Launch';
 
 import type { Messages } from 'src/TextEditor';
 import { getSelectedNode } from '../utils/getSelectedNode';
@@ -69,6 +70,7 @@ function FloatingLinkEditor({
   const [linkUrl, setLinkUrl] = useState('');
   const [editedLinkUrl, setEditedLinkUrl] = useState('');
   const [isEditMode, setEditMode] = useState(false);
+  const [isTargetBlank, setIsTargetBlank] = useState(true);
   const [show, setShow] = useState(false);
   const [lastSelection, setLastSelection] = useState<
     RangeSelection | GridSelection | NodeSelection | null
@@ -217,7 +219,11 @@ function FloatingLinkEditor({
   const handleLinkSubmission = (): void => {
     if (lastSelection !== null) {
       if (linkUrl !== '') {
-        editor.dispatchCommand(TOGGLE_LINK_COMMAND, sanitizeUrl(editedLinkUrl));
+        const targetValue = isTargetBlank ? '_blank' : '_self';
+        editor.dispatchCommand(TOGGLE_LINK_COMMAND, {
+          url: sanitizeUrl(editedLinkUrl),
+          target: targetValue
+        });
       }
       setEditMode(false);
     }
@@ -247,6 +253,17 @@ function FloatingLinkEditor({
         onKeyDown={(event) => {
           monitorInputInteraction(event);
         }}
+      />
+      <IconButton
+        size="small"
+        icon={<External size="medium" />}
+        className="ids-link-editor__external"
+        appearance={isTargetBlank ? 'primary' : 'ghost'}
+        onClick={() => {
+          setIsTargetBlank((prevValue) => !prevValue);
+        }}
+        // @ts-ignore
+        title={messages?.linkEditorTargetBlank?.tooltip}
       />
       <IconButton
         size="small"

@@ -60,6 +60,7 @@ export interface Messages {
   private?: MessageOptions;
   linkEditorEdit?: MessageOptions;
   linkEditorRemove?: MessageOptions;
+  linkEditorTargetBlank?: MessageOptions;
   linkEditorCancel?: MessageOptions;
   linkEditorSave?: MessageOptions;
 }
@@ -130,6 +131,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
     private: { text: 'Visible to you only' },
     linkEditorEdit: { tooltip: 'Edit link' },
     linkEditorCancel: { tooltip: 'Cancel' },
+    linkEditorTargetBlank: { tooltip: 'Open in a new tab' },
     linkEditorRemove: { tooltip: 'Remove link' },
     linkEditorSave: { tooltip: 'Save' },
   },
