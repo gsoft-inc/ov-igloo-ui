@@ -107,6 +107,8 @@ export interface TextEditorProps
   /** Whether or not the editor should display
    * the toolbar when editor is focused */
   showToolbarOnFocus?: boolean;
+  /** Wether the user can choose the opening mode of a link */
+  canSelectLinkOpeningMode?: boolean;
 }
 
 const TextEditor: React.FunctionComponent<TextEditorProps> = ({
@@ -144,6 +146,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
   readOnly = false,
   showToolbar = true,
   showToolbarOnFocus = false,
+  canSelectLinkOpeningMode = false,
 }: TextEditorProps) => {
   const [hasFocus, setHasFocus] = React.useState(autoFocus);
 
@@ -245,6 +248,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
                 <FloatingLinkEditorPlugin
                   anchorElem={floatingAnchorElem}
                   messages={messages}
+                  canSelectLinkOpeningMode={canSelectLinkOpeningMode}
                 />
               )}
               {isClearable && <ClearEditorPlugin />}

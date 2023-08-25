@@ -59,12 +59,14 @@ function FloatingLinkEditor({
   setIsLink,
   anchorElem,
   messages,
+  canSelectLinkOpeningMode
 }: {
   editor: LexicalEditor;
   isLink: boolean;
   setIsLink: Dispatch<boolean>;
   anchorElem: HTMLElement;
   messages?: Messages;
+  canSelectLinkOpeningMode?: boolean;
 }): JSX.Element | null {
   const inputRef = useRef<HTMLInputElement>(null);
   const [linkUrl, setLinkUrl] = useState('');
@@ -254,17 +256,19 @@ function FloatingLinkEditor({
           monitorInputInteraction(event);
         }}
       />
-      <IconButton
-        size="small"
-        icon={<External size="medium" />}
-        className="ids-link-editor__external"
-        appearance={isTargetBlank ? 'primary' : 'ghost'}
-        onClick={() => {
-          setIsTargetBlank((prevValue) => !prevValue);
-        }}
-        // @ts-ignore
-        title={messages?.linkEditorTargetBlank?.tooltip}
-      />
+      {canSelectLinkOpeningMode && (
+        <IconButton
+          size="small"
+          icon={<External size="medium" />}
+          className="ids-link-editor__external"
+          appearance={isTargetBlank ? 'primary' : 'ghost'}
+          onClick={() => {
+            setIsTargetBlank((prevValue) => !prevValue);
+          }}
+          // @ts-ignore
+          title={messages?.linkEditorTargetBlank?.tooltip}
+        />
+      )}
       <IconButton
         size="small"
         icon={<Close size="medium" />}
@@ -355,6 +359,7 @@ function useFloatingLinkEditorToolbar(
   editor: LexicalEditor,
   anchorElem: HTMLElement,
   messages?: Messages,
+  canSelectLinkOpeningMode?: boolean
 ): JSX.Element | null {
   const [activeEditor, setActiveEditor] = useState(editor);
   const [isLink, setIsLink] = useState(false);
@@ -401,6 +406,7 @@ function useFloatingLinkEditorToolbar(
       anchorElem={anchorElem}
       setIsLink={setIsLink}
       messages={messages}
+      canSelectLinkOpeningMode={canSelectLinkOpeningMode}
     />
   );
 }
@@ -408,10 +414,12 @@ function useFloatingLinkEditorToolbar(
 export function FloatingLinkEditorPlugin({
   anchorElem = document.body,
   messages,
+  canSelectLinkOpeningMode
 }: {
   anchorElem?: HTMLElement;
   messages?: Messages;
+  canSelectLinkOpeningMode?: boolean;
 }): JSX.Element | null {
   const [editor] = useLexicalComposerContext();
-  return useFloatingLinkEditorToolbar(editor, anchorElem, messages);
+  return useFloatingLinkEditorToolbar(editor, anchorElem, messages, canSelectLinkOpeningMode);
 }
