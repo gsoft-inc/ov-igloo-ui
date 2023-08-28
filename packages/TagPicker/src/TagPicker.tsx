@@ -51,7 +51,7 @@ export interface TagPickerProps
     /** Indicate whether the tag picker has an error or not */
     error?: boolean;
     /** Results of the current search to display
-   * in the pop-up when the tag picker is focused */
+     * in the pop-up when the tag picker is focused */
     results?: TagItem[];
     /** Whether or not the list is loading */
     loading?: boolean;
