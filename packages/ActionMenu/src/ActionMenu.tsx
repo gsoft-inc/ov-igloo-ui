@@ -47,7 +47,7 @@ export interface ActionMenuProps extends React.ComponentProps<"div"> {
     /** Position of the action menu */
     position?: Position;
     /** Render the reference element to be able to add the
-   * reference props directly */
+     * reference props directly */
     renderReference: (
         props: React.HTMLProps<HTMLButtonElement>,
     ) => React.ReactElement;
