@@ -63,6 +63,7 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
     font-size: var(--ids-datepicker-title-font-size);
     line-height: var(--ids-datepicker-title-line-height);
     text-align: center;
+    text-transform: capitalize;
     margin: 0;
     order: 1;
   }
@@ -182,3 +183,4 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
     }
   }
 }
+
