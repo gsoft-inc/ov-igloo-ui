@@ -1,5 +1,11 @@
 # @igloo-ui/datepicker
 
+## 0.2.0
+
+### Minor Changes
+
+- e602abb: Updated the Datepicker to return a luxon local ISO time in the onChange without the timezone at the end. Added an option to change the locale as well as capitalizing the months for any language. Fixed the time sent in the onChange. Added readOnly option and also the ability to update the datePicker via the input. (First Draft)
+
 ## 0.1.5
 
 ### Patch Changes

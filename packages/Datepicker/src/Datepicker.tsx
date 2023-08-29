@@ -1,193 +1,220 @@
-import * as React from 'react';
-import cx from 'classnames';
+import * as React from "react";
+import cx from "classnames";
 
-import { useLocale, DateValue } from 'react-aria';
+import { useLocale, type DateValue, I18nProvider } from "react-aria";
 
 import {
-  getLocalTimeZone,
-  isWeekend,
-  now,
-  parseAbsoluteToLocal,
-  ZonedDateTime,
-} from '@internationalized/date';
-import Dropdown from '@igloo-ui/dropdown';
-import Input from '@igloo-ui/input';
-import Button from '@igloo-ui/button';
-import IconCalendar from '@igloo-ui/icons/dist/Calendar';
+    getLocalTimeZone,
+    isWeekend,
+    now,
+    parseAbsoluteToLocal,
+    ZonedDateTime
+} from "@internationalized/date";
+import Dropdown from "@igloo-ui/dropdown";
+import Input, { type InputProps } from "@igloo-ui/input";
+import Button from "@igloo-ui/button";
+import IconCalendar from "@igloo-ui/icons/dist/Calendar";
+import { DateTime } from "luxon";
 
-import Calendar from './components/Calendar';
+import Calendar from "./components/Calendar";
 
-import './datepicker.scss';
+import "./datepicker.scss";
 
-type Date = { utc: string; local: string };
+interface Date { utc: string; local: string }
 
 export interface DatepickerProps {
-  /** Selected value for the date picker.
+    /** Selected value for the date picker.
    * These props represent the local date of the user
    * */
-  selectedDay?: string;
-  /** Specifies the value inside the input. */
-  value?: string;
-  /** Text that appears in the form control when it has no value set. */
-  placeholder?: string;
-  /** Defines a string value that labels the current element. */
-  ariaLabel?: string;
-  /** True if the date picker should be disabled. */
-  disabled?: boolean;
-  /** Form.ValidatedField state. True if it has an error. */
-  error?: boolean;
-  /** True if the Dropdown list is displayed. */
-  isOpen?: boolean;
-  /** Callback function that will be called when the user types something. */
-  onChange?: (date: Date | null) => void;
-  /** Callback when the user clicks outside the Dropdown. */
-  onClose?: () => void;
-  /** Function called when the element receives focus. */
-  onFocus?: () => void;
-  /** Callback when they clear the date */
-  onClear?: () => void;
-  /** Add a data-test tag for automated tests. */
-  dataTest?: string;
-  /** True if the control's value can be cleared. */
-  isClearable?: boolean;
-  /** Label for the clear button. Required if clearable is set to True */
-  clearLabel?: string;
-  /** Highlights today's date if true */
-  highlightToday?: boolean;
-  /** Disabled weekend date */
-  weekendUnavailable?: boolean;
-  /** The minimum allowed date that a user may select */
-  minDate?: string;
-  /** The maximum allowed date that a user may select */
-  maxDate?: string;
+    selectedDay?: string;
+    /** Specifies the value inside the input. */
+    value?: string;
+    /** Text that appears in the form control when it has no value set. */
+    placeholder?: string;
+    /** Defines a string value that labels the current element. */
+    ariaLabel?: string;
+    /** True if the date picker should be disabled. */
+    disabled?: boolean;
+    /** Form.ValidatedField state. True if it has an error. */
+    error?: boolean;
+    /** True if the Dropdown list is displayed. */
+    isOpen?: boolean;
+    /** Callback function that will be called when the user types something. */
+    onChange?: (date: Date | null) => void;
+    /** Callback when the user clicks outside the Dropdown. */
+    onClose?: () => void;
+    /** Function called when the element receives focus. */
+    onFocus?: () => void;
+    /** Callback when they clear the date */
+    onClear?: () => void;
+    /** Add a data-test tag for automated tests. */
+    dataTest?: string;
+    /** True if the control's value can be cleared. */
+    isClearable?: boolean;
+    /** Label for the clear button. Required if clearable is set to True */
+    clearLabel?: string;
+    /** Highlights today's date if true */
+    highlightToday?: boolean;
+    /** Disabled weekend date */
+    weekendUnavailable?: boolean;
+    /** The minimum allowed date that a user may select */
+    minDate?: string;
+    /** The maximum allowed date that a user may select */
+    maxDate?: string;
+    /** True if the input is readonly */
+    readOnly?: boolean;
+    /** The locale to use for formatting/parsing. If not specified, the default locale will be used. */
+    locale?: string;
 }
 
 const Datepicker: React.FunctionComponent<DatepickerProps> = ({
-  selectedDay,
-  value,
-  minDate,
-  maxDate,
-  placeholder,
-  ariaLabel,
-  disabled = false,
-  isOpen = false,
-  error = false,
-  isClearable = false,
-  clearLabel,
-  onChange,
-  onClose,
-  onClear,
-  onFocus,
-  dataTest,
-  highlightToday = true,
-  weekendUnavailable = false,
-  ...rest
+    selectedDay,
+    value,
+    minDate,
+    maxDate,
+    placeholder,
+    ariaLabel,
+    disabled = false,
+    isOpen = false,
+    error = false,
+    isClearable = false,
+    clearLabel,
+    onChange,
+    onClose,
+    onClear,
+    onFocus,
+    dataTest,
+    highlightToday = true,
+    weekendUnavailable = false,
+    readOnly = false,
+    locale,
+    ...rest
 }: DatepickerProps) => {
-  const { locale } = useLocale();
+    const { locale: ariaLocale } = useLocale();
+    const internalLocale = locale || ariaLocale;
+    const dateTimeOfDay = now(getLocalTimeZone());
 
-  const formatDate = (date: string | undefined) => {
-    if (date) {
-      return parseAbsoluteToLocal(date);
-    }
+    const formatDate = (date: string | undefined): ZonedDateTime | undefined => {
+        if (date) {
+            return parseAbsoluteToLocal(date);
+        }
 
-    return undefined;
-  };
+        return undefined;
+    };
 
-  const dateTimeOfDay = now(getLocalTimeZone());
+    const handleChange = (date: DateValue | DateTime): void => {
+        const { year, month, day } = date;
+        const { hour, minute, second, millisecond, offset, timeZone } =
+dateTimeOfDay;
+        const zonedDateTime = new ZonedDateTime(
+            year,
+            month,
+            day,
+            timeZone,
+            offset,
+            hour,
+            minute,
+            second,
+            millisecond
+        );
+        const local = DateTime.fromJSDate(zonedDateTime.toDate()).toISO();
+        // the calendar return an object with utc and local
+        if (onChange) {
+            onChange({
+                utc: zonedDateTime.toAbsoluteString(),
+                local: local
+            });
+        }
+    };
 
-  const handleChange = (date: { year: number; month: number; day: number }) => {
-    const { year, month, day } = date;
-    const { hour, minute, second, millisecond, offset, timeZone } =
-      dateTimeOfDay;
+    const handleClear = (): void => {
+        if (onClear) {
+            onClear();
+        }
 
-    const local = new ZonedDateTime(
-      year,
-      month,
-      day,
-      timeZone,
-      offset,
-      minute,
-      hour,
-      second,
-      millisecond,
+        if (onChange) {
+            onChange(null);
+        }
+    };
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        const { value: inputValue } = e.target;
+        if (inputValue) {
+            const date = DateTime.fromISO(inputValue);
+            if (date.isValid) {
+                handleChange(date);
+            }
+        } else {
+            handleClear();
+        }
+    };
+
+    const isDateUnavailable = (date: DateValue): boolean => {
+        if (weekendUnavailable && internalLocale) {
+            return isWeekend(date, internalLocale);
+        }
+
+        return false;
+    };
+
+    const classes = cx("ids-datepicker", {
+        "ids-datepicker--disabled": disabled
+    });
+
+    const calendar = (
+        <>
+            <Calendar
+                aria-label={ariaLabel}
+                className={classes}
+                value={formatDate(selectedDay) || null}
+                onChange={handleChange}
+                isDisabled={disabled}
+                highlightToday={highlightToday}
+                isDateUnavailable={isDateUnavailable}
+                minValue={formatDate(minDate)}
+                maxValue={formatDate(maxDate)}
+            />
+            {isClearable && clearLabel && (
+                <Button
+                    onClick={handleClear}
+                    className="ids-datepicker__action"
+                    appearance={{ type: "ghost", variant: "danger" }}
+                >
+                    {clearLabel}
+                </Button>
+            )}
+        </>
     );
 
-    // the calendar return an object with utc and local
-    if (onChange) {
-      onChange({
-        utc: local.toAbsoluteString(),
-        local: local.toString(),
-      });
-    }
-  };
+    const inputProps: InputProps = {
+        placeholder,
+        disabled,
+        error,
+        value,
+        prefixIcon: <IconCalendar />,
+        type: "text",
+        onFocus,
+        onChange: handleInputChange
+    };
 
-  const handleClear = () => {
-    if (onClear) {
-      onClear();
-    }
-
-    if (onChange) {
-      onChange(null);
-    }
-  };
-
-  const isDateUnavailable = (date: DateValue) => {
-    if (weekendUnavailable && locale) {
-      return isWeekend(date, locale);
+    if (readOnly) {
+        inputProps.readOnly = readOnly;
     }
 
-    return false;
-  };
-
-  const classes = cx('ids-datepicker', {
-    'ids-datepicker--disabled': disabled,
-  });
-
-  const calendar = (
-    <>
-      <Calendar
-        aria-label={ariaLabel}
-        className={classes}
-        value={formatDate(selectedDay)}
-        onChange={handleChange}
-        isDisabled={disabled}
-        highlightToday={highlightToday}
-        isDateUnavailable={isDateUnavailable}
-        minValue={formatDate(minDate)}
-        maxValue={formatDate(maxDate)}
-      />
-      {isClearable && clearLabel && (
-        <Button
-          onClick={handleClear}
-          className="ids-datepicker__action"
-          appearance={{ type: 'ghost', variant: 'danger' }}
-        >
-          {clearLabel}
-        </Button>
-      )}
-    </>
-  );
-
-  return (
-    <Dropdown
-      isOpen={!disabled && isOpen}
-      onClose={onClose}
-      content={calendar}
-      size="medium"
-      dataTest={dataTest}
-      {...rest}
-    >
-      <Input
-        type="text"
-        disabled={disabled}
-        error={error}
-        value={value}
-        placeholder={placeholder}
-        prefixIcon={<IconCalendar />}
-        onFocus={onFocus}
-      />
-    </Dropdown>
-  );
+    return (
+        <I18nProvider locale={locale}>
+            <Dropdown
+                isOpen={!disabled && isOpen}
+                onClose={onClose}
+                content={calendar}
+                size="medium"
+                dataTest={dataTest}
+                {...rest}
+            >
+                <Input {...inputProps} />
+            </Dropdown>
+        </I18nProvider>
+    );
 };
 
 export default Datepicker;

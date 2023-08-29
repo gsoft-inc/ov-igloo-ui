@@ -19,6 +19,13 @@ export default {
       },
     },
   },
+  argTypes: {
+    selectedDay: {
+      control: {
+        type: 'date',
+      },
+    },
+  },
 } as Meta<typeof Datepicker>;
 
 type Story = StoryObj<typeof Datepicker>;
@@ -109,14 +116,6 @@ export const Overview: Story = {
     ariaLabel: 'goal start date',
   },
 
-  argTypes: {
-    selectedDay: {
-      control: {
-        type: 'date',
-      },
-    },
-  },
-
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -128,6 +127,25 @@ export const Disabled: Story = {
   args: {
     placeholder: 'Select date',
     disabled: true,
+  },
+};
+
+export const ReadOnly: Story = {
+  render: Template,
+
+  args: {
+    placeholder: 'Select date',
+    readOnly: true,
+  },
+};
+
+export const French: Story = {
+  render: Template,
+
+  args: {
+    placeholder: 'Select date',
+    locale: 'fr-CA',
+    weekendUnavailable: true
   },
 };
 
