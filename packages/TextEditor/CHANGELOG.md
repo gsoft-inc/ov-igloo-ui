@@ -1,5 +1,11 @@
 # @igloo-ui/text-editor
 
+## 0.4.0
+
+### Minor Changes
+
+- d9986bc: Add possibility to open link in a new tab
+
 ## 0.3.7
 
 ### Patch Changes
