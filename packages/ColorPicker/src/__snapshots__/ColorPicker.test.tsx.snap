@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorPicker It should render a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ids-color-picker"
+    data-test="ids-color-picker"
+  >
+    <button
+      class="ids-color-picker__button"
+      data-color="dandelion200"
+      type="button"
+    >
+      <div
+        class="ids-color ids-color--large"
+        style="background-color: rgb(253, 222, 136);"
+      />
+    </button>
+  </div>
+</DocumentFragment>
+`;

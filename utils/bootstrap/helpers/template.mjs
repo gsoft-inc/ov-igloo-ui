@@ -8,13 +8,13 @@ export const getComponentTemplate = (name) => {
 import './${name}.scss';
 
 export interface ${pascalCaseName}Props extends React.ComponentProps<'div'> {
-  children: React.ReactNode;
-  /** Add a data-test tag for automated tests */
-  dataTest?: string;
+    children: React.ReactNode;
+    /** Add a data-test tag for automated tests */
+    dataTest?: string;
 }
 
 const ${pascalCaseName}: React.FunctionComponent<${pascalCaseName}Props> = ({ children, dataTest }: ${pascalCaseName}Props) => {
-  return <div className="ids-${name}" data-test={dataTest}>{children}</div>;
+    return <div className="ids-${name}" data-test={dataTest}>{children}</div>;
 };
 
 export default ${pascalCaseName};
@@ -33,22 +33,22 @@ import { render, screen } from '@testing-library/react';
 import ${pascalCaseName} from './${pascalCaseName}';
 
 const setup = (props = {}) => {
-  return render(
-    <${pascalCaseName} dataTest="ids-${name}" {...props}>Hello world</${pascalCaseName}>
-  );
+    return render(
+        <${pascalCaseName} dataTest="ids-${name}" {...props}>Hello world</${pascalCaseName}>
+    );
 };
 
 describe('${pascalCaseName}', () => {
-  test('It should render without errors', () => {
-  setup();
-    const wrapper = screen.getByTestId('ids-${name}');
-    expect(wrapper).toBeInTheDocument();
+    test('It should render without errors', () => {
+        setup();
+        const wrapper = screen.getByTestId('ids-${name}');
+        expect(wrapper).toBeInTheDocument();
   });
 
-  test('It should render a snapshot', () => {
-    const {asFragment} = setup();
-    expect(asFragment()).toMatchSnapshot();
-  });
+    test('It should render a snapshot', () => {
+        const {asFragment} = setup();
+        expect(asFragment()).toMatchSnapshot();
+    });
 });
 `;
 };
@@ -66,23 +66,23 @@ import readme from '../README.md';
 import ${pascalCaseName} from './${pascalCaseName}';
 
 export default {
-  title: 'Components/${pascalCaseName}',
-  component: ${pascalCaseName},
-  parameters: {
-    docs: {
-      description: {
-        component: readme,
-      }
+    title: 'Components/${pascalCaseName}',
+    component: ${pascalCaseName},
+    parameters: {
+        docs: {
+            description: {
+                component: readme,
+            }
+        }
     }
-  }
 } as Meta<typeof ${pascalCaseName}>;
 
 type Story = StoryObj<typeof ${pascalCaseName}>;
 
 export const Overview: Story = {
-  args: {
-    children: 'Dummy starter component',
-  },
+    args: {
+        children: 'Dummy starter component',
+    },
 };
 
 // export const Appearances: Story = {
