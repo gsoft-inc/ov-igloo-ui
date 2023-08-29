@@ -5,8 +5,8 @@ import { Button, type ButtonProps, ListBox } from "react-aria-components";
 import { mergeProps, FocusScope } from "react-aria";
 import type { Selection } from "react-stately";
 
-import Dropdown from "@Igloo-ui/dropdown";
-import Color from "@Igloo-ui/color";
+import Dropdown from "@igloo-ui/dropdown";
+import Color from "@igloo-ui/color";
 import Checkmark from "@igloo-ui/icons/dist/Checkmark";
 import variables from "@igloo-ui/tokens/dist/base10/tokens.json";
 

@@ -1,7 +1,8 @@
 import * as React from "react";
+import cx from "classnames";
 import { Item } from "react-aria-components";
 
-import Color, { type Size } from "@Igloo-ui/color";
+import Color, { type Size } from "@igloo-ui/color";
 
 import "./color-picker-option.scss";
 
@@ -21,10 +22,11 @@ function ColorPickerOption({ color, icon, id, size = "xlarge" }: ColorPickerOpti
         <Item id={id}
             textValue={color}
             className={({ isFocusVisible, isSelected, isHovered }) =>
-                `ids-color-picker-option 
-                ${isFocusVisible ? "ids-color-picker-option--focused" : ""} 
-                ${isSelected ? "ids-color-picker-option--selected" : ""}
-                ${isHovered ? "ids-color-picker-option--hovered" : ""}`}
+                cx("ids-color-picker-option", {
+                    "ids-color-picker-option--focused": isFocusVisible,
+                    "ids-color-picker-option--selected": isSelected,
+                    "ids-color-picker-option--hovered": isHovered
+                })}
             aria-label={color}
         >
             {({ isSelected }) => (
