@@ -22,7 +22,7 @@
     "@igloo-ui/carousel": "*",
     "@igloo-ui/checkbox": "*",
     "@igloo-ui/color": "*",
-    "@igloo-ui/colorPicker": "*",
+    "@igloo-ui/color-picker": "*",
     "@igloo-ui/combobox": "*",
     "@igloo-ui/datepicker": "*",
     "@igloo-ui/dialog": "*",
