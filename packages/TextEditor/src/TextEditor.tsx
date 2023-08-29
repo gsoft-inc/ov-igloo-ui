@@ -60,6 +60,7 @@ export interface Messages {
   private?: MessageOptions;
   linkEditorEdit?: MessageOptions;
   linkEditorRemove?: MessageOptions;
+  linkEditorTargetBlank?: MessageOptions;
   linkEditorCancel?: MessageOptions;
   linkEditorSave?: MessageOptions;
 }
@@ -106,6 +107,8 @@ export interface TextEditorProps
   /** Whether or not the editor should display
    * the toolbar when editor is focused */
   showToolbarOnFocus?: boolean;
+  /** Wether the user can choose the opening mode of a link */
+  canSelectLinkOpeningMode?: boolean;
 }
 
 const TextEditor: React.FunctionComponent<TextEditorProps> = ({
@@ -130,6 +133,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
     private: { text: 'Visible to you only' },
     linkEditorEdit: { tooltip: 'Edit link' },
     linkEditorCancel: { tooltip: 'Cancel' },
+    linkEditorTargetBlank: { tooltip: 'Open in a new tab' },
     linkEditorRemove: { tooltip: 'Remove link' },
     linkEditorSave: { tooltip: 'Save' },
   },
@@ -142,6 +146,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
   readOnly = false,
   showToolbar = true,
   showToolbarOnFocus = false,
+  canSelectLinkOpeningMode = false,
 }: TextEditorProps) => {
   const [hasFocus, setHasFocus] = React.useState(autoFocus);
 
@@ -243,6 +248,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
                 <FloatingLinkEditorPlugin
                   anchorElem={floatingAnchorElem}
                   messages={messages}
+                  canSelectLinkOpeningMode={canSelectLinkOpeningMode}
                 />
               )}
               {isClearable && <ClearEditorPlugin />}
