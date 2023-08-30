@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/color",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "dist/Color.js",
   "module": "dist/Color.js",
   "types": "dist/Color.d.ts",

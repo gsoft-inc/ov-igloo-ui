@@ -1,5 +1,16 @@
 # @igloo-ui/icon-button
 
+## 1.1.0
+
+### Minor Changes
+
+- 5402bcc: Created a "brand" toggle in the Toolbar and applied the new Workleap brand to some components. Also deprecated the Tag's appearance values and added new ones.
+
+### Patch Changes
+
+- Updated dependencies [5402bcc]
+  - @igloo-ui/button@0.6.0
+
 ## 1.0.4
 
 ### Patch Changes

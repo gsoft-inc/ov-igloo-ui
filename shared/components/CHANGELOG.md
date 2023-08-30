@@ -1,5 +1,17 @@
 # @shared/components
 
+## 0.2.0
+
+### Minor Changes
+
+- 5402bcc: Created a "brand" toggle in the Toolbar and applied the new Workleap brand to some components. Also deprecated the Tag's appearance values and added new ones.
+
+### Patch Changes
+
+- Updated dependencies [5402bcc]
+  - @igloo-ui/avatar@0.2.0
+  - @igloo-ui/color@0.2.0
+
 ## 0.1.2
 
 ### Patch Changes

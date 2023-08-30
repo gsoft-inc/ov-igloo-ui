@@ -1,5 +1,11 @@
 # @igloo-ui/avatar
 
+## 0.2.0
+
+### Minor Changes
+
+- 5402bcc: Created a "brand" toggle in the Toolbar and applied the new Workleap brand to some components. Also deprecated the Tag's appearance values and added new ones.
+
 ## 0.1.1
 
 ### Patch Changes

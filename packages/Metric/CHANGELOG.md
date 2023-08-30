@@ -1,5 +1,11 @@
 # @igloo-ui/metric
 
+## 0.1.3
+
+### Patch Changes
+
+- 08de993: Updated react-aria packages
+
 ## 0.1.2
 
 ### Patch Changes

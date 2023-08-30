@@ -1,5 +1,18 @@
 # @igloo-ui/datepicker
 
+## 0.3.0
+
+### Minor Changes
+
+- b67ee3d: Fixed the datepicker style when the selected date is unavailable and today's date. Also made sure that unavailable dates cannot be selected through the input field and added onDateUnavailable callback.
+
+### Patch Changes
+
+- 08de993: Removed duplicate react-stately from Datepicker and updated packages to fix build error.
+- Updated dependencies [5402bcc]
+  - @igloo-ui/button@0.6.0
+  - @igloo-ui/icon-button@1.1.0
+
 ## 0.2.0
 
 ### Minor Changes

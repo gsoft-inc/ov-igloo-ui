@@ -1,5 +1,38 @@
 # docs
 
+## 0.2.0
+
+### Minor Changes
+
+- 5402bcc: Created a "brand" toggle in the Toolbar and applied the new Workleap brand to some components. Also deprecated the Tag's appearance values and added new ones.
+
+### Patch Changes
+
+- Updated dependencies [876e9e1]
+- Updated dependencies [b67ee3d]
+- Updated dependencies [08de993]
+- Updated dependencies [08de993]
+- Updated dependencies [08de993]
+- Updated dependencies [5402bcc]
+  - @igloo-ui/textarea@0.2.4
+  - @igloo-ui/datepicker@0.3.0
+  - @igloo-ui/disclosure@0.2.3
+  - @igloo-ui/metric@0.1.3
+  - @igloo-ui/stepper@0.1.2
+  - @igloo-ui/tag-picker@0.5.0
+  - @igloo-ui/color-picker@0.1.0
+  - @igloo-ui/action-menu@1.3.0
+  - @igloo-ui/avatar@0.2.0
+  - @igloo-ui/button@0.6.0
+  - @igloo-ui/color@0.2.0
+  - @igloo-ui/icon-button@1.1.0
+  - @igloo-ui/list@0.5.0
+  - @igloo-ui/tag@1.1.0
+  - @igloo-ui/alert@0.3.4
+  - @igloo-ui/combobox@2.0.3
+  - @igloo-ui/text-editor@0.4.1
+  - @igloo-ui/select@1.3.3
+
 ## 0.1.3
 
 ### Patch Changes
