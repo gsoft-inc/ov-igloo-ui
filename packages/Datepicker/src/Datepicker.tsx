@@ -47,6 +47,8 @@ export interface DatepickerProps {
     onFocus?: () => void;
     /** Callback when they clear the date */
     onClear?: () => void;
+    /** Callback when the user selects a date that is unavailable through the input */
+    onDateUnavailable?: (date: Date | null) => void;
     /** Add a data-test tag for automated tests. */
     dataTest?: string;
     /** True if the control's value can be cleared. */
@@ -82,6 +84,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     onChange,
     onClose,
     onClear,
+    onDateUnavailable,
     onFocus,
     dataTest,
     highlightToday = true,
@@ -102,11 +105,12 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
         return undefined;
     };
 
-    const handleChange = (date: DateValue | DateTime): void => {
+    const createZonedDateTime = (date: DateValue | DateTime): ZonedDateTime => {
         const { year, month, day } = date;
         const { hour, minute, second, millisecond, offset, timeZone } =
 dateTimeOfDay;
-        const zonedDateTime = new ZonedDateTime(
+
+        return new ZonedDateTime(
             year,
             month,
             day,
@@ -117,6 +121,10 @@ dateTimeOfDay;
             second,
             millisecond
         );
+    };
+
+    const handleChange = (date: DateValue | DateTime): void => {
+        const zonedDateTime = createZonedDateTime(date);
         const local = DateTime.fromJSDate(zonedDateTime.toDate()).toISO();
         // the calendar return an object with utc and local
         if (onChange) {
@@ -137,24 +145,56 @@ dateTimeOfDay;
         }
     };
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const { value: inputValue } = e.target;
-        if (inputValue) {
-            const date = DateTime.fromISO(inputValue);
-            if (date.isValid) {
-                handleChange(date);
-            }
-        } else {
-            handleClear();
-        }
-    };
-
     const isDateUnavailable = (date: DateValue): boolean => {
         if (weekendUnavailable && internalLocale) {
             return isWeekend(date, internalLocale);
         }
 
         return false;
+    };
+
+    const isDateSelectable = (date: DateTime): boolean => {
+        let isMinDateSelectable = true;
+        let isMaxDateSelectable = true;
+        if (minDate) {
+            isMinDateSelectable = 
+                date.startOf("day").toMillis() >= DateTime.fromISO(minDate).startOf("day").toMillis();
+        }
+        if (maxDate) {
+            isMaxDateSelectable = 
+                date.startOf("day").toMillis() <= DateTime.fromISO(maxDate).startOf("day").toMillis();
+        }
+
+        const zonedDateTime = createZonedDateTime(date);
+
+        return !isDateUnavailable(zonedDateTime) && isMinDateSelectable && isMaxDateSelectable;
+    };
+
+    const handleDateUnavailable = (date: DateValue | DateTime): void => {
+        const zonedDateTime = createZonedDateTime(date);
+        const local = DateTime.fromJSDate(zonedDateTime.toDate()).toISO();
+        if (onDateUnavailable) {
+            onDateUnavailable({
+                utc: zonedDateTime.toAbsoluteString(),
+                local: local
+            });
+        }
+    };
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        const { value: inputValue } = e.target;
+        if (inputValue) {
+            const date = DateTime.fromISO(inputValue);
+            if (date.isValid) {
+                if (isDateSelectable(date)) {
+                    handleChange(date);
+                } else {
+                    handleDateUnavailable(date);
+                }
+            }
+        } else {
+            handleClear();
+        }
     };
 
     const classes = cx("ids-datepicker", {

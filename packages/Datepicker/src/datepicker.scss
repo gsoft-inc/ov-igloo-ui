@@ -177,9 +177,17 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
   &--disabled.ids-datepicker__content--today {
     color: var(--ids-datepicker-content-color-today);
 
+    &.ids-datepicker__content--selected {
+      color: var(--ids-datepicker-content-color-selected);
+    }
+
     &:hover {
       color: var(--ids-datepicker-content-color-today);
       background: transparent;
+    }
+
+    &.ids-datepicker__content--selected:hover {
+      @extend %active-date;
     }
   }
 }
