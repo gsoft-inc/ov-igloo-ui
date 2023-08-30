@@ -27,7 +27,7 @@ const ButtonGroupItem: React.FunctionComponent<ButtonGroupItemProps> = ({
 }: ButtonGroupItemProps) => {
     const renderWithIcon = (
         <>
-            {icon}{" "}
+            {icon}
             {children && <span className="ids-btn-group__text">{children}</span>}
         </>
     );

@@ -9,21 +9,21 @@ import readme from '../README.md';
 import Color from './Color';
 
 const iglooColors = [
-  variables.sky100,
   variables.coral800,
-  variables.coral200,
-  variables.coral900,
   variables.electricBlue700,
-  variables.samoyed
+  variables.sky100,
+  variables.coral200,
+  variables.samoyed,
+  variables.coral900
 ]
 
 const workleapColors = [
-  "var(--hop-decorative-option5-surface)",
   "var(--hop-decorative-option2-surface)",
-  "var(--hop-decorative-option8-surface)",
-  "var(--hop-decorative-option8-text)",
   "var(--hop-decorative-option4-surface)",
-  "var(--hop-decorative-option4-text)"
+  "var(--hop-decorative-option5-surface)",
+  "var(--hop-decorative-option8-surface)",
+  "var(--hop-decorative-option4-text)",
+  "var(--hop-decorative-option8-text)"
 ]
 
 const getColors = (brand: string) => {
@@ -54,7 +54,7 @@ export const Overview: Story = {
   render: (args, { globals: { brand } }) => {
     return (
       <Section>
-        <Color color={getColors(brand)[0]} size={args.size} />
+        <Color color={getColors(brand)[2]} size={args.size} />
       </Section>
     );
   },
@@ -67,10 +67,10 @@ export const Sizes: Story = {
   render: (_args, { globals: { brand } }) => {
     return (
       <Section>
-        <Color color={getColors(brand)[1]} size="small" />
-        <Color color={getColors(brand)[1]} size="medium" />
-        <Color color={getColors(brand)[1]} size="large" />
-        <Color color={getColors(brand)[1]} size="xlarge" />
+        <Color color={getColors(brand)[0]} size="small" />
+        <Color color={getColors(brand)[0]} size="medium" />
+        <Color color={getColors(brand)[0]} size="large" />
+        <Color color={getColors(brand)[0]} size="xlarge" />
       </Section>
     );
   }
@@ -81,8 +81,8 @@ export const Initials: Story = {
     return (
       <Section>
         <Color
-          color={getColors(brand)[2]}
-          textColor={getColors(brand)[3]}
+          color={getColors(brand)[3]}
+          textColor={getColors(brand)[5]}
           size="xlarge"
           name="Awesome Possum Team"
         />
@@ -95,7 +95,7 @@ export const CustomText: Story = {
   render: (_args, { globals: { brand } }) => {
     return (
       <Section>
-        <Color color={getColors(brand)[4]} textColor={getColors(brand)[5]} size="xlarge" name="VC" />
+        <Color color={getColors(brand)[1]} textColor={getColors(brand)[4]} size="xlarge" name="VC" />
       </Section>
     );
   }

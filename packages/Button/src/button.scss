@@ -60,8 +60,8 @@
   --ids-btn-background-ghost-hover: transparent;
   --ids-btn-background-ghost-disabled: transparent;
   --ids-loader-size: 1.2rem;
-  --ids-loader-border: .2rem solid rgb(255 255 255 / 30%);
-  --ids-loader-border-ghost: .2rem solid rgb(16 83 255 / 30%);
+  --ids-loader-border: 0.2rem solid rgb(255 255 255 / 30%);
+  --ids-loader-border-ghost: 0.2rem solid rgb(16 83 255 / 30%);
   --ids-loader-primary: #{tokens.$samoyed};
   --ids-loader-premium: #{tokens.$grey-800};
   --ids-loader-premium-disabled: #{tokens.$grey-600};
@@ -77,7 +77,7 @@
   --ids-btn-text-ghost-danger-disabled: #{tokens.$coral-300};
   --ids-btn-background-ghost-danger-hover: transparent;
   --ids-btn-background-ghost-danger-disabled: transparent;
-  --ids-loader-border-ghost-danger: .2rem solid rgb(249 97 85 / 30%);
+  --ids-loader-border-ghost-danger: 0.2rem solid rgb(249 97 85 / 30%);
   --ids-loader-ghost-danger: #{tokens.$coral-500};
 
   /* Ghost, variant: Secondary */
@@ -88,11 +88,9 @@
   --ids-btn-background-ghost-secondary-hover: transparent;
   --ids-btn-background-ghost-secondary-active: transparent;
   --ids-btn-background-ghost-secondary-disabled: transparent;
-  --ids-loader-border-ghost-secondary: .2rem solid rgb(96 107 121 / 30%);
+  --ids-loader-border-ghost-secondary: 0.2rem solid rgb(96 107 121 / 30%);
   --ids-loader-ghost-secondary: #{tokens.$grey-600};
-
-  /* Calculate negative margin for  IE11 compatibility */
-  --ids-loader-position: calc(-0.6rem - .1rem);
+  --ids-loader-position: calc(-0.6rem - 0.1rem);
 }
 
 [data-brand="workleap"] {
@@ -101,12 +99,12 @@
     --ids-btn-font-size: var(--hop-body-md-medium-font-size);
     --ids-btn-font-size-small: var(--hop-body-sm-medium-font-size);
     --ids-btn-font-weight: var(--hop-body-md-medium-font-weight);
-    --ids-btn-height: var(--hop-space-400);
-    --ids-btn-height-small: var(--hop-space-320);
+    --ids-btn-height: 2.5rem;
+    --ids-btn-height-small: 2rem;
     --ids-btn-padding: var(--hop-space-inset-md);
     --ids-btn-border-radius: var(--hop-shape-rounded-md);
     --ids-btn-icon-color: currentcolor;
-    --ids-btn-icon-margin:var(--hop-space-inset-xs);
+    --ids-btn-icon-margin: var(--hop-space-inline-xs);
     --ids-focus-shadow: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
 
     /* Primary */
@@ -151,7 +149,7 @@
     --ids-btn-background-ghost: transparent;
     --ids-btn-background-ghost-hover: var(--hop-primary-surface-hover);
     --ids-btn-background-ghost-disabled: transparent;
-    --ids-loader-size: .75rem;
+    --ids-loader-size: 0.75rem;
     --ids-loader-border: 0.125rem solid rgb(255 255 255 / 30%);
     --ids-loader-border-ghost: 0.125rem solid rgb(59 87 255 / 30%);
     --ids-loader-primary: var(--hop-primary-icon-strong);
@@ -182,9 +180,7 @@
     --ids-btn-text-ghost-secondary-disabled: var(--hop-neutral-text-disabled);
     --ids-loader-border-ghost-secondary: 0.125rem solid rgb(60 60 60 / 30%);
     --ids-loader-ghost-secondary: var(--hop-neutral-icon);
-  
-    /* Calculate negative margin for  IE11 compatibility */
-    --ids-loader-position: calc(-0.375rem - .063rem);
+    --ids-loader-position: calc(-0.375rem - 0.063rem);
 }
 
 /* Placeholder selector for IE11 compatibility */

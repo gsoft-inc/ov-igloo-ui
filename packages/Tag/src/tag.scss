@@ -120,13 +120,13 @@
 
   /* Medium */
   --ids-tag-font-size: var(--hop-body-sm-font-size);
-  --ids-tag-height: var(--hop-space-inset-xl);
+  --ids-tag-height: 2rem;
   --ids-tag-padding: 0 var(--hop-space-inset-sm);
   --ids-tag-content-padding: 0 var(--hop-space-inset-sm);
 
   /* Small */
   --ids-tag-font-size-small: var(--hop-body-xs-font-size);
-  --ids-tag-height-small: var(--hop-space-inset-lg);
+  --ids-tag-height-small: 1.5rem;
   --ids-tag-padding-small: 0;
 
   /* XSmall */

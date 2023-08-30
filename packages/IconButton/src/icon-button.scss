@@ -24,20 +24,20 @@
 
 [data-brand="workleap"] {
   /* Default */
-  --ids-icon-btn-height: var(--hop-space-inset-xl);
-  --ids-icon-btn-width: var(--hop-space-inset-xl);
+  --ids-icon-btn-height: 2rem;
+  --ids-icon-btn-width: 2rem;
 
   /* XSmall */
-  --ids-icon-btn-height-xsmall: var(--hop-space-inset-md);
-  --ids-icon-btn-width-xsmall: var(--hop-space-inset-md);
+  --ids-icon-btn-height-xsmall: 1rem;
+  --ids-icon-btn-width-xsmall: 1rem;
 
   /* Small */
-  --ids-icon-btn-height-small: var(--hop-space-inset-lg);
-  --ids-icon-btn-width-small: var(--hop-space-inset-lg);
+  --ids-icon-btn-height-small: 1.5rem;
+  --ids-icon-btn-width-small: 1.5rem;
 
   /* Large */
-  --ids-icon-btn-height-large: var(--hop-space-400);
-  --ids-icon-btn-width-large: var(--hop-space-400);
+  --ids-icon-btn-height-large: 2.5rem;
+  --ids-icon-btn-width-large: 2.5rem;
 }
 
 .ids-icon-btn {
