@@ -42,7 +42,7 @@
     border-color: var(--ids-color-picker-btn-border-color-hover);
   }
 
-  &:Disabled {
+  &:disabled {
     background: var(--ids-color-picker-btn-background-disabled);
     border-color: var(--ids-color-picker-btn-border-color-disabled);
     cursor: not-allowed;
