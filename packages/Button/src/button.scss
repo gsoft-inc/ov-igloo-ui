@@ -1,6 +1,9 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
   /* Default */
   --ids-btn-font-family: #{tokens.$primary-font-family};
@@ -10,13 +13,14 @@
   --ids-btn-height: #{tokens.$space-6};
   --ids-btn-height-small: #{tokens.$space-5};
   --ids-btn-padding: #{tokens.$space-3};
-  --ids-btn-padding-mobile: 1.2rem;
   --ids-btn-border-radius: #{tokens.$border-radius-sm};
   --ids-btn-icon-color: currentcolor;
   --ids-btn-icon-margin: #{tokens.$space-1};
+  --ids-focus-shadow: #{tokens.$focus};
 
   /* Primary */
   --ids-btn-text-primary: #{tokens.$samoyed};
+  --ids-btn-text-primary-disabled: #{tokens.$samoyed};
   --ids-btn-border-primary: transparent;
   --ids-btn-background-primary: #{tokens.$electric-blue-500};
   --ids-btn-background-primary-hover: #{tokens.$electric-blue-600};
@@ -48,13 +52,16 @@
   --ids-btn-background-danger-disabled: #{tokens.$coral-200};
 
   /* Ghost */
+  --ids-btn-padding-ghost: #{tokens.$space-3} 0;
   --ids-btn-text-ghost: #{tokens.$electric-blue-500};
   --ids-btn-text-ghost-hover: #{tokens.$electric-blue-600};
   --ids-btn-text-ghost-disabled: #{tokens.$electric-blue-300};
   --ids-btn-background-ghost: transparent;
+  --ids-btn-background-ghost-hover: transparent;
+  --ids-btn-background-ghost-disabled: transparent;
   --ids-loader-size: 1.2rem;
-  --ids-loader-border: .2rem solid rgb(255 255 255 / 30%);
-  --ids-loader-border-ghost: .2rem solid rgb(16 83 255 / 30%);
+  --ids-loader-border: 0.2rem solid rgb(255 255 255 / 30%);
+  --ids-loader-border-ghost: 0.2rem solid rgb(16 83 255 / 30%);
   --ids-loader-primary: #{tokens.$samoyed};
   --ids-loader-premium: #{tokens.$grey-800};
   --ids-loader-premium-disabled: #{tokens.$grey-600};
@@ -68,18 +75,112 @@
   --ids-btn-text-ghost-danger: #{tokens.$coral-500};
   --ids-btn-text-ghost-danger-hover: #{tokens.$coral-600};
   --ids-btn-text-ghost-danger-disabled: #{tokens.$coral-300};
-  --ids-loader-border-ghost-danger: .2rem solid rgb(249 97 85 / 30%);
+  --ids-btn-background-ghost-danger-hover: transparent;
+  --ids-btn-background-ghost-danger-disabled: transparent;
+  --ids-loader-border-ghost-danger: 0.2rem solid rgb(249 97 85 / 30%);
   --ids-loader-ghost-danger: #{tokens.$coral-500};
 
   /* Ghost, variant: Secondary */
   --ids-btn-text-ghost-secondary: #{tokens.$grey-600};
   --ids-btn-text-ghost-secondary-hover: #{tokens.$grey-800};
+  --ids-btn-text-ghost-secondary-active: #{tokens.$electric-blue-500};
   --ids-btn-text-ghost-secondary-disabled: #{tokens.$grey-400};
-  --ids-loader-border-ghost-secondary: .2rem solid rgb(96 107 121 / 30%);
+  --ids-btn-background-ghost-secondary-hover: transparent;
+  --ids-btn-background-ghost-secondary-active: transparent;
+  --ids-btn-background-ghost-secondary-disabled: transparent;
+  --ids-loader-border-ghost-secondary: 0.2rem solid rgb(96 107 121 / 30%);
   --ids-loader-ghost-secondary: #{tokens.$grey-600};
+  --ids-loader-position: calc(-0.6rem - 0.1rem);
+}
 
-  /* Calculate negative margin for  IE11 compatibility */
-  --ids-loader-position: calc(-0.6rem - .1rem);
+[data-brand="workleap"] {
+    /* Default */
+    --ids-btn-font-family: var(--hop-body-md-medium-font-family);
+    --ids-btn-font-size: var(--hop-body-md-medium-font-size);
+    --ids-btn-font-size-small: var(--hop-body-sm-medium-font-size);
+    --ids-btn-font-weight: var(--hop-body-md-medium-font-weight);
+    --ids-btn-height: 2.5rem;
+    --ids-btn-height-small: 2rem;
+    --ids-btn-padding: var(--hop-space-inset-md);
+    --ids-btn-border-radius: var(--hop-shape-rounded-md);
+    --ids-btn-icon-color: currentcolor;
+    --ids-btn-icon-margin: var(--hop-space-inline-xs);
+    --ids-focus-shadow: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+
+    /* Primary */
+    --ids-btn-text-primary: var(--hop-primary-text-strong);
+    --ids-btn-text-primary-disabled: var(--hop-neutral-text-disabled);
+    --ids-btn-border-primary: transparent;
+    --ids-btn-background-primary: var(--hop-primary-surface-strong);
+    --ids-btn-background-primary-hover: var(--hop-primary-surface-hover);
+    --ids-btn-background-primary-disabled: var(--hop-neutral-surface-disabled);
+
+    /* Secondary */
+    --ids-btn-text-secondary: var(--hop-neutral-text);
+    --ids-btn-text-secondary-hover: var(--hop-neutral-text);
+    --ids-btn-text-secondary-active: var(--hop-neutral-text-active);
+    --ids-btn-text-secondary-disabled: var(--hop-neutral-text-disabled);
+    --ids-btn-border-secondary: var(--hop-neutral-border-strong);
+    --ids-btn-border-secondary-hover: var(--hop-neutral-border-strong);
+    --ids-btn-border-secondary-active: var(--hop-neutral-border-active);
+    --ids-btn-background-secondary: var(--hop-neutral-surface);
+    --ids-btn-background-secondary-hover: var(--hop-neutral-surface-hover);
+    --ids-btn-background-secondary-active: var(--hop-neutral-surface-active);
+    --ids-btn-background-secondary-disabled: var(--hop-neutral-surface-disabled);
+  
+    /* Premium */
+    --ids-btn-text-premium: var(--hop-upsell-text);
+    --ids-btn-text-premium-disabled: var(--hop-neutral-text-disabled);
+    --ids-btn-background-premium: var(--hop-upsell-surface);
+    --ids-btn-background-premium-hover: var(--hop-upsell-surface-hover);
+    --ids-btn-background-premium-disabled: var(--hop-neutral-surface-disabled);
+  
+    /* Danger */
+    --ids-btn-text-danger: var(--hop-danger-text-strong);
+    --ids-btn-background-danger: var(--hop-danger-surface-strong);
+    --ids-btn-background-danger-hover: var(--hop-danger-surface-hover);
+    --ids-btn-background-danger-disabled: var(--hop-neutral-surface-disabled);
+  
+    /* Ghost */
+    --ids-btn-padding-ghost: var(--hop-space-inset-sm);
+    --ids-btn-text-ghost: var(--hop-primary-text);
+    --ids-btn-text-ghost-hover: var(--hop-primary-text-strong);
+    --ids-btn-text-ghost-disabled: var(--hop-primary-text-disabled);
+    --ids-btn-background-ghost: transparent;
+    --ids-btn-background-ghost-hover: var(--hop-primary-surface-hover);
+    --ids-btn-background-ghost-disabled: transparent;
+    --ids-loader-size: 0.75rem;
+    --ids-loader-border: 0.125rem solid rgb(255 255 255 / 30%);
+    --ids-loader-border-ghost: 0.125rem solid rgb(59 87 255 / 30%);
+    --ids-loader-primary: var(--hop-primary-icon-strong);
+    --ids-loader-premium: var(--hop-upsell-icon);
+    --ids-loader-premium-disabled: var(--hop-neutral-icon);
+    --ids-loader-secondary: var(--hop-neutral-icon);
+    --ids-loader-secondary-disabled: var(--hop-neutral-icon);
+    --ids-loader-secondary-active: var(--hop-neutral-icon-active);
+    --ids-loader-ghost: var(--hop-primary-icon);
+    --ids-loader-ghost-disabled: var(--hop-neutral-icon);
+  
+    /* Ghost, variant: Danger */
+    --ids-btn-text-ghost-danger: var(--hop-danger-text-weak);
+    --ids-btn-background-ghost-danger-hover: var(--hop-danger-surface-hover);
+    --ids-btn-text-ghost-danger-hover: var(--hop-danger-text-strong);
+    --ids-btn-background-ghost-danger-disabled: transparent;
+    --ids-btn-text-ghost-danger-disabled: var(--hop-danger-text-disabled);
+    --ids-loader-border-ghost-danger: 0.125rem solid rgb(149 41 39 / 30%);
+    --ids-loader-ghost-danger: var(--hop-danger-icon);
+  
+    /* Ghost, variant: Secondary */
+    --ids-btn-text-ghost-secondary: var(--hop-neutral-text-weak);
+    --ids-btn-background-ghost-secondary-hover: var(--hop-neutral-surface-hover);
+    --ids-btn-text-ghost-secondary-hover: var(--hop-neutral-text-hover);
+    --ids-btn-background-ghost-secondary-active: var(--hop-neutral-surface-active);
+    --ids-btn-text-ghost-secondary-active: var(--hop-neutral-text-active);
+    --ids-btn-background-ghost-secondary-disabled: transparent;
+    --ids-btn-text-ghost-secondary-disabled: var(--hop-neutral-text-disabled);
+    --ids-loader-border-ghost-secondary: 0.125rem solid rgb(60 60 60 / 30%);
+    --ids-loader-ghost-secondary: var(--hop-neutral-icon);
+    --ids-loader-position: calc(-0.375rem - 0.063rem);
 }
 
 /* Placeholder selector for IE11 compatibility */
@@ -159,6 +260,7 @@
 
 .ids-btn.ids-btn--disabled,
 .ids-btn:disabled {
+  color: var(--ids-btn-text-primary-disabled);
   cursor: not-allowed;
   user-select: none;
   background: var(--ids-btn-background-primary-disabled);
@@ -169,7 +271,7 @@
   outline: 0;
 
   &:not(.ids-btn--loading) {
-    box-shadow: var(--focus);
+    box-shadow: var(--ids-focus-shadow);
   }
 }
 
@@ -313,65 +415,63 @@
 .ids-btn--ghost {
   color: var(--ids-btn-text-ghost);
   background: var(--ids-btn-background-ghost);
-  padding-left: 0;
-  padding-right: 0;
+  padding: var(--ids-btn-padding-ghost);
 }
 
 .ids-btn--ghost:focus,
 .ids-btn--ghost.focus,
 .ids-btn--ghost:hover {
   color: var(--ids-btn-text-ghost-hover);
-  background: var(--ids-btn-background-ghost);
+  background: var(--ids-btn-background-ghost-hover);
 }
 
 .ids-btn--ghost.ids-btn--disabled,
 .ids-btn--ghost:disabled {
   color: var(--ids-btn-text-ghost-disabled);
-  background: var(--ids-btn-background-ghost);
+  background: var(--ids-btn-background-ghost-disabled);
 }
 
 .ids-btn.ids-btn--ghost-danger {
   color: var(--ids-btn-text-ghost-danger);
   background: var(--ids-btn-background-ghost);
-  padding-left: 0;
-  padding-right: 0;
+  padding: var(--ids-btn-padding-ghost);
 }
 
 .ids-btn.ids-btn--ghost-danger:focus,
 .ids-btn.ids-btn--ghost-danger.focus,
 .ids-btn.ids-btn--ghost-danger:hover {
   color: var(--ids-btn-text-ghost-danger-hover);
-  background: var(--ids-btn-background-ghost);
+  background: var(--ids-btn-background-ghost-danger-hover);
 }
 
 .ids-btn.ids-btn--ghost-danger.ids-btn--disabled,
 .ids-btn.ids-btn--ghost-danger:disabled {
   color: var(--ids-btn-text-ghost-danger-disabled);
-  background: var(--ids-btn-background-ghost);
+  background: var(--ids-btn-background-ghost-danger-disabled);
 }
 
 .ids-btn.ids-btn--ghost-secondary {
   color: var(--ids-btn-text-ghost-secondary);
   background: var(--ids-btn-background-ghost);
-  padding-left: 0;
-  padding-right: 0;
+  padding: var(--ids-btn-padding-ghost);
 }
 
 .ids-btn.ids-btn--ghost-secondary:focus,
 .ids-btn.ids-btn--ghost-secondary.focus,
 .ids-btn.ids-btn--ghost-secondary:hover {
   color: var(--ids-btn-text-ghost-secondary-hover);
-  background: var(--ids-btn-background-ghost);
+  background: var(--ids-btn-background-ghost-secondary-hover);
 }
 
 .ids-btn.ids-btn--ghost-secondary.ids-btn--active {
-  color: var(--ids-btn-text-secondary-active);
+  background: var(--ids-btn-background-ghost-secondary-active);
+  color: var(--ids-btn-text-ghost-secondary-active);
 }
 
 .ids-btn.ids-btn--ghost-secondary.ids-btn--disabled,
 .ids-btn.ids-btn--ghost-secondary:disabled {
   color: var(--ids-btn-text-ghost-secondary-disabled);
-  background: var(--ids-btn-background-ghost);
+  background: var(--ids-btn-background-ghost-secondary-disabled);
 }
 
 .has-icon .ids-icon {
@@ -388,7 +488,6 @@
 
 .ids-btn--mobile {
   width: auto;
-  padding: 0 var(--ids-btn-padding-mobile);
 }
 
 .ids-btn--mobile.has-icon--leading .ids-icon,

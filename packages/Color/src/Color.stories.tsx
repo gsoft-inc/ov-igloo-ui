@@ -1,12 +1,35 @@
 import React from 'react';
 
-import { Meta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import variables from '@igloo-ui/tokens/dist/base10/tokens.json';
 import Section from '@components/section';
 import readme from '../README.md';
 
 import Color from './Color';
+
+const iglooColors = [
+  variables.coral800,
+  variables.electricBlue700,
+  variables.sky100,
+  variables.coral200,
+  variables.samoyed,
+  variables.coral900
+]
+
+const workleapColors = [
+  "var(--hop-decorative-option2-surface)",
+  "var(--hop-decorative-option4-surface)",
+  "var(--hop-decorative-option5-surface)",
+  "var(--hop-decorative-option8-surface)",
+  "var(--hop-decorative-option4-text)",
+  "var(--hop-decorative-option8-text)"
+]
+
+const getColors = (brand: string) => {
+  const colors = brand === 'workleap' ? workleapColors : iglooColors;
+  return colors;
+}
 
 export default {
   title: 'Components/Color',
@@ -25,35 +48,55 @@ export default {
   },
 } as Meta<typeof Color>;
 
-export const Overview = {
+type Story = StoryObj<typeof Color>;
+
+export const Overview: Story = {
+  render: (args, { globals: { brand } }) => {
+    return (
+      <Section>
+        <Color color={getColors(brand)[2]} size={args.size} />
+      </Section>
+    );
+  },
   args: {
-    color: variables.sky100,
     size: 'large',
   },
 };
 
-export const Sizes = () => (
-  <Section>
-    <Color color={variables.coral800} size="small" />
-    <Color color={variables.coral800} size="medium" />
-    <Color color={variables.coral800} size="large" />
-    <Color color={variables.coral800} size="xlarge" />
-  </Section>
-);
+export const Sizes: Story = {
+  render: (_args, { globals: { brand } }) => {
+    return (
+      <Section>
+        <Color color={getColors(brand)[0]} size="small" />
+        <Color color={getColors(brand)[0]} size="medium" />
+        <Color color={getColors(brand)[0]} size="large" />
+        <Color color={getColors(brand)[0]} size="xlarge" />
+      </Section>
+    );
+  }
+};
 
-export const Initials = () => (
-  <Section>
-    <Color
-      color={variables.coral200}
-      textColor={variables.coral900}
-      size="xlarge"
-      name="Awesome Possum Team"
-    />
-  </Section>
-);
+export const Initials: Story = {
+  render: (_args, { globals: { brand } }) => {
+    return (
+      <Section>
+        <Color
+          color={getColors(brand)[3]}
+          textColor={getColors(brand)[5]}
+          size="xlarge"
+          name="Awesome Possum Team"
+        />
+      </Section>
+    );
+  }
+};
 
-export const CustomText = () => (
-  <Section>
-    <Color color={variables.electricBlue700} size="xlarge" name="VC" />
-  </Section>
-);
+export const CustomText: Story = {
+  render: (_args, { globals: { brand } }) => {
+    return (
+      <Section>
+        <Color color={getColors(brand)[1]} textColor={getColors(brand)[4]} size="xlarge" name="VC" />
+      </Section>
+    );
+  }
+};

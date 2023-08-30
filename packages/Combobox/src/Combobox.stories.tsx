@@ -120,7 +120,7 @@ const listWithAction: ComboboxOption[] = [
     label: 'Quarterly Performance Discussion',
     value: '1',
     description: (
-      <Tag appearance="grey" size="xsmall">
+      <Tag size="xsmall">
         Self review
       </Tag>
     ),
@@ -455,7 +455,7 @@ export const Multiple: Story = {
                 color={item.color}
                 icon={item.icon}
                 dismissible={item.type === 'list' ? !item.disabled : true}
-                appearance="secondary"
+                appearance="neutral"
                 onRemove={handleTagRemove}
                 className="isb-combobox__tag"
               >

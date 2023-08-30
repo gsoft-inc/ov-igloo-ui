@@ -1,10 +1,18 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
   /* Default */
   --ids-action-menu-font-family: #{tokens.$primary-font-family};
   --ids-action-menu-font-size: #{tokens.$font-size-4};
+}
+
+[data-brand="workleap"] {
+  --ids-action-menu-font-family:  var(--hop-body-sm-font-family);
+  --ids-action-menu-font-size: var(--hop-body-sm-font-size);
 }
 
 .ids-action-menu {

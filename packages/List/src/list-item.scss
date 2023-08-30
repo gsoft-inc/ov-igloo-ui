@@ -1,11 +1,15 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
   /* Default */
   --ids-list-item-padding: #{tokens.$space-2} #{tokens.$space-3};
   --ids-list-item-min-height: #{tokens.$space-8};
   --ids-list-item-action-margin: #{tokens.$space-3};
+  --ids-list-item-border-radius: 0;
 
   /* Compact */
   --ids-list-item-padding-compact: #{tokens.$space-2} #{tokens.$space-3};
@@ -17,13 +21,17 @@
 
   /* Focused */
   --ids-list-item-background-focused: #{tokens.$electric-blue-50};
+  --ids-list-item-color-focused: #{tokens.$grey-800};
 
   /* Selected */
   --ids-list-item-background-selected: #{tokens.$electric-blue-50};
   --ids-list-item-background-selected-multi: none;
+  --ids-list-item-font-weight-selected: #{tokens.$font-weight-regular};
+  --ids-list-item-check-display: none;
 
   /* Disabled */
   --ids-list-item-color-disabled: #{tokens.$grey-600};
+  --ids-list-item-icon-color-disabled: #{tokens.$grey-600};
 
   /* Visual Identifier */
   --ids-list-item-icon-size: #{tokens.$space-4};
@@ -48,8 +56,11 @@
   --ids-list-item-checkbox-border: #{tokens.$grey-400};
   --ids-list-item-checkbox-border-hover: #{tokens.$grey-800};
   --ids-list-item-checkbox-border-checked: #{tokens.$electric-blue-500};
-  --ids-list-item-checkbox-check-width: .4rem;
-  --ids-list-item-checkbox-check-height: .8rem;
+  --ids-list-item-checkbox-check-width: 0.4rem;
+  --ids-list-item-checkbox-check-height: 0.8rem;
+  --ids-list-item-checkbox-check-border-width: 0.2rem;
+  --ids-list-item-checkbox-check-left: 0.2rem;
+  --ids-list-item-checkbox-check-top: 0.7rem;
 
   /* Description */
   --ids-list-item-desc-color: #{tokens.$grey-600};
@@ -68,6 +79,86 @@
   --ids-list-item-loading-text-height: #{tokens.$space-2};
   --ids-list-item-loading-text-width: 60%;
   --ids-list-item-loading-color: #{tokens.$grey-200};
+
+}
+
+[data-brand="workleap"] {
+  /* Default */
+  --ids-list-item-padding: var(--hop-space-inset-squish-md);
+  --ids-list-item-min-height: 3.5rem;
+  --ids-list-item-action-margin: var(--hop-space-inline-md);
+  --ids-list-item-border-radius: var(--hop-shape-rounded-md);
+
+  /* Compact */
+  --ids-list-item-padding-compact: var(--hop-space-inset-squish-md);
+  --ids-list-item-min-height-compact: 2rem;
+
+  /* Member */
+  --ids-list-item-padding-member: var(--hop-space-inset-sm);
+  --ids-list-item-min-height-member: 3rem;
+
+  /* Focused */
+  --ids-list-item-background-focused: var(--hop-neutral-surface-hover);
+  --ids-list-item-color-focused: var(--hop-neutral-text-hover);
+
+  /* Selected */
+  --ids-list-item-background-selected: none;
+  --ids-list-item-background-selected-multi: none;
+  --ids-list-item-font-weight-selected: var(--hop-body-sm-semibold-font-weight);
+  --ids-list-item-check-display: block;
+  --ids-list-item-check-margin: var(--hop-space-inline-sm);
+  --ids-list-item-check-color: var(--hop-neutral-icon);
+
+  /* Disabled */
+  --ids-list-item-color-disabled: var(--hop-neutral-text-disabled);
+  --ids-list-item-icon-color-disabled: var(--hop-neutral-icon-disabled);
+
+  /* Visual Identifier */
+  --ids-list-item-icon-size: 1.5rem;
+  --ids-list-item-icon-margin: 0 var(--hop-space-inline-sm) 0 0;
+  --ids-list-item-svg-margin: 0 var(--hop-space-inline-sm) 0 0;
+  --ids-list-item-svg-color: var(--hop-neutral-icon);
+  --ids-list-item-icon-member-size: 2rem;
+
+  /* Manager */
+  --ids-list-item-manager-color: var(--hop-neutral-icon-weak);
+  --ids-list-item-manager-margin: 0 0 0 var(--hop-space-inline-sm);
+
+  /* Checkbox */
+  --ids-list-item-checkbox-size: 1rem;
+  --ids-list-item-checkbox-radius: var(--hop-shape-rounded-sm);
+  --ids-list-item-checkbox-check: var(--hop-neutral-icon-active);
+  --ids-list-item-checkbox-margin: 0 var(--hop-space-inline-sm) 0 0;
+  --ids-list-item-checkbox-background: var(--hop-neutral-surface);
+  --ids-list-item-checkbox-background-disabled: var(--hop-neutral-surface-disabled);
+  --ids-list-item-checkbox-background-checked: var(--hop-neutral-surface-active);
+  --ids-list-item-checkbox-background-checked-disabled: var(--hop-neutral-surface-disabled);
+  --ids-list-item-checkbox-border: var(--hop-neutral-border);
+  --ids-list-item-checkbox-border-hover: var(--hop-neutral-border-hover);
+  --ids-list-item-checkbox-border-checked: var(--hop-neutral-border-active);
+  --ids-list-item-checkbox-check-width: 0.25rem;
+  --ids-list-item-checkbox-check-height: 0.5rem;
+  --ids-list-item-checkbox-check-border-width: 0.125rem;
+  --ids-list-item-checkbox-check-left: 0.2rem;
+  --ids-list-item-checkbox-check-top: var(--hop-space-stack-sm);
+
+  /* Description */
+  --ids-list-item-desc-color: var(--hop-neutral-text-weak);
+  --ids-list-item-desc-font-size: var(--hop-body-xs-font-size);
+  --ids-list-item-desc-line-height: var(--hop-body-xs-line-height);
+  --ids-list-item-desc-margin: var(--hop-space-stack-xs) 0 0;
+
+  /* Member Name */
+  --ids-list-item-member-color: var(--hop-neutral-text-weak);
+  --ids-list-item-member-font-weight: var(--hop-body-sm-semibold-font-weight);
+
+  /* Loading */
+  --ids-list-item-loading-thumbnail-border-radius: var(--hop-shape-rounded-sm);
+  --ids-list-item-loading-thumbnail-margin: 0 var(--hop-space-inline-md) 0 0;
+  --ids-list-item-loading-text-border-radius: var(--hop-shape-pill);
+  --ids-list-item-loading-text-height: 0.5rem;
+  --ids-list-item-loading-text-width: 60%;
+  --ids-list-item-loading-color: var(--hop-neutral-surface-weakest);
 
 }
 
@@ -107,7 +198,7 @@
 %check {
   width: var(--ids-list-item-checkbox-check-width);
   height: var(--ids-list-item-checkbox-check-height);
-  border: .2rem solid currentcolor;
+  border: var(--ids-list-item-checkbox-check-border-width) solid currentcolor;
   border-bottom: 0;
   border-left: 0;
   transform: scaleX(-0.9) rotate(135deg);
@@ -116,6 +207,7 @@
 
 .ids-list-item {
   align-items: center;
+  border-radius: var(--ids-list-item-border-radius);
   display: flex;
   min-height: var(--ids-list-item-min-height);
   outline: none;
@@ -143,12 +235,17 @@
     box-shadow: none;
   }
 
+  &--selected {
+    font-weight: var(--ids-list-item-font-weight-selected);
+  }
+
   .ids-list--multi-select &--selected {
     background: var(--ids-list-item-background-selected-multi);
   }
 
   &--focused {
     background: var(--ids-list-item-background-focused);
+    color: var(--ids-list-item-color-focused);
     outline: 0;
   }
 
@@ -188,6 +285,10 @@
 .ids-list-item__svg-container {
   color: var(--ids-list-item-svg-color);
   margin: var(--ids-list-item-svg-margin);
+
+  .ids-list-item--disabled & {
+    color: var(--ids-list-item-icon-color-disabled);
+  }
 }
 
 .ids-list-item--loading .ids-list-item__thumbnail {
@@ -294,8 +395,8 @@
 
     @extend %check;
 
-    left: .2rem;
-    top: .7rem;
+    left: var(--ids-list-item-checkbox-check-left);
+    top: var(--ids-list-item-checkbox-check-top);
     animation: check-animation ease-out 0.25s 0.15s both;
   }
 
@@ -322,6 +423,10 @@
   margin: var(--ids-list-item-desc-margin);
   word-break: break-word;
   word-wrap: break-word;
+
+  .ids-list-item--disabled & {
+    color: var(--ids-list-item-color-disabled);
+  }
 }
 
 .ids-list-item__text-member {
@@ -342,4 +447,11 @@
   display: block;
   font-size: var(--ids-list-item-desc-font-size);
   line-height: var(--ids-list-item-desc-line-height);
+}
+
+.ids-list-item__selected-icon {
+  color: var(--ids-list-item-check-color);
+  display: var(--ids-list-item-check-display);
+  flex: 0 0 auto;
+  margin-left: var(--ids-list-item-check-margin);
 }

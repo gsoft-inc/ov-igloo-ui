@@ -1,12 +1,17 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
   --ids-color-border-radius: #{tokens.$border-radius-sm};
   --ids-color-border-radius-xs: #{tokens.$border-radius-xs};
   --ids-color-color: #{tokens.$samoyed};
   --ids-color-font-family: #{tokens.$secondary-font-family};
   --ids-color-font-size: #{tokens.$font-size-4};
+  --ids-color-font-size-large: #{tokens.$font-size-4};
+  --ids-color-font-size-medium: #{tokens.$font-size-3};
   --ids-color-font-size-small: #{tokens.$font-size-3};
   --ids-color-font-weight: #{tokens.$font-weight-medium};
 
@@ -15,6 +20,24 @@
   --ids-color-size-m: #{tokens.$font-size-4};
   --ids-color-size-l: #{tokens.$font-size-7};
   --ids-color-size-xl: #{tokens.$font-size-9};
+}
+
+[data-brand="workleap"] {
+  --ids-color-border-radius: var(--hop-shape-circle);
+  --ids-color-border-radius-xs: var(--hop-shape-circle);
+  --ids-color-color: var(--hop-neutral-text);
+  --ids-color-font-family: var(--hop-body-xl-font-family);
+  --ids-color-font-size: var(--hop-body-lg-font-size);
+  --ids-color-font-size-large: var(--hop-body-md-font-size);
+  --ids-color-font-size-medium: var(--hop-body-xs-font-size);
+  --ids-color-font-size-small: var(--hop-body-xs-font-size);
+  --ids-color-font-weight: var(--hop-body-xl-font-weight);
+
+  /* Sizes */
+  --ids-color-size-s: 1rem;
+  --ids-color-size-m: 1.5rem;
+  --ids-color-size-l: 2rem;
+  --ids-color-size-xl: 3rem;
 }
 
 .ids-color {
@@ -42,13 +65,14 @@
 
   &--medium {
     border-radius: var(--ids-color-border-radius-xs);
-    font-size: var(--ids-color-font-size-small);
+    font-size: var(--ids-color-font-size-medium);
     height: var(--ids-color-size-m);
     line-height: var(--ids-color-size-m);
     width: var(--ids-color-size-m);
   }
 
   &--large {
+    font-size: var(--ids-color-font-size-large);
     height: var(--ids-color-size-l);
     line-height: var(--ids-color-size-l);
     width: var(--ids-color-size-l);
