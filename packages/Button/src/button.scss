@@ -434,6 +434,7 @@
 .ids-btn.ids-btn--ghost-danger {
   color: var(--ids-btn-text-ghost-danger);
   background: var(--ids-btn-background-ghost);
+  padding: var(--ids-btn-padding-ghost);
 }
 
 .ids-btn.ids-btn--ghost-danger:focus,
@@ -452,6 +453,7 @@
 .ids-btn.ids-btn--ghost-secondary {
   color: var(--ids-btn-text-ghost-secondary);
   background: var(--ids-btn-background-ghost);
+  padding: var(--ids-btn-padding-ghost);
 }
 
 .ids-btn.ids-btn--ghost-secondary:focus,
