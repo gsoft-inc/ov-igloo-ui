@@ -1,0 +1,61 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-color-picker-font-family: #{tokens.$primary-font-family};
+  --ids-color-picker-font-size: #{tokens.$font-size-4};
+  --ids-color-picker-padding: #{tokens.$space-1};
+
+  /* Button */
+  --ids-color-picker-btn-background: #{tokens.$samoyed};
+  --ids-color-picker-btn-background-disabled: #{tokens.$grey-300};
+  --ids-color-picker-btn-border-color: #{tokens.$grey-300};
+  --ids-color-picker-btn-border-color-hover: #{tokens.$grey-600};
+  --ids-color-picker-btn-border-color-disabled: #{tokens.$grey-300};
+  --ids-color-picker-btn-border-radius: #{tokens.$border-radius-sm};
+  --ids-color-picker-btn-border-size: 0.15rem;
+  --ids-color-picker-btn-focus: #{tokens.$focus};
+  --ids-color-picker-btn-padding: #{tokens.$space-2};
+}
+
+.ids-color-picker {
+  font-family: var(--ids-color-picker-font-family);
+  font-size: var(--ids-color-picker-font-size);
+}
+
+.ids-color-picker__button {
+  background: var(--ids-color-picker-btn-background);
+  border: var(--ids-color-picker-btn-border-size) solid var(--ids-color-picker-btn-border-color);
+  border-radius: var(--ids-color-picker-btn-border-radius);
+  cursor: pointer;
+  outline: 0;
+  padding: var(--ids-color-picker-btn-padding);
+  position: relative;
+  transition: background-color 0.2s ease-in-out;
+
+  &[data-focus-visible] {
+    box-shadow: var(--ids-color-picker-btn-focus);
+  }
+
+  &:hover {
+    border-color: var(--ids-color-picker-btn-border-color-hover);
+  }
+
+  &:disabled {
+    background: var(--ids-color-picker-btn-background-disabled);
+    border-color: var(--ids-color-picker-btn-border-color-disabled);
+    cursor: not-allowed;
+  }
+}
+
+.ids-color-picker__list {
+  display: flex;
+  flex-direction: column;
+  outline: 0;
+  padding: var(--ids-color-picker-padding);
+
+  &[data-orientation="horizontal"] {
+    flex-flow: row wrap;
+  }
+}

@@ -1,0 +1,52 @@
+@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use '~@igloo-ui/tokens/dist/fonts';
+
+:root {
+  /* Default */
+  --ids-color-picker-option-border-radius: #{tokens.$border-radius-md};
+  --ids-color-picker-option-border-size: 0.15rem;
+  --ids-color-picker-option-padding: #{tokens.$space-1};
+
+  /* Focused */
+  --ids-color-picker-option-border-color-focus: #{tokens.$electric-blue-600};
+
+  /* Hovered */
+  --ids-color-picker-option-border-color-hover: #{tokens.$grey-600};
+
+  /* Selected */
+  --ids-color-picker-option-border-color-selected: #{tokens.$grey-400};
+  
+  /* Icon */
+  --ids-color-picker-option-icon-color: #{tokens.$samoyed};
+}
+
+.ids-color-picker-option {
+  border: var(--ids-color-picker-option-border-size) solid transparent;
+  border-radius: var(--ids-color-picker-option-border-radius);
+  cursor: pointer;
+  flex: 0 0 auto;
+  outline: 0;
+  padding: var(--ids-color-picker-option-padding);
+  position: relative;
+
+  &--hovered {
+    border-color: var(--ids-color-picker-option-border-color-hover);
+  }
+
+  &--selected {
+    border-color: var(--ids-color-picker-option-border-color-selected);
+    cursor: default;
+  }
+
+  &--focused {
+    border-color: var(--ids-color-picker-option-border-color-focus);
+  }
+}
+
+.ids-color-picker-option svg {
+  color: var(--ids-color-picker-option-icon-color);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
