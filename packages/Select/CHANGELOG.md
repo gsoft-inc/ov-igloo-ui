@@ -1,5 +1,13 @@
 # @igloo-ui/select
 
+## 1.3.3
+
+### Patch Changes
+
+- Updated dependencies [5402bcc]
+  - @igloo-ui/icon-button@1.1.0
+  - @igloo-ui/list@0.5.0
+
 ## 1.3.2
 
 ### Patch Changes

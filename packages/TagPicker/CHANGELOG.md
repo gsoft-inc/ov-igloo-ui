@@ -1,5 +1,17 @@
 # @igloo-ui/tag-picker
 
+## 0.5.0
+
+### Minor Changes
+
+- 5402bcc: Created a "brand" toggle in the Toolbar and applied the new Workleap brand to some components. Also deprecated the Tag's appearance values and added new ones.
+
+### Patch Changes
+
+- 08de993: Updated react-aria packages
+- Updated dependencies [5402bcc]
+  - @igloo-ui/tag@1.1.0
+
 ## 0.4.1
 
 ### Patch Changes

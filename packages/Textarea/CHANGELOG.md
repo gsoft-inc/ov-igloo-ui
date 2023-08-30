@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.2.4
+
+### Patch Changes
+
+- 876e9e1: Updated the autosize package for the textarea to fix the issue of the auto resizing not happening with preloaded text.
+
 ## 0.2.3
 
 ### Patch Changes

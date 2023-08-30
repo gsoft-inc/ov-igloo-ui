@@ -1,5 +1,11 @@
 # @igloo-ui/list
 
+## 0.5.0
+
+### Minor Changes
+
+- 5402bcc: Created a "brand" toggle in the Toolbar and applied the new Workleap brand to some components. Also deprecated the Tag's appearance values and added new ones.
+
 ## 0.4.3
 
 ### Patch Changes

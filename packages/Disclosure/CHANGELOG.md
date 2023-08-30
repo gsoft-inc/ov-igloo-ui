@@ -1,5 +1,11 @@
 # @igloo-ui/disclosure
 
+## 0.2.3
+
+### Patch Changes
+
+- 08de993: Updated react-aria packages
+
 ## 0.2.2
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @igloo-ui/action-menu
 
+## 1.3.0
+
+### Minor Changes
+
+- 5402bcc: Created a "brand" toggle in the Toolbar and applied the new Workleap brand to some components. Also deprecated the Tag's appearance values and added new ones.
+
+### Patch Changes
+
+- Updated dependencies [5402bcc]
+  - @igloo-ui/list@0.5.0
+
 ## 1.2.1
 
 ### Patch Changes
