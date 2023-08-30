@@ -51,9 +51,9 @@ describe('ColorPicker', () => {
     const option = screen.getAllByRole('option')[2];
 
     await userEvent.click(option);
-    expect(onSelect).toHaveBeenCalledWith('creamsicle150');
+    expect(onSelect).toHaveBeenCalledWith("creamsicle150");
     rerender(<ColorPicker onSelect={onSelect} selectedColor={selectedColor} />);
-    expect(button).toHaveAttribute("data-color", 'creamsicle150');
+    expect(button).toHaveAttribute("data-color", "creamsicle150");
   });
 
   test('It should not show the color picker options when disabled', () => {
