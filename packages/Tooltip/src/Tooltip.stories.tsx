@@ -45,10 +45,13 @@ export default {
     },
   },
   decorators: [
-    (Story) => (
+    (Story, context) => {
+      const isWorleap = context.globals.brand === 'workleap';
+
+      return (
       <div
         style={{
-          fontSize: '1.6rem',
+          fontSize: isWorleap ? '1rem' : '1.6rem',
           paddingTop: 40,
           paddingBottom: 40,
           paddingRight: 50,
@@ -57,7 +60,7 @@ export default {
       >
         {Story()}
       </div>
-    ),
+    )},
   ],
 } as Meta<typeof Tooltip>;
 

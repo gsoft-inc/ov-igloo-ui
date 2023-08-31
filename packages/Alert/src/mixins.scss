@@ -1,8 +1,25 @@
-@mixin ids-alert-mixin-decoration($color) {
-  border-left-color: $color;
+@mixin ids-alert-mixin-decoration($border-color, $color: "", $background: "", $icon-color: "") {
+  @if $icon-color == "" {
+    $icon-color: $border-color;
+  }
+
+  border-color: $border-color;
+
+  @if $color != "" {
+    background-color: $background;
+
+    .ids-alert__content,
+    .ids-alert__title {
+      color: $color;
+    }
+
+    .ids-alert__metadata {
+      color: $color;
+    }
+  }
 
   svg circle:first-child {
-    fill: $color;
+    fill: $icon-color;
   }
 }
 

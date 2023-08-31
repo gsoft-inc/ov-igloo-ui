@@ -1,6 +1,9 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
   /* Default */
   --ids-tooltip-font-family: #{tokens.$primary-font-family};
@@ -9,12 +12,36 @@
   --ids-tooltip-border-radius: #{tokens.$border-radius-sm};
   --ids-tooltip-z-index: #{tokens.$z-index-max};
   --ids-tooltip-arrow-size: .5rem;
-  --ids-tooltip-spacing: #{tokens.$space-2};
 
   /* Theme */
   --ids-tooltip-text: #{tokens.$samoyed};
   --ids-tooltip-background: #{tokens.$electric-blue-900};
   --ids-tooltip-shadow: none;
+
+  /* Light */
+  --ids-tooltip-light-text: #{tokens.$grey-800};
+  --ids-tooltip-light-background: #{tokens.$samoyed};
+  --ids-tooltip-light-shadow: #{tokens.$shadow-12};
+}
+
+[data-brand="workleap"] {
+  /* Default */
+  --ids-tooltip-font-family: var(--hop-body-xs-font-family);
+  --ids-tooltip-font-size: var(--hop-body-xs-font-size);
+  --ids-tooltip-padding: var(--hop-space-inset-squish-md);
+  --ids-tooltip-border-radius: var(--hop-shape-rounded-md);
+  --ids-tooltip-z-index: 999;
+  --ids-tooltip-arrow-size: .313rem;
+
+  /* Theme */
+  --ids-tooltip-text: var(--hop-neutral-text-strong);
+  --ids-tooltip-background: var(--hop-neutral-surface-active);
+  --ids-tooltip-shadow: var(--hop-elevation-raised);
+
+  /* Light */
+  --ids-tooltip-light-text: #{tokens.$grey-800};
+  --ids-tooltip-light-background: #{tokens.$samoyed};
+  --ids-tooltip-light-shadow: #{tokens.$shadow-12};
 }
 
 .ids-tooltip {
@@ -50,8 +77,8 @@
   }
 
   &--light {
-    --ids-tooltip-text: #{tokens.$grey-800};
-    --ids-tooltip-background: #{tokens.$samoyed};
-    --ids-tooltip-shadow: #{tokens.$shadow-12};
+    background: var(--ids-tooltip-light-background);
+    box-shadow: var(--ids-tooltip-light-shadow);
+    color: var(--ids-tooltip-light-text);
   }
 }
