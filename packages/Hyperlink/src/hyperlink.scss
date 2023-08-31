@@ -13,7 +13,7 @@
   --ids-link-font-weight: #{tokens.$font-weight-medium};
   --ids-link-icon-color: currentcolor;
   --ids-link-icon-margin: #{tokens.$space-1};
-  --ids-link-icon-padding-top: .2rem;
+  --ids-link-icon-padding-top: 0.2rem;
   --ids-link-focus: #{tokens.$focus};
   --ids-link-border-radius: #{tokens.$border-radius-sm};
 
@@ -39,7 +39,7 @@
   --ids-link-font-weight: var(--hop-body-sm-medium-font-weight);
   --ids-link-icon-color: currentcolor;
   --ids-link-icon-margin: var(--hop-space-inline-xs);
-  --ids-link-icon-padding-top: .12rem;
+  --ids-link-icon-padding-top: 0.12rem;
   --ids-link-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
   --ids-link-border-radius: var(--hop-shape-rounded-md);
 

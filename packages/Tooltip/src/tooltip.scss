@@ -39,9 +39,9 @@
   --ids-tooltip-shadow: var(--hop-elevation-raised);
 
   /* Light */
-  --ids-tooltip-light-text: #{tokens.$grey-800};
-  --ids-tooltip-light-background: #{tokens.$samoyed};
-  --ids-tooltip-light-shadow: #{tokens.$shadow-12};
+  --ids-tooltip-light-text: var(--hop-neutral-text);
+  --ids-tooltip-light-background: var(--hop-neutral-surface);
+  --ids-tooltip-light-shadow: var(--hop-elevation-lifted);
 }
 
 .ids-tooltip {
@@ -80,5 +80,9 @@
     background: var(--ids-tooltip-light-background);
     box-shadow: var(--ids-tooltip-light-shadow);
     color: var(--ids-tooltip-light-text);
+
+    & .ids-tooltip__arrow {
+      background: var(--ids-tooltip-light-background);
+    }
   }
 }
