@@ -80,4 +80,10 @@
       margin: -1px; // Since there is a 1px border for ids-btn
     }
   }
+
+  &.ids-btn.ids-btn--ghost,
+  &.ids-btn.ids-btn--ghost-danger,
+  &.ids-btn.ids-btn--ghost-secondary {
+    padding: 0;
+  }
 }

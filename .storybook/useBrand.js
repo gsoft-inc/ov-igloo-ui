@@ -3,7 +3,19 @@ import { useEffect } from 'react';
 export const useBrand = (StoryFn, context) => {
   const {brand} = context.globals;
   const {displayName} = context.component;
-  const components = ["ActionMenu", "Avatar", "Button", "Color", "IconButton", "List", "Tag", "VisualIdentifier"];
+  const components = [
+    "ActionMenu", 
+    "Alert", 
+    "Avatar", 
+    "Button", 
+    "Color",
+    "Hyperlink",
+    "IconButton", 
+    "List", 
+    "Tag", 
+    "Tooltip",
+    "VisualIdentifier"
+  ];
 
   useEffect(() => {
     //document.documentElement refers to html tag inside iframe#storybook-preview-iframe
