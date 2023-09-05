@@ -1,5 +1,4 @@
 ---
-"@igloo-ui/area-chart": minor
 "@igloo-ui/bar-chart": minor
 "@igloo-ui/pie-chart": minor
 "@igloo-ui/popover": minor
