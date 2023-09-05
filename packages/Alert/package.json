@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/alert",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "main": "dist/Alert.js",
   "module": "dist/Alert.js",
   "types": "dist/Alert.d.ts",
@@ -25,14 +25,14 @@
   },
   "dependencies": {
     "@igloo-ui/button": "^0.6.0",
-    "@igloo-ui/icon-button": "^1.1.0",
+    "@igloo-ui/icon-button": "^1.1.1",
     "@igloo-ui/icons": "^1.11.0",
     "@igloo-ui/tokens": "^2.0.0",
     "@hopper-ui/tokens": "^0.3.0",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@igloo-ui/tooltip": "^3.1.6",
-    "@igloo-ui/hyperlink": "^0.1.15"
+    "@igloo-ui/tooltip": "^3.2.0",
+    "@igloo-ui/hyperlink": "^0.2.0"
   }
 }
