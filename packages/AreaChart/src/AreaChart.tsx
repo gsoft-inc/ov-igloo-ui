@@ -395,15 +395,15 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
                     y2="96%"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop stopColor="#47A584" />
-                    <stop offset="0.119792" stopColor="#7DC291" />
-                    <stop offset="0.239583" stopColor="#AAD89D" />
-                    <stop offset="0.369792" stopColor="#CDE8AC" />
-                    <stop offset="0.498366" stopColor="#FFF2B8" />
-                    <stop offset="0.625" stopColor="#FFD8BE" />
-                    <stop offset="0.75" stopColor="#FFBCB7" />
-                    <stop offset="0.875" stopColor="#FF8E8E" />
-                    <stop offset="1" stopColor="#F56263" />
+                    <stop stopColor="#188A71" />
+                    <stop offset="0.119792" stopColor="#47A584" />
+                    <stop offset="0.239583" stopColor="#7DC291" />
+                    <stop offset="0.369792" stopColor="#AAD89D" />
+                    <stop offset="0.498366" stopColor="#F7E694" />
+                    <stop offset="0.625" stopColor="#FFBCB7" />
+                    <stop offset="0.75" stopColor="#FF8E8E" />
+                    <stop offset="0.875" stopColor="#F56263" />
+                    <stop offset="1" stopColor="#DF3236" />
                 </linearGradient>
             </defs>
         );
