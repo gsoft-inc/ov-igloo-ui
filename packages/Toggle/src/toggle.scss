@@ -10,7 +10,7 @@
     --ids-toggle-font-size: #{tokens.$font-size-4};
     --ids-toggle-line-height: normal;
     --ids-toggle-text-padding: #{tokens.$space-2};
-    --ids-toggle-font-weight: 400;
+    --ids-toggle-font-weight: #{tokens.$font-weight-regular};
     --ids-toggle-width: #{tokens.$space-6};
     --ids-toggle-height: 2rem;
     --ids-toggle-background: #{tokens.$grey-300};
@@ -27,6 +27,7 @@
     --ids-toggle-height-switch: #{tokens.$space-3};
     --ids-toggle-margin: 0.2rem;
     --ids-toggle-background-switch: #{tokens.$samoyed};
+    --ids-toggle-background-switch-disabled: #{tokens.$samoyed};
     --ids-toggle-shadow-switch: 0 .1rem .3rem 0 rgb(0 0 0 / 25%);
 
     /* checked */
@@ -70,7 +71,7 @@
     /* switch */
     --ids-toggle-width-switch: 1rem;
     --ids-toggle-height-switch: 1rem;
-    --ids-toggle-margin: 0.25rem;
+    --ids-toggle-margin: var(--hop-space-inset-xs);
     --ids-toggle-background-switch: var(--hop-neutral-icon);
     --ids-toggle-background-switch-disabled: var(--hop-neutral-icon-disabled);
     --ids-toggle-shadow-switch: none;
@@ -119,7 +120,7 @@
     font-weight: var(--ids-toggle-font-weight);
     line-height: var(--ids-toggle-line-height);
 
-    &:hover .ids-toggle__input:not(:checked) + .ids-toggle__label::before,
+    &:hover .ids-toggle__input:not(:checked, :disabled) + .ids-toggle__label::before,
     .ids-toggle__input:focus:not(:checked) + .ids-toggle__label::before {
         background-color: var(--ids-toggle-background-hover);
         border-color: var(--ids-toggle-bodrer-hover);
