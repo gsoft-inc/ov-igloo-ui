@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.2.0
+
+### Minor Changes
+
+- 723fbee: Applied the workleep rebrand to Alert, Hyeprlink and Tooltips. Fixed an override css issue in Iconbutton.
+
 ## 3.1.6
 
 ### Patch Changes

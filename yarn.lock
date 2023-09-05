@@ -2360,16 +2360,6 @@
     classnames "^2.3.1"
     html-react-parser "^1.2.7"
 
-"@igloo-ui/popover@^3.1.6":
-  version "0.3.4"
-  dependencies:
-    "@floating-ui/react" "^0.24.8"
-    "@hopper-ui/tokens" "^0.3.0"
-    "@igloo-ui/icon-button" "^1.0.4"
-    "@igloo-ui/icons" "^1.11.0"
-    "@igloo-ui/tokens" "^2.0.0"
-    classnames "^2.3.2"
-
 "@igloo-ui/tokens@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-2.0.0.tgz#a7977f0f7875659de8751f9413e4fc72ad2bdcd4"
