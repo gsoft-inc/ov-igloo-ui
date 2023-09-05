@@ -29,10 +29,31 @@ const mockData = [
   { id: 'unanswered', percentage: 25, color: tokens.grey300 },
 ];
 
+const mockDataWL = [
+  { id: 'positive', percentage: 25, color: "var(--hop-status-positive-surface-strong)" },
+  { id: 'negative', percentage: 10, color: "var(--hop-status-negative-surface-strong)" },
+  { id: 'skipped', percentage: 40, color: "var(--hop-upsell-surface-active)" },
+  { id: 'unanswered', percentage: 25, color: "var(--hop-neutral-surface-disabled)" },
+];
+
+const getMockData = (brand: string) => {
+  const data = brand === 'workleap' ? mockDataWL : mockData;
+  return data;
+}
+
 export const Overview: Story = {
+  render: (args, { globals: { brand } }) => {
+    return (
+      <Section> 
+        <PieChart
+          {...args}
+          data={getMockData(brand)}
+        />
+      </Section>
+    );
+  },
   args: {
     label: 'Poll Completion',
-    data: mockData,
     rate: 35
   },
 };
@@ -59,17 +80,17 @@ export const Empty: Story = {
 
 
 export const Sizes: Story = {
-  render: () => {
+  render: (_args, { globals: { brand } }) => {
     return (
       <Section>
         <PieChart
-          data={mockData}
+          data={getMockData(brand)}
           label="Poll Completion"
           size="regular"
           rate={35}
         />
         <PieChart
-          data={mockData}
+          data={getMockData(brand)}
           label="Poll Completion"
           size="large"
           rate={35}

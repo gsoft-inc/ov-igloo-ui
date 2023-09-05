@@ -1,6 +1,9 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
   /* Default */
   --ids-stacked-bar-tooltip-font-family: #{tokens.$primary-font-family};
@@ -16,6 +19,7 @@
   /* No Data */
   --ids-stacked-bar-tooltip-no-data-color: #{tokens.$grey-600};
   --ids-stacked-bar-tooltip-no-data-font-size: #{tokens.$font-size-2};
+  --ids-stacked-bar-tooltip-no-data-font-weight: #{tokens.$font-weight-regular};
   --ids-stacked-bar-tooltip-no-data-line-height: #{tokens.$line-height-xl};
 
   /* Value */
@@ -29,7 +33,41 @@
   /* Label */
   --ids-stacked-bar-tooltip-label-color: #{tokens.$grey-600};
   --ids-stacked-bar-tooltip-label-font-size: #{tokens.$font-size-3};
+  --ids-stacked-bar-tooltip-label-font-weight: #{tokens.$font-weight-regular};
   --ids-stacked-bar-tooltip-label-line-height: #{tokens.$line-height-xxl};
+}
+
+[data-brand="workleap"] {
+  /* Default */
+  --ids-stacked-bar-tooltip-font-family: var(--hop-heading-lg-font-family);
+  --ids-stacked-bar-tooltip-font-size: var(--hop-heading-lg-font-size);
+  --ids-stacked-bar-tooltip-data-item-padding: var(--hop-space-inset-xs) 0;
+  --ids-stacked-bar-tooltip-data-item-no-color: #CCCCCA; /* Missing semantic token */
+  --ids-stacked-bar-tooltip-data-item-strength-minus-2: #DF3236; /* Missing semantic token */
+  --ids-stacked-bar-tooltip-data-item-strength-minus-1: #FF8E8E; /* Missing semantic token */
+  --ids-stacked-bar-tooltip-data-item-strength-0: #FFF2B8; /* Missing semantic token */
+  --ids-stacked-bar-tooltip-data-item-strength-1: #AAD89D; /* Missing semantic token */
+  --ids-stacked-bar-tooltip-data-item-strength-2: #188A71; /* Missing semantic token */
+
+  /* No Data */
+  --ids-stacked-bar-tooltip-no-data-color: var(--hop-neutral-text-weak);
+  --ids-stacked-bar-tooltip-no-data-font-size: var(--hop-body-sm-font-size);
+  --ids-stacked-bar-tooltip-no-data-font-weight: var(--hop-body-sm-font-weight);
+  --ids-stacked-bar-tooltip-no-data-line-height: var(--hop-body-sm-line-height);
+
+  /* Value */
+  --ids-stacked-bar-tooltip-value-color: var(--hop-neutral-text);
+  --ids-stacked-bar-tooltip-value-font-family: var(--hop-heading-lg-font-family);
+  --ids-stacked-bar-tooltip-value-font-size: var(--hop-heading-lg-font-size);
+  --ids-stacked-bar-tooltip-value-font-weight: var(--hop-heading-lg-font-weight);
+  --ids-stacked-bar-tooltip-value-line-height: var(--hop-heading-lg-line-height);
+  --ids-stacked-bar-tooltip-value-margin: var(--hop-space-inline-sm);
+
+  /* Label */
+  --ids-stacked-bar-tooltip-label-color: var(--hop-neutral-text-weak);
+  --ids-stacked-bar-tooltip-label-font-size: var(--hop-body-sm-font-size);
+  --ids-stacked-bar-tooltip-label-font-weight: var(--hop-body-sm-font-weight);
+  --ids-stacked-bar-tooltip-label-line-height: var(--hop-body-sm-line-height);
 }
 
 @keyframes fade-in {
@@ -42,6 +80,11 @@
   height: 100%;
 }
 
+.ids-popover.ids-stacked-bar-tooltip {
+  min-width: 0;
+  width: auto;
+}
+
 .ids-stacked-bar-tooltip .ids-tooltip__arrow {
   display: none;
 }
@@ -50,6 +93,7 @@
   color: var(--ids-stacked-bar-tooltip-no-data-color);
   font-family: var(--ids-stacked-bar-tooltip-font-family);
   font-size: var(--ids-stacked-bar-tooltip-no-data-font-size);
+  font-weight: var(--ids-stacked-bar-tooltip-no-data-font-weight);
   line-height: var(--ids-stacked-bar-tooltip-no-data-line-height);
 }
 
@@ -110,6 +154,7 @@
   color: var(--ids-stacked-bar-tooltip-label-color);
   flex: 0 1 auto;
   font-size: var(--ids-stacked-bar-tooltip-label-font-size);
+  font-weight: var(--ids-stacked-bar-tooltip-label-font-weight);
   line-height: var(--ids-stacked-bar-tooltip-label-line-height);
   min-width: 0;
 }

@@ -1,11 +1,15 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
   /* Default */
   --ids-popover-font-family: #{tokens.$primary-font-family};
   --ids-popover-font-size: #{tokens.$font-size-3};
   --ids-popover-padding: #{tokens.$space-3};
+  --ids-popover-border: none;
   --ids-popover-border-radius: #{tokens.$border-radius-sm};
   --ids-popover-line-height: #{tokens.$line-height-xxl};
   --ids-popover-z-index: #{tokens.$z-index-max};
@@ -14,7 +18,28 @@
   --ids-popover-text: #{tokens.$grey-600};
   --ids-popover-background: #{tokens.$samoyed};
   --ids-popover-shadow: #{tokens.$shadow-12};
+  --ids-popover-title-color: #{tokens.$grey-800};
+  --ids-popover-title-font-weight: #{tokens.$font-weight-semi-bold};
   --ids-popover-title-padding: #{tokens.$space-5};
+}
+
+[data-brand="workleap"] {
+  /* Default */
+  --ids-popover-font-family: var(--hop-body-sm-font-family);
+  --ids-popover-font-size: var(--hop-body-sm-font-size);
+  --ids-popover-padding: var(--hop-space-inset-md);
+  --ids-popover-border: 0.063rem solid var(--hop-neutral-border-weak);
+  --ids-popover-border-radius: var(--hop-shape-rounded-md);
+  --ids-popover-line-height: var(--hop-body-sm-line-height);
+  --ids-popover-z-index: 999;
+  --ids-popover-spacing: var(--hop-space-stack-sm);
+  --ids-popover-width: 100%;
+  --ids-popover-text: var(--hop-neutral-text-weak);
+  --ids-popover-background: var(--hop-neutral-surface);
+  --ids-popover-shadow: var(--hop-elevation-lifted);
+  --ids-popover-title-color: var(--hop-neutral-text);
+  --ids-popover-title-font-weight: var(--hop-body-sm-semibold-font-weight);
+  --ids-popover-title-padding: var(--hop-space-inset-xl);
 }
 
 /* stylelint-disable-next-line media-query-no-invalid */
@@ -24,9 +49,14 @@
     --ids-popover-width: 100%;
     --ids-popover-close-display: none;
   }
+
+  [data-brand="workleap"] {
+    --ids-popover-min-width: 2rem;
+  }
 }
 
 .ids-popover {
+  border: var(--ids-popover-border);
   font-family: var(--ids-popover-font-family);
   font-size: var(--ids-popover-font-size);
   position: fixed;
@@ -59,13 +89,13 @@
   }
 
   &__title {
-    font-weight: tokens.$font-weight-semi-bold;
-    color: tokens.$grey-800;
-    margin-bottom: tokens.$space-2;
+    font-weight: var(--ids-popover-title-font-weight);
+    color: var(--ids-popover-title-color);
+    margin-bottom: var(--ids-popover-spacing);
   }
 
   &__action {
-    margin-top: tokens.$space-2;
+    margin-top: var(--ids-popover-spacing);
 
     > * {
       font-size: var(--ids-popover-font-size);

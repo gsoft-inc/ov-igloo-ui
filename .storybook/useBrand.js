@@ -5,13 +5,18 @@ export const useBrand = (StoryFn, context) => {
   const {displayName} = context.component;
   const components = [
     "ActionMenu", 
-    "Alert", 
-    "Avatar", 
+    "Alert",
+    "AreaChart",
+    "Avatar",
+    "BarChart",
     "Button", 
     "Color",
     "Hyperlink",
     "IconButton", 
-    "List", 
+    "List",
+    "PieChart",
+    "Popover",
+    "StackedBar",
     "Tag", 
     "Tooltip",
     "VisualIdentifier"
