@@ -1,5 +1,11 @@
 # @igloo-ui/bar-chart
 
+## 0.3.0
+
+### Minor Changes
+
+- 4096378: Added the rebrand. Added disabled prop to Popover to work with StackedBar.
+
 ## 0.2.3
 
 ### Patch Changes

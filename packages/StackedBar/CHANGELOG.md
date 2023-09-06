@@ -1,5 +1,16 @@
 # @igloo-ui/stacked-bar
 
+## 0.2.0
+
+### Minor Changes
+
+- 4096378: Added the rebrand. Added disabled prop to Popover to work with StackedBar.
+
+### Patch Changes
+
+- Updated dependencies [4096378]
+  - @igloo-ui/popover@0.4.0
+
 ## 0.1.4
 
 ### Patch Changes
