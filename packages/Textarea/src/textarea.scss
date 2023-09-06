@@ -2,94 +2,145 @@
 @use '~@igloo-ui/tokens/dist/fonts';
 @use 'mixins';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
-  /* Default */
-  --ids-textarea-font-family: #{tokens.$primary-font-family};
-  --ids-textarea-font-size: #{tokens.$font-size-4};
-  --ids-textarea-line-height: #{tokens.$line-height-xxxl};
-  --ids-textarea-color: #{tokens.$grey-800};
-  --ids-textarea-border-color: #{tokens.$grey-300};
-  --ids-textarea-border-radius: #{tokens.$border-radius-sm};
-  --ids-textarea-padding: #{tokens.$space-2} #{tokens.$space-3};
+    /* Default */
+    --ids-textarea-font-family: #{tokens.$primary-font-family};
+    --ids-textarea-font-size: #{tokens.$font-size-4};
+    --ids-textarea-line-height: #{tokens.$line-height-xxxl};
+    --ids-textarea-color: #{tokens.$grey-800};
+    --ids-textarea-border-color: #{tokens.$grey-300};
+    --ids-textarea-border-radius: #{tokens.$border-radius-sm};
+    --ids-textarea-padding: #{tokens.$space-2} #{tokens.$space-3};
 
-  /* Placeholder */
-  --ids-textarea-color-placeholder: #{tokens.$grey-400};
+    /* Placeholder */
+    --ids-textarea-color-placeholder: #{tokens.$grey-400};
 
-  /* Focus */
-  --ids-textarea-focus-border-color: #{tokens.$electric-blue-500};
+    /* Focus */
+    --ids-textarea-focus-border-color: #{tokens.$electric-blue-500};
 
-  /* Error */
-  --ids-textarea-error-border-color: #{tokens.$coral-500};
+    /* Hover */
+    --ids-textarea-hover-border-color: #{tokens.$electric-blue-500};
+    --ids-textarea-hover-background-color: #{tokens.$electric-blue-500};
 
-  /* Disabled */
-  --ids-textarea-disabled-background: #{tokens.$grey-200};
-  --ids-textarea-disabled-color: #{tokens.$grey-500};
+    /* Error */
+    --ids-textarea-error-border-color: #{tokens.$coral-500};
 
-  /* Character Indicator */
-  --ids-textarea-char-indicator-padding-bottom: #{tokens.$space-4};
-  --ids-textarea-char-indicator-bottom: #{tokens.$space-2};
-  --ids-textarea-char-indicator-right: #{tokens.$space-3};
-  --ids-textarea-char-indicator-color: #{tokens.$grey-400};
-  --ids-textarea-char-indicator-size: #{tokens.$font-size-2};
-  --ids-textarea-char-indicator-line-height: #{tokens.$line-height-xl};
+    /* Disabled */
+    --ids-textarea-disabled-background: #{tokens.$grey-200};
+    --ids-textarea-disabled-color: #{tokens.$grey-500};
+
+    /* Character Indicator */
+    --ids-textarea-char-indicator-bottom: #{tokens.$space-2};
+    --ids-textarea-char-indicator-right: #{tokens.$space-3};
+    --ids-textarea-char-indicator-color: #{tokens.$grey-400};
+    --ids-textarea-char-indicator-size: #{tokens.$font-size-2};
+    --ids-textarea-char-indicator-line-height: #{tokens.$line-height-xl};
+}
+
+[data-brand="workleap"] {
+    /* Default */
+    --ids-textarea-font-family: var(--hop-body-sm-regular-font-family);
+    --ids-textarea-font-size: var(--hop-body-sm-font-size);
+    --ids-textarea-line-height: var(--hop-body-sm-line-height);
+    --ids-textarea-color: var(--hop-neutral-text);
+    --ids-textarea-border-color: var(--hop-neutral-border);
+    --ids-textarea-border-radius: var(--hop-shape-rounded-md);
+    --ids-textarea-padding: var(--hop-space-inset-squish-md);
+
+    /* Placeholder */
+    --ids-textarea-color-placeholder: var(--hop-neutral-text-weakest);
+
+    /* Focus */
+    --ids-textarea-focus-border-color: var(--hop-neutral-border-active);
+    --ids-textarea-focus-box-shadow: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+
+    /* Hover */
+    --ids-textarea-hover-border-color: var(--hop-neutral-border-hover);
+    --ids-textarea-hover-background-color: var(--hop-neutral-surface-hover);
+
+    /* Error */
+    --ids-textarea-error-border-color: var(--hop-danger-border-strong);
+
+    /* Disabled */
+    --ids-textarea-disabled-background: var(--hop-neutral-border-disabled);
+    --ids-textarea-disabled-color: var(--hop-neutral-surface-disabled);
+
+    /* Character Indicator */
+    --ids-textarea-char-indicator-bottom: 0.5rem;
+    --ids-textarea-char-indicator-right: 1rem;
+    --ids-textarea-char-indicator-color: var(--hop-neutral-text-weakest);
+    --ids-textarea-char-indicator-size: var(--hop-body-xs-font-size);
+    --ids-textarea-char-indicator-line-height: var(--hop-body-xs-line-height);
 }
 
 .ids-textarea {
-  font-family: var(--ids-textarea-font-family);
-  font-size: var(--ids-textarea-font-size);
-  position: relative;
+    font-family: var(--ids-textarea-font-family);
+    font-size: var(--ids-textarea-font-size);
+    position: relative;
 
-  &,
-  & * {
-    box-sizing: border-box;
-  }
-
-  &__field {
-    border: .1rem solid var(--ids-textarea-border-color);
-    border-radius: var(--ids-textarea-border-radius);
-    color: var(--ids-textarea-color);
-    display: block;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: var(--ids-textarea-line-height);
-    outline: none;
-    padding: var(--ids-textarea-padding);
-    resize: none;
-    width: 100%;
-
-    @include mixins.fancy-webkit-scrollbar;
-
-    &::placeholder {
-      color: var(--ids-textarea-color-placeholder);
+    &,
+    & * {
+        box-sizing: border-box;
     }
 
-    &:focus,
-    .ids-textarea--focus & {
-      border-color: var(--ids-textarea-focus-border-color);
+    &__field {
+        border: .1rem solid var(--ids-textarea-border-color);
+        border-radius: var(--ids-textarea-border-radius);
+        color: var(--ids-textarea-color);
+        display: block;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: var(--ids-textarea-line-height);
+        outline: none;
+        padding: var(--ids-textarea-padding);
+        resize: none;
+        width: 100%;
+
+        @include mixins.fancy-webkit-scrollbar;
+
+        &::placeholder {
+            color: var(--ids-textarea-color-placeholder);
+        }
+
+        &:focus:not(&--error),
+        .ids-textarea--focus:not(&--error) & {
+            border-color: var(--ids-textarea-focus-border-color);
+        }
+
+        &:hover:not(:disabled) {
+            background-color: var(--ids-textarea-hover-background-color);
+        }
+
+        &:hover:not(:disabled, &--error) {
+            border-color: var(--ids-textarea-hover-border-color);
+        }
+
+        &--error {
+            border-color: var(--ids-textarea-error-border-color);
+        }
+
+        &:disabled {
+            background: var(--ids-textarea-disabled-background);
+            border-color: var(--ids-textarea-disabled-background);
+            color: var(--ids-textarea-disabled-color);
+            cursor: not-allowed;
+        }
     }
 
-    &--error {
-      border-color: var(--ids-textarea-error-border-color);
+    &__char-indicator {
+        bottom: var(--ids-textarea-char-indicator-bottom);
+        color: var(--ids-textarea-char-indicator-color);
+        font-size: var(--ids-textarea-char-indicator-size);
+        line-height: var(--ids-textarea-char-indicator-line-height);
+        position: absolute;
+        right: var(--ids-textarea-char-indicator-right);
     }
+}
 
-    &:disabled {
-      background: var(--ids-textarea-disabled-background);
-      border-color: var(--ids-textarea-disabled-background);
-      color: var(--ids-textarea-disabled-color);
-      cursor: not-allowed;
-    }
-
-    &--has-char-count {
-      padding-bottom: var(--ids-textarea-char-indicator-padding-bottom);
-    }
-  }
-
-  &__char-indicator {
-    bottom: var(--ids-textarea-char-indicator-bottom);
-    color: var(--ids-textarea-char-indicator-color);
-    font-size: var(--ids-textarea-char-indicator-size);
-    line-height: var(--ids-textarea-char-indicator-line-height);
-    position: absolute;
-    right: var(--ids-textarea-char-indicator-right);
-  }
+[data-brand="workleap"] .ids-textarea__field:focus,
+[data-brand="workleap"] .ids-textarea--focus .ids-textarea__field {
+    box-shadow: var(--ids-textarea-focus-box-shadow);
 }

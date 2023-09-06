@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@igloo-ui/tokens": "^2.0.0",
+    "@hopper-ui/tokens": "^0.3.0",
     "@react-aria/utils": "^3.15.0",
     "autosize": "^6.0.1",
     "classnames": "^2.3.2",
