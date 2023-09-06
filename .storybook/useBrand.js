@@ -18,6 +18,7 @@ export const useBrand = (StoryFn, context) => {
     "Popover",
     "StackedBar",
     "Tag", 
+    "Toggle",
     "Tooltip",
     "VisualIdentifier"
   ];
