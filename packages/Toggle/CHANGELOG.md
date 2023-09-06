@@ -1,5 +1,11 @@
 # @igloo-ui/toggle
 
+## 1.1.0
+
+### Minor Changes
+
+- 2f0d0a9: Added Workleap theme for the Toggle
+
 ## 1.0.5
 
 ### Patch Changes
