@@ -147,14 +147,14 @@ const StackedBar: React.FunctionComponent<StackedBarProps> = ({
             dataKey="firstBar"
             className="ids-stacked-bar__empty-bar--side"
             radius={[4, 0, 0, 4]}
-            filter="url(#inset-shadow)"
+            filter="url(#stackedBarInsetShadow)"
         />,
         <Bar
             key="empty-bar-2"
             {...barConfig}
             dataKey="secondBar"
             className="ids-stacked-bar__empty-bar--middle"
-            filter="url(#inset-shadow)"
+            filter="url(#stackedBarInsetShadow)"
         />,
         <Bar
             key="empty-bar-3"
@@ -162,13 +162,13 @@ const StackedBar: React.FunctionComponent<StackedBarProps> = ({
             dataKey="thirdBar"
             className="ids-stacked-bar__empty-bar--side"
             radius={[0, 4, 4, 0]}
-            filter="url(#inset-shadow)"
+            filter="url(#stackedBarInsetShadow)"
         />
     ];
 
     const barShadow = (
         <defs>
-            <filter id="inset-shadow">
+            <filter id="stackedBarInsetShadow">
                 <feOffset dx="0" dy="2" />
                 <feGaussianBlur stdDeviation="2" result="offset-blur" />
                 <feComposite

@@ -388,7 +388,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
         return (
             <defs>
                 <linearGradient 
-                    id="lineGradient" 
+                    id="areaChartLineGradient" 
                     x1="0" 
                     y1="0" 
                     x2="0"
