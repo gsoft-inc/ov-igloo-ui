@@ -1,5 +1,15 @@
 # @igloo-ui/area-chart
 
+## 1.0.0
+
+### Major Changes
+
+- 4096378: Applied the new brand style to AreaChart and removed the gradient area under the line.
+
+  ## BREAKING CHANGE
+
+  The 'withColoredArea' prop was removed from AreaChart. This is because we removed the gradient area completely.
+
 ## 0.6.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/hyperlink
 
+## 0.3.0
+
+### Minor Changes
+
+- 4096378: Applied the workleep rebrand to Alert, Hyeprlink and Tooltips. Fixed an override css issue in Iconbutton.
+
 ## 0.2.0
 
 ### Minor Changes

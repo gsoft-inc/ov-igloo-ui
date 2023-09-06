@@ -1,5 +1,16 @@
 # @igloo-ui/popover
 
+## 0.4.0
+
+### Minor Changes
+
+- 4096378: Added the rebrand. Added disabled prop to Popover to work with StackedBar.
+
+### Patch Changes
+
+- Updated dependencies [4096378]
+  - @igloo-ui/icon-button@1.1.2
+
 ## 0.3.4
 
 ### Patch Changes
