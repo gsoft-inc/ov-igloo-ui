@@ -43,7 +43,7 @@ exports[`PieChart It should render a snapshot 1`] = `
           >
             <path
               class="recharts-sector ids-pie-chart__empty"
-              color="#D5D9DE"
+              color="var(--ids-pie-chart-empty)"
               cx="90"
               cy="90"
               d="M 90,2
@@ -54,11 +54,11 @@ exports[`PieChart It should render a snapshot 1`] = `
             A 87.12,87.12,0,
             1,0,
             90,2.8799999999999955 Z"
-              fill="#D5D9DE"
+              fill="var(--ids-pie-chart-empty)"
               id="empty"
               name="empty"
               role="img"
-              stroke="#D5D9DE"
+              stroke="var(--ids-pie-chart-empty)"
               tabindex="-1"
             />
           </g>

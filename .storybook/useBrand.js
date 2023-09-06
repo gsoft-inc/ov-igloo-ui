@@ -4,15 +4,20 @@ export const useBrand = (StoryFn, context) => {
   const {brand} = context.globals;
   const {displayName} = context.component;
   const components = [
-    "ActionMenu",
+    "ActionMenu", 
     "Alert",
+    "AreaChart",
     "Avatar",
-    "Button",
+    "BarChart",
+    "Button", 
     "Color",
     "Hyperlink",
-    "IconButton",
+    "IconButton", 
     "List",
-    "Tag",
+    "PieChart",
+    "Popover",
+    "StackedBar",
+    "Tag", 
     "Toggle",
     "Tooltip",
     "VisualIdentifier"

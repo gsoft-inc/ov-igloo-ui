@@ -3,8 +3,6 @@ import cx from "classnames";
 import { PieChart as RPieChart, Cell, Label, Pie, type LabelProps } from "recharts";
 import type { PolarViewBox } from "recharts/types/util/types";
 
-import tokens from "@igloo-ui/tokens/dist/base10/tokens.json";
-
 import "./pie-chart.scss";
 
 interface CustomLabelProps extends LabelProps {
@@ -104,7 +102,7 @@ const PieChart: React.FunctionComponent<PieChartProps> = ({
             id: "empty",
             percentage: 100,
             className: "ids-pie-chart__empty-data",
-            color: tokens.grey300
+            color: "var(--ids-pie-chart-empty)"
         }
     ],
     dataTest,

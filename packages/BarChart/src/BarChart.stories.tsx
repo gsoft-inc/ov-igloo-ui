@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import tokens from '@igloo-ui/tokens/dist/base10/tokens.json';
 
 import readme from '../README.md';
@@ -19,6 +19,8 @@ export default {
     chromatic: { delay: 600 },
   },
 } as Meta<typeof BarChart>;
+
+type Story = StoryObj<typeof BarChart>;
 
 const mockData = [
   {
@@ -47,8 +49,45 @@ const mockData = [
   },
 ];
 
-export const Overview = {
-  args: {
-    dataSet: mockData,
+const mockDataWL = [
+  {
+    id: '1',
+    label: 'Good vibes',
+    value: 48,
+    color: "#C7EBFF",
+  },
+  {
+    id: '2',
+    label: 'Excellence',
+    value: 46,
+    color: "#ECD599",
+  },
+  {
+    id: '3',
+    label: 'Radical candor',
+    value: 24,
+    color: "#D2CDF8",
+  },
+  {
+    id: '4',
+    label: 'Custom cards by members',
+    value: 0,
+    color: "#B6BEAD",
+  },
+];
+
+const getMockData = (brand: string) => {
+  const data = brand === 'workleap' ? mockDataWL : mockData;
+  return data;
+}
+
+export const Overview: Story = {
+  render: (args, { globals: { brand } }) => {
+    return (
+      <BarChart
+        {...args}
+        dataSet={getMockData(brand)}
+      />
+    );
   },
 };

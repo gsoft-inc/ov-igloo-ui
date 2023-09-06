@@ -5,6 +5,7 @@
   /* Default */
   --ids-chart-tooltip-font-family: #{tokens.$primary-font-family};
   --ids-chart-tooltip-font-size: #{tokens.$font-size-3};
+  --ids-chart-tooltip-font-weight: #{tokens.$font-weight-regular};
   --ids-chart-tooltip-color: #{tokens.$grey-800};
   --ids-chart-tooltip-background: #{tokens.$samoyed};
   --ids-chart-tooltip-box-shadow: #{tokens.$shadow-12};
@@ -32,6 +33,38 @@
   --ids-chart-tooltip-circle-size: 0.8rem;
 }
 
+[data-brand="workleap"] {
+  /* Default */
+  --ids-chart-tooltip-font-family: var(--hop-body-sm-font-family);
+  --ids-chart-tooltip-font-size: var(--hop-body-sm-font-size);
+  --ids-chart-tooltip-font-weight: var(--hop-body-sm-font-weight);
+  --ids-chart-tooltip-color: var(--hop-neutral-text);
+  --ids-chart-tooltip-background: var(--hop-neutral-surface);
+  --ids-chart-tooltip-box-shadow: var(--hop-elevation-lifted);
+  --ids-chart-tooltip-border-radius: var(--hop-shape-rounded-md);
+  --ids-chart-tooltip-padding: var(--hop-space-inset-md);
+
+  /* Date */
+  --ids-chart-tooltip-date-font-weight: var(--hop-body-sm-semibold-font-weight);
+
+  /* Score */
+  --ids-chart-tooltip-score-font-family: var(--hop-heading-lg-font-family);
+  --ids-chart-tooltip-score-font-size: var(--hop-heading-lg-font-size);
+  --ids-chart-tooltip-score-font-weight: var(--hop-heading-lg-font-weight);
+  --ids-chart-tooltip-score-line-height: var(--hop-heading-lg-line-height);
+  --ids-chart-tooltip-score-margin-top: var(--hop-space-stack-sm);
+  --ids-chart-tooltip-score-value-margin-right: var(--hop-space-inline-sm);
+  --ids-chart-tooltip-score-text-color: var(--hop-neutral-text-weak);
+  --ids-chart-tooltip-score-text-font-size: var(--hop-body-sm-font-size);
+  --ids-chart-tooltip-score-text-font-weight: var(--hop-body-sm-font-weight);
+
+  /* Circle */
+  --ids-chart-tooltip-circle-background: #BFDCA9; /* Missing semantic token */
+  --ids-chart-tooltip-circle-secondary-background: #6C8FFD; /* Missing semantic token */
+  --ids-chart-tooltip-circle-margin-right: var(--hop-space-inline-sm);
+  --ids-chart-tooltip-circle-size: 0.75rem;
+}
+
 @keyframes fade-in {
   0% { opacity: 0; }
   100% { opacity: 1; }
@@ -46,6 +79,7 @@
   flex-direction: column;
   font-family: var(--ids-chart-tooltip-font-family);
   font-size: var(--ids-chart-tooltip-font-size);
+  font-weight: var(--ids-chart-tooltip-font-weight);
   justify-content: space-between;
   outline: none;
   padding: var(--ids-chart-tooltip-padding);
