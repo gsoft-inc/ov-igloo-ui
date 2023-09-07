@@ -14,6 +14,7 @@ export const useBrand = (StoryFn, context) => {
     "List",
     "Tag",
     "Textarea",
+    "Toggle",
     "Tooltip",
     "VisualIdentifier"
   ];

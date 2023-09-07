@@ -1,142 +1,226 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
-  /* Default */
-  --ids-toggle-font-family: #{tokens.$primary-font-family};
-  --ids-toggle-font-size: #{tokens.$font-size-4};
-  --ids-toggle-text-padding: #{tokens.$space-2};
-  --ids-toggle-width: #{tokens.$space-6};
-  --ids-toggle-height: 2rem;
-  --ids-toggle-background: #{tokens.$grey-300};
-  --ids-toggle-transition: background-color 0.3s ease-in-out;
-  --ids-toggle-focus: #{tokens.$focus};
-  --ids-toggle-padding: #{tokens.$space-1};
-  --ids-toggle-font-size-description: #{tokens.$font-size-3};
-  --ids-toggle-text-description: #{tokens.$grey-600};
+    /* Default */
+    --ids-toggle-font-family: #{tokens.$primary-font-family};
+    --ids-toggle-font-size: #{tokens.$font-size-4};
+    --ids-toggle-line-height: normal;
+    --ids-toggle-text-padding: #{tokens.$space-2};
+    --ids-toggle-font-weight: #{tokens.$font-weight-regular};
+    --ids-toggle-width: #{tokens.$space-6};
+    --ids-toggle-height: 2rem;
+    --ids-toggle-background: #{tokens.$grey-300};
+    --ids-toggle-border: transparent;
+    --ids-toggle-transition: background-color 0.3s ease-in-out;
+    --ids-toggle-focus: #{tokens.$focus};
+    --ids-toggle-padding: #{tokens.$space-1};
+    --ids-toggle-font-size-description: #{tokens.$font-size-3};
+    --ids-toggle-line-height-description: normal;
+    --ids-toggle-text-description: #{tokens.$grey-600};
 
-  /* switch */
-  --ids-toggle-width-switch: #{tokens.$space-3};
-  --ids-toggle-height-switch: #{tokens.$space-3};
-  --ids-toggle-background-switch: #{tokens.$samoyed};
-  --ids-toggle-shadow-switch: 0 .1rem .3rem 0 rgb(0 0 0 / 25%);
+    /* switch */
+    --ids-toggle-width-switch: #{tokens.$space-3};
+    --ids-toggle-height-switch: #{tokens.$space-3};
+    --ids-toggle-margin: 0.2rem;
+    --ids-toggle-background-switch: #{tokens.$samoyed};
+    --ids-toggle-background-switch-disabled: #{tokens.$samoyed};
+    --ids-toggle-shadow-switch: 0 .1rem .3rem 0 rgb(0 0 0 / 25%);
 
-  /* checked */
-  --ids-toggle-background-checked: #{tokens.$electric-blue-500};
-  --ids-toggle-position-checked:
-    calc(
-      var(--ids-toggle-width) - var(--ids-toggle-width-switch) - 0.4rem
-    );
+    /* checked */
+    --ids-toggle-background-checked: #{tokens.$electric-blue-500};
+    --ids-toggle-background-switch-checked: #{tokens.$samoyed};
+    --ids-toggle-border-checked: transparent;
+    --ids-toggle-position-checked:
+        calc(
+            var(--ids-toggle-width) - var(--ids-toggle-width-switch) - 0.4rem
+        );
 
-  /* disabled */
-  --ids-toggle-background-disabled: #{tokens.$grey-200};
-  --ids-toggle-background-checked-disabled: #{tokens.$electric-blue-300};
+    /* hover */
+    --ids-toggle-background-hover: #{tokens.$grey-300};
+    --ids-toggle-border-hover: transparent;
+
+    /* disabled */
+    --ids-toggle-background-disabled: #{tokens.$grey-200};
+    --ids-toggle-background-checked-disabled: #{tokens.$electric-blue-300};
+    --ids-toggle-border-disabled: transparent;
+    --ids-toggle-border-checked-disabled: transparent;
+}
+
+[data-brand="workleap"] {
+    /* Default */
+    --ids-toggle-font-family: var(--hop-body-md-medium-font-family);
+    --ids-toggle-font-size: var(--hop-body-md-medium-font-size);
+    --ids-toggle-line-height: var(--hop-body-md-medium-line-height);
+    --ids-toggle-text-padding: var(--hop-space-inline-sm);
+    --ids-toggle-font-weight: var(--hop-body-md-medium-font-weight);
+    --ids-toggle-width: 3rem;
+    --ids-toggle-height: 1.5rem;
+    --ids-toggle-background: var(--hop-neutral-surface);
+    --ids-toggle-border: 0.0625rem solid var(--hop-neutral-border);
+    --ids-toggle-transition: background-color 0.3s ease-in-out;
+    --ids-focus-shadow: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+    --ids-toggle-padding: var(--hop-space-stack-xs);
+    --ids-toggle-font-size-description: var(--hop-body-sm-font-size);
+    --ids-toggle-line-height-description: var(--hop-body-sm-line-height);
+    --ids-toggle-text-description: var(--hop-neutral-text-weak);
+
+    /* switch */
+    --ids-toggle-width-switch: 1rem;
+    --ids-toggle-height-switch: 1rem;
+    --ids-toggle-margin: var(--hop-space-inset-xs);
+    --ids-toggle-background-switch: var(--hop-neutral-icon);
+    --ids-toggle-background-switch-disabled: var(--hop-neutral-icon-disabled);
+    --ids-toggle-shadow-switch: none;
+
+    /* checked */
+    --ids-toggle-background-checked: var(--hop-neutral-surface-active);
+    --ids-toggle-background-switch-checked: var(--hop-neutral-surface);
+    --ids-toggle-border-checked: 0.0625rem solid var(--hop-neutral-border-active);
+    --ids-toggle-position-checked:
+        calc(
+            var(--ids-toggle-width) - var(--ids-toggle-width-switch) - calc(var(--ids-toggle-margin) * 2)
+        );
+
+    /* hover */
+    --ids-toggle-background-hover: var(--hop-neutral-surface-hover);
+    --ids-toggle-border-hover: var(--hop-neutral-border-hover);
+
+    /* disabled */
+    --ids-toggle-background-disabled: var(--hop-neutral-surface-disabled);
+    --ids-toggle-background-checked-disabled: var(--hop-neutral-surface-disabled);
+    --ids-toggle-border-disabled: var(--hop-neutral-surface-disabled);
+    --ids-toggle-border-checked-disabled: var(--hop-neutral-surface-disabled);
 }
 
 %block {
-  content: '';
-  display: block;
+    content: '';
+    display: block;
 }
 
 %switch {
-  position: absolute;
-  left: 0;
-  margin: 0.2rem;
-  width: var(--ids-toggle-width-switch);
-  height: var(--ids-toggle-height-switch);
-  background-color: var(--ids-toggle-background-switch);
-  border-radius: 50%;
-  box-shadow: var(--ids-toggle-shadow-switch);
-  transition: all .3s;
+    position: absolute;
+    left: 0;
+    margin: var(--ids-toggle-margin);
+    width: var(--ids-toggle-width-switch);
+    height: var(--ids-toggle-height-switch);
+    background-color: var(--ids-toggle-background-switch);
+    border-radius: 50%;
+    box-shadow: var(--ids-toggle-shadow-switch);
+    transition: all .3s;
 }
 
 .ids-toggle {
-  font-family: var(--ids-toggle-font-family);
-  font-size: var(--ids-toggle-font-size);
+    box-sizing: border-box;
+    font-family: var(--ids-toggle-font-family);
+    font-size: var(--ids-toggle-font-size);
+    font-weight: var(--ids-toggle-font-weight);
+    line-height: var(--ids-toggle-line-height);
+
+    &:hover .ids-toggle__input:not(:checked, :disabled) + .ids-toggle__label::before,
+    .ids-toggle__input:focus:not(:checked) + .ids-toggle__label::before {
+        background-color: var(--ids-toggle-background-hover);
+        border-color: var(--ids-toggle-bodrer-hover);
+    }
 }
 
 .ids-toggle__label {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
 
-  &::before {
-    @extend %block;
-
-    width: var(--ids-toggle-width);
-    height: var(--ids-toggle-height);
-    border-radius: calc(var(--ids-toggle-height) / 2);
-    background-color: var(--ids-toggle-background);
-    transition: var(--ids-toggle-transition);
-  }
-
-  &::after {
-    @extend %block;
-    @extend %switch;
-  }
-}
-
-.ids-toggle__text {
-  padding-left: var(--ids-toggle-text-padding);
-}
-
-.ids-toggle--helperText {
-  .ids-toggle__label {
-    align-items: flex-start;
-  }
-
-  .ids-toggle__text {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .ids-toggle__description {
-    padding-top: var(--ids-toggle-padding);
-    color: var(--ids-toggle-text-description);
-    font-size: var(--ids-toggle-font-size-description);
-  }
-}
-
-.ids-toggle__input {
-  position: absolute;
-  width: 0;
-  height: 0;
-  opacity: 0;
-
-  &:checked + .ids-toggle__label {
     &::before {
-      background-color: var(--ids-toggle-background-checked);
+        @extend %block;
+
+        box-sizing: border-box;
+        width: var(--ids-toggle-width);
+        height: var(--ids-toggle-height);
+        border-radius: calc(var(--ids-toggle-height) / 2);
+        background-color: var(--ids-toggle-background);
+        transition: var(--ids-toggle-transition);
+        border: var(--ids-toggle-border);
     }
 
     &::after {
-      left: var(--ids-toggle-position-checked);
-    }
-  }
+        box-sizing: border-box;
 
-  &:focus + .ids-toggle__label {
-    &::before {
-      box-shadow: var(--ids-toggle-focus);
+        @extend %block;
+        @extend %switch;
     }
-  }
+}
 
-  &:disabled + .ids-toggle__label {
-    cursor: not-allowed;
+.ids-toggle__text {
+    padding-left: var(--ids-toggle-text-padding);
+}
 
-    &::before {
-      background-color: var(--ids-toggle-background-disabled);
+.ids-toggle--helperText {
+    .ids-toggle__label {
+        align-items: flex-start;
     }
-  }
 
-  &:checked:disabled + .ids-toggle__label {
-    &::before {
-      background-color: var(--ids-toggle-background-checked-disabled);
+    .ids-toggle__text {
+        display: flex;
+        flex-direction: column;
     }
-  }
 
-  &:focus:not(:focus-visible) + .ids-toggle__label {
-    &::before {
-      box-shadow: none;
+    .ids-toggle__description {
+        padding-top: var(--ids-toggle-padding);
+        color: var(--ids-toggle-text-description);
+        font-size: var(--ids-toggle-font-size-description);
+        line-height: var(--ids-toggle-line-height-description);
     }
-  }
+}
+
+.ids-toggle__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    &:checked + .ids-toggle__label {
+        &::before {
+            background-color: var(--ids-toggle-background-checked);
+            border: var(--ids-toggle-border-checked);
+        }
+
+        &::after {
+            background-color: var(--ids-toggle-background-switch-checked);
+            left: var(--ids-toggle-position-checked);
+        }
+    }
+
+    &:focus + .ids-toggle__label {
+        &::before {
+            box-shadow: var(--ids-toggle-focus);
+        }
+    }
+
+    &:disabled + .ids-toggle__label {
+        cursor: not-allowed;
+
+        &::before {
+            background-color: var(--ids-toggle-background-disabled);
+            border: var(--ids-toggle-border-disabled);
+        }
+
+        &::after {
+            background-color: var(--ids-toggle-background-switch-disabled);
+        }
+    }
+
+    &:checked:disabled + .ids-toggle__label {
+        &::before {
+            background-color: var(--ids-toggle-background-checked-disabled);
+        }
+    }
+
+    &:focus:not(:focus-visible) + .ids-toggle__label {
+        &::before {
+            box-shadow: none;
+        }
+    }
 }
