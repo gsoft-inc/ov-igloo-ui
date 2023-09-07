@@ -1,5 +1,11 @@
 # @igloo-ui/card
 
+## 0.1.0
+
+### Minor Changes
+
+- 98f526d: Gave the Card component the new Worleap style.
+
 ## 0.0.13
 
 ### Patch Changes
