@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.3.0
+
+### Minor Changes
+
+- 9b2896c: Rebrand of TextArea component
+
 ## 0.2.4
 
 ### Patch Changes

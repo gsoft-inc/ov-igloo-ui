@@ -1,5 +1,11 @@
 # @igloo-ui/breadcrumb
 
+## 0.2.0
+
+### Minor Changes
+
+- ef3b3ca: Applied the rebrand to Breadcrumb.
+
 ## 0.1.5
 
 ### Patch Changes
