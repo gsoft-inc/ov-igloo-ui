@@ -20,10 +20,11 @@
 
     /* Focus */
     --ids-textarea-focus-border-color: #{tokens.$electric-blue-500};
+    --ids-textarea-focus-box-shadow: none;
 
     /* Hover */
-    --ids-textarea-hover-border-color: #{tokens.$electric-blue-500};
-    --ids-textarea-hover-background-color: #{tokens.$electric-blue-500};
+    --ids-textarea-hover-border-color: #{tokens.$grey-300};
+    --ids-textarea-hover-background-color: initial;
 
     /* Error */
     --ids-textarea-error-border-color: #{tokens.$coral-500};
@@ -33,6 +34,7 @@
     --ids-textarea-disabled-color: #{tokens.$grey-500};
 
     /* Character Indicator */
+    --ids-textarea-char-indicator-padding-bottom: #{tokens.$space-4};
     --ids-textarea-char-indicator-bottom: #{tokens.$space-2};
     --ids-textarea-char-indicator-right: #{tokens.$space-3};
     --ids-textarea-char-indicator-color: #{tokens.$grey-400};
@@ -69,8 +71,9 @@
     --ids-textarea-disabled-color: var(--hop-neutral-surface-disabled);
 
     /* Character Indicator */
-    --ids-textarea-char-indicator-bottom: 0.5rem;
-    --ids-textarea-char-indicator-right: 1rem;
+    --ids-textarea-char-indicator-padding-bottom: var(--hop-space-stack-lg);
+    --ids-textarea-char-indicator-bottom: var(--hop-space-stack-sm);
+    --ids-textarea-char-indicator-right: var(--hop-space-inline-md);
     --ids-textarea-char-indicator-color: var(--hop-neutral-text-weakest);
     --ids-textarea-char-indicator-size: var(--hop-body-xs-font-size);
     --ids-textarea-char-indicator-line-height: var(--hop-body-xs-line-height);
@@ -101,24 +104,38 @@
 
         @include mixins.fancy-webkit-scrollbar;
 
+        .ids-textarea--has-char-count & {
+            padding-bottom: var(--ids-textarea-char-indicator-padding-bottom);
+            scroll-padding-bottom: var(--ids-textarea-char-indicator-padding-bottom);
+        }
+
         &::placeholder {
             color: var(--ids-textarea-color-placeholder);
         }
 
-        &:focus:not(&--error),
-        .ids-textarea--focus:not(&--error) & {
+        &:focus,
+        .ids-textarea--focus & {
+            border-color: var(--ids-textarea-focus-border-color);
+            box-shadow: var(--ids-textarea-focus-box-shadow);
+        }
+
+        &:hover:focus,
+        .ids-textarea--focus:hover & {
             border-color: var(--ids-textarea-focus-border-color);
         }
 
-        &:hover:not(:disabled) {
+        &:hover {
             background-color: var(--ids-textarea-hover-background-color);
-        }
-
-        &:hover:not(:disabled, &--error) {
             border-color: var(--ids-textarea-hover-border-color);
         }
 
         &--error {
+            border-color: var(--ids-textarea-error-border-color);
+        }
+
+        &--error:hover,
+        &--error:focus,
+        &--error:focus:hover {
             border-color: var(--ids-textarea-error-border-color);
         }
 
@@ -132,15 +149,9 @@
 
     &__char-indicator {
         bottom: var(--ids-textarea-char-indicator-bottom);
-        color: var(--ids-textarea-char-indicator-color);
         font-size: var(--ids-textarea-char-indicator-size);
         line-height: var(--ids-textarea-char-indicator-line-height);
         position: absolute;
         right: var(--ids-textarea-char-indicator-right);
     }
-}
-
-[data-brand="workleap"] .ids-textarea__field:focus,
-[data-brand="workleap"] .ids-textarea--focus .ids-textarea__field {
-    box-shadow: var(--ids-textarea-focus-box-shadow);
 }
