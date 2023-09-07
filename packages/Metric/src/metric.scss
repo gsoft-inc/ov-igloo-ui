@@ -28,7 +28,7 @@
   --ids-metric-visual-negative-color: #{tokens.$coral-500};
   --ids-metric-visual-selected-background: #{tokens.$electric-blue-100};
   --ids-metric-visual-selected-color: #{tokens.$electric-blue-500};
-  --ids-metric-visual-margin: 0 #{tokens.$space-3} 0 0;
+  --ids-metric-visual-margin-right: #{tokens.$space-3};
 
   /* Hover */
   --ids-metric-hover-shadow: #{tokens.$shadow-12};
@@ -87,8 +87,7 @@
   --ids-metric-border-radius: var(--hop-shape-rounded-md);
   --ids-metric-line-height: var(--hop-body-sm-line-height);
   --ids-metric-border-color: var(--hop-neutral-border-weak);
-  /* stylelint-disable-next-line unit-allowed-list */
-  --ids-metric-border-width: 1px;
+  --ids-metric-border-width: 0.0625rem;
   --ids-metric-shadow: var(--hop-elevation-raised);
 
   /* Visual */
@@ -102,7 +101,7 @@
   --ids-metric-visual-negative-color: #CB2E31; /* Data Viz token */
   --ids-metric-visual-selected-background: var(--hop-neutral-surface-active);
   --ids-metric-visual-selected-color: var(--hop-neutral-text-active);
-  --ids-metric-visual-margin: 0 var(--hop-space-inline-md) 0 0;
+  --ids-metric-visual-margin-right: var(--hop-space-inline-md);
 
   /* Hover */
   --ids-metric-hover-shadow: var(--hop-elevation-lifted);
@@ -110,13 +109,12 @@
   --ids-metric-hover-border-color: var(--hop-neutral-border-hover);
 
   /* Focus */
-  --ids-metric-focus-border-color:var(--hop-neutral-border-hover);
+  --ids-metric-focus-border-color: var(--hop-neutral-border-hover);
   --ids-metric-focus-shadow: var(--hop-elevation-lifted), 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
 
   /* Selected */
   --ids-metric-selected-shadow: var(--hop-elevation-raised);
-  /* stylelint-disable-next-line unit-allowed-list */
-  --ids-metric-selected-border-width: 1.6px; /* 1.5px generates too small of a border. Usually 0.8px */
+  --ids-metric-selected-border-width: 0.1rem; /* 1.5px generates too small of a border. Usually 0.8px */
   --ids-metric-selected-border-color: var(--hop-neutral-border-active);
   --ids-metric-selected-hover-border-color: var(--hop-neutral-border-active);
   --ids-metric-selected-hover-background: var(--hop-neutral-surface-hover);
@@ -255,7 +253,7 @@
   flex: 0 0 auto;
   height: var(--ids-metric-visual-size);
   justify-content: center;
-  margin: var(--ids-metric-visual-margin);
+  margin-right: var(--ids-metric-visual-margin-right);
   width: var(--ids-metric-visual-size);
 
   &--positive {
