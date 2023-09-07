@@ -1,6 +1,9 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
   /* Default */
   --ids-score-font-family: #{tokens.$secondary-font-family};
@@ -21,8 +24,34 @@
   /* Arrows */
   --ids-score-arrow-color-positive: #{tokens.$seaweed-500};
   --ids-score-arrow-color-negative: #{tokens.$coral-500};
-  --ids-score-arrow-color-selected: #{tokens.$electric-blue-500};
+  --ids-score-arrow-color-selected-positive: #{tokens.$electric-blue-500};
+  --ids-score-arrow-color-selected-negative: #{tokens.$electric-blue-500};
   --ids-score-arrow-margin-right: #{tokens.$space-1};
+}
+
+[data-brand="workleap"] {
+  /* Default */
+  --ids-score-font-family: var(--hop-heading-sm-font-family);
+  --ids-score-font-size: var(--hop-heading-sm-font-size);
+  --ids-score-font-weight: var(--hop-heading-sm-font-weight);
+  --ids-score-color: var(--hop-neutral-text);
+  --ids-score-line-height: var(--hop-heading-sm-line-height);
+
+  /* Variation */
+  --ids-score-variation-font-family: var(--hop-body-sm-font-family);
+  --ids-score-variation-font-size: var(--hop-body-sm-font-size);
+  --ids-score-variation-font-weight: var(--hop-body-sm-font-weight);
+  --ids-score-variation-line-height: --hop-body-sm-line-height;
+  --ids-score-single-variation-font-size: var(--hop-body-2xl-font-size);
+  --ids-score-single-variation-color: var(--hop-neutral-text-weak);
+  --ids-score-single-variation-line-height: var(--hop-body-2xl-line-height);
+
+  /* Arrows */
+  --ids-score-arrow-color-positive: var(--hop-success-icon-weak);
+  --ids-score-arrow-color-negative: var(--hop-danger-icon-weak);
+  --ids-score-arrow-color-selected-positive: var(--hop-success-icon-weak);
+  --ids-score-arrow-color-selected-negative: var(--hop-danger-icon-weak);
+  --ids-score-arrow-margin-right: var(--hop-space-inline-xs);
 }
 
 .ids-score {
@@ -57,15 +86,19 @@
   margin-right: var(--ids-score-arrow-margin-right);
 
   &--positive {
-    color: var( --ids-score-arrow-color-positive);
+    color: var(--ids-score-arrow-color-positive);
+  
+    & .ids-score__arrow--selected {
+      color: var(--ids-score-arrow-color-selected-positive);
+    }
   }
   
   &--negative {
-    color: var( --ids-score-arrow-color-negative);
-  }
+    color: var(--ids-score-arrow-color-negative);
   
-  &--selected {
-    color: var( --ids-score-arrow-color-selected);
+    & .ids-score__arrow--selected {
+      color: var(--ids-score-arrow-color-selected-negative);
+    }
   }
 }
 

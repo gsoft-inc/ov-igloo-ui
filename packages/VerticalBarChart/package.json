@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/vertical-bar-chart",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "dist/VerticalBarChart.js",
   "module": "dist/VerticalBarChart.js",
   "types": "dist/VerticalBarChart.d.ts",
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@igloo-ui/tokens": "^2.0.0",
+    "@hopper-ui/tokens": "^0.3.0",
     "classnames": "^2.3.2",
     "recharts": "^2.7.2"
   },

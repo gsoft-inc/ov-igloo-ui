@@ -1,6 +1,9 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
   /* Default */
   --ids-vertical-bar-chart-font-family: #{tokens.$primary-font-family};
@@ -9,6 +12,16 @@
   --ids-vertical-bar-chart-tick-color: #{tokens.$grey-600};
   --ids-vertical-bar-chart-tick-font-size: #{tokens.$font-size-3};
   --ids-vertical-bar-chart-label-line-height: #{tokens.$line-height-xxl};
+}
+
+[data-brand="workleap"] {
+  /* Default */
+  --ids-vertical-bar-chart-font-family: var(--hop-body-sm-font-family);
+  --ids-vertical-bar-chart-font-size: var(--hop-body-sm-font-size);
+  --ids-vertical-bar-chart-line-color: var(--hop-neutral-border-weak);
+  --ids-vertical-bar-chart-tick-color: var(--hop-neutral-text-weak);
+  --ids-vertical-bar-chart-tick-font-size: var(--hop-body-sm-font-size);
+  --ids-vertical-bar-chart-label-line-height: var(--hop-body-sm-line-height);
 }
 
 .ids-vertical-bar-chart {

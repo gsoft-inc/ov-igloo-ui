@@ -83,7 +83,7 @@ import React from 'react';
   };
 
   export const Score: Story = {
-    render: () => {
+    render: (_args, {globals: {brand}}) => {
       return (
         <Section>
           <Metric
@@ -107,7 +107,7 @@ import React from 'react';
             variation={3}
             label="Selected"
             appearance="selected"
-            icon={<WellnessSolid size="medium" />}
+            icon={brand === "workleap" ? <Wellness size="medium" /> : <WellnessSolid size="medium" />}
             type="score"
           />
         </Section>

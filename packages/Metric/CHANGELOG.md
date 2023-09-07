@@ -1,5 +1,11 @@
 # @igloo-ui/metric
 
+## 0.2.0
+
+### Minor Changes
+
+- 412cbc8: Added the new brand styling to Metric and VerticalBarChart.
+
 ## 0.1.3
 
 ### Patch Changes
