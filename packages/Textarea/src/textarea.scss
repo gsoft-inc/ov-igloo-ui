@@ -149,6 +149,7 @@
 
     &__char-indicator {
         bottom: var(--ids-textarea-char-indicator-bottom);
+        color: var(--ids-textarea-char-indicator-color);
         font-size: var(--ids-textarea-char-indicator-size);
         line-height: var(--ids-textarea-char-indicator-line-height);
         position: absolute;
