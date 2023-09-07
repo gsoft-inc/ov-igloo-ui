@@ -36,7 +36,8 @@ const ButtonGroupItem: React.FunctionComponent<ButtonGroupItemProps> = ({
         <button
             className={cx("ids-btn-group__item", {
                 "is-disabled": disabled,
-                "is-selected": active
+                "is-selected": active,
+                "is-icon-only": !children && icon
             })}
             data-test={dataTest}
             onClick={onClick}
