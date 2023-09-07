@@ -18,8 +18,6 @@ import {
 import type { CurveType } from "recharts/types/shape/Curve";
 import type { CartesianViewBox } from "recharts/types/util/types";
 
-import variables from "@igloo-ui/tokens/dist/base10/tokens.json";
-
 import ChartTooltip from "./ChartTooltip";
 import useDynamicYAxisWidth from "./hooks/useDynamicYAxisWidth";
 import {
@@ -102,8 +100,6 @@ export interface AreaChartProps extends React.ComponentProps<"div"> {
     tooltipScoreFormatter?: (score: number) => string;
     /** The message that is displayed when data is unavailable */
     unavailableDataMessage?: string;
-    /** Whether or not to show the colored area below the line */
-    withColoredArea?: boolean;
     /** Replaces AreaChart label with a skeleton */
     loading?: boolean;
 }
@@ -120,8 +116,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     xAxisTickCount = 7,
     scoreFormatter,
     tooltipScoreFormatter,
-    unavailableDataMessage,
-    withColoredArea = true
+    unavailableDataMessage
 }: AreaChartProps) => {
     const DEFAULT_SKELETON_WIDTH = 24;
     const DEFAULT_SKELETON_HEIGHT = 8;
@@ -295,14 +290,14 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     });
 
     const cartesianGridConfig = {
-        stroke: variables.grey200,
+        stroke: "var(--ids-area-chart-grid-color)",
         strokeOpacity: 1,
         vertical: false
     };
 
     const tickStyle = {
-        fill: variables.grey600,
-        fontSize: variables.fontSize2,
+        fill: "var(--ids-area-chart-color)",
+        fontSize: "var(--ids-area-chart-font-size)",
         fillOpacity: 1
     };
 
@@ -320,7 +315,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
         tickMargin: 10,
         allowDataOverflow: true,
         axisLine: {
-            stroke: variables.grey400
+            stroke: "var(--ids-area-chart-axis-color)"
         }
     };
 
@@ -333,7 +328,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
         tick: tickStyle,
         domain: [range.min, range.max],
         axisLine: {
-            stroke: variables.grey400
+            stroke: "var(--ids-area-chart-axis-color)"
         },
         width: yAxisWidth
     };
@@ -351,14 +346,14 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     const dotConfig: DotProps = {
         r: 4,
         strokeWidth: 1,
-        stroke: "#FFF",
-        fill: variables.electricBlue500
+        stroke: "var(--ids-area-chart-dot-stroke-color)",
+        fill: "var(--ids-area-chart-dot-color)"
     };
 
     const commonAreaConfig = {
         type: "monotone" as CurveType,
         strokeWidth: 3,
-        fill: withColoredArea ? "url(#curveAreaFillGradient)" : "none",
+        fill: "none",
         fillOpacity: 1
     };
 
@@ -366,7 +361,8 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
         ...commonAreaConfig,
         dataKey: "score",
         connectNulls: false,
-        stroke: variables.electricBlue500,
+        stroke: "var(--ids-area-chart-line-color)",
+        dot: false,
         activeDot: {
             ...dotConfig
         }
@@ -376,9 +372,10 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
         ...commonAreaConfig,
         dataKey: "score",
         connectNulls: true,
-        stroke: variables.grey400,
+        stroke: "var(--ids-area-chart-null-line-color)",
         strokeWidth: "3",
         strokeDasharray: "1,9",
+        dot: false,
         activeDot: false
     };
 
@@ -387,14 +384,26 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
         stroke: "none",
         fill: "none"
     };
-
     const buildAreaDefs = (): JSX.Element => {
         return (
             <defs>
-                <linearGradient id="curveAreaFillGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop stopColor={variables.electricBlue50} />
-                    <stop offset="78%" stopColor="#EDF6FF" />
-                    <stop offset="96%" stopColor={variables.samoyed} />
+                <linearGradient 
+                    id="areaChartLineGradient" 
+                    x1="0" 
+                    y1="0" 
+                    x2="0"
+                    y2="96%"
+                    gradientUnits="userSpaceOnUse"
+                >
+                    <stop stopColor="#188A71" />
+                    <stop offset="0.119792" stopColor="#47A584" />
+                    <stop offset="0.239583" stopColor="#7DC291" />
+                    <stop offset="0.369792" stopColor="#AAD89D" />
+                    <stop offset="0.498366" stopColor="#F7E694" />
+                    <stop offset="0.625" stopColor="#FFBCB7" />
+                    <stop offset="0.75" stopColor="#FF8E8E" />
+                    <stop offset="0.875" stopColor="#F56263" />
+                    <stop offset="1" stopColor="#DF3236" />
                 </linearGradient>
             </defs>
         );
@@ -407,12 +416,12 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
             const sequenceRanges = getNullSequenceRanges(dataSet);
             const dataWithFakeScore = getFakeScore(dataSet, sequenceRanges);
 
-            updatedAreaChartData = dataWithFakeScore.map((dataSet: DataSet) => {
-                const currentScore: number | null = dataSet.score;
+            updatedAreaChartData = dataWithFakeScore.map((fakeScoreDataSet: DataSet) => {
+                const currentScore: number | null = fakeScoreDataSet.score;
 
                 return {
-                    ...dataSet,
-                    dateTimeStamp: DateTime.fromISO(dataSet.dateTimeStamp)
+                    ...fakeScoreDataSet,
+                    dateTimeStamp: DateTime.fromISO(fakeScoreDataSet.dateTimeStamp)
                         .toUTC()
                         .endOf("day")
                         .valueOf(),
@@ -441,14 +450,13 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
 
     const areaForNulls = uniqueKeysOfNulls.map(key => {
         return (
-            <>
-                <Area
-                    {...unavailableDataConfig}
-                    strokeLinecap="round"
-                    dataKey={`render.${key}`}
-                    fill="none"
-                />
-            </>
+            <Area
+                {...unavailableDataConfig}
+                strokeLinecap="round"
+                dataKey={`render.${key}`}
+                fill="none"
+                key={key + "null"}
+            />
         );
     });
 
@@ -494,7 +502,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
             margin={{ right: 26, top: 10, bottom: 10, left: 0 }}
             ref={setChartRef}
         >
-            {withColoredArea && buildAreaDefs()}
+            {buildAreaDefs()}
             <CartesianGrid {...cartesianGridConfig} />
             <XAxis {...xAxisConfig} />
             <YAxis {...yAxisConfig} />

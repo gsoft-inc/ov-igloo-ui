@@ -4,7 +4,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ResponsiveContainerProps } from 'recharts';
-import MockTooltip from '@igloo-ui/tooltip/src/__mocks__/Tooltip.mock';
+import MockPopover from '@igloo-ui/popover/src/__mocks__/Popover.mock';
 
 import StackedBar from './StackedBar';
 
@@ -22,9 +22,9 @@ const setup = (props = {}) => {
   return render(<StackedBar dataTest="ids-stacked-bar" {...props} />);
 };
 
-jest.mock('@igloo-ui/tooltip', () => ({
+jest.mock('@igloo-ui/popover', () => ({
   __esModule: true,
-  default: jest.fn(MockTooltip),
+  default: jest.fn(MockPopover),
 }));
 
 jest.mock('recharts', () => {
@@ -79,7 +79,7 @@ describe('StackedBar', () => {
       '.ids-stacked-bar-tooltip__container'
     );
     if (tooltip) {
-      fireEvent.click(tooltip);
+      fireEvent.mouseOver(tooltip);
     }
     expect(screen.getByText(message)).toBeInTheDocument();
   });
@@ -90,7 +90,7 @@ describe('StackedBar', () => {
       '.ids-stacked-bar-tooltip__container'
     );
     if (tooltip) {
-      fireEvent.click(tooltip);
+      fireEvent.mouseOver(tooltip);
     }
     expect(screen.getByText(label)).toBeInTheDocument();
   });
@@ -106,7 +106,7 @@ describe('StackedBar', () => {
       '.ids-stacked-bar-tooltip__container'
     );
     if (tooltip) {
-      fireEvent.click(tooltip);
+      fireEvent.mouseOver(tooltip);
     }
     expect(screen.getByText('30 units')).toBeInTheDocument();
   });

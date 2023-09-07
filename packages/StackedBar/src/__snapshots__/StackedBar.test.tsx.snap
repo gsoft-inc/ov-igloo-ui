@@ -7,7 +7,7 @@ exports[`StackedBar It should render a snapshot 1`] = `
     data-test="ids-stacked-bar"
   >
     <span
-      class="ids-tooltip__container ids-stacked-bar-tooltip__container"
+      class="ids-popover__container ids-stacked-bar-tooltip__container"
       role="button"
       tabindex="0"
     >
@@ -42,7 +42,7 @@ exports[`StackedBar It should render a snapshot 1`] = `
             </defs>
             <defs>
               <filter
-                id="inset-shadow"
+                id="stackedBarInsetShadow"
               >
                 <feoffset
                   dx="0"
@@ -89,7 +89,7 @@ exports[`StackedBar It should render a snapshot 1`] = `
                     class="recharts-rectangle ids-stacked-bar__empty-bar--side"
                     d="M0,4A 4,4,0,0,1,4,0L 198,0L 198,600L 4,600A 4,4,0,0,1,
         0,596Z"
-                    filter="url(#inset-shadow)"
+                    filter="url(#stackedBarInsetShadow)"
                     height="600"
                     radius="4,0,0,4"
                     width="198"
@@ -114,7 +114,7 @@ exports[`StackedBar It should render a snapshot 1`] = `
                   <path
                     class="recharts-rectangle ids-stacked-bar__empty-bar--middle"
                     d="M 198,0 h 204 v 600 h -204 Z"
-                    filter="url(#inset-shadow)"
+                    filter="url(#stackedBarInsetShadow)"
                     height="600"
                     radius="0"
                     width="204"
@@ -141,7 +141,7 @@ exports[`StackedBar It should render a snapshot 1`] = `
                     d="M402,0L 596,0A 4,4,0,0,1,
         600,4L 600,596A 4,4,0,0,1,
         596,600L 402,600Z"
-                    filter="url(#inset-shadow)"
+                    filter="url(#stackedBarInsetShadow)"
                     height="600"
                     radius="0,4,4,0"
                     width="198"

@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/bar-chart",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "main": "dist/BarChart.js",
   "module": "dist/BarChart.js",
   "types": "dist/BarChart.d.ts",
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@igloo-ui/tokens": "^2.0.0",
+    "@hopper-ui/tokens": "^0.3.0",
     "classnames": "^2.3.2",
     "framer-motion": "^6.5.1"
   },

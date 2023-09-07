@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/area-chart",
-  "version": "0.6.3",
+  "version": "1.0.0",
   "main": "dist/AreaChart.js",
   "module": "dist/AreaChart.js",
   "types": "dist/AreaChart.d.ts",
@@ -25,9 +25,10 @@
   },
   "dependencies": {
     "@igloo-ui/tokens": "^2.0.0",
+    "@hopper-ui/tokens": "^0.3.0",
     "classnames": "^2.3.2",
     "luxon": "^3.2.1",
-    "recharts": "^2.7.2"
+    "recharts": "^2.8.0"
   },
   "devDependencies": {
     "@types/recharts": "^1.8.24"
