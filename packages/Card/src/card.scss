@@ -1,12 +1,17 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
   /* Default */
   --ids-card-font-family: #{tokens.$primary-font-family};
   --ids-card-font-size: #{tokens.$font-size-4};
   --ids-card-background: #{tokens.$samoyed};
-  --ids-card-padding: #{tokens.$space-3};
+  --ids-card-border: none;
+  --ids-card-padding-mobile: #{tokens.$space-3};
+  --ids-card-padding: #{tokens.$space-5};
   --ids-card-shadow: 0 .1rem .6rem rgb(35 48 67 / 10%);
   --ids-card-radius: #{tokens.$border-radius-sm};
 
@@ -20,13 +25,35 @@
   --ids-card-padding-xsmall: 0;
 }
 
+[data-brand="workleap"] {
+  /* Default */
+  --ids-card-font-family: var(--hop-body-md-font-family);
+  --ids-card-font-size: var(--hop-body-md-font-size);
+  --ids-card-background: var(--hop-neutral-surface);
+  --ids-card-border: 0.0625rem solid var(--hop-neutral-border-weak);
+  --ids-card-padding-mobile: var(--hop-space-inset-md);
+  --ids-card-padding: var(--hop-space-inset-xl);
+  --ids-card-shadow: none;
+  --ids-card-radius: var(--hop-shape-rounded-md);
+
+  /* Medium */
+  --ids-card-padding-medium: var(--hop-space-inset-lg);
+
+  /* Small */
+  --ids-card-padding-small: var(--hop-space-inset-md);
+
+  /* xSmall */
+  --ids-card-padding-xsmall: 0;
+}
+
 .ids-card {
   font-family: var(--ids-card-font-family);
-  padding: var(--ids-card-padding);
+  padding: var(--ids-card-padding-mobile);
   background: var(--ids-card-background);
   font-size: var(--ids-card-font-size);
   box-shadow: var(--ids-card-shadow);
   border-radius: var(--ids-card-radius);
+  border: var(--ids-card-border);
 }
 
 .ids-card--xsmall {
@@ -35,8 +62,8 @@
 
 /* stylelint-disable-next-line media-query-no-invalid */
 @media (width >= #{tokens.$breakpoints-sm}) {
-  :root {
-    --ids-card-padding: #{tokens.$space-5};
+  .ids-card {
+    padding: var(--ids-card-padding);
   }
 
   .ids-card--medium {
@@ -45,5 +72,9 @@
 
   .ids-card--small {
     padding: var(--ids-card-padding-small);
+  }
+
+  .ids-card--xsmall {
+    padding: var(--ids-card-padding-xsmall);
   }
 }
