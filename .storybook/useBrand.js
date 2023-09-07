@@ -9,6 +9,7 @@ export const useBrand = (StoryFn, context) => {
     "AreaChart",
     "Avatar",
     "BarChart",
+    "Breadcrumb",
     "Button", 
     "Color",
     "Hyperlink",
