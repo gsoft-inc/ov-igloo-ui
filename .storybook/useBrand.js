@@ -14,12 +14,14 @@ export const useBrand = (StoryFn, context) => {
     "Hyperlink",
     "IconButton", 
     "List",
+    "Metric",
     "PieChart",
     "Popover",
     "StackedBar",
     "Tag", 
     "Toggle",
     "Tooltip",
+    "VerticalBarChart",
     "VisualIdentifier"
   ];
 
