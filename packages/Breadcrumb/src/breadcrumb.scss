@@ -9,6 +9,8 @@
   --ids-breadcrumb-font-family: #{tokens.$primary-font-family};
   --ids-breadcrumb-font-size: #{tokens.$font-size-3};
   --ids-breadcrumb-line-height: #{tokens.$line-height-xxl};
+  --ids-breadcrumb-text-transform: none;
+  --ids-breadcrumb-letter-spacing: normal;
 
   /* Item */
   --ids-breadcrumb-item-color: #{tokens.$grey-900};
@@ -32,6 +34,8 @@
   --ids-breadcrumb-font-family: var(--hop-overline-font-family);
   --ids-breadcrumb-font-size: var(--hop-overline-font-size);
   --ids-breadcrumb-line-height: var(--hop-overline-line-height);
+  --ids-breadcrumb-text-transform: uppercase;
+  --ids-breadcrumb-letter-spacing: 0.015rem;
 
   /* Item */
   --ids-breadcrumb-item-color: var(--hop-neutral-text);
@@ -58,9 +62,11 @@
 .ids-breadcrumb__list {
   align-items: center;
   display: flex;
+  letter-spacing: var(--ids-breadcrumb-letter-spacing);
   list-style: none;
   margin: 0;
   padding: 0;
+  text-transform: var(--ids-breadcrumb-text-transform);
 }
 
 .ids-breadcrumb__item {
