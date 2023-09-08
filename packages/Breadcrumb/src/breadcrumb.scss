@@ -83,7 +83,7 @@
     &:hover {
       border-bottom-color: var(--ids-breadcrumb-link-border-color-hover);
       color: var(--ids-breadcrumb-link-color-hover);
-      text-decoration: underline;
+      text-decoration: var(--ids-breadcrumb-link-text-decoration-hover);
     }
 
     &:focus {
