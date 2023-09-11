@@ -1,35 +1,36 @@
 {
-  "name": "@igloo-ui/checkbox",
-  "version": "0.2.1",
-  "main": "dist/Checkbox.js",
-  "module": "dist/Checkbox.js",
-  "types": "dist/Checkbox.d.ts",
-  "styles": "dist/checkbox.css",
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
-  "author": "Officevibe Inc.",
-  "contributors": [
-    "Franck franck.gaudin@gsoft.com"
-  ],
-  "license": "Apache-2.0",
-  "peerDependencies": {
-    "react": ">= 16.8.6"
-  },
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "rollup -c rollup.config.js"
-  },
-  "dependencies": {
-    "@igloo-ui/tokens": "^2.0.0",
-    "classnames": "^2.3.2"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "IE >= 11"
-  ]
+    "name": "@igloo-ui/checkbox",
+    "version": "0.2.1",
+    "main": "dist/Checkbox.js",
+    "module": "dist/Checkbox.js",
+    "types": "dist/Checkbox.d.ts",
+    "styles": "dist/checkbox.css",
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+    "author": "Officevibe Inc.",
+    "contributors": [
+        "Franck franck.gaudin@gsoft.com"
+    ],
+    "license": "Apache-2.0",
+    "peerDependencies": {
+        "react": ">= 16.8.6"
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "rollup -c rollup.config.js"
+    },
+    "dependencies": {
+        "@igloo-ui/tokens": "^2.0.0",
+        "@hopper-ui/tokens": "^0.3.0",
+        "classnames": "^2.3.2"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "IE >= 11"
+    ]
 }
