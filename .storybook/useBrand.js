@@ -22,6 +22,7 @@ export const useBrand = (StoryFn, context) => {
     "StackedBar",
     "Tag",
     "Textarea",
+    "Toast",
     "Toggle",
     "Tooltip",
     "VerticalBarChart",
