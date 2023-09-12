@@ -20,8 +20,8 @@
     --ids-dialog-sub-title-padding-top: 0;
     --ids-dialog-close-margin: #{tokens.$space-0};
     --ids-dialog-close-align: flex-end;
+    --ids-dialog-close-position: relative;
     --ids-dialog-close-padding-x: 0;
-    --ids-dialog-close-padding-top: 0;
     --ids-dialog-buttons-margin: #{tokens.$space-5} -#{tokens.$space-0} -#{tokens.$space-2};
     --ids-dialog-button-margin: #{tokens.$space-2} #{tokens.$space-0};
     --ids-dialog-button-width: #{tokens.$space-5};
@@ -44,11 +44,11 @@
     --ids-dialog-sub-title-padding-top: var(--hop-space-stack-sm);
     --ids-dialog-close-margin: 0;
     --ids-dialog-close-align: flex-end;
+    --ids-dialog-close-position: relative;
     --ids-dialog-close-padding-x: var(--hop-space-inset-xl);
-    --ids-dialog-close-padding-top: var(--hop-space-stack-xl);
     --ids-dialog-buttons-margin: var(--hop-space-stack-lg) 0 calc(-1 * var(--hop-space-inset-md));
-    --ids-dialog-button-margin: #{tokens.$space-2} #{tokens.$space-0};
-    --ids-dialog-button-width: #{tokens.$space-5};
+    --ids-dialog-button-margin: var(--hop-space-stack-sm) 0;
+    --ids-dialog-button-width: 2rem;
 }
 
 /* stylelint-disable-next-line media-query-no-invalid */
@@ -56,21 +56,25 @@
     :root {
         --ids-dialog-header-padding: #{tokens.$space-4} #{tokens.$space-4} #{tokens.$space-2};
         --ids-dialog-close-margin: -#{tokens.$space-2} -#{tokens.$space-2} #{tokens.$space-0} #{tokens.$space-0};
-        --ids-dialog-close-padding-top: 0;
+        --ids-dialog-close-position: relative;
         --ids-dialog-content-padding: #{tokens.$space-0} #{tokens.$space-4} #{tokens.$space-4};
         --ids-dialog-buttons-margin: var(--hop-space-stack-lg) -#{tokens.$space-2} #{tokens.$space-0};
         --ids-dialog-button-margin: 0 #{tokens.$space-2};
+        --ids-dialog-header-font-size: #{tokens.$font-size-6};
+        --ids-dialog-header-line-height: var(--hop-heading-lg-line-height);
+        --ids-dialog-header-font-weight: #{tokens.$font-weight-medium};
     }
 
     [data-brand="workleap"] {
         --ids-dialog-header-padding: var(--hop-space-inset-lg) var(--hop-space-inset-lg) 0;
         --ids-dialog-close-margin: 0;
-        --ids-dialog-close-padding-top: 0;
+        --ids-dialog-close-position: absolute;
         --ids-dialog-content-padding: 0 var(--hop-space-inset-lg) var(--hop-space-inset-lg);
         --ids-dialog-buttons-margin: var(--hop-space-stack-lg) calc(-1 * var(--hop-space-inset-sm)) 0;
         --ids-dialog-button-margin: 0 var(--hop-space-inset-sm);
         --ids-dialog-header-font-size: var(--hop-heading-lg-font-size);
         --ids-dialog-header-line-height: var(--hop-heading-lg-line-height);
+        --ids-dialog-header-font-weight: var(--hop-heading-lg-font-weight);
     }
 }
 
@@ -103,6 +107,7 @@
 .ids-dialog .ids-modal__title {
     font-size: var(--ids-dialog-header-font-size);
     line-height: var(--ids-dialog-header-line-height);
+    font-weight: var(--ids-dialog-header-font-weight);
     text-align: center;
 }
 
@@ -115,6 +120,7 @@
 .ids-dialog .ids-modal__close {
     align-self: var(--ids-dialog-close-align, initial);
     margin: var(--ids-dialog-close-margin);
+    position: var(--ids-dialog-close-position);
 }
 
 .ids-dialog .ids-modal__content {
