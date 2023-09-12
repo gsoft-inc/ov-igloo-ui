@@ -14,13 +14,14 @@
     --ids-dialog-header-height: auto;
     --ids-dialog-header-font-size: #{tokens.$font-size-6};
     --ids-dialog-header-padding: #{tokens.$space-3} #{tokens.$space-3} #{tokens.$space-2};
-    --ids-dialog-header-alignment: center;
     --ids-dialog-content-padding: #{tokens.$space-2} #{tokens.$space-3} #{tokens.$space-3};
     --ids-dialog-sub-title-line-height: #{tokens.$line-height-xxxl};
     --ids-dialog-sub-title-color: #{tokens.$grey-600};
     --ids-dialog-sub-title-padding-top: 0;
     --ids-dialog-close-margin: #{tokens.$space-0};
     --ids-dialog-close-align: flex-end;
+    --ids-dialog-close-padding-x: 0;
+    --ids-dialog-close-padding-top: 0;
     --ids-dialog-buttons-margin: #{tokens.$space-5} -#{tokens.$space-0} -#{tokens.$space-2};
     --ids-dialog-button-margin: #{tokens.$space-2} #{tokens.$space-0};
     --ids-dialog-button-width: #{tokens.$space-5};
@@ -34,15 +35,17 @@
     --ids-dialog-radius: var(--hop-shape-rounded-md);
     --ids-dialog-header-direction: column-reverse;
     --ids-dialog-header-height: auto;
-    --ids-dialog-header-font-size: var(--hop-heading-lg-font-size);
-    --ids-dialog-header-padding: var(--hop-space-inset-lg) var(--hop-space-inset-lg) 0;
-    --ids-dialog-header-alignment: start;
-    --ids-dialog-content-padding: 0 var(--hop-space-inset-lg) var(--hop-space-inset-lg);
+    --ids-dialog-header-font-size: var(--hop-heading-md-font-size);
+    --ids-dialog-header-line-height: var(--hop-heading-md-line-height);
+    --ids-dialog-header-padding: var(--hop-space-inset-md) var(--hop-space-inset-md) 0;
+    --ids-dialog-content-padding: 0 var(--hop-space-inset-md) var(--hop-space-inset-md);
     --ids-dialog-sub-title-line-height: var(--hop-body-md-line-height);
     --ids-dialog-sub-title-color: var(--hop-neutral-text-weak);
     --ids-dialog-sub-title-padding-top: var(--hop-space-stack-sm);
     --ids-dialog-close-margin: 0;
     --ids-dialog-close-align: flex-end;
+    --ids-dialog-close-padding-x: var(--hop-space-inset-xl);
+    --ids-dialog-close-padding-top: var(--hop-space-stack-xl);
     --ids-dialog-buttons-margin: var(--hop-space-stack-lg) 0 calc(-1 * var(--hop-space-inset-md));
     --ids-dialog-button-margin: #{tokens.$space-2} #{tokens.$space-0};
     --ids-dialog-button-width: #{tokens.$space-5};
@@ -53,6 +56,7 @@
     :root {
         --ids-dialog-header-padding: #{tokens.$space-4} #{tokens.$space-4} #{tokens.$space-2};
         --ids-dialog-close-margin: -#{tokens.$space-2} -#{tokens.$space-2} #{tokens.$space-0} #{tokens.$space-0};
+        --ids-dialog-close-padding-top: 0;
         --ids-dialog-content-padding: #{tokens.$space-0} #{tokens.$space-4} #{tokens.$space-4};
         --ids-dialog-buttons-margin: var(--hop-space-stack-lg) -#{tokens.$space-2} #{tokens.$space-0};
         --ids-dialog-button-margin: 0 #{tokens.$space-2};
@@ -61,9 +65,12 @@
     [data-brand="workleap"] {
         --ids-dialog-header-padding: var(--hop-space-inset-lg) var(--hop-space-inset-lg) 0;
         --ids-dialog-close-margin: 0;
+        --ids-dialog-close-padding-top: 0;
         --ids-dialog-content-padding: 0 var(--hop-space-inset-lg) var(--hop-space-inset-lg);
         --ids-dialog-buttons-margin: var(--hop-space-stack-lg) calc(-1 * var(--hop-space-inset-sm)) 0;
         --ids-dialog-button-margin: 0 var(--hop-space-inset-sm);
+        --ids-dialog-header-font-size: var(--hop-heading-lg-font-size);
+        --ids-dialog-header-line-height: var(--hop-heading-lg-line-height);
     }
 }
 
@@ -80,7 +87,7 @@
 
 .ids-dialog.ids-modal--with-title .ids-modal__header,
 .ids-dialog.ids-modal--closable .ids-modal__header {
-    align-items: var(--ids-dialog-header-alignment);
+    align-items: center;
     border: none;
     display: flex;
     flex-direction: var(--ids-dialog-header-direction, initial);
@@ -95,6 +102,14 @@
 
 .ids-dialog .ids-modal__title {
     font-size: var(--ids-dialog-header-font-size);
+    line-height: var(--ids-dialog-header-line-height);
+    text-align: center;
+}
+
+.ids-dialog.ids-modal--closable .ids-modal__title {
+    padding-left: var(--ids-dialog-close-padding-x);
+    padding-right: var(--ids-dialog-close-padding-x);
+    padding-top: var(--ids-dialog-close-padding-top);
 }
 
 .ids-dialog .ids-modal__close {
