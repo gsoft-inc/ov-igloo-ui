@@ -14,9 +14,11 @@
     --ids-dialog-header-height: auto;
     --ids-dialog-header-font-size: #{tokens.$font-size-6};
     --ids-dialog-header-padding: #{tokens.$space-3} #{tokens.$space-3} #{tokens.$space-2};
+    --ids-dialog-header-alignment: center;
     --ids-dialog-content-padding: #{tokens.$space-2} #{tokens.$space-3} #{tokens.$space-3};
     --ids-dialog-sub-title-line-height: #{tokens.$line-height-xxxl};
     --ids-dialog-sub-title-color: #{tokens.$grey-600};
+    --ids-dialog-sub-title-padding-top: 0;
     --ids-dialog-close-margin: #{tokens.$space-0};
     --ids-dialog-close-align: flex-end;
     --ids-dialog-buttons-margin: #{tokens.$space-5} -#{tokens.$space-0} -#{tokens.$space-2};
@@ -28,18 +30,20 @@
     /* Default */
     --ids-dialog-font-family: var(--hop-body-md-font-family);
     --ids-dialog-font-size: var(--hop-body-md-font-size);
-    --ids-dialog-max-width: calc(100% - #{tokens.$space-5});
-    --ids-dialog-radius: #{tokens.$border-radius-sm};
+    --ids-dialog-max-width: calc(100% - 2rem);
+    --ids-dialog-radius: var(--hop-shape-rounded-md);
     --ids-dialog-header-direction: column-reverse;
     --ids-dialog-header-height: auto;
     --ids-dialog-header-font-size: var(--hop-heading-lg-font-size);
-    --ids-dialog-header-padding: #{tokens.$space-3} #{tokens.$space-3} #{tokens.$space-2};
-    --ids-dialog-content-padding: #{tokens.$space-2} #{tokens.$space-3} #{tokens.$space-3};
+    --ids-dialog-header-padding: var(--hop-space-inset-lg) var(--hop-space-inset-lg) 0;
+    --ids-dialog-header-alignment: start;
+    --ids-dialog-content-padding: 0 var(--hop-space-inset-lg) var(--hop-space-inset-lg);
     --ids-dialog-sub-title-line-height: var(--hop-body-md-line-height);
-    --ids-dialog-sub-title-color: #{tokens.$grey-600};
-    --ids-dialog-close-margin: #{tokens.$space-0};
+    --ids-dialog-sub-title-color: var(--hop-neutral-text-weak);
+    --ids-dialog-sub-title-padding-top: var(--hop-space-stack-sm);
+    --ids-dialog-close-margin: 0;
     --ids-dialog-close-align: flex-end;
-    --ids-dialog-buttons-margin: #{tokens.$space-5} -#{tokens.$space-0} -#{tokens.$space-2};
+    --ids-dialog-buttons-margin: var(--hop-space-stack-lg) 0 calc(-1 * var(--hop-space-inset-md));
     --ids-dialog-button-margin: #{tokens.$space-2} #{tokens.$space-0};
     --ids-dialog-button-width: #{tokens.$space-5};
 }
@@ -50,8 +54,16 @@
         --ids-dialog-header-padding: #{tokens.$space-4} #{tokens.$space-4} #{tokens.$space-2};
         --ids-dialog-close-margin: -#{tokens.$space-2} -#{tokens.$space-2} #{tokens.$space-0} #{tokens.$space-0};
         --ids-dialog-content-padding: #{tokens.$space-0} #{tokens.$space-4} #{tokens.$space-4};
-        --ids-dialog-buttons-margin: #{tokens.$space-7} -#{tokens.$space-2} #{tokens.$space-0};
+        --ids-dialog-buttons-margin: var(--hop-space-stack-lg) -#{tokens.$space-2} #{tokens.$space-0};
         --ids-dialog-button-margin: 0 #{tokens.$space-2};
+    }
+
+    [data-brand="workleap"] {
+        --ids-dialog-header-padding: var(--hop-space-inset-lg) var(--hop-space-inset-lg) 0;
+        --ids-dialog-close-margin: 0;
+        --ids-dialog-content-padding: 0 var(--hop-space-inset-lg) var(--hop-space-inset-lg);
+        --ids-dialog-buttons-margin: var(--hop-space-stack-lg) calc(-1 * var(--hop-space-inset-sm)) 0;
+        --ids-dialog-button-margin: 0 var(--hop-space-inset-sm);
     }
 }
 
@@ -68,7 +80,7 @@
 
 .ids-dialog.ids-modal--with-title .ids-modal__header,
 .ids-dialog.ids-modal--closable .ids-modal__header {
-    align-items: center;
+    align-items: var(--ids-dialog-header-alignment);
     border: none;
     display: flex;
     flex-direction: var(--ids-dialog-header-direction, initial);
@@ -98,6 +110,7 @@
     color: var(--ids-dialog-sub-title-color);
     line-height: var(--ids-dialog-sub-title-line-height);
     text-align: center;
+    padding-top: var(--ids-dialog-sub-title-padding-top);
 }
 
 .ids-dialog__buttons {
