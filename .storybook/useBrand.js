@@ -10,18 +10,23 @@ export const useBrand = (StoryFn, context) => {
     "Avatar",
     "BarChart",
     "Button",
+    "Breadcrumb",
+    "Card",
     "Color",
     "Dialog",
     "Hyperlink",
     "IconButton",
     "List",
     "Modal",
+    "Metric",
     "PieChart",
     "Popover",
     "StackedBar",
     "Tag",
+    "Textarea",
     "Toggle",
     "Tooltip",
+    "VerticalBarChart",
     "VisualIdentifier"
   ];
 
