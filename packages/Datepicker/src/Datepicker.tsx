@@ -24,8 +24,8 @@ interface Date { utc: string; local: string }
 
 export interface DatepickerProps {
     /** Selected value for the date picker.
-   * These props represent the local date of the user
-   * */
+     * These props represent the local date of the user
+     * */
     selectedDay?: string;
     /** Specifies the value inside the input. */
     value?: string;
@@ -108,7 +108,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     const createZonedDateTime = (date: DateValue | DateTime): ZonedDateTime => {
         const { year, month, day } = date;
         const { hour, minute, second, millisecond, offset, timeZone } =
-dateTimeOfDay;
+            dateTimeOfDay;
 
         return new ZonedDateTime(
             year,
@@ -157,11 +157,11 @@ dateTimeOfDay;
         let isMinDateSelectable = true;
         let isMaxDateSelectable = true;
         if (minDate) {
-            isMinDateSelectable = 
+            isMinDateSelectable =
                 date.startOf("day").toMillis() >= DateTime.fromISO(minDate).startOf("day").toMillis();
         }
         if (maxDate) {
-            isMaxDateSelectable = 
+            isMaxDateSelectable =
                 date.startOf("day").toMillis() <= DateTime.fromISO(maxDate).startOf("day").toMillis();
         }
 
@@ -197,6 +197,16 @@ dateTimeOfDay;
         }
     };
 
+    const isMinDateIsGreaterThanMaxDate = (minDate: DateValue | undefined, maxDate: DateValue | undefined): boolean => {
+        if (minDate && maxDate) {
+            return minDate > maxDate;
+        }
+
+        return false;
+    }
+
+    const minDateIsGreaterThanMaxDate = isMinDateIsGreaterThanMaxDate(formatDate(minDate), formatDate(maxDate));
+
     const classes = cx("ids-datepicker", {
         "ids-datepicker--disabled": disabled
     });
@@ -212,7 +222,7 @@ dateTimeOfDay;
                 highlightToday={highlightToday}
                 isDateUnavailable={isDateUnavailable}
                 minValue={formatDate(minDate)}
-                maxValue={formatDate(maxDate)}
+                maxValue={minDateIsGreaterThanMaxDate ? undefined : formatDate(maxDate)}
             />
             {isClearable && clearLabel && (
                 <Button
