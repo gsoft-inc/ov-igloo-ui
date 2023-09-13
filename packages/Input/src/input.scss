@@ -1,6 +1,9 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
   /* Default */
   --ids-input-height: #{tokens.$space-6};
@@ -60,6 +63,19 @@
   --ids-input-border-color-error: #{tokens.$coral-500};
 }
 
+[data-brand="workleap"] {
+    /* Default */
+    --ids-input-height: 2rem;
+    --ids-input-font-family: var(--hop-body-sm-font-family);
+    --ids-input-font-weight: var(--hop-body-sm-font-weight);
+    --ids-input-padding: var(--hop-space-inline-md);
+    --ids-input-font-size: var(--hop-body-sm-font-size);
+    --ids-input-line-height: var(--hop-body-sm-line-height);
+    --ids-input-border-radius: var(--hop-shape-rounded-md);
+    --ids-input-border-color: var(--hop-neutral-border);
+    --ids-input-background: var(--hop-neutral-surface);
+}
+
 %ids-input-asset {
   position: absolute;
   top: 0;
@@ -114,7 +130,7 @@
 
   &--suffix {
     @extend %ids-input-asset;
-    
+
     padding: var(--ids-input-padding-suffix);
     position: relative;
     width: var(--ids-input-width-suffix);
