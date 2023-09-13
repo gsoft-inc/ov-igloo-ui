@@ -8,6 +8,7 @@
     /* Default */
     --ids-filter-background: #{tokens.$grey-200};
     --ids-filter-border-radius: calc(#{tokens.$border-radius-md} * 4);
+    --ids-filter-border-color: transparent;
     --ids-filter-color: #{tokens.$grey-600};
     --ids-filter-font-family: #{tokens.$primary-font-family};
     --ids-filter-font-size: #{tokens.$font-size-3};
@@ -16,15 +17,19 @@
 
     /* Hover */
     --ids-filter-background-hover: #{tokens.$grey-300};
+    --ids-filter-border-color-hover: transparent;
+    --ids-filter-border-width: 0;
 
     /* Selected */
     --ids-filter-background-selected: #{tokens.$grey-500};
     --ids-filter-color-selected: #{tokens.$samoyed};
+    --ids-filter-border-selected: transparent;
 
     /* Selected Hover */
     --ids-filter-background-selected-hover: #{tokens.$grey-800};
 
     /* Disabled */
+    --ids-filter-background-disabled: #{tokens.$grey-200};
     --ids-filter-color-disabled: #{tokens.$grey-400};
 
     /* Focus */
@@ -34,7 +39,41 @@
     --ids-filter-focus: 0 0 0 .2rem #ffffff, 0 0 .01rem .35rem #0c46d0;
 }
 
+[data-brand="workleap"] {
+    /* Default */
+    --ids-filter-background: var(--hop-neutral-surface-weak);
+    --ids-filter-border-radius: var(--hop-shape-pill);
+    --ids-filter-border-color: var(--hop-neutral-border);
+    --ids-filter-color: var(--hop-neutral-text);
+    --ids-filter-font-family: var(--hop-body-sm-font-family);
+    --ids-filter-font-size: var(--hop-body-sm-font-size);
+    --ids-filter-font-weight: var(--hop-body-sm-font-weight);
+    --ids-filter-line-height: var(--hop-body-sm-line-height);
+    --ids-filter-padding: var(--hop-space-inset-squish-md);
 
+    /* Hover */
+    --ids-filter-background-hover: var(--hop-neutral-surface-weak-hover);
+    --ids-filter-border-color-hover: var(--hop-neutral-border-hover);
+    --ids-filter-border-width: 0.0625rem;
+
+    /* Selected */
+    --ids-filter-background-selected: var(--hop-neutral-surface-active);
+    --ids-filter-color-selected: var(--hop-neutral-text-strong);
+    --ids-filter-border-selected: var(--hop-neutral-surface-active);
+
+    /* Selected Hover */
+    --ids-filter-background-selected-hover: #{tokens.$grey-800};
+
+    /* Disabled */
+    --ids-filter-background-disabled: var(--hop-neutral-surface-disabled);
+    --ids-filter-color-disabled: var(--hop-neutral-text-disabled);
+
+    /* Focus */
+
+    /* Needed to add a 0.1px blur to fix a bug where
+  chrome would have a lingering blue line when focusing in and out */
+    --ids-filter-focus: 0 0 0 .125rem #ffffff, 0 0 0.0063rem 0.21875rem var(--hop-primary-border-focus);
+}
 
 %default-style {
     background: var(--ids-filter-background);
@@ -44,11 +83,13 @@
 %hover-style {
     background: var(--ids-filter-background-hover);
     color: var(--ids-filter-color);
+    outline: var(--ids-filter-border-width) solid var(--ids-filter-border-color-hover);
 }
 
 %selected-style {
     background: var(--ids-filter-background-selected);
     color: var(--ids-filter-color-selected);
+    outline: var(--ids-filter-border-width) solid var(--ids-filter-border-color-selected);
 }
 
 .ids-filter {
@@ -62,8 +103,9 @@
     display: inline-flex;
     font-family: var(--ids-filter-font-family);
     font-size: var(--ids-filter-font-size);
+    font-weight: var(--ids-filter-font-weight);
     line-height: var(--ids-filter-line-height);
-    outline: none;
+    outline: 1px solid var(--ids-filter-border-color);
     padding: var(--ids-filter-padding);
     position: relative;
     transition: background 0.4s, color 0.4s;
@@ -73,7 +115,7 @@
     }
 }
 
-.ids-filter--selected {
+.ids-filter.ids-filter--selected {
     @extend %selected-style;
 }
 
