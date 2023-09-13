@@ -8,7 +8,7 @@
   /* Default */
   --ids-button-group-font-family: #{tokens.$primary-font-family};
   --ids-button-group-font-size: #{tokens.$font-size-4};
-  --ids-button-group-font-weight: {tokens.$font-weight-regular};
+  --ids-button-group-font-weight: #{tokens.$font-weight-regular};
   --ids-button-group-text: #{tokens.$grey-800};
   --ids-button-group-box-sizing: content-box;
   --ids-button-group-display: flex;
@@ -82,8 +82,8 @@
   --ids-button-group-item-padding: var(--hop-space-inset-md);
   --ids-button-group-item-index: 0;
   --ids-button-group-item-index-max: 999;
-  --ids-button-group-item-focus: 0 0 0 0.099rem var(--hop-primary-border-focus);
-  
+  --ids-button-group-item-focus: 0 0 0 0.09375rem var(--hop-primary-border-focus);
+
   /* Hover */
   --ids-button-group-item-text-hover: var(--hop-neutral-text-hover);
   --ids-button-group-item-background-hover: var(--hop-neutral-surface-hover);
@@ -104,7 +104,7 @@
   --ids-button-group-font-size-small: var(--hop-body-sm-medium-font-size);
   --ids-button-group-item-padding-small: var(--hop-space-inset-md);
   --ids-button-group-item-padding-compact: var(--hop-space-inset-sm);
-  --ids-button-group-height-small: 2.12rem;
+  --ids-button-group-height-small: 2rem;
 
   /* With icons */
   --ids-button-group-icon-spacing: var(--hop-space-inline-xs);
