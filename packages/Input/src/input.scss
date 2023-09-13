@@ -51,7 +51,10 @@
   /* Hover */
   --ids-input-border-color-hover: #{tokens.$grey-600};
 
-  /* Active */
+    /* Focus */
+    --ids-input-border-color-focus: #{tokens.$electric-blue-500};
+
+    /* Active */
   --ids-input-border-color-active: #{tokens.$electric-blue-500};
 
   /* disabled */
@@ -65,15 +68,61 @@
 
 [data-brand="workleap"] {
     /* Default */
-    --ids-input-height: 2rem;
-    --ids-input-font-family: var(--hop-body-sm-font-family);
-    --ids-input-font-weight: var(--hop-body-sm-font-weight);
+    --ids-input-height: 2.5rem;
+    --ids-input-font-family: var(--hop-body-md-font-family);
+    --ids-input-font-weight: var(--hop-body-md-font-weight);
     --ids-input-padding: var(--hop-space-inline-md);
-    --ids-input-font-size: var(--hop-body-sm-font-size);
-    --ids-input-line-height: var(--hop-body-sm-line-height);
+    --ids-input-font-size: var(--hop-body-md-font-size);
+    --ids-input-line-height: var(--hop-body-md-line-height);
     --ids-input-border-radius: var(--hop-shape-rounded-md);
     --ids-input-border-color: var(--hop-neutral-border);
     --ids-input-background: var(--hop-neutral-surface);
+
+    /* Compact */
+    --ids-input-height-compact: 2rem;
+    --ids-input-font-size-compact: var(--hop-body-sm-font-size);
+    --ids-input-line-height-compact: var(--hop-space-inline-sm);
+
+    /* with icon */
+    --ids-input-color-icon: var(--hop-neutral-icon-weak);
+    --ids-input-color-icon-compact: var(--hop-neutral-icon-weak);
+
+    /* with prefix icon */
+    --ids-input-width-prefix: 2.5rem;
+    --ids-input-width-prefix-compact: 2rem;
+    --ids-input-padding-prefix: var(--hop-space-stack-sm);
+
+    /* with suffix icon */
+    --ids-input-width-suffix: 3rem;
+    --ids-input-width-suffix-compact: 3rem;
+    --ids-input-padding-suffix: var(--hop-space-stack-sm) var(--hop-space-stack-md);
+
+    /* Hover */
+    --ids-input-border-color-hover: var(--hop-neutral-border-hover);
+    --ids-input-background-hover: var(--hop-neutral-surface-hover);
+
+    /* Focus */
+    --ids-input-border-color-focus: var(--hop-neutral-border-hover);
+    --ids-input-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+
+    /* Active */
+    --ids-input-border-color-active: var(--hop-neutral-border-active);
+
+    /* disabled */
+    --ids-input-color-disabled: var(--hop-neutral-text-disabled);
+    --ids-input-background-disabled: var(--hop-neutral-surface-disabled);
+    --ids-input-border-color-disabled: var(--hop-neutral-border-disabled);
+
+    /* Error */
+    --ids-input-border-color-error: var(--hop-danger-border-strong);
+
+    /* With character indicator */
+    --ids-input-padding-character-indicator: var(--hop-space-stack-xs) var(--hop-space-inline-md) var(--hop-space-stack-xs) var(--hop-space-inline-sm);
+    --ids-input-width-character-indicator: 2.5rem;
+    --ids-input-font-size-character-indicator: var(--hop-body-xs-font-size);
+    --ids-input-min-width-character-indicator: 2rem;
+    --ids-input-width-character-indicator-suffix: 4rem;
+    --ids-input-width-character-indicator-suffix-compact: 5rem;
 }
 
 %ids-input-asset {
@@ -105,6 +154,7 @@
 
   &:hover {
     border-color: var(--ids-input-border-color-hover);
+      background-color: var(--ids-input-background-hover, var(--ids-input-background) );
   }
 }
 
@@ -136,7 +186,6 @@
     width: var(--ids-input-width-suffix);
 
     .ids-input__asset-wrapper--has-char-indicator & {
-      display: inline-block;
       padding-right: 0;
       width: auto;
     }
@@ -220,12 +269,18 @@
 }
 
 .ids-input:focus,
-.ids-input.focus,
-.ids-input:active,
-.ids-input.active {
+.ids-input.focus,{
   outline: 0;
   outline-offset: 0;
-  border: .1rem solid var(--ids-input-border-color-active);
+  border: .1rem solid var(--ids-input-border-color-focus);
+    box-shadow: var(--ids-input-focus, none);
+}
+
+.ids-input:active,
+.ids-input.active {
+    outline: 0;
+    outline-offset: 0;
+    border: .1rem solid var(--ids-input-border-color-active);
 }
 
 .ids-input:disabled,
@@ -237,6 +292,7 @@
 
   &:hover {
     border-color: var(--ids-input-border-color-disabled);
+      background-color: var(--ids-input-background-disabled);
   }
 }
 

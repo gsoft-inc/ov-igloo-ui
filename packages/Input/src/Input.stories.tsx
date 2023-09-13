@@ -54,7 +54,8 @@ export const Sizes = () => (
 export const States = () => (
   <Section column>
     <Input disabled placeholder="Disabled" />
-    <Input className="focus" placeholder="Active / Focus" />
+    <Input className="active" placeholder="Active" />
+      <Input className="focus" placeholder="Focus" />
     <Input error placeholder="Error" />
   </Section>
 );
