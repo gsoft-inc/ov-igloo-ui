@@ -36,7 +36,9 @@
     --ids-pager-item-hover-background: transparent;
 
     /* Focus */
-    --ids-pager-item-focus-border: .1rem solid #{tokens.$electric-blue-600};
+    --ids-pager-item-focus-border-width: .1rem;
+    --ids-pager-item-focus-outline-width: 0;
+    --ids-pager-item-focus-color: #{tokens.$electric-blue-600};
 
     /* Disabled */
     --ids-pager-item-disabled-background: #{tokens.$grey-300};
@@ -88,8 +90,9 @@
     --ids-pager-item-hover-background: var(--hop-neutral-surface-hover);
 
     /* Focus */
-    // convert old focus to shadow
-    --ids-pager-item-focus-border: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+    --ids-pager-item-focus-border-width: 0;
+    --ids-pager-item-focus-outline-width: 0.09375rem;
+    --ids-pager-item-focus-color: var(--hop-primary-border-focus);
 
     /* Disabled */
     --ids-pager-item-disabled-background: transparent;
@@ -110,7 +113,9 @@
 }
 
 %focus-style {
-    border: var(--ids-pager-item-focus-border);
+    border: var(--ids-pager-item-focus-border-width) solid var(--ids-pager-item-focus-color);
+    outline: var(--ids-pager-item-focus-outline-width) solid var(--ids-pager-item-focus-color);
+    outline-offset: calc(-1 * var(--ids-pager-item-focus-outline-width));
     z-index: var(--ids-pager-item-z-index);
 }
 
