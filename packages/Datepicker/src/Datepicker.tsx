@@ -202,7 +202,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     const formattedSelectedDay = formatDate(selectedDay);
     const minDateIsGreaterThanMaxDate = formattedMinDate && formattedMaxDate ? formattedMinDate > formattedMaxDate : false;
 
-    minDateIsGreaterThanMaxDate && console.warn("The minDate is greater than maxDate for the Datepicker. For this reason, the minDate and maxDate is set to the selectedDay.");
+    minDateIsGreaterThanMaxDate && console.warn("The minDate is greater than maxDate for the Datepicker. For this reason, the minDate and maxDate are set to the selectedDay.");
 
     const classes = cx("ids-datepicker", {
         "ids-datepicker--disabled": disabled
