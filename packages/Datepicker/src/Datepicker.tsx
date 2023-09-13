@@ -197,15 +197,13 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
         }
     };
 
-    const isMinDateIsGreaterThanMaxDate = (minDate: DateValue | undefined, maxDate: DateValue | undefined): boolean => {
-        if (minDate && maxDate) {
-            return minDate > maxDate;
-        }
+    const formattedMinDate = formatDate(minDate);
+    const formattedMaxDate = formatDate(maxDate);
+    const formattedSelectedDay = formatDate(selectedDay);
+    const minDateIsGreaterThanMaxDate = formattedMinDate && formattedMaxDate ? formattedMinDate > formattedMaxDate : false;
 
-        return false;
-    }
-
-    const minDateIsGreaterThanMaxDate = isMinDateIsGreaterThanMaxDate(formatDate(minDate), formatDate(maxDate));
+    // Add a warning in the console to indicate that the min date is greater than the max date
+    minDateIsGreaterThanMaxDate && console.warn("minDate is greater than maxDate");
 
     const classes = cx("ids-datepicker", {
         "ids-datepicker--disabled": disabled
@@ -216,13 +214,13 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
             <Calendar
                 aria-label={ariaLabel}
                 className={classes}
-                value={formatDate(selectedDay) || null}
+                value={formattedSelectedDay || null}
                 onChange={handleChange}
                 isDisabled={disabled}
                 highlightToday={highlightToday}
                 isDateUnavailable={isDateUnavailable}
-                minValue={formatDate(minDate)}
-                maxValue={minDateIsGreaterThanMaxDate ? undefined : formatDate(maxDate)}
+                minValue={formattedMinDate}
+                maxValue={minDateIsGreaterThanMaxDate ? formattedMinDate : formattedMaxDate}
             />
             {isClearable && clearLabel && (
                 <Button
