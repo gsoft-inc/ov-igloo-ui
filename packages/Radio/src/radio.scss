@@ -39,11 +39,12 @@
     --ids-radio-text-description: var(--hop-neutral-text-weak);
     --ids-radio-description-padding: 0;
     --ids-radio-padding: var(--hop-space-inline-sm);
-    --ids-radio-margin: .125rem 0 0;
+    --ids-radio-margin: var(--hop-space-inline-xs) 0 0;
     --ids-radio-size: 1rem;
     --ids-radio-check: var(--hop-neutral-surface);
     --ids-radio-check-size: .5rem;
     --ids-radio-check-background-disabled: var(--hop-neutral-icon-disabled);
+    --ids-radio-border-size: .0625rem;
     --ids-radio-border: var(--hop-neutral-border);
     --ids-radio-border-hover: var(--hop-neutral-border-hover);
     --ids-radio-border-disabled: var(--hop-neutral-border-disabled);
@@ -92,7 +93,7 @@
     position: relative;
     cursor: pointer;
     color: var(--ids-radio-check);
-    border: .1rem solid var(--ids-radio-border);
+    border: var(--ids-radio-border-size, .1rem) solid var(--ids-radio-border);
     border-radius: 50%;
     background: var(--ids-radio-background);
     box-sizing: border-box;
