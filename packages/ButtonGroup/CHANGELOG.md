@@ -1,5 +1,11 @@
 # @igloo-ui/button-group
 
+## 0.3.0
+
+### Minor Changes
+
+- 59616bd: Applied the new style to the button group.
+
 ## 0.2.8
 
 ### Patch Changes
