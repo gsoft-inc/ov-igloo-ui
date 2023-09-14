@@ -1,5 +1,11 @@
 # @igloo-ui/breadcrumb
 
+## 0.2.1
+
+### Patch Changes
+
+- 965c3d0: Fixed the double line for Igloo brand.
+
 ## 0.2.0
 
 ### Minor Changes
