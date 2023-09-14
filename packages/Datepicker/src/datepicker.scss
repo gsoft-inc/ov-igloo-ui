@@ -1,6 +1,9 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 $cell-size: tokens.$space-6;
 
 // Number of cells in a row
@@ -146,7 +149,7 @@ $datepicker-width: calc($cell-number * $cell-size - $cell-border - $cell-empty-b
     &.ids-datepicker__content--selected {
       color: var(--ids-datepicker-content-color-selected);
     }
-    
+
     &.ids-datepicker__content--selected:hover {
       cursor: default;
       background: var(--ids-datepicker-content-background-selected);
