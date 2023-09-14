@@ -1,8 +1,9 @@
 {
-  "extends": "@workleap/stylelint-config",
-  "ignoreFiles": ["**/dist/*.css", "website/**/*.scss"],
-  "customSyntax": "postcss-scss",
-  "rules": {
-    "at-rule-no-unknown": null
-  }
+    "extends": "@workleap/stylelint-config",
+    "ignoreFiles": ["**/dist/*.css", "website/**/*.scss"],
+    "customSyntax": "postcss-scss",
+    "rules": {
+        "at-rule-no-unknown": null,
+        "no-invalid-position-at-import-rule": null
+    }
 }
