@@ -34,7 +34,7 @@
     --ids-toaster-font-weight: var(--hop-body-md-medium-font-weight);
     --ids-toaster-text: var(--hop-neutral-text-strong);
     --ids-toaster-inset: 0 0 auto 0;
-    --ids-toaster-padding: var(--hop-space-inset-md) var(--hop-space-inset-md) calc(var(--hop-space-inset-md) + 0) var(--hop-space-inset-md);
+    --ids-toaster-padding: var(--hop-space-inset-md);
     --ids-toaster-gap: var(--hop-space-inline-sm);
     --ids-toaster-max-width: 37.5rem;
     --ids-toaster-border-radius: 0;
@@ -177,6 +177,25 @@
 .ids-toast__close {
     flex: 0 0 auto;
     margin-left: auto;
+}
+
+.ids-toast__close-button {
+    background-color: transparent;
+    border: none;
+    border-radius: var(--hop-shape-rounded-sm);
+    color: var(--hop-neutral-icon-weakest);
+    cursor: pointer;
+    padding: 0;
+}
+
+.ids-toast__close-button:hover {
+    color: var(--hop-neutral-icon-strong);
+}
+
+.ids-toast__close-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.12rem transparent, 0 0 0 0.09375rem var(--hop-primary-border-focus);
+    color: var(--hop-neutral-icon-strong);
 }
 
 .ids-toast__progress-indicator {
