@@ -1,5 +1,11 @@
 # @igloo-ui/datepicker
 
+## 0.3.1
+
+### Patch Changes
+
+- 6823fc8: Fixes the problem caused by a minDate value that is greater than maxDate
+
 ## 0.3.0
 
 ### Minor Changes
