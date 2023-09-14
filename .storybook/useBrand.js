@@ -17,6 +17,7 @@ export const useBrand = (StoryFn, context) => {
     "IconButton",
     "List",
     "Metric",
+    "OptionButton",
     "PieChart",
     "Popover",
     "StackedBar",
