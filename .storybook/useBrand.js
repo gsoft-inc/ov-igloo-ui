@@ -10,6 +10,7 @@ export const useBrand = (StoryFn, context) => {
     "Avatar",
     "BarChart",
     "Button",
+    "ButtonGroup",
     "Breadcrumb",
     "Card",
     "Color",
