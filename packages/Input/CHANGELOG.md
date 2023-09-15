@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.1.3
+
+### Patch Changes
+
+- c226be8: Applied the new style to the component.
+
 ## 2.1.2
 
 ### Patch Changes
