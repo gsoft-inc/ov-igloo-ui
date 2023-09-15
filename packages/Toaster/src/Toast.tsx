@@ -85,6 +85,7 @@ const Toast: React.FunctionComponent<ToastProps<ToastArgs>> = ({
             )}
             {isClosable && getBrand() === "workleap" && (
                 <button
+                    {...closeButtonProps}
                     onClick={() => {
                         state.close(toast.key);
                     }}
