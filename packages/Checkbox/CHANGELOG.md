@@ -1,5 +1,11 @@
 # @igloo-ui/checkbox
 
+## 0.2.2
+
+### Patch Changes
+
+- c226be8: Applied the new style to the component.
+
 ## 0.2.1
 
 ### Patch Changes

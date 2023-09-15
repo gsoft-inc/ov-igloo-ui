@@ -1,5 +1,11 @@
 # @igloo-ui/radio
 
+## 0.1.11
+
+### Patch Changes
+
+- c226be8: Applied the new style to the component.
+
 ## 0.1.10
 
 ### Patch Changes

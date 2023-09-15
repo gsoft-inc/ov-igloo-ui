@@ -1,5 +1,11 @@
 # @igloo-ui/message
 
+## 0.2.13
+
+### Patch Changes
+
+- c226be8: Applied the new style to the component.
+
 ## 0.2.12
 
 ### Patch Changes
