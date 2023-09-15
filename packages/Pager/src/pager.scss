@@ -75,7 +75,7 @@
     --ids-pager-item-prev-border-radius: var(--hop-shape-rounded-md);
     --ids-pager-item-next-border-radius: var(--hop-shape-rounded-md);
     --ids-pager-item-color: var(--hop-neutral-text);
-    --ids-pager-item-radius: 999px;
+    --ids-pager-item-radius: var(--hop-shape-circle);
     --ids-pager-item-min-width: 2rem;
     --ids-pager-item-z-index: 1;
     --ids-pager-item-vertical-offset: 0;
@@ -113,6 +113,7 @@
 }
 
 %focus-style {
+    background-color: var(--ids-pager-item-hover-background);
     border: var(--ids-pager-item-focus-border-width) solid var(--ids-pager-item-focus-color);
     outline: var(--ids-pager-item-focus-outline-width) solid var(--ids-pager-item-focus-color);
     outline-offset: calc(-1 * var(--ids-pager-item-focus-outline-width));
@@ -203,6 +204,7 @@
     }
 
     &--selected:hover,
+    &--selected:focus,
     &--selected:focus:not(:focus-visible),
     &--selected:focus:not(:focus-visible):hover {
         background-color: var(--ids-pager-item-selected-background);
