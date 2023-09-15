@@ -1,5 +1,17 @@
 # @igloo-ui/text-editor
 
+## 0.5.0
+
+### Minor Changes
+
+- 33795d3: Fix overflow url link editor
+
+### Patch Changes
+
+- 8a48bd2: Fix issue with the toolbar that wouldn't display in safari
+- Updated dependencies [c226be8]
+  - @igloo-ui/input@2.1.3
+
 ## 0.4.1
 
 ### Patch Changes

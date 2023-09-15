@@ -1,6 +1,9 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
   /* Default */
   --ids-helper-font-family: #{tokens.$primary-font-family};
@@ -12,6 +15,18 @@
 
   /* Error */
   --ids-helper-text-error: #{tokens.$coral-500};
+}
+
+[data-brand="workleap"] {
+    --ids-helper-font-family: var(--hop-body-xs-font-family);
+    --ids-helper-font-size: var(--hop-body-xs-font-size);
+    --ids-helper-font-weight: var(--hop-body-xs-font-weight);
+    --ids-helper-line-height: var(--hop-body-xs-line-height);
+    --ids-helper-text: var(--hop-neutral-text-weak);
+    --ids-helper-text-icon-margin: 0 var(--hop-space-inline-xs) 0 0;
+
+    /* Error */
+    --ids-helper-text-error: var(--hop-danger-text-weak);
 }
 
 .ids-helperText {
