@@ -10,7 +10,7 @@
   "scripts": {
     "prebuild": "yarn build:shared",
     "build": "lerna run build",
-    "build:components": "lerna run build --scope=@igloo-ui/* --concurrency=5",
+    "build:components": "lerna run build --scope=@igloo-ui/*",
     "build:shared": "lerna run build --scope=@shared/*",
     "test": "jest",
     "clean": "lerna exec -- rm -rf ./dist",

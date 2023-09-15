@@ -1,23 +1,9 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 
-:root {
-    --ids-scrollbar-color: #{tokens.$grey-300};
-    --ids-scrollbar-border-color: #{tokens.$samoyed};
-    --ids-scrollbar-border-size: 1rem;
-    --ids-scrollbar-size: 0.2rem;
-}
-
-[data-brand="workleap"] {
-    --ids-scrollbar-color: var(--hop-neutral-border-weak);
-    --ids-scrollbar-border-color: var(--hop-neutral-surface);
-    --ids-scrollbar-border-size: 0.625rem;
-    --ids-scrollbar-size: 0.125rem;
-}
-
 @mixin fancy-webkit-scrollbar(
-  $border-color: var(--ids-scrollbar-border-color),
-  $scrollbar-color: var(--ids-scrollbar-color),
-  $scrollbar-size: var(--ids-scrollbar-border-size)) {
+  $border-color: #{tokens.$samoyed},
+  $scrollbar-color: #{tokens.$grey-300},
+  $scrollbar-size: 1rem) {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
 
@@ -29,7 +15,7 @@
 
   &::-webkit-scrollbar-thumb {
     background-color: $scrollbar-color;
-    border: var(--ids-scrollbar-size) solid $border-color;
+    border: 0.2rem solid $border-color;
     border-radius: #{tokens.$border-radius-md};
   }
 
