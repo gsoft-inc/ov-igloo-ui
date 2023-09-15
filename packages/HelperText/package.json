@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/helper-text",
-    "version": "0.2.12",
+    "version": "0.2.13",
     "main": "dist/HelperText.js",
     "module": "dist/HelperText.js",
     "types": "dist/HelperText.d.ts",
