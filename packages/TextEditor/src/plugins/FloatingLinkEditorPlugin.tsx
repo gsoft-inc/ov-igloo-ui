@@ -297,6 +297,7 @@ function FloatingLinkEditor({
         target="_blank"
         rel="noopener noreferrer"
         className="ids-link-editor__link"
+        title={linkUrl}
       >
         {linkUrl}
       </a>
