@@ -39,9 +39,9 @@
     --ids-dropdown-border-radius: var(--hop-shape-rounded-md);
     --ids-dropdown-box-shadow: var(--hop-elevation-lifted);
     --ids-dropdown-padding: 0;
-    --ids-dropdown-padding-small: 1rem;
-    --ids-dropdown-padding-medium: 1.5rem;
-    --ids-dropdown-padding-large: 2rem;
+    --ids-dropdown-padding-small: var(--hop-space-inset-md);
+    --ids-dropdown-padding-medium: var(--hop-space-inset-lg);
+    --ids-dropdown-padding-large: var(--hop-space-inset-xl);
 
     /* Footer */
     --ids-dropdown-footer-background: var(--hop-neutral-surface);
@@ -49,7 +49,6 @@
     --ids-dropdown-footer-padding: var(--hop-space-inset-md);
     --hop-dropdown-footer-border-size: 0.0625rem;
     --hop-dropdown-footer-border-color: var(--hop-neutral-border-weak);
-
 }
 
 .ids-dropdown {
