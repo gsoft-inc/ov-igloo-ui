@@ -1,115 +1,162 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
-  /* Default */
-  --ids-radio-font-family: #{tokens.$primary-font-family};
-  --ids-radio-font-weight: #{tokens.$font-weight-regular};
-  --ids-radio-font-size: #{tokens.$font-size-4};
-  --ids-radio-font-size-small: #{tokens.$font-size-3};
-  --ids-radio-font-size-description: #{tokens.$font-size-3};
-  --ids-radio-text: #{tokens.$grey-800};
-  --ids-radio-text-description: #{tokens.$grey-600};
-  --ids-radio-margin: #{tokens.$space-2};
-  --ids-radio-padding: #{tokens.$space-1};
-  --ids-radio-size: #{tokens.$font-size-4};
-  --ids-radio-check: #{tokens.$samoyed};
-  --ids-radio-border: #{tokens.$grey-400};
-  --ids-radio-border-hover: #{tokens.$grey-800};
-  --ids-radio-border-disabled: #{tokens.$grey-300};
-  --ids-radio-border-checked: #{tokens.$electric-blue-500};
-  --ids-radio-background: #{tokens.$samoyed};
-  --ids-radio-background-disabled: #{tokens.$grey-200};
-  --ids-radio-background-checked: #{tokens.$electric-blue-500};
-  --ids-radio-background-disabled-checked: #{tokens.$grey-300};
+    /* Default */
+    --ids-radio-font-family: #{tokens.$primary-font-family};
+    --ids-radio-font-weight: #{tokens.$font-weight-regular};
+    --ids-radio-font-size: #{tokens.$font-size-4};
+    --ids-radio-font-size-small: #{tokens.$font-size-3};
+    --ids-radio-font-size-description: #{tokens.$font-size-3};
+    --ids-radio-text: #{tokens.$grey-800};
+    --ids-radio-text-description: #{tokens.$grey-600};
+    --ids-radio-description-padding: #{tokens.$space-1};
+    --ids-radio-padding: #{tokens.$space-2};
+    --ids-radio-margin: .2rem 0 0;
+    --ids-radio-size: #{tokens.$font-size-4};
+    --ids-radio-check: #{tokens.$samoyed};
+    --ids-radio-border: #{tokens.$grey-400};
+    --ids-radio-border-hover: #{tokens.$grey-800};
+    --ids-radio-border-disabled: #{tokens.$grey-300};
+    --ids-radio-border-checked: #{tokens.$electric-blue-500};
+    --ids-radio-background: #{tokens.$samoyed};
+    --ids-radio-background-disabled: #{tokens.$grey-200};
+    --ids-radio-background-checked: #{tokens.$electric-blue-500};
+    --ids-radio-background-disabled-checked: #{tokens.$grey-300};
+}
+
+[data-brand="workleap"] {
+    /* Default */
+    --ids-radio-font-family: var(--hop-body-md-font-family);
+    --ids-radio-font-weight: var(--hop-body-md-font-weight);
+    --ids-radio-font-size: var(--hop-body-md-font-size);
+    --ids-radio-font-size-small: var(--hop-sm-font-size);
+    --ids-radio-font-size-description: var(--hop-body-sm-font-size);
+    --ids-radio-text: var(--hop-neutral-text);
+    --ids-radio-text-description: var(--hop-neutral-text-weak);
+    --ids-radio-description-padding: 0;
+    --ids-radio-padding: var(--hop-space-inline-sm);
+    --ids-radio-margin: var(--hop-space-inline-xs) 0 0;
+    --ids-radio-size: 1rem;
+    --ids-radio-check: var(--hop-neutral-surface);
+    --ids-radio-check-size: .5rem;
+    --ids-radio-check-background-disabled: var(--hop-neutral-icon-disabled);
+    --ids-radio-border-size: .0625rem;
+    --ids-radio-border: var(--hop-neutral-border);
+    --ids-radio-border-hover: var(--hop-neutral-border-hover);
+    --ids-radio-border-disabled: var(--hop-neutral-border-disabled);
+    --ids-radio-border-checked: var(--hop-neutral-border-active);
+    --ids-radio-border-checked-hover: var(--hop-neutral-border-active);
+    --ids-radio-background: var(--hop-neutral-surface);
+    --ids-radio-background-hover: var(--hop-neutral-surface-hover);
+    --ids-radio-background-disabled: var(--hop-neutral-surface-disabled);
+    --ids-radio-background-disabled-checked: var(--hop-neutral-surface-disabled);
+    --ids-radio-background-checked: var(--hop-neutral-surface-active);
+    --ids-radio-check-background-checked-hover: var(--hop-neutral-icon-hover)
 }
 
 %radio {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 0.6rem;
-  height: 0.6rem;
-  border-radius: 50%;
-  background: var(--ids-radio-background);
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--ids-radio-check-size, .6rem);
+    height: var(--ids-radio-check-size, .6rem);
+    border-radius: 50%;
+    background: var(--ids-radio-background);
 }
 
 .ids-form-control {
-  display: inline-flex;
-  align-items: flex-start;
+    display: inline-flex;
+    align-items: flex-start;
 }
 
 .ids-radio__label {
-  font-family: var(--ids-radio-font-family);
-  font-size: var(--ids-radio-font-size);
-  font-weight: var(--ids-radio-font-weight);
-  color: var(--ids-radio-text);
-  padding-left: var(--ids-radio-margin);
+    font-family: var(--ids-radio-font-family);
+    font-size: var(--ids-radio-font-size);
+    font-weight: var(--ids-radio-font-weight);
+    color: var(--ids-radio-text);
+    padding-left: var(--ids-radio-padding);
 }
 
 .ids-radio {
-  appearance: none;
-  height: var(--ids-radio-size);
-  width: var(--ids-radio-size);
-  flex-shrink: 0;
-  margin: .2rem 0 0;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  color: var(--ids-radio-check);
-  border: .1rem solid var(--ids-radio-border);
-  border-radius: 50%;
-  background: var(--ids-radio-background);
-  box-sizing: border-box;
-  transition: background 0.05s ease-in-out;
+    appearance: none;
+    height: var(--ids-radio-size);
+    width: var(--ids-radio-size);
+    flex-shrink: 0;
+    margin: var(--ids-radio-margin);
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    color: var(--ids-radio-check);
+    border: var(--ids-radio-border-size, .1rem) solid var(--ids-radio-border);
+    border-radius: 50%;
+    background: var(--ids-radio-background);
+    box-sizing: border-box;
+    transition: background 0.05s ease-in-out;
 
-  &:checked {
-    border-color: var(--ids-radio-border-checked);
-    background: var(--ids-radio-background-checked);
+    &:checked {
+        border-color: var(--ids-radio-border-checked);
+        background: var(--ids-radio-background-checked);
 
-    &::after {
-      @extend %radio;
+        &::after {
+            @extend %radio;
+        }
     }
-  }
 
-  &:disabled {
-    cursor: not-allowed;
-    border-color: var(--ids-radio-border-disabled);
-    background: var(--ids-radio-background-disabled);
-  }
+    &:disabled {
+        cursor: not-allowed;
+        border-color: var(--ids-radio-border-disabled);
+        background: var(--ids-radio-background-disabled);
+    }
 
-  &:focus {
-    outline: none;
-    box-shadow: var(--focus);
-  }
+    &:focus {
+        outline: none;
+        box-shadow: var(--focus);
+    }
 
-  &:hover,
-  &:checked:hover {
-    border-color: var(--ids-radio-border-hover);
-  }
+    &:hover {
+        border-color: var(--ids-radio-border-hover);
+        background-color: var(--ids-radio-background-hover, var(--ids-radio-background))
+    }
 
-  &:focus:not(:focus-visible) {
-    box-shadow: none;
-  }
+    &:checked:hover {
+        border-color: var(--ids-radio-border-checked-hover, var(--ids-radio-border-hover)) ;
 
-  &:disabled:checked {
-    background-color: var(--ids-radio-background-disabled-checked);
-  }
+        &::after {
+            background: var(--ids-radio-check-background-checked-hover, var(--ids-radio-background));
+        }
+    }
 
-  &:disabled:hover {
-    border-color: var(--ids-radio-border-disabled);
-  }
+    &:focus:not(:focus-visible) {
+        box-shadow: none;
+    }
 
-  &--small + &__label {
-    font-size: var(--ids-radio-font-size-small);
-  }
+    &:disabled:hover {
+        border-color: var(--ids-radio-border-disabled);
+        background: var(--ids-radio-background-disabled);
+    }
+
+    &:disabled:checked {
+        background-color: var(--ids-radio-background-disabled-checked);
+
+        &::after {
+            background: var(--ids-radio-check-background-disabled, var(--ids-radio-background));
+        }
+    }
+
+    &--small + &__label {
+        font-size: var(--ids-radio-font-size-small);
+    }
 }
 
 .ids-radio__description {
-  display: block;
-  padding-top: var(--ids-radio-padding);
-  color: var(--ids-radio-text-description);
-  font-size: var(--ids-radio-font-size-description);
+    display: block;
+    padding-top: var(--ids-radio-description-padding);
+    color: var(--ids-radio-text-description);
+    font-size: var(--ids-radio-font-size-description);
 }

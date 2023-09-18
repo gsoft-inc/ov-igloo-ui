@@ -186,7 +186,7 @@ export const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
   });
 
   return (
-    <div className={classes}>
+    <div className={classes} tabIndex={ showOnFocus ? 0 : undefined}>
       <IconButton
         size="small"
         icon={<Bold size="medium" />}

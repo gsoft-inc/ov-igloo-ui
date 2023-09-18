@@ -51,6 +51,7 @@
     align-items: center;
     display: flex;
     flex: 1 1 auto;
+    overflow: hidden;
 }
 
 .ids-link-editor__view > * {
@@ -58,11 +59,15 @@
 }
 
 .ids-link-editor__link {
+    flex-shrink: 1;
     color: var(--ids-text-editor-link-color);
     cursor: pointer;
     font-weight: var(--ids-text-editor-link-font-weight);
     margin-right: auto;
     text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   
     &:focus,
     &:hover {
