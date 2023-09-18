@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.6.2
+
+### Patch Changes
+
+- 87f9161: Gave the Dropdown component the new Worleap style.
+
 ## 1.6.1
 
 ### Patch Changes
