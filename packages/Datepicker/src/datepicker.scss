@@ -24,6 +24,7 @@
   --ids-datepicker-thead-line-height: 1.25;
   --ids-datepicker-thead-color: #{tokens.$electric-blue-500};
   --ids-datepicker-content-today-outline: none;
+  --ids-datepicker-content-today-outline-offset: 0;
   --ids-datepicker-thead-space: #{tokens.$space-2};
   --ids-datepicker-title-font-size: #{tokens.$font-size-5};
   --ids-datepicker-title-line-height: 1.333;
@@ -40,6 +41,7 @@
   // Disabled state
   --ids-datepicker-disabled-background-hover: #f0f8ff;
   --ids-datepicker-disabled-background-selected: #51a0fa;
+  --ids-datepicker-color-disabled-selected: #{tokens.$samoyed};
   --ids-datepicker-disabled-table-border: .1rem solid #eff1f5;
 }
 
@@ -65,6 +67,7 @@
   --ids-datepicker-title-line-height: var(--hop-body-lg-line-height);
   --ids-datepicker-content-color-today: var(--hop-neutral-text);
   --ids-datepicker-content-today-outline: 0.125rem solid var(--hop-neutral-border-strong);
+  --ids-datepicker-content-today-outline-offset: -0.0625rem;
   --ids-datepicker-content-background-hover: var(--hop-neutral-surface-hover);
   --ids-datepicker-content-color: var(--hop-neutral-text);
   --ids-datepicker-content-color-hover: var(--hop-neutral-text-hover);
@@ -76,7 +79,8 @@
 
     // Disabled state
     --ids-datepicker-disabled-background-hover: #f0f8ff;
-    --ids-datepicker-disabled-background-selected: #51a0fa;
+    --ids-datepicker-disabled-background-selected: var(--hop-neutral-surface-disabled);
+    --ids-datepicker-color-disabled-selected: var(--hop-neutral-text-disabled);
     --ids-datepicker-disabled-table-border: 0;
 }
 
@@ -174,7 +178,7 @@
   &--today {
     color: var(--ids-datepicker-content-color-today);
     outline: var(--ids-datepicker-content-today-outline);
-    outline-offset: -1px;
+    outline-offset: var(--ids-datepicker-content-today-outline-offset);
   }
 
   &--selected {
@@ -210,20 +214,26 @@
       background: transparent;
     }
 
+    &.ids-datepicker__content--selected {
+        color: var(--ids-datepicker-color-disabled-selected);
+        background: var(--ids-datepicker-disabled-background-selected);
+    }
+
     &.ids-datepicker__content--selected:hover {
       @extend %active-date;
     }
   }
 
   &--disabled.ids-datepicker__content--today {
-    color: var(--ids-datepicker-content-color-today);
+    color: var(--ids-datepicker-color-disabled);
 
     &.ids-datepicker__content--selected {
-      color: var(--ids-datepicker-content-color-selected);
+      color: var(--ids-datepicker-color-disabled);
+      background: var(--ids-datepicker-disabled-background-selected);
     }
 
     &:hover {
-      color: var(--ids-datepicker-content-color-today);
+      color: var(--ids-datepicker-color-disabled);
       background: transparent;
     }
 
@@ -232,4 +242,3 @@
     }
   }
 }
-
