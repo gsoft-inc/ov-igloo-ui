@@ -1,6 +1,9 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
     /* Default */
     --ids-toaster-font-family: #{tokens.$primary-font-family};
@@ -23,6 +26,29 @@
 
     /* Overlay */
     --ids-toaster-z-index: #{tokens.$z-index-max};
+}
+
+[data-brand="workleap"] {
+    --ids-toaster-font-family: var(--hop-body-md-medium-font-family);
+    --ids-toaster-font-size: var(--hop-body-md-medium-font-size);
+    --ids-toaster-font-weight: var(--hop-body-md-medium-font-weight);
+    --ids-toaster-text: var(--hop-neutral-text-strong);
+    --ids-toaster-inset: 0 0 auto 0;
+    --ids-toaster-padding: var(--hop-space-inset-md);
+    --ids-toaster-gap: var(--hop-space-inline-sm);
+    --ids-toaster-max-width: 37.5rem;
+    --ids-toaster-border-radius: 0;
+    --ids-toaster-shadow: var(--hop-elevation-lifted);
+    --ids-toaster-background: var(--hop-neutral-surface-strong);
+    --ids-toaster-status-height: 0.25rem;
+    --ids-toaster-status-color: var(--hop-success-icon-weakest);
+    --ids-toaster-status-icon-size: 1.5rem;
+
+    /* Error */
+    --ids-toaster-status-color-error: var(--hop-danger-icon-weak);
+
+    /* Overlay */
+    --ids-toaster-z-index: 999;
 }
 
 @keyframes fade-in {
@@ -153,6 +179,25 @@
     margin-left: auto;
 }
 
+.ids-toast__close-button {
+    background-color: transparent;
+    border: none;
+    border-radius: var(--hop-shape-rounded-sm);
+    color: var(--hop-neutral-icon-weakest);
+    cursor: pointer;
+    padding: 0;
+}
+
+.ids-toast__close-button:hover {
+    color: var(--hop-neutral-icon-strong);
+}
+
+.ids-toast__close-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.12rem transparent, 0 0 0 0.09375rem var(--hop-primary-border-focus);
+    color: var(--hop-neutral-icon-strong);
+}
+
 .ids-toast__progress-indicator {
     position: absolute;
     inset: auto 0 0;
@@ -174,12 +219,20 @@
     }
 }
 
-@media (width >= #{tokens.$breakpoints-md}) {
+@media (width >= #{tokens.$breakpoints-sm}) {
     :root {
         --ids-toaster-font-size: #{tokens.$font-size-4};
         --ids-toaster-font-weight: #{tokens.$font-weight-bold};
         --ids-toaster-inset: #{tokens.$space-3} 0 auto 0;
         --ids-toaster-border-radius: #{tokens.$border-radius-sm};
         --ids-toaster-padding: #{tokens.$space-3} #{tokens.$space-3} calc(#{tokens.$space-3} + #{tokens.$space-1}) #{tokens.$space-3};
+    }
+
+    [data-brand="workleap"] {
+        --ids-toaster-font-size: var(--hop-body-md-medium-font-size);
+        --ids-toaster-font-weight: var(--hop-body-md-medium-font-weight);
+        --ids-toaster-inset: var(--hop-space-stack-md) 0 auto 0;
+        --ids-toaster-border-radius: var(--hop-shape-rounded-md);
+        --ids-toaster-padding: var(--hop-space-inset-md);
     }
 }

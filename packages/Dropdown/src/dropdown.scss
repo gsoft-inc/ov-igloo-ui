@@ -1,80 +1,119 @@
-@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
-@use '~@igloo-ui/tokens/dist/fonts';
-@use 'mixins';
+@use "~@igloo-ui/tokens/dist/base10/variables" as tokens;
+@use "~@igloo-ui/tokens/dist/fonts";
+@use "mixins";
+
+@import url("~@hopper-ui/tokens/fonts.css");
+@import url("~@hopper-ui/tokens/tokens.css");
 
 :root {
-  /* Default */
-  --ids-dropdown-font-family: #{tokens.$primary-font-family};
-  --ids-dropdown-font-size: #{tokens.$font-size-4};
-  --ids-dropdown-background: #{tokens.$samoyed};
-  --ids-dropdown-border-radius: #{tokens.$border-radius-sm};
-  --ids-dropdown-zindex: #{tokens.$z-index-100};
-  --ids-dropdown-box-shadow: #{tokens.$shadow-12};
-  --ids-dropdown-padding: 0;
+    /* Default */
+    --ids-dropdown-font-family: #{tokens.$primary-font-family};
+    --ids-dropdown-font-size: #{tokens.$font-size-4};
+    --ids-dropdown-color: #{tokens.$grey-800};
+    --ids-dropdown-background: #{tokens.$samoyed};
+    --ids-dropdown-border-radius: #{tokens.$border-radius-sm};
+    --ids-dropdown-zindex: #{tokens.$z-index-100};
+    --ids-dropdown-box-shadow: #{tokens.$shadow-12};
+    --ids-dropdown-padding: 0;
+    --ids-dropdown-padding-small: #{tokens.$space-3};
+    --ids-dropdown-padding-medium: #{tokens.$space-4};
+    --ids-dropdown-padding-large: #{tokens.$space-5};
 
-  /* Click Handler */
-  --ids-dropdown-zindex-click-handler: #{tokens.$z-index-90};
+    /* Click Handler */
+    --ids-dropdown-zindex-click-handler: #{tokens.$z-index-90};
 
-  /* Footer */
-  --ids-dropdown-footer-background: #{tokens.$samoyed};
-  --ids-dropdown-footer-padding: #{tokens.$space-2} #{tokens.$space-3};
+    /* Footer */
+    --ids-dropdown-footer-background: #{tokens.$samoyed};
+    --ids-dropdown-footer-background-hover: #{tokens.$samoyed};
+    --ids-dropdown-footer-padding: #{tokens.$space-2} #{tokens.$space-3};
+    --hop-dropdown-footer-border-size: 0;
+    --hop-dropdown-footer-border-color: transparent;
+}
+
+[data-brand="workleap"] {
+    /* Default */
+    --ids-dropdown-font-family: var(--hop-body-sm-font-family);
+    --ids-dropdown-font-size: var(--hop-body-sm-font-size);
+    --ids-dropdown-color: var(--hop-neutral-text);
+    --ids-dropdown-background: var(--hop-neutral-surface);
+    --ids-dropdown-border-radius: var(--hop-shape-rounded-md);
+    --ids-dropdown-box-shadow: var(--hop-elevation-lifted);
+    --ids-dropdown-padding: 0;
+    --ids-dropdown-padding-small: var(--hop-space-inset-md);
+    --ids-dropdown-padding-medium: var(--hop-space-inset-lg);
+    --ids-dropdown-padding-large: var(--hop-space-inset-xl);
+
+    /* Footer */
+    --ids-dropdown-footer-background: var(--hop-neutral-surface);
+    --ids-dropdown-footer-background-hover: var(--hop-neutral-surface-hover);
+    --ids-dropdown-footer-padding: var(--hop-space-inset-md);
+    --hop-dropdown-footer-border-size: 0.0625rem;
+    --hop-dropdown-footer-border-color: var(--hop-neutral-border-weak);
 }
 
 .ids-dropdown {
-  padding: var(--ids-dropdown-padding);
-  font-family: var(--ids-dropdown-font-family);
-  font-size: var(--ids-dropdown-font-size);
-  background-color: var(--ids-dropdown-background);
-  border-radius: var(--ids-dropdown-border-radius);
-  box-shadow: var(--ids-dropdown-box-shadow);
-  z-index: var(--ids-dropdown-zindex);
-  
-  &,
-  & * {
-    box-sizing: border-box;
-  }
+    padding: var(--ids-dropdown-padding);
+    font-family: var(--ids-dropdown-font-family);
+    font-size: var(--ids-dropdown-font-size);
+    color: var(--ids-dropdown-color);
+    background-color: var(--ids-dropdown-background);
+    border-radius: var(--ids-dropdown-border-radius);
+    box-shadow: var(--ids-dropdown-box-shadow);
+    z-index: var(--ids-dropdown-zindex);
 
-  &__overlay {
-    position: fixed;
-    inset: 0;
-    cursor: default;
-    z-index: var(--ids-dropdown-zindex-click-handler);
-  }
+    &,
+    & * {
+        box-sizing: border-box;
+    }
 
-  &--small {
-    --ids-dropdown-padding: #{tokens.$space-3};
-  }
+    &__overlay {
+        position: fixed;
+        inset: 0;
+        cursor: default;
+        z-index: var(--ids-dropdown-zindex-click-handler);
+    }
 
-  &--medium {
-    --ids-dropdown-padding: #{tokens.$space-4};
-  }
+    &--small {
+        --ids-dropdown-padding: var(--ids-dropdown-padding-small);
+    }
 
-  &--large {
-    --ids-dropdown-padding: #{tokens.$space-5};
-  }
+    &--medium {
+        --ids-dropdown-padding: var(--ids-dropdown-padding-medium);
+    }
 
-  &--scrollable {
-    display: flex;
-    flex-direction: column;
-  }
+    &--large {
+        --ids-dropdown-padding: var(--ids-dropdown-padding-large);
+    }
 
-  &--hidden {
-    display: none;
-  }
+    &--scrollable {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &--hidden {
+        display: none;
+    }
 }
 
 
 .ids-dropdown--scrollable .ids-dropdown__scroll-content {
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
 
-  @include mixins.fancy-webkit-scrollbar;
+    @include mixins.fancy-webkit-scrollbar;
 }
 
 .ids-dropdown__footer {
-  background: var(--ids-dropdown-footer-background);
-  flex: 0 0 auto;
-  padding: var(--ids-dropdown-footer-padding);
+    border-top: var(--hop-dropdown-footer-border-size) solid var(--hop-dropdown-footer-border-color);
+    background: var(--ids-dropdown-footer-background);
+    flex: 0 0 auto;
+    padding: var(--ids-dropdown-footer-padding);
+    border-bottom-left-radius: var(--ids-dropdown-border-radius);
+    border-bottom-right-radius: var(--ids-dropdown-border-radius);
+
+    &:hover {
+        background: var(--ids-dropdown-footer-background-hover);
+    }
 }
