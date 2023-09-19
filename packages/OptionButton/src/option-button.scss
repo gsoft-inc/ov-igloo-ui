@@ -1,157 +1,265 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
-  /* Default */
-  --ids-option-button-border-color: #{tokens.$grey-400};
-  --ids-option-button-border-radius: #{tokens.$border-radius-sm};
-  --ids-option-button-font-family: #{tokens.$primary-font-family};
+    /* Default */
+    --ids-option-button-border-color: #{tokens.$grey-400};
+    --ids-option-button-border-dimension: 0.1rem;
+    --ids-option-button-border-radius: #{tokens.$border-radius-sm};
+    --ids-option-button-font-family: #{tokens.$primary-font-family};
+    --ids-option-focus: 0 0 0 0.2rem #ffffff, 0 0 0 0.35rem #0C46D0;
+    --ids-option-button-padding: 0;
 
-  /* Hover */
-  --ids-option-button-hover-border-color: #{tokens.$grey-600};
+    /* Hover */
+    --ids-option-button-hover-border-color: #{tokens.$grey-600};
+    --ids-option-button-hover-background-color: transparent;
 
-  /* Checked */
-  --ids-option-button-checked-box-shadow: 0 0 0.6rem #3c7dff;
+    /* Checked */
+    --ids-option-button-checked-box-shadow: 0 0 0.6rem #3c7dff;
+    --ids-option-button-checked-border-color: transparent;
+    --ids-option-button-checked-background-color: transparent;
+    --ids-option-button-checked-outline: none;
+    --ids-option-button-checked-outline-offset: 0;
 
-  /* disabled */
-  --ids-option-button-icon-container-disabled-background: #{tokens.$grey-200};
+    /* Disabled */
+    --ids-option-button-icon-container-disabled-background: #{tokens.$grey-200};
+    --ids-option-button-border-color-disabled: #{tokens.$grey-400};
+    --ids-option-button-background-color-disabled: transparent;
 
-  /* Icon */
-  --ids-option-button-icon-container-background: #{tokens.$electric-blue-50};
-  --ids-option-button-icon-container-height: 5.6rem;
-  --ids-option-button-icon-container-width: 6.2rem;
-  --ids-option-button-icon-background-disabled: #{tokens.$grey-300};
+    /* Icon */
+    --ids-option-button-icon-container-background: #{tokens.$electric-blue-50};
+    --ids-option-button-icon-container-height: 5.6rem;
+    --ids-option-button-icon-container-width: 6.2rem;
+    --ids-option-button-icon-background-disabled: #{tokens.$grey-300};
+    --ids-option-button-icon-width: auto;
+    --ids-option-button-icon-height: auto;
+    --ids-option-button-icon-circle-fill: #{tokens.$sky-100};
+    --ids-option-button-icon-path-fill: #{tokens.$grey-800};
+    --ids-option-button-icon-stroke: #{tokens.$grey-800};
+    --ids-option-button-icon-circle-fill-hover: #{tokens.$sky-100};
+    --ids-option-button-icon-circle-fill-disabled: #{tokens.$sky-100};
 
-  /* Text */
-  --ids-option-button-text-container-padding: #{tokens.$space-1} #{tokens.$space-3};
-  --ids-option-button-text-color: #{tokens.$grey-800};
-  --ids-option-button-text-font-size: #{tokens.$font-size-5};
-  --ids-option-button-text-font-weight: #{tokens.$font-weight-semi-bold};
-  --ids-option-button-text-line-height: #{tokens.$line-height-xl};
+    /* Text */
+    --ids-option-button-text-container-padding: #{tokens.$space-1} #{tokens.$space-3};
+    --ids-option-button-text-color: #{tokens.$grey-800};
+    --ids-option-button-text-font-size: #{tokens.$font-size-5};
+    --ids-option-button-text-font-weight: #{tokens.$font-weight-semi-bold};
+    --ids-option-button-text-line-height: #{tokens.$line-height-xl};
 
-  /* Description */
-  --ids-option-button-desc-color: #{tokens.$grey-600};
-  --ids-option-button-desc-font-size: #{tokens.$font-size-3};
-  --ids-option-button-desc-line-height: #{tokens.$line-height-xxl};
+    /* Description */
+    --ids-option-button-desc-color: #{tokens.$grey-600};
+    --ids-option-button-desc-font-size: #{tokens.$font-size-3};
+    --ids-option-button-desc-line-height: #{tokens.$line-height-xxl};
+}
+
+[data-brand="workleap"] {
+    /* Default */
+    --ids-option-button-padding: 0 0 0 16px;
+    --ids-option-button-border-color: var(--hop-neutral-border-weak);
+    --ids-option-button-border-dimension: 0.0625rem;
+    --ids-option-button-border-radius: var(--hop-shape-rounded-md);
+    --ids-option-button-font-family: var(--hop-body-lg-font-family);
+    --ids-option-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+
+    /* Hover */
+    --ids-option-button-hover-border-color: var(--hop-neutral-border-hover);
+    --ids-option-button-hover-background-color: var(--hop-neutral-surface-weak-hover);
+
+    /* Checked */
+    --ids-option-button-checked-box-shadow: none;
+    --ids-option-button-checked-border-color: var(--hop-neutral-border-active);
+    --ids-option-button-checked-background-color: var(--hop-neutral-surface-weak-hover);
+    --ids-option-button-checked-outline: 0.125rem solid var(--hop-neutral-border-active);
+    --ids-option-button-checked-outline-offset: -0.125rem;
+
+    /* Disabled */
+    --ids-option-button-icon-container-disabled-background: transparent;
+    --ids-option-button-border-color-disabled: var(--hop-neutral-border-disabled);
+    --ids-option-button-background-color-disabled: var(--hop-neutral-surface-disabled);
+
+    /* Icon */
+    --ids-option-button-icon-container-background: transparent;
+    --ids-option-button-icon-container-height: 3.5rem;
+    --ids-option-button-icon-container-width: 2.5rem;
+    --ids-option-button-icon-background-disabled: transparent;
+    --ids-option-button-icon-width: 2.5rem;
+    --ids-option-button-icon-height: 2.5rem;
+    --ids-option-button-icon-circle-fill: #F0EAE3; // will be decorative-option7-surface
+    --ids-option-button-icon-path-fill: #2A2620; // will be decorative-option7-icon
+    --ids-option-button-icon-stroke: #2A2620; // will be decorative-option7-icon
+    --ids-option-button-icon-circle-fill-hover: #E5DED6; // will be decorative-option7-surface-strong
+    --ids-option-button-icon-circle-fill-disabled: transparent;
+
+    /* Text */
+    --ids-option-button-text-container-padding: var(--hop-space-inset-sm) var(--hop-space-inset-lg) var(--hop-space-inset-sm) var(--hop-space-inset-sm);
+    --ids-option-button-text-color: var(--hop-neutral-text);
+    --ids-option-button-text-font-size: var(--hop-body-lg-semibold-font-size);
+    --ids-option-button-text-font-weight: var(--hop-body-lg-semibold-font-weight);
+    --ids-option-button-text-line-height: var(--hop-body-lg-semibold-line-height);
+
+    /* Description */
+    --ids-option-button-desc-color: var(--hop-neutral-text-weak);
+    --ids-option-button-desc-font-size: var(--hop-body-sm-font-size);
+    --ids-option-button-desc-line-height: var(--hop-body-sm-line-height);
 }
 
 %active-icon-container {
-  background: var(--ids-option-button-icon-container-background);
+    background: var(--ids-option-button-icon-container-background);
 }
 
 %disabled-icon-container {
-  background: var(--ids-option-button-icon-container-disabled-background);
+    background: var(--ids-option-button-icon-container-disabled-background);
 }
 
 %ellipsis {
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .ids-option-button {
-  box-sizing: border-box;
-  position: relative;
-
-  & * {
     box-sizing: border-box;
-  }
-
-  &__radio {
-    height: 0;
-    opacity: 0;
-    position: absolute;
-    width: 0;
-  }
-
-  &__label {
-    align-items: center;
-    border: .1rem solid var(--ids-option-button-border-color);
-    border-radius: var(--ids-option-button-border-radius);
-    cursor: pointer;
-    display: flex;
-    font-family: var(--ids-option-button-font-family);
-    outline: none;
-    overflow: hidden;
-  }
-
-  &__radio:hover ~ &__label {
-    border-color: var(--ids-option-button-hover-border-color);
-  }
-
-  &__radio:focus ~ &__label {
-    box-shadow: var(--focus);
-  }
-
-  &__radio:checked ~ &__label {
-    border: .1rem solid var(--ids-option-button-border-color);
-    box-shadow: var(--ids-option-button-checked-box-shadow);
-    cursor: default;
-    outline: none;
-  }
-
-  &__radio:disabled ~ &__label {
-    border: .1rem solid var(--ids-option-button-border-color);
-    box-shadow: none;
-    cursor: not-allowed;
-    outline: none;
-  }
-
-  &--unchecked &__radio:checked ~ &__label {
-    box-shadow: none;
-  }
-
-  &__icon-container {
-    @extend %active-icon-container;
-
-    align-items: center;
-    align-self: stretch;
-    display: flex;
-    flex: 0 0 auto;
-    justify-content: center;
-    min-height: var(--ids-option-button-icon-container-height);
     position: relative;
-    width: var(--ids-option-button-icon-container-width);
-  }
 
-  &--unchecked &__icon-container {
-    @extend %disabled-icon-container;
-  }
+    & * {
+        box-sizing: border-box;
+    }
 
-  &__radio:checked ~ &__label &__icon-container {
-    @extend %active-icon-container;
-  }
+    &__radio {
+        height: 0;
+        opacity: 0;
+        position: absolute;
+        width: 0;
+    }
 
-  &__radio:disabled ~ &__label &__icon-container,
-  &--unchecked &__radio:checked ~ &__label &__icon-container {
-    @extend %disabled-icon-container;
-  }
+    &__label {
+        align-items: center;
+        border: var(--ids-option-button-border-dimension) solid var(--ids-option-button-border-color);
+        border-radius: var(--ids-option-button-border-radius);
+        cursor: pointer;
+        display: flex;
+        font-family: var(--ids-option-button-font-family);
+        outline: none;
+        overflow: hidden;
+        padding: var(--ids-option-button-padding);
+    }
 
-  &__icon-container svg.disabled [fill$='#{tokens.$sky-100}'] {
-    fill: var(--ids-option-button-icon-background-disabled);
-  }
+    &__radio:hover:not(:disabled) ~ &__label {
+        border-color: var(--ids-option-button-hover-border-color);
+        background-color: var(--ids-option-button-hover-background-color);
+    }
 
-  &__text-container {
-    flex: 1 1 auto;
-    min-width: 0;
-    padding: var(--ids-option-button-text-container-padding);
-  }
+    &__radio:hover:not(:disabled) ~ &__label &__icon-circle {
+        fill: var(--ids-option-button-icon-circle-fill-hover);
+    }
 
-  &__text {
-    color: var(--ids-option-button-text-color);
-    font-size: var(--ids-option-button-text-font-size);
-    font-weight: var(--ids-option-button-text-font-weight);
-    line-height: var(--ids-option-button-text-line-height);
+    &__radio:focus ~ &__label {
+        box-shadow: var(--ids-option-focus);
+    }
 
-    @extend %ellipsis;
-  }
+    &__radio:checked ~ &__label {
+        background-color: var(--ids-option-button-checked-background-color);
+        border: var(--ids-option-button-border-dimension) solid var(--ids-option-button-checked-border-color);
+        box-shadow: var(--ids-option-button-checked-box-shadow);
+        cursor: default;
+        outline: var(--ids-option-button-checked-outline);
+        outline-offset: var(--ids-option-button-checked-outline-offset);
+    }
 
-  &__desc {
-    color: var(--ids-option-button-desc-color);
-    font-size: var(--ids-option-button-desc-font-size);
-    line-height: var(--ids-option-button-desc-line-height);
+    &__radio:checked ~ &__label &__icon-circle {
+        fill: var(--ids-option-button-icon-circle-fill-hover);
+    }
 
-    @extend %ellipsis;
-  }
+    &__radio:disabled ~ &__label {
+        border: var(--ids-option-button-border-dimension) solid var(--ids-option-button-border-color-disabled);
+        box-shadow: none;
+        cursor: not-allowed;
+        outline: none;
+        background-color: var(--ids-option-button-background-color-disabled);
+    }
+
+    &__radio:disabled ~ &__label &__icon-circle {
+        fill: var(--ids-option-button-icon-circle-fill-disabled);
+    }
+
+    &--unchecked &__radio:checked ~ &__label {
+        box-shadow: none;
+    }
+
+    &__icon-container {
+        @extend %active-icon-container;
+
+        align-items: center;
+        align-self: stretch;
+        display: flex;
+        flex: 0 0 auto;
+        justify-content: center;
+        min-height: var(--ids-option-button-icon-container-height);
+        position: relative;
+        width: var(--ids-option-button-icon-container-width);
+    }
+
+    &__icon-circle {
+        fill: var(--ids-option-button-icon-circle-fill);
+    }
+
+    &__icon-path {
+        fill: var(--ids-option-button-icon-path-fill);
+    }
+
+    &__icon-stroke {
+        stroke: var(--ids-option-button-icon-stroke);
+    }
+
+    &__multiple-choice-icon,
+    &__text-icon,
+    &__option-scale-icon,
+    &__likert-icon {
+        height: var(--ids-option-button-icon-width);
+        width: var(--ids-option-button-icon-width);
+    }
+
+    &--unchecked &__icon-container {
+        @extend %disabled-icon-container;
+    }
+
+    &__radio:checked ~ &__label &__icon-container {
+        @extend %active-icon-container;
+    }
+
+    &__radio:disabled ~ &__label &__icon-container,
+    &--unchecked &__radio:checked ~ &__label &__icon-container {
+        @extend %disabled-icon-container;
+    }
+
+    &__icon-container svg.disabled [fill$='#{tokens.$sky-100}'] {
+        fill: var(--ids-option-button-icon-background-disabled);
+    }
+
+    &__text-container {
+        flex: 1 1 auto;
+        min-width: 0;
+        padding: var(--ids-option-button-text-container-padding);
+    }
+
+    &__text {
+        color: var(--ids-option-button-text-color);
+        font-size: var(--ids-option-button-text-font-size);
+        font-weight: var(--ids-option-button-text-font-weight);
+        line-height: var(--ids-option-button-text-line-height);
+
+        @extend %ellipsis;
+    }
+
+    &__desc {
+        color: var(--ids-option-button-desc-color);
+        font-size: var(--ids-option-button-desc-font-size);
+        line-height: var(--ids-option-button-desc-line-height);
+
+        @extend %ellipsis;
+    }
 }
