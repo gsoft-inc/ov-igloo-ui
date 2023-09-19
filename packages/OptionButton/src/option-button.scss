@@ -57,7 +57,7 @@
 
 [data-brand="workleap"] {
     /* Default */
-    --ids-option-button-padding: 0 0 0 16px;
+    --ids-option-button-padding: 0 0 0 var(-hop-space-inline-md);
     --ids-option-button-border-color: var(--hop-neutral-border-weak);
     --ids-option-button-border-dimension: 0.0625rem;
     --ids-option-button-border-radius: var(--hop-shape-rounded-md);
