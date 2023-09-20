@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/button-group",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "main": "dist/ButtonGroup.js",
   "module": "dist/ButtonGroup.js",
   "types": "dist/ButtonGroup.d.ts",
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@igloo-ui/tokens": "^2.0.0",
+    "@hopper-ui/tokens": "^0.3.0",
     "classnames": "^2.3.2"
   },
   "browserslist": [

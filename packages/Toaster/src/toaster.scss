@@ -1,187 +1,238 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
-  /* Default */
-  --ids-toaster-font-family: #{tokens.$primary-font-family};
-  --ids-toaster-font-size: #{tokens.$font-size-3};
-  --ids-toaster-font-weight: #{tokens.$font-weight-medium};
-  --ids-toaster-text: #{tokens.$grey-800};
-  --ids-toaster-inset: 0 0 auto 0;
-  --ids-toaster-padding: #{tokens.$space-2} #{tokens.$space-2} calc(#{tokens.$space-2} + #{tokens.$space-1}) #{tokens.$space-2};
-  --ids-toaster-gap: #{tokens.$space-2};
-  --ids-toaster-max-width: 60rem;
-  --ids-toaster-border-radius: 0;
-  --ids-toaster-shadow: #{tokens.$shadow-12};
-  --ids-toaster-background: #{tokens.$samoyed};
-  --ids-toaster-status-height: #{tokens.$space-1};
-  --ids-toaster-status-color: #{tokens.$seaweed-500};
-  --ids-toaster-status-icon-size: #{tokens.$space-4};
+    /* Default */
+    --ids-toaster-font-family: #{tokens.$primary-font-family};
+    --ids-toaster-font-size: #{tokens.$font-size-3};
+    --ids-toaster-font-weight: #{tokens.$font-weight-medium};
+    --ids-toaster-text: #{tokens.$grey-800};
+    --ids-toaster-inset: 0 0 auto 0;
+    --ids-toaster-padding: #{tokens.$space-2} #{tokens.$space-2} calc(#{tokens.$space-2} + #{tokens.$space-1}) #{tokens.$space-2};
+    --ids-toaster-gap: #{tokens.$space-2};
+    --ids-toaster-max-width: 60rem;
+    --ids-toaster-border-radius: 0;
+    --ids-toaster-shadow: #{tokens.$shadow-12};
+    --ids-toaster-background: #{tokens.$samoyed};
+    --ids-toaster-status-height: #{tokens.$space-1};
+    --ids-toaster-status-color: #{tokens.$seaweed-500};
+    --ids-toaster-status-icon-size: #{tokens.$space-4};
 
-  /* Error */
-  --ids-toaster-status-color-error: #{tokens.$coral-500};
+    /* Error */
+    --ids-toaster-status-color-error: #{tokens.$coral-500};
 
-  /* Overlay */
-  --ids-toaster-z-index: #{tokens.$z-index-max};
+    /* Overlay */
+    --ids-toaster-z-index: #{tokens.$z-index-max};
+}
+
+[data-brand="workleap"] {
+    --ids-toaster-font-family: var(--hop-body-md-medium-font-family);
+    --ids-toaster-font-size: var(--hop-body-md-medium-font-size);
+    --ids-toaster-font-weight: var(--hop-body-md-medium-font-weight);
+    --ids-toaster-text: var(--hop-neutral-text-strong);
+    --ids-toaster-inset: 0 0 auto 0;
+    --ids-toaster-padding: var(--hop-space-inset-md);
+    --ids-toaster-gap: var(--hop-space-inline-sm);
+    --ids-toaster-max-width: 37.5rem;
+    --ids-toaster-border-radius: 0;
+    --ids-toaster-shadow: var(--hop-elevation-lifted);
+    --ids-toaster-background: var(--hop-neutral-surface-strong);
+    --ids-toaster-status-height: 0.25rem;
+    --ids-toaster-status-color: var(--hop-success-icon-weakest);
+    --ids-toaster-status-icon-size: 1.5rem;
+
+    /* Error */
+    --ids-toaster-status-color-error: var(--hop-danger-icon-weak);
+
+    /* Overlay */
+    --ids-toaster-z-index: 999;
 }
 
 @keyframes fade-in {
-  from {
-    opacity: 0;
-  }
+    from {
+        opacity: 0;
+    }
 
-  to {
-    opacity: 1;
-  }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fade-out {
-  from {
-    opacity: 1;
-  }
+    from {
+        opacity: 1;
+    }
 
-  to {
-    opacity: 0;
-  }
+    to {
+        opacity: 0;
+    }
 }
 
 @keyframes slide-in {
-  from {
-    transform: translateY(var(--travel-distance, -6.4rem));
-  }
-  
-  to {
-    transform: translateY(0);
-  }
+    from {
+        transform: translateY(var(--travel-distance, -6.4rem));
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }
 
 @keyframes slide-out {
-  from {
-    transform: translateY(0);
-  }
+    from {
+        transform: translateY(0);
+    }
 
-  to {
-    transform: translateY(var(--travel-distance, -6.4rem));
-  }
+    to {
+        transform: translateY(var(--travel-distance, -6.4rem));
+    }
 }
 
 @keyframes remove-space {
-  from {
-    max-height: 8rem;
-    padding: var(--ids-toaster-padding);
-  }
+    from {
+        max-height: 8rem;
+        padding: var(--ids-toaster-padding);
+    }
 
-  to {
-    max-height: 0;
-    padding: 0;
-  }
+    to {
+        max-height: 0;
+        padding: 0;
+    }
 }
 
 @keyframes time {
-  from {
-    transform: translateX(0);
-  }
+    from {
+        transform: translateX(0);
+    }
 
-  to {
-    transform: translateX(-100%);
-  }
+    to {
+        transform: translateX(-100%);
+    }
 }
 
 .ids-toast__overlay {
-  position: fixed;
-  inset: var(--ids-toaster-inset);
-  pointer-events: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--ids-toaster-gap);
-  z-index: var(--ids-toaster-z-index);
+    position: fixed;
+    inset: var(--ids-toaster-inset);
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--ids-toaster-gap);
+    z-index: var(--ids-toaster-z-index);
 }
 
 .ids-toast {
-  --state: var(--ids-toaster-status-color);
+    --state: var(--ids-toaster-status-color);
 
-  position: relative;
-  pointer-events: auto;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  gap: var(--ids-toaster-gap);
-  width: 100%;
-  max-width: var(--ids-toaster-max-width);
-  font-family: var(--ids-toaster-font-family);
-  font-size: var(--ids-toaster-font-size);
-  font-weight: var(--ids-toaster-font-weight);
-  color: var(--ids-toaster-text);
-  background: var(--ids-toaster-background);
-  border-radius: var(--ids-toaster-border-radius);
-  padding: var(--ids-toaster-padding);
-  box-shadow: var(--ids-toaster-shadow);
-  box-sizing: border-box;
-  will-change: transform;
-
-  &__title {
-    align-items: center;
+    position: relative;
+    pointer-events: auto;
+    overflow: hidden;
     display: flex;
-    flex: 1 1 auto;
+    align-items: center;
     gap: var(--ids-toaster-gap);
-  }
-
-  &__icon {
+    width: 100%;
+    max-width: var(--ids-toaster-max-width);
+    font-family: var(--ids-toaster-font-family);
+    font-size: var(--ids-toaster-font-size);
+    font-weight: var(--ids-toaster-font-weight);
+    color: var(--ids-toaster-text);
+    background: var(--ids-toaster-background);
+    border-radius: var(--ids-toaster-border-radius);
+    padding: var(--ids-toaster-padding);
+    box-shadow: var(--ids-toaster-shadow);
     box-sizing: border-box;
-    flex: 0 0 auto;
-    min-width: var(--ids-toaster-status-icon-size);
-    color: var(--state);
-  }
+    will-change: transform;
 
-  &--error {
-    --state: var(--ids-toaster-status-color-error);
-  }
+    &__title {
+        align-items: center;
+        display: flex;
+        flex: 1 1 auto;
+        gap: var(--ids-toaster-gap);
+    }
 
-  &[data-animation='entering'] {
-    animation: fade-in 0.3s ease, slide-in 0.3s ease;
-  }
-  
-  &[data-animation='exiting'] {
-    animation: fade-out 0.15s ease, slide-out 0.15s ease, remove-space 0.15s ease;
-    animation-fill-mode: forwards;
-  }
+    &__icon {
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        min-width: var(--ids-toaster-status-icon-size);
+        color: var(--state);
+    }
+
+    &--error {
+        --state: var(--ids-toaster-status-color-error);
+    }
+
+    &[data-animation='entering'] {
+        animation: fade-in 0.3s ease, slide-in 0.3s ease;
+    }
+
+    &[data-animation='exiting'] {
+        animation: fade-out 0.15s ease, slide-out 0.15s ease, remove-space 0.15s ease;
+        animation-fill-mode: forwards;
+    }
 }
 
 .ids-toast__close {
-  flex: 0 0 auto;
-  margin-left: auto;
+    flex: 0 0 auto;
+    margin-left: auto;
+}
+
+.ids-toast__close-button {
+    background-color: transparent;
+    border: none;
+    border-radius: var(--hop-shape-rounded-sm);
+    color: var(--hop-neutral-icon-weakest);
+    cursor: pointer;
+    padding: 0;
+}
+
+.ids-toast__close-button:hover {
+    color: var(--hop-neutral-icon-strong);
+}
+
+.ids-toast__close-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.12rem transparent, 0 0 0 0.09375rem var(--hop-primary-border-focus);
+    color: var(--hop-neutral-icon-strong);
 }
 
 .ids-toast__progress-indicator {
-  position: absolute;
-  inset: auto 0 0;
-  display: block;
-  content: '';
-  height: var(--ids-toaster-status-height);
-  background: var(--state);
-  animation-name: time;
-  animation-duration: var(--duration, 4s);
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  
-  .ids-toast__overlay--focus & {
-    animation-play-state: paused;
-  }
+    position: absolute;
+    inset: auto 0 0;
+    display: block;
+    content: '';
+    height: var(--ids-toaster-status-height);
+    background: var(--state);
+    animation-name: time;
+    animation-duration: var(--duration, 4s);
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
 
-  .ids-toast--reduce-motion & {
-    animation: none;
-  }
+    .ids-toast__overlay--focus & {
+        animation-play-state: paused;
+    }
+
+    .ids-toast--reduce-motion & {
+        animation: none;
+    }
 }
 
+@media (width >= #{tokens.$breakpoints-sm}) {
+    :root {
+        --ids-toaster-font-size: #{tokens.$font-size-4};
+        --ids-toaster-font-weight: #{tokens.$font-weight-bold};
+        --ids-toaster-inset: #{tokens.$space-3} 0 auto 0;
+        --ids-toaster-border-radius: #{tokens.$border-radius-sm};
+        --ids-toaster-padding: #{tokens.$space-3} #{tokens.$space-3} calc(#{tokens.$space-3} + #{tokens.$space-1}) #{tokens.$space-3};
+    }
 
-
-@media (width >= 60rem) {
-  :root {
-    --ids-toaster-font-size: #{tokens.$font-size-4};
-    --ids-toaster-font-weight: #{tokens.$font-weight-bold};
-    --ids-toaster-inset: #{tokens.$space-3} 0 auto 0;
-    --ids-toaster-border-radius: #{tokens.$border-radius-sm};
-    --ids-toaster-padding: #{tokens.$space-3} #{tokens.$space-3} calc(#{tokens.$space-3} + #{tokens.$space-1}) #{tokens.$space-3};
-  }
+    [data-brand="workleap"] {
+        --ids-toaster-font-size: var(--hop-body-md-medium-font-size);
+        --ids-toaster-font-weight: var(--hop-body-md-medium-font-weight);
+        --ids-toaster-inset: var(--hop-space-stack-md) 0 auto 0;
+        --ids-toaster-border-radius: var(--hop-shape-rounded-md);
+        --ids-toaster-padding: var(--hop-space-inset-md);
+    }
 }

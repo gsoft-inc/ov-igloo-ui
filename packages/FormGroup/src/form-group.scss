@@ -1,39 +1,53 @@
-@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
-@use '~@igloo-ui/tokens/dist/fonts';
+@use "~@igloo-ui/tokens/dist/base10/variables" as tokens;
+@use "~@igloo-ui/tokens/dist/fonts";
 
 :root {
-  /* Default */
-  --ids-form-group-font-family: #{tokens.$primary-font-family};
-  --ids-form-group-font-size: #{tokens.$font-size-3};
-  --ids-form-group-line-height: #{tokens.$line-height-xxl};
+    /* Default */
+    --ids-form-group-font-family: #{tokens.$primary-font-family};
+    --ids-form-group-font-size: #{tokens.$font-size-3};
+    --ids-form-group-line-height: #{tokens.$line-height-xxl};
 
-  /* Label */
-  --ids-form-group-label-color: #{tokens.$grey-600};
-  --ids-form-group-label-margin-bottom: #{tokens.$space-1};
+    /* Label */
+    --ids-form-group-label-color: #{tokens.$grey-600};
+    --ids-form-group-label-margin-bottom: #{tokens.$space-1};
 
-  /* Message */
-  --ids-form-group-message-margin-top: #{tokens.$space-1};
+    /* Message */
+    --ids-form-group-message-margin-top: #{tokens.$space-1};
+}
+
+[data-brand="workleap"] {
+    /* Default */
+    --ids-form-group-font-family: var(--hop-heading-xs-font-family);
+    --ids-form-group-font-size: var(--hop-heading-xs-font-size);
+    --ids-form-group-line-height: var(--hop-heading-xs-line-height);
+
+    /* Label */
+    --ids-form-group-label-color: var(--hop-neutral-text-weak);
+    --ids-form-group-label-margin-bottom: var(--hop-space-stack-xs);
+
+    /* Message */
+    --ids-form-group-message-margin-top: var(--hop-space-stack-xs);
 }
 
 .ids-form-group {
-  font-family: var(--ids-form-group-font-family);
-  font-size: var(--ids-form-group-font-size);
-  line-height: var(--ids-form-group-line-height);
+    font-family: var(--ids-form-group-font-family);
+    font-size: var(--ids-form-group-font-size);
+    line-height: var(--ids-form-group-line-height);
 
-  &,
-  & * {
-    box-sizing: border-box;
-  }
+    &,
+    & * {
+        box-sizing: border-box;
+    }
 
-  &__label {
-    color: var(--ids-form-group-label-color);
-    display: block;
-    margin-bottom: var(--ids-form-group-label-margin-bottom);
-  }
+    &__label {
+        color: var(--ids-form-group-label-color);
+        display: block;
+        margin-bottom: var(--ids-form-group-label-margin-bottom);
+    }
 
-  &__message {
-    align-items: center;
-    display: flex;
-    margin-top: var(--ids-form-group-message-margin-top);
-  }
+    &__message {
+        align-items: center;
+        display: flex;
+        margin-top: var(--ids-form-group-message-margin-top);
+    }
 }

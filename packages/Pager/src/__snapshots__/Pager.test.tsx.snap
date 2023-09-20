@@ -45,7 +45,7 @@ exports[`Pager It should render without error and a snapshot 1`] = `
           <button
             aria-current="page"
             aria-label="Page 1"
-            class="ids-pager__button ids-pager__button--selected"
+            class="ids-pager__button ids-pager__button--number ids-pager__button--selected"
           >
             1
           </button>
@@ -56,7 +56,7 @@ exports[`Pager It should render without error and a snapshot 1`] = `
           <button
             aria-current="false"
             aria-label="Go to page 2"
-            class="ids-pager__button"
+            class="ids-pager__button ids-pager__button--number"
           >
             2
           </button>
@@ -67,7 +67,7 @@ exports[`Pager It should render without error and a snapshot 1`] = `
           <button
             aria-current="false"
             aria-label="Go to page 3"
-            class="ids-pager__button"
+            class="ids-pager__button ids-pager__button--number"
           >
             3
           </button>
@@ -78,7 +78,7 @@ exports[`Pager It should render without error and a snapshot 1`] = `
           <button
             aria-current="false"
             aria-label="Go to page 4"
-            class="ids-pager__button"
+            class="ids-pager__button ids-pager__button--number"
           >
             4
           </button>
@@ -89,7 +89,7 @@ exports[`Pager It should render without error and a snapshot 1`] = `
           <button
             aria-current="false"
             aria-label="Go to page 5"
-            class="ids-pager__button"
+            class="ids-pager__button ids-pager__button--number"
           >
             5
           </button>
@@ -110,15 +110,15 @@ exports[`Pager It should render without error and a snapshot 1`] = `
             >
               <path
                 d="M6 7C6.55228 7 7 6.55228 7 6C7 5.44772 6.55228 5 6 5C5.44772 5 5 5.44772 5 6C5 6.55228 5.44772 7 6 7Z"
-                fill="#606B79"
+                fill="currentColor"
               />
               <path
                 d="M2 7C2.55228 7 3 6.55228 3 6C3 5.44772 2.55228 5 2 5C1.44772 5 1 5.44772 1 6C1 6.55228 1.44772 7 2 7Z"
-                fill="#606B79"
+                fill="currentColor"
               />
               <path
                 d="M10 7C10.5523 7 11 6.55228 11 6C11 5.44772 10.5523 5 10 5C9.44772 5 9 5.44772 9 6C9 6.55228 9.44772 7 10 7Z"
-                fill="#606B79"
+                fill="currentColor"
               />
             </svg>
           </button>
@@ -129,7 +129,7 @@ exports[`Pager It should render without error and a snapshot 1`] = `
           <button
             aria-current="false"
             aria-label="Go to page 10"
-            class="ids-pager__button"
+            class="ids-pager__button ids-pager__button--number"
           >
             10
           </button>
