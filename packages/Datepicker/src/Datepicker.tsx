@@ -255,6 +255,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
                 onClose={onClose}
                 content={calendar}
                 size="medium"
+                className="ids-datepicker__dropdown"
                 dataTest={dataTest}
                 {...rest}
             >
