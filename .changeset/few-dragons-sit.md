@@ -4,6 +4,6 @@
 
 Gave the ProgressBar component the new Brand
 
-### BRAKING CHANGE
+### BREAKING CHANGE
 isLowContrast as been removed from the ProgressBar component
 
