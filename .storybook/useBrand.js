@@ -28,6 +28,7 @@ export const useBrand = (StoryFn, context) => {
         "Popover",
         "Radio",
         "StackedBar",
+        "Tabs",
         "Tag",
         "Textarea",
         "Toast",
