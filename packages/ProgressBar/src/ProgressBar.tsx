@@ -8,8 +8,6 @@ export interface ProgressBarProps extends React.ComponentProps<'div'> {
   value: number;
   /** True for a compact appearance. */
   isCompact?: boolean;
-  /** True for a light appearance. */
-  isLowContrast?: boolean;
   /** Add a specific class to the component. */
   className?: string;
   /** Add a data-test tag for automated tests. */
@@ -21,7 +19,6 @@ export interface ProgressBarProps extends React.ComponentProps<'div'> {
 const ProgressBar: React.FunctionComponent<ProgressBarProps> = ({
   value,
   isCompact,
-  isLowContrast,
   className,
   dataTest,
   ariaLabel,
@@ -37,7 +34,6 @@ const ProgressBar: React.FunctionComponent<ProgressBarProps> = ({
   const classes = cx('ids-progress-bar', className, {
     'ids-progress-bar--completed': isCompleted,
     'ids-progress-bar--compact': isCompact,
-    'ids-progress-bar--low-contrast': isLowContrast,
   });
 
   return (
