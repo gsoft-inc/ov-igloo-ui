@@ -1,4 +1,4 @@
-@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use "~@igloo-ui/tokens/dist/base10/variables" as tokens;
 
 :root {
   /* Default */
@@ -13,6 +13,21 @@
 
   /* Disabled */
   --ids-select-input-chevron-color-disabled: #{tokens.$grey-600};
+}
+
+[data-brand="workleap"] {
+    /* Default */
+    --ids-select-input-height: 2.5rem;
+    --ids-select-input-chevron-padding: 0;
+    --ids-select-input-chevron-color: var(--hop-neutral-icon-weak);
+    --ids-select-input-search-height: 2.4375rem;
+    --ids-select-input-actions-padding: 0 #{tokens.$space-2};
+
+    /* Compact **/
+    --ids-select-input-height-compact: 2rem;
+
+    /* Disabled */
+    --ids-select-input-chevron-color-disabled: var(--hop-neutral-icon-disabled);
 }
 
 .ids-select__input {
