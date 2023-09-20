@@ -24,6 +24,7 @@ export const useBrand = (StoryFn, context) => {
         "Input",
         "List",
         "Metric",
+        "OptionButton",
         "Pager",
         "PieChart",
         "Popover",
