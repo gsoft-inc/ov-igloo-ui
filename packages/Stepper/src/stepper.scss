@@ -21,8 +21,8 @@
 
 [data-brand="workleap"] {
     /* Default */
-    --ids-stepper-font-family: #{tokens.$primary-font-family};
-    --ids-stepper-font-size: #{tokens.$font-size-4};
+    --ids-stepper-font-family: var(--hop-body-md-font-family);
+    --ids-stepper-font-size: var(--hop-body-md-font-size);
 
     /* Divider */
     --ids-stepper-divider-background: var(--hop-neutral-border-weak);
