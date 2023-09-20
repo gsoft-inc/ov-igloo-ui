@@ -23,14 +23,14 @@
     --ids-select-value-padding: var(--hop-space-stack-sm) var(--hop-space-inline-md);
 
     /* Compact **/
-    --ids-select-value-padding-compact: 0.375rem var(--hop-space-inline-md);
+    --ids-select-value-padding-compact: calc(var(--hop-space-stack-sm) - var(--ids-select-broder-width) * 2) var(--hop-space-inline-md);
 
     /* Placeholder */
     --ids-select-value-color-placeholder: var(--hop-neutral-text-weakest);
 
     /* Visual Identifier */
     --ids-select-value-icon-size: 1.5rem;
-    --ids-select-value-icon-margin-right: 0.5rem;
+    --ids-select-value-icon-margin-right: var(--hop-space-inline-sm);
 }
 
 .ids-select__value {
