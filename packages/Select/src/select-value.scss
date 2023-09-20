@@ -23,7 +23,7 @@
     --ids-select-value-padding: var(--hop-space-stack-sm) var(--hop-space-inline-md);
 
     /* Compact **/
-    --ids-select-value-padding-compact: calc(var(--hop-space-stack-sm) - var(--ids-select-broder-width) * 2) var(--hop-space-inline-md);
+    --ids-select-value-padding-compact: calc(var(--hop-space-stack-sm) - var(--ids-select-border-width) * 2) var(--hop-space-inline-md);
 
     /* Placeholder */
     --ids-select-value-color-placeholder: var(--hop-neutral-text-weakest);

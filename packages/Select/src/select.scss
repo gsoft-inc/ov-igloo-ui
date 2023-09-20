@@ -15,7 +15,7 @@
     --ids-select-border-color: #{tokens.$grey-300};
     --ids-select-border-radius: #{tokens.$border-radius-sm};
     --ids-select-number-of-option-to-display: 4;
-    --ids-select-broder-width: 0.1rem;
+    --ids-select-border-width: 0.1rem;
 
     /* Compact */
     --ids-select-font-size-compact: #{tokens.$font-size-3};
@@ -52,7 +52,7 @@
     --ids-select-background: var(--hop-neutral-surface);
     --ids-select-border-color: var(--hop-neutral-border);
     --ids-select-border-radius: var(--hop-shape-rounded-md);
-    --ids-select-broder-width: 0.0625rem;
+    --ids-select-border-width: 0.0625rem;
 
     /* Compact */
     --ids-select-font-size-compact: var(--hop-body-sm-font-size);
@@ -89,7 +89,7 @@
     padding: 0;
     position: relative;
     background-color: var(--ids-select-background);
-    border: var(--ids-select-broder-width) solid var(--ids-select-border-color);
+    border: var(--ids-select-border-width) solid var(--ids-select-border-color);
     border-radius: var(--ids-select-border-radius);
     box-sizing: border-box;
     transition: border-color .2s ease 0s;
