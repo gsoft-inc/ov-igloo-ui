@@ -16,6 +16,7 @@ export const useBrand = (StoryFn, context) => {
         "Card",
         "Color",
         "Dropdown",
+        "FormGroup",
         "Hyperlink",
         "HelperText",
         "IconButton",
