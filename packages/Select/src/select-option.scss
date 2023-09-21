@@ -1,50 +1,64 @@
-@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
+@use "~@igloo-ui/tokens/dist/base10/variables" as tokens;
 
 :root {
-  --ids-select-option-min-height: #{tokens.$space-5};
+    --ids-select-option-min-height: #{tokens.$space-5};
 
-  /* Focused */
-  --ids-select-option-background-focused: #{tokens.$electric-blue-50};
+    /* Focused */
+    --ids-select-option-background-focused: #{tokens.$electric-blue-50};
 
-  /* Selected */
-  --ids-select-option-background-selected: none;
+    /* Selected */
+    --ids-select-option-background-selected: none;
 
-  /* Disabled */
-  --ids-select-option-color-disabled: #{tokens.$grey-600};
+    /* Disabled */
+    --ids-select-option-color-disabled: #{tokens.$grey-600};
 
-  /* Checkmark */
-  --ids-select-option-checkmark-color: #{tokens.$electric-blue-500};
-  --ids-select-option-checkmark-margin: 0 #{tokens.$space-3} 0 0;
+    /* Checkmark */
+    --ids-select-option-checkmark-color: #{tokens.$electric-blue-500};
+    --ids-select-option-checkmark-margin: 0 #{tokens.$space-3} 0 0;
+}
+
+[data-brand="workleap"] {
+    --ids-select-option-min-height: 2rem;
+
+    /* Focused */
+    --ids-select-option-background-focused: var(--hop-neutral-surface-hover);
+
+    /* Disabled */
+    --ids-select-option-color-disabled: var(--hop-neutral-text-disabled);
+
+    /* Checkmark */
+    --ids-select-option-checkmark-color: var(--hop-neutral-icon);
+    --ids-select-option-checkmark-margin: 0 var(--hop-space-inline-md) 0 0;
 }
 
 .ids-select__option {
-  align-items: center;
-  display: flex;
-  min-height: var(--ids-select-option-min-height);
-  user-select: none;
-  width: 100%;
+    align-items: center;
+    display: flex;
+    min-height: var(--ids-select-option-min-height);
+    user-select: none;
+    width: 100%;
 
-  &--selected,
-  &--focused {
-    background: var(--ids-select-option-background-selected);
-    outline: 0;
-    box-shadow: none;
-  }
+    &--selected,
+    &--focused {
+        background: var(--ids-select-option-background-selected);
+        outline: 0;
+        box-shadow: none;
+    }
 
-  &--focused {
-    background: var(--ids-select-option-background-focused);
-  }
+    &--focused {
+        background: var(--ids-select-option-background-focused);
+    }
 
-  &--disabled,
-  &--disabled:hover,
-  &--disabled:active {
-    background: transparent;
-    color: var(--ids-select-option-color-disabled);
-    cursor: not-allowed;
-  }
+    &--disabled,
+    &--disabled:hover,
+    &--disabled:active {
+        background: transparent;
+        color: var(--ids-select-option-color-disabled);
+        cursor: not-allowed;
+    }
 }
 
 .ids-select__option-checkmark {
-  color: var(--ids-select-option-checkmark-color);
-  margin: var(--ids-select-option-checkmark-margin);
+    color: var(--ids-select-option-checkmark-color);
+    margin: var(--ids-select-option-checkmark-margin);
 }
