@@ -28,6 +28,7 @@ export const useBrand = (StoryFn, context) => {
         "Pager",
         "PieChart",
         "Popover",
+        "ProgressBar",
         "Radio",
         "Select",
         "StackedBar",
