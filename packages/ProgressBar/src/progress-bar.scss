@@ -1,60 +1,60 @@
-@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
-@use '~@igloo-ui/tokens/dist/fonts';
+@use "~@igloo-ui/tokens/dist/base10/variables" as tokens;
+@use "~@igloo-ui/tokens/dist/fonts";
+
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
 
 :root {
-  /* Default */
-  --ids-progress-bar-height: #{tokens.$space-2};
-  --ids-progress-bar-radius: #{tokens.$space-1};
-  --ids-progress-bar-background: #{tokens.$grey-200};
-  --ids-progress-bar-background-progress: #{tokens.$electric-blue-500};
-  --ids-progress-bar-background-completed: #{tokens.$seaweed-500};
+    /* Default */
+    --ids-progress-bar-height: #{tokens.$space-2};
+    --ids-progress-bar-radius: #{tokens.$space-1};
+    --ids-progress-bar-background: #{tokens.$grey-200};
+    --ids-progress-bar-background-progress: #{tokens.$electric-blue-500};
+    --ids-progress-bar-background-completed: #{tokens.$seaweed-500};
 
-  /* Compact */
-  --ids-progress-bar-height-compact: #{tokens.$space-1};
-  --ids-progress-bar-radius-compact: calc(#{tokens.$space-1} / 2);
+    /* Compact */
+    --ids-progress-bar-height-compact: #{tokens.$space-1};
+    --ids-progress-bar-radius-compact: calc(#{tokens.$space-1} / 2);
+}
 
-  /* Low contrast */
-  --ids-progress-bar-background-progress-low-contrast: #{tokens.$electric-blue-300};
-  --ids-progress-bar-background-completed-low-contrast: #{tokens.$seaweed-300};
+[data-brand="workleap"] {
+    /* Default */
+    --ids-progress-bar-height: 0.5rem;
+    --ids-progress-bar-radius: var(--hop-shape-rounded-sm);
+    --ids-progress-bar-background: var(--hop-neutral-surface-weak);
+    --ids-progress-bar-background-progress: #95B1FF; // progress-surface-strong
+    --ids-progress-bar-background-completed: #7DC291; // positive-surface-strong
+
+    /* Compact */
+    --ids-progress-bar-height-compact: 0.25rem;
+    --ids-progress-bar-radius-compact: calc(var(--hop-shape-rounded-sm) / 2);
 }
 
 .ids-progress-bar {
-  display: flex;
-  width: 100%;
-  border-radius: var(--ids-progress-bar-radius);
-  height: var(--ids-progress-bar-height);
-  background-color: var(--ids-progress-bar-background);
+    display: flex;
+    width: 100%;
+    border-radius: var(--ids-progress-bar-radius);
+    height: var(--ids-progress-bar-height);
+    background-color: var(--ids-progress-bar-background);
 
-  &__status {
-    display: block;
-    width: 0;
-    border-top-left-radius: inherit;
-    border-bottom-left-radius: inherit;
-    background-color: var(--ids-progress-bar-background-progress);
-  }
-
-  &--compact {
-    --ids-progress-bar-height: var(--ids-progress-bar-height-compact);
-    --ids-progress-bar-radius: var(--ids-progress-bar-radius-compact);
-  }
-
-  &--low-contrast {
-    .ids-progress-bar__status {
-      --ids-progress-bar-background-progress: var(--ids-progress-bar-background-progress-low-contrast);
+    &__status {
+        display: block;
+        width: 0;
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+        background-color: var(--ids-progress-bar-background-progress);
     }
-  }
+
+    &--compact {
+        --ids-progress-bar-height: var(--ids-progress-bar-height-compact);
+        --ids-progress-bar-radius: var(--ids-progress-bar-radius-compact);
+    }
 }
 
 .ids-progress-bar--completed {
-  .ids-progress-bar__status {
-    --ids-progress-bar-background-progress: var(--ids-progress-bar-background-completed);
-
-    border-radius: inherit;
-  }
-
-  &.ids-progress-bar--low-contrast {
     .ids-progress-bar__status {
-      --ids-progress-bar-background-progress: var(--ids-progress-bar-background-completed-low-contrast);
+        --ids-progress-bar-background-progress: var(--ids-progress-bar-background-completed);
+
+        border-radius: inherit;
     }
-  }
 }

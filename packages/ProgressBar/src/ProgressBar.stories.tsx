@@ -54,18 +54,3 @@ export const Sizes = () => (
     </span>
   </Section>
 );
-
-export const LowContrast = () => (
-  <Section column>
-    <ProgressBar
-      value={0.5}
-      ariaLabel="Progress: 50% of objectives achieved"
-      isLowContrast
-    />
-    <ProgressBar
-      value={1}
-      ariaLabel="Success: 100% of objectives achieved"
-      isLowContrast
-    />
-  </Section>
-);

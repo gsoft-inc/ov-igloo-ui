@@ -30,6 +30,10 @@ const Toast: React.FunctionComponent<ToastProps<ToastArgs>> = ({
         toastRef
     );
 
+    const getBrand = (): string => {
+        return document.documentElement.getAttribute("data-brand") ?? "igloo";
+    };
+
     delete closeButtonProps.onPress;
 
     React.useEffect(() => {
@@ -65,7 +69,7 @@ const Toast: React.FunctionComponent<ToastProps<ToastArgs>> = ({
             <div {...titleProps} className="ids-toast__title">
                 {statusIcon} {message}
             </div>
-            {isClosable && (
+            {isClosable && getBrand() === "igloo" && (
                 <IconButton
                     {...closeButtonProps}
                     className="ids-toast__close"
@@ -78,6 +82,17 @@ const Toast: React.FunctionComponent<ToastProps<ToastArgs>> = ({
                     }}
                     icon={<Close size="medium" />}
                 />
+            )}
+            {isClosable && getBrand() === "workleap" && (
+                <button
+                    {...closeButtonProps}
+                    onClick={() => {
+                        state.close(toast.key);
+                    }}
+                    className="ids-toast__close-button"
+                >
+                    <Close size="medium" />
+                </button>
             )}
             <div
                 className="ids-toast__progress-indicator"
