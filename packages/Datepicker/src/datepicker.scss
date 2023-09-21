@@ -25,6 +25,9 @@
   --ids-datepicker-thead-font-weight: 400;
   --ids-datepicker-thead-line-height: 1.25;
   --ids-datepicker-thead-color: #{tokens.$electric-blue-500};
+  --ids-datepicker-tbody-outline: 0 solid transparent;
+  --ids-datepicker-tbody-outline-offset: 0;
+  --ids-datepicker-tbody-radius: 0;
   --ids-datepicker-content-today-outline: none;
   --ids-datepicker-content-today-outline-offset: 0;
   --ids-datepicker-thead-space: #{tokens.$space-2};
@@ -39,6 +42,7 @@
   --ids-datepicker-content-line-height: 3.8rem;
   --ids-datepicker-margin-offset: -0.1rem;
   --ids-datepicker-content-focus: #{tokens.$electric-blue-600} solid .15rem;
+  --ids-datepicker-content-focus-offset: 0;
 
   // Disabled state
   --ids-datepicker-disabled-background-selected: #51a0fa;
@@ -65,12 +69,15 @@
   --ids-datepicker-thead-font-weight: var(--hop-body-sm-font-weight);
   --ids-datepicker-thead-line-height: var(--hop-body-sm-line-height);
   --ids-datepicker-thead-color: var(--hop-neutral-text);
-  --ids-datepicker-thead-space: 0.5rem;
+  --ids-datepicker-tbody-outline: 0.0625rem solid var(--hop-neutral-border);
+  --ids-datepicker-tbody-outline-offset: 0.125rem;
+  --ids-datepicker-tbody-radius: var(--hop-shape-rounded-md);
+  --ids-datepicker-thead-space: calc(0.5rem + 0.125rem);
   --ids-datepicker-title-font-size: var(--hop-body-lg-font-size);
   --ids-datepicker-title-line-height: var(--hop-body-lg-line-height);
   --ids-datepicker-content-color-today: var(--hop-neutral-text);
   --ids-datepicker-content-today-outline: 0.125rem solid var(--hop-neutral-border-strong);
-  --ids-datepicker-content-today-outline-offset: -0.0625rem;
+  --ids-datepicker-content-today-outline-offset: -0.125rem;
   --ids-datepicker-content-background-hover: var(--hop-neutral-surface-hover);
   --ids-datepicker-content-color: var(--hop-neutral-text);
   --ids-datepicker-content-color-hover: var(--hop-neutral-text-hover);
@@ -79,6 +86,7 @@
   --ids-datepicker-content-line-height: 2.5rem;
   --ids-datepicker-margin-offset: 0;
   --ids-datepicker-content-focus: var(--hop-primary-border-focus) solid 0.125rem;
+  --ids-datepicker-content-focus-offset: -0.125rem;
 
   // Disabled state
   --ids-datepicker-disabled-background-selected: var(--hop-neutral-surface-disabled);
@@ -148,6 +156,12 @@
     margin-bottom: var(--ids-datepicker-thead-space);
   }
 
+  &__body {
+    outline: var(--ids-datepicker-tbody-outline);
+    outline-offset: var(--ids-datepicker-tbody-outline-offset);
+    border-radius: var(--ids-datepicker-tbody-radius);
+  }
+
   &__cell {
     cursor: default;
     text-align: center;
@@ -179,6 +193,7 @@
 
   &:focus-visible {
     outline: var(--ids-datepicker-content-focus);
+    outline-offset: var(--ids-datepicker-content-focus-offset);
   }
 
   &--today {
