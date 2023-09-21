@@ -21,7 +21,7 @@
     --ids-select-input-chevron-padding: 0;
     --ids-select-input-chevron-color: var(--hop-neutral-icon-weak);
     --ids-select-input-search-height: 2.4375rem;
-    --ids-select-input-actions-padding: 0 #{tokens.$space-2};
+    --ids-select-input-actions-padding: 0 var(--hop-space-inline-sm);
 
     /* Compact **/
     --ids-select-input-height-compact: 2rem;
