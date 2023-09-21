@@ -33,6 +33,7 @@ export const useBrand = (StoryFn, context) => {
         "Radio",
         "Select",
         "StackedBar",
+        "Stepper",
         "Tag",
         "Textarea",
         "Toast",
