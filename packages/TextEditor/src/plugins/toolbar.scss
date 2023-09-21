@@ -2,72 +2,106 @@
 @use '~@igloo-ui/tokens/dist/fonts';
 
 :root {
-  /* Default */
-  --ids-toolbar-font-family: #{tokens.$primary-font-family};
-  --ids-toolbar-font-size: #{tokens.$font-size-3};
-  --ids-toolbar-border-color: #{tokens.$grey-200};
-  --ids-toolbar-padding: #{tokens.$space-1} #{tokens.$space-3};
+    /* Default */
+    --ids-toolbar-font-family: #{tokens.$primary-font-family};
+    --ids-toolbar-font-size: #{tokens.$font-size-3};
+    --ids-toolbar-border-color: #{tokens.$grey-200};
+    --ids-toolbar-border-width: 0.1rem;
+    --ids-toolbar-padding: #{tokens.$space-1} #{tokens.$space-3};
 
-  /* Buttons */
-  --ids-toolbar-btn-margin: #{tokens.$space-2};
-  --ids-toolbar-btn-color: #{tokens.$grey-600};
-  
-  /* Divider */
-  --ids-toolbar-divider-color: #{tokens.$grey-300};
-  --ids-toolbar-divider-height: #{tokens.$space-3};
+    /* Disabled */
+    --ids-toolbar-border-color-disabled: #{tokens.$grey-300};
+
+    /* Buttons */
+    --ids-toolbar-btn-margin: #{tokens.$space-1};
+    --ids-toolbar-btn-color: #{tokens.$grey-600};
+    --ids-toolbar-btn-color-disabled: #{tokens.$grey-600};
+
+    /* Divider */
+    --ids-toolbar-divider-color: #{tokens.$grey-300};
+    --ids-toolbar-divider-color-disabled: #{tokens.$grey-300};
+    --ids-toolbar-divider-height: #{tokens.$space-3};
+    --ids-toolbar-divider-width: 0.1rem;
 }
-  
+
+[data-brand="workleap"] {
+    /* Default */
+    --ids-toolbar-font-family: var(--hop-body-sm-font-family);
+    --ids-toolbar-font-size: var(--hop-body-sm-font-size);
+    --ids-toolbar-border-color: var(--hop-neutral-border-weak);
+    --ids-toolbar-border-width: 0.0625rem;
+    --ids-toolbar-padding: var(--hop-space-stack-xs) var(--hop-space-inline-md);
+
+    /* Disabled */
+    --ids-toolbar-border-color-disabled: var(--hop-neutral-border-weak);
+
+    /* Buttons */
+    --ids-toolbar-btn-margin: var(--hop-space-inline-xs);
+    --ids-toolbar-btn-color: var(--hop-neutral-icon-weak);
+    --ids-toolbar-btn-color-disabled: var(--hop-neutral-icon-disabled);
+
+    /* Divider */
+    --ids-toolbar-divider-color: var(--hop-neutral-border-weak);
+    --ids-toolbar-divider-color-disabled: var(--hop-neutral-border-weak);
+    --ids-toolbar-divider-height: 1rem;
+    --ids-toolbar-divider-width: 0.0625rem;
+}
+
 .ids-toolbar {
-  align-items: center;
-  border-bottom: .1rem solid var(--ids-toolbar-border-color);
-  display: flex;
-  flex: 0 0 auto;
-  font-family: var(--ids-toolbar-font-family);
-  font-size: var(--ids-toolbar-font-size);
-  padding: var(--ids-toolbar-padding);
+    align-items: center;
+    border-bottom: var(--ids-toolbar-border-width) solid var(--ids-toolbar-border-color);
+    display: flex;
+    flex: 0 0 auto;
+    font-family: var(--ids-toolbar-font-family);
+    font-size: var(--ids-toolbar-font-size);
+    padding: var(--ids-toolbar-padding);
 }
 
 .ids-text-editor--private .ids-toolbar {
-  --ids-toolbar-border-color: #{tokens.$dandelion-100};
+    --ids-toolbar-border-color: #{tokens.$dandelion-100};
 }
 
 .ids-text-editor--disabled .ids-toolbar {
-  --ids-toolbar-border-color: #{tokens.$grey-300};
+    --ids-toolbar-border-color: var(--ids-toolbar-border-color-disabled);
 }
 
 .ids-toolbar--show-on-focus {
-  display: none;
+    display: none;
 }
 
 .ids-text-editor:focus-within .ids-toolbar--show-on-focus {
-  display: flex;
+    display: flex;
 }
 
 .ids-toolbar > .ids-toolbar__btn {
-  flex: 0 0 auto;
-  margin-right: var(--ids-toolbar-btn-margin);
+    flex: 0 0 auto;
+    margin-right: var(--ids-toolbar-btn-margin);
 }
 
 .ids-toolbar .ids-toolbar__btn-clear {
-  margin-left: auto;
-  margin-right: 0;
+    margin-left: auto;
+    margin-right: 0;
 }
-  
+
 .ids-toolbar .ids-btn.ids-btn--active {
-  pointer-events: initial;
-  user-select: initial;
+    pointer-events: initial;
+    user-select: initial;
 }
 
 .ids-text-editor--disabled .ids-toolbar .ids-toolbar__btn:disabled,
 .ids-text-editor--disabled .ids-toolbar .ids-toolbar__btn-clear:disabled {
-  color: var(--ids-toolbar-btn-color);
+    color: var(--ids-toolbar-btn-color-disabled);
 }
 
 .ids-toolbar__divider {
-  background: var(--ids-toolbar-divider-color);
-  height: var(--ids-toolbar-divider-height);
-  margin-right: var(--ids-toolbar-btn-margin);
-  width: .1rem;
+    background: var(--ids-toolbar-divider-color);
+    height: var(--ids-toolbar-divider-height);
+    margin-right: var(--ids-toolbar-btn-margin);
+    width: var(--ids-toolbar-divider-width);
 }
-  
-  
+
+.ids-text-editor--disabled .ids-toolbar__divider {
+    background: var(--ids-toolbar-divider-color-disabled);
+}
+
+
