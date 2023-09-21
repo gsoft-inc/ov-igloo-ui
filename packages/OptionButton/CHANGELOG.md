@@ -1,5 +1,11 @@
 # @igloo-ui/option-button
 
+## 0.1.0
+
+### Minor Changes
+
+- 24c2194: Rebrand of OptionButton
+
 ## 0.0.5
 
 ### Patch Changes
