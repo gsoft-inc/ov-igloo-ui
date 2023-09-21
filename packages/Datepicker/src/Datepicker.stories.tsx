@@ -231,12 +231,3 @@ export const Interaction: Story = {
     ).toBeInTheDocument();
   },
 };
-
-export const Debug: Story = {
-    render: Template,
-    args: {
-        ...Overview.args,
-        minDate: apiDate.plus({ days: 10 }).toString(),
-        maxDate: apiDate.toString(),
-    }
-}
