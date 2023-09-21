@@ -127,20 +127,20 @@
     --ids-btn-background-secondary-hover: var(--hop-neutral-surface-hover);
     --ids-btn-background-secondary-active: var(--hop-neutral-surface-active);
     --ids-btn-background-secondary-disabled: var(--hop-neutral-surface-disabled);
-  
+
     /* Premium */
     --ids-btn-text-premium: var(--hop-upsell-text);
     --ids-btn-text-premium-disabled: var(--hop-neutral-text-disabled);
     --ids-btn-background-premium: var(--hop-upsell-surface);
     --ids-btn-background-premium-hover: var(--hop-upsell-surface-hover);
     --ids-btn-background-premium-disabled: var(--hop-neutral-surface-disabled);
-  
+
     /* Danger */
     --ids-btn-text-danger: var(--hop-danger-text-strong);
     --ids-btn-background-danger: var(--hop-danger-surface-strong);
     --ids-btn-background-danger-hover: var(--hop-danger-surface-hover);
     --ids-btn-background-danger-disabled: var(--hop-neutral-surface-disabled);
-  
+
     /* Ghost */
     --ids-btn-padding-ghost: var(--hop-space-inset-sm);
     --ids-btn-text-ghost: var(--hop-primary-text);
@@ -160,7 +160,7 @@
     --ids-loader-secondary-active: var(--hop-neutral-icon-active);
     --ids-loader-ghost: var(--hop-primary-icon);
     --ids-loader-ghost-disabled: var(--hop-neutral-icon);
-  
+
     /* Ghost, variant: Danger */
     --ids-btn-text-ghost-danger: var(--hop-danger-text-weak);
     --ids-btn-background-ghost-danger-hover: var(--hop-danger-surface-hover);
@@ -169,7 +169,7 @@
     --ids-btn-text-ghost-danger-disabled: var(--hop-danger-text-disabled);
     --ids-loader-border-ghost-danger: 0.125rem solid rgb(149 41 39 / 30%);
     --ids-loader-ghost-danger: var(--hop-danger-icon);
-  
+
     /* Ghost, variant: Secondary */
     --ids-btn-text-ghost-secondary: var(--hop-neutral-text-weak);
     --ids-btn-background-ghost-secondary-hover: var(--hop-neutral-surface-hover);
@@ -499,7 +499,7 @@
   display: none;
 }
 
-@media (width >= 60rem) {
+@media (width >= #{tokens.$breakpoints-sm}) {
   .ids-btn {
     width: auto;
   }
