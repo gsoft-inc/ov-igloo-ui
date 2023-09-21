@@ -1,5 +1,11 @@
 # @igloo-ui/form-group
 
+## 1.0.4
+
+### Patch Changes
+
+- 24146bc: Gave the FormGroup component the new brand.
+
 ## 1.0.3
 
 ### Patch Changes
