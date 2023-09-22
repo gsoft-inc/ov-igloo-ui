@@ -205,8 +205,15 @@ export const States = () => (
       onChange={handleOnChange}
       className={'active'}
     >
-      Active / Focus
+      Active
     </Combobox>
+      <Combobox
+          options={smallOptionList}
+          onChange={handleOnChange}
+          className={'focus'}
+      >
+           Focus
+      </Combobox>
     <Combobox options={smallOptionList} onChange={handleOnChange} error={true}>
       Error
     </Combobox>

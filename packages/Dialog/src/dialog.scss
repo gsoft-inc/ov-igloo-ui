@@ -1,102 +1,159 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
-  /* Default */
-  --ids-dialog-font-family: #{tokens.$primary-font-family};
-  --ids-dialog-font-size: #{tokens.$font-size-4};
-  --ids-dialog-max-width: calc(100% - #{tokens.$space-5});
-  --ids-dialog-radius: #{tokens.$border-radius-sm};
-  --ids-dialog-header-direction: column-reverse;
-  --ids-dialog-header-height: auto;
-  --ids-dialog-header-font-size: #{tokens.$font-size-6};
-  --ids-dialog-header-padding: #{tokens.$space-3} #{tokens.$space-3} #{tokens.$space-2};
-  --ids-dialog-content-padding: #{tokens.$space-2} #{tokens.$space-3} #{tokens.$space-3};
-  --ids-dialog-sub-title-line-height: #{tokens.$line-height-xxxl};
-  --ids-dialog-sub-title-color: #{tokens.$grey-600};
-  --ids-dialog-close-margin: #{tokens.$space-0};
-  --ids-dialog-close-align: flex-end;
-  --ids-dialog-buttons-margin: #{tokens.$space-5} -#{tokens.$space-0} -#{tokens.$space-2};
-  --ids-dialog-button-margin: #{tokens.$space-2} #{tokens.$space-0};
-  --ids-dialog-button-width: #{tokens.$space-5};
+    /* Default */
+    --ids-dialog-font-family: #{tokens.$primary-font-family};
+    --ids-dialog-font-size: #{tokens.$font-size-4};
+    --ids-dialog-max-width: calc(100% - #{tokens.$space-5});
+    --ids-dialog-radius: #{tokens.$border-radius-sm};
+    --ids-dialog-header-direction: column-reverse;
+    --ids-dialog-header-height: auto;
+    --ids-dialog-header-font-size: #{tokens.$font-size-6};
+    --ids-dialog-header-padding: #{tokens.$space-3} #{tokens.$space-3} #{tokens.$space-2};
+    --ids-dialog-content-padding: #{tokens.$space-2} #{tokens.$space-3} #{tokens.$space-3};
+    --ids-dialog-sub-title-line-height: #{tokens.$line-height-xxxl};
+    --ids-dialog-sub-title-color: #{tokens.$grey-600};
+    --ids-dialog-sub-title-padding-top: 0;
+    --ids-dialog-close-margin: #{tokens.$space-0};
+    --ids-dialog-close-align: flex-end;
+    --ids-dialog-close-position: relative;
+    --ids-dialog-close-padding-x: 0;
+    --ids-dialog-buttons-margin: #{tokens.$space-5} -#{tokens.$space-0} -#{tokens.$space-2};
+    --ids-dialog-button-margin: #{tokens.$space-2} #{tokens.$space-0};
+    --ids-dialog-button-width: #{tokens.$space-5};
+}
+
+[data-brand="workleap"] {
+    /* Default */
+    --ids-dialog-font-family: var(--hop-body-md-font-family);
+    --ids-dialog-font-size: var(--hop-body-md-font-size);
+    --ids-dialog-max-width: calc(100% - 2rem);
+    --ids-dialog-radius: var(--hop-shape-rounded-md);
+    --ids-dialog-header-direction: column-reverse;
+    --ids-dialog-header-height: auto;
+    --ids-dialog-header-font-size: var(--hop-heading-md-font-size);
+    --ids-dialog-header-line-height: var(--hop-heading-md-line-height);
+    --ids-dialog-header-padding: var(--hop-space-inset-md) var(--hop-space-inset-md) 0;
+    --ids-dialog-content-padding: 0 var(--hop-space-inset-md) var(--hop-space-inset-md);
+    --ids-dialog-sub-title-line-height: var(--hop-body-md-line-height);
+    --ids-dialog-sub-title-color: var(--hop-neutral-text-weak);
+    --ids-dialog-sub-title-padding-top: var(--hop-space-stack-sm);
+    --ids-dialog-close-margin: 0;
+    --ids-dialog-close-align: flex-end;
+    --ids-dialog-close-position: relative;
+    --ids-dialog-close-padding-x: var(--hop-space-inset-xl);
+    --ids-dialog-buttons-margin: var(--hop-space-stack-lg) 0 calc(-1 * var(--hop-space-inset-md));
+    --ids-dialog-button-margin: var(--hop-space-stack-sm) 0;
+    --ids-dialog-button-width: 2rem;
 }
 
 /* stylelint-disable-next-line media-query-no-invalid */
 @media (width >= #{tokens.$breakpoints-sm}) {
-  :root {
-    --ids-dialog-header-padding: #{tokens.$space-4} #{tokens.$space-4} #{tokens.$space-2};
-    --ids-dialog-close-margin: -#{tokens.$space-2} -#{tokens.$space-2} #{tokens.$space-0} #{tokens.$space-0};
-    --ids-dialog-content-padding: #{tokens.$space-0} #{tokens.$space-4} #{tokens.$space-4};
-    --ids-dialog-buttons-margin: #{tokens.$space-7} -#{tokens.$space-2} #{tokens.$space-0};
-    --ids-dialog-button-margin: 0 #{tokens.$space-2};
-  }
+    :root {
+        --ids-dialog-header-padding: #{tokens.$space-4} #{tokens.$space-4} #{tokens.$space-2};
+        --ids-dialog-close-margin: -#{tokens.$space-2} -#{tokens.$space-2} #{tokens.$space-0} #{tokens.$space-0};
+        --ids-dialog-close-position: relative;
+        --ids-dialog-content-padding: #{tokens.$space-0} #{tokens.$space-4} #{tokens.$space-4};
+        --ids-dialog-buttons-margin: var(--hop-space-stack-lg) -#{tokens.$space-2} #{tokens.$space-0};
+        --ids-dialog-button-margin: 0 #{tokens.$space-2};
+        --ids-dialog-header-font-size: #{tokens.$font-size-6};
+        --ids-dialog-header-line-height: var(--hop-heading-lg-line-height);
+        --ids-dialog-header-font-weight: #{tokens.$font-weight-medium};
+    }
+
+    [data-brand="workleap"] {
+        --ids-dialog-header-padding: var(--hop-space-inset-lg) var(--hop-space-inset-lg) 0;
+        --ids-dialog-close-margin: 0;
+        --ids-dialog-close-position: absolute;
+        --ids-dialog-content-padding: 0 var(--hop-space-inset-lg) var(--hop-space-inset-lg);
+        --ids-dialog-buttons-margin: var(--hop-space-stack-lg) calc(-1 * var(--hop-space-inset-sm)) 0;
+        --ids-dialog-button-margin: 0 var(--hop-space-inset-sm);
+        --ids-dialog-header-font-size: var(--hop-heading-lg-font-size);
+        --ids-dialog-header-line-height: var(--hop-heading-lg-line-height);
+        --ids-dialog-header-font-weight: var(--hop-heading-lg-font-weight);
+    }
 }
 
 .ids-modal.ids-dialog {
-  border-radius: var(--ids-dialog-radius);
-  height: auto;
-  max-width: var(--ids-dialog-max-width);
+    border-radius: var(--ids-dialog-radius);
+    height: auto;
+    max-width: var(--ids-dialog-max-width);
 
-  &,
-  & * {
-    box-sizing: border-box;
-  }
+    &,
+    & * {
+        box-sizing: border-box;
+    }
 }
 
 .ids-dialog.ids-modal--with-title .ids-modal__header,
 .ids-dialog.ids-modal--closable .ids-modal__header {
-  align-items: center;
-  border: none;
-  display: flex;
-  flex-direction: var(--ids-dialog-header-direction, initial);
-  min-height: var(--ids-dialog-header-height);
-  padding: var(--ids-dialog-header-padding);
-  position: relative;
+    align-items: center;
+    border: none;
+    display: flex;
+    flex-direction: var(--ids-dialog-header-direction, initial);
+    min-height: var(--ids-dialog-header-height);
+    padding: var(--ids-dialog-header-padding);
+    position: relative;
 
-  &::before {
-    display: none;
-  }
+    &::before {
+        display: none;
+    }
 }
 
 .ids-dialog .ids-modal__title {
-  font-size: var(--ids-dialog-header-font-size);
+    font-size: var(--ids-dialog-header-font-size);
+    line-height: var(--ids-dialog-header-line-height);
+    font-weight: var(--ids-dialog-header-font-weight);
+    text-align: center;
+}
+
+.ids-dialog.ids-modal--closable .ids-modal__title {
+    padding-left: var(--ids-dialog-close-padding-x);
+    padding-right: var(--ids-dialog-close-padding-x);
+    padding-top: var(--ids-dialog-close-padding-top);
 }
 
 .ids-dialog .ids-modal__close {
-  align-self: var(--ids-dialog-close-align, initial);
-  margin: var(--ids-dialog-close-margin);
+    align-self: var(--ids-dialog-close-align, initial);
+    margin: var(--ids-dialog-close-margin);
+    position: var(--ids-dialog-close-position);
 }
 
 .ids-dialog .ids-modal__content {
-  padding: var(--ids-dialog-content-padding);
+    padding: var(--ids-dialog-content-padding);
 }
 
 .ids-dialog__sub-title {
-  color: var(--ids-dialog-sub-title-color);
-  line-height: var(--ids-dialog-sub-title-line-height);
-  text-align: center;
+    color: var(--ids-dialog-sub-title-color);
+    line-height: var(--ids-dialog-sub-title-line-height);
+    text-align: center;
+    padding-top: var(--ids-dialog-sub-title-padding-top);
 }
 
 .ids-dialog__buttons {
-  margin: var(--ids-dialog-buttons-margin);
+    margin: var(--ids-dialog-buttons-margin);
 
-  /* stylelint-disable-next-line media-query-no-invalid */
-  @media (width >= #{tokens.$breakpoints-sm}) {
-    align-items: center;
-    display: flex;
-    flex-wrap: nowrap;
-  }
+    /* stylelint-disable-next-line media-query-no-invalid */
+    @media (width >= #{tokens.$breakpoints-sm}) {
+        align-items: center;
+        display: flex;
+        flex-wrap: nowrap;
+    }
 }
 
 .ids-dialog__dismiss-btn,
 .ids-dialog__validate-btn {
-  margin: var(--ids-dialog-button-margin);
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    margin: var(--ids-dialog-button-margin);
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-  /* stylelint-disable-next-line media-query-no-invalid */
-  @media (width >= #{tokens.$breakpoints-sm}) {
-    flex: 1 1 var(--ids-dialog-button-width);
-  }
+    /* stylelint-disable-next-line media-query-no-invalid */
+    @media (width >= #{tokens.$breakpoints-sm}) {
+        flex: 1 1 var(--ids-dialog-button-width);
+    }
 }
