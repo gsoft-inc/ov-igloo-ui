@@ -1,93 +1,143 @@
-@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
-@use '~@igloo-ui/tokens/dist/fonts';
+@use "~@igloo-ui/tokens/dist/base10/variables" as tokens;
+@use "~@igloo-ui/tokens/dist/fonts";
+
+@import url("~@hopper-ui/tokens/fonts.css");
+@import url("~@hopper-ui/tokens/tokens.css");
 
 :root {
-  /* Default */
-  --ids-select-font-family: #{tokens.$primary-font-family};
-  --ids-select-font-size: #{tokens.$font-size-4};
-  --ids-select-font-weight: #{tokens.$font-weight-regular};
-  --ids-select-line-height: #{tokens.$space-4};
-  --ids-select-color: #{tokens.$grey-800};
-  --ids-select-background: #{tokens.$samoyed};
-  --ids-select-border-color: #{tokens.$grey-300};
-  --ids-select-border-radius: #{tokens.$border-radius-sm};
-  --ids-select-number-of-option-to-display: 4;
+    /* Default */
+    --ids-select-font-family: #{tokens.$primary-font-family};
+    --ids-select-font-size: #{tokens.$font-size-4};
+    --ids-select-font-weight: #{tokens.$font-weight-regular};
+    --ids-select-line-height: #{tokens.$space-4};
+    --ids-select-color: #{tokens.$grey-800};
+    --ids-select-background: #{tokens.$samoyed};
+    --ids-select-border-color: #{tokens.$grey-300};
+    --ids-select-border-radius: #{tokens.$border-radius-sm};
+    --ids-select-number-of-option-to-display: 4;
+    --ids-select-border-width: 0.1rem;
 
-  /* Compact */
-  --ids-select-font-size-compact: #{tokens.$font-size-3};
-  --ids-select-line-height-compact: #{tokens.$line-height-xxl};
+    /* Compact */
+    --ids-select-font-size-compact: #{tokens.$font-size-3};
+    --ids-select-line-height-compact: #{tokens.$line-height-xxl};
 
-  /* Hover */
-  --ids-select-border-color-hover: #{tokens.$grey-600};
+    /* Hover */
+    --ids-select-background-color-hover: #{tokens.$samoyed};
+    --ids-select-border-color-hover: #{tokens.$grey-600};
 
-  /* Active */
-  --ids-select-border-color-active: #{tokens.$electric-blue-500};
+    /* Active */
+    --ids-select-border-color-active: #{tokens.$electric-blue-500};
 
-  /* Disabled */
-  --ids-select-color-disabled: #{tokens.$grey-500};
-  --ids-select-background-disabled: #{tokens.$grey-200};
-  --ids-select-border-color-disabled: #{tokens.$grey-200};
+    /* Focus */
+    --ids-select-border-color-focus: #{tokens.$electric-blue-500};
+    --ids-select-background-focus: #{tokens.$samoyed};
+    --ids-select-focus: none;
 
-  /* Error */
-  --ids-select-border-color-error: #{tokens.$coral-500};
+    /* Disabled */
+    --ids-select-color-disabled: #{tokens.$grey-500};
+    --ids-select-background-disabled: #{tokens.$grey-200};
+    --ids-select-border-color-disabled: #{tokens.$grey-200};
+
+    /* Error */
+    --ids-select-border-color-error: #{tokens.$coral-500};
+}
+
+[data-brand="workleap"] {
+    /* Default */
+    --ids-select-font-family: var(--hop-body-md-font-family);
+    --ids-select-font-size: var(--hop-body-md-font-size);
+    --ids-select-font-weight: var(--hop-body-md-font-weight);
+    --ids-select-line-height: var(--hop-body-md-line-height);
+    --ids-select-color: var(--hop-neutral-text);
+    --ids-select-background: var(--hop-neutral-surface);
+    --ids-select-border-color: var(--hop-neutral-border);
+    --ids-select-border-radius: var(--hop-shape-rounded-md);
+    --ids-select-border-width: 0.0625rem;
+
+    /* Compact */
+    --ids-select-font-size-compact: var(--hop-body-sm-font-size);
+    --ids-select-line-height-compact: var(--hop-body-sm-line-height);
+
+    /* Hover */
+    --ids-select-background-hover: var(--hop-neutral-surface-hover);
+    --ids-select-border-color-hover: var(--hop-neutral-border-hover);
+
+    /* Active */
+    --ids-select-border-color-active: var(--hop-neutral-border-active);
+
+    /* Focus */
+    --ids-select-background-focus: var(--hop-neutral-surface-hover);
+    --ids-select-border-color-focus: var(--hop-neutral-border-hover);
+    --ids-select-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);;
+
+    /* Disabled */
+    --ids-select-color-disabled: var(--hop-neutral-text-disabled);
+    --ids-select-background-disabled: var(--hop-neutral-surface-disabled);
+    --ids-select-border-color-disabled: var(--hop-neutral-border-disabled);
+
+    /* Error */
+    --ids-select-border-color-error: var(--hop-danger-text-weak);
 }
 
 .ids-select {
-  color: var(--ids-select-color);
-  font-size: var(--ids-select-font-size);
-  font-family: var(--ids-select-font-family);
-  font-weight: var(--ids-select-font-weight);
-  line-height: var(--ids-select-line-height);
-  width: 100%;
-  padding: 0 var(--ids-select-padding);
-  position: relative;
-  background-color: var(--ids-select-background);
-  border: .1rem solid var(--ids-select-border-color);
-  border-radius: var(--ids-select-border-radius);
-  box-sizing: border-box;
-  transition: border-color .2s ease 0s;
-  cursor: pointer;
-  user-select: none;
-
-  &,
-  & * {
+    color: var(--ids-select-color);
+    font-size: var(--ids-select-font-size);
+    font-family: var(--ids-select-font-family);
+    font-weight: var(--ids-select-font-weight);
+    line-height: var(--ids-select-line-height);
+    width: 100%;
+    padding: 0;
+    position: relative;
+    background-color: var(--ids-select-background);
+    border: var(--ids-select-border-width) solid var(--ids-select-border-color);
+    border-radius: var(--ids-select-border-radius);
     box-sizing: border-box;
-  }
+    transition: border-color .2s ease 0s;
+    cursor: pointer;
+    user-select: none;
 
-  &:hover {
-    border-color: var(--ids-select-border-color-hover);
-  }
-
-  &:focus,
-  &.focus {
-    outline: 0;
-    box-shadow: none;
-    border-color: var(--ids-select-border-color-active);
-  }
-
-  &--compact {
-    font-size: var(--ids-select-font-size-compact);
-    line-height: var(--ids-select-line-height-compact);
-  }
-
-  &--active,
-  &.active {
-    border-color: var(--ids-select-border-color-active);
-  }
-
-  &--disabled,
-  &--disabled:focus {
-    color: var(--ids-select-color-disabled);
-    background-color: var(--ids-select-background-disabled);
-    border-color: var(--ids-select-border-color-disabled);
-    cursor: not-allowed;
+    &,
+    & * {
+        box-sizing: border-box;
+    }
 
     &:hover {
-      border-color: var(--ids-select-border-color-disabled);
+        background: var(--ids-select-background-hover);
+        border-color: var(--ids-select-border-color-hover);
     }
-  }
 
-  &--error {
-    border-color: var(--ids-select-border-color-error);
-  }
+    &:focus,
+    &.focus {
+        outline: 0;
+        box-shadow: var(--ids-select-focus);
+        border-color: var(--ids-select-border-color-focus);
+        background-color: var(--ids-select-background-focus);
+    }
+
+    &--compact {
+        font-size: var(--ids-select-font-size-compact);
+        line-height: var(--ids-select-line-height-compact);
+    }
+
+    &--active,
+    &.active {
+        border-color: var(--ids-select-border-color-active);
+    }
+
+    &--disabled,
+    &--disabled:focus {
+        color: var(--ids-select-color-disabled);
+        background-color: var(--ids-select-background-disabled);
+        border-color: var(--ids-select-border-color-disabled);
+        cursor: not-allowed;
+
+        &:hover {
+            border-color: var(--ids-select-border-color-disabled);
+            background-color: var(--ids-select-background-disabled);
+        }
+    }
+
+    &--error {
+        border-color: var(--ids-select-border-color-error);
+    }
 }
