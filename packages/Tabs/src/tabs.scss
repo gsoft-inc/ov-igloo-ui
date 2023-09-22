@@ -30,6 +30,9 @@
 
     /* === Inline Style === */
 
+    --ids-inline-tab-background-color: transparent;
+    --ids-inline-tab-border-radius: 0;
+    --ids-inline-tab-outline: none;
     --ids-inline-tab-button-font-size: #{tokens.$font-size-3};
 
     /* Tab */
@@ -43,6 +46,7 @@
     /* Default */
     --ids-tabs-font-family: var(--hop-body-sm-font-family);
     --ids-tabs-font-size: var(--hop-body-sm-font-size);
+    --ids-tabs-margin: #{tokens.$space-0} #{tokens.$space-0} 1.25rem;
 
     /* Tab */
     --ids-tab-button-padding: var(--hop-space-inset-sm);
@@ -56,6 +60,24 @@
     --ids-tab-button-after-height: 0.125rem;
     --ids-tab-button-after-bottom: calc(0.5rem - var(--ids-tab-button-after-height));
     --ids-tab-button-after-background: var(--hop-neutral-border-active);
+
+    /* Icons */
+    --ids-tab-icon-margin-left: var(--hop-space-inline-xs);
+    --ids-tab-icon-notification-color: var(--hop-primary-surface-strong);
+    --ids-tab-icon-premium-color: var(--hop-upsell-icon-weak);
+
+    /* === Inline Style === */
+
+    --ids-inline-tab-background-color: var(--hop-neutral-surface-weakest);
+    --ids-inline-tab-border-radius: var(--hop-shape-rounded-md);
+    --ids-inline-tab-outline: 0.0625rem solid var(--hop-neutral-border-weak);
+    --ids-inline-tab-button-font-size: var(--hop-body-sm-font-size);
+
+    /* Tab */
+    --ids-inline-tab-button-padding: 1rem 1rem;
+    --ids-inline-tab-button-after-bottom: -0.0625rem;
+    --ids-inline-tab-button-after-height: 0.125rem;
+    --ids-inline-tab-button-after-horizontal-space: 1rem;
 }
 
 .ids-tabs {
@@ -67,6 +89,12 @@
         list-style: none;
         margin: var(--ids-tabs-margin);
         padding: 0;
+
+        .ids-tabs--inline &  {
+            background-color: var(--ids-inline-tab-background-color);
+            border-radius: var(--ids-inline-tab-border-radius);
+            outline: var(--ids-inline-tab-outline);
+        }
     }
 }
 
