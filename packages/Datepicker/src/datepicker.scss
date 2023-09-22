@@ -235,7 +235,7 @@
       background: transparent;
     }
 
-    &.ids-datepicker__content--selected {
+    &.ids-datepicker__content.ids-datepicker__content--selected {
         color: var(--ids-datepicker-color-disabled-selected);
         background: var(--ids-datepicker-disabled-background-selected);
     }
