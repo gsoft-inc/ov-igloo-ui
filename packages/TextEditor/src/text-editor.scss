@@ -39,6 +39,8 @@
     --ids-text-editor-private-color: #{tokens.$grey-600};
     --ids-text-editor-private-font-size: #{tokens.$font-size-2};
     --ids-text-editor-private-line-height: #{tokens.$line-height-xl};
+    --ids-text-editor-private-background: #{tokens.$dandelion-50};
+    --ids-text-editor-private-border-color: #{tokens.$dandelion-100};
 
     /* === Theme === */
 
@@ -134,6 +136,8 @@
     --ids-text-editor-private-color: var(--hop-neutral-icon-weak);
     --ids-text-editor-private-font-size: var(--hop-body-sm-font-size);
     --ids-text-editor-private-line-height: var(--hop-body-sm-line-height);
+    --ids-text-editor-private-background: var(--hop-decorative-option6-surface-weak);
+    --ids-text-editor-private-border-color: #EAC96D;
 
     /* === Theme === */
 
@@ -209,8 +213,8 @@
     }
 
     &--private {
-        --ids-text-editor-background: #{tokens.$dandelion-50};
-        --ids-text-editor-border-color: #{tokens.$dandelion-100};
+        --ids-text-editor-background: var(--ids-text-editor-private-background) ;
+        --ids-text-editor-border-color: var(--ids-text-editor-private-border-color) ;
     }
 
     &--error {
