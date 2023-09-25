@@ -184,7 +184,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
         onSelection(resultId);
         resetSearch();
 
-        if (maxTags && selectedResultsCount === maxTags - 1) {
+        if (maxTags && selectedResultsCount >= maxTags - 1) {
             setInputDisabled(true);
             setTagRemoved(false);
             onMaxTags?.();
@@ -282,6 +282,14 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
             handleGainFocus();
         }
     }, [tagRemoved, inputDisabled, handleGainFocus, autoFocus]);
+
+    useEffect(() => {
+        if (maxTags && selectedResultsCount >= maxTags - 1) {
+            setInputDisabled(true);
+            setTagRemoved(false);
+            onMaxTags?.();
+        }
+    }, [maxTags, selectedResultsCount, setInputDisabled, setTagRemoved, onMaxTags ]);
 
     const renderSelectedResults = selectedResults.map(s => {
         const tagClasses = cx("ids-tag-picker__tag", {
