@@ -33,7 +33,9 @@
     --ids-inline-tab-background-color: transparent;
     --ids-inline-tab-border-radius: 0;
     --ids-inline-tab-outline: none;
+    --ids-inline-tab-outline-offset: 0;
     --ids-inline-tab-button-font-size: #{tokens.$font-size-3};
+    --ids-inline-tab-button-line-height: #{tokens.$line-height-xxxl};
 
     /* Tab */
     --ids-inline-tab-button-padding: calc(#{tokens.$space-1} + #{tokens.$space-2}) #{tokens.$space-3};
@@ -50,7 +52,7 @@
 
     /* Tab */
     --ids-tab-button-padding: var(--hop-space-inset-sm);
-    --ids-tab-button-font-size: var(--hop-body-sm-font-size);
+    --ids-tab-button-font-size: var(--hop-body-md-font-size);
     --ids-tab-button-font-weight: var(--hop-body-md-medium-font-weight);
     --ids-tab-button-line-height: var(--hop-body-md-medium-line-height);
     --ids-tab-button-color: var(--hop-neutral-text-weak);
@@ -71,11 +73,13 @@
     --ids-inline-tab-background-color: var(--hop-neutral-surface-weakest);
     --ids-inline-tab-border-radius: var(--hop-shape-rounded-md);
     --ids-inline-tab-outline: 0.0625rem solid var(--hop-neutral-border-weak);
+    --ids-inline-tab-outline-offset: -0.0625rem;
     --ids-inline-tab-button-font-size: var(--hop-body-sm-font-size);
+    --ids-inline-tab-button-line-height: var(--hop-body-sm-line-height);
 
     /* Tab */
-    --ids-inline-tab-button-padding: 1rem 1rem;
-    --ids-inline-tab-button-after-bottom: -0.0625rem;
+    --ids-inline-tab-button-padding: calc(1rem - 0.125rem) 1rem;
+    --ids-inline-tab-button-after-bottom: 0;
     --ids-inline-tab-button-after-height: 0.125rem;
     --ids-inline-tab-button-after-horizontal-space: 1rem;
 }
@@ -94,6 +98,7 @@
             background-color: var(--ids-inline-tab-background-color);
             border-radius: var(--ids-inline-tab-border-radius);
             outline: var(--ids-inline-tab-outline);
+            outline-offset: var(--ids-inline-tab-outline-offset);
         }
     }
 }
@@ -131,6 +136,7 @@
     /* Inline Styles */
     .ids-tabs--inline & {
         font-size: var(--ids-inline-tab-button-font-size);
+        line-height: var(--ids-inline-tab-button-line-height);
         padding: var(--ids-inline-tab-button-padding);
     }
 
