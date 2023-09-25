@@ -1,5 +1,11 @@
 # @igloo-ui/stepper
 
+## 0.2.0
+
+### Minor Changes
+
+- 47f64b4: Rebrand of Stepper
+
 ## 0.1.2
 
 ### Patch Changes

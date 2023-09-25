@@ -1,5 +1,15 @@
 # @igloo-ui/progress-bar
 
+## 1.0.0
+
+### Major Changes
+
+- eea3a8c: Gave the ProgressBar component the new Brand
+
+  ### BREAKING CHANGE
+
+  isLowContrast as been removed from the ProgressBar component
+
 ## 0.1.2
 
 ### Patch Changes

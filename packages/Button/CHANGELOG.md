@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.0
+
+### Minor Changes
+
+- 8eeac98: Rebrand of dialog and modal / media query fix in rems
+
 ## 0.6.0
 
 ### Minor Changes

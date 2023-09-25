@@ -1,5 +1,13 @@
 # @igloo-ui/text-editor
 
+## 0.5.1
+
+### Patch Changes
+
+- Updated dependencies [8eeac98]
+  - @igloo-ui/button@0.7.0
+  - @igloo-ui/icon-button@1.1.3
+
 ## 0.5.0
 
 ### Minor Changes
