@@ -45,7 +45,7 @@
     --ids-tag-picker-border-color-focus: var(--hop-primary-border-focus);
     --ids-tag-picker-border-color-error: var(--hop-danger-border-strong);
     --ids-tag-picker-border-radius: var(--hop-shape-rounded-md);
-    --ids-tag-picker-font-family: var(--hop-body-md-font-size);
+    --ids-tag-picker-font-family: var(--hop-body-md-font-family);
     --ids-tag-picker-font-size: var(--hop-body-md-font-size);
     --ids-tag-picker-background-hover: var(--hop-neutral-surface-hover);
     --ids-tag-picker-background-disabled: var(--hop-neutral-surface-disabled);
@@ -159,7 +159,6 @@
     border: none;
     flex: 1 1 auto;
     height: var(--ids-tag-picker-input-height);
-    outline: 1px solid saddlebrown;
     width: 100%;
 }
 
