@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/stepper",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "main": "dist/Stepper.js",
   "module": "dist/Stepper.js",
   "types": "dist/Stepper.d.ts",
@@ -31,7 +31,7 @@
     "react-aria": "^3.27.0"
   },
   "devDependencies": {
-    "@igloo-ui/button": "^0.6.0"
+    "@igloo-ui/button": "^0.7.0"
   },
   "browserslist": [
     "> 1%",

@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/progress-bar",
-    "version": "0.1.2",
+    "version": "1.0.0",
     "main": "dist/ProgressBar.js",
     "module": "dist/ProgressBar.js",
     "types": "dist/ProgressBar.d.ts",
