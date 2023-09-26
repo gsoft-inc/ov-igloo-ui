@@ -7,6 +7,7 @@ import {
     getLocalTimeZone,
     isWeekend,
     now,
+    parseAbsolute,
     parseAbsoluteToLocal,
     ZonedDateTime
 } from "@internationalized/date";
@@ -67,6 +68,8 @@ export interface DatepickerProps {
     readOnly?: boolean;
     /** The locale to use for formatting/parsing. If not specified, the default locale will be used. */
     locale?: string;
+    /** If true, the date picker will manage everything in UTC. */
+    manageEverythingInUtc?: boolean;
 }
 
 const Datepicker: React.FunctionComponent<DatepickerProps> = ({
@@ -90,14 +93,20 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     highlightToday = true,
     weekendUnavailable = false,
     readOnly = false,
+    manageEverythingInUtc = false,
     locale,
     ...rest
 }: DatepickerProps) => {
     const { locale: ariaLocale } = useLocale();
     const internalLocale = locale || ariaLocale;
-    const dateTimeOfDay = now(getLocalTimeZone());
+    const timeZone = manageEverythingInUtc ? "utc" : getLocalTimeZone();
+    const dateTimeOfDay = now(timeZone);
 
     const formatDate = (date: string | undefined): ZonedDateTime | undefined => {
+        if (date && manageEverythingInUtc) {
+            return parseAbsolute(date, 'utc');
+        }
+
         if (date) {
             return parseAbsoluteToLocal(date);
         }
@@ -146,6 +155,10 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     };
 
     const isDateUnavailable = (date: DateValue): boolean => {
+        if(weekendUnavailable && manageEverythingInUtc) {
+            return isWeekend(date, 'utc');
+        }
+
         if (weekendUnavailable && internalLocale) {
             return isWeekend(date, internalLocale);
         }
