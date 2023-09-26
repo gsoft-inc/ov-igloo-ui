@@ -53,7 +53,10 @@ export interface TagProps extends React.ComponentProps<"div"> {
     hasError?: boolean;
     /** Callback to execute on remove tag */
     onRemove?: (id: string) => void;
-    /** Render rounded corners */
+    /**
+     * Render rounded corners
+     * After rebrand this will be deprecated and rounded will be true by default
+    */
     rounded?: boolean;
     /** The different sizes of the Tag */
     size?: Size;
