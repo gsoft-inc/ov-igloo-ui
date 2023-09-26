@@ -202,8 +202,8 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
         const isFormatYYYYMMDD = inputValue.indexOf('-') === 4 || inputValue.indexOf('/') === 4
 
         const date = isFormatYYYYMMDD ?
-            inputValue.split(/[\/-]/).join('-') :
-            inputValue.split(/[\/-]/).reverse().join('-');
+            inputValue.split(/[/-]/).join('-') :
+            inputValue.split(/[/-]/).reverse().join('-');
 
         if(isValidInputDate ) {
             const isoDate = DateTime.fromISO(date);
