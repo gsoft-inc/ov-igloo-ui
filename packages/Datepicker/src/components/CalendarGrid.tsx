@@ -37,7 +37,7 @@ const CalendarGrid = ({
                     ))}
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="ids-datepicker__body">
                 {[...new Array(weeksInMonth).keys()].map(weekIndex => (
                     <tr key={weekIndex}>
                         {state
