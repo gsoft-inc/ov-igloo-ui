@@ -22,6 +22,11 @@
     --ids-tab-button-after-height: calc(#{tokens.$space-1} / 2);
     --ids-tab-button-after-bottom: calc(#{tokens.$space-2} - var(--ids-tab-button-after-height));
     --ids-tab-button-after-background: #{tokens.$electric-blue-500};
+    --ids-tab-button-focus-outline-size: 0.2rem;
+    --ids-tab-button-focus-outline-color: var(--hop-primary-surface-strong);
+    --ids-tab-button-focus-outline-radius: var(--hop-shape-rounded-sm);
+    --ids-tab-button-focus-height: 100%;
+    --ids-tab-button-focus-width: 100%;
 
     /* Icons */
     --ids-tab-icon-margin-left: #{tokens.$space-1};
@@ -36,6 +41,8 @@
     --ids-inline-tab-outline-offset: 0;
     --ids-inline-tab-button-font-size: #{tokens.$font-size-3};
     --ids-inline-tab-button-line-height: #{tokens.$line-height-xxxl};
+    --ids-inline-tab-button-focus-height: 100%;
+    --ids-inline-tab-button-focus-width: 100%;
 
     /* Tab */
     --ids-inline-tab-button-padding: calc(#{tokens.$space-1} + #{tokens.$space-2}) #{tokens.$space-3};
@@ -60,8 +67,13 @@
     --ids-tab-button-active-color: var(--hop-neutral-text);
     --ids-tab-button-after-horizontal-space: 0.5rem;
     --ids-tab-button-after-height: 0.125rem;
-    --ids-tab-button-after-bottom: calc(0.5rem - var(--ids-tab-button-after-height));
+    --ids-tab-button-after-bottom: 0.25rem;
     --ids-tab-button-after-background: var(--hop-neutral-border-active);
+    --ids-tab-button-focus-outline-size: 0.125rem;
+    --ids-tab-button-focus-outline-color: var(--hop-primary-surface-strong);
+    --ids-tab-button-focus-outline-radius: var(--hop-shape-rounded-sm);
+    --ids-tab-button-focus-height: calc(100% - calc(var(--ids-tab-button-padding) * 2));
+    --ids-tab-button-focus-width: calc(100% - calc(var(--ids-tab-button-padding) * 2 - calc(var(--ids-tab-button-focus-outline-size) * 2)));
 
     /* Icons */
     --ids-tab-icon-margin-left: var(--hop-space-inline-xs);
@@ -74,8 +86,11 @@
     --ids-inline-tab-border-radius: var(--hop-shape-rounded-md);
     --ids-inline-tab-outline: 0.0625rem solid var(--hop-neutral-border-weak);
     --ids-inline-tab-outline-offset: -0.0625rem;
+    --ids-inline-tab-outline-focus-offset: -6px;
     --ids-inline-tab-button-font-size: var(--hop-body-sm-font-size);
     --ids-inline-tab-button-line-height: var(--hop-body-sm-line-height);
+    --ids-inline-tab-button-focus-height: calc(100% - 1.5rem);
+    --ids-inline-tab-button-focus-width: calc(100% - 1.5rem);
 
     /* Tab */
     --ids-inline-tab-button-padding: calc(1rem - 0.125rem) 1rem;
@@ -146,6 +161,32 @@
 
     &:hover {
         color: var(--ids-tab-button-hover-color);
+    }
+
+    &:focus-visible {
+        outline: none;
+
+        &::before {
+            display: block;
+        }
+    }
+
+    &::before {
+        border: var(--ids-tab-button-focus-outline-size) solid var(--ids-tab-button-focus-outline-color);
+        border-radius: var(--ids-tab-button-focus-outline-radius);
+        content: "";
+        display: none;
+        height: var(--ids-tab-button-focus-height);
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%) translateY(-0.125rem);
+        width: var(--ids-tab-button-focus-width);
+
+        .ids-tabs--inline & {
+            height: var(--ids-inline-tab-button-focus-height);
+            width: var(--ids-inline-tab-button-focus-width);
+            transform: translateX(-50%) translateY(0);
+        }
     }
 
     &::after {
