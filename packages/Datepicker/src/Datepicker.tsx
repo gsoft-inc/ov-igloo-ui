@@ -195,18 +195,25 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const { value: inputValue } = e.target;
-        if (inputValue) {
-            const date = DateTime.fromISO(inputValue);
-            if (date.isValid) {
-                if (isDateSelectable(date)) {
-                    handleChange(date);
+        const { value: inputValue } = e.target
+
+        const dateRegEx = /^(?:\d{4}[-/]\d{2}[-/]\d{2}|\d{2}[-/]\d{2}[-/]\d{4})$/;
+        const isValidInputDate = dateRegEx.test(inputValue);
+        const isFormatYYYYMMDD = inputValue.indexOf('-') === 4 || inputValue.indexOf('/') === 4
+
+        const date = isFormatYYYYMMDD ?
+            inputValue.split(/[\/-]/).join('-') :
+            inputValue.split(/[\/-]/).reverse().join('-');
+
+        if(isValidInputDate ) {
+            const isoDate = DateTime.fromISO(date);
+            if (isoDate.isValid) {
+                if (isDateSelectable(isoDate)) {
+                    handleChange(isoDate);
                 } else {
-                    handleDateUnavailable(date);
+                    handleDateUnavailable(isoDate);
                 }
             }
-        } else {
-            handleClear();
         }
     };
 
@@ -272,7 +279,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
                 dataTest={dataTest}
                 {...rest}
             >
-                <Input {...inputProps} />
+                <Input {...inputProps}  />
             </Dropdown>
         </I18nProvider>
     );
