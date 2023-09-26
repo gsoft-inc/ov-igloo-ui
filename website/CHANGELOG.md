@@ -1,5 +1,35 @@
 # docs
 
+## 0.2.1
+
+### Patch Changes
+
+- 8eeac98: Rebrand of dialog and modal / media query fix in rems
+- Updated dependencies [88a777e]
+- Updated dependencies [8f2ab36]
+- Updated dependencies [eea3a8c]
+- Updated dependencies [8eeac98]
+- Updated dependencies [47f64b4]
+- Updated dependencies [d9f9f12]
+- Updated dependencies [d9f9f12]
+- Updated dependencies [36fbdcc]
+- Updated dependencies [24c2194]
+  - @igloo-ui/carousel@0.2.0
+  - @igloo-ui/select@1.3.4
+  - @igloo-ui/progress-bar@1.0.0
+  - @igloo-ui/alert@0.6.0
+  - @igloo-ui/button@0.7.0
+  - @igloo-ui/dialog@0.6.0
+  - @igloo-ui/modal@1.4.0
+  - @igloo-ui/stepper@0.2.0
+  - @igloo-ui/combobox@2.1.0
+  - @igloo-ui/ellipsis@0.2.0
+  - @igloo-ui/option-button@0.1.0
+  - @igloo-ui/datepicker@0.3.2
+  - @igloo-ui/icon-button@1.1.3
+  - @igloo-ui/text-editor@0.5.1
+  - @igloo-ui/tag@1.1.1
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # @igloo-ui/combobox
 
+## 2.1.0
+
+### Minor Changes
+
+- d9f9f12: Gave the Combobox component the new Brand
+
+### Patch Changes
+
+- @igloo-ui/icon-button@1.1.3
+
 ## 2.0.3
 
 ### Patch Changes

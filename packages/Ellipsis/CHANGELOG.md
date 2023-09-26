@@ -1,5 +1,11 @@
 # @igloo-ui/ellipsis
 
+## 0.2.0
+
+### Minor Changes
+
+- 36fbdcc: Rebrand of Ellipsis
+
 ## 0.1.11
 
 ### Patch Changes

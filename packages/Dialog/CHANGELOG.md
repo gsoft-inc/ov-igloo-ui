@@ -1,5 +1,17 @@
 # @igloo-ui/dialog
 
+## 0.6.0
+
+### Minor Changes
+
+- 8eeac98: Rebrand of dialog and modal / media query fix in rems
+
+### Patch Changes
+
+- Updated dependencies [8eeac98]
+  - @igloo-ui/button@0.7.0
+  - @igloo-ui/modal@1.4.0
+
 ## 0.5.1
 
 ### Patch Changes

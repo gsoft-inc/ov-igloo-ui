@@ -35,7 +35,7 @@ exports[`Datapicker It should render a snapshot 1`] = `
     </div>
   </div>
   <div
-    class="ids-dropdown ids-dropdown--medium ids-dropdown--bottom-start"
+    class="ids-dropdown ids-datepicker__dropdown ids-dropdown--medium ids-dropdown--bottom-start"
     data-show="true"
     data-test="datepicker1"
     style="position: fixed; top: 0px; left: 0px;"
@@ -158,7 +158,9 @@ exports[`Datapicker It should render a snapshot 1`] = `
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody
+            class="ids-datepicker__body"
+          >
             <tr>
               <td
                 aria-disabled="true"

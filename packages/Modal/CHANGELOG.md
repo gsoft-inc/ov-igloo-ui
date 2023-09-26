@@ -1,5 +1,17 @@
 # @igloo-ui/modal
 
+## 1.4.0
+
+### Minor Changes
+
+- 8eeac98: Rebrand of dialog and modal / media query fix in rems
+
+### Patch Changes
+
+- Updated dependencies [88a777e]
+  - @igloo-ui/carousel@0.2.0
+  - @igloo-ui/icon-button@1.1.3
+
 ## 1.3.3
 
 ### Patch Changes
