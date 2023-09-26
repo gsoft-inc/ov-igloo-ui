@@ -261,7 +261,8 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
         prefixIcon: <IconCalendar />,
         type: "text",
         onFocus,
-        onChange: handleInputChange
+        onChange: handleInputChange,
+        className: 'ids-datepicker__input'
     };
 
     if (readOnly) {
