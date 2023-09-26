@@ -55,7 +55,7 @@
     /* Default */
     --ids-tabs-font-family: var(--hop-body-sm-font-family);
     --ids-tabs-font-size: var(--hop-body-sm-font-size);
-    --ids-tabs-margin: #{tokens.$space-0} #{tokens.$space-0} 1.25rem;
+    --ids-tabs-margin: 0 0 1.25rem;
 
     /* Tab */
     --ids-tab-button-padding: var(--hop-space-inset-sm);
@@ -93,7 +93,7 @@
     --ids-inline-tab-button-focus-width: calc(100% - 1.5rem);
 
     /* Tab */
-    --ids-inline-tab-button-padding: calc(1rem - 0.125rem) 1rem;
+    --ids-inline-tab-button-padding: calc(var(--hop-space-inset-md) - 0.125rem) var(--hop-space-inset-md);
     --ids-inline-tab-button-after-bottom: 0;
     --ids-inline-tab-button-after-height: 0.125rem;
     --ids-inline-tab-button-after-horizontal-space: 1rem;
@@ -109,7 +109,7 @@
         margin: var(--ids-tabs-margin);
         padding: 0;
 
-        .ids-tabs--inline &  {
+        .ids-tabs--inline & {
             background-color: var(--ids-inline-tab-background-color);
             border-radius: var(--ids-inline-tab-border-radius);
             outline: var(--ids-inline-tab-outline);
