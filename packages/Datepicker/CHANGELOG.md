@@ -1,5 +1,11 @@
 # @igloo-ui/datepicker
 
+## 0.4.0
+
+### Minor Changes
+
+- 4b2b39b: Rebrand of Datepicker
+
 ## 0.3.2
 
 ### Patch Changes
