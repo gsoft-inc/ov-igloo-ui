@@ -101,7 +101,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     onTagRemove,
     placeholder,
     results,
-    selectedResults,
+    selectedResults: selectedResultsProp,
     showSearchIcon,
     separators = [Keys.Enter],
     ...rest
@@ -118,11 +118,22 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     const [keyboardFocusIndex, setKeyboardFocusIndex] = useState(
         defaultKeyboardFocusIndex
     );
+    const selectedResults = maxTags ? selectedResultsProp.slice(0, maxTags) : selectedResultsProp;
     const selectedResultsCount = selectedResults.length;
+    const hasTooManyTags = selectedResults.length !== selectedResultsProp.length;
+
+    hasTooManyTags && console.warn(
+        "The selectedResults length is greater than the maxTags count for the TagPicker. " +
+        "For this reason, some tags are not displayed."
+    );
 
     const hasResults = !!results;
     const shouldShowResults =
     !disabled && focused && showResults && (hasResults || loading);
+
+    const getBrand = (): string => {
+        return document.documentElement.getAttribute("data-brand") ?? "igloo";
+    };
 
     const handleChange = ({
         target
@@ -184,7 +195,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
         onSelection(resultId);
         resetSearch();
 
-        if (maxTags && selectedResultsCount >= maxTags - 1) {
+        if (maxTags && selectedResultsCount === maxTags) {
             setInputDisabled(true);
             setTagRemoved(false);
             onMaxTags?.();
@@ -284,7 +295,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     }, [tagRemoved, inputDisabled, handleGainFocus, autoFocus]);
 
     useEffect(() => {
-        if (maxTags && selectedResultsCount >= maxTags - 1) {
+        if (maxTags && selectedResultsCount === maxTags) {
             setInputDisabled(true);
             setTagRemoved(false);
             onMaxTags?.();
@@ -305,7 +316,8 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
                 color={s.color}
                 icon={s.icon}
                 dismissible={!disabled}
-                appearance="neutral"
+                appearance={getBrand() === "workleap" ? "default" : "neutral"}
+                rounded={getBrand() === "workleap"}
                 onRemove={handleTagRemove}
                 hasError={s.hasError}
             >

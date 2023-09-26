@@ -37,7 +37,7 @@ const TagPickerResult: React.FunctionComponent<TagPickerResultProps> = (
     const { focused, onSelect, onHover, result } = props;
     const classes = cx("ids-tag-picker-result", {
         "ids-tag-picker-result--focused": focused
-  });
+    });
 
     const shouldShowVisualIdentifier = result.src || result.color || result.icon;
 
