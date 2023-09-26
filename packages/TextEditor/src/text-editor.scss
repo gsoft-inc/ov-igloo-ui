@@ -107,7 +107,7 @@
     --ids-text-editor-border-color: var(--hop-neutral-border);
     --ids-text-editor-border-radius: var(--hop-shape-rounded-md);
     --ids-text-editor-color: var(--hop-neutral-color);
-    --ids-text-editor-padding: var(--hop-space-stack-sm) var(--hop-space-inline-md);
+    --ids-text-editor-padding: var(--hop-space-inset-sm) var(--hop-space-inset-md);
     --ids-text-editor-line-height: var(--hop-body-md-line-height);
     --ids-text-editor-placeholder-color: var(--hop-neutral-text-weakest);
     --ids-text-editor-min-height: 7.5rem;
@@ -156,7 +156,7 @@
     --ids-text-editor-code-font-size: var(--hop-body-sm-font-size);
     --ids-text-editor-code-line-height: var(--hop-body-sm-line-height);
     --ids-text-editor-code-margin: var(--hop-space-stack-sm) 0;
-    --ids-text-editor-code-padding: var(--hop-space-stack-sm) var(--hop-space-inline-sm) var(--hop-space-stack-sm) 3rem;
+    --ids-text-editor-code-padding: var(--hop-space-inset-sm) var(--hop-space-inset-sm) var(--hop-space-inset-sm) 3rem;
     --ids-text-editor-code-before-background: var(--hop-neutral-surface-weak);
     --ids-text-editor-code-before-border-color: var(--hop-neutral-border-weak);
     --ids-text-editor-code-before-color: var(--hop-neutral-text);
@@ -189,7 +189,7 @@
     --ids-text-editor-quote-border-color: var(--hop-neutral-border);
     --ids-text-editor-quote-border-size: 0.25rem;
     --ids-text-editor-quote-margin: 0 0 var(--hop-space-stack-sm) var(--hop-space-inline-md);
-    --ids-text-editor-quote-padding: 0 0 0 var(--hop-space-inline-md);
+    --ids-text-editor-quote-padding: 0 0 0 var(--hop-space-inset-md);
 
     /* List */
     --ids-text-editor-list-margin: var(--hop-space-stack-sm) var(--hop-space-inline-xl);
