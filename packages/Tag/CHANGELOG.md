@@ -1,5 +1,11 @@
 # @igloo-ui/tag
 
+## 1.2.0
+
+### Minor Changes
+
+- 09c0000: update tag to change border-radius to match new brand
+
 ## 1.1.1
 
 ### Patch Changes

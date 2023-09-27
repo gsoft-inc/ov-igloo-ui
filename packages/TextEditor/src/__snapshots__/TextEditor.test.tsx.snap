@@ -10,7 +10,7 @@ exports[`TextEditor It should render a snapshot 1`] = `
       class="ids-toolbar"
     >
       <button
-        class="ids-btn ids-icon-btn ids-icon-btn--small ids-toolbar__btn ids-btn--ghost-secondary"
+        class="ids-btn ids-icon-btn ids-icon-btn--medium ids-toolbar__btn ids-btn--ghost-secondary"
         title="Bold"
         type="button"
       >
@@ -35,7 +35,7 @@ exports[`TextEditor It should render a snapshot 1`] = `
         </span>
       </button>
       <button
-        class="ids-btn ids-icon-btn ids-icon-btn--small ids-toolbar__btn ids-btn--ghost-secondary"
+        class="ids-btn ids-icon-btn ids-icon-btn--medium ids-toolbar__btn ids-btn--ghost-secondary"
         title="Italic"
         type="button"
       >
@@ -60,7 +60,7 @@ exports[`TextEditor It should render a snapshot 1`] = `
         </span>
       </button>
       <button
-        class="ids-btn ids-icon-btn ids-icon-btn--small ids-toolbar__btn ids-btn--ghost-secondary"
+        class="ids-btn ids-icon-btn ids-icon-btn--medium ids-toolbar__btn ids-btn--ghost-secondary"
         title="Underline"
         type="button"
       >
@@ -85,7 +85,7 @@ exports[`TextEditor It should render a snapshot 1`] = `
         </span>
       </button>
       <button
-        class="ids-btn ids-icon-btn ids-icon-btn--small ids-toolbar__btn ids-btn--ghost-secondary"
+        class="ids-btn ids-icon-btn ids-icon-btn--medium ids-toolbar__btn ids-btn--ghost-secondary"
         title="Strikethrough"
         type="button"
       >
@@ -113,7 +113,7 @@ exports[`TextEditor It should render a snapshot 1`] = `
         class="ids-toolbar__divider"
       />
       <button
-        class="ids-btn ids-icon-btn ids-icon-btn--small ids-toolbar__btn ids-btn--ghost-secondary"
+        class="ids-btn ids-icon-btn ids-icon-btn--medium ids-toolbar__btn ids-btn--ghost-secondary"
         title="Link"
         type="button"
       >
@@ -141,7 +141,7 @@ exports[`TextEditor It should render a snapshot 1`] = `
         class="ids-toolbar__divider"
       />
       <button
-        class="ids-btn ids-icon-btn ids-icon-btn--small ids-toolbar__btn ids-btn--ghost-secondary"
+        class="ids-btn ids-icon-btn ids-icon-btn--medium ids-toolbar__btn ids-btn--ghost-secondary"
         title="Ordered List"
         type="button"
       >
@@ -166,7 +166,7 @@ exports[`TextEditor It should render a snapshot 1`] = `
         </span>
       </button>
       <button
-        class="ids-btn ids-icon-btn ids-icon-btn--small ids-toolbar__btn ids-btn--ghost-secondary"
+        class="ids-btn ids-icon-btn ids-icon-btn--medium ids-toolbar__btn ids-btn--ghost-secondary"
         title="Unordered List"
         type="button"
       >
@@ -191,7 +191,7 @@ exports[`TextEditor It should render a snapshot 1`] = `
         </span>
       </button>
       <button
-        class="ids-btn ids-toolbar__btn-clear ids-btn--ghost-secondary ids-btn--small"
+        class="ids-btn ids-toolbar__btn-clear ids-btn--ghost-secondary ids-btn--size-mobile"
         disabled=""
         title="Clear all text"
         type="button"

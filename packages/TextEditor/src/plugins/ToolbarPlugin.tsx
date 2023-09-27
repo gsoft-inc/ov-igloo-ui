@@ -188,7 +188,7 @@ export const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
   return (
     <div className={classes} tabIndex={ showOnFocus ? 0 : undefined}>
       <IconButton
-        size="small"
+        size="medium"
         icon={<Bold size="medium" />}
         className="ids-toolbar__btn"
         active={isBold}
@@ -202,7 +202,7 @@ export const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
       />
 
       <IconButton
-        size="small"
+        size="medium"
         icon={<Italic size="medium" />}
         className="ids-toolbar__btn"
         active={isItalic}
@@ -216,7 +216,7 @@ export const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
       />
 
       <IconButton
-        size="small"
+        size="medium"
         icon={<Underline size="medium" />}
         className="ids-toolbar__btn"
         active={isUnderline}
@@ -230,7 +230,7 @@ export const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
       />
 
       <IconButton
-        size="small"
+        size="medium"
         icon={<Strikethrough size="medium" />}
         className="ids-toolbar__btn"
         active={isStrikethrough}
@@ -246,7 +246,7 @@ export const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
       <Divider />
 
       <IconButton
-        size="small"
+        size="medium"
         icon={<LinkIcon size="medium" />}
         className="ids-toolbar__btn"
         active={isLink}
@@ -260,7 +260,7 @@ export const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
       <Divider />
 
       <IconButton
-        size="small"
+        size="medium"
         icon={<OrderedList size="medium" />}
         onClick={formatNumberedList}
         className="ids-toolbar__btn"
@@ -270,7 +270,7 @@ export const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
         title={messages?.orderedList?.tooltip}
       />
       <IconButton
-        size="small"
+        size="medium"
         icon={<UnorderedList size="medium" />}
         onClick={formatBulletList}
         className="ids-toolbar__btn"
@@ -282,7 +282,7 @@ export const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
 
       {isClearable && (
         <Button
-          size="small"
+          size="medium"
           className="ids-toolbar__btn-clear"
           appearance={{ type: 'ghost', variant: 'secondary' }}
           disabled={isEditorEmpty || disabled}
@@ -291,6 +291,7 @@ export const ToolbarPlugin: React.FunctionComponent<ToolbarProps> = ({
             editor.focus();
           }}
           title={messages?.clear?.tooltip}
+          resetSizeOnMobile
         >
           {messages?.clear?.text}
         </Button>
