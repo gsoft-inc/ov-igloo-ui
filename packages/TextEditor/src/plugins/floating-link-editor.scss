@@ -1,5 +1,5 @@
-@use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
-@use '~@igloo-ui/tokens/dist/fonts';
+@use "~@igloo-ui/tokens/dist/base10/variables" as tokens;
+@use "~@igloo-ui/tokens/dist/fonts";
 
 :root {
     /* Default */
@@ -7,6 +7,8 @@
     --ids-link-editor-font-size: #{tokens.$font-size-4};
     --ids-link-editor-background: #{tokens.$samoyed};
     --ids-link-editor-padding: #{tokens.$space-3};
+    --isa-link-editor-border-width: 0;
+    --ids-link-editor-border-color: transparent;
     --ids-link-editor-border-radius: #{tokens.$border-radius-sm};
     --ids-link-editor-line-height: #{tokens.$line-height-xxl};
     --ids-link-editor-z-index: #{tokens.$z-index-max};
@@ -17,9 +19,26 @@
     --ids-link-editor-max-width: 30rem;
 }
 
+[data-brand="workleap"] {
+    /* Default */
+    --ids-link-editor-font-family: var(--hop-body-md-font-family);
+    --ids-link-editor-font-size: var(--hop-body-md-font-size);
+    --ids-link-editor-background: var(--hop-neutral-surface);
+    --ids-link-editor-padding: var(--hop-space-inset-md);
+    --ids-link-editor-border-width: 0.0625rem;
+    --ids-link-editor-border-color: var(--hop-neutral-border-weak);
+    --ids-link-editor-border-radius: var(--hop-shape-rounded-md);
+    --ids-link-editor-line-height: var(--hop-body-md-line-height);
+    --ids-link-editor-text: var(--hop-neutral-text);
+    --ids-link-editor-shadow: var(--hop-elevation-lifted);
+    --ids-link-editor-button-margin: var(--hop-space-inline-sm);
+    --ids-link-editor-max-width: 18.75rem;
+}
+
 .ids-link-editor {
     align-items: center;
     background-color: var(--ids-link-editor-background);
+    border: var(--ids-link-editor-border-width) solid var(--ids-link-editor-border-color);
     border-radius: var(--ids-link-editor-border-radius);
     box-shadow: var(--ids-link-editor-shadow);
     color: var(--ids-link-editor-text);
@@ -36,12 +55,12 @@
     width: var(--ids-link-editor-width);
     will-change: transform;
     z-index: var(--ids-link-editor-z-index);
-    
+
     &,
     & * {
         box-sizing: border-box;
     }
-    
+
     &--hidden {
         display: none;
     }
@@ -68,7 +87,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  
+
     &:focus,
     &:hover {
         cursor: pointer;
