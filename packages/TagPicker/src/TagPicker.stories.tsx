@@ -167,10 +167,12 @@ export const MaxTags = () => {
     setShowMessage(true);
   };
 
+  const MAX_TAGS = 2;
+
   return (
     <FormGroup
       messageType="info"
-      message="You’ve reached your 5 recipient limit"
+      message={`You’ve reached your ${MAX_TAGS} recipient limit`}
       showMessage={showMessage}
     >
       <TagPicker
@@ -180,8 +182,8 @@ export const MaxTags = () => {
         onSelection={select}
         onTagRemove={remove}
         noResultsText="No results"
-        placeholder="Try entering more than 5 tags"
-        maxTags={5}
+        placeholder={`Try entering more than ${MAX_TAGS} tags`}
+        maxTags={MAX_TAGS}
         onMaxTags={onMaxTags}
         showSearchIcon
       />

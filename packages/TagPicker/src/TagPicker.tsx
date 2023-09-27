@@ -101,7 +101,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     onTagRemove,
     placeholder,
     results,
-    selectedResults: selectedResultsProp,
+    selectedResults,
     showSearchIcon,
     separators = [Keys.Enter],
     ...rest
@@ -118,15 +118,8 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     const [keyboardFocusIndex, setKeyboardFocusIndex] = useState(
         defaultKeyboardFocusIndex
     );
-    const selectedResults = maxTags ? selectedResultsProp.slice(0, maxTags) : selectedResultsProp;
+
     const selectedResultsCount = selectedResults.length;
-    const hasTooManyTags = selectedResults.length !== selectedResultsProp.length;
-
-    hasTooManyTags && console.warn(
-        "The selectedResults length is greater than the maxTags count for the TagPicker. " +
-        "For this reason, some tags are not displayed."
-    );
-
     const hasResults = !!results;
     const shouldShowResults =
     !disabled && focused && showResults && (hasResults || loading);
@@ -241,9 +234,8 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
 
         if (
             !hasResults &&
-      separators &&
-      Object.values<string>(separators).includes(e.key) &&
-      value
+            separators &&
+            Object.values<string>(separators).includes(e.key) && value
         ) {
             handleResultSelection(value);
             e.preventDefault();
@@ -283,6 +275,14 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     };
 
     useEffect(() => {
+        if(maxTags && selectedResultsCount === maxTags) {
+          setInputDisabled(true);
+          setTagRemoved(false);
+          onMaxTags?.();
+        }
+    }, [maxTags, selectedResultsCount]);
+
+    useEffect(() => {
         if (results && results.length === 0) {
             resetKeyboardFocus();
         }
@@ -293,14 +293,6 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
             handleGainFocus();
         }
     }, [tagRemoved, inputDisabled, handleGainFocus, autoFocus]);
-
-    useEffect(() => {
-        if (maxTags && selectedResultsCount === maxTags) {
-            setInputDisabled(true);
-            setTagRemoved(false);
-            onMaxTags?.();
-        }
-    }, [maxTags, selectedResultsCount, setInputDisabled, setTagRemoved, onMaxTags ]);
 
     const renderSelectedResults = selectedResults.map(s => {
         const tagClasses = cx("ids-tag-picker__tag", {
