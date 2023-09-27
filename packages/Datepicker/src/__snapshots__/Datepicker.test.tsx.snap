@@ -28,7 +28,7 @@ exports[`Datapicker It should render a snapshot 1`] = `
         </svg>
       </span>
       <input
-        class="ids-input ids-input--prefixIcon"
+        class="ids-input ids-datepicker__input ids-input--prefixIcon"
         type="text"
         value=""
       />
