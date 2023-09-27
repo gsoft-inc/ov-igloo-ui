@@ -23,6 +23,8 @@ import "./datepicker.scss";
 
 interface Date { utc: string; local: string }
 
+const dateRegEx = /^(?:\d{4}[-/]\d{2}[-/]\d{2}|\d{2}[-/]\d{2}[-/]\d{4})$/;
+
 export interface DatepickerProps {
     /** Selected value for the date picker.
      * These props represent the local date of the user
@@ -197,7 +199,6 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { value: inputValue } = e.target
 
-        const dateRegEx = /^(?:\d{4}[-/]\d{2}[-/]\d{2}|\d{2}[-/]\d{2}[-/]\d{4})$/;
         const isValidInputDate = dateRegEx.test(inputValue);
         const isFormatYYYYMMDD = inputValue.indexOf('-') === 4 || inputValue.indexOf('/') === 4
 
@@ -205,7 +206,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
             inputValue.split(/[/-]/).join('-') :
             inputValue.split(/[/-]/).reverse().join('-');
 
-        if(isValidInputDate ) {
+        if(isValidInputDate) {
             const isoDate = DateTime.fromISO(date);
             if (isoDate.isValid) {
                 if (isDateSelectable(isoDate)) {
