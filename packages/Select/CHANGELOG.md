@@ -1,5 +1,13 @@
 # @igloo-ui/select
 
+## 1.3.4
+
+### Patch Changes
+
+- 8f2ab36: Gave the Select component the new Brand.
+- d9f9f12: fixed style problem with the new brand
+  - @igloo-ui/icon-button@1.1.3
+
 ## 1.3.3
 
 ### Patch Changes

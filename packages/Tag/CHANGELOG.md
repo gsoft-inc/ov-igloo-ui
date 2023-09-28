@@ -1,5 +1,19 @@
 # @igloo-ui/tag
 
+## 1.2.0
+
+### Minor Changes
+
+- 09c0000: update tag to change border-radius to match new brand
+
+## 1.1.1
+
+### Patch Changes
+
+- Updated dependencies [36fbdcc]
+  - @igloo-ui/ellipsis@0.2.0
+  - @igloo-ui/icon-button@1.1.3
+
 ## 1.1.0
 
 ### Minor Changes

@@ -7,6 +7,7 @@ import {
     getLocalTimeZone,
     isWeekend,
     now,
+    parseAbsolute,
     parseAbsoluteToLocal,
     ZonedDateTime
 } from "@internationalized/date";
@@ -21,6 +22,8 @@ import Calendar from "./components/Calendar";
 import "./datepicker.scss";
 
 interface Date { utc: string; local: string }
+
+const dateRegEx = /^(?:\d{4}[-/]\d{2}[-/]\d{2}|\d{2}[-/]\d{2}[-/]\d{4})$/;
 
 export interface DatepickerProps {
     /** Selected value for the date picker.
@@ -67,6 +70,8 @@ export interface DatepickerProps {
     readOnly?: boolean;
     /** The locale to use for formatting/parsing. If not specified, the default locale will be used. */
     locale?: string;
+    /** If true, the date picker will manage everything in UTC. */
+    manageEverythingInUtc?: boolean;
 }
 
 const Datepicker: React.FunctionComponent<DatepickerProps> = ({
@@ -90,14 +95,20 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     highlightToday = true,
     weekendUnavailable = false,
     readOnly = false,
+    manageEverythingInUtc = false,
     locale,
     ...rest
 }: DatepickerProps) => {
     const { locale: ariaLocale } = useLocale();
     const internalLocale = locale || ariaLocale;
-    const dateTimeOfDay = now(getLocalTimeZone());
+    const timeZone = manageEverythingInUtc ? "utc" : getLocalTimeZone();
+    const dateTimeOfDay = now(timeZone);
 
     const formatDate = (date: string | undefined): ZonedDateTime | undefined => {
+        if (date && manageEverythingInUtc) {
+            return parseAbsolute(date, 'utc');
+        }
+
         if (date) {
             return parseAbsoluteToLocal(date);
         }
@@ -146,6 +157,10 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     };
 
     const isDateUnavailable = (date: DateValue): boolean => {
+        if(weekendUnavailable && manageEverythingInUtc) {
+            return isWeekend(date, 'utc');
+        }
+
         if (weekendUnavailable && internalLocale) {
             return isWeekend(date, internalLocale);
         }
@@ -182,18 +197,24 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const { value: inputValue } = e.target;
-        if (inputValue) {
-            const date = DateTime.fromISO(inputValue);
-            if (date.isValid) {
-                if (isDateSelectable(date)) {
-                    handleChange(date);
+        const { value: inputValue } = e.target
+
+        const isValidInputDate = dateRegEx.test(inputValue);
+        const isFormatYYYYMMDD = inputValue.indexOf('-') === 4 || inputValue.indexOf('/') === 4
+
+        const date = isFormatYYYYMMDD ?
+            inputValue.split(/[/-]/).join('-') :
+            inputValue.split(/[/-]/).reverse().join('-');
+
+        if(isValidInputDate) {
+            const isoDate = DateTime.fromISO(date);
+            if (isoDate.isValid) {
+                if (isDateSelectable(isoDate)) {
+                    handleChange(isoDate);
                 } else {
-                    handleDateUnavailable(date);
+                    handleDateUnavailable(isoDate);
                 }
             }
-        } else {
-            handleClear();
         }
     };
 
@@ -241,7 +262,8 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
         prefixIcon: <IconCalendar />,
         type: "text",
         onFocus,
-        onChange: handleInputChange
+        onChange: handleInputChange,
+        className: 'ids-datepicker__input'
     };
 
     if (readOnly) {
@@ -255,10 +277,11 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
                 onClose={onClose}
                 content={calendar}
                 size="medium"
+                className="ids-datepicker__dropdown"
                 dataTest={dataTest}
                 {...rest}
             >
-                <Input {...inputProps} />
+                <Input {...inputProps}  />
             </Dropdown>
         </I18nProvider>
     );

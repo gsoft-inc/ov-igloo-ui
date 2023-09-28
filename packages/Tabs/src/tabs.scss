@@ -1,115 +1,212 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
-  /* Default */
-  --ids-tabs-font-family: #{tokens.$primary-font-family};
-  --ids-tabs-font-size: #{tokens.$font-size-4};
-  --ids-tabs-margin: #{tokens.$space-0} #{tokens.$space-0} 2rem;
+    /* Default */
+    --ids-tabs-font-family: #{tokens.$primary-font-family};
+    --ids-tabs-font-size: #{tokens.$font-size-4};
+    --ids-tabs-margin: #{tokens.$space-0} #{tokens.$space-0} 2rem;
 
-  /* Tab */
-  --ids-tab-button-padding: #{tokens.$space-2};
-  --ids-tab-button-font-size: #{tokens.$font-size-4};
-  --ids-tab-button-font-weight: #{tokens.$font-weight-medium};
-  --ids-tab-button-line-height: #{tokens.$line-height-xxxl};
-  --ids-tab-button-color: #{tokens.$grey-600};
-  --ids-tab-button-hover-color: #{tokens.$electric-blue-500};
-  --ids-tab-button-active-color: #{tokens.$electric-blue-500};
-  --ids-tab-button-after-horizontal-space: #{tokens.$space-2};
-  --ids-tab-button-after-height: calc(#{tokens.$space-1} / 2);
-  --ids-tab-button-after-bottom: calc(#{tokens.$space-2} - var(--ids-tab-button-after-height));
-  --ids-tab-button-after-background: #{tokens.$electric-blue-500};
+    /* Tab */
+    --ids-tab-button-padding: #{tokens.$space-2};
+    --ids-tab-button-font-size: #{tokens.$font-size-4};
+    --ids-tab-button-font-weight: #{tokens.$font-weight-medium};
+    --ids-tab-button-line-height: #{tokens.$line-height-xxxl};
+    --ids-tab-button-color: #{tokens.$grey-600};
+    --ids-tab-button-hover-color: #{tokens.$electric-blue-500};
+    --ids-tab-button-active-color: #{tokens.$electric-blue-500};
+    --ids-tab-button-after-horizontal-space: #{tokens.$space-2};
+    --ids-tab-button-after-height: calc(#{tokens.$space-1} / 2);
+    --ids-tab-button-after-bottom: calc(#{tokens.$space-2} - var(--ids-tab-button-after-height));
+    --ids-tab-button-after-background: #{tokens.$electric-blue-500};
+    --ids-tab-button-focus-outline-size: 0.2rem;
+    --ids-tab-button-focus-outline-color: var(--hop-primary-surface-strong);
+    --ids-tab-button-focus-outline-radius: var(--hop-shape-rounded-sm);
+    --ids-tab-button-focus-height: 100%;
+    --ids-tab-button-focus-width: 100%;
 
-  /* Icons */
-  --ids-tab-icon-margin-left: #{tokens.$space-1};
-  --ids-tab-icon-notification-color: #{tokens.$coral-500};
-  --ids-tab-icon-premium-color: #{tokens.$dandelion-600};
+    /* Icons */
+    --ids-tab-icon-margin-left: #{tokens.$space-1};
+    --ids-tab-icon-notification-color: #{tokens.$coral-500};
+    --ids-tab-icon-premium-color: #{tokens.$dandelion-600};
 
-  /* === Inline Style === */
+    /* === Inline Style === */
 
-  --ids-inline-tab-button-font-size: #{tokens.$font-size-3};
+    --ids-inline-tab-background-color: transparent;
+    --ids-inline-tab-border-radius: 0;
+    --ids-inline-tab-outline: none;
+    --ids-inline-tab-outline-offset: 0;
+    --ids-inline-tab-button-font-size: #{tokens.$font-size-3};
+    --ids-inline-tab-button-line-height: #{tokens.$line-height-xxxl};
+    --ids-inline-tab-button-focus-height: 100%;
+    --ids-inline-tab-button-focus-width: 100%;
 
-  /* Tab */
-  --ids-inline-tab-button-padding: calc(#{tokens.$space-1} + #{tokens.$space-2}) #{tokens.$space-3};
-  --ids-inline-tab-button-after-bottom: -#{tokens.$space-1};
-  --ids-inline-tab-button-after-height: #{tokens.$space-1};
-  --ids-inline-tab-button-after-horizontal-space: #{tokens.$space-0};
+    /* Tab */
+    --ids-inline-tab-button-padding: calc(#{tokens.$space-1} + #{tokens.$space-2}) #{tokens.$space-3};
+    --ids-inline-tab-button-after-bottom: -#{tokens.$space-1};
+    --ids-inline-tab-button-after-height: #{tokens.$space-1};
+    --ids-inline-tab-button-after-horizontal-space: #{tokens.$space-0};
+}
+
+[data-brand="workleap"] {
+    /* Default */
+    --ids-tabs-font-family: var(--hop-body-sm-font-family);
+    --ids-tabs-font-size: var(--hop-body-sm-font-size);
+    --ids-tabs-margin: 0 0 1.25rem;
+
+    /* Tab */
+    --ids-tab-button-padding: var(--hop-space-inset-sm);
+    --ids-tab-button-font-size: var(--hop-body-md-font-size);
+    --ids-tab-button-font-weight: var(--hop-body-md-medium-font-weight);
+    --ids-tab-button-line-height: var(--hop-body-md-medium-line-height);
+    --ids-tab-button-color: var(--hop-neutral-text-weak);
+    --ids-tab-button-hover-color: var(--hop-neutral-text-hover);
+    --ids-tab-button-active-color: var(--hop-neutral-text);
+    --ids-tab-button-after-horizontal-space: 0.5rem;
+    --ids-tab-button-after-height: 0.125rem;
+    --ids-tab-button-after-bottom: 0.25rem;
+    --ids-tab-button-after-background: var(--hop-neutral-border-active);
+    --ids-tab-button-focus-outline-size: 0.125rem;
+    --ids-tab-button-focus-outline-color: var(--hop-primary-surface-strong);
+    --ids-tab-button-focus-outline-radius: var(--hop-shape-rounded-sm);
+    --ids-tab-button-focus-height: calc(100% - calc(var(--ids-tab-button-padding) * 2));
+    --ids-tab-button-focus-width: calc(100% - calc(var(--ids-tab-button-padding) * 2 - calc(var(--ids-tab-button-focus-outline-size) * 2)));
+
+    /* Icons */
+    --ids-tab-icon-margin-left: var(--hop-space-inline-xs);
+    --ids-tab-icon-notification-color: var(--hop-primary-surface-strong);
+    --ids-tab-icon-premium-color: var(--hop-upsell-icon-weak);
+
+    /* === Inline Style === */
+
+    --ids-inline-tab-background-color: var(--hop-neutral-surface-weakest);
+    --ids-inline-tab-border-radius: var(--hop-shape-rounded-md);
+    --ids-inline-tab-outline: 0.0625rem solid var(--hop-neutral-border-weak);
+    --ids-inline-tab-outline-offset: -0.0625rem;
+    --ids-inline-tab-outline-focus-offset: -6px;
+    --ids-inline-tab-button-font-size: var(--hop-body-sm-font-size);
+    --ids-inline-tab-button-line-height: var(--hop-body-sm-line-height);
+    --ids-inline-tab-button-focus-height: calc(100% - 1.5rem);
+    --ids-inline-tab-button-focus-width: calc(100% - 1.5rem);
+
+    /* Tab */
+    --ids-inline-tab-button-padding: calc(var(--hop-space-inset-md) - 0.125rem) var(--hop-space-inset-md);
+    --ids-inline-tab-button-after-bottom: 0;
+    --ids-inline-tab-button-after-height: 0.125rem;
+    --ids-inline-tab-button-after-horizontal-space: 1rem;
 }
 
 .ids-tabs {
-  font-family: var(--ids-tabs-font-family);
-  font-size: var(--ids-tabs-font-size);
+    font-family: var(--ids-tabs-font-family);
+    font-size: var(--ids-tabs-font-size);
 
-  &__list {
-    display: flex;
-    list-style: none;
-    margin: var(--ids-tabs-margin);
-    padding: 0;
-  }
+    &__list {
+        display: flex;
+        list-style: none;
+        margin: var(--ids-tabs-margin);
+        padding: 0;
+
+        .ids-tabs--inline & {
+            background-color: var(--ids-inline-tab-background-color);
+            border-radius: var(--ids-inline-tab-border-radius);
+            outline: var(--ids-inline-tab-outline);
+            outline-offset: var(--ids-inline-tab-outline-offset);
+        }
+    }
 }
 
 .ids-tab {
-  &__icon {
-    margin-left: var(--ids-tab-icon-margin-left);
-  }
+    &__icon {
+        margin-left: var(--ids-tab-icon-margin-left);
+    }
 
-  &__bullet {
-    color: var(--ids-tab-icon-notification-color);
-  }
+    &__bullet {
+        color: var(--ids-tab-icon-notification-color);
+    }
 
-  &__crown {
-    color: var(--ids-tab-icon-premium-color);
-  }
+    &__crown {
+        color: var(--ids-tab-icon-premium-color);
+    }
 }
 
 .ids-tab__btn,
 .ids-tab__nav > a {
-  align-items: center;
-  background: none;
-  border: none;
-  color: var(--ids-tab-button-color);
-  cursor: pointer;
-  display: flex;
-  font-family: var(--ids-tabs-font-family);
-  font-size: var(--ids-tab-button-font-size);
-  font-weight: var(--ids-tab-button-font-weight);
-  line-height: var(--ids-tab-button-line-height);
-  padding: var(--ids-tab-button-padding);
-  position: relative;
-  text-decoration: none;
-
-  /* Inline Styles */
-  .ids-tabs--inline & {
-    font-size: var(--ids-inline-tab-button-font-size);
-    padding: var(--ids-inline-tab-button-padding);
-  }
-
-  .ids-tab--active & {
-    color: var(--ids-tab-button-active-color);
-  }
-
-  &:hover {
-    color: var(--ids-tab-button-hover-color);
-  }
-
-  &::after {
-    bottom: var(--ids-tab-button-after-bottom);
-    content: '';
-    height: var(--ids-tab-button-after-height);
-    left: var(--ids-tab-button-after-horizontal-space);
-    position: absolute;
-    right: var(--ids-tab-button-after-horizontal-space);
+    align-items: center;
+    background: none;
+    border: none;
+    color: var(--ids-tab-button-color);
+    cursor: pointer;
+    display: flex;
+    font-family: var(--ids-tabs-font-family);
+    font-size: var(--ids-tab-button-font-size);
+    font-weight: var(--ids-tab-button-font-weight);
+    line-height: var(--ids-tab-button-line-height);
+    padding: var(--ids-tab-button-padding);
+    position: relative;
+    text-decoration: none;
 
     /* Inline Styles */
     .ids-tabs--inline & {
-      bottom: var(--ids-inline-tab-button-after-bottom);
-      height: var(--ids-inline-tab-button-after-height);
-      left: var(--ids-inline-tab-button-after-horizontal-space);
-      right: var(--ids-inline-tab-button-after-horizontal-space);
+        font-size: var(--ids-inline-tab-button-font-size);
+        line-height: var(--ids-inline-tab-button-line-height);
+        padding: var(--ids-inline-tab-button-padding);
     }
 
     .ids-tab--active & {
-      background: var(--ids-tab-button-after-background);
+        color: var(--ids-tab-button-active-color);
     }
-  }
+
+    &:hover {
+        color: var(--ids-tab-button-hover-color);
+    }
+
+    &:focus-visible {
+        outline: none;
+
+        &::before {
+            display: block;
+        }
+    }
+
+    &::before {
+        border: var(--ids-tab-button-focus-outline-size) solid var(--ids-tab-button-focus-outline-color);
+        border-radius: var(--ids-tab-button-focus-outline-radius);
+        content: "";
+        display: none;
+        height: var(--ids-tab-button-focus-height);
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%) translateY(-0.125rem);
+        width: var(--ids-tab-button-focus-width);
+
+        .ids-tabs--inline & {
+            height: var(--ids-inline-tab-button-focus-height);
+            width: var(--ids-inline-tab-button-focus-width);
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    &::after {
+        bottom: var(--ids-tab-button-after-bottom);
+        content: '';
+        height: var(--ids-tab-button-after-height);
+        left: var(--ids-tab-button-after-horizontal-space);
+        position: absolute;
+        right: var(--ids-tab-button-after-horizontal-space);
+
+        /* Inline Styles */
+        .ids-tabs--inline & {
+            bottom: var(--ids-inline-tab-button-after-bottom);
+            height: var(--ids-inline-tab-button-after-height);
+            left: var(--ids-inline-tab-button-after-horizontal-space);
+            right: var(--ids-inline-tab-button-after-horizontal-space);
+        }
+
+        .ids-tab--active & {
+            background: var(--ids-tab-button-after-background);
+        }
+    }
 }

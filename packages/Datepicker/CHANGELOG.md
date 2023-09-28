@@ -1,5 +1,19 @@
 # @igloo-ui/datepicker
 
+## 0.4.0
+
+### Minor Changes
+
+- 4b2b39b: Rebrand of Datepicker
+
+## 0.3.2
+
+### Patch Changes
+
+- Updated dependencies [8eeac98]
+  - @igloo-ui/button@0.7.0
+  - @igloo-ui/icon-button@1.1.3
+
 ## 0.3.1
 
 ### Patch Changes
