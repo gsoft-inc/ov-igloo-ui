@@ -275,10 +275,10 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     };
 
     useEffect(() => {
-        if(maxTags && selectedResultsCount === maxTags) {
-          setInputDisabled(true);
-          setTagRemoved(false);
-          onMaxTags?.();
+        if (maxTags && selectedResultsCount === maxTags) {
+            setInputDisabled(true);
+            setTagRemoved(false);
+            onMaxTags?.();
         }
     }, [maxTags, selectedResultsCount]);
 

@@ -25,6 +25,7 @@
     /* Search input */
     --ids-tag-picker-input-height: #{tokens.$space-5};
     --ids-tag-picker-input-min-width: 0.2rem;
+    --ids-tag-picker-input-disabled-padding: 0;
 
     /* Tag */
     --ids-tag-picker-tag-margin: #{tokens.$space-1};
@@ -56,11 +57,12 @@
 
     /* Search icon */
     --ids-tag-picker-search-icon-color: var(--hop-neutral-icon-weakest);
-    --ids-tag-picker-search-icon-margin: 0 var(--hop-space-inline-sm) 0 0;
+    --ids-tag-picker-search-icon-margin: 0 var(--hop-space-inline-sm);
 
     /* Search input */
     --ids-tag-picker-input-height: 2.5rem;
     --ids-tag-picker-input-min-width: 0.125rem;
+    --ids-tag-picker-input-disabled-padding: var(--hop-space-inset-xs) 0;
 
     /* Tag */
     --ids-tag-picker-tag-margin: var(--hop-space-stack-xs) var(--hop-space-inline-xs);
@@ -123,7 +125,10 @@
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-    padding: var(--ids-tag-picker-content-padding);
+
+    .ids-tag-picker--input-disabled & {
+        padding: var(--ids-tag-picker-input-disabled-padding);
+    }
 }
 
 .ids-tag-picker__tag {
