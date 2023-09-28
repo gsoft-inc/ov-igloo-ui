@@ -18,7 +18,7 @@
 
     /* Header/Button */
     --ids-disclosure-header-background: #{tokens.$samoyed};
-    --ids-disclosure-header-background-color: #{tokens.$samoyed};
+    --ids-disclosure-header-background-hover: #{tokens.$samoyed};
     --ids-disclosure-header-line-height: #{tokens.$line-height-xxl};
     --ids-disclosure-header-padding: #{tokens.$space-4};
     --ids-disclosure-header-icon-margin: 0 #{tokens.$space-4} 0 0;
@@ -60,7 +60,7 @@
 
     /* Header/Button */
     --ids-disclosure-header-background: var(--hop-neutral-surface);
-    --ids-disclosure-header-background-color: var(--hop-neutral-surface-hover);
+    --ids-disclosure-header-background-hover: var(--hop-neutral-surface-hover);
     --ids-disclosure-header-line-height: var(--hop-body-md-line-height);
     --ids-disclosure-header-padding: var(--hop-space-inset-md);
     --ids-disclosure-header-icon-margin: 0 var(--hop-space-inline-sm) 0 0;
@@ -132,7 +132,7 @@
 
     &:hover,
     &:focus {
-        background-color: var(--ids-disclosure-header-background-color)
+        background-color: var(--ids-disclosure-header-background-hover)
     }
 
     &:focus {
