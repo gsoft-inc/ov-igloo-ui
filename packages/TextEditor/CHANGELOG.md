@@ -1,5 +1,11 @@
 # @igloo-ui/text-editor
 
+## 0.6.0
+
+### Minor Changes
+
+- a82d788: Gave the TextEditor component the new Brand
+
 ## 0.5.1
 
 ### Patch Changes
