@@ -19,6 +19,7 @@ export const useBrand = (StoryFn, context) => {
         "Combobox",
         "Datepicker",
         "Dialog",
+        "Disclosure",
         "Dropdown",
         "Ellipsis",
         "FormGroup",
