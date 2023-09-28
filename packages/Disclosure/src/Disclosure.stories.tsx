@@ -62,7 +62,7 @@ export const Expanded = {
   },
   args: {
     children: (
-      <div style={{ background: '#F7F9FA', padding: '2.4rem' }}>
+      <div style={{ background: "#FFFFFF", padding: '2.4rem' }}>
         This disclosure has the default position set to expanded.
       </div>
     ),
