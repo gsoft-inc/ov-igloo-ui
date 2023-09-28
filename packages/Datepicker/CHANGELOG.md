@@ -1,5 +1,13 @@
 # @igloo-ui/datepicker
 
+## 0.5.0
+
+### Minor Changes
+
+- 2ad953e: - add a property to prevent local date formatting
+  - set calendar update when a user enters a date in input
+  - add pointer when user hovers input
+
 ## 0.4.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.1.0
+
+### Minor Changes
+
+- 41d5d09: Rebrand of Tabs
+
 ## 1.0.0
 
 ### Major Changes

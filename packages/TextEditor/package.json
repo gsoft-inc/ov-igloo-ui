@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/text-editor",
-    "version": "0.5.1",
+    "version": "0.6.0",
     "main": "dist/TextEditor.js",
     "module": "dist/TextEditor.js",
     "types": "dist/TextEditor.d.ts",
