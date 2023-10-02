@@ -2360,6 +2360,18 @@
     classnames "^2.3.1"
     html-react-parser "^1.2.7"
 
+"@igloo-ui/tag@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@igloo-ui/tag/-/tag-1.2.0.tgz#ead4f7bf829e822b7bb804bb031ac51e57fba283"
+  integrity sha512-CoWpsayNyeZ0+vehFwO40YFtRLUAzHfsDtVF0Sf9jIfgzP9xNdUS3vDIv1QLxUWbxYpaptRdqje+DvPML44PDQ==
+  dependencies:
+    "@hopper-ui/tokens" "^0.3.0"
+    "@igloo-ui/ellipsis" "^0.2.0"
+    "@igloo-ui/icon-button" "^1.1.3"
+    "@igloo-ui/icons" "^1.11.0"
+    "@igloo-ui/tokens" "^2.0.0"
+    classnames "^2.3.2"
+
 "@igloo-ui/tokens@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-2.0.0.tgz#a7977f0f7875659de8751f9413e4fc72ad2bdcd4"

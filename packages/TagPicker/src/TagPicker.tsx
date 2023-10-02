@@ -309,7 +309,6 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
                 icon={s.icon}
                 dismissible={!disabled}
                 appearance={getBrand() === "workleap" ? "default" : "neutral"}
-                rounded={getBrand() === "workleap"}
                 onRemove={handleTagRemove}
                 hasError={s.hasError}
             >
