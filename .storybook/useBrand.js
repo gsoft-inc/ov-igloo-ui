@@ -41,6 +41,7 @@ export const useBrand = (StoryFn, context) => {
         "Tabs",
         "Stepper",
         "Tag",
+        "TagPicker",
         "Textarea",
         "TextEditor",
         "Toast",
