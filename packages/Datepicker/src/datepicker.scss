@@ -264,6 +264,12 @@
   }
 }
 
-.ids-datepicker__input:hover {
-    cursor: pointer;
+.ids-datepicker__input {
+    &.ids-input--disabled:hover {
+        cursor: not-allowed;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
 }
