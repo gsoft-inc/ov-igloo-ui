@@ -1,5 +1,12 @@
 # @igloo-ui/tag-picker
 
+## 0.6.0
+
+### Minor Changes
+
+- 9d570e7: Update dependency
+- d1adbf4: Rebrand of TagPicker and bugfix
+
 ## 0.5.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/datepicker
 
+## 0.5.1
+
+### Patch Changes
+
+- e54678d: Changes cursor to not-allowed when input is disabled
+
 ## 0.5.0
 
 ### Minor Changes
