@@ -1,5 +1,11 @@
 # @igloo-ui/disclosure
 
+## 0.3.0
+
+### Minor Changes
+
+- a66541c: Gave the Disclosure component the new Brand
+
 ## 0.2.3
 
 ### Patch Changes
