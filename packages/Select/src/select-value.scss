@@ -41,6 +41,7 @@
     padding: var(--ids-select-value-padding);
     white-space: nowrap;
     overflow: hidden;
+    align-items: center;
 
     &--compact {
         padding: var(--ids-select-value-padding-compact);
