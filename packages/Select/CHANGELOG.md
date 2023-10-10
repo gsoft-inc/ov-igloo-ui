@@ -1,5 +1,11 @@
 # @igloo-ui/select
 
+## 1.3.5
+
+### Patch Changes
+
+- 7cd05f5: restores alignment between icon and text in a compact select.
+
 ## 1.3.4
 
 ### Patch Changes
