@@ -35,8 +35,8 @@
     --ids-modal-overlay: rgb(25 34 47 / 50%);
     --ids-modal-overlay-index: #{tokens.$z-index-100};
     --ids-modal-full-content-display: block;
-    --ids-modal-full-content-close-spacing-horizontal: #{tokens.$space-3};
-    --ids-modal-full-content-close-spacing-vertical: #{tokens.$space-3};
+    --ids-modal-full-content-close-spacing-horizontal: #{tokens.$space-2};
+    --ids-modal-full-content-close-spacing-vertical: #{tokens.$space-2};
     --ids-modal-footer-margin: #{tokens.$space-2} -#{tokens.$space-2} -#{tokens.$space-2};
     --ids-modal-footer-action-margin: #{tokens.$space-2} #{tokens.$space-2};
 }
@@ -71,8 +71,8 @@
     --ids-modal-overlay: rgb(25 34 47 / 50%);
     --ids-modal-overlay-index: 100;
     --ids-modal-full-content-display: block;
-    --ids-modal-full-content-close-spacing-horizontal: var(--hop-space-inline-md);
-    --ids-modal-full-content-close-spacing-vertical: var(--hop-space-stack-md);
+    --ids-modal-full-content-close-spacing-horizontal: var(--hop-space-inline-sm);
+    --ids-modal-full-content-close-spacing-vertical: var(--hop-space-stack-sm);
     --ids-modal-footer-margin: var(--hop-space-stack-sm) calc(-1 * var(--hop-space-inline-sm)) calc(-1 * var(--hop-space-stack-sm));
     --ids-modal-footer-action-margin: var(--hop-space-stack-sm) var(--hop-space-inline-sm);
 }
