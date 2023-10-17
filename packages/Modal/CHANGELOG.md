@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.4.1
+
+### Patch Changes
+
+- 3ff3107: - Updated the Close button position in the Modal component to prevent it from overlapping with Modal content.
+
 ## 1.4.0
 
 ### Minor Changes
