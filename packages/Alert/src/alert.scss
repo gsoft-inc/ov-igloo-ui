@@ -157,8 +157,8 @@
                 var(--ids-alert-border-color-announcement),
                 var(--ids-alert-color-announcement),
                 var(--ids-alert-background-color-announcement),
-        var(--ids-alert-icon-color-announcement)
-      );
+                var(--ids-alert-icon-color-announcement)
+            );
         }
 
         &--info {
@@ -166,8 +166,8 @@
                 var(--ids-alert-border-color-info),
                 var(--ids-alert-color-info),
                 var(--ids-alert-background-color-info),
-        var(--ids-alert-icon-color-info)
-      );
+                var(--ids-alert-icon-color-info)
+            );
         }
 
         &--premium {
@@ -175,8 +175,8 @@
                 var(--ids-alert-border-color-premium),
                 var(--ids-alert-color-premium),
                 var(--ids-alert-background-color-premium),
-        var(--ids-alert-icon-color-premium)
-      );
+                var(--ids-alert-icon-color-premium)
+            );
         }
 
         &--success {
@@ -184,8 +184,8 @@
                 var(--ids-alert-border-color-success),
                 var(--ids-alert-color-success),
                 var(--ids-alert-background-color-success),
-        var(--ids-alert-icon-color-success)
-      );
+                var(--ids-alert-icon-color-success)
+            );
         }
 
         &--warning {
@@ -193,8 +193,8 @@
                 var(--ids-alert-border-color-warning),
                 var(--ids-alert-color-warning),
                 var(--ids-alert-background-color-warning),
-        var(--ids-alert-icon-color-warning)
-      );
+                var(--ids-alert-icon-color-warning)
+            );
         }
     }
 
@@ -204,12 +204,6 @@
         height: auto;
         margin: -1rem -1rem 0 0;
         width: auto;
-    }
-
-    @media (width >= #{tokens.$breakpoints-sm}) {
-        &__dismiss-btn.ids-btn {
-            display: none;
-        }
     }
 
     &__body {
@@ -261,13 +255,14 @@
 
     &__icon {
         font-size: 0;
+        display: none;
 
         + .ids-alert__body {
-            margin-left: var(--ids-alert-flex-gap-component);
+            margin-left: 0;
         }
 
         @media (width >= #{tokens.$breakpoints-sm}) {
-            display: none;
+            display: flex;
         }
 
         &--medium-centered {
@@ -287,7 +282,7 @@
 
     @media (width >= #{tokens.$breakpoints-sm}) {
         &__icon + .ids-alert__body {
-            margin-left: 0;
+            margin-left: var(--ids-alert-flex-gap-component);
         }
     }
 
