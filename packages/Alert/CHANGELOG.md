@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.6.1
+
+### Patch Changes
+
+- f7b9e58: Fix UI issue witn icon and button not always showing
+
 ## 0.6.0
 
 ### Minor Changes
