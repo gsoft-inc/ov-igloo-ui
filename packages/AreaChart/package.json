@@ -28,10 +28,10 @@
     "@hopper-ui/tokens": "^0.3.0",
     "classnames": "^2.3.2",
     "luxon": "^3.2.1",
-    "recharts": "^2.8.0"
+    "recharts": "^2.9.2"
   },
   "devDependencies": {
-    "@types/recharts": "^1.8.24"
+    "@types/recharts": "^1.8.26"
   },
   "browserslist": [
     "> 1%",

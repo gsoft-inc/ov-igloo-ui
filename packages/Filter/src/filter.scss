@@ -1,9 +1,13 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@import url("~@hopper-ui/tokens/fonts.css");
+@import url("~@hopper-ui/tokens/tokens.css");
+
 :root {
   /* Default */
   --ids-filter-background: #{tokens.$grey-200};
+  --ids-filter-border-color: transparent;
   --ids-filter-border-radius: calc(#{tokens.$border-radius-md} * 4);
   --ids-filter-color: #{tokens.$grey-600};
   --ids-filter-font-family: #{tokens.$primary-font-family};
@@ -13,16 +17,57 @@
 
   /* Hover */
   --ids-filter-background-hover: #{tokens.$grey-300};
+  --ids-filter-border-color-hover: transparent;
+  --ids-filter-color-hover:  #{tokens.$grey-600};
 
   /* Selected */
   --ids-filter-background-selected: #{tokens.$grey-500};
+  --ids-filter-border-color-selected: transparent;
   --ids-filter-color-selected: #{tokens.$samoyed};
 
   /* Selected Hover */
   --ids-filter-background-selected-hover: #{tokens.$grey-800};
 
   /* Disabled */
+  --ids-filter-background-disabled: #{tokens.$grey-200};
+  --ids-filter-border-color-disabled: transparent;
   --ids-filter-color-disabled: #{tokens.$grey-400};
+
+  /* Focus */
+
+  /* Needed to add a 0.1px blur to fix a bug where
+  chrome would have a lingering blue line when focusing in and out */
+  --ids-filter-focus: 0 0 0 .2rem #ffffff, 0 0 .01rem .35rem #0c46d0;
+}
+
+[data-brand="workleap"] {
+  /* Default */
+  --ids-filter-background: var(--hop-neutral-surface-weak);
+  --ids-filter-border-color: var(--hop-neutral-border);
+  --ids-filter-border-radius: var(--hop-shape-pill);
+  --ids-filter-color: var(--hop-neutral-text);
+  --ids-filter-font-family: var(--hop-body-sm-font-family);
+  --ids-filter-font-size: var(--hop-body-sm-font-size);
+  --ids-filter-line-height: var(--hop-body-sm-line-height);
+  --ids-filter-padding: 0.375rem var(--hop-space-inset-md);
+
+  /* Hover */
+  --ids-filter-background-hover: var(--hop-neutral-surface-weak-hover);
+  --ids-filter-border-color-hover: var(--hop-neutral-border-hover);
+  --ids-filter-color-hover: var(--hop-neutral-text-hover);
+
+  /* Selected */
+  --ids-filter-background-selected: var(--hop-neutral-surface-active);
+  --ids-filter-border-color-selected: var(--hop-neutral-border-active);
+  --ids-filter-color-selected: var(--hop-neutral-text-active);
+
+  /* Selected Hover */
+  --ids-filter-background-selected-hover: var(--hop-neutral-surface-active);
+
+  /* Disabled */
+  --ids-filter-background-disabled: var(--hop-neutral-surface-disabled);
+  --ids-filter-border-color-disabled: var(--hop-neutral-border-disabled);
+  --ids-filter-color-disabled: var(--hop-neutral-text-disabled);
 
   /* Focus */
 
@@ -33,16 +78,19 @@
 
 %default-style {
   background: var(--ids-filter-background);
+  border: 0.0625rem solid var(--ids-filter-border-color);
   color: var(--ids-filter-color);
 }
 
 %hover-style {
   background: var(--ids-filter-background-hover);
-  color: var(--ids-filter-color);
+  border-color: var(--ids-filter-border-color-hover);
+  color: var(--ids-filter-color-hover);
 }
 
 %selected-style {
   background: var(--ids-filter-background-selected);
+  border-color: var(--ids-filter-border-color-selected);
   color: var(--ids-filter-color-selected);
 }
 
@@ -50,7 +98,6 @@
   @extend %default-style;
 
   align-items: center;
-  border: none;
   border-radius: var(--ids-filter-border-radius);
   box-sizing: border-box;
   cursor: pointer;
@@ -89,7 +136,8 @@
 }
 
 .ids-filter:disabled {
-  background: var(--ids-filter-background);
+  background: var(--ids-filter-background-disabled);
+  border-color: var(--ids-filter-border-color);
   box-shadow: none;
   color: var(--ids-filter-color-disabled);
   cursor: not-allowed;
