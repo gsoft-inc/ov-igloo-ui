@@ -27,10 +27,11 @@
     "@igloo-ui/color": "^0.2.0",
     "@igloo-ui/dropdown": "^1.6.1",
     "@igloo-ui/tokens": "^2.0.0",
+    "@hopper-ui/tokens": "^3.1.0",
     "classnames": "^2.3.2",
-    "react-aria": "^3.27.0",
-    "react-aria-components": "^1.0.0-alpha.6",
-    "react-stately": "^3.25.0"
+    "react-aria": "^3.29.1",
+    "react-aria-components": "^1.0.0-beta.2",
+    "react-stately": "^3.27.1"
   },
   "browserslist": [
     "> 1%",

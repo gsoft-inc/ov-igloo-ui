@@ -39,7 +39,7 @@
     --ids-radio-text-description: var(--hop-neutral-text-weak);
     --ids-radio-description-padding: 0;
     --ids-radio-padding: var(--hop-space-inline-sm);
-    --ids-radio-margin: var(--hop-space-inline-xs) 0 0;
+    --ids-radio-margin: calc(var(--hop-space-inline-xs) / 2) 0 0;
     --ids-radio-size: 1rem;
     --ids-radio-check: var(--hop-neutral-surface);
     --ids-radio-check-size: .5rem;

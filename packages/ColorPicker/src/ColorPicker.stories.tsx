@@ -22,8 +22,9 @@ export default {
 type Story = StoryObj<typeof ColorPicker>;
 
 export const Overview: Story = {
-  render: (args) => {
-    const [selectedColor, setSelectedColor] = React.useState<ColorName>("dandelion200");
+  render: (args, {globals: {brand}}) => {
+    const defaultColor = brand === "workleap" ? "decorativeOption3" : "dandelion200";
+    const [selectedColor, setSelectedColor] = React.useState<ColorName>(defaultColor);
 
     return (
       <Section>
@@ -31,7 +32,7 @@ export const Overview: Story = {
           (color) => {
             setSelectedColor(color);
           }          
-        } selectedColor={selectedColor} />
+        } selectedColor={selectedColor} brand={brand} />
       </Section>
     );
   },

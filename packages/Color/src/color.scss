@@ -5,9 +5,10 @@
 @import url('~@hopper-ui/tokens/tokens.css');
 
 :root {
+  --ids-color-background: var(--ids-color-background);
   --ids-color-border-radius: #{tokens.$border-radius-sm};
   --ids-color-border-radius-xs: #{tokens.$border-radius-xs};
-  --ids-color-color: #{tokens.$samoyed};
+  --ids-color-color: var(--ids-color-text, #{tokens.$samoyed});
   --ids-color-font-family: #{tokens.$secondary-font-family};
   --ids-color-font-size: #{tokens.$font-size-4};
   --ids-color-font-size-large: #{tokens.$font-size-4};
@@ -25,7 +26,7 @@
 [data-brand="workleap"] {
   --ids-color-border-radius: var(--hop-shape-circle);
   --ids-color-border-radius-xs: var(--hop-shape-circle);
-  --ids-color-color: var(--hop-neutral-text);
+  --ids-color-color: var(--ids-color-text, var(--hop-neutral-text));
   --ids-color-font-family: var(--hop-body-xl-font-family);
   --ids-color-font-size: var(--hop-body-lg-font-size);
   --ids-color-font-size-large: var(--hop-body-md-font-size);
@@ -42,6 +43,7 @@
 
 .ids-color {
   align-items: center;
+  background: var(--ids-color-background);
   border-radius: var(--ids-color-border-radius);
   box-sizing: border-box;
   color: var(--ids-color-color);

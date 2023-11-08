@@ -8,6 +8,7 @@ import Button from '@igloo-ui/button';
 import IconButton from '@igloo-ui/icon-button';
 import Modal from '@igloo-ui/modal';
 import Delete from '@igloo-ui/icons/dist/Delete';
+import HelpSolid from '@igloo-ui/icons/dist/HelpSolid';
 
 
 import ChromaticWrapper from '@components/chromaticWrapper';
@@ -131,6 +132,14 @@ export const ActiveButton = () => (
       <IconButton onClick={() => {
         console.log('clicked');
       }} icon={<Delete size="medium" />} />
+    </Tooltip>
+  </Section>
+);
+
+export const Icon = () => (
+  <Section>
+    <Tooltip content="Please complete all fields">
+      <HelpSolid size="small" />
     </Tooltip>
   </Section>
 );
