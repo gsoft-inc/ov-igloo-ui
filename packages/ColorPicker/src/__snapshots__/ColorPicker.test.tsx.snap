@@ -9,11 +9,13 @@ exports[`ColorPicker It should render a snapshot 1`] = `
     <button
       class="ids-color-picker__button"
       data-color="dandelion200"
+      data-rac=""
+      style="--ids-picker-selected-color-hover: #FDDE88;"
       type="button"
     >
       <div
         class="ids-color ids-color--large"
-        style="background-color: rgb(253, 222, 136);"
+        style="--ids-color-background: #FDDE88;"
       />
     </button>
   </div>
