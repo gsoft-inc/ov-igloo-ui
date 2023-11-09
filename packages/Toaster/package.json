@@ -29,9 +29,9 @@
     "@igloo-ui/icons": "^1.11.0",
     "@igloo-ui/tokens": "^2.0.0",
     "@hopper-ui/tokens": "^3.1.0",
-    "@react-aria/interactions": "^3.15.0",
-    "@react-aria/toast": "^3.0.0-beta.0",
-    "@react-stately/toast": "^3.0.0-beta.0",
+    "@react-aria/interactions": "^3.20.0",
+    "@react-aria/toast": "^3.0.0-beta.7",
+    "@react-stately/toast": "^3.0.0-beta.1",
     "classnames": "^2.3.2",
     "use-sync-external-store": "^1.2.0"
   },
