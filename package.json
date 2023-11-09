@@ -72,7 +72,7 @@
     "@typescript-eslint/eslint-plugin": "6.10.0",
     "@typescript-eslint/parser": "6.10.0",
     "@workleap/eslint-plugin": "3.0.0",
-    "@workleap/stylelint-config": "1.2.3",
+    "@workleap/stylelint-configs": "2.0.0",
     "autoprefixer": "10.4.2",
     "babel-jest": "29.6.2",
     "babel-loader": "9.1.3",

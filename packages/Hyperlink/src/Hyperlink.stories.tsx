@@ -23,7 +23,7 @@ export default {
         type: 'auto',
       },
       description: {
-        component: readme,
+        component: readme.replace(/<Example is="custom" \/>/g, '').replace(/<ReferenceLinks is="custom" \/>/g, ''),
       }
     },
   },
