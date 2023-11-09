@@ -1,5 +1,5 @@
 {
-    "extends": "@workleap/stylelint-config",
+    "extends": "@workleap/stylelint-configs",
     "ignoreFiles": ["**/dist/*.css", "website/**/*.scss"],
     "customSyntax": "postcss-scss",
     "rules": {
