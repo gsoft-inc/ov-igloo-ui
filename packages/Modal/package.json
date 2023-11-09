@@ -30,13 +30,10 @@
         "@igloo-ui/tokens": "^2.0.0",
         "@hopper-ui/tokens": "^3.1.0",
         "@igloo-ui/carousel": "^0.2.0",
-        "@react-aria/dialog": "^3.4.1",
-        "@react-aria/overlays": "^3.12.0",
-        "@react-aria/utils": "^3.14.2",
-        "@react-types/dialog": "3.4.5",
         "@types/react-dom": "18.0.11",
         "classnames": "^2.3.2",
-        "framer-motion": "^6.5.1"
+        "framer-motion": "^6.5.1",
+        "react-aria": "^3.29.1"
     },
     "browserslist": [
         "> 1%",

@@ -45,7 +45,8 @@ const Color: React.FunctionComponent<ColorProps> = ({
         }
 
         let initials = "";
-        const splitName = name.trim().split(" ");
+        const cleanName = name.replace(/\s+/g, " ").trim();
+        const splitName = cleanName.trim().split(" ");
 
         // If only one word, take the first 2 characters
         if (splitName.length === 1) {

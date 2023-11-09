@@ -108,7 +108,7 @@ export const colorNamesIgloo = [
     }
 ] as const;
 
-export const colorNamesWL = [
+export const colorNamesWorkleap = [
     { 
         id: "decorativeOption3", 
         value: "var(--hop-decorative-option3-surface)", 
@@ -160,7 +160,7 @@ export const colorNamesWL = [
 ] as const;
 
 export type ColorNameIgloo = typeof colorNamesIgloo[number]["id"];
-export type ColorNameWL = typeof colorNamesWL[number]["id"];
+export type ColorNameWL = typeof colorNamesWorkleap[number]["id"];
 
 export type ColorName = ColorNameWL | ColorNameIgloo;
 
@@ -197,8 +197,9 @@ const ColorPicker: React.FunctionComponent<ColorPickerProps> = ({
     const selectedColor = propSelectedColor ?? getDefaultColor();
 
     let colorNames: ReadonlyArray<Readonly<ColorNameItem>>;
+    
     if (brand === "workleap") {
-        colorNames = colorNamesWL;
+        colorNames = colorNamesWorkleap;
     } else {
         colorNames = colorNamesIgloo;
     }

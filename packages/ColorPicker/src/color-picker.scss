@@ -8,6 +8,8 @@
   /* Default */
   --ids-color-picker-font-family: #{tokens.$primary-font-family};
   --ids-color-picker-font-size: #{tokens.$font-size-4};
+  --ids-color-picker-font-weight: #{tokens.$font-weight-regular};
+  --ids-color-picker-line-height: #{tokens.$line-height-sm};
   --ids-color-picker-padding: #{tokens.$space-1};
 
   /* Button */
@@ -27,6 +29,8 @@
   /* Default */
   --ids-color-picker-font-family: var(--hop-body-sm-font-family);
   --ids-color-picker-font-size: var(--hop-body-sm-font-size);
+  --ids-color-picker-font-weight: var(--hop-body-sm-font-weight);
+  --ids-color-picker-line-height: var(--hop-body-sm-line-height);
   --ids-color-picker-padding: var(--hop-space-inset-xs);
 
   /* Button */

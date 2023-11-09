@@ -1,6 +1,6 @@
 import * as React from "react";
 import cx from "classnames";
-import { Item } from "react-aria-components";
+import { ListBoxItem } from "react-aria-components";
 
 import Color, { type Size } from "@igloo-ui/color";
 
@@ -30,7 +30,7 @@ function ColorPickerOption({
     size = "xlarge" 
 }: ColorPickerOptionProps): JSX.Element {
     return (
-        <Item id={id}
+        <ListBoxItem id={id}
             textValue={color}
             className={({ isFocusVisible, isSelected, isHovered }) =>
                 cx("ids-color-picker-option", {
@@ -49,7 +49,7 @@ function ColorPickerOption({
                     {(isSelected && icon) && icon}
                 </>
             )}
-        </Item>
+        </ListBoxItem>
     );
 }
 
