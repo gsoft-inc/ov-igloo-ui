@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.4.0
+
+### Minor Changes
+
+- 9739155: Gave ColorPicker the new Wokleap look. Color now uses css variables to update its color. Fixed spacing issues in tooltip. Updated hopper token version.
+
 ## 3.3.0
 
 ### Minor Changes

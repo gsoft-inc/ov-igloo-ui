@@ -1,5 +1,13 @@
 # @igloo-ui/toaster
 
+## 2.0.3
+
+### Patch Changes
+
+- 9739155: Gave ColorPicker the new Wokleap look. Color now uses css variables to update its color. Fixed spacing issues in tooltip. Updated hopper token version.
+- Updated dependencies [9739155]
+  - @igloo-ui/icon-button@1.1.4
+
 ## 2.0.2
 
 ### Patch Changes

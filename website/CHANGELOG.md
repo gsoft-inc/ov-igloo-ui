@@ -1,5 +1,59 @@
 # docs
 
+## 0.2.2
+
+### Patch Changes
+
+- 9739155: Updated storybook and recharts. Applied the new brand look for filter.
+- Updated dependencies [9739155]
+- Updated dependencies [9739155]
+  - @igloo-ui/filter@0.2.0
+  - @igloo-ui/area-chart@1.0.1
+  - @igloo-ui/pie-chart@0.2.1
+  - @igloo-ui/stacked-bar@0.2.1
+  - @igloo-ui/vertical-bar-chart@0.2.1
+  - @igloo-ui/color@0.3.0
+  - @igloo-ui/color-picker@0.2.0
+  - @igloo-ui/tooltip@3.4.0
+  - @igloo-ui/action-menu@1.3.1
+  - @igloo-ui/alert@0.6.2
+  - @igloo-ui/avatar@0.2.1
+  - @igloo-ui/bar-chart@0.3.1
+  - @igloo-ui/breadcrumb@0.2.2
+  - @igloo-ui/button@0.7.1
+  - @igloo-ui/button-group@0.3.1
+  - @igloo-ui/card@0.1.1
+  - @igloo-ui/carousel@0.2.1
+  - @igloo-ui/checkbox@0.2.3
+  - @igloo-ui/combobox@2.1.1
+  - @igloo-ui/datepicker@0.5.2
+  - @igloo-ui/dialog@0.6.1
+  - @igloo-ui/disclosure@0.3.1
+  - @igloo-ui/dropdown@1.6.3
+  - @igloo-ui/ellipsis@0.2.1
+  - @igloo-ui/form-group@1.0.5
+  - @igloo-ui/helper-text@0.2.14
+  - @igloo-ui/hyperlink@0.3.1
+  - @igloo-ui/icon-button@1.1.4
+  - @igloo-ui/input@2.1.4
+  - @igloo-ui/list@0.5.1
+  - @igloo-ui/metric@0.2.1
+  - @igloo-ui/modal@1.4.2
+  - @igloo-ui/option-button@0.1.1
+  - @igloo-ui/pager@0.2.1
+  - @igloo-ui/popover@0.4.1
+  - @igloo-ui/progress-bar@1.0.1
+  - @igloo-ui/radio@0.1.12
+  - @igloo-ui/select@1.3.6
+  - @igloo-ui/stepper@0.2.1
+  - @igloo-ui/tabs@1.1.1
+  - @igloo-ui/tag@1.2.1
+  - @igloo-ui/tag-picker@0.6.1
+  - @igloo-ui/text-editor@0.6.1
+  - @igloo-ui/textarea@0.3.1
+  - @igloo-ui/toaster@2.0.3
+  - @igloo-ui/toggle@1.1.1
+
 ## 0.2.1
 
 ### Patch Changes

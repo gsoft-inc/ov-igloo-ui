@@ -1,5 +1,17 @@
 # @igloo-ui/combobox
 
+## 2.1.1
+
+### Patch Changes
+
+- 9739155: Gave ColorPicker the new Wokleap look. Color now uses css variables to update its color. Fixed spacing issues in tooltip. Updated hopper token version.
+- Updated dependencies [9739155]
+  - @igloo-ui/tooltip@3.4.0
+  - @igloo-ui/dropdown@1.6.3
+  - @igloo-ui/icon-button@1.1.4
+  - @igloo-ui/input@2.1.4
+  - @igloo-ui/list@0.5.1
+
 ## 2.1.0
 
 ### Minor Changes

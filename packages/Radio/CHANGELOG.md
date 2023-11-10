@@ -1,5 +1,11 @@
 # @igloo-ui/radio
 
+## 0.1.12
+
+### Patch Changes
+
+- 9739155: Gave ColorPicker the new Wokleap look. Color now uses css variables to update its color. Fixed spacing issues in tooltip. Updated hopper token version.
+
 ## 0.1.11
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @igloo-ui/filter
 
+## 0.2.0
+
+### Minor Changes
+
+- 9739155: Updated storybook and recharts. Applied the new brand look for filter.
+
+### Patch Changes
+
+- 9739155: Gave ColorPicker the new Wokleap look. Color now uses css variables to update its color. Fixed spacing issues in tooltip. Updated hopper token version.
+
 ## 0.1.4
 
 ### Patch Changes
