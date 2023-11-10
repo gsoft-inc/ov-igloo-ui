@@ -1,5 +1,15 @@
 # @igloo-ui/tag-picker
 
+## 0.6.1
+
+### Patch Changes
+
+- 9739155: Gave ColorPicker the new Wokleap look. Color now uses css variables to update its color. Fixed spacing issues in tooltip. Updated hopper token version.
+- Updated dependencies [9739155]
+  - @igloo-ui/dropdown@1.6.3
+  - @igloo-ui/input@2.1.4
+  - @igloo-ui/tag@1.2.1
+
 ## 0.6.0
 
 ### Minor Changes

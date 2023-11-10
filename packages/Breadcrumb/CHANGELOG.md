@@ -1,5 +1,11 @@
 # @igloo-ui/breadcrumb
 
+## 0.2.2
+
+### Patch Changes
+
+- 9739155: Gave ColorPicker the new Wokleap look. Color now uses css variables to update its color. Fixed spacing issues in tooltip. Updated hopper token version.
+
 ## 0.2.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.6.3
+
+### Patch Changes
+
+- 9739155: Gave ColorPicker the new Wokleap look. Color now uses css variables to update its color. Fixed spacing issues in tooltip. Updated hopper token version.
+
 ## 1.6.2
 
 ### Patch Changes
