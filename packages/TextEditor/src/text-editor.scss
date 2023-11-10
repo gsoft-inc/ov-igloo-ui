@@ -1,6 +1,9 @@
 @use "~@igloo-ui/tokens/dist/base10/variables" as tokens;
 @use "~@igloo-ui/tokens/dist/fonts";
 
+@import url('~@hopper-ui/tokens/fonts.css');
+@import url('~@hopper-ui/tokens/tokens.css');
+
 :root {
     /* === Default === */
     --ids-text-editor-font-family: #{tokens.$primary-font-family};
@@ -223,6 +226,7 @@
 
     &:focus-within {
         --ids-text-editor-border-color: var(--ids-text-editor-border-color-focus);
+
         box-shadow: var(--ids-text-editor-focus);
     }
 

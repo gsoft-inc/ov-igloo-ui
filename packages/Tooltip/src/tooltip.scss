@@ -72,7 +72,8 @@
   }
 
   &__container {
-    display: inline-block;
+    display: inline-flex;
+    line-height: 1;
     position: relative;
   }
 

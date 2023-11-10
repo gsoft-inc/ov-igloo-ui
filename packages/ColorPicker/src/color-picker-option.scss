@@ -15,9 +15,23 @@
 
   /* Selected */
   --ids-color-picker-option-border-color-selected: #{tokens.$grey-400};
-  
-  /* Icon */
-  --ids-color-picker-option-icon-color: #{tokens.$samoyed};
+
+}
+
+[data-brand="workleap"] {
+  /* Default */
+  --ids-color-picker-option-border-radius: var(--hop-shape-circle);
+  --ids-color-picker-option-border-size: 0.09rem;
+  --ids-color-picker-option-padding: var(--hop-space-inset-xs);
+
+  /* Focused */
+  --ids-color-picker-option-border-color-focus: var(--hop-primary-border-focus);
+
+  /* Hovered */
+  --ids-color-picker-option-border-color-hover: transparent;
+
+  /* Selected */
+  --ids-color-picker-option-border-color-selected: transparent;
 }
 
 .ids-color-picker-option {
@@ -43,8 +57,16 @@
   }
 }
 
+.ids-color-picker-option .ids-color {
+  transition: background-color .2s ease-out;
+}
+
+.ids-color-picker-option--hovered .ids-color {
+  background-color: var(--ids-color-picker-option-color-hover); /* variable set in code */
+}
+
 .ids-color-picker-option svg {
-  color: var(--ids-color-picker-option-icon-color);
+  color: var(--ids-color-picker-option-icon-color); /* Variable set in code */
   left: 50%;
   position: absolute;
   top: 50%;

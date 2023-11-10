@@ -6,7 +6,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 import MockDropdown from '@igloo-ui/dropdown/src/__mocks__/Dropdown.mock';
 
-import ColorPicker, { ColorName, ColorPickerProps, colorNames } from './ColorPicker';
+import ColorPicker, { ColorName, ColorPickerProps, colorNamesIgloo } from './ColorPicker';
 
 jest.mock('@igloo-ui/dropdown', () => ({
   __esModule: true,
@@ -37,7 +37,7 @@ describe('ColorPicker', () => {
     const button = screen.getByRole('button');
     fireEvent.click(button);
     const options = screen.getAllByRole('option');
-    expect(options.length).toBe(colorNames.length);
+    expect(options.length).toBe(colorNamesIgloo.length);
   });
 
   test('It should call the onSelect callback and update the selected item when a color is selected', async () => {

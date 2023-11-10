@@ -163,7 +163,7 @@ exports[`List It should render a snapshot 1`] = `
         >
           <div
             class="ids-color ids-color--small ids-visual-identifier ids-visual-identifier__color ids-list-item__visual"
-            style="background-color: rgb(116, 220, 201);"
+            style="--ids-color-background: #74DCC9;"
           />
         </div>
         <span

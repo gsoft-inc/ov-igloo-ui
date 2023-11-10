@@ -8,10 +8,10 @@ import {
 import {
     type OverlayProps,
     useOverlay,
-    usePreventScroll
-} from "@react-aria/overlays";
-import { useDialog } from "@react-aria/dialog";
-import type { AriaDialogProps } from "@react-types/dialog";
+    usePreventScroll, 
+    useDialog, 
+    type AriaDialogProps
+} from "react-aria";
 
 import IconButton from "@igloo-ui/icon-button";
 import Close from "@igloo-ui/icons/dist/Close";
