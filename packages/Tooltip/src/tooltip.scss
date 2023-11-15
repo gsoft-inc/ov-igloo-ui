@@ -12,6 +12,7 @@
   --ids-tooltip-border-radius: #{tokens.$border-radius-sm};
   --ids-tooltip-z-index: #{tokens.$z-index-max};
   --ids-tooltip-arrow-size: .5rem;
+  --ids-tooltip-arrow-display: block;
 
   /* Theme */
   --ids-tooltip-text: #{tokens.$samoyed};
@@ -31,7 +32,8 @@
   --ids-tooltip-padding: var(--hop-space-inset-squish-md);
   --ids-tooltip-border-radius: var(--hop-shape-rounded-md);
   --ids-tooltip-z-index: 999;
-  --ids-tooltip-arrow-size: .313rem;
+  --ids-tooltip-arrow-size: 0;
+  --ids-tooltip-arrow-display: none;
 
   /* Theme */
   --ids-tooltip-text: var(--hop-neutral-text-strong);
@@ -61,7 +63,7 @@
   &__arrow {
     background: var(--ids-tooltip-background);
     position: absolute;
-    display: block;
+    display: var(--ids-tooltip-arrow-display);
     width: var(--ids-tooltip-arrow-size);
     height: var(--ids-tooltip-arrow-size);
     transform: rotate(45deg);
