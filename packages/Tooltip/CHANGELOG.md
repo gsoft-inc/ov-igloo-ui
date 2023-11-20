@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.4.1
+
+### Patch Changes
+
+- 13e1cb4: mask the arrow in the Workleap brand
+
 ## 3.4.0
 
 ### Minor Changes
