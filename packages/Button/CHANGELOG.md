@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.2
+
+### Patch Changes
+
+- 592afb0: change the border value to render on base 10 and 16.
+
 ## 0.7.1
 
 ### Patch Changes
