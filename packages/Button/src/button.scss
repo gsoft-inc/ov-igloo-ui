@@ -13,6 +13,7 @@
   --ids-btn-height: #{tokens.$space-6};
   --ids-btn-height-small: #{tokens.$space-5};
   --ids-btn-padding: #{tokens.$space-3};
+  --ids-btn-border-width: 0.1rem;
   --ids-btn-border-radius: #{tokens.$border-radius-sm};
   --ids-btn-icon-color: currentcolor;
   --ids-btn-icon-margin: #{tokens.$space-1};
@@ -102,6 +103,7 @@
     --ids-btn-height: 2.5rem;
     --ids-btn-height-small: 2rem;
     --ids-btn-padding: var(--hop-space-inset-md);
+    --ids-btn-border-width: 0.0625rem;
     --ids-btn-border-radius: var(--hop-shape-rounded-md);
     --ids-btn-icon-color: currentcolor;
     --ids-btn-icon-margin: var(--hop-space-inline-xs);
@@ -223,7 +225,7 @@
   font-weight: var(--ids-btn-font-weight);
   color: var(--ids-btn-text-primary);
   background: var(--ids-btn-background-primary);
-  border: .1rem solid var(--ids-btn-border-primary);
+  border: var(--ids-btn-border-width) solid var(--ids-btn-border-primary);
   border-radius: var(--ids-btn-border-radius);
   width: 100%;
   height: var(--ids-btn-height);
@@ -346,19 +348,19 @@
 %btn-secondary-disabled {
   color: var(--ids-btn-text-secondary-disabled);
   background: var(--ids-btn-background-secondary-disabled);
-  border: .1rem solid var(--ids-btn-background-secondary-disabled);
+  border: var(--ids-btn-border-width) solid var(--ids-btn-background-secondary-disabled);
 }
 
 .ids-btn--secondary {
   color: var(--ids-btn-text-secondary);
   background: var(--ids-btn-background-secondary);
-  border: .1rem solid var(--ids-btn-border-secondary);
+  border: var(--ids-btn-border-width) solid var(--ids-btn-border-secondary);
 }
 
 .ids-btn--secondary.ids-btn--active {
   color: var(--ids-btn-text-secondary-active);
   background: var(--ids-btn-background-secondary-active);
-  border: .1rem solid var(--ids-btn-border-secondary-active);
+  border: var(--ids-btn-border-width) solid var(--ids-btn-border-secondary-active);
 }
 
 .ids-btn--secondary:disabled {
@@ -371,7 +373,7 @@
 .ids-btn--secondary.ids-btn--active:hover {
   color: var(--ids-btn-text-secondary-hover);
   background: var(--ids-btn-background-secondary-hover);
-  border: .1rem solid var(--ids-btn-border-secondary-hover);
+  border: var(--ids-btn-border-width) solid var(--ids-btn-border-secondary-hover);
 }
 
 .ids-btn--secondary.ids-btn--disabled,
