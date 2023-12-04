@@ -111,7 +111,7 @@ export const VerticallyStacked  = {
             setSelectedIndex(id);
         };
 
-        const handleDisclosureClose = (id: number) => {
+        const handleDisclosureClose = () => {
             setSelectedIndex(null);
         };
 
@@ -119,7 +119,8 @@ export const VerticallyStacked  = {
         return (
             <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
                 {data.map((item, index) => {
-                const isExpanded = selectedIndex === index;
+                    const isExpanded = selectedIndex === index;
+
                     return (
                         <Disclosure
                             key={item.id}
@@ -127,7 +128,7 @@ export const VerticallyStacked  = {
                             isExpanded={isExpanded}
                             description={item.description}
                             onOpen={() => handleDisclosureOpen(index)}
-                            onClose={() => handleDisclosureClose(index)}
+                            onClose={() => handleDisclosureClose()}
                         >
                             <div style={{ padding: "1.6rem" }}>
                                 <Button appearance="secondary">Send Good Vibes</Button>
