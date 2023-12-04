@@ -105,21 +105,21 @@ const data = [
 
 export const VerticallyStacked  = {
     render: () => {
-        const [selected, setSelected] = React.useState<number | null>(null);
+        const [selectedIndex, setSelectedIndex] = React.useState<number | null>(null);
 
         const handleDisclosureOpen = (id: number) => {
-            setSelected(id);
+            setSelectedIndex(id);
         };
 
         const handleDisclosureClose = (id: number) => {
-            setSelected(null);
+            setSelectedIndex(null);
         };
 
 
         return (
             <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
                 {data.map((item, index) => {
-                const isExpanded = selected === index;
+                const isExpanded = selectedIndex === index;
                     return (
                         <Disclosure
                             key={item.id}

@@ -67,8 +67,6 @@ const Disclosure: React.FunctionComponent<DisclosureProps> = ({
         state,
         btnRef
     );
-    
-    console.log("Disclosure.tsx: Disclosure: expanded: ", state.isSelected);
 
     const classes = cx("ids-disclosure", className, {
         "ids-disclosure--low-contrast": isLowContrast
