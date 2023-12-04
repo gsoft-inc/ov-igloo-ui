@@ -88,3 +88,55 @@ export const LowContrast = {
     icon: <Settings size="small" />,
   },
 };
+
+
+const data = [
+    {
+        id: 1,
+        title: "Send Good Vibes",
+        description:
+            "Celebrate a team member with a thoughtful card ht makes their day",
+    },
+    {
+        id: 2,
+        title: "Send Good Vibes 2",
+        description:
+            "Celebrate a team member with a thoughtful card ht makes their day",
+    },
+];
+
+export const VerticallyStacked  = {
+    render: (args: any) => {
+        const [selected, setSelected] = React.useState<number | null>(null);
+
+        const handleDisclosureOpen = (id: number) => {
+            // console.log("handleDisclosureOpen", id);
+        };
+
+        const handleDisclosureClose = (id: number) => {
+            // console.log("handleDisclosureClose", id);
+        };
+
+
+        return (
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+                {data.map((item, index) => {
+                    return (
+                        <Disclosure
+                            key={item.id}
+                            title={item.title}
+                            isExpanded={selected === index}
+                            description={item.description}
+                            onOpen={() => handleDisclosureOpen(index)}
+                            onClose={() => handleDisclosureClose(index)}
+                        >
+                            <div style={{ padding: "1.6rem" }}>
+                                <Button appearance="secondary">Send Good Vibes</Button>
+                            </div>
+                        </Disclosure>
+                    );
+                })}
+            </div>
+        )
+    }
+}
