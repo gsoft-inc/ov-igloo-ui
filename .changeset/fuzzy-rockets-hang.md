@@ -6,4 +6,7 @@ Separated the controlled and uncontrolled expanded props.
 
   ## BREAKING CHANGE
 
-  defaultExpanded prop was added. isExpanded props that were being used as uncontrolled must be updated to use defaultExpanded. Once isExpanded is set, the component becomes controlled and clicking the disclosure header will no longer expand or collapse unless the user specifies this.
+  The defaultExpanded prop was added, which means isExpanded may need to be exchanged for this new prop.
+  If you use isExpanded to make the disclosure expanded by default, rename it to defaultExpanded. 
+  If you use isExpanded to open/close the disclosure programmatically, keep isExpanded. 
+  Rule of thumb: If isExpanded was used without onOpen and onClose, it most likely has to be renamed to defaultExpanded.
