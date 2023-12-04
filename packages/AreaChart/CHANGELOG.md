@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 1.0.2
+
+### Patch Changes
+
+- b99b307: Removed the error caused when all the scores in the AreaChart are null.
+
 ## 1.0.1
 
 ### Patch Changes
