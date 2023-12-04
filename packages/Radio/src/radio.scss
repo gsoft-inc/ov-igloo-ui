@@ -51,11 +51,9 @@
     --ids-radio-border-checked: var(--hop-neutral-border-active);
     --ids-radio-border-checked-hover: var(--hop-neutral-border-active);
     --ids-radio-background: var(--hop-neutral-surface);
-    --ids-radio-background-hover: var(--hop-neutral-surface-hover);
     --ids-radio-background-disabled: var(--hop-neutral-surface-disabled);
     --ids-radio-background-disabled-checked: var(--hop-neutral-surface-disabled);
     --ids-radio-background-checked: var(--hop-neutral-surface-active);
-    --ids-radio-check-background-checked-hover: var(--hop-neutral-icon-hover)
 }
 
 %radio {
@@ -121,14 +119,13 @@
 
     &:hover {
         border-color: var(--ids-radio-border-hover);
-        background-color: var(--ids-radio-background-hover, var(--ids-radio-background))
     }
 
     &:checked:hover {
         border-color: var(--ids-radio-border-checked-hover, var(--ids-radio-border-hover)) ;
 
         &::after {
-            background: var(--ids-radio-check-background-checked-hover, var(--ids-radio-background));
+            background: var(--ids-radio-background);
         }
     }
 
