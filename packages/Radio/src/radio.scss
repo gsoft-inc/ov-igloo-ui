@@ -116,6 +116,7 @@
     &:focus {
         outline: none;
         box-shadow: var(--focus);
+        background-color: var(--ids-radio-background-hover, var(--ids-radio-background));
     }
 
     &:hover {
@@ -123,7 +124,8 @@
         background-color: var(--ids-radio-background-hover, var(--ids-radio-background));
     }
 
-    &:checked:hover {
+    &:checked:hover,
+    &:checked:focus {
         border-color: var(--ids-radio-border-checked-hover, var(--ids-radio-border-hover));
         background-color: var(--ids-radio-background-checked, var(--ids-radio-background-checked));
 
