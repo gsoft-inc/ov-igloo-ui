@@ -1,5 +1,11 @@
 # @igloo-ui/radio
 
+## 0.1.13
+
+### Patch Changes
+
+- 812546b: fix the problem of displaying the hover of a selected radio
+
 ## 0.1.12
 
 ### Patch Changes
