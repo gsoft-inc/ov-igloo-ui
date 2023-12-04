@@ -1,24 +1,27 @@
-import * as React from 'react';
-import cx from 'classnames';
-import {useButton} from 'react-aria';
-import {m, AnimatePresence, LazyMotion, domAnimation} from 'framer-motion';
+import * as React from "react";
+import cx from "classnames";
+import { useToggleButton } from "react-aria";
+import { useToggleState } from "react-stately";
+import { m, AnimatePresence, LazyMotion, domAnimation } from "framer-motion";
 
-import ChevronDown from '@igloo-ui/icons/dist/ChevronDown';
+import ChevronDown from "@igloo-ui/icons/dist/ChevronDown";
 
-import './disclosure.scss';
+import "./disclosure.scss";
 
-export interface DisclosureProps extends React.ComponentProps<'div'> {
+export interface DisclosureProps extends React.ComponentProps<"div"> {
     /** The component content to display when expanding */
     children: React.ReactNode;
     /** Add a specific class to the disclosure */
     className?: string;
     /** Add a data-test tag for automated tests */
     dataTest?: string;
+    /** Whether or not the disclosure is expanded by default (uncontrolled) */
+    defaultExpanded?: boolean;
     /** The description of the disclosure */
     description?: React.ReactNode;
     /** An icon to show as the first element in disclosure */
     icon?: React.ReactNode;
-    /** Whether or not the disclosure is expanded */
+    /** Whether or not the disclosure is expanded (controlled) */
     isExpanded?: boolean;
     /** True for a light appearance (no shadow, icon or border) */
     isLowContrast?: boolean;
@@ -34,46 +37,41 @@ const Disclosure: React.FunctionComponent<DisclosureProps> = ({
     children,
     className,
     dataTest,
+    defaultExpanded = false,
     description,
     icon,
-    isExpanded = false,
+    isExpanded,
     isLowContrast = false,
     onClose,
     onOpen,
-    title,
-    }: DisclosureProps) => {
+    title
+}: DisclosureProps) => {
     const btnRef = React.useRef<HTMLButtonElement>(null);
-    const [expanded, setExpanded] = React.useState(isExpanded);
 
-    console.log("Disclosure.tsx: Disclosure: expanded: ", expanded);
 
-    const {buttonProps} = useButton(
-        {
-            onPress: () => {
-                setExpanded(!expanded);
-            },
-        },
-        btnRef,
+    const state = useToggleState({
+        defaultSelected: defaultExpanded,
+        isSelected: isExpanded,
+        onChange: isSelected => {
+            if (isSelected) {
+                onOpen?.();
+            } else {
+                onClose?.();
+            }
+        }
+
+    });
+
+    const { buttonProps } = useToggleButton(
+        {},
+        state,
+        btnRef
     );
+    
+    console.log("Disclosure.tsx: Disclosure: expanded: ", state.isSelected);
 
-    React.useEffect(() => {
-        setExpanded(isExpanded);
-    }, [isExpanded]);
-
-    React.useMemo(() => {
-        if (expanded && onOpen) {
-            onOpen();
-        }
-
-        if (!expanded && onClose) {
-            onClose();
-        }
-
-    }, [expanded, onOpen, onClose])
-
-
-    const classes = cx('ids-disclosure', className, {
-        'ids-disclosure--low-contrast': isLowContrast,
+    const classes = cx("ids-disclosure", className, {
+        "ids-disclosure--low-contrast": isLowContrast
     });
 
     return (
@@ -82,12 +80,12 @@ const Disclosure: React.FunctionComponent<DisclosureProps> = ({
                 {...buttonProps}
                 ref={btnRef}
                 className="ids-disclosure__header"
-                aria-expanded={expanded}
+                aria-expanded={state.isSelected}
             >
                 {icon && <span className="ids-disclosure__header-icon">{icon}</span>}
                 <span className="ids-disclosure__header-content">
                     {title && (
-                      <span className="ids-disclosure__header-title">{title}</span>
+                        <span className="ids-disclosure__header-title">{title}</span>
                     )}
                     {description && (
                         <span className="ids-disclosure__header-desc">{description}</span>
@@ -102,7 +100,7 @@ const Disclosure: React.FunctionComponent<DisclosureProps> = ({
             </button>
             <LazyMotion features={domAnimation} strict>
                 <AnimatePresence initial={false}>
-                    {expanded && (
+                    {state.isSelected && (
                         <m.div
                             className="ids-disclosure__content"
                             key="content"
@@ -112,15 +110,15 @@ const Disclosure: React.FunctionComponent<DisclosureProps> = ({
                             variants={{
                                 open: {
                                     opacity: 1,
-                                    height: 'auto',
-                                    overflow: 'hidden',
+                                    height: "auto",
+                                    overflow: "hidden",
                                     transitionEnd: {
-                                        overflow: 'visible',
-                                    },
+                                        overflow: "visible"
+                                    }
                                 },
-                                collapsed: {opacity: 0, height: 0, overflow: 'hidden'},
+                                collapsed: { opacity: 0, height: 0, overflow: "hidden" }
                             }}
-                            transition={{duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98]}}
+                            transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
                         >
                             {children}
                         </m.div>
