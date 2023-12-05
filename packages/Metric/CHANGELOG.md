@@ -1,5 +1,11 @@
 # @igloo-ui/metric
 
+## 0.2.2
+
+### Patch Changes
+
+- 73d3bfd: Updated the Metric component so that is displays "-" when the value is null or undefined.
+
 ## 0.2.1
 
 ### Patch Changes
