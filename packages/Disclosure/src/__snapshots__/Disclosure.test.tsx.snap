@@ -8,6 +8,7 @@ exports[`Disclosure It should render a snapshot 1`] = `
   >
     <button
       aria-expanded="false"
+      aria-pressed="false"
       class="ids-disclosure__header"
       type="button"
     >

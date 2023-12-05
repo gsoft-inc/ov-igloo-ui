@@ -56,7 +56,7 @@ export const Expanded = {
       <>
         <Button onClick={() => setIsExpanded(!isExpanded)}>{isExpanded ? 'Close me' : 'Open me'}</Button>
         <br />
-        <Disclosure {...args} isExpanded={isExpanded} />
+        <Disclosure {...args} isExpanded={isExpanded} onOpen={() => setIsExpanded(true)} onClose={() => setIsExpanded(false)} />
       </>
     );
   },
@@ -67,16 +67,14 @@ export const Expanded = {
       </div>
     ),
     title: 'Expanded',
-    icon: <Substract size="large" />,
-    onOpen: () => console.log('onOpen'),
-    onClose: () => console.log('onClose'),
+    icon: <Substract size="large" />
   },
 };
 
 
 export const LowContrast = {
   args: {
-    isExpanded: true,
+    defaultExpanded: true,
     isLowContrast: true,
     children: (
       <div style={{ padding: '0.8rem 0 0' }}>
@@ -88,3 +86,57 @@ export const LowContrast = {
     icon: <Settings size="small" />,
   },
 };
+
+
+const data = [
+    {
+        id: 1,
+        title: "Send Good Vibes",
+        description:
+            "Celebrate a team member with a thoughtful card that makes their day",
+    },
+    {
+        id: 2,
+        title: "Send Good Vibes 2",
+        description:
+            "Celebrate a team member with a thoughtful card that makes their day",
+    },
+];
+
+export const VerticallyStacked  = {
+    render: () => {
+        const [selectedIndex, setSelectedIndex] = React.useState<number | null>(null);
+
+        const handleDisclosureOpen = (id: number) => {
+            setSelectedIndex(id);
+        };
+
+        const handleDisclosureClose = () => {
+            setSelectedIndex(null);
+        };
+
+
+        return (
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+                {data.map((item, index) => {
+                    const isExpanded = selectedIndex === index;
+
+                    return (
+                        <Disclosure
+                            key={item.id}
+                            title={item.title}
+                            isExpanded={isExpanded}
+                            description={item.description}
+                            onOpen={() => handleDisclosureOpen(index)}
+                            onClose={() => handleDisclosureClose()}
+                        >
+                            <div style={{ padding: "1.6rem" }}>
+                                <Button appearance="secondary">Send Good Vibes</Button>
+                            </div>
+                        </Disclosure>
+                    );
+                })}
+            </div>
+        )
+    }
+}

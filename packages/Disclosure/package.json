@@ -28,7 +28,8 @@
         "@hopper-ui/tokens": "^3.1.0",
         "classnames": "^2.3.2",
         "framer-motion": "^6.5.1",
-        "react-aria": "^3.30.0"
+        "react-aria": "^3.30.0",
+        "react-stately": "^3.28.0"
     },
     "devDependencies": {
         "@igloo-ui/button": "^0.7.1"
