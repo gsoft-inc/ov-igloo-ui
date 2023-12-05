@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/disclosure",
-    "version": "0.3.1",
+    "version": "1.0.0",
     "main": "dist/Disclosure.js",
     "module": "dist/Disclosure.js",
     "types": "dist/Disclosure.d.ts",
