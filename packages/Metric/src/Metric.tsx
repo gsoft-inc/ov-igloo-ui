@@ -31,7 +31,7 @@ export interface MetricProps extends Omit<AriaButtonProps, "type"> {
     /** The type of metric */
     type?: MetricType;
     /** The value of the metric (Only variation is used for type fluctuate) */
-    value?: number;
+    value?: number | null;
     /** The variation of the metric */
     variation?: number;
 }
