@@ -72,6 +72,12 @@ import React from 'react';
             icon={<Wellness size="medium" />}
           />
           <Metric
+            value={null}
+            variation={0}
+            label="Empty with a null or undefined value"
+            icon={<Wellness size="medium" />}
+          />
+          <Metric
             variation={0}
             label="Fluctuate Zero"
             type="fluctuate"

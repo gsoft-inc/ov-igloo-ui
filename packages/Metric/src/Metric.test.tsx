@@ -147,9 +147,27 @@ const mockPropsSubMetric: MetricProps = {
   });
 
   /* Empty */
+  
+  test('should render "-" when value is null with no variation', () => {
+    const { container } = setup({...mockPropsEmpty, value: null});
+    
+    const variationElement = screen.getByText('-');
+    expect(variationElement).toBeInTheDocument();
+    const variationContainer = container.querySelector('.ids-score--variation');
+    expect(variationContainer).not.toBeInTheDocument();
+  });
+
+  test('should render "-" when value is undefined with no variation', () => {
+    const { container } = setup(mockPropsEmpty);
+    
+    const variationElement = screen.getByText('-');
+    expect(variationElement).toBeInTheDocument();
+    const variationContainer = container.querySelector('.ids-score--variation');
+    expect(variationContainer).not.toBeInTheDocument();
+  });
 
   test('should not render a variation when empty', () => {
-    const { container } = setup(mockPropsEmpty);
+    const { container } = setup({...mockPropsEmpty, value: 0});
     
     const variationElement = screen.getByText('0.0');
     expect(variationElement).toBeInTheDocument();
