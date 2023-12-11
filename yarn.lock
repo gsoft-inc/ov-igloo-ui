@@ -1771,10 +1771,10 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@hopper-ui/tokens@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.1.0.tgz#9e152ef31ea9a9a766027cf34fd57fe49e9c79a5"
-  integrity sha512-TMjnNNcmBsnglEsFXG2J7kakidzlFO98lrigT19JkNY+SUl0otKXjyaMuL3l268qfxiHalz9ODapgjY1msvbjg==
+"@hopper-ui/tokens@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.1.1.tgz#beeebb5abd6a98fccb43492d84a678892831b243"
+  integrity sha512-mAmtx91RHUz1pYc3tobD0od+pATp64XcCWooORf5ucuQugpPHdjmPo+lhdgJiAanhcsEhDQ4LmGMj79IOQ4pOA==
 
 "@humanwhocodes/config-array@^0.11.13":
   version "0.11.13"
