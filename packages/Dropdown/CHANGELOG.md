@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.6.4
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+
 ## 1.6.3
 
 ### Patch Changes

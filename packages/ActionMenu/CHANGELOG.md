@@ -1,5 +1,14 @@
 # @igloo-ui/action-menu
 
+## 1.3.2
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+- Updated dependencies [a2df55d]
+  - @igloo-ui/dropdown@1.6.4
+  - @igloo-ui/list@0.5.2
+
 ## 1.3.1
 
 ### Patch Changes

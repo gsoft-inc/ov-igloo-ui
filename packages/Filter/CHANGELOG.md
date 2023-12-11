@@ -1,5 +1,11 @@
 # @igloo-ui/filter
 
+## 0.2.1
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+
 ## 0.2.0
 
 ### Minor Changes

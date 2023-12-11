@@ -1,5 +1,11 @@
 # @igloo-ui/avatar
 
+## 0.2.2
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+
 ## 0.2.1
 
 ### Patch Changes

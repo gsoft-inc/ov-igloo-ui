@@ -1,5 +1,11 @@
 # @igloo-ui/checkbox
 
+## 0.2.4
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+
 ## 0.2.3
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/avatar",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "dist/Avatar.js",
   "module": "dist/Avatar.js",
   "types": "dist/Avatar.d.ts",

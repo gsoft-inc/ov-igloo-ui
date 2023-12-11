@@ -1,5 +1,11 @@
 # @igloo-ui/message
 
+## 0.2.15
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+
 ## 0.2.14
 
 ### Patch Changes

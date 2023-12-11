@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.1.2
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+
 ## 1.1.1
 
 ### Patch Changes

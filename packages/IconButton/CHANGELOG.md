@@ -1,5 +1,13 @@
 # @igloo-ui/icon-button
 
+## 1.1.5
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+- Updated dependencies [a2df55d]
+  - @igloo-ui/button@0.7.3
+
 ## 1.1.4
 
 ### Patch Changes

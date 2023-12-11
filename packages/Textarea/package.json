@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/textarea",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "main": "dist/Textarea.js",
   "module": "dist/Textarea.js",
   "types": "dist/Textarea.d.ts",

@@ -1,5 +1,14 @@
 # @igloo-ui/dialog
 
+## 0.6.2
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+- Updated dependencies [a2df55d]
+  - @igloo-ui/button@0.7.3
+  - @igloo-ui/modal@1.4.3
+
 ## 0.6.1
 
 ### Patch Changes

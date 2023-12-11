@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/alert",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "main": "dist/Alert.js",
   "module": "dist/Alert.js",
   "types": "dist/Alert.d.ts",
@@ -24,15 +24,15 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/button": "^0.7.1",
-    "@igloo-ui/icon-button": "^1.1.4",
+    "@igloo-ui/button": "^0.7.3",
+    "@igloo-ui/icon-button": "^1.1.5",
     "@igloo-ui/icons": "^1.11.0",
     "@igloo-ui/tokens": "^2.0.0",
     "@hopper-ui/tokens": "^3.1.1",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@igloo-ui/tooltip": "^3.4.0",
-    "@igloo-ui/hyperlink": "^0.3.1"
+    "@igloo-ui/tooltip": "^3.4.2",
+    "@igloo-ui/hyperlink": "^0.3.2"
   }
 }

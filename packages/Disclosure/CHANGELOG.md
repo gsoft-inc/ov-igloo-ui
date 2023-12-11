@@ -1,5 +1,11 @@
 # @igloo-ui/disclosure
 
+## 1.0.1
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+
 ## 1.0.0
 
 ### Major Changes

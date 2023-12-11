@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/radio",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "main": "dist/Radio.js",
   "module": "dist/Radio.js",
   "types": "dist/Radio.d.ts",

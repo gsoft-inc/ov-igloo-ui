@@ -1,5 +1,15 @@
 # @igloo-ui/tag-picker
 
+## 0.6.2
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+- Updated dependencies [a2df55d]
+  - @igloo-ui/dropdown@1.6.4
+  - @igloo-ui/input@2.1.5
+  - @igloo-ui/tag@1.2.2
+
 ## 0.6.1
 
 ### Patch Changes
