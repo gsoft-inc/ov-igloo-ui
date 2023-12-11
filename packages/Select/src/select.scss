@@ -106,7 +106,7 @@
         border-color: var(--ids-select-border-color-hover);
     }
 
-    &:focus,
+    &:focus-visible,
     &.focus {
         outline: 0;
         box-shadow: var(--ids-select-focus);
@@ -122,6 +122,11 @@
     &--active,
     &.active {
         border-color: var(--ids-select-border-color-active);
+
+        &:focus,
+        &.focus {
+            box-shadow: none;
+        }
     }
 
     &--disabled,

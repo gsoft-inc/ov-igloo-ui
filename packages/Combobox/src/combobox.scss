@@ -115,7 +115,7 @@
         background-color: var(--ids-combobox-background-hover);
     }
 
-    &:focus,
+    &:focus-visible,
     &.focus {
         outline: 0;
         box-shadow: var(--ids-combobox-focus);
@@ -131,6 +131,11 @@
     &--active,
     &.active {
         border-color: var(--ids-combobox-border-color-active);
+
+        &:focus,
+        &.focus {
+            box-shadow: none;
+        }
     }
 
     &--disabled,
