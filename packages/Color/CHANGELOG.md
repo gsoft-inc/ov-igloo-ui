@@ -1,5 +1,11 @@
 # @igloo-ui/color
 
+## 0.3.1
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+
 ## 0.3.0
 
 ### Minor Changes

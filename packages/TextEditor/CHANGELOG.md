@@ -1,5 +1,16 @@
 # @igloo-ui/text-editor
 
+## 0.6.2
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+- Updated dependencies [a2df55d]
+  - @igloo-ui/button@0.7.3
+  - @igloo-ui/icon-button@1.1.5
+  - @igloo-ui/input@2.1.5
+  - @igloo-ui/tooltip@3.4.2
+
 ## 0.6.1
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @igloo-ui/color-picker
 
+## 0.2.1
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+- Updated dependencies [a2df55d]
+  - @igloo-ui/color@0.3.1
+  - @igloo-ui/dropdown@1.6.4
+
 ## 0.2.0
 
 ### Minor Changes

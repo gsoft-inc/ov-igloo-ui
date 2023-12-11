@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.1.5
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+
 ## 2.1.4
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @igloo-ui/toaster
 
+## 2.0.4
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+- Updated dependencies [a2df55d]
+  - @igloo-ui/icon-button@1.1.5
+
 ## 2.0.3
 
 ### Patch Changes

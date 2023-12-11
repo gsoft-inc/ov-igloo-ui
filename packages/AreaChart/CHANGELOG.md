@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 1.0.3
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+
 ## 1.0.2
 
 ### Patch Changes

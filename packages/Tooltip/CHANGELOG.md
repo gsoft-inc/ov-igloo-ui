@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.4.2
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+
 ## 3.4.1
 
 ### Patch Changes

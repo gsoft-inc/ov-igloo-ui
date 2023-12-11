@@ -1,5 +1,14 @@
 # @igloo-ui/modal
 
+## 1.4.3
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+- Updated dependencies [a2df55d]
+  - @igloo-ui/carousel@0.2.2
+  - @igloo-ui/icon-button@1.1.5
+
 ## 1.4.2
 
 ### Patch Changes

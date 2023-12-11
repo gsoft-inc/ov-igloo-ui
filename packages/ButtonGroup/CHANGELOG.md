@@ -1,5 +1,11 @@
 # @igloo-ui/button-group
 
+## 0.3.2
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+
 ## 0.3.1
 
 ### Patch Changes

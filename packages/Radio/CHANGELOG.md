@@ -1,5 +1,11 @@
 # @igloo-ui/radio
 
+## 0.1.14
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+
 ## 0.1.13
 
 ### Patch Changes

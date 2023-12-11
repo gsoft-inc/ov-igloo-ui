@@ -1,5 +1,13 @@
 # @igloo-ui/form-group
 
+## 1.0.6
+
+### Patch Changes
+
+- a2df55d: Updated to latest Hopper Token dependency
+- Updated dependencies [a2df55d]
+  - @igloo-ui/helper-text@0.2.15
+
 ## 1.0.5
 
 ### Patch Changes
