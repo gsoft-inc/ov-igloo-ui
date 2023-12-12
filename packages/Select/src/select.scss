@@ -26,6 +26,7 @@
     --ids-select-border-color-hover: #{tokens.$grey-600};
 
     /* Active */
+    --ids-select-background-active: #{tokens.$samoyed};
     --ids-select-border-color-active: #{tokens.$electric-blue-500};
 
     /* Focus */
@@ -63,6 +64,7 @@
     --ids-select-border-color-hover: var(--hop-neutral-border-hover);
 
     /* Active */
+    --ids-select-background-active: var(--hop-neutral-surface);
     --ids-select-border-color-active: var(--hop-neutral-border-active);
 
     /* Focus */
@@ -91,10 +93,15 @@
     background-color: var(--ids-select-background);
     border: var(--ids-select-border-width) solid var(--ids-select-border-color);
     border-radius: var(--ids-select-border-radius);
+    outline: none;
     box-sizing: border-box;
     transition: border-color .2s ease 0s;
     cursor: pointer;
     user-select: none;
+
+    &__dropdown {
+        outline: none;
+    }
 
     &,
     & * {
@@ -106,25 +113,25 @@
         border-color: var(--ids-select-border-color-hover);
     }
 
-    &:focus-visible,
-    &.focus {
-        outline: 0;
-        box-shadow: var(--ids-select-focus);
-        border-color: var(--ids-select-border-color-focus);
-        background-color: var(--ids-select-background-focus);
+    &:focus {
+        box-shadow: none;
     }
 
-    &--compact {
-        font-size: var(--ids-select-font-size-compact);
-        line-height: var(--ids-select-line-height-compact);
+    &:focus-visible,
+    &.focus {
+        background-color: var(--ids-select-background-focus);
+        box-shadow: var(--ids-select-focus);
+        border-color: var(--ids-select-border-color-focus);
     }
 
     &--active,
     &.active {
+        background-color: var(--ids-select-background-active);
         border-color: var(--ids-select-border-color-active);
 
-        &:focus,
+        &:focus-visible,
         &.focus {
+            background-color: var(--ids-select-background-active);
             box-shadow: none;
         }
     }
