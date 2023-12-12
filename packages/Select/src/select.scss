@@ -132,6 +132,7 @@
         &:focus-visible,
         &.focus {
             background-color: var(--ids-select-background-active);
+            border-color: var(--ids-select-border-color-active);
             box-shadow: none;
         }
     }
