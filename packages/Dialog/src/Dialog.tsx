@@ -11,6 +11,8 @@ export interface DialogProps extends React.ComponentProps<"div"> {
     className?: string;
     /** Add a data-test tag for automated tests */
     dataTest?: string;
+    /** Whether to close the dialog when the escape key is pressed */
+    dismissOnEscape: boolean;
     /** The text for the dismiss button */
     dismissText?: string;
     /** Whether the dialog is open or not */
@@ -37,6 +39,7 @@ export interface DialogProps extends React.ComponentProps<"div"> {
 const Dialog: React.FunctionComponent<DialogProps> = ({
     className,
     dataTest,
+    dismissOnEscape = true,
     dismissText,
     isOpen,
     loading,
@@ -54,6 +57,7 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
         <Modal
             className={classes}
             dataTest={dataTest}
+            dismissOnEscape={dismissOnEscape}
             isClosable
             isOpen={isOpen}
             size="small"
