@@ -1,5 +1,11 @@
 # @igloo-ui/combobox
 
+## 2.1.3
+
+### Patch Changes
+
+- 5a9444f: Fix for focus state made to be on par with Orbiter/Hopper
+
 ## 2.1.2
 
 ### Patch Changes
