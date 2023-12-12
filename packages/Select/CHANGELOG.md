@@ -1,5 +1,11 @@
 # @igloo-ui/select
 
+## 1.3.8
+
+### Patch Changes
+
+- 5a9444f: Fix for focus state made to be on par with Orbiter/Hopper
+
 ## 1.3.7
 
 ### Patch Changes
