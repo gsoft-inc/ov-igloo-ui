@@ -1,5 +1,11 @@
 # @igloo-ui/list
 
+## 0.5.3
+
+### Patch Changes
+
+- 456a3ce: Adjusted the height of list item in compact mode
+
 ## 0.5.2
 
 ### Patch Changes
