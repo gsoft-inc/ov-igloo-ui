@@ -25,6 +25,7 @@
 
     /* Active */
     --ids-combobox-border-color-active: #{tokens.$electric-blue-500};
+    --ids-combobox-background-active: #{tokens.$samoyed};
 
     /* Focus */
     --ids-combobox-border-color-focus: #{tokens.$electric-blue-500};
@@ -67,6 +68,7 @@
     --ids-combobox-background-hover: var(--hop-neutral-surface-hover);
 
     /* Active */
+    --ids-combobox-background-active: var(--hop-neutral-surface);
     --ids-combobox-border-color-active: var(--hop-neutral-border-active);
 
     /* Focus */
@@ -99,6 +101,7 @@
     font-family: var(--ids-combobox-font-family);
     font-weight: var(--ids-combobox-font-weight);
     line-height: var(--ids-combobox-line-height);
+    outline: 0;
     padding: 0 var(--ids-combobox-padding);
     position: relative;
     box-sizing: border-box;
@@ -115,22 +118,33 @@
         background-color: var(--ids-combobox-background-hover);
     }
 
-    &:focus,
+    &:focus {
+        box-shadow: none;
+    }
+
+    &:focus-visible,
     &.focus {
-        outline: 0;
+        background-color: var(--ids-combobox-background-focus);
         box-shadow: var(--ids-combobox-focus);
         border-color: var(--ids-combobox-border-color-focus);
-        background-color: var(--ids-combobox-background-focus);
+    }
+
+    &--active,
+    &.active {
+        background-color: var(--ids-combobox-background-active);
+        border-color: var(--ids-combobox-border-color-active);
+
+        &:focus-visible,
+        &.focus {
+            background-color: var(--ids-combobox-background-active);
+            border-color: var(--ids-select-border-color-active);
+            box-shadow: none;
+        }
     }
 
     &--compact {
         font-size: var(--ids-combobox-font-size-compact);
         line-height: var(--ids-combobox-line-height-compact);
-    }
-
-    &--active,
-    &.active {
-        border-color: var(--ids-combobox-border-color-active);
     }
 
     &--disabled,
@@ -149,6 +163,10 @@
     &--error {
         border-color: var(--ids-combobox-border-color-error);
     }
+}
+
+.ids-combobox__dropdown {
+    outline: none;
 }
 
 .ids-combobox__dropdown--has-footer .ids-combobox__list {
