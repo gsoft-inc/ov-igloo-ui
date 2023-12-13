@@ -1,5 +1,16 @@
 # @igloo-ui/dialog
 
+## 0.7.0
+
+### Minor Changes
+
+- 636004c: Added dismissOnEscape to Modal and Dialog. Also fixed the issue where the modal didn't gain focus after opening.
+
+### Patch Changes
+
+- Updated dependencies [636004c]
+  - @igloo-ui/modal@1.5.0
+
 ## 0.6.2
 
 ### Patch Changes

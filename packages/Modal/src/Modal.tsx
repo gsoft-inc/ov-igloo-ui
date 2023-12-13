@@ -10,7 +10,8 @@ import {
     useOverlay,
     usePreventScroll, 
     useDialog, 
-    type AriaDialogProps
+    type AriaDialogProps,
+    FocusScope
 } from "react-aria";
 
 import IconButton from "@igloo-ui/icon-button";
@@ -68,6 +69,10 @@ export interface ModalProps extends OverlayProps, AriaDialogProps {
     carousel?: CarouselInterface;
     /** A unique key for the modal */
     keyValue?: string;
+    /** Whether to close the modal when the escape key is pressed
+   * @default true
+   */
+    dismissOnEscape: boolean;
 }
 
 const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
@@ -87,7 +92,8 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
         primaryAction,
         secondaryAction,
         carousel,
-        keyValue = ""
+        keyValue = "",
+        dismissOnEscape = true
     } = props;
 
     const displayBackBtn = carousel && carousel.currentSlide && carousel.currentSlide > 0;
@@ -99,7 +105,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
 
     const ref = React.useRef<HTMLDivElement>(null);
     const { overlayProps, underlayProps } = useOverlay(
-        { isOpen, onClose, isDismissable },
+        { isOpen, onClose, isDismissable, isKeyboardDismissDisabled: !dismissOnEscape },
         ref
     );
 
@@ -162,91 +168,93 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
             </AnimatePresence>
             <AnimatePresence onExitComplete={onExitComplete}>
                 {isOpen && (
-                    <m.div className="ids-modal__wrapper">
-                        <m.div
-                            key={`${keyValue}_modal`}
-                            className={classes}
-                            data-test={dataTest}
-                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            {...(overlayProps as any)}
-                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            {...(dialogProps as any)}
-                            initial="initial"
-                            animate="open"
-                            exit="close"
-                            variants={modalVariants}
-                            transition={{ duration: 0.2 }}
-                            ref={ref}
-                        >
-                            <div
-                                className={cx("ids-modal__header", {
-                                    "ids-modal__header--with-back-btn": displayBackBtn
-                                })}
+                    <FocusScope restoreFocus autoFocus contain>
+                        <m.div className="ids-modal__wrapper">
+                            <m.div
+                                key={`${keyValue}_modal`}
+                                className={classes}
+                                data-test={dataTest}
+                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                {...(overlayProps as any)}
+                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                {...(dialogProps as any)}
+                                initial="initial"
+                                animate="open"
+                                exit="close"
+                                variants={modalVariants}
+                                transition={{ duration: 0.2 }}
+                                ref={ref}
                             >
-                                {displayBackBtn ? (
+                                <div
+                                    className={cx("ids-modal__header", {
+                                        "ids-modal__header--with-back-btn": displayBackBtn
+                                    })}
+                                >
+                                    {displayBackBtn ? (
+                                        <IconButton
+                                            size="small"
+                                            className="ids-modal__back"
+                                            onClick={() => {
+                                                if (carousel && carousel.currentSlide) {
+                                                    handleOnPageChange(carousel.currentSlide - 1);
+                                                }
+                                            }}
+                                            appearance={{ type: "ghost", variant: "secondary" }}
+                                            icon={<ChevronLeft size="medium" />}
+                                        />
+                                    ) : (
+                                        <></>
+                                    )}
+
+                                    {title && <h5 className="ids-modal__title">{title}</h5>}
+
                                     <IconButton
                                         size="small"
-                                        className="ids-modal__back"
-                                        onClick={() => {
-                                            if (carousel && carousel.currentSlide) {
-                                                handleOnPageChange(carousel.currentSlide - 1);
-                                            }
-                                        }}
+                                        className="ids-modal__close"
+                                        onClick={onClose}
                                         appearance={{ type: "ghost", variant: "secondary" }}
-                                        icon={<ChevronLeft size="medium" />}
+                                        aria-label={closeBtnAriaLabel}
+                                        icon={<Close />}
                                     />
-                                ) : (
-                                    <></>
-                                )}
+                                </div>
+                                <div className="ids-modal__content">
+                                    {children}
 
-                                {title && <h5 className="ids-modal__title">{title}</h5>}
+                                    {carousel && (
+                                        <Carousel
+                                            onPageChange={carousel.onPageChange}
+                                            currentSlide={carousel.currentSlide}
+                                            primaryAction={primaryAction}
+                                            secondaryAction={secondaryAction}
+                                            className="ids-modal__carousel"
+                                        >
+                                            {carousel.slides.map((slide, index) => (
+                                                <div
+                                                    key={`slide_${index.toString()}`}
+                                                    className="ids-modal__carousel-slide"
+                                                >
+                                                    {slide}
+                                                </div>
+                                            ))}
+                                        </Carousel>
+                                    )}
 
-                                <IconButton
-                                    size="small"
-                                    className="ids-modal__close"
-                                    onClick={onClose}
-                                    appearance={{ type: "ghost", variant: "secondary" }}
-                                    aria-label={closeBtnAriaLabel}
-                                    icon={<Close />}
-                                />
-                            </div>
-                            <div className="ids-modal__content">
-                                {children}
-
-                                {carousel && (
-                                    <Carousel
-                                        onPageChange={carousel.onPageChange}
-                                        currentSlide={carousel.currentSlide}
-                                        primaryAction={primaryAction}
-                                        secondaryAction={secondaryAction}
-                                        className="ids-modal__carousel"
-                                    >
-                                        {carousel.slides.map((slide, index) => (
-                                            <div
-                                                key={`slide_${index.toString()}`}
-                                                className="ids-modal__carousel-slide"
-                                            >
-                                                {slide}
-                                            </div>
-                                        ))}
-                                    </Carousel>
-                                )}
-
-                                {(primaryAction || secondaryAction) && !carousel && (
-                                    <div className="ids-modal__footer">
-                                        {secondaryAction
+                                    {(primaryAction || secondaryAction) && !carousel && (
+                                        <div className="ids-modal__footer">
+                                            {secondaryAction
                       && React.cloneElement(secondaryAction, {
                           className: "ids-modal__footer-action"
                       })}
-                                        {primaryAction
+                                            {primaryAction
                       && React.cloneElement(primaryAction, {
                           className: "ids-modal__footer-action"
                       })}
-                                    </div>
-                                )}
-                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </m.div>
                         </m.div>
-                    </m.div>
+                    </FocusScope>
                 )}
             </AnimatePresence>
         </LazyMotion>

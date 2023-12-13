@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/combobox",
-    "version": "2.1.2",
+    "version": "2.1.3",
     "main": "dist/Combobox.js",
     "module": "dist/Combobox.js",
     "types": "dist/Combobox.d.ts",
