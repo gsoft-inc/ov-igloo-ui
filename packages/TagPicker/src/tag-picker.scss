@@ -9,6 +9,7 @@
     /* Default */
     --ids-tag-picker-border-size: 0.1rem;
     --ids-tag-picker-border-color: #{tokens.$grey-400};
+    --ids-tag-picker-border-color-hover: #{tokens.$grey-600};
     --ids-tag-picker-border-color-focus: #{tokens.$electric-blue-500};
     --ids-tag-picker-border-color-error: #{tokens.$coral-500};
     --ids-tag-picker-border-radius: #{tokens.$border-radius-sm};
@@ -46,11 +47,13 @@
     /* Default */
     --ids-tag-picker-border-size: 0.0625rem;
     --ids-tag-picker-border-color: var(--hop-neutral-border);
-    --ids-tag-picker-border-color-focus: var(--hop-primary-border-focus);
+    --ids-tag-picker-border-color-hover: var(--hop-neutral-border-hover);
+    --ids-tag-picker-border-color-focus: var(--hop-neutral-border-hover);
+    --ids-tag-picker-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
     --ids-tag-picker-border-color-error: var(--hop-danger-border-strong);
     --ids-tag-picker-border-radius: var(--hop-shape-rounded-md);
     --ids-tag-picker-font-family: var(--hop-body-md-font-family);
-    --ids-tag-picker-font-size: var(--hop-body-md-font-size);
+    --ids-tag-picker-font-size: var(--hop-body-sm-font-size);
     --ids-tag-picker-background-hover: var(--hop-neutral-surface-hover);
     --ids-tag-picker-background-disabled: var(--hop-neutral-surface-disabled);
     --ids-tag-picker-border-disabled: var(--hop-neutral-border-disabled);
@@ -65,13 +68,13 @@
     --ids-tag-picker-input-disabled-padding: var(--hop-space-inset-xs) 0;
 
     /* Tag */
-    --ids-tag-picker-tag-margin: var(--hop-space-stack-xs) var(--hop-space-inline-xs);
+    --ids-tag-picker-tag-margin: var(--hop-space-inset-xs);
     --ids-tag-picker-tag-border: 0.0625rem solid var(--hop-neutral-border);
     --ids-tag-picker-tag-border-color-error: var(--hop-danger-border-strong);
 
     /* Results */
-    --ids-tag-picker-content-padding-selected: 0 calc(var(--hop-space-inset-md) - var(--hop-space-inline-xs));
-    --ids-tag-picker-results-padding: var(--hop-space-inset-sm) 0;
+    --ids-tag-picker-content-padding-selected: 0;
+    --ids-tag-picker-results-padding: var(--hop-space-inset-sm);
     --ids-tag-picker-results-min-width: 15rem;
 
     /* No Results */
@@ -99,6 +102,7 @@
 
     &--focused {
         border-color: var(--ids-tag-picker-border-color-focus);
+        box-shadow: var(--ids-tag-picker-focus);
     }
 
     &--disabled {
@@ -109,6 +113,7 @@
 
     &:hover:not(.ids-tag-picker--disabled) {
         background-color: var(--ids-tag-picker-background-hover);
+        border-color: var(--ids-tag-picker-border-color-hover);
     }
 
     &:hover:not(.ids-tag-picker--disabled) .ids-tag-picker__input {
@@ -182,7 +187,7 @@
 .ids-tag-picker .ids-tag-picker__input {
     border: none;
     flex: 1 1 auto;
-    height: var(--ids-tag-picker-input-height);
+    height: calc(var(--ids-tag-picker-input-height) - calc(var(--ids-tag-picker-tag-margin) * 2));
     width: 100%;
 }
 

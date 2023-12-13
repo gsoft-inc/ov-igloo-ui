@@ -12,6 +12,7 @@
     --ids-textarea-line-height: #{tokens.$line-height-xxxl};
     --ids-textarea-color: #{tokens.$grey-800};
     --ids-textarea-border-color: #{tokens.$grey-300};
+    --ids-textarea-border-size: .1rem;
     --ids-textarea-border-radius: #{tokens.$border-radius-sm};
     --ids-textarea-padding: #{tokens.$space-2} #{tokens.$space-3};
 
@@ -49,6 +50,7 @@
     --ids-textarea-line-height: var(--hop-body-sm-line-height);
     --ids-textarea-color: var(--hop-neutral-text);
     --ids-textarea-border-color: var(--hop-neutral-border);
+    --ids-textarea-border-size: .0625rem;
     --ids-textarea-border-radius: var(--hop-shape-rounded-md);
     --ids-textarea-padding: var(--hop-space-inset-squish-md);
 
@@ -90,7 +92,7 @@
     }
 
     &__field {
-        border: .1rem solid var(--ids-textarea-border-color);
+        border: var(--ids-textarea-border-size) solid var(--ids-textarea-border-color);
         border-radius: var(--ids-textarea-border-radius);
         color: var(--ids-textarea-color);
         display: block;
