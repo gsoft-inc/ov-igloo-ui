@@ -63,7 +63,7 @@
     --ids-tag-picker-search-icon-margin: 0 var(--hop-space-inline-sm);
 
     /* Search input */
-    --ids-tag-picker-input-height: 2.5rem;
+    --ids-tag-picker-input-height: calc(2.5rem - calc(var(--ids-tag-picker-tag-margin) * 2));
     --ids-tag-picker-input-min-width: 0.125rem;
     --ids-tag-picker-input-disabled-padding: var(--hop-space-inset-xs) 0;
 
@@ -187,7 +187,7 @@
 .ids-tag-picker .ids-tag-picker__input {
     border: none;
     flex: 1 1 auto;
-    height: calc(var(--ids-tag-picker-input-height) - calc(var(--ids-tag-picker-tag-margin) * 2));
+    height: var(--ids-tag-picker-input-height);
     width: 100%;
 }
 
