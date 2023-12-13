@@ -274,7 +274,7 @@
 .ids-input.focus,{
     outline: 0;
     outline-offset: 0;
-    border: .1rem solid var(--ids-input-border-color-focus);
+    border: var(--ids-input-border-size) solid var(--ids-input-border-color-focus);
     box-shadow: var(--ids-input-focus, none);
 }
 
@@ -282,7 +282,7 @@
 .ids-input.active {
     outline: 0;
     outline-offset: 0;
-    border: .1rem solid var(--ids-input-border-color-active);
+    border: var(--ids-input-border-size) solid var(--ids-input-border-color-active);
 }
 
 .ids-input:disabled,
