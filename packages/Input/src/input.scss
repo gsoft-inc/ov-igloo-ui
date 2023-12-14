@@ -123,7 +123,7 @@
     --ids-input-width-character-indicator: 2.5rem;
     --ids-input-font-size-character-indicator: var(--hop-body-xs-font-size);
     --ids-input-min-width-character-indicator: 2rem;
-    --ids-input-width-character-indicator-suffix: 4rem;
+    --ids-input-width-character-indicator-suffix: 6rem;
     --ids-input-width-character-indicator-suffix-compact: 5rem;
 }
 
@@ -162,6 +162,7 @@
 
 .ids-input__wrapper {
     font-family: var(--ids-input-font-family);
+    font-size: var(--ids-input-font-size);
     position: relative;
 }
 
