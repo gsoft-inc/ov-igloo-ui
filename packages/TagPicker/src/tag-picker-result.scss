@@ -8,6 +8,7 @@
     --ids-tag-picker-result-font-size: #{tokens.$font-size-3};
     --ids-tag-picker-result-line-height: #{tokens.$line-height-xxl};
     --ids-tag-picker-result-padding: #{tokens.$space-1} #{tokens.$space-3};
+    --ids-tag-picker-result-radius: 0;
 
     /* Focused */
     --ids-tag-picker-result-background: #{tokens.$electric-blue-50};
@@ -33,14 +34,15 @@
 
 [data-brand="workleap"] {
     /* Default */
-    --ids-tag-picker-result-color: var(--hop-neutral-text-strong);
+    --ids-tag-picker-result-color: var(--hop-neutral-text);
     --ids-tag-picker-result-font-family: var(--hop-body-md-font-family);
     --ids-tag-picker-result-font-size: var(--hop-body-md-font-size);
     --ids-tag-picker-result-line-height: var(--hop-body-md-line-height);
     --ids-tag-picker-result-padding:var(--hop-space-inset-squish-md);
+    --ids-tag-picker-result-radius: var(--hop-shape-rounded-md);
 
     /* Focused */
-    --ids-tag-picker-result-background: var(--hop-primary-surface-weak);
+    --ids-tag-picker-result-background: var(--hop-neutral-surface-hover);
 
     /* Visual Identifier */
     --ids-tag-picker-result-visual-size: 1.5rem;
@@ -77,6 +79,8 @@
     align-items: center;
     background: none;
     border: none;
+    border-radius: var(--ids-tag-picker-result-radius);
+    color: var(--ids-tag-picker-result-color);
     display: flex;
     flex: 1 1 auto;
     font-family: var(--ids-tag-picker-font-family);

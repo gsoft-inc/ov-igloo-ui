@@ -137,11 +137,13 @@
         }
     }
 
-    &--disabled,
-    &--disabled:focus {
+    &.ids-select--disabled,
+    &.ids-select--disabled:focus-visible
+    &.ids-select--disabled:focus {
         color: var(--ids-select-color-disabled);
         background-color: var(--ids-select-background-disabled);
         border-color: var(--ids-select-border-color-disabled);
+        box-shadow: none;
         cursor: not-allowed;
 
         &:hover {
