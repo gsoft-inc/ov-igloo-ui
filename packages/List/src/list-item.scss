@@ -79,7 +79,6 @@
     --ids-list-item-loading-text-height: #{tokens.$space-2};
     --ids-list-item-loading-text-width: 60%;
     --ids-list-item-loading-color: #{tokens.$grey-200};
-
 }
 
 [data-brand="workleap"] {
@@ -115,7 +114,7 @@
 
     /* Visual Identifier */
     --ids-list-item-icon-size: 1.5rem;
-    --ids-list-item-icon-margin: 0 var(--hop-space-inline-sm) 0 0;
+    --ids-list-item-icon-margin: 0.125rem var(--hop-space-inline-sm) 0 0;
     --ids-list-item-svg-margin: 0 var(--hop-space-inline-sm) 0 0;
     --ids-list-item-svg-color: var(--hop-neutral-icon);
     --ids-list-item-icon-member-size: 2rem;
@@ -159,7 +158,6 @@
     --ids-list-item-loading-text-height: 0.5rem;
     --ids-list-item-loading-text-width: 60%;
     --ids-list-item-loading-color: var(--hop-neutral-surface-weakest);
-
 }
 
 @keyframes check-animation {
