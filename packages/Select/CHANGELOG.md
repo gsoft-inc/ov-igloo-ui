@@ -1,5 +1,13 @@
 # @igloo-ui/select
 
+## 1.3.9
+
+### Patch Changes
+
+- 39a1d18: Fix for focus disabled look
+- Updated dependencies [39a1d18]
+  - @igloo-ui/input@2.1.6
+
 ## 1.3.8
 
 ### Patch Changes

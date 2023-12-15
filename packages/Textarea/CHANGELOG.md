@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.3.3
+
+### Patch Changes
+
+- 39a1d18: Fix for minor issues
+
 ## 0.3.2
 
 ### Patch Changes
