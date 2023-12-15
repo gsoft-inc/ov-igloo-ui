@@ -1,5 +1,11 @@
 # @igloo-ui/tag
 
+## 1.2.3
+
+### Patch Changes
+
+- 5082846: added space between icon and border for round tags small, xsmall and micro
+
 ## 1.2.2
 
 ### Patch Changes
