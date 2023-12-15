@@ -41,8 +41,6 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = ({
         return child;
     });
 
-    console.log(childrenClone);
-
     return (
         <div
             data-test={dataTest}
