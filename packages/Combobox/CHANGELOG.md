@@ -1,5 +1,13 @@
 # @igloo-ui/combobox
 
+## 2.1.4
+
+### Patch Changes
+
+- 39a1d18: Fix for minor issues
+- Updated dependencies [39a1d18]
+  - @igloo-ui/input@2.1.6
+
 ## 2.1.3
 
 ### Patch Changes

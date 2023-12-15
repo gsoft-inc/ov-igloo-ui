@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/tag-picker",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "main": "dist/TagPicker.js",
   "module": "dist/TagPicker.js",
   "types": "dist/TagPicker.d.ts",
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@igloo-ui/dropdown": "^1.6.4",
-    "@igloo-ui/input": "^2.1.5",
+    "@igloo-ui/input": "^2.1.6",
     "@igloo-ui/tag": "^1.2.2",
     "@igloo-ui/tokens": "^2.0.0",
     "@hopper-ui/tokens": "^3.1.1",

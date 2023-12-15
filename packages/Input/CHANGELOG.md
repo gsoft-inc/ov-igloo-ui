@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.1.6
+
+### Patch Changes
+
+- 39a1d18: Fix for minor issues
+
 ## 2.1.5
 
 ### Patch Changes
