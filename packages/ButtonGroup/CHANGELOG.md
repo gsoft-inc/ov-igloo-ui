@@ -1,5 +1,11 @@
 # @igloo-ui/button-group
 
+## 0.3.3
+
+### Patch Changes
+
+- cd4e21f: fix component rendering when used with a tooltip
+
 ## 0.3.2
 
 ### Patch Changes
