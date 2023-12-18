@@ -12,7 +12,7 @@ export interface DialogProps extends React.ComponentProps<"div"> {
     /** Add a data-test tag for automated tests */
     dataTest?: string;
     /** Whether to close the dialog when the escape key is pressed */
-    dismissOnEscape: boolean;
+    dismissOnEscape?: boolean;
     /** The text for the dismiss button */
     dismissText?: string;
     /** Whether the dialog is open or not */
