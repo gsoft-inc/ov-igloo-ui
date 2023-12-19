@@ -72,7 +72,7 @@ export interface ModalProps extends OverlayProps, AriaDialogProps {
     /** Whether to close the modal when the escape key is pressed
    * @default true
    */
-    dismissOnEscape: boolean;
+    dismissOnEscape?: boolean;
 }
 
 const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
@@ -168,7 +168,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
             </AnimatePresence>
             <AnimatePresence onExitComplete={onExitComplete}>
                 {isOpen && (
-                    <FocusScope restoreFocus autoFocus contain>
+                    <FocusScope restoreFocus autoFocus>
                         <m.div className="ids-modal__wrapper">
                             <m.div
                                 key={`${keyValue}_modal`}
