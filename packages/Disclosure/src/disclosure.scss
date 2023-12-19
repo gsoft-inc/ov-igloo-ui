@@ -142,6 +142,10 @@
 
 .ids-disclosure .ids-disclosure__header-icon {
     margin: var(--ids-disclosure-header-icon-margin);
+
+    & svg {
+        display: block;
+    }
 }
 
 .ids-disclosure--low-contrast .ids-disclosure__header-icon {

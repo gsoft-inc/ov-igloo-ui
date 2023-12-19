@@ -1771,10 +1771,10 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@hopper-ui/tokens@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.1.1.tgz#beeebb5abd6a98fccb43492d84a678892831b243"
-  integrity sha512-mAmtx91RHUz1pYc3tobD0od+pATp64XcCWooORf5ucuQugpPHdjmPo+lhdgJiAanhcsEhDQ4LmGMj79IOQ4pOA==
+"@hopper-ui/tokens@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.1.2.tgz#d77349b3d99f6fb528ff239e769881a7e8b8de14"
+  integrity sha512-nzPI1kjsdO4fsoQZkgE+mrZ5DeSlhcwRz9q6ALCkOdM5g5ZGkShXXDzNUlFmI5YRee2zBZBbs46Fnkz+ngUCkg==
 
 "@humanwhocodes/config-array@^0.11.13":
   version "0.11.13"
@@ -1814,10 +1814,10 @@
   resolved "https://registry.yarnpkg.com/@hutson/parse-repository-url/-/parse-repository-url-3.0.2.tgz#98c23c950a3d9b6c8f0daed06da6c3af06981340"
   integrity sha512-H9XAx3hc0BQHY6l+IFSWHDySypcXsvsuLhgYLUGywmJ5pswRVQJUHpOsobnLYp2ZUaUlKiKDrgWWhosOwAEM8Q==
 
-"@igloo-ui/icons@^1.11.0":
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/@igloo-ui/icons/-/icons-1.12.1.tgz#64fbb4593020a3e91cefc515cc33e22c9a2cefd0"
-  integrity sha512-NCxj7DciRWzN/a96a+y9SuzsP5ySUM5oQZuT0KE+FojFHLOC8ADVCIzxPyMI8yrqxiOrbXa+wI5qHGh5qSflSQ==
+"@igloo-ui/icons@^1.12.2":
+  version "1.12.2"
+  resolved "https://registry.yarnpkg.com/@igloo-ui/icons/-/icons-1.12.2.tgz#cc1667e791c8173221d52d54188fe548323434a7"
+  integrity sha512-e2qLVfuxPkkpz6uy+/6MLYV4R4shHZauaeyOl28HvrsAY4Bkn5Vvwbd9r8ZdC7+aL5M7KHgIE1o8r5/6EAk3dQ==
   dependencies:
     classnames "^2.3.1"
     html-react-parser "^1.2.7"

@@ -26,11 +26,11 @@
     "dependencies": {
         "@igloo-ui/dropdown": "^1.6.4",
         "@igloo-ui/list": "^0.5.2",
-        "@igloo-ui/icons": "^1.11.0",
+        "@igloo-ui/icons": "^1.12.2",
         "@igloo-ui/icon-button": "^1.1.5",
         "@igloo-ui/input": "^2.1.6",
         "@igloo-ui/tokens": "^2.0.0",
-        "@hopper-ui/tokens": "^3.1.1",
+        "@hopper-ui/tokens": "^3.1.2",
         "classnames": "^2.3.2"
     },
     "devDependencies": {

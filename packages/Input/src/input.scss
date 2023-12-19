@@ -25,8 +25,7 @@
     --ids-input-letter-spacing-compact: #{tokens.$font-weight-regular};
 
     /* with icon */
-    --ids-input-color-icon: #{tokens.$grey-400};
-    --ids-input-color-icon-compact: #{tokens.$grey-800};
+    --ids-input-color-icon: #{tokens.$grey-500};
 
     /* with prefix icon */
     --ids-input-width-prefix: #{tokens.$space-7};
@@ -45,6 +44,7 @@
     --ids-input-min-width-character-indicator: #{tokens.$space-4};
     --ids-input-width-character-indicator-suffix: #{tokens.$space-9};
     --ids-input-width-character-indicator-suffix-compact: #{tokens.$space-8};
+    --ids-input-character-indicator-color: #{tokens.$grey-400};
 
     /* Placeholder */
     --ids-input-color-placeholder: #{tokens.$grey-400};
@@ -87,7 +87,6 @@
 
     /* with icon */
     --ids-input-color-icon: var(--hop-neutral-icon-weak);
-    --ids-input-color-icon-compact: var(--hop-neutral-icon-weak);
 
     /* with prefix icon */
     --ids-input-width-prefix: 2.5rem;
@@ -125,6 +124,7 @@
     --ids-input-min-width-character-indicator: 2rem;
     --ids-input-width-character-indicator-suffix: 6rem;
     --ids-input-width-character-indicator-suffix-compact: 5rem;
+    --ids-input-character-indicator-color: var(--hop-neutral-text-weakest);
 }
 
 %ids-input-asset {
@@ -196,6 +196,7 @@
 }
 
 .ids-input__char-indicator {
+    color: var(--ids-input-character-indicator-color);
     font-size: var(--ids-input-font-size-character-indicator);
     min-width: var(--ids-input-min-width-character-indicator);
     padding: var(--ids-input-padding-character-indicator);
@@ -219,12 +220,10 @@
 }
 
 .ids-input__asset--prefix--compact {
-    color: var(--ids-input-color-icon-compact);
     width: var(--ids-input-width-prefix-compact);
 }
 
 .ids-input__asset--suffix--compact {
-    color: var(--ids-input-color-icon-compact);
     width: var(--ids-input-width-suffix-compact);
 }
 
