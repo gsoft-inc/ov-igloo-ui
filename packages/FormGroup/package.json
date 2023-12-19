@@ -25,8 +25,8 @@
     },
     "dependencies": {
         "@igloo-ui/tokens": "^2.0.0",
-        "@igloo-ui/icons": "^1.11.0",
-        "@hopper-ui/tokens": "^3.1.1",
+        "@igloo-ui/icons": "^1.12.2",
+        "@hopper-ui/tokens": "^3.1.2",
         "classnames": "^2.3.2",
         "@igloo-ui/helper-text": "^0.2.15"
     },
