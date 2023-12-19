@@ -1,5 +1,11 @@
 # @igloo-ui/breadcrumb
 
+## 0.2.4
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+
 ## 0.2.3
 
 ### Patch Changes

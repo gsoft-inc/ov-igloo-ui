@@ -1,5 +1,14 @@
 # @igloo-ui/alert
 
+## 0.6.4
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+- Updated dependencies [7d36815]
+  - @igloo-ui/button@0.7.4
+  - @igloo-ui/icon-button@1.1.6
+
 ## 0.6.3
 
 ### Patch Changes

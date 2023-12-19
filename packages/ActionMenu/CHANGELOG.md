@@ -1,5 +1,14 @@
 # @igloo-ui/action-menu
 
+## 1.3.3
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+- Updated dependencies [7d36815]
+  - @igloo-ui/dropdown@1.6.5
+  - @igloo-ui/list@0.5.4
+
 ## 1.3.2
 
 ### Patch Changes

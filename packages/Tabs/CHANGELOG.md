@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.1.3
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+
 ## 1.1.2
 
 ### Patch Changes

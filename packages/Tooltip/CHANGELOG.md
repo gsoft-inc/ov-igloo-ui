@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.4.3
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+
 ## 3.4.2
 
 ### Patch Changes

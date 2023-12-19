@@ -1,5 +1,60 @@
 # docs
 
+## 0.2.3
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+- Updated dependencies [7d36815]
+- Updated dependencies [7d36815]
+- Updated dependencies [7d36815]
+  - @igloo-ui/action-menu@1.3.3
+  - @igloo-ui/alert@0.6.4
+  - @igloo-ui/area-chart@1.0.4
+  - @igloo-ui/avatar@0.2.3
+  - @igloo-ui/bar-chart@0.3.3
+  - @igloo-ui/breadcrumb@0.2.4
+  - @igloo-ui/button@0.7.4
+  - @igloo-ui/button-group@0.3.4
+  - @igloo-ui/card@0.1.3
+  - @igloo-ui/carousel@0.2.3
+  - @igloo-ui/checkbox@0.2.5
+  - @igloo-ui/color@0.3.2
+  - @igloo-ui/color-picker@0.2.2
+  - @igloo-ui/combobox@2.1.5
+  - @igloo-ui/datepicker@0.5.4
+  - @igloo-ui/dialog@0.7.2
+  - @igloo-ui/dropdown@1.6.5
+  - @igloo-ui/ellipsis@0.2.3
+  - @igloo-ui/filter@0.2.2
+  - @igloo-ui/form-group@1.0.7
+  - @igloo-ui/helper-text@0.2.16
+  - @igloo-ui/hyperlink@0.3.3
+  - @igloo-ui/icon-button@1.1.6
+  - @igloo-ui/list@0.5.4
+  - @igloo-ui/metric@0.2.4
+  - @igloo-ui/modal@1.5.2
+  - @igloo-ui/option-button@0.1.3
+  - @igloo-ui/pager@0.2.3
+  - @igloo-ui/pie-chart@0.2.3
+  - @igloo-ui/popover@0.4.3
+  - @igloo-ui/progress-bar@1.0.3
+  - @igloo-ui/radio@0.1.15
+  - @igloo-ui/select@1.3.10
+  - @igloo-ui/stacked-bar@0.2.3
+  - @igloo-ui/stepper@0.2.3
+  - @igloo-ui/tabs@1.1.3
+  - @igloo-ui/tag@1.2.4
+  - @igloo-ui/tag-picker@0.6.4
+  - @igloo-ui/toaster@2.0.5
+  - @igloo-ui/toggle@1.1.3
+  - @igloo-ui/tooltip@3.4.3
+  - @igloo-ui/vertical-bar-chart@0.2.3
+  - @igloo-ui/input@2.1.7
+  - @igloo-ui/text-editor@0.6.3
+  - @igloo-ui/textarea@0.3.4
+  - @igloo-ui/disclosure@1.0.2
+
 ## 0.2.2
 
 ### Patch Changes

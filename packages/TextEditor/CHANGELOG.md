@@ -1,5 +1,17 @@
 # @igloo-ui/text-editor
 
+## 0.6.3
+
+### Patch Changes
+
+- 7d36815: Updated input icon and character count colors.
+- Updated dependencies [7d36815]
+- Updated dependencies [7d36815]
+  - @igloo-ui/button@0.7.4
+  - @igloo-ui/icon-button@1.1.6
+  - @igloo-ui/tooltip@3.4.3
+  - @igloo-ui/input@2.1.7
+
 ## 0.6.2
 
 ### Patch Changes

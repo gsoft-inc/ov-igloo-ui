@@ -1,5 +1,11 @@
 # @igloo-ui/message
 
+## 0.2.16
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+
 ## 0.2.15
 
 ### Patch Changes

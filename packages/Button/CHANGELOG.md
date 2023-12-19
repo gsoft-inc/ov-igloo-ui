@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.4
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+
 ## 0.7.3
 
 ### Patch Changes

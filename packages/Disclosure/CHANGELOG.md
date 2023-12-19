@@ -1,5 +1,11 @@
 # @igloo-ui/disclosure
 
+## 1.0.2
+
+### Patch Changes
+
+- 7d36815: Fixed the disclosure icon alignment.
+
 ## 1.0.1
 
 ### Patch Changes

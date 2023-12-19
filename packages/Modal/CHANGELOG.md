@@ -1,5 +1,14 @@
 # @igloo-ui/modal
 
+## 1.5.2
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+- Updated dependencies [7d36815]
+  - @igloo-ui/carousel@0.2.3
+  - @igloo-ui/icon-button@1.1.6
+
 ## 1.5.1
 
 ### Patch Changes

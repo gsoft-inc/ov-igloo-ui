@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/toaster",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "main": "dist/Toaster.js",
   "module": "dist/Toaster.js",
   "types": "dist/Toaster.d.ts",
@@ -25,7 +25,7 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/icon-button": "^1.1.5",
+    "@igloo-ui/icon-button": "^1.1.6",
     "@igloo-ui/icons": "^1.12.2",
     "@igloo-ui/tokens": "^2.0.0",
     "@hopper-ui/tokens": "^3.1.2",
@@ -36,7 +36,7 @@
     "use-sync-external-store": "^1.2.0"
   },
   "devDependencies": {
-    "@igloo-ui/button": "^0.7.3",
+    "@igloo-ui/button": "^0.7.4",
     "@types/react-dom": "^18.0.11",
     "@types/use-sync-external-store": "^0.0.3"
   },

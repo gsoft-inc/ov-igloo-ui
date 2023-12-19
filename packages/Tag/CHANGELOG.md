@@ -1,5 +1,14 @@
 # @igloo-ui/tag
 
+## 1.2.4
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+- Updated dependencies [7d36815]
+  - @igloo-ui/ellipsis@0.2.3
+  - @igloo-ui/icon-button@1.1.6
+
 ## 1.2.3
 
 ### Patch Changes

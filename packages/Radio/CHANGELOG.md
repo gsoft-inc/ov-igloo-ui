@@ -1,5 +1,11 @@
 # @igloo-ui/radio
 
+## 0.1.15
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+
 ## 0.1.14
 
 ### Patch Changes
