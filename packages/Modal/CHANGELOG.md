@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.5.1
+
+### Patch Changes
+
+- 0dda883: dismissOnEscape is now optional. 'contain' was removed from FocusScope inside Modal. This was causing errors in OV when dialog displayed above modal.
+
 ## 1.5.0
 
 ### Minor Changes
