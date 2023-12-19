@@ -15,7 +15,6 @@
 "@igloo-ui/combobox": patch
 "@igloo-ui/datepicker": patch
 "@igloo-ui/dialog": patch
-"@igloo-ui/disclosure": patch
 "@igloo-ui/dropdown": patch
 "@igloo-ui/ellipsis": patch
 "@igloo-ui/filter": patch
@@ -23,7 +22,6 @@
 "@igloo-ui/helper-text": patch
 "@igloo-ui/hyperlink": patch
 "@igloo-ui/icon-button": patch
-"@igloo-ui/input": patch
 "@igloo-ui/list": patch
 "@igloo-ui/metric": patch
 "@igloo-ui/modal": patch
@@ -39,8 +37,6 @@
 "@igloo-ui/tabs": patch
 "@igloo-ui/tag": patch
 "@igloo-ui/tag-picker": patch
-"@igloo-ui/text-editor": patch
-"@igloo-ui/textarea": patch
 "@igloo-ui/toaster": patch
 "@igloo-ui/toggle": patch
 "@igloo-ui/tooltip": patch
@@ -48,4 +44,4 @@
 "docs": patch
 ---
 
-Updated input icon and character count colors. Also updated hopper token versions and igloo icon versions.
+Updated hopper token versions and igloo icon versions.
