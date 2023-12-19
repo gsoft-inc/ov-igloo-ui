@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 1.0.4
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+
 ## 1.0.3
 
 ### Patch Changes

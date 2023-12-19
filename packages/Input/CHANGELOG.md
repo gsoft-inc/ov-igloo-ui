@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.1.7
+
+### Patch Changes
+
+- 7d36815: Updated input icon and character count colors.
+
 ## 2.1.6
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.3.4
+
+### Patch Changes
+
+- 7d36815: Updated input icon and character count colors.
+
 ## 0.3.3
 
 ### Patch Changes

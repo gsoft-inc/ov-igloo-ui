@@ -1,5 +1,11 @@
 # @igloo-ui/filter
 
+## 0.2.2
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+
 ## 0.2.1
 
 ### Patch Changes

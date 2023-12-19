@@ -1,5 +1,13 @@
 # @igloo-ui/stacked-bar
 
+## 0.2.3
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+- Updated dependencies [7d36815]
+  - @igloo-ui/popover@0.4.3
+
 ## 0.2.2
 
 ### Patch Changes

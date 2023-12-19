@@ -1,5 +1,14 @@
 # @igloo-ui/color-picker
 
+## 0.2.2
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+- Updated dependencies [7d36815]
+  - @igloo-ui/color@0.3.2
+  - @igloo-ui/dropdown@1.6.5
+
 ## 0.2.1
 
 ### Patch Changes

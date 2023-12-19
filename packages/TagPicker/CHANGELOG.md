@@ -1,5 +1,16 @@
 # @igloo-ui/tag-picker
 
+## 0.6.4
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+- Updated dependencies [7d36815]
+- Updated dependencies [7d36815]
+  - @igloo-ui/dropdown@1.6.5
+  - @igloo-ui/tag@1.2.4
+  - @igloo-ui/input@2.1.7
+
 ## 0.6.3
 
 ### Patch Changes

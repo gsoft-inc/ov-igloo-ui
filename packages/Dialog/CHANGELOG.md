@@ -1,5 +1,14 @@
 # @igloo-ui/dialog
 
+## 0.7.2
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+- Updated dependencies [7d36815]
+  - @igloo-ui/button@0.7.4
+  - @igloo-ui/modal@1.5.2
+
 ## 0.7.1
 
 ### Patch Changes

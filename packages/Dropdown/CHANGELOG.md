@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.6.5
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+
 ## 1.6.4
 
 ### Patch Changes

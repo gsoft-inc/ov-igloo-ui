@@ -1,5 +1,11 @@
 # @igloo-ui/hyperlink
 
+## 0.3.3
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+
 ## 0.3.2
 
 ### Patch Changes

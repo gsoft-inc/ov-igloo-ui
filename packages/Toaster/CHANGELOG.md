@@ -1,5 +1,13 @@
 # @igloo-ui/toaster
 
+## 2.0.5
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+- Updated dependencies [7d36815]
+  - @igloo-ui/icon-button@1.1.6
+
 ## 2.0.4
 
 ### Patch Changes

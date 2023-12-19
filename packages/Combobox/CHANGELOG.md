@@ -1,5 +1,18 @@
 # @igloo-ui/combobox
 
+## 2.1.5
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+- Updated dependencies [7d36815]
+- Updated dependencies [7d36815]
+  - @igloo-ui/dropdown@1.6.5
+  - @igloo-ui/icon-button@1.1.6
+  - @igloo-ui/list@0.5.4
+  - @igloo-ui/tooltip@3.4.3
+  - @igloo-ui/input@2.1.7
+
 ## 2.1.4
 
 ### Patch Changes

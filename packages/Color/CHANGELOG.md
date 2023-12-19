@@ -1,5 +1,11 @@
 # @igloo-ui/color
 
+## 0.3.2
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+
 ## 0.3.1
 
 ### Patch Changes

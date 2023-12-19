@@ -1,5 +1,13 @@
 # @igloo-ui/list
 
+## 0.5.4
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+- Updated dependencies [7d36815]
+  - @igloo-ui/checkbox@0.2.5
+
 ## 0.5.3
 
 ### Patch Changes

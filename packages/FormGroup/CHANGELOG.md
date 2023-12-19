@@ -1,5 +1,13 @@
 # @igloo-ui/form-group
 
+## 1.0.7
+
+### Patch Changes
+
+- 7d36815: Updated hopper token versions and igloo icon versions.
+- Updated dependencies [7d36815]
+  - @igloo-ui/helper-text@0.2.16
+
 ## 1.0.6
 
 ### Patch Changes
