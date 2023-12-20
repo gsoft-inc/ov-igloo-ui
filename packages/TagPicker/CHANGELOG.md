@@ -1,5 +1,11 @@
 # @igloo-ui/tag-picker
 
+## 0.6.5
+
+### Patch Changes
+
+- 58143b5: Fixed the error styles for TagPicker.
+
 ## 0.6.4
 
 ### Patch Changes
