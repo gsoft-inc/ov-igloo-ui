@@ -41,12 +41,12 @@
     --ids-dialog-content-padding: 0 var(--hop-space-inset-md) var(--hop-space-inset-md);
     --ids-dialog-sub-title-line-height: var(--hop-body-md-line-height);
     --ids-dialog-sub-title-color: var(--hop-neutral-text-weak);
-    --ids-dialog-sub-title-padding-top: var(--hop-space-stack-sm);
+    --ids-dialog-sub-title-padding-top: var(--hop-space-inset-md);
     --ids-dialog-close-margin: 0;
     --ids-dialog-close-align: flex-end;
     --ids-dialog-close-position: relative;
     --ids-dialog-close-padding-x: var(--hop-space-inset-xl);
-    --ids-dialog-buttons-margin: var(--hop-space-stack-lg) 0 calc(-1 * var(--hop-space-inset-md));
+    --ids-dialog-buttons-margin: var(--hop-space-stack-xl) 0 calc(-1 * var(--hop-space-inset-sm));
     --ids-dialog-button-margin: var(--hop-space-stack-sm) 0;
     --ids-dialog-button-width: 2rem;
 }
@@ -70,7 +70,7 @@
         --ids-dialog-close-margin: 0;
         --ids-dialog-close-position: absolute;
         --ids-dialog-content-padding: 0 var(--hop-space-inset-lg) var(--hop-space-inset-lg);
-        --ids-dialog-buttons-margin: var(--hop-space-stack-lg) calc(-1 * var(--hop-space-inset-sm)) 0;
+        --ids-dialog-buttons-margin: var(--hop-space-stack-xl) calc(-1 * var(--hop-space-inset-sm)) 0;
         --ids-dialog-button-margin: 0 var(--hop-space-inset-sm);
         --ids-dialog-header-font-size: var(--hop-heading-lg-font-size);
         --ids-dialog-header-line-height: var(--hop-heading-lg-line-height);

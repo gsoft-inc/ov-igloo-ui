@@ -11,6 +11,8 @@
     --ids-modal-background: #{tokens.$samoyed};
     --ids-modal-text: #{tokens.$black};
     --ids-modal-padding: #{tokens.$space-3};
+    --ids-modal-padding-with-header: #{tokens.$space-3};
+    --ids-modal-padding-full-content: #{tokens.$space-3};
     --ids-modal-index: #{tokens.$z-index-100};
     --ids-modal-shadow: none;
     --ids-modal-radius: 0;
@@ -47,6 +49,8 @@
     --ids-modal-background: var(--hop-neutral-surface);
     --ids-modal-text: var(--hop-neutral-text);
     --ids-modal-padding: var(--hop-space-inset-md);
+    --ids-modal-padding-with-header: var(--hop-space-inset-md);
+    --ids-modal-padding-full-content: var(--hop-space-inset-md);
     --ids-modal-index: 100;
     --ids-modal-shadow: none;
     --ids-modal-radius: 0;
@@ -103,6 +107,7 @@
         --ids-modal-close-margin: -#{tokens.$space-2} -#{tokens.$space-2} #{tokens.$space-0} #{tokens.$space-0};
         --ids-modal-close-align: flex-end;
         --ids-modal-padding: #{tokens.$space-4};
+        --ids-modal-padding-with-header: #{tokens.$space-4};
         --ids-modal-full-content-display: none;
     }
 
@@ -130,6 +135,7 @@
         --ids-modal-close-margin: var(--hop-space-inset-lg);
         --ids-modal-close-align: flex-end;
         --ids-modal-padding: var(--hop-space-inset-lg);
+        --ids-modal-padding-with-header: var(--hop-space-inset-md) var(--hop-space-inset-lg) var(--hop-space-inset-lg);
         --ids-modal-full-content-display: none;
     }
 }
@@ -275,8 +281,13 @@
 .ids-modal__content {
     padding: var(--ids-modal-padding);
 
+    .ids-modal--with-title &,
+    .ids-modal--closable & {
+        padding: var(--ids-modal-padding-with-header);
+    }
+
     .ids-modal--full-content & {
-        --ids-modal-padding: #{tokens.$space-3};
+        padding: var(--ids-modal-padding-full-content);
     }
 }
 
