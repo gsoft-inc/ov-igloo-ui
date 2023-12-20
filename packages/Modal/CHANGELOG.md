@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.5.3
+
+### Patch Changes
+
+- 26614d0: Fixed the spacing for titles and buttons inside the Modal and Dialog components to match figma.
+
 ## 1.5.2
 
 ### Patch Changes
