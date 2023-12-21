@@ -61,11 +61,11 @@ interface DataRange {
     /** The min value of the y axis score
    * (Possible values: number, 'auto', 'dataMin' or 'dataMax')
    */
-    min: number | string;
+    min: number | "auto" | "dataMin" | "dataMax";
     /** The min value of the y axis score
    * (Possible values: number, 'auto', 'dataMin' or 'dataMax')
    */
-    max: number | string;
+    max: number | "auto" | "dataMin" | "dataMax";
 }
 
 interface DateTimeRange {
@@ -104,6 +104,24 @@ export interface AreaChartProps extends React.ComponentProps<"div"> {
     loading?: boolean;
 }
 
+const getScores = (data: DataSet[]): number[] => {
+    const scores = data.filter(score => score !== null).map(dataSet => dataSet.score) as number[];
+
+    return scores;
+};
+
+const getScoreMin = (data: DataSet[]): number => {
+    const min = Math.min(...getScores(data));
+
+    return min;
+};
+
+const getScoreMax = (data: DataSet[]): number => {
+    const max = Math.max(...getScores(data));
+
+    return max;
+};
+
 const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     className,
     dataSet,
@@ -126,7 +144,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     const SkeletonAxisTick = ({
         x,
         y,
-        className,
+        className: skeletonClassName,
         payload,
         skeletonWidth = DEFAULT_SKELETON_WIDTH,
         skeletonHeight = DEFAULT_SKELETON_HEIGHT,
@@ -157,7 +175,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
                 <rect
                     x={positionX}
                     y={positionY}
-                    className={cx("ids-area-chart-skeleton-animation", className)}
+                    className={cx("ids-area-chart-skeleton-animation", skeletonClassName)}
                     width={skeletonWidth}
                     height={skeletonHeight}
                     rx="4"
@@ -347,7 +365,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
         r: 4,
         strokeWidth: 1,
         stroke: "var(--ids-area-chart-dot-stroke-color)",
-        fill: "var(--ids-area-chart-dot-color)"
+        fill: "var(--ids-area-chart-line-color)"
     };
 
     const commonAreaConfig = {
@@ -384,6 +402,26 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
         stroke: "none",
         fill: "none"
     };
+
+    const getDataHue = (score: number, scoreRange: DataRange): string => {
+        const scoreMin = (typeof scoreRange.min === "number") ? scoreRange.min : getScoreMin(dataSet);
+        const scoreMax = (typeof scoreRange.max === "number") ? scoreRange.max : getScoreMax(dataSet);
+        const relativeScore = Math.round((score - scoreMin) * 100) / 100;
+        const scale = Math.round((scoreMax - scoreMin) * 100) / 100;
+        const ratio = relativeScore / scale;
+    
+        if (ratio <= 0.06) { return "var(--hop-dataviz-diverging-sequence-1-negative5)"; }
+        if (ratio <= 0.12) { return "var(--hop-dataviz-diverging-sequence-1-negative4)"; }
+        if (ratio <= 0.3) { return "var(--hop-dataviz-diverging-sequence-1-negative3)"; }
+        if (ratio <= 0.43) { return "var(--hop-dataviz-diverging-sequence-1-negative2)"; }
+        if (ratio <= 0.56) { return "var(--hop-dataviz-diverging-sequence-1-neutral)"; }
+        if (ratio <= 0.68) { return "var(--hop-dataviz-diverging-sequence-1-positive2)"; }
+        if (ratio <= 0.81) { return "var(--hop-dataviz-diverging-sequence-1-positive3)"; }
+        if (ratio <= 0.94) { return "var(--hop-dataviz-diverging-sequence-1-positive4)"; }
+    
+        return "var(--hop-dataviz-diverging-sequence-1-positive5)";
+    };
+
     const buildAreaDefs = (): JSX.Element => {
         return (
             <defs>
@@ -395,15 +433,15 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
                     y2="96%"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop stopColor="#188A71" />
-                    <stop offset="0.119792" stopColor="#47A584" />
-                    <stop offset="0.239583" stopColor="#7DC291" />
-                    <stop offset="0.369792" stopColor="#AAD89D" />
-                    <stop offset="0.498366" stopColor="#F7E694" />
-                    <stop offset="0.625" stopColor="#FFBCB7" />
-                    <stop offset="0.75" stopColor="#FF8E8E" />
-                    <stop offset="0.875" stopColor="#F56263" />
-                    <stop offset="1" stopColor="#DF3236" />
+                    <stop stopColor="var(--hop-dataviz-diverging-sequence-1-positive5)" />
+                    <stop offset="0.119792" stopColor="var(--hop-dataviz-diverging-sequence-1-positive4)" />
+                    <stop offset="0.239583" stopColor="var(--hop-dataviz-diverging-sequence-1-positive3)" />
+                    <stop offset="0.369792" stopColor="var(--hop-dataviz-diverging-sequence-1-positive2)" />
+                    <stop offset="0.498366" stopColor="var(--hop-dataviz-diverging-sequence-1-neutral)" />
+                    <stop offset="0.625" stopColor="var(--hop-dataviz-diverging-sequence-1-negative2)" />
+                    <stop offset="0.75" stopColor="var(--hop-dataviz-diverging-sequence-1-negative3)" />
+                    <stop offset="0.875" stopColor="var(--hop-dataviz-diverging-sequence-1-negative4)" />
+                    <stop offset="1" stopColor="var(--hop-dataviz-diverging-sequence-1-negative5)" />
                 </linearGradient>
             </defs>
         );
@@ -527,6 +565,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
                             dateFormatter={tooltipDateFormatter}
                             scoreFormatter={tooltipScoreFormatter}
                             unavailableDataMessage={unavailableDataMessage}
+                            getDataScoreHue={score => getDataHue(score, range)}
                         />
                     }
                 />

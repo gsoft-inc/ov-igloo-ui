@@ -14,7 +14,6 @@
   --ids-area-chart-color: #{tokens.$grey-600};
   --ids-area-chart-grid-color: #{tokens.$grey-200};
   --ids-area-chart-axis-color: #{tokens.$grey-400};
-  --ids-area-chart-dot-color: #{tokens.$electric-blue-500};
   --ids-area-chart-dot-stroke-color: #{tokens.$samoyed};
   --ids-area-chart-line-color: #{tokens.$electric-blue-500};
   --ids-area-chart-null-line-color: #{tokens.$grey-400};
@@ -38,8 +37,7 @@
   --ids-area-chart-color: var(--hop-neutral-text-weak);
   --ids-area-chart-grid-color: var(--hop-neutral-border-weakest);
   --ids-area-chart-axis-color: var(--hop-neutral-border-weak);
-  --ids-area-chart-dot-color: #BFDCA9; /* Missing semantic token */
-  --ids-area-chart-dot-stroke-color: #ffffff; /* Missing semantic token */
+  --ids-area-chart-dot-stroke-color: var(--hop-neutral-icon-strong);
   --ids-area-chart-line-color: url("#areaChartLineGradient");
   --ids-area-chart-null-line-color: var(--hop-neutral-border-weak);
   
