@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 1.1.0
+
+### Minor Changes
+
+- fece90c: Updated AreaChart's dot colors for Workleap on both the line and tooltip. Also fixed the DataRange min and max prop types so that it only accepts specific string values; like it always should have been.
+
 ## 1.0.4
 
 ### Patch Changes
