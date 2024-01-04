@@ -1,8 +1,8 @@
 import * as React from "react";
 import cx from "classnames";
 
-import Dropdown from "../../Dropdown";
-import List, { type OptionType, type Option } from "../../List";
+import Dropdown from "@igloo-ui/dropdown";
+import List, { type OptionType, type Option } from "@igloo-ui/list";
 
 import SelectInput from "./SelectInput";
 import SelectValue from "./SelectValue";
