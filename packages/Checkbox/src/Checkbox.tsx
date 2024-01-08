@@ -64,6 +64,7 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
         ): void => {
             if (onChange) {
                 onChange(event);
+
                 return;
             }
 
@@ -75,7 +76,7 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
 
         return (
             <span
-                className={cx("ids-form-control", className, {
+                className={cx("ids-form-control", "ids-form-control-checkbox", className, {
                     [`ids-form-control--${appearance}`]: appearance !== "default"
                 })}
             >
@@ -92,23 +93,23 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
                     onChange={handleOnChange}
                     {...rest}
                 />
-                    {showLabel && (
-                        <label
-                            className={cx("ids-checkbox__label", {
-                                [`ids-checkbox__label--${appearance}`]: appearance !== "default"
-                            })}
-                            htmlFor={htmlFor}
-                        >
-                            {appearance === "completion" && (
-                                <span className="ids-checkbox__box">
-                                    <Checkmark size="small" className="ids-checkbox__check" />
-                                </span>
-                            )}
-                            {children && (
-                                <span className="ids-checkbox__label-text">{children}</span>
-                            )}
-                        </label>
-                    )}
+                {showLabel && (
+                    <label
+                        className={cx("ids-checkbox__label", {
+                            [`ids-checkbox__label--${appearance}`]: appearance !== "default"
+                        })}
+                        htmlFor={htmlFor}
+                    >
+                        {appearance === "completion" && (
+                            <span className="ids-checkbox__box">
+                                <Checkmark size="small" className="ids-checkbox__check" />
+                            </span>
+                        )}
+                        {children && (
+                            <span className="ids-checkbox__label-text">{children}</span>
+                        )}
+                    </label>
+                )}
             </span>
         );
     }

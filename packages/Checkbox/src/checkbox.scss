@@ -32,8 +32,6 @@
     --ids-checkbox-check-width: 0.4rem;
     --ids-checkbox-check-height: 0.8rem;
     --ids-checkbox-check-border: 0.2rem;
-    --ids-checkbox-check-left: 0.2rem;
-    --ids-checkbox-check-top: 0.7rem;
     --ids-checkbox-check-color-disabled: #{tokens.$grey-600};
     --ids-checkbox-indeterminate-width: 0.6rem;
     --ids-checkbox-indeterminate-border: 0.2rem;
@@ -60,7 +58,7 @@
     --ids-checkbox-radius: var(--hop-shape-rounded-sm);
     --ids-checkbox-check: var(--hop-neutral-icon-active);
     --ids-checkbox-margin: var(--hop-space-inline-sm);
-    --ids-checkbox-top-space: 0;
+    --ids-checkbox-top-space: 0.15rem;
     --ids-checkbox-box-sizing: border-box;
     --ids-checkbox-text: var(--hop-neutral-text);
     --ids-checkbox-text-disabled: var(--hop-neutral-text-disabled);
@@ -77,8 +75,6 @@
     --ids-checkbox-check-width: 0.25rem;
     --ids-checkbox-check-height: 0.5rem;
     --ids-checkbox-check-border: 0.125rem;
-    --ids-checkbox-check-left: 0.0625rem;
-    --ids-checkbox-check-top: 0.4375rem;
     --ids-checkbox-check-color: var(--hop-neutral-icon-active);
     --ids-checkbox-check-color-disabled: var(--hop-neutral-icon-disabled);
     --ids-checkbox-indeterminate-width: 0.5625rem;
@@ -88,7 +84,7 @@
     --ids-checkbox-completion-size: 1.5rem;
     --ids-checkbox-completion-background-disabled: var(--hop-neutral-surface-disabled);
     --ids-checkbox-completion-border-disabled: var(--hop-neutral-border-disabled);
-    --ids-checkbox-completion-check-size: 0.75rem;
+    --ids-checkbox-completion-check-size: 1rem;
     --ids-checkbox-completion-check-color-hover: transparent;
     --ids-checkbox-completion-check-color-selected: var(--hop-neutral-icon-active);
     --ids-checkbox-completion-check-color-default: transparent;
@@ -119,11 +115,19 @@
     align-items: flex-start;
 }
 
+.ids-form-control-checkbox {
+    &,
+    & * {
+        box-sizing: var(--ids-checkbox-box-sizing);
+    }
+}
+
 .ids-checkbox__label {
+    color: var(--ids-checkbox-text);
     font-family: var(--ids-checkbox-font-family);
     font-size: var(--ids-checkbox-font-size);
     font-weight: var(--ids-checkbox-font-weight);
-    color: var(--ids-checkbox-text);
+    line-height: var(--ids-checkbox-line-height);
 
     &--completion {
         align-items: center;
@@ -132,6 +136,7 @@
 }
 
 .ids-checkbox__label-text {
+    display: block;
     padding-left: var(--ids-checkbox-margin);
 }
 
@@ -148,7 +153,6 @@
     border: var(--ids-checkbox-one-px) solid var(--ids-checkbox-border);
     border-radius: var(--ids-checkbox-radius);
     background: var(--ids-checkbox-background);
-    box-sizing: var(--ids-checkbox-box-sizing);
     transition: background 0.05s ease-in-out;
 
     &:hover{
@@ -208,8 +212,9 @@
         @extend %check;
 
         display: block;
-        left: var(--ids-checkbox-check-left);
-        top: var(--ids-checkbox-check-top);
+        left: 0;
+        top: 50%;
+        translate: 50% 0;
         animation: check-animation ease-out 0.25s 0.15s both;
     }
 
