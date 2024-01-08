@@ -1,5 +1,11 @@
 # @igloo-ui/select
 
+## 1.3.11
+
+### Patch Changes
+
+- f61b367: Cleaned up and fixed the way select options are used. Made sure it would update properly when the user passes options to the select.
+
 ## 1.3.10
 
 ### Patch Changes
