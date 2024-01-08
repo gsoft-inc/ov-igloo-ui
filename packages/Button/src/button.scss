@@ -10,6 +10,8 @@
   --ids-btn-font-size: #{tokens.$font-size-4};
   --ids-btn-font-size-small: #{tokens.$font-size-3};
   --ids-btn-font-weight: #{tokens.$font-weight-medium};
+  --ids-btn-line-height: normal;
+  --ids-btn-line-height-small: normal;
   --ids-btn-height: #{tokens.$space-6};
   --ids-btn-height-small: #{tokens.$space-5};
   --ids-btn-padding: #{tokens.$space-3};
@@ -100,6 +102,8 @@
     --ids-btn-font-size: var(--hop-body-md-medium-font-size);
     --ids-btn-font-size-small: var(--hop-body-sm-medium-font-size);
     --ids-btn-font-weight: var(--hop-body-md-medium-font-weight);
+    --ids-btn-line-height: var(--hop-body-md-medium-line-height);
+    --ids-btn-line-height-small: var(--hop-body-sm-medium-line-height);
     --ids-btn-height: 2.5rem;
     --ids-btn-height-small: 2rem;
     --ids-btn-padding: var(--hop-space-inset-md);
@@ -223,6 +227,7 @@
   font-family: var(--ids-btn-font-family);
   font-size: var(--ids-btn-font-size);
   font-weight: var(--ids-btn-font-weight);
+  line-height: var(--ids-btn-line-height);
   color: var(--ids-btn-text-primary);
   background: var(--ids-btn-background-primary);
   border: var(--ids-btn-border-width) solid var(--ids-btn-border-primary);
@@ -230,6 +235,11 @@
   width: 100%;
   height: var(--ids-btn-height);
   padding: 0 var(--ids-btn-padding);
+
+  &,
+  & * {
+      box-sizing: border-box;
+  }
 
   @at-root a#{&} {
     text-decoration: none;
@@ -253,7 +263,7 @@
   }
 }
 
-.ids-btn:focus,
+.ids-btn:focus-visible,
 .ids-btn.focus,
 .ids-btn:hover {
   cursor: pointer;
@@ -268,7 +278,7 @@
   background: var(--ids-btn-background-primary-disabled);
 }
 
-.ids-btn:focus,
+.ids-btn:focus-visible,
 .ids-btn.focus {
   outline: 0;
 
@@ -280,10 +290,6 @@
 .ids-btn.ids-btn--disabled:hover,
 .ids-btn:disabled:hover {
   cursor: not-allowed;
-}
-
-.ids-btn:focus:not(:focus-visible) {
-  box-shadow: none;
 }
 
 .ids-btn.ids-btn--loading {
@@ -342,6 +348,7 @@
 
 .ids-btn--small {
   font-size: var(--ids-btn-font-size-small);
+  line-height: var(--ids-btn-line-height-small);
   height: var(--ids-btn-height-small);
 }
 
@@ -367,7 +374,7 @@
   @extend %btn-secondary-disabled;
 }
 
-.ids-btn--secondary:focus,
+.ids-btn--secondary:focus-visible,
 .ids-btn--secondary.focus,
 .ids-btn--secondary:hover,
 .ids-btn--secondary.ids-btn--active:hover {
@@ -387,7 +394,7 @@
   background: var(--ids-btn-background-premium);
 }
 
-.ids-btn--premium:focus,
+.ids-btn--premium:focus-visible,
 .ids-btn--premium.focus,
 .ids-btn--premium:hover {
   background: var(--ids-btn-background-premium-hover);
@@ -403,7 +410,7 @@
   background: var(--ids-btn-background-danger);
 }
 
-.ids-btn--danger:focus,
+.ids-btn--danger:focus-visible,
 .ids-btn--danger.focus,
 .ids-btn--danger:hover {
   background: var(--ids-btn-background-danger-hover);
@@ -420,7 +427,7 @@
   padding: var(--ids-btn-padding-ghost);
 }
 
-.ids-btn--ghost:focus,
+.ids-btn--ghost:focus-visible,
 .ids-btn--ghost.focus,
 .ids-btn--ghost:hover {
   color: var(--ids-btn-text-ghost-hover);
@@ -439,7 +446,7 @@
   padding: var(--ids-btn-padding-ghost);
 }
 
-.ids-btn.ids-btn--ghost-danger:focus,
+.ids-btn.ids-btn--ghost-danger:focus-visible,
 .ids-btn.ids-btn--ghost-danger.focus,
 .ids-btn.ids-btn--ghost-danger:hover {
   color: var(--ids-btn-text-ghost-danger-hover);
@@ -458,7 +465,7 @@
   padding: var(--ids-btn-padding-ghost);
 }
 
-.ids-btn.ids-btn--ghost-secondary:focus,
+.ids-btn.ids-btn--ghost-secondary:focus-visible,
 .ids-btn.ids-btn--ghost-secondary.focus,
 .ids-btn.ids-btn--ghost-secondary:hover {
   color: var(--ids-btn-text-ghost-secondary-hover);
