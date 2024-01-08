@@ -1,5 +1,11 @@
 # @igloo-ui/checkbox
 
+## 0.2.6
+
+### Patch Changes
+
+- 736a1b5: Fixed checkbox and radio by ensuring the box-sizing is set on the container and all its children. Also fixed line-height and positioning.
+
 ## 0.2.5
 
 ### Patch Changes
