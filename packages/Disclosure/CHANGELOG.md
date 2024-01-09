@@ -1,5 +1,11 @@
 # @igloo-ui/disclosure
 
+## 1.0.3
+
+### Patch Changes
+
+- 3944b5f: Fixed Disclosure styles including font sizes, aligment and focus styles.
+
 ## 1.0.2
 
 ### Patch Changes
