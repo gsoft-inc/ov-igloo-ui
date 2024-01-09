@@ -150,7 +150,7 @@
     }
 
     .ids-disclosure--low-contrast & {
-        background: none;
+        background-color: none;
         color: var(--ids-disclosure-low-contrast-header-color);
         padding: var(--ids-disclosure-low-contrast-header-padding);
     }
@@ -169,7 +169,7 @@
 
         .ids-disclosure--low-contrast & {
             color: var(--ids-disclosure-low-contrast-header-color-hover);
-            background: none;
+            background-color: none;
         }
     }
 
