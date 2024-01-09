@@ -260,11 +260,12 @@ body,
 }
 
 .isb-disclosure__desc {
-  align-items: center;
+  align-items: baseline;
   display: flex;
 }
 
 .isb-disclosure__desc-tag {
+  align-self: center;
   margin-right: var(--isb-disclosure-desc-tag-margin-right);
 }
 

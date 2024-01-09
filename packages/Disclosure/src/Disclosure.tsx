@@ -1,6 +1,6 @@
 import * as React from "react";
 import cx from "classnames";
-import { useToggleButton } from "react-aria";
+import { useToggleButton, useFocusRing } from "react-aria";
 import { useToggleState } from "react-stately";
 import { m, AnimatePresence, LazyMotion, domAnimation } from "framer-motion";
 
@@ -67,17 +67,21 @@ const Disclosure: React.FunctionComponent<DisclosureProps> = ({
         state,
         btnRef
     );
-
+    const { isFocusVisible, focusProps } = useFocusRing();
     const classes = cx("ids-disclosure", className, {
         "ids-disclosure--low-contrast": isLowContrast
+    });
+    const headerClasses = cx("ids-disclosure__header", {
+        "ids-disclosure__header--focus-visible": isFocusVisible
     });
 
     return (
         <div className={classes} data-test={dataTest}>
             <button
                 {...buttonProps}
+                {...focusProps}
                 ref={btnRef}
-                className="ids-disclosure__header"
+                className={headerClasses}
                 aria-expanded={state.isSelected}
             >
                 {icon && <span className="ids-disclosure__header-icon">{icon}</span>}
