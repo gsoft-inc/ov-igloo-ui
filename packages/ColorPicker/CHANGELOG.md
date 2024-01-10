@@ -1,5 +1,14 @@
 # @igloo-ui/color-picker
 
+## 0.2.3
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+- Updated dependencies [cfb5619]
+  - @igloo-ui/color@0.3.3
+  - @igloo-ui/dropdown@1.6.6
+
 ## 0.2.2
 
 ### Patch Changes

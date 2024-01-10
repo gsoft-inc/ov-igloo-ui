@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.7.7
+
+### Patch Changes
+
+- cfb5619: Fixed button padding. Also removed styles on loader buttons so they don't show up on focus.
+- cfb5619: Updated hopper token versions and button versions.
+
 ## 0.7.6
 
 ### Patch Changes

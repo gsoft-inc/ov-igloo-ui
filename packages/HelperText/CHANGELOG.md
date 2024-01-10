@@ -1,5 +1,11 @@
 # @igloo-ui/message
 
+## 0.2.17
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+
 ## 0.2.16
 
 ### Patch Changes

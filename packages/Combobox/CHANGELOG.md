@@ -1,5 +1,17 @@
 # @igloo-ui/combobox
 
+## 2.1.6
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+- Updated dependencies [cfb5619]
+  - @igloo-ui/dropdown@1.6.6
+  - @igloo-ui/icon-button@1.1.7
+  - @igloo-ui/input@2.1.8
+  - @igloo-ui/list@0.5.5
+  - @igloo-ui/tooltip@3.4.4
+
 ## 2.1.5
 
 ### Patch Changes
