@@ -1,5 +1,15 @@
 # @igloo-ui/tag-picker
 
+## 0.6.6
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+- Updated dependencies [cfb5619]
+  - @igloo-ui/dropdown@1.6.6
+  - @igloo-ui/input@2.1.8
+  - @igloo-ui/tag@1.2.5
+
 ## 0.6.5
 
 ### Patch Changes

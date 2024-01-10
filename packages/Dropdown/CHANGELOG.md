@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.6.6
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+
 ## 1.6.5
 
 ### Patch Changes

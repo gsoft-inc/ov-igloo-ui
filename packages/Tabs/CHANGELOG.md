@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.1.4
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+
 ## 1.1.3
 
 ### Patch Changes

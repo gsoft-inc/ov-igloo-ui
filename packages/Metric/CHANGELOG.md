@@ -1,5 +1,13 @@
 # @igloo-ui/metric
 
+## 0.2.5
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+- Updated dependencies [cfb5619]
+  - @igloo-ui/tooltip@3.4.4
+
 ## 0.2.4
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/metric",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "main": "dist/Metric.js",
   "module": "dist/Metric.js",
   "types": "dist/Metric.d.ts",
@@ -26,7 +26,7 @@
   "dependencies": {
     "@igloo-ui/icons": "^1.12.2",
     "@igloo-ui/tokens": "^2.0.0",
-    "@igloo-ui/tooltip": "^3.4.3",
+    "@igloo-ui/tooltip": "^3.4.4",
     "@hopper-ui/tokens": "^3.1.3",
     "classnames": "^2.3.2",
     "react-aria": "^3.30.0"

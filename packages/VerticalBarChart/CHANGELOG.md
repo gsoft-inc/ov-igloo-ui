@@ -1,5 +1,11 @@
 # @igloo-ui/vertical-bar-chart
 
+## 0.2.4
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+
 ## 0.2.3
 
 ### Patch Changes

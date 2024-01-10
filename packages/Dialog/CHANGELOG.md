@@ -1,5 +1,15 @@
 # @igloo-ui/dialog
 
+## 0.7.4
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+- Updated dependencies [cfb5619]
+- Updated dependencies [cfb5619]
+  - @igloo-ui/button@0.7.7
+  - @igloo-ui/modal@1.5.4
+
 ## 0.7.3
 
 ### Patch Changes

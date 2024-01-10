@@ -1,5 +1,13 @@
 # @igloo-ui/form-group
 
+## 1.0.8
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+- Updated dependencies [cfb5619]
+  - @igloo-ui/helper-text@0.2.17
+
 ## 1.0.7
 
 ### Patch Changes

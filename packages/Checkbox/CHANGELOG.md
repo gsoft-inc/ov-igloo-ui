@@ -1,5 +1,11 @@
 # @igloo-ui/checkbox
 
+## 0.2.7
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+
 ## 0.2.6
 
 ### Patch Changes

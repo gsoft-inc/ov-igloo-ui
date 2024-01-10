@@ -1,5 +1,14 @@
 # @igloo-ui/action-menu
 
+## 1.3.4
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+- Updated dependencies [cfb5619]
+  - @igloo-ui/dropdown@1.6.6
+  - @igloo-ui/list@0.5.5
+
 ## 1.3.3
 
 ### Patch Changes
