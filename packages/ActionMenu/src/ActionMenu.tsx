@@ -51,6 +51,8 @@ export interface ActionMenuProps extends React.ComponentProps<"div"> {
     renderReference: (
         props: React.HTMLProps<HTMLButtonElement>,
     ) => React.ReactElement;
+    /** Helper text to display below the options */
+    helperText?: string;
 }
 
 const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
@@ -64,6 +66,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
     options,
     position = "bottom-end",
     renderReference,
+    helperText,
     ...rest
 }: ActionMenuProps) => {
     const actionMenuOptions = options.map((option): OptionType => {
@@ -258,6 +261,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
                         className: "ids-action-menu__trigger"
                     });
                 }}
+                footer={helperText && <div className="ids-action-menu__helper-text">{helperText}</div>}
             />
         </div>
     );
