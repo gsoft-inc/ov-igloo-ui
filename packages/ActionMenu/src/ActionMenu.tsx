@@ -3,7 +3,6 @@ import cx from "classnames";
 
 import List, { type OptionType, type Option } from "@igloo-ui/list";
 import Dropdown, { type Position } from "@igloo-ui/dropdown";
-import HelperText from "@igloo-ui/helper-text";
 
 import "./action-menu.scss";
 
@@ -52,8 +51,8 @@ export interface ActionMenuProps extends React.ComponentProps<"div"> {
     renderReference: (
         props: React.HTMLProps<HTMLButtonElement>,
     ) => React.ReactElement;
-    /** Helper text to display below the options */
-    helperText?: string;
+    /** Footer to display helper text or other content below the options */
+    footer?: React.ReactNode;
 }
 
 const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
@@ -67,7 +66,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
     options,
     position = "bottom-end",
     renderReference,
-    helperText,
+    footer,
     ...rest
 }: ActionMenuProps) => {
     const actionMenuOptions = options.map((option): OptionType => {
@@ -149,9 +148,9 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
             case "up":
                 setCurrentFocusedOption(
                     enabledOptions[
-                    currentFocusedIndex > 0
-                        ? currentFocusedIndex - 1
-                        : enabledOptions.length - 1
+                        currentFocusedIndex > 0
+                            ? currentFocusedIndex - 1
+                            : enabledOptions.length - 1
                     ]
                 );
                 break;
@@ -262,8 +261,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
                         className: "ids-action-menu__trigger"
                     });
                 }}
-                footer={helperText &&
-                    <HelperText>{helperText}</HelperText>}
+                footer={footer}
             />
         </div>
     );
