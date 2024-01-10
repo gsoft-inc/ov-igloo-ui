@@ -9,7 +9,8 @@
   --ids-action-menu-font-family: #{tokens.$primary-font-family};
   --ids-action-menu-font-size: #{tokens.$font-size-4};
 
-  --ids-action-menu-helper-text-size: #(tokens.$font-size-2);
+  --ids-action-menu-helper-text-size: #{tokens.$font-size-2};
+  --ids-action-menu-helper-text-color: #{tokens.$grey-600};
 }
 
 [data-brand="workleap"] {
@@ -17,6 +18,7 @@
   --ids-action-menu-font-size: var(--hop-body-sm-font-size);
 
   --ids-action-menu-helper-text-size: var(--hop-body-xs-font-size);
+  --ids-action-menu-helper-text-color: var(--hop-neutral-text-weak);
 }
 
 .ids-action-menu {
@@ -24,6 +26,7 @@
   font-size: var(--ids-action-menu-font-size);
 }
 
-.ids-dropdown__footer .ids-action-menu__dropdown .ids-action-menu__helper-text {
+.ids-action-menu__helper-text {
   font-size: var(--ids-action-menu-helper-text-size);
+  color: var(--ids-action-menu-helper-text-color);
 }
