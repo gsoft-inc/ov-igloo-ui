@@ -3,6 +3,7 @@ import cx from "classnames";
 
 import List, { type OptionType, type Option } from "@igloo-ui/list";
 import Dropdown, { type Position } from "@igloo-ui/dropdown";
+import HelperText from "@igloo-ui/helper-text";
 
 import "./action-menu.scss";
 
@@ -78,7 +79,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
 
     const [showMenu, setShowMenu] = React.useState(isOpen);
     const [currentFocusedOption, setCurrentFocusedOption] =
-    React.useState<OptionType>();
+        React.useState<OptionType>();
 
     const isOptionDisabled = (option: OptionType | undefined): boolean => {
         if (option?.type === "list") {
@@ -135,7 +136,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
         const enabledOptions = actionMenuOptions.filter(
             option => !isOptionDisabled(option)
         );
-        if (!enabledOptions.length) {return;}
+        if (!enabledOptions.length) { return; }
 
         let currentFocusedIndex = -1;
         if (currentFocusedOption) {
@@ -148,9 +149,9 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
             case "up":
                 setCurrentFocusedOption(
                     enabledOptions[
-                        currentFocusedIndex > 0
-                            ? currentFocusedIndex - 1
-                            : enabledOptions.length - 1
+                    currentFocusedIndex > 0
+                        ? currentFocusedIndex - 1
+                        : enabledOptions.length - 1
                     ]
                 );
                 break;
@@ -261,7 +262,8 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
                         className: "ids-action-menu__trigger"
                     });
                 }}
-                footer={helperText && <div className="ids-action-menu__helper-text">{helperText}</div>}
+                footer={helperText &&
+                    <HelperText>{helperText}</HelperText>}
             />
         </div>
     );
