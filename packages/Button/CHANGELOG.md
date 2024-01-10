@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.6
+
+### Patch Changes
+
+- 5c12940: Fixed button padding. Also removed styles on loader buttons so they don't show up on focus.
+
 ## 0.7.5
 
 ### Patch Changes
