@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/filter",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": "dist/Filter.js",
   "module": "dist/Filter.js",
   "types": "dist/Filter.d.ts",
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@igloo-ui/tokens": "^2.0.0",
-    "@hopper-ui/tokens": "^3.1.2",
+    "@hopper-ui/tokens": "^3.1.3",
     "classnames": "^2.3.2"
   },
   "browserslist": [

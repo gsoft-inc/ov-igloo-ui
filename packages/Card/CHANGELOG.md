@@ -1,5 +1,11 @@
 # @igloo-ui/card
 
+## 0.1.4
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+
 ## 0.1.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @igloo-ui/toaster
 
+## 2.0.6
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+- Updated dependencies [cfb5619]
+  - @igloo-ui/icon-button@1.1.7
+
 ## 2.0.5
 
 ### Patch Changes

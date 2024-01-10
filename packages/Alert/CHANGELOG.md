@@ -1,5 +1,15 @@
 # @igloo-ui/alert
 
+## 0.6.5
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+- Updated dependencies [cfb5619]
+- Updated dependencies [cfb5619]
+  - @igloo-ui/button@0.7.7
+  - @igloo-ui/icon-button@1.1.7
+
 ## 0.6.4
 
 ### Patch Changes

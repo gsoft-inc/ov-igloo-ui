@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/checkbox",
-    "version": "0.2.6",
+    "version": "0.2.7",
     "main": "dist/Checkbox.js",
     "module": "dist/Checkbox.js",
     "types": "dist/Checkbox.d.ts",
@@ -25,7 +25,7 @@
     },
     "dependencies": {
         "@igloo-ui/tokens": "^2.0.0",
-        "@hopper-ui/tokens": "^3.1.2",
+        "@hopper-ui/tokens": "^3.1.3",
         "classnames": "^2.3.2"
     },
     "browserslist": [

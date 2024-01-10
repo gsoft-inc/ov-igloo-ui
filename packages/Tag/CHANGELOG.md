@@ -1,5 +1,14 @@
 # @igloo-ui/tag
 
+## 1.2.5
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+- Updated dependencies [cfb5619]
+  - @igloo-ui/ellipsis@0.2.4
+  - @igloo-ui/icon-button@1.1.7
+
 ## 1.2.4
 
 ### Patch Changes

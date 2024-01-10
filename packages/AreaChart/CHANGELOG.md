@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 1.1.1
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+
 ## 1.1.0
 
 ### Minor Changes

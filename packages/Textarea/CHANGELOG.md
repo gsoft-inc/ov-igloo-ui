@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.3.5
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+
 ## 0.3.4
 
 ### Patch Changes

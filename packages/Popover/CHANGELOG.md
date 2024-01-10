@@ -1,5 +1,13 @@
 # @igloo-ui/popover
 
+## 0.4.4
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+- Updated dependencies [cfb5619]
+  - @igloo-ui/icon-button@1.1.7
+
 ## 0.4.3
 
 ### Patch Changes

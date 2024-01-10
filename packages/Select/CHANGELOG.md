@@ -1,5 +1,16 @@
 # @igloo-ui/select
 
+## 1.3.12
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+- Updated dependencies [cfb5619]
+  - @igloo-ui/dropdown@1.6.6
+  - @igloo-ui/icon-button@1.1.7
+  - @igloo-ui/input@2.1.8
+  - @igloo-ui/list@0.5.5
+
 ## 1.3.11
 
 ### Patch Changes
