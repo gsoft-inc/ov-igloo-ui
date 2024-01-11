@@ -1,5 +1,11 @@
 # @igloo-ui/action-menu
 
+## 1.3.5
+
+### Patch Changes
+
+- ed3dc67: Added optional helper text prop to be passed to dropdown
+
 ## 1.3.4
 
 ### Patch Changes
