@@ -54,6 +54,8 @@ export interface DropdownProps
     /** The threshold in pixels from the bottom of the dropdown
    * to trigger the onScrollEnd callback */
     scrollEndThreshold?: number;
+    /** The offset of the dropdown from the reference */
+    dropdownOffset?: number;
 }
 
 const MockDropdown: React.FunctionComponent<DropdownProps> = ({
@@ -75,6 +77,7 @@ const MockDropdown: React.FunctionComponent<DropdownProps> = ({
     footer,
     onScrollEnd,
     scrollEndThreshold = 30,
+    dropdownOffset = 4,
     ...rest
 }: DropdownProps) => {
     const { x, y, refs } = {

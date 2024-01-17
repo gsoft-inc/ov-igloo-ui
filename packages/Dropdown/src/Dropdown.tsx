@@ -70,6 +70,8 @@ export interface DropdownProps
     /** The threshold in pixels from the bottom of the dropdown
    * to trigger the onScrollEnd callback */
     scrollEndThreshold?: number;
+    /** The offset of the dropdown from the reference */
+    dropdownOffset?: number;
 }
 
 const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
@@ -93,6 +95,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
             footer,
             onScrollEnd,
             scrollEndThreshold = 30,
+            dropdownOffset = 4,
             ...rest
         }: DropdownProps,
         ref: React.ForwardedRef<HTMLDivElement>
@@ -147,7 +150,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
                 return cleanup;
             },
             middleware: [
-                offset(1),
+                offset(dropdownOffset),
                 flip({ padding: 10 }),
                 fuiSize({
                     apply({ rects, elements, availableHeight }) {
