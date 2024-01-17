@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/hyperlink",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "main": "dist/Hyperlink.js",
   "module": "dist/Hyperlink.js",
   "types": "dist/Hyperlink.d.ts",

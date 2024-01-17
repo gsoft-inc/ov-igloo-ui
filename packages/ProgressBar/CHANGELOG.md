@@ -1,5 +1,11 @@
 # @igloo-ui/progress-bar
 
+## 1.0.4
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+
 ## 1.0.3
 
 ### Patch Changes

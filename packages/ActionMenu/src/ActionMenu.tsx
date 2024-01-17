@@ -55,6 +55,8 @@ export interface ActionMenuProps extends React.ComponentProps<"div"> {
     renderReference: (
         props: React.HTMLProps<HTMLButtonElement>,
     ) => React.ReactElement;
+    /** Footer to display helper text or other content below the options */
+    footer?: React.ReactNode;
 }
 
 const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
@@ -70,6 +72,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
     options,
     position = "bottom-end",
     renderReference,
+    footer,
     ...rest
 }: ActionMenuProps) => {
     const actionMenuOptions = options.map((option): OptionType => {
@@ -81,7 +84,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
 
     const [showMenu, setShowMenu] = React.useState(isOpen);
     const [currentFocusedOption, setCurrentFocusedOption] =
-    React.useState<OptionType>();
+        React.useState<OptionType>();
 
     const isOptionDisabled = (option: OptionType | undefined): boolean => {
         if (option?.type === "list") {
@@ -138,7 +141,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
         const enabledOptions = actionMenuOptions.filter(
             option => !isOptionDisabled(option)
         );
-        if (!enabledOptions.length) {return;}
+        if (!enabledOptions.length) { return; }
 
         let currentFocusedIndex = -1;
         if (currentFocusedOption) {
@@ -265,6 +268,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
                         className: "ids-action-menu__trigger"
                     });
                 }}
+                footer={footer}
             />
         </div>
     );

@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.4.4
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+
 ## 3.4.3
 
 ### Patch Changes

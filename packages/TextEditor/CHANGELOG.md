@@ -1,5 +1,17 @@
 # @igloo-ui/text-editor
 
+## 0.6.4
+
+### Patch Changes
+
+- cfb5619: Updated hopper token versions and button versions.
+- Updated dependencies [cfb5619]
+- Updated dependencies [cfb5619]
+  - @igloo-ui/button@0.7.7
+  - @igloo-ui/icon-button@1.1.7
+  - @igloo-ui/input@2.1.8
+  - @igloo-ui/tooltip@3.4.4
+
 ## 0.6.3
 
 ### Patch Changes

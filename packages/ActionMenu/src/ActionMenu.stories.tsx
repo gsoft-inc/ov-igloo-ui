@@ -3,6 +3,7 @@ import isChromatic from 'chromatic/isChromatic';
 
 import IconButton from '@igloo-ui/icon-button';
 import Button from '@igloo-ui/button';
+import HelperText from '@igloo-ui/helper-text';
 import Kebab from '@igloo-ui/icons/dist/Kebab';
 import AddSolid from '@igloo-ui/icons/dist/AddSolid';
 import Delete from '@igloo-ui/icons/dist/Delete';
@@ -274,6 +275,18 @@ export const Events = () => {
         onAfterMenuClose={() => {
           alert('The action menu was closed and animations are done');
         }}
+      />
+    </ChromaticWrapper>
+  );
+};
+
+export const WithFooter = () => {
+  return (
+    <ChromaticWrapper>
+      <ActionMenu
+        renderReference={kebab}
+        options={actionMenuListEvents}
+        footer={<HelperText>Helper text</HelperText>}
       />
     </ChromaticWrapper>
   );
