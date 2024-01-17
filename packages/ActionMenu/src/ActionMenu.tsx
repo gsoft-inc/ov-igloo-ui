@@ -34,6 +34,10 @@ export interface ActionMenuProps extends React.ComponentProps<"div"> {
     /** Whether or not the menu should use ReactPortal
    * to append to the body */
     disablePortal?: boolean;
+    /** Add a specific class to the dropdown */
+    dropdownClassName?: string;
+    /** Offset of the dropdown */
+    dropdownOffset?: number;
     /** Whether or not the action menu should be open by default */
     isOpen?: boolean;
     /** Callback when the action menu is closed and animations are done */
@@ -57,6 +61,8 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
     className,
     dataTest,
     disablePortal = false,
+    dropdownClassName,
+    dropdownOffset,
     isOpen = false,
     onAfterMenuClose,
     onMenuClose,
@@ -244,7 +250,8 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
                     />
                 }
                 isOpen={showMenu}
-                className="ids-action-menu__dropdown"
+                className={cx("ids-action-menu__dropdown", dropdownClassName)}
+                dropdownOffset={dropdownOffset}
                 position={position}
                 onClose={() => toggleMenu(false)}
                 onAfterClose={onAfterMenuClose}
