@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.7.0
+
+### Minor Changes
+
+- c19aa7e: Added dropdownOffset to ActionMenu and Dropdown components. Also added dropdownClassName to ActionMenu.
+
 ## 1.6.6
 
 ### Patch Changes
