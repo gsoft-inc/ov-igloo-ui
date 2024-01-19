@@ -1,5 +1,11 @@
 # @igloo-ui/tag-picker
 
+## 0.7.0
+
+### Minor Changes
+
+- de2a2e3: Added ref and inputValue props to be able to edit the input in TagPicker.
+
 ## 0.6.7
 
 ### Patch Changes
