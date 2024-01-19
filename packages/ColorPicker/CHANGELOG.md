@@ -1,5 +1,13 @@
 # @igloo-ui/color-picker
 
+## 0.2.4
+
+### Patch Changes
+
+- 1f6d0b3: Added a border to the dropdown component and removed the outline from the date picker since it was no longer needed.
+- Updated dependencies [1f6d0b3]
+  - @igloo-ui/dropdown@1.7.1
+
 ## 0.2.3
 
 ### Patch Changes
