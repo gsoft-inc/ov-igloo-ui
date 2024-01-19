@@ -12,7 +12,6 @@
   --ids-datepicker-cell-empty-border: calc(6 * .05rem);
 
   /* Default */
-  --ids-datepicker-outline: none;
   --ids-datepicker-font-family: #{tokens.$primary-font-family};
   --ids-datepicker-font-size: #{tokens.$font-size-4};
   --ids-datepicker-width: calc(var(--ids-datepicker-cell-number) * var(--ids-datepicker-cell-size) - var(--ids-datepicker-cell-border) - var(--ids-datepicker-cell-empty-border));
@@ -56,7 +55,6 @@
   --ids-datepicker-cell-number: 7;
 
   /* Default */
-  --ids-datepicker-outline: 1px solid var(--hop-neutral-border-weak);
   --ids-datepicker-font-family: var(--hop-body-sm-font-family);
   --ids-datepicker-font-size: var(--hop-body-sm-font-size);
   --ids-datepicker-width: calc(var(--ids-datepicker-cell-number) * var(--ids-datepicker-cell-size));
@@ -103,10 +101,6 @@
   font-family: var(--ids-datepicker-font-family);
   font-size: var(--ids-datepicker-font-size);
   width: var(--ids-datepicker-width);
-
-  &__dropdown {
-    outline: var(--ids-datepicker-outline);
-  }
 
   &__header {
     display: flex;
