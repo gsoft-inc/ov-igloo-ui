@@ -115,7 +115,7 @@ TagPickerProps & React.RefAttributes<HTMLInputElement>
 ref: React.Ref<HTMLInputElement>) => {
     const defaultKeyboardFocusIndex = -1;
     const inputRef = useRef<HTMLInputElement>(null);
-    const [localInputValue, setLocalInputValue] = useState("");
+    const [localInputValue, setLocalInputValue] = useState(inputValue || "");
     const tagPickerRef = useRef<HTMLDivElement>(null);
     const dropdownRef = useRef<HTMLDivElement>(null);
     const [focused, setFocused] = useState(false);
