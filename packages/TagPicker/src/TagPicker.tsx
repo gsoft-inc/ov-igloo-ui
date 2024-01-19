@@ -8,6 +8,7 @@ import Dropdown from "@igloo-ui/dropdown";
 import Input from "@igloo-ui/input";
 import useClickOutside from "./hooks/useClickOutside";
 import TagPickerResult from "./TagPickerResult";
+import { mergeRefs } from "@react-aria/utils";
 
 import "./tag-picker.scss";
 
@@ -81,9 +82,13 @@ export interface TagPickerProps
     showSearchIcon?: boolean;
     /** KeyCodes used to separate the different tags */
     separators?: (Keys.Enter | Keys.Comma | Keys.Space)[];
+    /** The value of the input */
+    inputValue?: string;
 }
 
-const TagPicker: React.FunctionComponent<TagPickerProps> = ({
+const TagPicker: React.FunctionComponent<
+TagPickerProps & React.RefAttributes<HTMLInputElement>
+> = React.forwardRef(({
     autoFocus,
     className,
     dataTest,
@@ -104,11 +109,13 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     selectedResults,
     showSearchIcon,
     separators = [Keys.Enter],
+    inputValue,
     ...rest
-}: TagPickerProps) => {
+}: TagPickerProps,
+ref: React.Ref<HTMLInputElement>) => {
     const defaultKeyboardFocusIndex = -1;
     const inputRef = useRef<HTMLInputElement>(null);
-    const [inputValue, setInputValue] = useState("");
+    const [localInputValue, setLocalInputValue] = useState("");
     const tagPickerRef = useRef<HTMLDivElement>(null);
     const dropdownRef = useRef<HTMLDivElement>(null);
     const [focused, setFocused] = useState(false);
@@ -118,6 +125,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     const [keyboardFocusIndex, setKeyboardFocusIndex] = useState(
         defaultKeyboardFocusIndex
     );
+    const mergedInputRef = mergeRefs(inputRef, ref);
 
     const selectedResultsCount = selectedResults.length;
     const hasResults = !!results;
@@ -134,7 +142,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
         const { value } = target;
         const shouldShowResults = value.length >= minSearchLength;
 
-        setInputValue(value);
+        setLocalInputValue(value);
 
         setShowResults(shouldShowResults);
 
@@ -145,8 +153,8 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
 
     const resetSearch = (): void => {
         setShowResults(false);
-        if (inputRef && inputRef.current && inputValue !== "") {
-            setInputValue("");
+        if (inputRef && inputRef.current && localInputValue !== "") {
+            setLocalInputValue("");
         }
     };
 
@@ -294,6 +302,12 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
         }
     }, [tagRemoved, inputDisabled, handleGainFocus, autoFocus]);
 
+    React.useEffect(() => {
+        if (inputValue !== undefined) {
+            setLocalInputValue(inputValue);
+        }
+    }, [inputValue]);
+
     const renderSelectedResults = selectedResults.map(s => {
         const tagClasses = cx("ids-tag-picker__tag", {
             "ids-tag-picker__tag--error": s.hasError
@@ -353,12 +367,12 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     const showIcon = showSearchIcon && selectedResults.length === 0;
 
     const input = (
-        <div className="ids-tag-picker__input-wrapper" data-value={inputValue}>
+        <div className="ids-tag-picker__input-wrapper" data-value={localInputValue}>
             {showIcon && (
                 <Search size="medium" className="ids-tag-picker__search-icon" />
             )}
             <Input
-                ref={inputRef}
+                ref={mergedInputRef}
                 className="ids-tag-picker__input"
                 disabled={disabled}
                 placeholder={selectedResults.length === 0 ? placeholder : ""}
@@ -370,7 +384,7 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
                         handleLoseFocus();
                     }
                 }}
-                value={inputValue}
+                value={localInputValue}
             />
         </div>
     );
@@ -424,6 +438,6 @@ const TagPicker: React.FunctionComponent<TagPickerProps> = ({
     ) : (
         tagPickerElem
     );
-};
+});
 
 export default TagPicker;
