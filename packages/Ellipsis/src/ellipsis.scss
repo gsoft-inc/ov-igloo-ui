@@ -1,10 +1,12 @@
-.ids-ellipsis {
-    overflow: hidden;
-    white-space: nowrap;
-}
+@layer igloo {
+    .ids-ellipsis {
+        overflow: hidden;
+        white-space: nowrap;
+    }
 
-.ids-ellipsis__content {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    .ids-ellipsis__content {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 }

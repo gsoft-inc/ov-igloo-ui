@@ -4,7 +4,7 @@
     --ids-scrollbar-color: #{tokens.$grey-300};
     --ids-scrollbar-border-color: #{tokens.$samoyed};
     --ids-scrollbar-border-size: 1rem;
-    --ids-scrollbar-size: 0.2rem;
+    --ids-scrollbar-size: 2rem;
 }
 
 [data-brand="workleap"] {
@@ -15,25 +15,25 @@
 }
 
 @mixin fancy-webkit-scrollbar(
-  $border-color: var(--ids-scrollbar-border-color),
-  $scrollbar-color: var(--ids-scrollbar-color),
-  $scrollbar-size: var(--ids-scrollbar-border-size)) {
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+    $border-color: var(--ids-scrollbar-border-color),
+    $scrollbar-color: var(--ids-scrollbar-color),
+    $scrollbar-size: var(--ids-scrollbar-border-size)) {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
 
-  &::-webkit-scrollbar {
+    &::-webkit-scrollbar {
     width: $scrollbar-size;
     height: $scrollbar-size;
     background-color: transparent;
-  }
+    }
 
-  &::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb {
     background-color: $scrollbar-color;
     border: var(--ids-scrollbar-size) solid $border-color;
     border-radius: #{tokens.$border-radius-md};
-  }
+    }
 
-  &::-webkit-scrollbar-track {
+    &::-webkit-scrollbar-track {
     background-color: transparent;
-  }
+    }
 }

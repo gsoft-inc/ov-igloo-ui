@@ -1,104 +1,106 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-  /* Default */
-  --ids-popover-font-family: #{tokens.$primary-font-family};
-  --ids-popover-font-size: #{tokens.$font-size-3};
-  --ids-popover-padding: #{tokens.$space-3};
-  --ids-popover-border: none;
-  --ids-popover-border-radius: #{tokens.$border-radius-sm};
-  --ids-popover-line-height: #{tokens.$line-height-xxl};
-  --ids-popover-z-index: #{tokens.$z-index-max};
-  --ids-popover-spacing: #{tokens.$space-2};
-  --ids-popover-width: 100%;
-  --ids-popover-text: #{tokens.$grey-600};
-  --ids-popover-background: #{tokens.$samoyed};
-  --ids-popover-shadow: #{tokens.$shadow-12};
-  --ids-popover-title-color: #{tokens.$grey-800};
-  --ids-popover-title-font-weight: #{tokens.$font-weight-semi-bold};
-  --ids-popover-title-padding: #{tokens.$space-5};
-}
-
-[data-brand="workleap"] {
-  /* Default */
-  --ids-popover-font-family: var(--hop-body-sm-font-family);
-  --ids-popover-font-size: var(--hop-body-sm-font-size);
-  --ids-popover-padding: var(--hop-space-inset-md);
-  --ids-popover-border: 0.0625rem solid var(--hop-neutral-border-weak);
-  --ids-popover-border-radius: var(--hop-shape-rounded-md);
-  --ids-popover-line-height: var(--hop-body-sm-line-height);
-  --ids-popover-z-index: 999;
-  --ids-popover-spacing: var(--hop-space-stack-sm);
-  --ids-popover-width: 100%;
-  --ids-popover-text: var(--hop-neutral-text-weak);
-  --ids-popover-background: var(--hop-neutral-surface);
-  --ids-popover-shadow: var(--hop-elevation-lifted);
-  --ids-popover-title-color: var(--hop-neutral-text);
-  --ids-popover-title-font-weight: var(--hop-body-sm-semibold-font-weight);
-  --ids-popover-title-padding: var(--hop-space-inset-xl);
-}
-
-/* stylelint-disable-next-line media-query-no-invalid */
-@media (width >= #{tokens.$breakpoints-sm}) {
-  :root {
-    --ids-popover-min-width: 3.2rem;
-    --ids-popover-width: 100%;
-    --ids-popover-close-display: none;
-  }
-
-  [data-brand="workleap"] {
-    --ids-popover-min-width: 2rem;
-  }
-}
-
-.ids-popover {
-  border: var(--ids-popover-border);
-  font-family: var(--ids-popover-font-family);
-  font-size: var(--ids-popover-font-size);
-  position: fixed;
-  padding: var(--ids-popover-padding);
-  border-radius: var(--ids-popover-border-radius);
-  z-index: var(--ids-popover-z-index);
-  color: var(--ids-popover-text);
-  background-color: var(--ids-popover-background);
-  box-shadow: var(--ids-popover-shadow);
-  box-sizing: border-box;
-  line-height: var(--ids-popover-line-height);
-  min-width: var(--ids-popover-min-width, var(--ids-popover-width));
-  width: var(--ids-popover-width);
-
-  &__container {
-    position: relative;
-  }
-
-  /* Needs to be more specific to ensure it overrides .ids-btn */
-  & &__close {
-    position: absolute;
-    top: tokens.$space-3;
-    right: tokens.$space-3;
-    display: var(--ids-popover-close-display, inline-flex);
-  }
-
-  &__title,
-  &__content {
-    padding-right: var(--ids-popover-title-padding, 0);
-  }
-
-  &__title {
-    font-weight: var(--ids-popover-title-font-weight);
-    color: var(--ids-popover-title-color);
-    margin-bottom: var(--ids-popover-spacing);
-  }
-
-  &__action {
-    margin-top: var(--ids-popover-spacing);
-
-    > * {
-      font-size: var(--ids-popover-font-size);
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-popover-font-family: #{tokens.$primary-font-family};
+        --ids-popover-font-size: #{tokens.$font-size-3};
+        --ids-popover-padding: #{tokens.$space-3};
+        --ids-popover-border: none;
+        --ids-popover-border-radius: #{tokens.$border-radius-sm};
+        --ids-popover-line-height: #{tokens.$line-height-xxl};
+        --ids-popover-z-index: #{tokens.$z-index-max};
+        --ids-popover-spacing: #{tokens.$space-2};
+        --ids-popover-width: 100%;
+        --ids-popover-text: #{tokens.$grey-600};
+        --ids-popover-background: #{tokens.$samoyed};
+        --ids-popover-shadow: #{tokens.$shadow-12};
+        --ids-popover-title-color: #{tokens.$grey-800};
+        --ids-popover-title-font-weight: #{tokens.$font-weight-semi-bold};
+        --ids-popover-title-padding: #{tokens.$space-5};
     }
-  }
+
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-popover-font-family: var(--hop-body-sm-font-family);
+        --ids-popover-font-size: var(--hop-body-sm-font-size);
+        --ids-popover-padding: var(--hop-space-inset-md);
+        --ids-popover-border: 0.0625rem solid var(--hop-neutral-border-weak);
+        --ids-popover-border-radius: var(--hop-shape-rounded-md);
+        --ids-popover-line-height: var(--hop-body-sm-line-height);
+        --ids-popover-z-index: 999;
+        --ids-popover-spacing: var(--hop-space-stack-sm);
+        --ids-popover-width: 100%;
+        --ids-popover-text: var(--hop-neutral-text-weak);
+        --ids-popover-background: var(--hop-neutral-surface);
+        --ids-popover-shadow: var(--hop-elevation-lifted);
+        --ids-popover-title-color: var(--hop-neutral-text);
+        --ids-popover-title-font-weight: var(--hop-body-sm-semibold-font-weight);
+        --ids-popover-title-padding: var(--hop-space-inset-xl);
+    }
+
+    /* stylelint-disable-next-line media-query-no-invalid */
+    @media (width >= #{tokens.$breakpoints-sm}) {
+        :root {
+            --ids-popover-min-width: 3.2rem;
+            --ids-popover-width: 100%;
+            --ids-popover-close-display: none;
+        }
+
+        [data-brand="workleap"] {
+            --ids-popover-min-width: 2rem;
+        }
+    }
+
+    .ids-popover {
+        border: var(--ids-popover-border);
+        font-family: var(--ids-popover-font-family);
+        font-size: var(--ids-popover-font-size);
+        position: fixed;
+        padding: var(--ids-popover-padding);
+        border-radius: var(--ids-popover-border-radius);
+        z-index: var(--ids-popover-z-index);
+        color: var(--ids-popover-text);
+        background-color: var(--ids-popover-background);
+        box-shadow: var(--ids-popover-shadow);
+        box-sizing: border-box;
+        line-height: var(--ids-popover-line-height);
+        min-width: var(--ids-popover-min-width, var(--ids-popover-width));
+        width: var(--ids-popover-width);
+
+        &__container {
+            position: relative;
+        }
+
+        /* Needs to be more specific to ensure it overrides .ids-btn */
+        & &__close {
+            position: absolute;
+            top: tokens.$space-3;
+            right: tokens.$space-3;
+            display: var(--ids-popover-close-display, inline-flex);
+        }
+
+        &__title,
+        &__content {
+            padding-right: var(--ids-popover-title-padding, 0);
+        }
+
+        &__title {
+            font-weight: var(--ids-popover-title-font-weight);
+            color: var(--ids-popover-title-color);
+            margin-bottom: var(--ids-popover-spacing);
+        }
+
+        &__action {
+            margin-top: var(--ids-popover-spacing);
+
+            > * {
+                font-size: var(--ids-popover-font-size);
+            }
+        }
+    }
 }

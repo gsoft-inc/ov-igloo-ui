@@ -1,318 +1,317 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
 :root {
-  /* Default */
-  --ids-metric-background: #{tokens.$samoyed};
-  --ids-metric-font-family: #{tokens.$primary-font-family};
-  --ids-metric-font-size: #{tokens.$font-size-3};
-  --ids-metric-font-weight: #{tokens.$font-weight-regular};
-  --ids-metric-padding: #{tokens.$space-2};
-  --ids-metric-border-radius: #{tokens.$border-radius-sm};
-  --ids-metric-line-height: #{tokens.$line-height-xxl};
-  --ids-metric-border-color: transparent;
-  --ids-metric-border-width: 1.5px;
-  --ids-metric-shadow: none;
+    /* Default */
+    --ids-metric-background: #{tokens.$samoyed};
+    --ids-metric-font-family: #{tokens.$primary-font-family};
+    --ids-metric-font-size: #{tokens.$font-size-3};
+    --ids-metric-font-weight: #{tokens.$font-weight-regular};
+    --ids-metric-padding: #{tokens.$space-2};
+    --ids-metric-border-radius: #{tokens.$border-radius-sm};
+    --ids-metric-line-height: #{tokens.$line-height-xxl};
+    --ids-metric-border-color: transparent;
+    --ids-metric-border-width: 1.5px;
+    --ids-metric-shadow: none;
 
-  /* Visual */
-  --ids-metric-visual-background: #{tokens.$grey-400};
-  --ids-metric-visual-border-radius: 4rem;
-  --ids-metric-visual-color: #{tokens.$grey-600};
-  --ids-metric-visual-size: #{tokens.$space-6};
-  --ids-metric-visual-positive-background: #{tokens.$seaweed-50};
-  --ids-metric-visual-positive-color: #{tokens.$seaweed-500};
-  --ids-metric-visual-negative-background: #{tokens.$coral-100};
-  --ids-metric-visual-negative-color: #{tokens.$coral-500};
-  --ids-metric-visual-selected-background: #{tokens.$electric-blue-100};
-  --ids-metric-visual-selected-color: #{tokens.$electric-blue-500};
-  --ids-metric-visual-margin-right: #{tokens.$space-3};
+    /* Visual */
+    --ids-metric-visual-background: #{tokens.$grey-400};
+    --ids-metric-visual-border-radius: 4rem;
+    --ids-metric-visual-color: #{tokens.$grey-600};
+    --ids-metric-visual-size: #{tokens.$space-6};
+    --ids-metric-visual-positive-background: #{tokens.$seaweed-50};
+    --ids-metric-visual-positive-color: #{tokens.$seaweed-500};
+    --ids-metric-visual-negative-background: #{tokens.$coral-100};
+    --ids-metric-visual-negative-color: #{tokens.$coral-500};
+    --ids-metric-visual-selected-background: #{tokens.$electric-blue-100};
+    --ids-metric-visual-selected-color: #{tokens.$electric-blue-500};
+    --ids-metric-visual-margin-right: #{tokens.$space-3};
 
-  /* Hover */
-  --ids-metric-hover-shadow: #{tokens.$shadow-12};
-  --ids-metric-hover-background: var(--ids-metric-background);
-  --ids-metric-hover-border-color: transparent;
+    /* Hover */
+    --ids-metric-hover-shadow: #{tokens.$shadow-12};
+    --ids-metric-hover-background: var(--ids-metric-background);
+    --ids-metric-hover-border-color: transparent;
 
-  /* Focus */
-  --ids-metric-focus-border-color: #{tokens.$electric-blue-600};
-  --ids-metric-focus-shadow: #{tokens.$shadow-12};
+    /* Focus */
+    --ids-metric-focus-border-color: #{tokens.$electric-blue-600};
+    --ids-metric-focus-shadow: #{tokens.$shadow-12};
 
-  /* Selected */
-  --ids-metric-selected-shadow: none;
-  --ids-metric-selected-border-width: 0.15rem;
-  --ids-metric-selected-border-color: transparent;
-  --ids-metric-selected-hover-background: #{tokens.$electric-blue-50};
-  --ids-metric-selected-hover-shadow: none;
-  --ids-metric-selected-hover-border-color: transparent;
-  --ids-metric-selected-focus-shadow: none;
+    /* Selected */
+    --ids-metric-selected-shadow: none;
+    --ids-metric-selected-border-width: 0.15rem;
+    --ids-metric-selected-border-color: transparent;
+    --ids-metric-selected-hover-background: #{tokens.$electric-blue-50};
+    --ids-metric-selected-hover-shadow: none;
+    --ids-metric-selected-hover-border-color: transparent;
+    --ids-metric-selected-focus-shadow: none;
 
-  /* Score */
-  --ids-metric-score-margin-left: #{tokens.$space-2};
+    /* Score */
+    --ids-metric-score-margin-left: #{tokens.$space-2};
 
-  /* Name */
-  --ids-metric-name-color: #{tokens.$grey-600};
+    /* Name */
+    --ids-metric-name-color: #{tokens.$grey-600};
 
-  /* Status */
-  --ids-metric-status-color: #{tokens.$grey-500};
-  --ids-metric-status-selected-color: #{tokens.$electric-blue-500};
+    /* Status */
+    --ids-metric-status-color: #{tokens.$grey-500};
+    --ids-metric-status-selected-color: #{tokens.$electric-blue-500};
 
-  /* Fluctuate */
-  --ids-metric-alignment-icon-margin: #{tokens.$space-2};
-  --ids-metric-fluctuate-name-color: #{tokens.$grey-600};
+    /* Fluctuate */
+    --ids-metric-alignment-icon-margin: #{tokens.$space-2};
+    --ids-metric-fluctuate-name-color: #{tokens.$grey-600};
 
-  /* Sub Metric */
-  --ids-metric-sub-metric-border-color: #{tokens.$grey-300};
-  --ids-metric-sub-metric-padding-left: #{tokens.$space-3};
-  --ids-metric-sub-metric-focus-shadow: #{tokens.$focus};
-  --ids-metric-sub-metric-hover-border-color: #{tokens.$electric-blue-500};
+    /* Sub Metric */
+    --ids-metric-sub-metric-border-color: #{tokens.$grey-300};
+    --ids-metric-sub-metric-padding-left: #{tokens.$space-3};
+    --ids-metric-sub-metric-focus-shadow: #{tokens.$focus};
+    --ids-metric-sub-metric-hover-border-color: #{tokens.$electric-blue-500};
 
-  /* Sub Metric Selected */
-  --ids-metric-sub-metric-selected-border-color: #{tokens.$grey-400};
-  --ids-metric-sub-metric-selected-left-border-color: #{tokens.$electric-blue-500};
-  --ids-metric-sub-metric-selected-left-border-width: #{tokens.$space-1};
-  --ids-metric-sub-metric-selected-hover-border-color: #{tokens.$electric-blue-500};
+    /* Sub Metric Selected */
+    --ids-metric-sub-metric-selected-border-color: #{tokens.$grey-400};
+    --ids-metric-sub-metric-selected-left-border-color: #{tokens.$electric-blue-500};
+    --ids-metric-sub-metric-selected-left-border-width: #{tokens.$space-1};
+    --ids-metric-sub-metric-selected-hover-border-color: #{tokens.$electric-blue-500};
 
 }
 
 [data-brand="workleap"] {
-  /* Default */
-  --ids-metric-background: var(--hop-neutral-surface);
-  --ids-metric-font-family: var(--hop-body-sm-font-family);
-  --ids-metric-font-size: var(--hop-body-sm-font-size);
-  --ids-metric-font-weight: var(--hop-body-sm-font-weight);
-  --ids-metric-padding: var(--hop-space-inset-sm);
-  --ids-metric-border: var(--hop-shape-rounded-md);
-  --ids-metric-border-radius: var(--hop-shape-rounded-md);
-  --ids-metric-line-height: var(--hop-body-sm-line-height);
-  --ids-metric-border-color: var(--hop-neutral-border-weak);
-  --ids-metric-border-width: 0.0625rem;
-  --ids-metric-shadow: var(--hop-elevation-raised);
+    /* Default */
+    --ids-metric-background: var(--hop-neutral-surface);
+    --ids-metric-font-family: var(--hop-body-sm-font-family);
+    --ids-metric-font-size: var(--hop-body-sm-font-size);
+    --ids-metric-font-weight: var(--hop-body-sm-font-weight);
+    --ids-metric-padding: var(--hop-space-inset-sm);
+    --ids-metric-border: var(--hop-shape-rounded-md);
+    --ids-metric-border-radius: var(--hop-shape-rounded-md);
+    --ids-metric-line-height: var(--hop-body-sm-line-height);
+    --ids-metric-border-color: var(--hop-neutral-border-weak);
+    --ids-metric-border-width: 0.0625rem;
+    --ids-metric-shadow: var(--hop-elevation-raised);
 
-  /* Visual */
-  --ids-metric-visual-background: var(--hop-neutral-surface-weak);
-  --ids-metric-visual-border-radius: var(--hop-shape-circle);
-  --ids-metric-visual-color: var(--hop-neutral-icon-weak);
-  --ids-metric-visual-size: 2.5rem;
-  --ids-metric-visual-positive-background: #E3F3B9; /* Data Viz token */
-  --ids-metric-visual-positive-color: #0C796B; /* Data Viz token */
-  --ids-metric-visual-negative-background: #FDE6E5; /* Data Viz token */
-  --ids-metric-visual-negative-color: #CB2E31; /* Data Viz token */
-  --ids-metric-visual-selected-background: var(--hop-neutral-surface-active);
-  --ids-metric-visual-selected-color: var(--hop-neutral-text-active);
-  --ids-metric-visual-margin-right: var(--hop-space-inline-md);
+    /* Visual */
+    --ids-metric-visual-background: var(--hop-neutral-surface-weak);
+    --ids-metric-visual-border-radius: var(--hop-shape-circle);
+    --ids-metric-visual-color: var(--hop-neutral-icon-weak);
+    --ids-metric-visual-size: 2.5rem;
+    --ids-metric-visual-positive-background: #E3F3B9; /* Data Viz token */
+    --ids-metric-visual-positive-color: #0C796B; /* Data Viz token */
+    --ids-metric-visual-negative-background: #FDE6E5; /* Data Viz token */
+    --ids-metric-visual-negative-color: #CB2E31; /* Data Viz token */
+    --ids-metric-visual-selected-background: var(--hop-neutral-surface-active);
+    --ids-metric-visual-selected-color: var(--hop-neutral-text-active);
+    --ids-metric-visual-margin-right: var(--hop-space-inline-md);
 
-  /* Hover */
-  --ids-metric-hover-shadow: var(--hop-elevation-lifted);
-  --ids-metric-hover-background: var(--hop-neutral-surface-hover);
-  --ids-metric-hover-border-color: var(--hop-neutral-border-hover);
+    /* Hover */
+    --ids-metric-hover-shadow: var(--hop-elevation-lifted);
+    --ids-metric-hover-background: var(--hop-neutral-surface-hover);
+    --ids-metric-hover-border-color: var(--hop-neutral-border-hover);
 
-  /* Focus */
-  --ids-metric-focus-border-color: var(--hop-neutral-border-hover);
-  --ids-metric-focus-shadow: var(--hop-elevation-lifted), 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+    /* Focus */
+    --ids-metric-focus-border-color: var(--hop-neutral-border-hover);
+    --ids-metric-focus-shadow: var(--hop-elevation-lifted), 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
 
-  /* Selected */
-  --ids-metric-selected-shadow: var(--hop-elevation-raised);
-  --ids-metric-selected-border-width: 0.1rem; /* 1.5px generates too small of a border. Usually 0.8px */
-  --ids-metric-selected-border-color: var(--hop-neutral-border-active);
-  --ids-metric-selected-hover-border-color: var(--hop-neutral-border-active);
-  --ids-metric-selected-hover-background: var(--hop-neutral-surface-hover);
-  --ids-metric-selected-hover-shadow: var(--hop-elevation-lifted);
-  --ids-metric-selected-focus-shadow: var(--ids-metric-focus-shadow);
+    /* Selected */
+    --ids-metric-selected-shadow: var(--hop-elevation-raised);
+    --ids-metric-selected-border-width: 0.1rem; /* 1.5px generates too small of a border. Usually 0.8px */
+    --ids-metric-selected-border-color: var(--hop-neutral-border-active);
+    --ids-metric-selected-hover-border-color: var(--hop-neutral-border-active);
+    --ids-metric-selected-hover-background: var(--hop-neutral-surface-hover);
+    --ids-metric-selected-hover-shadow: var(--hop-elevation-lifted);
+    --ids-metric-selected-focus-shadow: var(--ids-metric-focus-shadow);
 
-  /* Score */
-  --ids-metric-score-margin-left: var(--hop-space-inline-sm);
+    /* Score */
+    --ids-metric-score-margin-left: var(--hop-space-inline-sm);
 
-  /* Name */
-  --ids-metric-name-color: var(--hop-neutral-text-weak);
+    /* Name */
+    --ids-metric-name-color: var(--hop-neutral-text-weak);
 
-  /* Status */
-  --ids-metric-status-color: var(--hop-neutral-icon-weak);
-  --ids-metric-status-selected-color: var(--hop-neutral-icon);
+    /* Status */
+    --ids-metric-status-color: var(--hop-neutral-icon-weak);
+    --ids-metric-status-selected-color: var(--hop-neutral-icon);
 
-  /* Fluctuate */
-  --ids-metric-alignment-icon-margin: var(--hop-space-inline-sm);
-  --ids-metric-fluctuate-name-color: var(--hop-neutral-text);
+    /* Fluctuate */
+    --ids-metric-alignment-icon-margin: var(--hop-space-inline-sm);
+    --ids-metric-fluctuate-name-color: var(--hop-neutral-text);
 
-  /* Sub Metric */
-  --ids-metric-sub-metric-border-color: var(--hop-neutral-border-weak);
-  --ids-metric-sub-metric-padding-left: var(--hop-space-inset-md);
-  --ids-metric-sub-metric-focus-shadow:  0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
-  --ids-metric-sub-metric-hover-border-color: var(--hop-neutral-border-hover);
+    /* Sub Metric */
+    --ids-metric-sub-metric-border-color: var(--hop-neutral-border-weak);
+    --ids-metric-sub-metric-padding-left: var(--hop-space-inset-md);
+    --ids-metric-sub-metric-focus-shadow:  0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+    --ids-metric-sub-metric-hover-border-color: var(--hop-neutral-border-hover);
 
-  /* Sub Metric Selected */
-  --ids-metric-sub-metric-selected-border-color: var(--hop-neutral-border-active);
-  --ids-metric-sub-metric-selected-left-border-color: transparent;
-  --ids-metric-sub-metric-selected-left-border-width: 0;
-  --ids-metric-sub-metric-selected-hover-border-color: var(--hop-neutral-border-active);
+    /* Sub Metric Selected */
+    --ids-metric-sub-metric-selected-border-color: var(--hop-neutral-border-active);
+    --ids-metric-sub-metric-selected-left-border-color: transparent;
+    --ids-metric-sub-metric-selected-left-border-width: 0;
+    --ids-metric-sub-metric-selected-hover-border-color: var(--hop-neutral-border-active);
 }
 
 .ids-metric {
-  align-items: center;
-  background: var(--ids-metric-background);
-  border: var(--ids-metric-border-width) solid var(--ids-metric-border-color);
-  border-radius: var(--ids-metric-border-radius);
-  box-shadow: var(--ids-metric-shadow);
-  display: flex;
-  font-family: var(--ids-metric-font-family);
-  font-size: var(--ids-metric-font-size);
-  font-weight: var(--ids-metric-font-weight);
-  outline: none;
-  overflow: hidden;
-  padding: var(--ids-metric-padding);
-  position: relative;
-  text-align: left;
-  transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
-  width: 100%;
-
-  &,
-  & * {
-    box-sizing: border-box;
-  }
-
-  &:hover {
-    background: var(--ids-metric-hover-background);
-    border-color: var(--ids-metric-hover-border-color);
-    box-shadow: var(--ids-metric-hover-shadow);
-    cursor: pointer;
-  }
-
-  &.keyboard-focus {
-    background: var(--ids-metric-hover-background);
+    align-items: center;
+    background: var(--ids-metric-background);
+    border: var(--ids-metric-border-width) solid var(--ids-metric-border-color);
+    border-radius: var(--ids-metric-border-radius);
+    box-shadow: var(--ids-metric-shadow);
+    display: flex;
+    font-family: var(--ids-metric-font-family);
+    font-size: var(--ids-metric-font-size);
+    font-weight: var(--ids-metric-font-weight);
     outline: none;
-    border-color: var(--ids-metric-focus-border-color);
-    box-shadow: var(--ids-metric-focus-shadow);
-  }
+    overflow: hidden;
+    padding: var(--ids-metric-padding);
+    position: relative;
+    text-align: left;
+    transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
+    width: 100%;
+
+    &,
+    & * {
+        box-sizing: border-box;
+    }
+
+    &:hover {
+        background: var(--ids-metric-hover-background);
+        border-color: var(--ids-metric-hover-border-color);
+        box-shadow: var(--ids-metric-hover-shadow);
+        cursor: pointer;
+    }
+
+    &.keyboard-focus {
+        background: var(--ids-metric-hover-background);
+        outline: none;
+        border-color: var(--ids-metric-focus-border-color);
+        box-shadow: var(--ids-metric-focus-shadow);
+    }
 }
 
 .ids-metric--selected {
-  border-color: var(--ids-metric-selected-border-color);
-  border-width: var(--ids-metric-selected-border-width);
-  box-shadow: var(--ids-metric-selected-shadow);
+    border-color: var(--ids-metric-selected-border-color);
+    border-width: var(--ids-metric-selected-border-width);
+    box-shadow: var(--ids-metric-selected-shadow);
 
-  &:hover {
-    background: var(--ids-metric-selected-hover-background);
-    border-color: var(--ids-metric-selected-hover-border-color);
-    box-shadow: var(--ids-metric-selected-hover-shadow);
-  }
+    &:hover {
+        background: var(--ids-metric-selected-hover-background);
+        border-color: var(--ids-metric-selected-hover-border-color);
+        box-shadow: var(--ids-metric-selected-hover-shadow);
+    }
 
-  &.keyboard-focus {
-    background: var(--ids-metric-selected-hover-background);
-    border-color: var(--ids-metric-selected-hover-border-color);
-    box-shadow: var(--ids-metric-selected-focus-shadow);
-  }
+    &.keyboard-focus {
+        background: var(--ids-metric-selected-hover-background);
+        border-color: var(--ids-metric-selected-hover-border-color);
+        box-shadow: var(--ids-metric-selected-focus-shadow);
+    }
 }
 
 .ids-metric--score {
 }
 
 .ids-metric--subMetric {
-  border-color: var(--ids-metric-sub-metric-border-color);
-  box-shadow: none;
-  padding-left: var(--ids-metric-sub-metric-padding-left);
-
-  &:hover {
-    background: var(--ids-metric-selected-hover-background);
-    border-color: var(--ids-metric-sub-metric-hover-border-color);
+    border-color: var(--ids-metric-sub-metric-border-color);
     box-shadow: none;
-  }
+    padding-left: var(--ids-metric-sub-metric-padding-left);
 
-  &.keyboard-focus {
-    background: var(--ids-metric-selected-hover-background);
-    border-color: var(--ids-metric-sub-metric-hover-border-color);
-    box-shadow: var(--ids-metric-sub-metric-focus-shadow);
-  }
+    &:hover {
+        background: var(--ids-metric-selected-hover-background);
+        border-color: var(--ids-metric-sub-metric-hover-border-color);
+        box-shadow: none;
+    }
+
+    &.keyboard-focus {
+        background: var(--ids-metric-selected-hover-background);
+        border-color: var(--ids-metric-sub-metric-hover-border-color);
+        box-shadow: var(--ids-metric-sub-metric-focus-shadow);
+    }
 }
 
 .ids-metric--subMetric.ids-metric--selected {
-  border-color: var(--ids-metric-sub-metric-selected-border-color);
+    border-color: var(--ids-metric-sub-metric-selected-border-color);
 
-  &:hover,
-  &.keyboard-focus {
-    border-color: var(--ids-metric-sub-metric-selected-hover-border-color);
-  }
+    &:hover,
+    &.keyboard-focus {
+        border-color: var(--ids-metric-sub-metric-selected-hover-border-color);
+    }
 
-  &::before {
-    background: var(--ids-metric-sub-metric-selected-left-border-color);
-    bottom: 0;
-    content: '';
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: var(--ids-metric-sub-metric-selected-left-border-width);
-  }
+    &::before {
+        background: var(--ids-metric-sub-metric-selected-left-border-color);
+        bottom: 0;
+        content: '';
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: var(--ids-metric-sub-metric-selected-left-border-width);
+    }
 }
 
 .ids-metric__visual {
-  align-items: center;
-  background: var(--ids-metric-visual-background);
-  border-radius: var(--ids-metric-visual-border-radius);
-  color: var(--ids-metric-visual-color);
-  display: flex;
-  flex: 0 0 auto;
-  height: var(--ids-metric-visual-size);
-  justify-content: center;
-  margin-right: var(--ids-metric-visual-margin-right);
-  width: var(--ids-metric-visual-size);
+    align-items: center;
+    background: var(--ids-metric-visual-background);
+    border-radius: var(--ids-metric-visual-border-radius);
+    color: var(--ids-metric-visual-color);
+    display: flex;
+    flex: 0 0 auto;
+    height: var(--ids-metric-visual-size);
+    justify-content: center;
+    margin-right: var(--ids-metric-visual-margin-right);
+    width: var(--ids-metric-visual-size);
 
-  &--positive {
-    background: var(--ids-metric-visual-positive-background);
-    color: var(--ids-metric-visual-positive-color);
-  }
-  
-  &--negative {
-    background: var(--ids-metric-visual-negative-background);
-    color: var(--ids-metric-visual-negative-color);
-  }
-  
-  &--selected {
-    background: var(--ids-metric-visual-selected-background);
-    color: var(--ids-metric-visual-selected-color);
-  }
+    &--positive {
+        background: var(--ids-metric-visual-positive-background);
+        color: var(--ids-metric-visual-positive-color);
+    }
+
+    &--negative {
+        background: var(--ids-metric-visual-negative-background);
+        color: var(--ids-metric-visual-negative-color);
+    }
+
+    &--selected {
+        background: var(--ids-metric-visual-selected-background);
+        color: var(--ids-metric-visual-selected-color);
+    }
 }
 
 .ids-metric__content {
-  flex: 1 1 auto;
+    flex: 1 1 auto;
 }
 
 .ids-metric__score-group {
-  align-items: baseline;
-  display: flex;
+    align-items: baseline;
+    display: flex;
 
-  & .ids-metric__score ~ .ids-metric__score  {
-    margin-left: var(--ids-metric-score-margin-left);
-  }
+    & .ids-metric__score ~ .ids-metric__score  {
+        margin-left: var(--ids-metric-score-margin-left);
+    }
 }
 
 .ids-metric__name {
-  align-items: center;
-  color: var(--ids-metric-name-color);
-  display: flex;
-  line-height: var(--ids-metric-line-height);
+    align-items: center;
+    color: var(--ids-metric-name-color);
+    display: flex;
+    line-height: var(--ids-metric-line-height);
 
-  .ids-metric--fluctuate & {
-    color: var(--ids-metric-fluctuate-name-color);
-  }
+    .ids-metric--fluctuate & {
+        color: var(--ids-metric-fluctuate-name-color);
+    }
 }
 
 .ids-metric__status {
-  color: var(--ids-metric-status-selected-color);
-  flex: 0 0 auto;
-  transition: opacity 0.2s ease-in-out;
+    color: var(--ids-metric-status-selected-color);
+    flex: 0 0 auto;
+    transition: opacity 0.2s ease-in-out;
 
-  &--tooltip {
-    color: var(--ids-metric-status-color);
-    opacity: 0;
-  }
+    &--tooltip {
+        color: var(--ids-metric-status-color);
+        opacity: 0;
+    }
 
-  .ids-metric:hover &--tooltip {
-    opacity: 1;
-  }
+    .ids-metric:hover &--tooltip {
+        opacity: 1;
+    }
 }
 
 .ids-metric__alignment-icon {
-  flex: 0 0 auto;
-  margin-right: var(--ids-metric-alignment-icon-margin);
+    flex: 0 0 auto;
+    margin-right: var(--ids-metric-alignment-icon-margin);
 }
-  

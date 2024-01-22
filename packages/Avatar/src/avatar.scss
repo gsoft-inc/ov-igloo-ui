@@ -1,73 +1,75 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-  --ids-avatar-border-radius: #{tokens.$border-radius-sm};
-  --ids-avatar-border-radius-xs: #{tokens.$border-radius-xs};
+@layer igloo {
+    :root {
+    --ids-avatar-border-radius: #{tokens.$border-radius-sm};
+    --ids-avatar-border-radius-xs: #{tokens.$border-radius-xs};
 
-  /* Sizes */
-  --ids-avatar-size-xs: #{tokens.$font-size-4};
-  --ids-avatar-size-s: #{tokens.$font-size-7};
-  --ids-avatar-size-m: #{tokens.$font-size-9};
-  --ids-avatar-size-l: #{tokens.$font-size-10};
-  --ids-avatar-size-xl: #{tokens.$space-8};
-}
-
-[data-brand="workleap"] {
-  --ids-avatar-border-radius: var(--hop-shape-circle);
-  --ids-avatar-border-radius-xs: var(--hop-shape-circle);
-
-  /* Sizes */
-  --ids-avatar-size-xs: 1rem;
-  --ids-avatar-size-s: 1.5rem;
-  --ids-avatar-size-m: 2rem;
-  --ids-avatar-size-l: 3rem;
-  --ids-avatar-size-xl: 4rem;
-}
-
-.ids-avatar {
-  box-sizing: border-box;
-  display: inline-flex;
-  flex-shrink: 0;
-
-  // Remove spaces before and after
-  font-size: 0;
-
-  &__image {
-    border-radius: var(--ids-avatar-border-radius);
-    max-height: 100%;
-    width: 100%;
-
-    &--xsmall {
-      border-radius: var(--ids-avatar-border-radius-xs);
+    /* Sizes */
+    --ids-avatar-size-xs: #{tokens.$font-size-4};
+    --ids-avatar-size-s: #{tokens.$font-size-7};
+    --ids-avatar-size-m: #{tokens.$font-size-9};
+    --ids-avatar-size-l: #{tokens.$font-size-10};
+    --ids-avatar-size-xl: #{tokens.$space-8};
     }
-  }
 
-  &--xsmall {
-    height: var(--ids-avatar-size-xs);
-    width: var(--ids-avatar-size-xs);
-  }
+    [data-brand="workleap"] {
+    --ids-avatar-border-radius: var(--hop-shape-circle);
+    --ids-avatar-border-radius-xs: var(--hop-shape-circle);
 
-  &--small {
-    height: var(--ids-avatar-size-s);
-    width: var(--ids-avatar-size-s);
-  }
+    /* Sizes */
+    --ids-avatar-size-xs: 1rem;
+    --ids-avatar-size-s: 1.5rem;
+    --ids-avatar-size-m: 2rem;
+    --ids-avatar-size-l: 3rem;
+    --ids-avatar-size-xl: 4rem;
+    }
 
-  &--medium {
-    height: var(--ids-avatar-size-m);
-    width: var(--ids-avatar-size-m);
-  }
+    .ids-avatar {
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-shrink: 0;
 
-  &--large {
-    height: var(--ids-avatar-size-l);
-    width: var(--ids-avatar-size-l);
-  }
+    // Remove spaces before and after
+    font-size: 0;
 
-  &--xlarge {
-    height: var(--ids-avatar-size-xl);
-    width: var(--ids-avatar-size-xl);
-  }
+    &__image {
+        border-radius: var(--ids-avatar-border-radius);
+        max-height: 100%;
+        width: 100%;
+
+        &--xsmall {
+        border-radius: var(--ids-avatar-border-radius-xs);
+        }
+    }
+
+        &--xsmall {
+            height: var(--ids-avatar-size-xs);
+            width: var(--ids-avatar-size-xs);
+        }
+
+        &--small {
+            height: var(--ids-avatar-size-s);
+            width: var(--ids-avatar-size-s);
+        }
+
+        &--medium {
+            height: var(--ids-avatar-size-m);
+            width: var(--ids-avatar-size-m);
+        }
+
+        &--large {
+            height: var(--ids-avatar-size-l);
+            width: var(--ids-avatar-size-l);
+        }
+
+        &--xlarge {
+            height: var(--ids-avatar-size-xl);
+            width: var(--ids-avatar-size-xl);
+        }
+    }
 }

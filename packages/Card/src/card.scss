@@ -1,80 +1,82 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-  /* Default */
-  --ids-card-font-family: #{tokens.$primary-font-family};
-  --ids-card-font-size: #{tokens.$font-size-4};
-  --ids-card-background: #{tokens.$samoyed};
-  --ids-card-border: none;
-  --ids-card-padding-mobile: #{tokens.$space-3};
-  --ids-card-padding: #{tokens.$space-5};
-  --ids-card-shadow: 0 .1rem .6rem rgb(35 48 67 / 10%);
-  --ids-card-radius: #{tokens.$border-radius-sm};
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-card-font-family: #{tokens.$primary-font-family};
+        --ids-card-font-size: #{tokens.$font-size-4};
+        --ids-card-background: #{tokens.$samoyed};
+        --ids-card-border: none;
+        --ids-card-padding-mobile: #{tokens.$space-3};
+        --ids-card-padding: #{tokens.$space-5};
+        --ids-card-shadow: 0 .1rem .6rem rgb(35 48 67 / 10%);
+        --ids-card-radius: #{tokens.$border-radius-sm};
 
-  /* Medium */
-  --ids-card-padding-medium: #{tokens.$space-4};
+        /* Medium */
+        --ids-card-padding-medium: #{tokens.$space-4};
 
-  /* Small */
-  --ids-card-padding-small: #{tokens.$space-3};
+        /* Small */
+        --ids-card-padding-small: #{tokens.$space-3};
 
-  /* xSmall */
-  --ids-card-padding-xsmall: 0;
-}
+        /* xSmall */
+        --ids-card-padding-xsmall: 0;
+    }
 
-[data-brand="workleap"] {
-  /* Default */
-  --ids-card-font-family: var(--hop-body-md-font-family);
-  --ids-card-font-size: var(--hop-body-md-font-size);
-  --ids-card-background: var(--hop-neutral-surface);
-  --ids-card-border: 0.0625rem solid var(--hop-neutral-border-weak);
-  --ids-card-padding-mobile: var(--hop-space-inset-md);
-  --ids-card-padding: var(--hop-space-inset-xl);
-  --ids-card-shadow: none;
-  --ids-card-radius: var(--hop-shape-rounded-md);
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-card-font-family: var(--hop-body-md-font-family);
+        --ids-card-font-size: var(--hop-body-md-font-size);
+        --ids-card-background: var(--hop-neutral-surface);
+        --ids-card-border: 0.0625rem solid var(--hop-neutral-border-weak);
+        --ids-card-padding-mobile: var(--hop-space-inset-md);
+        --ids-card-padding: var(--hop-space-inset-xl);
+        --ids-card-shadow: none;
+        --ids-card-radius: var(--hop-shape-rounded-md);
 
-  /* Medium */
-  --ids-card-padding-medium: var(--hop-space-inset-lg);
+        /* Medium */
+        --ids-card-padding-medium: var(--hop-space-inset-lg);
 
-  /* Small */
-  --ids-card-padding-small: var(--hop-space-inset-md);
+        /* Small */
+        --ids-card-padding-small: var(--hop-space-inset-md);
 
-  /* xSmall */
-  --ids-card-padding-xsmall: 0;
-}
+        /* xSmall */
+        --ids-card-padding-xsmall: 0;
+    }
 
-.ids-card {
-  font-family: var(--ids-card-font-family);
-  padding: var(--ids-card-padding-mobile);
-  background: var(--ids-card-background);
-  font-size: var(--ids-card-font-size);
-  box-shadow: var(--ids-card-shadow);
-  border-radius: var(--ids-card-radius);
-  border: var(--ids-card-border);
-}
+    .ids-card {
+        font-family: var(--ids-card-font-family);
+        padding: var(--ids-card-padding-mobile);
+        background: var(--ids-card-background);
+        font-size: var(--ids-card-font-size);
+        box-shadow: var(--ids-card-shadow);
+        border-radius: var(--ids-card-radius);
+        border: var(--ids-card-border);
+    }
 
-.ids-card--xsmall {
-  padding: var(--ids-card-padding-xsmall);
-}
+    .ids-card--xsmall {
+        padding: var(--ids-card-padding-xsmall);
+    }
 
-/* stylelint-disable-next-line media-query-no-invalid */
-@media (width >= #{tokens.$breakpoints-sm}) {
-  .ids-card {
-    padding: var(--ids-card-padding);
-  }
+    /* stylelint-disable-next-line media-query-no-invalid */
+    @media (width >= #{tokens.$breakpoints-sm}) {
+        .ids-card {
+            padding: var(--ids-card-padding);
+        }
 
-  .ids-card--medium {
-    padding: var(--ids-card-padding-medium);
-  }
+        .ids-card--medium {
+            padding: var(--ids-card-padding-medium);
+        }
 
-  .ids-card--small {
-    padding: var(--ids-card-padding-small);
-  }
+        .ids-card--small {
+            padding: var(--ids-card-padding-small);
+        }
 
-  .ids-card--xsmall {
-    padding: var(--ids-card-padding-xsmall);
-  }
+        .ids-card--xsmall {
+            padding: var(--ids-card-padding-xsmall);
+        }
+    }
 }

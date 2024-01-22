@@ -1,141 +1,142 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-  /* Default */
-  --ids-stacked-bar-font-family: #{tokens.$primary-font-family};
-  --ids-stacked-bar-font-size: #{tokens.$font-size-2};
-  --ids-stacked-bar-font-weight: #{tokens.$font-weight-semi-bold};
-  --ids-stacked-bar-color: #{tokens.$grey-800};
-  --ids-stacked-bar-color-ends: #{tokens.$grey-800};
-  --ids-stacked-bar-height: #{tokens.$space-4};
-  --ids-stacked-bar-height-small: #{tokens.$space-2};
-  --ids-stacked-bar-empty-fill-side: #{tokens.$grey-300};
-  --ids-stacked-bar-empty-fill-middle: #{tokens.$grey-250};
-  
-  /* Bar Colors */
-  --ids-stacked-bar-strength-minus-2: #{tokens.$coral-400};
-  --ids-stacked-bar-strength-minus-1: #{tokens.$coral-200};
-  --ids-stacked-bar-strength-0: #{tokens.$creamsicle-100};
-  --ids-stacked-bar-strength-1: #{tokens.$seaweed-200};
-  --ids-stacked-bar-strength-2: #{tokens.$seaweed-400};
-  --ids-stacked-bar-no-color: #{tokens.$grey-300};
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-stacked-bar-font-family: #{tokens.$primary-font-family};
+        --ids-stacked-bar-font-size: #{tokens.$font-size-2};
+        --ids-stacked-bar-font-weight: #{tokens.$font-weight-semi-bold};
+        --ids-stacked-bar-color: #{tokens.$grey-800};
+        --ids-stacked-bar-color-ends: #{tokens.$grey-800};
+        --ids-stacked-bar-height: #{tokens.$space-4};
+        --ids-stacked-bar-height-small: #{tokens.$space-2};
+        --ids-stacked-bar-empty-fill-side: #{tokens.$grey-300};
+        --ids-stacked-bar-empty-fill-middle: #{tokens.$grey-250};
 
-  /* Hover */
-  --ids-stacked-bar-strength-minus-2-hover: #{tokens.$coral-500};
-  --ids-stacked-bar-strength-minus-1-hover: #{tokens.$coral-300};
-  --ids-stacked-bar-strength-0-hover: #{tokens.$creamsicle-150};
-  --ids-stacked-bar-strength-1-hover: #{tokens.$seaweed-300};
-  --ids-stacked-bar-strength-2-hover: #{tokens.$seaweed-500};
-  --ids-stacked-bar-no-color-hover: #{tokens.$grey-400};
-}
+        /* Bar Colors */
+        --ids-stacked-bar-strength-minus-2: #{tokens.$coral-400};
+        --ids-stacked-bar-strength-minus-1: #{tokens.$coral-200};
+        --ids-stacked-bar-strength-0: #{tokens.$creamsicle-100};
+        --ids-stacked-bar-strength-1: #{tokens.$seaweed-200};
+        --ids-stacked-bar-strength-2: #{tokens.$seaweed-400};
+        --ids-stacked-bar-no-color: #{tokens.$grey-300};
 
-[data-brand="workleap"] {
-  /* Default */
-  --ids-stacked-bar-font-family: var(--hop-body-xs-semibold-font-family);
-  --ids-stacked-bar-font-size: var(--hop-body-xs-semibold-font-size);
-  --ids-stacked-bar-font-weight: var(--hop-body-xs-semibold-font-weight);
-  --ids-stacked-bar-color: var(--hop-neutral-text);
-  --ids-stacked-bar-color-ends: #FFFFFF; /* Missing semantic token */
-  --ids-stacked-bar-height: 1.5rem;
-  --ids-stacked-bar-height-small: 0.5rem;
-  --ids-stacked-bar-empty-fill-side: var(--hop-neutral-surface-disabled);
-  --ids-stacked-bar-empty-fill-middle: var(--hop-neutral-surface-weak);
-  
-  /* Bar Colors */
-  --ids-stacked-bar-strength-minus-2: #FF8E8E; /* Missing semantic token */
-  --ids-stacked-bar-strength-minus-1: #FFD8BE; /* Missing semantic token */
-  --ids-stacked-bar-strength-0: #FFF2B8; /* Missing semantic token */
-  --ids-stacked-bar-strength-1: #CDE8AC; /* Missing semantic token */
-  --ids-stacked-bar-strength-2: #7DC291; /* Missing semantic token */
-  --ids-stacked-bar-no-color: #E0DFDD; /* Missing semantic token */
+        /* Hover */
+        --ids-stacked-bar-strength-minus-2-hover: #{tokens.$coral-500};
+        --ids-stacked-bar-strength-minus-1-hover: #{tokens.$coral-300};
+        --ids-stacked-bar-strength-0-hover: #{tokens.$creamsicle-150};
+        --ids-stacked-bar-strength-1-hover: #{tokens.$seaweed-300};
+        --ids-stacked-bar-strength-2-hover: #{tokens.$seaweed-500};
+        --ids-stacked-bar-no-color-hover: #{tokens.$grey-400};
+    }
 
-  /* Hover */
-  --ids-stacked-bar-strength-minus-2-hover: #F56263; /* Missing semantic token */
-  --ids-stacked-bar-strength-minus-1-hover: #FFBCB7; /* Missing semantic token */
-  --ids-stacked-bar-strength-0-hover: #F7E694; /* Missing semantic token */
-  --ids-stacked-bar-strength-1-hover: #AAD89D; /* Missing semantic token */
-  --ids-stacked-bar-strength-2-hover: #47A584; /* Missing semantic token */
-  --ids-stacked-bar-no-color-hover: #CCCCCA; /* Missing semantic token */
-}
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-stacked-bar-font-family: var(--hop-body-xs-semibold-font-family);
+        --ids-stacked-bar-font-size: var(--hop-body-xs-semibold-font-size);
+        --ids-stacked-bar-font-weight: var(--hop-body-xs-semibold-font-weight);
+        --ids-stacked-bar-color: var(--hop-neutral-text);
+        --ids-stacked-bar-color-ends: #FFFFFF; /* Missing semantic token */
+        --ids-stacked-bar-height: 1.5rem;
+        --ids-stacked-bar-height-small: 0.5rem;
+        --ids-stacked-bar-empty-fill-side: var(--hop-neutral-surface-disabled);
+        --ids-stacked-bar-empty-fill-middle: var(--hop-neutral-surface-weak);
 
-.ids-stacked-bar {
-  font-family: var(--ids-stacked-bar-font-family);
-  font-size: var(--ids-stacked-bar-font-size);
-  height: var( --ids-stacked-bar-height);
-  width: 100%;
+        /* Bar Colors */
+        --ids-stacked-bar-strength-minus-2: #FF8E8E; /* Missing semantic token */
+        --ids-stacked-bar-strength-minus-1: #FFD8BE; /* Missing semantic token */
+        --ids-stacked-bar-strength-0: #FFF2B8; /* Missing semantic token */
+        --ids-stacked-bar-strength-1: #CDE8AC; /* Missing semantic token */
+        --ids-stacked-bar-strength-2: #7DC291; /* Missing semantic token */
+        --ids-stacked-bar-no-color: #E0DFDD; /* Missing semantic token */
 
-  &--small {
-    height: var(--ids-stacked-bar-height-small);
-  }
+        /* Hover */
+        --ids-stacked-bar-strength-minus-2-hover: #F56263; /* Missing semantic token */
+        --ids-stacked-bar-strength-minus-1-hover: #FFBCB7; /* Missing semantic token */
+        --ids-stacked-bar-strength-0-hover: #F7E694; /* Missing semantic token */
+        --ids-stacked-bar-strength-1-hover: #AAD89D; /* Missing semantic token */
+        --ids-stacked-bar-strength-2-hover: #47A584; /* Missing semantic token */
+        --ids-stacked-bar-no-color-hover: #CCCCCA; /* Missing semantic token */
+    }
 
-  .recharts-surface {
-    display: block;
-  }
-}
+    .ids-stacked-bar {
+        font-family: var(--ids-stacked-bar-font-family);
+        font-size: var(--ids-stacked-bar-font-size);
+        height: var( --ids-stacked-bar-height);
+        width: 100%;
 
-.ids-stacked-bar__empty-bar--side {
-  fill: var(--ids-stacked-bar-empty-fill-side);
-}
+        &--small {
+            height: var(--ids-stacked-bar-height-small);
+        }
 
-.ids-stacked-bar__empty-bar--middle {
-  fill: var(--ids-stacked-bar-empty-fill-middle);
-}
+        .recharts-surface {
+            display: block;
+        }
+    }
 
-.ids-stacked-bar__label {
-  fill: var(--ids-stacked-bar-color);
-  font-weight: var(--ids-stacked-bar-font-weight);
-  opacity: 0;
-  transition: opacity .2s ease-out;
+    .ids-stacked-bar__empty-bar--side {
+        fill: var(--ids-stacked-bar-empty-fill-side);
+    }
 
-  .ids-stacked-bar:hover & {
-    opacity: 1;
-  }
-}
-
-.ids-stacked-bar:hover .ids-stacked-bar__bar {
-  filter: brightness(98%);
-  transition: filter .3s ease-out, background .3s ease-out;
-
-  &--no-color {
-    fill: var(--ids-stacked-bar-no-color-hover);
-    filter: none;
-  }
-
-  &--strength--2 {
-    fill: var(--ids-stacked-bar-strength-minus-2-hover);
-    filter: none;
+    .ids-stacked-bar__empty-bar--middle {
+        fill: var(--ids-stacked-bar-empty-fill-middle);
+    }
 
     .ids-stacked-bar__label {
-      fill: var(--ids-stacked-bar-color-ends);
+        fill: var(--ids-stacked-bar-color);
+        font-weight: var(--ids-stacked-bar-font-weight);
+        opacity: 0;
+        transition: opacity .2s ease-out;
+
+        .ids-stacked-bar:hover & {
+            opacity: 1;
+        }
     }
-  }
 
-  &--strength--1 {
-    fill: var(--ids-stacked-bar-strength-minus-1-hover);
-    filter: none;
-  }
+    .ids-stacked-bar:hover .ids-stacked-bar__bar {
+        filter: brightness(98%);
+        transition: filter .3s ease-out, background .3s ease-out;
 
-  &--strength-0 {
-    fill: var(--ids-stacked-bar-strength-0-hover);
-    filter: none;
-  }
+        &--no-color {
+            fill: var(--ids-stacked-bar-no-color-hover);
+            filter: none;
+        }
 
-  &--strength-1 {
-    fill: var(--ids-stacked-bar-strength-1-hover);
-    filter: none;
-  }
+        &--strength--2 {
+            fill: var(--ids-stacked-bar-strength-minus-2-hover);
+            filter: none;
 
-  &--strength-2 {
-    fill: var(--ids-stacked-bar-strength-2-hover);
-    filter: none;
+            .ids-stacked-bar__label {
+                fill: var(--ids-stacked-bar-color-ends);
+            }
+        }
 
-    .ids-stacked-bar__label {
-      fill: var(--ids-stacked-bar-color-ends);
+        &--strength--1 {
+            fill: var(--ids-stacked-bar-strength-minus-1-hover);
+            filter: none;
+        }
+
+        &--strength-0 {
+            fill: var(--ids-stacked-bar-strength-0-hover);
+            filter: none;
+        }
+
+        &--strength-1 {
+            fill: var(--ids-stacked-bar-strength-1-hover);
+            filter: none;
+        }
+
+        &--strength-2 {
+            fill: var(--ids-stacked-bar-strength-2-hover);
+            filter: none;
+
+            .ids-stacked-bar__label {
+                fill: var(--ids-stacked-bar-color-ends);
+            }
+        }
     }
-  }
-  
 }

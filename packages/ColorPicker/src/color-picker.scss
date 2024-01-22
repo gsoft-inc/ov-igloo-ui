@@ -1,101 +1,103 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-  /* Default */
-  --ids-color-picker-font-family: #{tokens.$primary-font-family};
-  --ids-color-picker-font-size: #{tokens.$font-size-4};
-  --ids-color-picker-font-weight: #{tokens.$font-weight-regular};
-  --ids-color-picker-line-height: #{tokens.$line-height-sm};
-  --ids-color-picker-padding: #{tokens.$space-1};
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-color-picker-font-family: #{tokens.$primary-font-family};
+        --ids-color-picker-font-size: #{tokens.$font-size-4};
+        --ids-color-picker-font-weight: #{tokens.$font-weight-regular};
+        --ids-color-picker-line-height: #{tokens.$line-height-sm};
+        --ids-color-picker-padding: #{tokens.$space-1};
 
-  /* Button */
-  --ids-color-picker-btn-background: #{tokens.$samoyed};
-  --ids-color-picker-btn-background-disabled: #{tokens.$grey-300};
-  --ids-color-picker-btn-border-color: #{tokens.$grey-300};
-  --ids-color-picker-btn-border-color-hover: #{tokens.$grey-600};
-  --ids-color-picker-btn-border-color-active: #{tokens.$grey-600};
-  --ids-color-picker-btn-border-color-disabled: #{tokens.$grey-300};
-  --ids-color-picker-btn-border-radius: #{tokens.$border-radius-sm};
-  --ids-color-picker-btn-border-size: 0.15rem;
-  --ids-color-picker-btn-focus: #{tokens.$electric-blue-600};
-  --ids-color-picker-btn-padding: #{tokens.$space-2};
-}
+        /* Button */
+        --ids-color-picker-btn-background: #{tokens.$samoyed};
+        --ids-color-picker-btn-background-disabled: #{tokens.$grey-300};
+        --ids-color-picker-btn-border-color: #{tokens.$grey-300};
+        --ids-color-picker-btn-border-color-hover: #{tokens.$grey-600};
+        --ids-color-picker-btn-border-color-active: #{tokens.$grey-600};
+        --ids-color-picker-btn-border-color-disabled: #{tokens.$grey-300};
+        --ids-color-picker-btn-border-radius: #{tokens.$border-radius-sm};
+        --ids-color-picker-btn-border-size: 0.15rem;
+        --ids-color-picker-btn-focus: #{tokens.$electric-blue-600};
+        --ids-color-picker-btn-padding: #{tokens.$space-2};
+    }
 
-[data-brand="workleap"] {
-  /* Default */
-  --ids-color-picker-font-family: var(--hop-body-sm-font-family);
-  --ids-color-picker-font-size: var(--hop-body-sm-font-size);
-  --ids-color-picker-font-weight: var(--hop-body-sm-font-weight);
-  --ids-color-picker-line-height: var(--hop-body-sm-line-height);
-  --ids-color-picker-padding: var(--hop-space-inset-xs);
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-color-picker-font-family: var(--hop-body-sm-font-family);
+        --ids-color-picker-font-size: var(--hop-body-sm-font-size);
+        --ids-color-picker-font-weight: var(--hop-body-sm-font-weight);
+        --ids-color-picker-line-height: var(--hop-body-sm-line-height);
+        --ids-color-picker-padding: var(--hop-space-inset-xs);
 
-  /* Button */
-  --ids-color-picker-btn-background: var(--hop-neutral-surface);
-  --ids-color-picker-btn-background-disabled: var(--hop-neutral-surface-disabled);
-  --ids-color-picker-btn-border-color: var(--hop-neutral-border);
-  --ids-color-picker-btn-border-color-hover: var(--hop-neutral-border-hover);
-  --ids-color-picker-btn-border-color-active: var(--hop-neutral-border-active);
-  --ids-color-picker-btn-border-color-disabled: var(--hop-neutral-border-disabled);
-  --ids-color-picker-btn-border-radius: var(--hop-shape-rounded-md);
-  --ids-color-picker-btn-border-size: 0.09rem;
-  --ids-color-picker-btn-focus: var(--hop-primary-border-focus);
-  --ids-color-picker-btn-padding: var(--hop-space-inset-sm);
-}
+        /* Button */
+        --ids-color-picker-btn-background: var(--hop-neutral-surface);
+        --ids-color-picker-btn-background-disabled: var(--hop-neutral-surface-disabled);
+        --ids-color-picker-btn-border-color: var(--hop-neutral-border);
+        --ids-color-picker-btn-border-color-hover: var(--hop-neutral-border-hover);
+        --ids-color-picker-btn-border-color-active: var(--hop-neutral-border-active);
+        --ids-color-picker-btn-border-color-disabled: var(--hop-neutral-border-disabled);
+        --ids-color-picker-btn-border-radius: var(--hop-shape-rounded-md);
+        --ids-color-picker-btn-border-size: 0.09rem;
+        --ids-color-picker-btn-focus: var(--hop-primary-border-focus);
+        --ids-color-picker-btn-padding: var(--hop-space-inset-sm);
+    }
 
-.ids-color-picker {
-  font-family: var(--ids-color-picker-font-family);
-  font-size: var(--ids-color-picker-font-size);
-}
+    .ids-color-picker {
+        font-family: var(--ids-color-picker-font-family);
+        font-size: var(--ids-color-picker-font-size);
+    }
 
-.ids-color-picker__button {
-  background: var(--ids-color-picker-btn-background);
-  border: var(--ids-color-picker-btn-border-size) solid var(--ids-color-picker-btn-border-color);
-  border-radius: var(--ids-color-picker-btn-border-radius);
-  cursor: pointer;
-  outline: 0;
-  padding: var(--ids-color-picker-btn-padding);
-  position: relative;
-  transition: background-color 0.2s ease-in-out;
+    .ids-color-picker__button {
+        background: var(--ids-color-picker-btn-background);
+        border: var(--ids-color-picker-btn-border-size) solid var(--ids-color-picker-btn-border-color);
+        border-radius: var(--ids-color-picker-btn-border-radius);
+        cursor: pointer;
+        outline: 0;
+        padding: var(--ids-color-picker-btn-padding);
+        position: relative;
+        transition: background-color 0.2s ease-in-out;
 
-  &[data-focus-visible] {
-    outline: 0.125rem solid var(--ids-color-picker-btn-focus);
-    outline-offset: 0.125rem;
-  }
+        &[data-focus-visible] {
+            outline: 0.125rem solid var(--ids-color-picker-btn-focus);
+            outline-offset: 0.125rem;
+        }
 
-  &:hover {
-    border-color: var(--ids-color-picker-btn-border-color-hover);
-  }
+        &:hover {
+            border-color: var(--ids-color-picker-btn-border-color-hover);
+        }
 
-  &[aria-expanded="true"] {
-    border-color: var(--ids-color-picker-btn-border-color-active);
-  }
+        &[aria-expanded="true"] {
+            border-color: var(--ids-color-picker-btn-border-color-active);
+        }
 
-  &:disabled {
-    background: var(--ids-color-picker-btn-background-disabled);
-    border-color: var(--ids-color-picker-btn-border-color-disabled);
-    cursor: not-allowed;
-  }
-}
+        &:disabled {
+            background: var(--ids-color-picker-btn-background-disabled);
+            border-color: var(--ids-color-picker-btn-border-color-disabled);
+            cursor: not-allowed;
+        }
+    }
 
-.ids-color-picker__button .ids-color {
-  transition: background-color .2s ease-out;
-}
+    .ids-color-picker__button .ids-color {
+        transition: background-color .2s ease-out;
+    }
 
-.ids-color-picker__button:hover .ids-color {
-  background-color: var(--ids-picker-selected-color-hover); /* variable set in code */
-}
+    .ids-color-picker__button:hover .ids-color {
+        background-color: var(--ids-picker-selected-color-hover); /* variable set in code */
+    }
 
-.ids-color-picker__list {
-  display: flex;
-  flex-direction: column;
-  outline: 0;
-  padding: var(--ids-color-picker-padding);
+    .ids-color-picker__list {
+        display: flex;
+        flex-direction: column;
+        outline: 0;
+        padding: var(--ids-color-picker-padding);
 
-  &[data-orientation="horizontal"] {
-    flex-flow: row wrap;
-  }
+        &[data-orientation="horizontal"] {
+            flex-flow: row wrap;
+        }
+    }
 }

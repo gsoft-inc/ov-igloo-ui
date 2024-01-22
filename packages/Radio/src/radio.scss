@@ -1,182 +1,184 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-    /* Default */
-    --ids-radio-font-family: #{tokens.$primary-font-family};
-    --ids-radio-font-weight: #{tokens.$font-weight-regular};
-    --ids-radio-font-size: #{tokens.$font-size-4};
-    --ids-radio-font-size-small: #{tokens.$font-size-3};
-    --ids-radio-font-size-description: #{tokens.$font-size-3};
-    --ids-radio-line-height: normal;
-    --ids-radio-line-height-small: normal;
-    --ids-radio-text: #{tokens.$grey-800};
-    --ids-radio-text-description: #{tokens.$grey-600};
-    --ids-radio-description-padding: #{tokens.$space-1};
-    --ids-radio-padding: #{tokens.$space-2};
-    --ids-radio-margin: .2rem 0 0;
-    --ids-radio-margin-small: .12rem 0 0;
-    --ids-radio-size: #{tokens.$font-size-4};
-    --ids-radio-check: #{tokens.$samoyed};
-    --ids-radio-border: #{tokens.$grey-400};
-    --ids-radio-border-hover: #{tokens.$grey-800};
-    --ids-radio-border-disabled: #{tokens.$grey-300};
-    --ids-radio-border-checked: #{tokens.$electric-blue-500};
-    --ids-radio-background: #{tokens.$samoyed};
-    --ids-radio-background-disabled: #{tokens.$grey-200};
-    --ids-radio-background-checked: #{tokens.$electric-blue-500};
-    --ids-radio-background-disabled-checked: #{tokens.$grey-300};
-}
-
-[data-brand="workleap"] {
-    /* Default */
-    --ids-radio-font-family: var(--hop-body-md-font-family);
-    --ids-radio-font-weight: var(--hop-body-md-font-weight);
-    --ids-radio-font-size: var(--hop-body-md-font-size);
-    --ids-radio-font-size-small: var(--hop-sm-font-size);
-    --ids-radio-font-size-description: var(--hop-body-sm-font-size);
-    --ids-radio-line-height: var(--hop-body-md-line-height);
-    --ids-radio-line-height-small: var(--hop-body-sm-line-height);
-    --ids-radio-text: var(--hop-neutral-text);
-    --ids-radio-text-description: var(--hop-neutral-text-weak);
-    --ids-radio-description-padding: 0;
-    --ids-radio-padding: var(--hop-space-inline-sm);
-    --ids-radio-margin: var(--hop-space-stack-xs) 0 0;
-    --ids-radio-margin-small: 0.15rem 0 0;
-    --ids-radio-size: 1rem;
-    --ids-radio-check: var(--hop-neutral-surface);
-    --ids-radio-check-size: .5rem;
-    --ids-radio-check-background-disabled: var(--hop-neutral-icon-disabled);
-    --ids-radio-border-size: .0625rem;
-    --ids-radio-border: var(--hop-neutral-border);
-    --ids-radio-border-hover: var(--hop-neutral-border-hover);
-    --ids-radio-border-disabled: var(--hop-neutral-border-disabled);
-    --ids-radio-border-checked: var(--hop-neutral-border-active);
-    --ids-radio-border-checked-hover: var(--hop-neutral-border-active);
-    --ids-radio-background: var(--hop-neutral-surface);
-    --ids-radio-background-hover: var(--hop-neutral-surface-hover);
-    --ids-radio-background-disabled: var(--hop-neutral-surface-disabled);
-    --ids-radio-background-disabled-checked: var(--hop-neutral-surface-disabled);
-    --ids-radio-background-checked: var(--hop-neutral-surface-active);
-}
-
-%radio {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: var(--ids-radio-check-size, .6rem);
-    height: var(--ids-radio-check-size, .6rem);
-    border-radius: 50%;
-    background: var(--ids-radio-background);
-}
-
-.ids-form-control {
-    display: inline-flex;
-    align-items: flex-start;
-}
-
-.ids-form-control-radio {
-    &,
-    & * {
-        box-sizing: border-box;
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-radio-font-family: #{tokens.$primary-font-family};
+        --ids-radio-font-weight: #{tokens.$font-weight-regular};
+        --ids-radio-font-size: #{tokens.$font-size-4};
+        --ids-radio-font-size-small: #{tokens.$font-size-3};
+        --ids-radio-font-size-description: #{tokens.$font-size-3};
+        --ids-radio-line-height: normal;
+        --ids-radio-line-height-small: normal;
+        --ids-radio-text: #{tokens.$grey-800};
+        --ids-radio-text-description: #{tokens.$grey-600};
+        --ids-radio-description-padding: #{tokens.$space-1};
+        --ids-radio-padding: #{tokens.$space-2};
+        --ids-radio-margin: .2rem 0 0;
+        --ids-radio-margin-small: .12rem 0 0;
+        --ids-radio-size: #{tokens.$font-size-4};
+        --ids-radio-check: #{tokens.$samoyed};
+        --ids-radio-border: #{tokens.$grey-400};
+        --ids-radio-border-hover: #{tokens.$grey-800};
+        --ids-radio-border-disabled: #{tokens.$grey-300};
+        --ids-radio-border-checked: #{tokens.$electric-blue-500};
+        --ids-radio-background: #{tokens.$samoyed};
+        --ids-radio-background-disabled: #{tokens.$grey-200};
+        --ids-radio-background-checked: #{tokens.$electric-blue-500};
+        --ids-radio-background-disabled-checked: #{tokens.$grey-300};
     }
-}
 
-.ids-radio__label {
-    font-family: var(--ids-radio-font-family);
-    font-size: var(--ids-radio-font-size);
-    font-weight: var(--ids-radio-font-weight);
-    color: var(--ids-radio-text);
-    line-height: var(--ids-radio-line-height);
-    padding-left: var(--ids-radio-padding);
-}
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-radio-font-family: var(--hop-body-md-font-family);
+        --ids-radio-font-weight: var(--hop-body-md-font-weight);
+        --ids-radio-font-size: var(--hop-body-md-font-size);
+        --ids-radio-font-size-small: var(--hop-sm-font-size);
+        --ids-radio-font-size-description: var(--hop-body-sm-font-size);
+        --ids-radio-line-height: var(--hop-body-md-line-height);
+        --ids-radio-line-height-small: var(--hop-body-sm-line-height);
+        --ids-radio-text: var(--hop-neutral-text);
+        --ids-radio-text-description: var(--hop-neutral-text-weak);
+        --ids-radio-description-padding: 0;
+        --ids-radio-padding: var(--hop-space-inline-sm);
+        --ids-radio-margin: var(--hop-space-stack-xs) 0 0;
+        --ids-radio-margin-small: 0.15rem 0 0;
+        --ids-radio-size: 1rem;
+        --ids-radio-check: var(--hop-neutral-surface);
+        --ids-radio-check-size: .5rem;
+        --ids-radio-check-background-disabled: var(--hop-neutral-icon-disabled);
+        --ids-radio-border-size: .0625rem;
+        --ids-radio-border: var(--hop-neutral-border);
+        --ids-radio-border-hover: var(--hop-neutral-border-hover);
+        --ids-radio-border-disabled: var(--hop-neutral-border-disabled);
+        --ids-radio-border-checked: var(--hop-neutral-border-active);
+        --ids-radio-border-checked-hover: var(--hop-neutral-border-active);
+        --ids-radio-background: var(--hop-neutral-surface);
+        --ids-radio-background-hover: var(--hop-neutral-surface-hover);
+        --ids-radio-background-disabled: var(--hop-neutral-surface-disabled);
+        --ids-radio-background-disabled-checked: var(--hop-neutral-surface-disabled);
+        --ids-radio-background-checked: var(--hop-neutral-surface-active);
+    }
 
-.ids-radio {
-    appearance: none;
-    height: var(--ids-radio-size);
-    width: var(--ids-radio-size);
-    flex-shrink: 0;
-    margin: var(--ids-radio-margin);
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    color: var(--ids-radio-check);
-    border: var(--ids-radio-border-size, .1rem) solid var(--ids-radio-border);
-    border-radius: 50%;
-    background: var(--ids-radio-background);
-    transition: background 0.05s ease-in-out;
+    %radio {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: var(--ids-radio-check-size, .6rem);
+        height: var(--ids-radio-check-size, .6rem);
+        border-radius: 50%;
+        background: var(--ids-radio-background);
+    }
 
-    &:checked {
-        border-color: var(--ids-radio-border-checked);
-        background: var(--ids-radio-background-checked);
+    .ids-form-control {
+        display: inline-flex;
+        align-items: flex-start;
+    }
 
-        &::after {
-            @extend %radio;
+    .ids-form-control-radio {
+        &,
+        & * {
+            box-sizing: border-box;
         }
     }
 
-    &:disabled {
-        cursor: not-allowed;
-        border-color: var(--ids-radio-border-disabled);
-        background: var(--ids-radio-background-disabled);
+    .ids-radio__label {
+        font-family: var(--ids-radio-font-family);
+        font-size: var(--ids-radio-font-size);
+        font-weight: var(--ids-radio-font-weight);
+        color: var(--ids-radio-text);
+        line-height: var(--ids-radio-line-height);
+        padding-left: var(--ids-radio-padding);
     }
 
-    &:focus {
-        outline: none;
-        box-shadow: var(--focus);
-        background-color: var(--ids-radio-background-hover, var(--ids-radio-background));
-    }
+    .ids-radio {
+        appearance: none;
+        height: var(--ids-radio-size);
+        width: var(--ids-radio-size);
+        flex-shrink: 0;
+        margin: var(--ids-radio-margin);
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        color: var(--ids-radio-check);
+        border: var(--ids-radio-border-size, .1rem) solid var(--ids-radio-border);
+        border-radius: 50%;
+        background: var(--ids-radio-background);
+        transition: background 0.05s ease-in-out;
 
-    &:hover {
-        border-color: var(--ids-radio-border-hover);
-        background-color: var(--ids-radio-background-hover, var(--ids-radio-background));
-    }
+        &:checked {
+            border-color: var(--ids-radio-border-checked);
+            background: var(--ids-radio-background-checked);
 
-    &:checked:hover,
-    &:checked:focus {
-        border-color: var(--ids-radio-border-checked-hover, var(--ids-radio-border-hover));
-        background-color: var(--ids-radio-background-checked, var(--ids-radio-background-checked));
+            &::after {
+                @extend %radio;
+            }
+        }
 
-        &::after {
-            background: var(--ids-radio-background);
+        &:disabled {
+            cursor: not-allowed;
+            border-color: var(--ids-radio-border-disabled);
+            background: var(--ids-radio-background-disabled);
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: var(--focus);
+            background-color: var(--ids-radio-background-hover, var(--ids-radio-background));
+        }
+
+        &:hover {
+            border-color: var(--ids-radio-border-hover);
+            background-color: var(--ids-radio-background-hover, var(--ids-radio-background));
+        }
+
+        &:checked:hover,
+        &:checked:focus {
+            border-color: var(--ids-radio-border-checked-hover, var(--ids-radio-border-hover));
+            background-color: var(--ids-radio-background-checked, var(--ids-radio-background-checked));
+
+            &::after {
+                background: var(--ids-radio-background);
+            }
+        }
+
+        &:focus:not(:focus-visible) {
+            box-shadow: none;
+        }
+
+        &:disabled:hover {
+            border-color: var(--ids-radio-border-disabled);
+            background: var(--ids-radio-background-disabled);
+        }
+
+        &:disabled:checked {
+            background-color: var(--ids-radio-background-disabled-checked);
+
+            &::after {
+                background: var(--ids-radio-check-background-disabled, var(--ids-radio-background));
+            }
+        }
+
+        &--small {
+            margin: var(--ids-radio-margin-small);
+        }
+
+        &--small + &__label {
+            font-size: var(--ids-radio-font-size-small);
+            line-height: var(--ids-radio-line-height-small);
         }
     }
 
-    &:focus:not(:focus-visible) {
-        box-shadow: none;
+    .ids-radio__description {
+        display: block;
+        padding-top: var(--ids-radio-description-padding);
+        color: var(--ids-radio-text-description);
+        font-size: var(--ids-radio-font-size-description);
     }
-
-    &:disabled:hover {
-        border-color: var(--ids-radio-border-disabled);
-        background: var(--ids-radio-background-disabled);
-    }
-
-    &:disabled:checked {
-        background-color: var(--ids-radio-background-disabled-checked);
-
-        &::after {
-            background: var(--ids-radio-check-background-disabled, var(--ids-radio-background));
-        }
-    }
-
-    &--small {
-        margin: var(--ids-radio-margin-small);
-    }
-
-    &--small + &__label {
-        font-size: var(--ids-radio-font-size-small);
-        line-height: var(--ids-radio-line-height-small);
-    }
-}
-
-.ids-radio__description {
-    display: block;
-    padding-top: var(--ids-radio-description-padding);
-    color: var(--ids-radio-text-description);
-    font-size: var(--ids-radio-font-size-description);
 }

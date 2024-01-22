@@ -1,58 +1,60 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-:root {
-  --ids-user-image-border-radius: #{tokens.$border-radius-sm};
-  --ids-user-image-border-radius-xs: #{tokens.$border-radius-xs};
+@layer igloo {
+    :root {
+      --ids-user-image-border-radius: #{tokens.$border-radius-sm};
+      --ids-user-image-border-radius-xs: #{tokens.$border-radius-xs};
 
-  /* Sizes */
-  --ids-user-image-size-xs: #{tokens.$font-size-4};
-  --ids-user-image-size-s: #{tokens.$font-size-7};
-  --ids-user-image-size-m: #{tokens.$font-size-9};
-  --ids-user-image-size-l: #{tokens.$font-size-10};
-  --ids-user-image-size-xl: #{tokens.$space-8};
-}
-
-.ids-user-image {
-  box-sizing: border-box;
-  display: inline-flex;
-  flex-shrink: 0;
-
-  // Remove spaces before and after
-  font-size: 0;
-
-  &__image {
-    border-radius: var(--ids-user-image-border-radius);
-    max-height: 100%;
-    width: 100%;
-
-    &--xsmall {
-      border-radius: var(--ids-user-image-border-radius-xs);
+      /* Sizes */
+      --ids-user-image-size-xs: #{tokens.$font-size-4};
+      --ids-user-image-size-s: #{tokens.$font-size-7};
+      --ids-user-image-size-m: #{tokens.$font-size-9};
+      --ids-user-image-size-l: #{tokens.$font-size-10};
+      --ids-user-image-size-xl: #{tokens.$space-8};
     }
-  }
 
-  &--xsmall {
-    height: var(--ids-user-image-size-xs);
-    width: var(--ids-user-image-size-xs);
-  }
+    .ids-user-image {
+      box-sizing: border-box;
+      display: inline-flex;
+      flex-shrink: 0;
 
-  &--small {
-    height: var(--ids-user-image-size-s);
-    width: var(--ids-user-image-size-s);
-  }
+      // Remove spaces before and after
+      font-size: 0;
 
-  &--medium {
-    height: var(--ids-user-image-size-m);
-    width: var(--ids-user-image-size-m);
-  }
+      &__image {
+        border-radius: var(--ids-user-image-border-radius);
+        max-height: 100%;
+        width: 100%;
 
-  &--large {
-    height: var(--ids-user-image-size-l);
-    width: var(--ids-user-image-size-l);
-  }
+        &--xsmall {
+          border-radius: var(--ids-user-image-border-radius-xs);
+        }
+      }
 
-  &--xlarge {
-    height: var(--ids-user-image-size-xl);
-    width: var(--ids-user-image-size-xl);
-  }
+      &--xsmall {
+        height: var(--ids-user-image-size-xs);
+        width: var(--ids-user-image-size-xs);
+      }
+
+      &--small {
+        height: var(--ids-user-image-size-s);
+        width: var(--ids-user-image-size-s);
+      }
+
+      &--medium {
+        height: var(--ids-user-image-size-m);
+        width: var(--ids-user-image-size-m);
+      }
+
+      &--large {
+        height: var(--ids-user-image-size-l);
+        width: var(--ids-user-image-size-l);
+      }
+
+      &--xlarge {
+        height: var(--ids-user-image-size-xl);
+        width: var(--ids-user-image-size-xl);
+      }
+    }
 }

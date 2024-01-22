@@ -1,87 +1,89 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-  /* Default */
-  --ids-bar-chart-font-family: #{tokens.$primary-font-family};
-  --ids-bar-chart-font-size: #{tokens.$font-size-3};
-  --ids-bar-chart-font-weight: #{tokens.$font-weight-regular};
-  --ids-bar-chart-gap: #{tokens.$space-3};
-  --ids-bar-chart-line-height: #{tokens.$line-height-xxl};
-  --ids-bar-chart-value-font-family: #{tokens.$secondary-font-family};
-  --ids-bar-chart-value-font-size: #{tokens.$font-size-5};
-  --ids-bar-chart-value-line-height: #{tokens.$line-height-xl};
-  --ids-bar-chart-value-color: #{tokens.$grey-800};
-  --ids-bar-chart-value-weight: #{tokens.$font-weight-medium};
-  --ids-bar-chart-content-gap: #{tokens.$space-2};
-  --ids-bar-chart-graph-height: calc(#{tokens.$space-4} / 2);
-  --ids-bar-chart-graph-background: #{tokens.$grey-300};
-  --ids-bar-chart-graph-radius: #{tokens.$border-radius-sm};
-  --ids-bar-chart-graph-width: #{tokens.$space-1};
-  --ids-bar-chart-label-color: #{tokens.$grey-800};
-}
-
-[data-brand="workleap"] {
-  /* Default */
-  --ids-bar-chart-font-family: var(--hop-body-sm-font-family);
-  --ids-bar-chart-font-size: var(--hop-body-sm-font-size);
-  --ids-bar-chart-font-weight: var(--hop-body-sm-font-weight);
-  --ids-bar-chart-gap: var(--hop-space-inline-md);
-  --ids-bar-chart-line-height: var(--hop-body-sm-line-height);
-  --ids-bar-chart-value-font-family: var(--hop-heading-sm-font-family);
-  --ids-bar-chart-value-font-size: var(--hop-heading-sm-font-size);
-  --ids-bar-chart-value-line-height: var(--hop-heading-lg-line-height);
-  --ids-bar-chart-value-color: var(--hop-neutral-text);
-  --ids-bar-chart-value-weight: var(--hop-heading-sm-font-weight);
-  --ids-bar-chart-content-gap: var(--hop-space-inline-sm);
-  --ids-bar-chart-graph-height: 0.75rem;
-  --ids-bar-chart-graph-background: var(--hop-neutral-surface-disabled);
-  --ids-bar-chart-graph-radius: var(--hop-shape-rounded-sm);
-  --ids-bar-chart-graph-width: 0.25rem;
-  --ids-bar-chart-label-color: var(--hop-neutral-text);
-}
-
-.ids-bar-chart {
-  color: var(--ids-bar-chart-label-color);
-  font-family: var(--ids-bar-chart-font-family);
-  font-size: var(--ids-bar-chart-font-size);
-  font-weight: var(--ids-bar-chart-font-weight);
-  line-height: var(--ids-bar-chart-line-height);
-
-  &__value {
-    font-family: var(--ids-bar-chart-value-font-family);
-    font-size: var(--ids-bar-chart-value-font-size);
-    font-weight: var(--ids-bar-chart-value-weight);
-    color: var(--ids-bar-chart-value-color);
-    line-height: var(--ids-bar-chart-value-line-height);
-  }
-
-  &__container {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--ids-bar-chart-gap);
-  }
-
-  &__content {
-    display: flex;
-    align-items: center;
-    gap: var(--ids-bar-chart-content-gap);
-  }
-
-  &__graph {
-    height: var(--ids-bar-chart-graph-height);
-    width: var(--ids-bar-chart-graph-width, 0);
-    border-radius: var(--ids-bar-chart-graph-radius);
-    background: var(--ids-bar-chart-graph-background);
-
-    &[data-value='0'] {
-      --ids-bar-chart-graph-width: #{tokens.$space-1};
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-bar-chart-font-family: #{tokens.$primary-font-family};
+        --ids-bar-chart-font-size: #{tokens.$font-size-3};
+        --ids-bar-chart-font-weight: #{tokens.$font-weight-regular};
+        --ids-bar-chart-gap: #{tokens.$space-3};
+        --ids-bar-chart-line-height: #{tokens.$line-height-xxl};
+        --ids-bar-chart-value-font-family: #{tokens.$secondary-font-family};
+        --ids-bar-chart-value-font-size: #{tokens.$font-size-5};
+        --ids-bar-chart-value-line-height: #{tokens.$line-height-xl};
+        --ids-bar-chart-value-color: #{tokens.$grey-800};
+        --ids-bar-chart-value-weight: #{tokens.$font-weight-medium};
+        --ids-bar-chart-content-gap: #{tokens.$space-2};
+        --ids-bar-chart-graph-height: calc(#{tokens.$space-4} / 2);
+        --ids-bar-chart-graph-background: #{tokens.$grey-300};
+        --ids-bar-chart-graph-radius: #{tokens.$border-radius-sm};
+        --ids-bar-chart-graph-width: #{tokens.$space-1};
+        --ids-bar-chart-label-color: #{tokens.$grey-800};
     }
-  }
+
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-bar-chart-font-family: var(--hop-body-sm-font-family);
+        --ids-bar-chart-font-size: var(--hop-body-sm-font-size);
+        --ids-bar-chart-font-weight: var(--hop-body-sm-font-weight);
+        --ids-bar-chart-gap: var(--hop-space-inline-md);
+        --ids-bar-chart-line-height: var(--hop-body-sm-line-height);
+        --ids-bar-chart-value-font-family: var(--hop-heading-sm-font-family);
+        --ids-bar-chart-value-font-size: var(--hop-heading-sm-font-size);
+        --ids-bar-chart-value-line-height: var(--hop-heading-lg-line-height);
+        --ids-bar-chart-value-color: var(--hop-neutral-text);
+        --ids-bar-chart-value-weight: var(--hop-heading-sm-font-weight);
+        --ids-bar-chart-content-gap: var(--hop-space-inline-sm);
+        --ids-bar-chart-graph-height: 0.75rem;
+        --ids-bar-chart-graph-background: var(--hop-neutral-surface-disabled);
+        --ids-bar-chart-graph-radius: var(--hop-shape-rounded-sm);
+        --ids-bar-chart-graph-width: 0.25rem;
+        --ids-bar-chart-label-color: var(--hop-neutral-text);
+    }
+
+    .ids-bar-chart {
+        color: var(--ids-bar-chart-label-color);
+        font-family: var(--ids-bar-chart-font-family);
+        font-size: var(--ids-bar-chart-font-size);
+        font-weight: var(--ids-bar-chart-font-weight);
+        line-height: var(--ids-bar-chart-line-height);
+
+        &__value {
+            font-family: var(--ids-bar-chart-value-font-family);
+            font-size: var(--ids-bar-chart-value-font-size);
+            font-weight: var(--ids-bar-chart-value-weight);
+            color: var(--ids-bar-chart-value-color);
+            line-height: var(--ids-bar-chart-value-line-height);
+        }
+
+        &__container {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--ids-bar-chart-gap);
+        }
+
+        &__content {
+            display: flex;
+            align-items: center;
+            gap: var(--ids-bar-chart-content-gap);
+        }
+
+        &__graph {
+            height: var(--ids-bar-chart-graph-height);
+            width: var(--ids-bar-chart-graph-width, 0);
+            border-radius: var(--ids-bar-chart-graph-radius);
+            background: var(--ids-bar-chart-graph-background);
+
+            &[data-value='0'] {
+                --ids-bar-chart-graph-width: #{tokens.$space-1};
+            }
+        }
+    }
 }

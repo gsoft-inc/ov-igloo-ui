@@ -1,48 +1,50 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-  /* Default */
-  --ids-helper-font-family: #{tokens.$primary-font-family};
-  --ids-helper-font-size: #{tokens.$font-size-3};
-  --ids-helper-font-weight: #{tokens.$font-weight-regular};
-  --ids-helper-line-height: #{tokens.$line-height-xxl};
-  --ids-helper-text: #{tokens.$grey-600};
-  --ids-helper-text-icon-margin: .1rem #{tokens.$space-1} 0 0;
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-helper-font-family: #{tokens.$primary-font-family};
+        --ids-helper-font-size: #{tokens.$font-size-3};
+        --ids-helper-font-weight: #{tokens.$font-weight-regular};
+        --ids-helper-line-height: #{tokens.$line-height-xxl};
+        --ids-helper-text: #{tokens.$grey-600};
+        --ids-helper-text-icon-margin: .1rem #{tokens.$space-1} 0 0;
 
-  /* Error */
-  --ids-helper-text-error: #{tokens.$coral-500};
-}
+        /* Error */
+        --ids-helper-text-error: #{tokens.$coral-500};
+    }
 
-[data-brand="workleap"] {
-    --ids-helper-font-family: var(--hop-body-xs-font-family);
-    --ids-helper-font-size: var(--hop-body-xs-font-size);
-    --ids-helper-font-weight: var(--hop-body-xs-font-weight);
-    --ids-helper-line-height: var(--hop-body-xs-line-height);
-    --ids-helper-text: var(--hop-neutral-text-weak);
-    --ids-helper-text-icon-margin: 0 var(--hop-space-inline-xs) 0 0;
+    [data-brand="workleap"] {
+        --ids-helper-font-family: var(--hop-body-xs-font-family);
+        --ids-helper-font-size: var(--hop-body-xs-font-size);
+        --ids-helper-font-weight: var(--hop-body-xs-font-weight);
+        --ids-helper-line-height: var(--hop-body-xs-line-height);
+        --ids-helper-text: var(--hop-neutral-text-weak);
+        --ids-helper-text-icon-margin: 0 var(--hop-space-inline-xs) 0 0;
 
-    /* Error */
-    --ids-helper-text-error: var(--hop-danger-text-weak);
-}
+        /* Error */
+        --ids-helper-text-error: var(--hop-danger-text-weak);
+    }
 
-.ids-helperText {
-  display: inline-flex;
-  align-items: flex-start;
-  font-family: var(--ids-helper-font-family);
-  font-size: var(--ids-helper-font-size);
-  font-weight: var(--ids-helper-font-weight);
-  line-height: var(--ids-helper-line-height);
-  color: var(--ids-helper-text);
+    .ids-helperText {
+        display: inline-flex;
+        align-items: flex-start;
+        font-family: var(--ids-helper-font-family);
+        font-size: var(--ids-helper-font-size);
+        font-weight: var(--ids-helper-font-weight);
+        line-height: var(--ids-helper-line-height);
+        color: var(--ids-helper-text);
 
-  &--error {
-    color: var(--ids-helper-text-error);
-  }
+        &--error {
+            color: var(--ids-helper-text-error);
+        }
 
-  > .ids-helperText__icon {
-    margin: var(--ids-helper-text-icon-margin);
-  }
+        > .ids-helperText__icon {
+            margin: var(--ids-helper-text-icon-margin);
+        }
+    }
 }

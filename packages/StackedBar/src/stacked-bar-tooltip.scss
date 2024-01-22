@@ -1,160 +1,162 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-  /* Default */
-  --ids-stacked-bar-tooltip-font-family: #{tokens.$primary-font-family};
-  --ids-stacked-bar-tooltip-font-size: #{tokens.$font-size-7};
-  --ids-stacked-bar-tooltip-data-item-padding: #{tokens.$space-1} 0;
-  --ids-stacked-bar-tooltip-data-item-no-color: #{tokens.$grey-400};
-  --ids-stacked-bar-tooltip-data-item-strength-minus-2: #{tokens.$coral-500};
-  --ids-stacked-bar-tooltip-data-item-strength-minus-1: #{tokens.$coral-300};
-  --ids-stacked-bar-tooltip-data-item-strength-0: #{tokens.$creamsicle-150};
-  --ids-stacked-bar-tooltip-data-item-strength-1: #{tokens.$seaweed-300};
-  --ids-stacked-bar-tooltip-data-item-strength-2: #{tokens.$seaweed-500};
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-stacked-bar-tooltip-font-family: #{tokens.$primary-font-family};
+        --ids-stacked-bar-tooltip-font-size: #{tokens.$font-size-7};
+        --ids-stacked-bar-tooltip-data-item-padding: #{tokens.$space-1} 0;
+        --ids-stacked-bar-tooltip-data-item-no-color: #{tokens.$grey-400};
+        --ids-stacked-bar-tooltip-data-item-strength-minus-2: #{tokens.$coral-500};
+        --ids-stacked-bar-tooltip-data-item-strength-minus-1: #{tokens.$coral-300};
+        --ids-stacked-bar-tooltip-data-item-strength-0: #{tokens.$creamsicle-150};
+        --ids-stacked-bar-tooltip-data-item-strength-1: #{tokens.$seaweed-300};
+        --ids-stacked-bar-tooltip-data-item-strength-2: #{tokens.$seaweed-500};
 
-  /* No Data */
-  --ids-stacked-bar-tooltip-no-data-color: #{tokens.$grey-600};
-  --ids-stacked-bar-tooltip-no-data-font-size: #{tokens.$font-size-2};
-  --ids-stacked-bar-tooltip-no-data-font-weight: #{tokens.$font-weight-regular};
-  --ids-stacked-bar-tooltip-no-data-line-height: #{tokens.$line-height-xl};
+        /* No Data */
+        --ids-stacked-bar-tooltip-no-data-color: #{tokens.$grey-600};
+        --ids-stacked-bar-tooltip-no-data-font-size: #{tokens.$font-size-2};
+        --ids-stacked-bar-tooltip-no-data-font-weight: #{tokens.$font-weight-regular};
+        --ids-stacked-bar-tooltip-no-data-line-height: #{tokens.$line-height-xl};
 
-  /* Value */
-  --ids-stacked-bar-tooltip-value-color: #{tokens.$grey-800};
-  --ids-stacked-bar-tooltip-value-font-family: #{tokens.$secondary-font-family};
-  --ids-stacked-bar-tooltip-value-font-size: #{tokens.$font-size-6};
-  --ids-stacked-bar-tooltip-value-font-weight: #{tokens.$font-weight-semi-bold};
-  --ids-stacked-bar-tooltip-value-line-height: #{tokens.$line-height-lg};
-  --ids-stacked-bar-tooltip-value-margin: #{tokens.$space-2};
+        /* Value */
+        --ids-stacked-bar-tooltip-value-color: #{tokens.$grey-800};
+        --ids-stacked-bar-tooltip-value-font-family: #{tokens.$secondary-font-family};
+        --ids-stacked-bar-tooltip-value-font-size: #{tokens.$font-size-6};
+        --ids-stacked-bar-tooltip-value-font-weight: #{tokens.$font-weight-semi-bold};
+        --ids-stacked-bar-tooltip-value-line-height: #{tokens.$line-height-lg};
+        --ids-stacked-bar-tooltip-value-margin: #{tokens.$space-2};
 
-  /* Label */
-  --ids-stacked-bar-tooltip-label-color: #{tokens.$grey-600};
-  --ids-stacked-bar-tooltip-label-font-size: #{tokens.$font-size-3};
-  --ids-stacked-bar-tooltip-label-font-weight: #{tokens.$font-weight-regular};
-  --ids-stacked-bar-tooltip-label-line-height: #{tokens.$line-height-xxl};
-}
+        /* Label */
+        --ids-stacked-bar-tooltip-label-color: #{tokens.$grey-600};
+        --ids-stacked-bar-tooltip-label-font-size: #{tokens.$font-size-3};
+        --ids-stacked-bar-tooltip-label-font-weight: #{tokens.$font-weight-regular};
+        --ids-stacked-bar-tooltip-label-line-height: #{tokens.$line-height-xxl};
+    }
 
-[data-brand="workleap"] {
-  /* Default */
-  --ids-stacked-bar-tooltip-font-family: var(--hop-heading-lg-font-family);
-  --ids-stacked-bar-tooltip-font-size: var(--hop-heading-lg-font-size);
-  --ids-stacked-bar-tooltip-data-item-padding: var(--hop-space-inset-xs) 0;
-  --ids-stacked-bar-tooltip-data-item-no-color: #CCCCCA; /* Missing semantic token */
-  --ids-stacked-bar-tooltip-data-item-strength-minus-2: #DF3236; /* Missing semantic token */
-  --ids-stacked-bar-tooltip-data-item-strength-minus-1: #FF8E8E; /* Missing semantic token */
-  --ids-stacked-bar-tooltip-data-item-strength-0: #FFF2B8; /* Missing semantic token */
-  --ids-stacked-bar-tooltip-data-item-strength-1: #AAD89D; /* Missing semantic token */
-  --ids-stacked-bar-tooltip-data-item-strength-2: #188A71; /* Missing semantic token */
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-stacked-bar-tooltip-font-family: var(--hop-heading-lg-font-family);
+        --ids-stacked-bar-tooltip-font-size: var(--hop-heading-lg-font-size);
+        --ids-stacked-bar-tooltip-data-item-padding: var(--hop-space-inset-xs) 0;
+        --ids-stacked-bar-tooltip-data-item-no-color: #CCCCCA; /* Missing semantic token */
+        --ids-stacked-bar-tooltip-data-item-strength-minus-2: #DF3236; /* Missing semantic token */
+        --ids-stacked-bar-tooltip-data-item-strength-minus-1: #FF8E8E; /* Missing semantic token */
+        --ids-stacked-bar-tooltip-data-item-strength-0: #FFF2B8; /* Missing semantic token */
+        --ids-stacked-bar-tooltip-data-item-strength-1: #AAD89D; /* Missing semantic token */
+        --ids-stacked-bar-tooltip-data-item-strength-2: #188A71; /* Missing semantic token */
 
-  /* No Data */
-  --ids-stacked-bar-tooltip-no-data-color: var(--hop-neutral-text-weak);
-  --ids-stacked-bar-tooltip-no-data-font-size: var(--hop-body-sm-font-size);
-  --ids-stacked-bar-tooltip-no-data-font-weight: var(--hop-body-sm-font-weight);
-  --ids-stacked-bar-tooltip-no-data-line-height: var(--hop-body-sm-line-height);
+        /* No Data */
+        --ids-stacked-bar-tooltip-no-data-color: var(--hop-neutral-text-weak);
+        --ids-stacked-bar-tooltip-no-data-font-size: var(--hop-body-sm-font-size);
+        --ids-stacked-bar-tooltip-no-data-font-weight: var(--hop-body-sm-font-weight);
+        --ids-stacked-bar-tooltip-no-data-line-height: var(--hop-body-sm-line-height);
 
-  /* Value */
-  --ids-stacked-bar-tooltip-value-color: var(--hop-neutral-text);
-  --ids-stacked-bar-tooltip-value-font-family: var(--hop-heading-lg-font-family);
-  --ids-stacked-bar-tooltip-value-font-size: var(--hop-heading-lg-font-size);
-  --ids-stacked-bar-tooltip-value-font-weight: var(--hop-heading-lg-font-weight);
-  --ids-stacked-bar-tooltip-value-line-height: var(--hop-heading-lg-line-height);
-  --ids-stacked-bar-tooltip-value-margin: var(--hop-space-inline-sm);
+        /* Value */
+        --ids-stacked-bar-tooltip-value-color: var(--hop-neutral-text);
+        --ids-stacked-bar-tooltip-value-font-family: var(--hop-heading-lg-font-family);
+        --ids-stacked-bar-tooltip-value-font-size: var(--hop-heading-lg-font-size);
+        --ids-stacked-bar-tooltip-value-font-weight: var(--hop-heading-lg-font-weight);
+        --ids-stacked-bar-tooltip-value-line-height: var(--hop-heading-lg-line-height);
+        --ids-stacked-bar-tooltip-value-margin: var(--hop-space-inline-sm);
 
-  /* Label */
-  --ids-stacked-bar-tooltip-label-color: var(--hop-neutral-text-weak);
-  --ids-stacked-bar-tooltip-label-font-size: var(--hop-body-sm-font-size);
-  --ids-stacked-bar-tooltip-label-font-weight: var(--hop-body-sm-font-weight);
-  --ids-stacked-bar-tooltip-label-line-height: var(--hop-body-sm-line-height);
-}
+        /* Label */
+        --ids-stacked-bar-tooltip-label-color: var(--hop-neutral-text-weak);
+        --ids-stacked-bar-tooltip-label-font-size: var(--hop-body-sm-font-size);
+        --ids-stacked-bar-tooltip-label-font-weight: var(--hop-body-sm-font-weight);
+        --ids-stacked-bar-tooltip-label-line-height: var(--hop-body-sm-line-height);
+    }
 
-@keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
+    @keyframes fade-in {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
 
-.ids-tooltip__container.ids-stacked-bar-tooltip__container {
-  display: block;
-  height: 100%;
-}
+    .ids-tooltip__container.ids-stacked-bar-tooltip__container {
+        display: block;
+        height: 100%;
+    }
 
-.ids-popover.ids-stacked-bar-tooltip {
-  min-width: 0;
-  width: auto;
-}
+    .ids-popover.ids-stacked-bar-tooltip {
+        min-width: 0;
+        width: auto;
+    }
 
-.ids-stacked-bar-tooltip .ids-tooltip__arrow {
-  display: none;
-}
+    .ids-stacked-bar-tooltip .ids-tooltip__arrow {
+        display: none;
+    }
 
-.ids-stacked-bar-tooltip__no-data {
-  color: var(--ids-stacked-bar-tooltip-no-data-color);
-  font-family: var(--ids-stacked-bar-tooltip-font-family);
-  font-size: var(--ids-stacked-bar-tooltip-no-data-font-size);
-  font-weight: var(--ids-stacked-bar-tooltip-no-data-font-weight);
-  line-height: var(--ids-stacked-bar-tooltip-no-data-line-height);
-}
+    .ids-stacked-bar-tooltip__no-data {
+        color: var(--ids-stacked-bar-tooltip-no-data-color);
+        font-family: var(--ids-stacked-bar-tooltip-font-family);
+        font-size: var(--ids-stacked-bar-tooltip-no-data-font-size);
+        font-weight: var(--ids-stacked-bar-tooltip-no-data-font-weight);
+        line-height: var(--ids-stacked-bar-tooltip-no-data-line-height);
+    }
 
-.ids-stacked-bar-tooltip__data {
-  font-family: var(--ids-stacked-bar-tooltip-font-family);
-  font-size: var(--ids-stacked-bar-tooltip-font-size);
-  margin: 0;
-  padding-left: var(--ids-stacked-bar-tooltip-font-size);
-  text-align: left;
-}
+    .ids-stacked-bar-tooltip__data {
+        font-family: var(--ids-stacked-bar-tooltip-font-family);
+        font-size: var(--ids-stacked-bar-tooltip-font-size);
+        margin: 0;
+        padding-left: var(--ids-stacked-bar-tooltip-font-size);
+        text-align: left;
+    }
 
-.ids-stacked-bar-tooltip__data-item {
-  padding: var(--ids-stacked-bar-tooltip-data-item-padding);
-  
-  &--no-color {
-    color: var(--ids-stacked-bar-tooltip-data-item-no-color);
-  }
+    .ids-stacked-bar-tooltip__data-item {
+        padding: var(--ids-stacked-bar-tooltip-data-item-padding);
 
-  &--strength--2 {
-    color: var(--ids-stacked-bar-tooltip-data-item-strength-minus-2);
-  }
+        &--no-color {
+            color: var(--ids-stacked-bar-tooltip-data-item-no-color);
+        }
 
-  &--strength--1 {
-    color: var(--ids-stacked-bar-tooltip-data-item-strength-minus-1);
-  }
+        &--strength--2 {
+            color: var(--ids-stacked-bar-tooltip-data-item-strength-minus-2);
+        }
 
-  &--strength-0 {
-    color: var(--ids-stacked-bar-tooltip-data-item-strength-0);
-  }
+        &--strength--1 {
+            color: var(--ids-stacked-bar-tooltip-data-item-strength-minus-1);
+        }
 
-  &--strength-1 {
-    color: var(--ids-stacked-bar-tooltip-data-item-strength-1);
-  }
+        &--strength-0 {
+            color: var(--ids-stacked-bar-tooltip-data-item-strength-0);
+        }
 
-  &--strength-2 {
-    color: var(--ids-stacked-bar-tooltip-data-item-strength-2);
-  }
+        &--strength-1 {
+            color: var(--ids-stacked-bar-tooltip-data-item-strength-1);
+        }
 
-}
+        &--strength-2 {
+            color: var(--ids-stacked-bar-tooltip-data-item-strength-2);
+        }
 
-.ids-stacked-bar-tooltip__data-item-content {
-  align-items: center;
-  display: flex;
-}
+    }
 
-.ids-stacked-bar-tooltip__value {
-  color: var(--ids-stacked-bar-tooltip-value-color);
-  display: inline-block;
-  flex: 0 0 auto;
-  font-family: var(--ids-stacked-bar-tooltip-value-font-family);
-  font-size: var(--ids-stacked-bar-tooltip-value-font-size);
-  font-weight: var(--ids-stacked-bar-tooltip-value-font-weight);
-  line-height: var(--ids-stacked-bar-tooltip-value-line-height);
-  margin-right: var(--ids-stacked-bar-tooltip-value-margin);
-}
+    .ids-stacked-bar-tooltip__data-item-content {
+        align-items: center;
+        display: flex;
+    }
 
-.ids-stacked-bar-tooltip__label {
-  color: var(--ids-stacked-bar-tooltip-label-color);
-  flex: 0 1 auto;
-  font-size: var(--ids-stacked-bar-tooltip-label-font-size);
-  font-weight: var(--ids-stacked-bar-tooltip-label-font-weight);
-  line-height: var(--ids-stacked-bar-tooltip-label-line-height);
-  min-width: 0;
+    .ids-stacked-bar-tooltip__value {
+        color: var(--ids-stacked-bar-tooltip-value-color);
+        display: inline-block;
+        flex: 0 0 auto;
+        font-family: var(--ids-stacked-bar-tooltip-value-font-family);
+        font-size: var(--ids-stacked-bar-tooltip-value-font-size);
+        font-weight: var(--ids-stacked-bar-tooltip-value-font-weight);
+        line-height: var(--ids-stacked-bar-tooltip-value-line-height);
+        margin-right: var(--ids-stacked-bar-tooltip-value-margin);
+    }
+
+    .ids-stacked-bar-tooltip__label {
+        color: var(--ids-stacked-bar-tooltip-label-color);
+        flex: 0 1 auto;
+        font-size: var(--ids-stacked-bar-tooltip-label-font-size);
+        font-weight: var(--ids-stacked-bar-tooltip-label-font-weight);
+        line-height: var(--ids-stacked-bar-tooltip-label-line-height);
+        min-width: 0;
+    }
 }

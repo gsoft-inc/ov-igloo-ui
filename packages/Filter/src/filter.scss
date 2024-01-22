@@ -1,154 +1,156 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url("~@hopper-ui/tokens/fonts.css");
-@import url("~@hopper-ui/tokens/tokens.css");
+@import url("~@hopper-ui/tokens/fonts.css") layer(hopper-design-system);
+@import url("~@hopper-ui/tokens/tokens.css") layer(hopper-design-system);
 
-:root {
-  /* Default */
-  --ids-filter-background: #{tokens.$grey-200};
-  --ids-filter-border-color: transparent;
-  --ids-filter-border-radius: calc(#{tokens.$border-radius-md} * 4);
-  --ids-filter-color: #{tokens.$grey-600};
-  --ids-filter-font-family: #{tokens.$primary-font-family};
-  --ids-filter-font-size: #{tokens.$font-size-3};
-  --ids-filter-line-height: #{tokens.$line-height-xxl};
-  --ids-filter-padding: #{tokens.$space-2} #{tokens.$space-3};
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-filter-background: #{tokens.$grey-200};
+        --ids-filter-border-color: transparent;
+        --ids-filter-border-radius: calc(#{tokens.$border-radius-md} * 4);
+        --ids-filter-color: #{tokens.$grey-600};
+        --ids-filter-font-family: #{tokens.$primary-font-family};
+        --ids-filter-font-size: #{tokens.$font-size-3};
+        --ids-filter-line-height: #{tokens.$line-height-xxl};
+        --ids-filter-padding: #{tokens.$space-2} #{tokens.$space-3};
 
-  /* Hover */
-  --ids-filter-background-hover: #{tokens.$grey-300};
-  --ids-filter-border-color-hover: transparent;
-  --ids-filter-color-hover:  #{tokens.$grey-600};
+        /* Hover */
+        --ids-filter-background-hover: #{tokens.$grey-300};
+        --ids-filter-border-color-hover: transparent;
+        --ids-filter-color-hover:  #{tokens.$grey-600};
 
-  /* Selected */
-  --ids-filter-background-selected: #{tokens.$grey-500};
-  --ids-filter-border-color-selected: transparent;
-  --ids-filter-color-selected: #{tokens.$samoyed};
+        /* Selected */
+        --ids-filter-background-selected: #{tokens.$grey-500};
+        --ids-filter-border-color-selected: transparent;
+        --ids-filter-color-selected: #{tokens.$samoyed};
 
-  /* Selected Hover */
-  --ids-filter-background-selected-hover: #{tokens.$grey-800};
+        /* Selected Hover */
+        --ids-filter-background-selected-hover: #{tokens.$grey-800};
 
-  /* Disabled */
-  --ids-filter-background-disabled: #{tokens.$grey-200};
-  --ids-filter-border-color-disabled: transparent;
-  --ids-filter-color-disabled: #{tokens.$grey-400};
+        /* Disabled */
+        --ids-filter-background-disabled: #{tokens.$grey-200};
+        --ids-filter-border-color-disabled: transparent;
+        --ids-filter-color-disabled: #{tokens.$grey-400};
 
-  /* Focus */
+        /* Focus */
 
-  /* Needed to add a 0.1px blur to fix a bug where
-  chrome would have a lingering blue line when focusing in and out */
-  --ids-filter-focus: 0 0 0 .2rem #ffffff, 0 0 .01rem .35rem #0c46d0;
-}
+        /* Needed to add a 0.1px blur to fix a bug where
+    chrome would have a lingering blue line when focusing in and out */
+        --ids-filter-focus: 0 0 0 .2rem #ffffff, 0 0 .01rem .35rem #0c46d0;
+    }
 
-[data-brand="workleap"] {
-  /* Default */
-  --ids-filter-background: var(--hop-neutral-surface-weak);
-  --ids-filter-border-color: var(--hop-neutral-border);
-  --ids-filter-border-radius: var(--hop-shape-pill);
-  --ids-filter-color: var(--hop-neutral-text);
-  --ids-filter-font-family: var(--hop-body-sm-font-family);
-  --ids-filter-font-size: var(--hop-body-sm-font-size);
-  --ids-filter-line-height: var(--hop-body-sm-line-height);
-  --ids-filter-padding: 0.375rem var(--hop-space-inset-md);
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-filter-background: var(--hop-neutral-surface-weak);
+        --ids-filter-border-color: var(--hop-neutral-border);
+        --ids-filter-border-radius: var(--hop-shape-pill);
+        --ids-filter-color: var(--hop-neutral-text);
+        --ids-filter-font-family: var(--hop-body-sm-font-family);
+        --ids-filter-font-size: var(--hop-body-sm-font-size);
+        --ids-filter-line-height: var(--hop-body-sm-line-height);
+        --ids-filter-padding: 0.375rem var(--hop-space-inset-md);
 
-  /* Hover */
-  --ids-filter-background-hover: var(--hop-neutral-surface-weak-hover);
-  --ids-filter-border-color-hover: var(--hop-neutral-border-hover);
-  --ids-filter-color-hover: var(--hop-neutral-text-hover);
+        /* Hover */
+        --ids-filter-background-hover: var(--hop-neutral-surface-weak-hover);
+        --ids-filter-border-color-hover: var(--hop-neutral-border-hover);
+        --ids-filter-color-hover: var(--hop-neutral-text-hover);
 
-  /* Selected */
-  --ids-filter-background-selected: var(--hop-neutral-surface-active);
-  --ids-filter-border-color-selected: var(--hop-neutral-border-active);
-  --ids-filter-color-selected: var(--hop-neutral-text-active);
+        /* Selected */
+        --ids-filter-background-selected: var(--hop-neutral-surface-active);
+        --ids-filter-border-color-selected: var(--hop-neutral-border-active);
+        --ids-filter-color-selected: var(--hop-neutral-text-active);
 
-  /* Selected Hover */
-  --ids-filter-background-selected-hover: var(--hop-neutral-surface-active);
+        /* Selected Hover */
+        --ids-filter-background-selected-hover: var(--hop-neutral-surface-active);
 
-  /* Disabled */
-  --ids-filter-background-disabled: var(--hop-neutral-surface-disabled);
-  --ids-filter-border-color-disabled: var(--hop-neutral-border-disabled);
-  --ids-filter-color-disabled: var(--hop-neutral-text-disabled);
+        /* Disabled */
+        --ids-filter-background-disabled: var(--hop-neutral-surface-disabled);
+        --ids-filter-border-color-disabled: var(--hop-neutral-border-disabled);
+        --ids-filter-color-disabled: var(--hop-neutral-text-disabled);
 
-  /* Focus */
+        /* Focus */
 
-  /* Needed to add a 0.1px blur to fix a bug where
-  chrome would have a lingering blue line when focusing in and out */
-  --ids-filter-focus: 0 0 0 .2rem #ffffff, 0 0 .01rem .35rem #0c46d0;
-}
+        /* Needed to add a 0.1px blur to fix a bug where
+    chrome would have a lingering blue line when focusing in and out */
+        --ids-filter-focus: 0 0 0 .2rem #ffffff, 0 0 .01rem .35rem #0c46d0;
+    }
 
-%default-style {
-  background: var(--ids-filter-background);
-  border: 0.0625rem solid var(--ids-filter-border-color);
-  color: var(--ids-filter-color);
-}
+    %default-style {
+        background: var(--ids-filter-background);
+        border: 0.0625rem solid var(--ids-filter-border-color);
+        color: var(--ids-filter-color);
+    }
 
-%hover-style {
-  background: var(--ids-filter-background-hover);
-  border-color: var(--ids-filter-border-color-hover);
-  color: var(--ids-filter-color-hover);
-}
+    %hover-style {
+        background: var(--ids-filter-background-hover);
+        border-color: var(--ids-filter-border-color-hover);
+        color: var(--ids-filter-color-hover);
+    }
 
-%selected-style {
-  background: var(--ids-filter-background-selected);
-  border-color: var(--ids-filter-border-color-selected);
-  color: var(--ids-filter-color-selected);
-}
+    %selected-style {
+        background: var(--ids-filter-background-selected);
+        border-color: var(--ids-filter-border-color-selected);
+        color: var(--ids-filter-color-selected);
+    }
 
-.ids-filter {
-  @extend %default-style;
+    .ids-filter {
+        @extend %default-style;
 
-  align-items: center;
-  border-radius: var(--ids-filter-border-radius);
-  box-sizing: border-box;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: var(--ids-filter-font-family);
-  font-size: var(--ids-filter-font-size);
-  line-height: var(--ids-filter-line-height);
-  outline: none;
-  padding: var(--ids-filter-padding);
-  position: relative;
-  transition: background 0.4s, color 0.4s;
+        align-items: center;
+        border-radius: var(--ids-filter-border-radius);
+        box-sizing: border-box;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: var(--ids-filter-font-family);
+        font-size: var(--ids-filter-font-size);
+        line-height: var(--ids-filter-line-height);
+        outline: none;
+        padding: var(--ids-filter-padding);
+        position: relative;
+        transition: background 0.4s, color 0.4s;
 
-  & * {
-    box-sizing: border-box;
-  }
-}
+        & * {
+            box-sizing: border-box;
+        }
+    }
 
-.ids-filter--selected {
-  @extend %selected-style;
-}
+    .ids-filter--selected {
+        @extend %selected-style;
+    }
 
-.ids-filter:hover {
-  @extend %hover-style;
-}
+    .ids-filter:hover {
+        @extend %hover-style;
+    }
 
-.ids-filter--selected:hover {
-  background: var(--ids-filter-background-selected-hover);
-  color: var(--ids-filter-color-selected);
-}
+    .ids-filter--selected:hover {
+        background: var(--ids-filter-background-selected-hover);
+        color: var(--ids-filter-color-selected);
+    }
 
-.ids-filter:focus,
-.ids-filter.focus {
-  box-shadow: var(--ids-filter-focus);
+    .ids-filter:focus,
+    .ids-filter.focus {
+        box-shadow: var(--ids-filter-focus);
 
-  @extend %hover-style;
-}
+        @extend %hover-style;
+    }
 
-.ids-filter:disabled {
-  background: var(--ids-filter-background-disabled);
-  border-color: var(--ids-filter-border-color);
-  box-shadow: none;
-  color: var(--ids-filter-color-disabled);
-  cursor: not-allowed;
-}
+    .ids-filter:disabled {
+        background: var(--ids-filter-background-disabled);
+        border-color: var(--ids-filter-border-color);
+        box-shadow: none;
+        color: var(--ids-filter-color-disabled);
+        cursor: not-allowed;
+    }
 
-.ids-filter:focus:not(:focus-visible) {
-  @extend %default-style;
+    .ids-filter:focus:not(:focus-visible) {
+        @extend %default-style;
 
-  box-shadow: none;
-}
+        box-shadow: none;
+    }
 
-.ids-filter--selected:focus:not(:focus-visible) {
-  @extend %selected-style;
+    .ids-filter--selected:focus:not(:focus-visible) {
+        @extend %selected-style;
+    }
 }

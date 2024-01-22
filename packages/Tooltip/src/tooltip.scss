@@ -1,91 +1,93 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-  /* Default */
-  --ids-tooltip-font-family: #{tokens.$primary-font-family};
-  --ids-tooltip-font-size: #{tokens.$font-size-2};
-  --ids-tooltip-padding: #{tokens.$space-2} #{tokens.$space-3};
-  --ids-tooltip-border-radius: #{tokens.$border-radius-sm};
-  --ids-tooltip-z-index: #{tokens.$z-index-max};
-  --ids-tooltip-arrow-size: .5rem;
-  --ids-tooltip-arrow-display: block;
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-tooltip-font-family: #{tokens.$primary-font-family};
+        --ids-tooltip-font-size: #{tokens.$font-size-2};
+        --ids-tooltip-padding: #{tokens.$space-2} #{tokens.$space-3};
+        --ids-tooltip-border-radius: #{tokens.$border-radius-sm};
+        --ids-tooltip-z-index: #{tokens.$z-index-max};
+        --ids-tooltip-arrow-size: .5rem;
+        --ids-tooltip-arrow-display: block;
 
-  /* Theme */
-  --ids-tooltip-text: #{tokens.$samoyed};
-  --ids-tooltip-background: #{tokens.$electric-blue-900};
-  --ids-tooltip-shadow: none;
+        /* Theme */
+        --ids-tooltip-text: #{tokens.$samoyed};
+        --ids-tooltip-background: #{tokens.$electric-blue-900};
+        --ids-tooltip-shadow: none;
 
-  /* Light */
-  --ids-tooltip-light-text: #{tokens.$grey-800};
-  --ids-tooltip-light-background: #{tokens.$samoyed};
-  --ids-tooltip-light-shadow: #{tokens.$shadow-12};
-}
-
-[data-brand="workleap"] {
-  /* Default */
-  --ids-tooltip-font-family: var(--hop-body-xs-font-family);
-  --ids-tooltip-font-size: var(--hop-body-xs-font-size);
-  --ids-tooltip-padding: var(--hop-space-inset-squish-md);
-  --ids-tooltip-border-radius: var(--hop-shape-rounded-md);
-  --ids-tooltip-z-index: 999;
-  --ids-tooltip-arrow-size: 0;
-  --ids-tooltip-arrow-display: none;
-
-  /* Theme */
-  --ids-tooltip-text: var(--hop-neutral-text-strong);
-  --ids-tooltip-background: var(--hop-neutral-surface-active);
-  --ids-tooltip-shadow: var(--hop-elevation-raised);
-
-  /* Light */
-  --ids-tooltip-light-text: var(--hop-neutral-text);
-  --ids-tooltip-light-background: var(--hop-neutral-surface);
-  --ids-tooltip-light-shadow: var(--hop-elevation-lifted);
-}
-
-.ids-tooltip {
-  font-family: var(--ids-tooltip-font-family);
-  font-size: var(--ids-tooltip-font-size);
-  position: fixed;
-  padding: var(--ids-tooltip-padding);
-  border-radius: var(--ids-tooltip-border-radius);
-  z-index: var(--ids-tooltip-z-index);
-  color: var(--ids-tooltip-text);
-  background-color: var(--ids-tooltip-background);
-  box-shadow: var(--ids-tooltip-shadow);
-  pointer-events: none;
-  user-select: none;
-  width: max-content;
-
-  &__arrow {
-    background: var(--ids-tooltip-background);
-    position: absolute;
-    display: var(--ids-tooltip-arrow-display);
-    width: var(--ids-tooltip-arrow-size);
-    height: var(--ids-tooltip-arrow-size);
-    transform: rotate(45deg);
-  }
-
-  &[data-text^='center'] {
-    text-align: center;
-  }
-
-  &__container {
-    display: inline-flex;
-    line-height: 1;
-    position: relative;
-  }
-
-  &--light {
-    background: var(--ids-tooltip-light-background);
-    box-shadow: var(--ids-tooltip-light-shadow);
-    color: var(--ids-tooltip-light-text);
-
-    & .ids-tooltip__arrow {
-      background: var(--ids-tooltip-light-background);
+        /* Light */
+        --ids-tooltip-light-text: #{tokens.$grey-800};
+        --ids-tooltip-light-background: #{tokens.$samoyed};
+        --ids-tooltip-light-shadow: #{tokens.$shadow-12};
     }
-  }
+
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-tooltip-font-family: var(--hop-body-xs-font-family);
+        --ids-tooltip-font-size: var(--hop-body-xs-font-size);
+        --ids-tooltip-padding: var(--hop-space-inset-squish-md);
+        --ids-tooltip-border-radius: var(--hop-shape-rounded-md);
+        --ids-tooltip-z-index: 999;
+        --ids-tooltip-arrow-size: 0;
+        --ids-tooltip-arrow-display: none;
+
+        /* Theme */
+        --ids-tooltip-text: var(--hop-neutral-text-strong);
+        --ids-tooltip-background: var(--hop-neutral-surface-active);
+        --ids-tooltip-shadow: var(--hop-elevation-raised);
+
+        /* Light */
+        --ids-tooltip-light-text: var(--hop-neutral-text);
+        --ids-tooltip-light-background: var(--hop-neutral-surface);
+        --ids-tooltip-light-shadow: var(--hop-elevation-lifted);
+    }
+
+    .ids-tooltip {
+        font-family: var(--ids-tooltip-font-family);
+        font-size: var(--ids-tooltip-font-size);
+        position: fixed;
+        padding: var(--ids-tooltip-padding);
+        border-radius: var(--ids-tooltip-border-radius);
+        z-index: var(--ids-tooltip-z-index);
+        color: var(--ids-tooltip-text);
+        background-color: var(--ids-tooltip-background);
+        box-shadow: var(--ids-tooltip-shadow);
+        pointer-events: none;
+        user-select: none;
+        width: max-content;
+
+        &__arrow {
+            background: var(--ids-tooltip-background);
+            position: absolute;
+            display: var(--ids-tooltip-arrow-display);
+            width: var(--ids-tooltip-arrow-size);
+            height: var(--ids-tooltip-arrow-size);
+            transform: rotate(45deg);
+        }
+
+        &[data-text^='center'] {
+            text-align: center;
+        }
+
+        &__container {
+            display: inline-flex;
+            line-height: 1;
+            position: relative;
+        }
+
+        &--light {
+            background: var(--ids-tooltip-light-background);
+            box-shadow: var(--ids-tooltip-light-shadow);
+            color: var(--ids-tooltip-light-text);
+
+            & .ids-tooltip__arrow {
+                background: var(--ids-tooltip-light-background);
+            }
+        }
+    }
 }

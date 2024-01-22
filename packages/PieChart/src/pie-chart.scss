@@ -1,88 +1,89 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-  /* Default */
-  --ids-pie-chart-font-family: #{tokens.$primary-font-family};
-  --ids-pie-chart-font-size: #{tokens.$font-size-2};
-  --ids-pie-chart-font-weight: #{tokens.$font-weight-regular};
-  --ids-pie-chart-line-height: #{tokens.$line-height-xl};
-  --ids-pie-chart-empty: #{tokens.$grey-300};
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-pie-chart-font-family: #{tokens.$primary-font-family};
+        --ids-pie-chart-font-size: #{tokens.$font-size-2};
+        --ids-pie-chart-font-weight: #{tokens.$font-weight-regular};
+        --ids-pie-chart-line-height: #{tokens.$line-height-xl};
+        --ids-pie-chart-empty: #{tokens.$grey-300};
 
-  /* Rate */
-  --ids-pie-chart-rate-font-family: #{tokens.$secondary-font-family};
-  --ids-pie-chart-rate-font-size: #{tokens.$font-size-10};
-  --ids-pie-chart-rate-font-weight: #{tokens.$font-weight-medium};
-  --ids-pie-chart-rate-line-height: #{tokens.$line-height-xs};
-  --ids-pie-chart-rate-color: #{tokens.$grey-800};
-  
-  /* Symbol */
-  --ids-pie-chart-symbol-font-size: #{tokens.$font-size-5};
-  --ids-pie-chart-symbol-color: #{tokens.$grey-500};
+        /* Rate */
+        --ids-pie-chart-rate-font-family: #{tokens.$secondary-font-family};
+        --ids-pie-chart-rate-font-size: #{tokens.$font-size-10};
+        --ids-pie-chart-rate-font-weight: #{tokens.$font-weight-medium};
+        --ids-pie-chart-rate-line-height: #{tokens.$line-height-xs};
+        --ids-pie-chart-rate-color: #{tokens.$grey-800};
 
-  /* Label */
-  --ids-pie-chart-label-color: #{tokens.$grey-600};
-  --ids-pie-chart-label-padding: #{tokens.$space-4};
+        /* Symbol */
+        --ids-pie-chart-symbol-font-size: #{tokens.$font-size-5};
+        --ids-pie-chart-symbol-color: #{tokens.$grey-500};
+
+        /* Label */
+        --ids-pie-chart-label-color: #{tokens.$grey-600};
+        --ids-pie-chart-label-padding: #{tokens.$space-4};
+    }
+
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-pie-chart-font-family: var(--hop-body-xs-font-family);
+        --ids-pie-chart-font-size: var(--hop-body-xs-font-size);
+        --ids-pie-chart-font-weight: var(--hop-body-xs-font-weight);
+        --ids-pie-chart-line-height: var(--hop-body-xs-line-height);
+        --ids-pie-chart-empty: var(--hop-neutral-surface-disabled);
+
+        /* Rate */
+        --ids-pie-chart-rate-font-family: var(--hop-accent-lg-font-family);
+        --ids-pie-chart-rate-font-size: var(--hop-accent-lg-font-size);
+        --ids-pie-chart-rate-font-weight: var(--hop-accent-lg-font-weight);
+        --ids-pie-chart-rate-line-height: var(--hop-accent-lg-line-height);
+        --ids-pie-chart-rate-color: var(--hop-neutral-text);
+
+        /* Symbol */
+        --ids-pie-chart-symbol-font-size: var(--hop-body-lg-font-size);
+        --ids-pie-chart-symbol-color: var(--hop-neutral-text-weak);
+
+        /* Label */
+        --ids-pie-chart-label-color: var(--hop-neutral-text-weak);
+        --ids-pie-chart-label-padding: var(--hop-space-inset-lg);
+    }
+
+    .ids-pie-chart {
+        font-family: var(--ids-pie-chart-font-family);
+        font-size: var(--ids-pie-chart-font-size);
+        font-weight: var(--ids-pie-chart-font-weight);
+        line-height: var(--ids-pie-chart-line-height);
+
+        &,
+        & * {
+            box-sizing: border-box;
+        }
+    }
+
+    .ids-pie-chart__rate {
+        fill: var(--ids-pie-chart-rate-color);
+        font-family: var(--ids-pie-chart-rate-font-family);
+        font-size: var(--ids-pie-chart-rate-font-size);
+        font-weight: var(--ids-pie-chart-rate-font-weight);
+        line-height: var(--ids-pie-chart-rate-line-height);
+    }
+
+    .ids-pie-chart__symbol {
+        fill: var(--ids-pie-chart-symbol-color);
+        font-size: var(--ids-pie-chart-symbol-font-size);
+    }
+
+    .ids-pie-chart__label {
+        fill: var(--ids-pie-chart-label-color);
+        overflow: hidden;
+        padding: 0 var(--ids-pie-chart-label-padding);
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }
-
-[data-brand="workleap"] {
-  /* Default */
-  --ids-pie-chart-font-family: var(--hop-body-xs-font-family);
-  --ids-pie-chart-font-size: var(--hop-body-xs-font-size);
-  --ids-pie-chart-font-weight: var(--hop-body-xs-font-weight);
-  --ids-pie-chart-line-height: var(--hop-body-xs-line-height);
-  --ids-pie-chart-empty: var(--hop-neutral-surface-disabled);
-
-  /* Rate */
-  --ids-pie-chart-rate-font-family: var(--hop-accent-lg-font-family);
-  --ids-pie-chart-rate-font-size: var(--hop-accent-lg-font-size);
-  --ids-pie-chart-rate-font-weight: var(--hop-accent-lg-font-weight);
-  --ids-pie-chart-rate-line-height: var(--hop-accent-lg-line-height);
-  --ids-pie-chart-rate-color: var(--hop-neutral-text);
-  
-  /* Symbol */
-  --ids-pie-chart-symbol-font-size: var(--hop-body-lg-font-size);
-  --ids-pie-chart-symbol-color: var(--hop-neutral-text-weak);
-
-  /* Label */
-  --ids-pie-chart-label-color: var(--hop-neutral-text-weak);
-  --ids-pie-chart-label-padding: var(--hop-space-inset-lg);
-}
-
-.ids-pie-chart {
-  font-family: var(--ids-pie-chart-font-family);
-  font-size: var(--ids-pie-chart-font-size);
-  font-weight: var(--ids-pie-chart-font-weight);
-  line-height: var(--ids-pie-chart-line-height);
-
-  &,
-  & * {
-    box-sizing: border-box;
-  }
-}
-
-.ids-pie-chart__rate {
-  fill: var(--ids-pie-chart-rate-color);
-  font-family: var(--ids-pie-chart-rate-font-family);
-  font-size: var(--ids-pie-chart-rate-font-size);
-  font-weight: var(--ids-pie-chart-rate-font-weight);
-  line-height: var(--ids-pie-chart-rate-line-height);
-}
-
-.ids-pie-chart__symbol {
-  fill: var(--ids-pie-chart-symbol-color);
-  font-size: var(--ids-pie-chart-symbol-font-size);
-}
-
-.ids-pie-chart__label {
-  fill: var(--ids-pie-chart-label-color);
-  overflow: hidden;
-  padding: 0 var(--ids-pie-chart-label-padding);
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-  
