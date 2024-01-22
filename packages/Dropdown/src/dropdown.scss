@@ -106,7 +106,7 @@
         overflow-x: hidden;
         overflow-y: auto;
 
-        // @include mixins.fancy-webkit-scrollbar;
+        @include mixins.fancy-webkit-scrollbar;
     }
 
     .ids-dropdown__footer {
