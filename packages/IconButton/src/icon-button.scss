@@ -79,6 +79,7 @@
         > span {
           /* stylelint-disable-next-line unit-allowed-list */
           margin: -1px; // Since there is a 1px border for ids-btn
+          display: flex;
         }
       }
 
