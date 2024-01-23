@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.8.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
 ## 1.7.1
 
 ### Patch Changes

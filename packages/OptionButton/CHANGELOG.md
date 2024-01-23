@@ -1,5 +1,11 @@
 # @igloo-ui/option-button
 
+## 0.2.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
 ## 0.1.4
 
 ### Patch Changes

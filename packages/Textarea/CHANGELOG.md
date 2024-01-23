@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.4.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
 ## 0.3.5
 
 ### Patch Changes

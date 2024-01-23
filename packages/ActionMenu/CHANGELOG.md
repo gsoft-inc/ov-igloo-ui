@@ -1,5 +1,17 @@
 # @igloo-ui/action-menu
 
+## 1.5.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
+### Patch Changes
+
+- Updated dependencies [4846c59]
+  - @igloo-ui/dropdown@1.8.0
+  - @igloo-ui/list@0.6.0
+
 ## 1.4.1
 
 ### Patch Changes
