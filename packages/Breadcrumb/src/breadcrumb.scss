@@ -1,107 +1,109 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-  /* Default */
-  --ids-breadcrumb-font-family: #{tokens.$primary-font-family};
-  --ids-breadcrumb-font-size: #{tokens.$font-size-3};
-  --ids-breadcrumb-line-height: #{tokens.$line-height-xxl};
-  --ids-breadcrumb-text-transform: none;
-  --ids-breadcrumb-letter-spacing: normal;
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-breadcrumb-font-family: #{tokens.$primary-font-family};
+        --ids-breadcrumb-font-size: #{tokens.$font-size-3};
+        --ids-breadcrumb-line-height: #{tokens.$line-height-xxl};
+        --ids-breadcrumb-text-transform: none;
+        --ids-breadcrumb-letter-spacing: normal;
 
-  /* Item */
-  --ids-breadcrumb-item-color: #{tokens.$grey-900};
+        /* Item */
+        --ids-breadcrumb-item-color: #{tokens.$grey-900};
 
-  /* Link */
-  --ids-breadcrumb-link-color: #{tokens.$grey-600};
-  --ids-breadcrumb-link-color-hover: #{tokens.$grey-600};
-  --ids-breadcrumb-link-border: .1rem solid transparent;
-  --ids-breadcrumb-link-border-color-hover: #{tokens.$grey-600};
-  --ids-breadcrumb-link-text-decoration-hover: none;
-  --ids-breadcrumb-link-focus: #{tokens.$focus};
-  --ids-breadcrumb-link-border-radius-focus: #{tokens.$border-radius-xs};
+        /* Link */
+        --ids-breadcrumb-link-color: #{tokens.$grey-600};
+        --ids-breadcrumb-link-color-hover: #{tokens.$grey-600};
+        --ids-breadcrumb-link-border: .1rem solid transparent;
+        --ids-breadcrumb-link-border-color-hover: #{tokens.$grey-600};
+        --ids-breadcrumb-link-text-decoration-hover: none;
+        --ids-breadcrumb-link-focus: #{tokens.$focus};
+        --ids-breadcrumb-link-border-radius-focus: #{tokens.$border-radius-xs};
 
-  /* Chevron */
-  --ids-breadcrumb-chevron-color: #{tokens.$grey-800};
-  --ids-breadcrumb-chevron-spacing: 0 #{tokens.$space-2};
-}
-
-[data-brand="workleap"] {
-  /* Default */
-  --ids-breadcrumb-font-family: var(--hop-overline-font-family);
-  --ids-breadcrumb-font-size: var(--hop-overline-font-size);
-  --ids-breadcrumb-line-height: var(--hop-overline-line-height);
-  --ids-breadcrumb-text-transform: uppercase;
-  --ids-breadcrumb-letter-spacing: 0.015rem;
-
-  /* Item */
-  --ids-breadcrumb-item-color: var(--hop-neutral-text);
-
-  /* Link */
-  --ids-breadcrumb-link-color: var(--hop-neutral-text-weak);
-  --ids-breadcrumb-link-color-hover:  var(--hop-neutral-text); /* Will be var(--hop-neutral-text-weak-hover) */
-  --ids-breadcrumb-link-border: none;
-  --ids-breadcrumb-link-text-decoration-hover: underline;
-  --ids-breadcrumb-link-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
-  --ids-breadcrumb-link-border-radius-focus: var(--hop-shape-rounded-md);
-
-  /* Chevron */
-  --ids-breadcrumb-chevron-color:var(--hop-neutral-icon-weak);
-  --ids-breadcrumb-chevron-spacing: 0 var(--hop-space-inline-sm);
-}
-
-.ids-breadcrumb {
-  font-family: var(--ids-breadcrumb-font-family);
-  font-size: var(--ids-breadcrumb-font-size);
-  line-height: var(--ids-breadcrumb-line-height);
-}
-
-.ids-breadcrumb__list {
-  align-items: center;
-  display: flex;
-  letter-spacing: var(--ids-breadcrumb-letter-spacing);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-transform: var(--ids-breadcrumb-text-transform);
-}
-
-.ids-breadcrumb__item {
-  color: var(--ids-breadcrumb-item-color);
-  flex: 0 0 auto;
-
-  .ids-breadcrumb__link {
-    color: var(--ids-breadcrumb-link-color);
-    border-bottom: var(--ids-breadcrumb-link-border);
-    outline: none;
-    text-decoration: none;
-    transition: border 0.2s ease-out;
-
-    &:hover {
-      border-bottom-color: var(--ids-breadcrumb-link-border-color-hover);
-      color: var(--ids-breadcrumb-link-color-hover);
-      text-decoration: var(--ids-breadcrumb-link-text-decoration-hover);
+        /* Chevron */
+        --ids-breadcrumb-chevron-color: #{tokens.$grey-800};
+        --ids-breadcrumb-chevron-spacing: 0 #{tokens.$space-2};
     }
 
-    &:focus {
-      border-radius: var(--ids-breadcrumb-link-border-radius-focus);
-      box-shadow: var(--ids-breadcrumb-link-focus);
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-breadcrumb-font-family: var(--hop-overline-font-family);
+        --ids-breadcrumb-font-size: var(--hop-overline-font-size);
+        --ids-breadcrumb-line-height: var(--hop-overline-line-height);
+        --ids-breadcrumb-text-transform: uppercase;
+        --ids-breadcrumb-letter-spacing: 0.015rem;
+
+        /* Item */
+        --ids-breadcrumb-item-color: var(--hop-neutral-text);
+
+        /* Link */
+        --ids-breadcrumb-link-color: var(--hop-neutral-text-weak);
+        --ids-breadcrumb-link-color-hover:  var(--hop-neutral-text); /* Will be var(--hop-neutral-text-weak-hover) */
+        --ids-breadcrumb-link-border: none;
+        --ids-breadcrumb-link-text-decoration-hover: underline;
+        --ids-breadcrumb-link-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+        --ids-breadcrumb-link-border-radius-focus: var(--hop-shape-rounded-md);
+
+        /* Chevron */
+        --ids-breadcrumb-chevron-color:var(--hop-neutral-icon-weak);
+        --ids-breadcrumb-chevron-spacing: 0 var(--hop-space-inline-sm);
     }
 
-    &:focus:not(:focus-visible) {
-      box-shadow: none;
+    .ids-breadcrumb {
+        font-family: var(--ids-breadcrumb-font-family);
+        font-size: var(--ids-breadcrumb-font-size);
+        line-height: var(--ids-breadcrumb-line-height);
     }
-  }
 
-  .ids-breadcrumb__chevron {
-    color: var(--ids-breadcrumb-chevron-color);
-    margin: var(--ids-breadcrumb-chevron-spacing);
-  }
+    .ids-breadcrumb__list {
+        align-items: center;
+        display: flex;
+        letter-spacing: var(--ids-breadcrumb-letter-spacing);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-transform: var(--ids-breadcrumb-text-transform);
+    }
 
-  .ids-breadcrumb__item--is-back-link .ids-breadcrumb__chevron {
-    margin-left: 0;
-  }
+    .ids-breadcrumb__item {
+        color: var(--ids-breadcrumb-item-color);
+        flex: 0 0 auto;
+
+        .ids-breadcrumb__link {
+            color: var(--ids-breadcrumb-link-color);
+            border-bottom: var(--ids-breadcrumb-link-border);
+            outline: none;
+            text-decoration: none;
+            transition: border 0.2s ease-out;
+
+            &:hover {
+                border-bottom-color: var(--ids-breadcrumb-link-border-color-hover);
+                color: var(--ids-breadcrumb-link-color-hover);
+                text-decoration: var(--ids-breadcrumb-link-text-decoration-hover);
+            }
+
+            &:focus {
+                border-radius: var(--ids-breadcrumb-link-border-radius-focus);
+                box-shadow: var(--ids-breadcrumb-link-focus);
+            }
+
+            &:focus:not(:focus-visible) {
+                box-shadow: none;
+            }
+        }
+
+        .ids-breadcrumb__chevron {
+            color: var(--ids-breadcrumb-chevron-color);
+            margin: var(--ids-breadcrumb-chevron-spacing);
+        }
+
+        .ids-breadcrumb__item--is-back-link .ids-breadcrumb__chevron {
+            margin-left: 0;
+        }
+    }
 }

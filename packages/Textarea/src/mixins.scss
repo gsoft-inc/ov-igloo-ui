@@ -1,25 +1,41 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 
+:root {
+    --ids-scrollbar-color: #{tokens.$grey-300};
+    --ids-scrollbar-border-color: #{tokens.$samoyed};
+    --ids-scrollbar-border-size: 1rem;
+    --ids-scrollbar-size: 0.2rem;
+    --ids-scrollbar-radii: #{tokens.$border-radius-md};
+}
+
+[data-brand="workleap"] {
+    --ids-scrollbar-color: var(--hop-neutral-border-weak);
+    --ids-scrollbar-border-color: var(--hop-neutral-surface);
+    --ids-scrollbar-border-size: 0.625rem;
+    --ids-scrollbar-size: 0.125rem;
+    --ids-scrollbar-radii: var(--hop-shape-rounded-md);
+}
+
 @mixin fancy-webkit-scrollbar(
-  $border-color: #{tokens.$samoyed},
-  $scrollbar-color: #{tokens.$grey-300},
-  $scrollbar-size: 1rem) {
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+    $border-color: var(--ids-scrollbar-border-color),
+    $scrollbar-color: var(--ids-scrollbar-color),
+    $scrollbar-size: var(--ids-scrollbar-border-size)) {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
 
-  &::-webkit-scrollbar {
-    width: $scrollbar-size;
-    height: $scrollbar-size;
-    background-color: transparent;
-  }
+    &::-webkit-scrollbar {
+        width: $scrollbar-size;
+        height: $scrollbar-size;
+        background-color: transparent;
+    }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: $scrollbar-color;
-    border: 0.2rem solid $border-color;
-    border-radius: #{tokens.$border-radius-md};
-  }
+    &::-webkit-scrollbar-thumb {
+        background-color: $scrollbar-color;
+        border: var(--ids-scrollbar-size) solid $border-color;
+        border-radius: var(--ids-scrollbar-radii);
+    }
 
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
 }

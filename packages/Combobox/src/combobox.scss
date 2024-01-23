@@ -1,187 +1,189 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url("~@hopper-ui/tokens/fonts.css");
-@import url("~@hopper-ui/tokens/tokens.css");
+@import url("~@hopper-ui/tokens/fonts.css") layer(hopper-design-system);
+@import url("~@hopper-ui/tokens/tokens.css") layer(hopper-design-system);
 
-:root {
-    /* Default */
-    --ids-combobox-font-family: #{tokens.$primary-font-family};
-    --ids-combobox-font-size: #{tokens.$font-size-4};
-    --ids-combobox-font-weight: #{tokens.$font-weight-regular};
-    --ids-combobox-line-height: #{tokens.$space-4};
-    --ids-combobox-background: #{tokens.$samoyed};
-    --ids-combobox-border-width: 0.1rem;
-    --ids-combobox-border-color: #{tokens.$grey-300};
-    --ids-combobox-border-radius: #{tokens.$border-radius-sm};
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-combobox-font-family: #{tokens.$primary-font-family};
+        --ids-combobox-font-size: #{tokens.$font-size-4};
+        --ids-combobox-font-weight: #{tokens.$font-weight-regular};
+        --ids-combobox-line-height: #{tokens.$space-4};
+        --ids-combobox-background: #{tokens.$samoyed};
+        --ids-combobox-border-width: 0.1rem;
+        --ids-combobox-border-color: #{tokens.$grey-300};
+        --ids-combobox-border-radius: #{tokens.$border-radius-sm};
 
-    /* Compact */
-    --ids-combobox-font-size-compact: #{tokens.$font-size-3};
-    --ids-combobox-line-height-compact: #{tokens.$line-height-xxl};
+        /* Compact */
+        --ids-combobox-font-size-compact: #{tokens.$font-size-3};
+        --ids-combobox-line-height-compact: #{tokens.$line-height-xxl};
 
-    /* Hover */
-    --ids-combobox-border-color-hover: #{tokens.$grey-600};
-    --ids-combobox-background-hover: #{tokens.$samoyed};
+        /* Hover */
+        --ids-combobox-border-color-hover: #{tokens.$grey-600};
+        --ids-combobox-background-hover: #{tokens.$samoyed};
 
-    /* Active */
-    --ids-combobox-border-color-active: #{tokens.$electric-blue-500};
-    --ids-combobox-background-active: #{tokens.$samoyed};
+        /* Active */
+        --ids-combobox-border-color-active: #{tokens.$electric-blue-500};
+        --ids-combobox-background-active: #{tokens.$samoyed};
 
-    /* Focus */
-    --ids-combobox-border-color-focus: #{tokens.$electric-blue-500};
-    --ids-combobox-background-focus: #{tokens.$samoyed};
-    --ids-combobox-focus: none;
+        /* Focus */
+        --ids-combobox-border-color-focus: #{tokens.$electric-blue-500};
+        --ids-combobox-background-focus: #{tokens.$samoyed};
+        --ids-combobox-focus: none;
 
 
-    /* Disabled */
-    --ids-combobox-color-disabled: #{tokens.$grey-500};
-    --ids-combobox-background-disabled: #{tokens.$grey-200};
-    --ids-combobox-border-color-disabled: #{tokens.$grey-200};
+        /* Disabled */
+        --ids-combobox-color-disabled: #{tokens.$grey-500};
+        --ids-combobox-background-disabled: #{tokens.$grey-200};
+        --ids-combobox-border-color-disabled: #{tokens.$grey-200};
 
-    /* Error */
-    --ids-combobox-border-color-error: #{tokens.$coral-500};
+        /* Error */
+        --ids-combobox-border-color-error: #{tokens.$coral-500};
 
-    /* No Results */
-    --ids-combobox-no-results-color: #{tokens.$grey-600};
-    --ids-combobox-no-results-font-size: #{tokens.$font-size-3};
-    --ids-combobox-no-results-padding: #{tokens.$space-3};
-    --ids-combobox-no-results-line-height: #{tokens.$line-height-xxl};
-}
+        /* No Results */
+        --ids-combobox-no-results-color: #{tokens.$grey-600};
+        --ids-combobox-no-results-font-size: #{tokens.$font-size-3};
+        --ids-combobox-no-results-padding: #{tokens.$space-3};
+        --ids-combobox-no-results-line-height: #{tokens.$line-height-xxl};
+    }
 
-[data-brand="workleap"] {
-    /* Default */
-    --ids-combobox-font-family: var(--hop-body-md-font-family);
-    --ids-combobox-font-size: var(--hop-body-md-font-size);
-    --ids-combobox-font-weight: var(--hop-body-md-font-weight);
-    --ids-combobox-line-height: var(--hop-body-md-line-height);
-    --ids-combobox-background: var(--hop-neutral-surface);
-    --ids-combobox-border-width: 0.0625rem;
-    --ids-combobox-border-color: var(--hop-neutral-border);
-    --ids-combobox-border-radius: var(--hop-shape-rounded-md);
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-combobox-font-family: var(--hop-body-md-font-family);
+        --ids-combobox-font-size: var(--hop-body-md-font-size);
+        --ids-combobox-font-weight: var(--hop-body-md-font-weight);
+        --ids-combobox-line-height: var(--hop-body-md-line-height);
+        --ids-combobox-background: var(--hop-neutral-surface);
+        --ids-combobox-border-width: 0.0625rem;
+        --ids-combobox-border-color: var(--hop-neutral-border);
+        --ids-combobox-border-radius: var(--hop-shape-rounded-md);
 
-    /* Compact */
-    --ids-combobox-font-size-compact: var(--hop-body-sm-font-size);
-    --ids-combobox-line-height-compact: var(--hop-body-sm-line-height);
+        /* Compact */
+        --ids-combobox-font-size-compact: var(--hop-body-sm-font-size);
+        --ids-combobox-line-height-compact: var(--hop-body-sm-line-height);
 
-    /* Hover */
-    --ids-combobox-border-color-hover: var(--hop-neutral-border-hover);
-    --ids-combobox-background-hover: var(--hop-neutral-surface-hover);
+        /* Hover */
+        --ids-combobox-border-color-hover: var(--hop-neutral-border-hover);
+        --ids-combobox-background-hover: var(--hop-neutral-surface-hover);
 
-    /* Active */
-    --ids-combobox-background-active: var(--hop-neutral-surface);
-    --ids-combobox-border-color-active: var(--hop-neutral-border-active);
+        /* Active */
+        --ids-combobox-background-active: var(--hop-neutral-surface);
+        --ids-combobox-border-color-active: var(--hop-neutral-border-active);
 
-    /* Focus */
-    --ids-combobox-background-focus: var(--hop-neutral-surface-hover);
-    --ids-combobox-border-color-focus: var(--hop-neutral-border-hover);
-    --ids-combobox-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+        /* Focus */
+        --ids-combobox-background-focus: var(--hop-neutral-surface-hover);
+        --ids-combobox-border-color-focus: var(--hop-neutral-border-hover);
+        --ids-combobox-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
 
-    /* Disabled */
-    --ids-combobox-color-disabled: var(--hop-neutral-text-disabled);
-    --ids-combobox-background-disabled: var(--hop-neutral-surface-disabled);
-    --ids-combobox-border-color-disabled: var(--hop-neutral-border-disabled);
+        /* Disabled */
+        --ids-combobox-color-disabled: var(--hop-neutral-text-disabled);
+        --ids-combobox-background-disabled: var(--hop-neutral-surface-disabled);
+        --ids-combobox-border-color-disabled: var(--hop-neutral-border-disabled);
 
-    /* Error */
-    --ids-combobox-border-color-error: var(--hop-danger-text-weak);
+        /* Error */
+        --ids-combobox-border-color-error: var(--hop-danger-text-weak);
 
-    /* No Results */
-    --ids-combobox-no-results-color: var(--hop-neutral-text-weakest);
-    --ids-combobox-no-results-font-size: var(--hop-body-sm-font-size);
-    --ids-combobox-no-results-padding: var(--hop-space-inset-md);
-    --ids-combobox-no-results-line-height: var(--hop-body-sm-line-height);
+        /* No Results */
+        --ids-combobox-no-results-color: var(--hop-neutral-text-weakest);
+        --ids-combobox-no-results-font-size: var(--hop-body-sm-font-size);
+        --ids-combobox-no-results-padding: var(--hop-space-inset-md);
+        --ids-combobox-no-results-line-height: var(--hop-body-sm-line-height);
 
-}
+    }
 
-.ids-combobox {
-    background: var(--ids-combobox-background);
-    border: var(--ids-combobox-border-width) solid var(--ids-combobox-border-color);
-    border-radius: var(--ids-combobox-border-radius);
-    cursor: pointer;
-    font-size: var(--ids-combobox-font-size);
-    font-family: var(--ids-combobox-font-family);
-    font-weight: var(--ids-combobox-font-weight);
-    line-height: var(--ids-combobox-line-height);
-    outline: 0;
-    padding: 0 var(--ids-combobox-padding);
-    position: relative;
-    box-sizing: border-box;
-    transition: border-color .2s ease 0s;
-    user-select: none;
-
-    &,
-    & * {
+    .ids-combobox {
+        background: var(--ids-combobox-background);
+        border: var(--ids-combobox-border-width) solid var(--ids-combobox-border-color);
+        border-radius: var(--ids-combobox-border-radius);
+        cursor: pointer;
+        font-size: var(--ids-combobox-font-size);
+        font-family: var(--ids-combobox-font-family);
+        font-weight: var(--ids-combobox-font-weight);
+        line-height: var(--ids-combobox-line-height);
+        outline: 0;
+        padding: 0 var(--ids-combobox-padding);
+        position: relative;
         box-sizing: border-box;
-    }
+        transition: border-color .2s ease 0s;
+        user-select: none;
 
-    &:hover {
-        border-color: var(--ids-combobox-border-color-hover);
-        background-color: var(--ids-combobox-background-hover);
-    }
+        &,
+        & * {
+            box-sizing: border-box;
+        }
 
-    &:focus {
-        box-shadow: none;
-    }
+        &:hover {
+            border-color: var(--ids-combobox-border-color-hover);
+            background-color: var(--ids-combobox-background-hover);
+        }
 
-    &:focus-visible,
-    &.focus {
-        background-color: var(--ids-combobox-background-focus);
-        box-shadow: var(--ids-combobox-focus);
-        border-color: var(--ids-combobox-border-color-focus);
-    }
-
-    &--active,
-    &.active {
-        background-color: var(--ids-combobox-background-active);
-        border-color: var(--ids-combobox-border-color-active);
+        &:focus {
+            box-shadow: none;
+        }
 
         &:focus-visible,
         &.focus {
+            background-color: var(--ids-combobox-background-focus);
+            box-shadow: var(--ids-combobox-focus);
+            border-color: var(--ids-combobox-border-color-focus);
+        }
+
+        &--active,
+        &.active {
             background-color: var(--ids-combobox-background-active);
-            border-color: var(--ids-select-border-color-active);
-            box-shadow: none;
+            border-color: var(--ids-combobox-border-color-active);
+
+            &:focus-visible,
+            &.focus {
+                background-color: var(--ids-combobox-background-active);
+                border-color: var(--ids-select-border-color-active);
+                box-shadow: none;
+            }
         }
-    }
 
-    &--compact {
-        font-size: var(--ids-combobox-font-size-compact);
-        line-height: var(--ids-combobox-line-height-compact);
-    }
+        &--compact {
+            font-size: var(--ids-combobox-font-size-compact);
+            line-height: var(--ids-combobox-line-height-compact);
+        }
 
-    &--disabled,
-    &--disabled:focus {
-        color: var(--ids-combobox-color-disabled);
-        background-color: var(--ids-combobox-background-disabled);
-        border-color: var(--ids-combobox-border-color-disabled);
-        cursor: not-allowed;
-
-        &:hover {
-            border-color: var(--ids-combobox-border-color-disabled);
+        &--disabled,
+        &--disabled:focus {
+            color: var(--ids-combobox-color-disabled);
             background-color: var(--ids-combobox-background-disabled);
+            border-color: var(--ids-combobox-border-color-disabled);
+            cursor: not-allowed;
+
+            &:hover {
+                border-color: var(--ids-combobox-border-color-disabled);
+                background-color: var(--ids-combobox-background-disabled);
+            }
+        }
+
+        &--error {
+            border-color: var(--ids-combobox-border-color-error);
         }
     }
 
-    &--error {
-        border-color: var(--ids-combobox-border-color-error);
+    .ids-combobox__dropdown {
+        outline: none;
     }
-}
 
-.ids-combobox__dropdown {
-    outline: none;
-}
+    .ids-combobox__dropdown--has-footer .ids-combobox__list {
+        padding-bottom: 0;
+    }
 
-.ids-combobox__dropdown--has-footer .ids-combobox__list {
-    padding-bottom: 0;
-}
+    .ids-combobox__dropdown .ids-list-item__text-label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 
-.ids-combobox__dropdown .ids-list-item__text-label {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.ids-combobox__no-results {
-    color: var(--ids-combobox-no-results-color);
-    font-size: var(--ids-combobox-no-results-font-size);
-    line-height: var(--ids-combobox-no-results-line-height);
-    padding: var(--ids-combobox-no-results-padding);
+    .ids-combobox__no-results {
+        color: var(--ids-combobox-no-results-color);
+        font-size: var(--ids-combobox-no-results-font-size);
+        line-height: var(--ids-combobox-no-results-line-height);
+        padding: var(--ids-combobox-no-results-padding);
+    }
 }

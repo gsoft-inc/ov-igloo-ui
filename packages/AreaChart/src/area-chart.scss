@@ -1,107 +1,108 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
 /* Note that some css variables are used in the code. */
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-area-chart-font-family: #{tokens.$primary-font-family};
+        --ids-area-chart-font-size: #{tokens.$font-size-2};
+        --ids-area-chart-font-weight: #{tokens.$font-weight-regular};
+        --ids-area-chart-color: #{tokens.$grey-600};
+        --ids-area-chart-grid-color: #{tokens.$grey-200};
+        --ids-area-chart-axis-color: #{tokens.$grey-400};
+        --ids-area-chart-dot-stroke-color: #{tokens.$samoyed};
+        --ids-area-chart-line-color: #{tokens.$electric-blue-500};
+        --ids-area-chart-null-line-color: #{tokens.$grey-400};
 
-:root {
-  /* Default */
-  --ids-area-chart-font-family: #{tokens.$primary-font-family};
-  --ids-area-chart-font-size: #{tokens.$font-size-2};
-  --ids-area-chart-font-weight: #{tokens.$font-weight-regular};
-  --ids-area-chart-color: #{tokens.$grey-600};
-  --ids-area-chart-grid-color: #{tokens.$grey-200};
-  --ids-area-chart-axis-color: #{tokens.$grey-400};
-  --ids-area-chart-dot-stroke-color: #{tokens.$samoyed};
-  --ids-area-chart-line-color: #{tokens.$electric-blue-500};
-  --ids-area-chart-null-line-color: #{tokens.$grey-400};
-  
-  /* Empty Label */
-  --ids-area-chart-empty-label-border-radius: #{tokens.$border-radius-sm};
-  --ids-area-chart-empty-label-font-size: #{tokens.$font-size-3};
-  --ids-area-chart-empty-label-color: #{tokens.$grey-600};
-  --ids-area-chart-empty-label-background: #{tokens.$grey-100};
-  --ids-area-chart-empty-label-line-height: #{tokens.$line-height-xxl};
-  --ids-area-chart-empty-label-max-width: 44rem;
-  --ids-area-chart-empty-label-padding: #{tokens.$space-3};
-  --ids-area-chart-empty-label-text-padding: #{tokens.$space-3};
-}
+        /* Empty Label */
+        --ids-area-chart-empty-label-border-radius: #{tokens.$border-radius-sm};
+        --ids-area-chart-empty-label-font-size: #{tokens.$font-size-3};
+        --ids-area-chart-empty-label-color: #{tokens.$grey-600};
+        --ids-area-chart-empty-label-background: #{tokens.$grey-100};
+        --ids-area-chart-empty-label-line-height: #{tokens.$line-height-xxl};
+        --ids-area-chart-empty-label-max-width: 44rem;
+        --ids-area-chart-empty-label-padding: #{tokens.$space-3};
+        --ids-area-chart-empty-label-text-padding: #{tokens.$space-3};
+    }
 
-[data-brand="workleap"] {
-  /* Default */
-  --ids-area-chart-font-family: var(--hop-body-xs-font-family);
-  --ids-area-chart-font-size: var(--hop-body-xs-font-size);
-  --ids-area-chart-font-weight: var(--hop-body-xs-font-weight);
-  --ids-area-chart-color: var(--hop-neutral-text-weak);
-  --ids-area-chart-grid-color: var(--hop-neutral-border-weakest);
-  --ids-area-chart-axis-color: var(--hop-neutral-border-weak);
-  --ids-area-chart-dot-stroke-color: var(--hop-neutral-icon-strong);
-  --ids-area-chart-line-color: url("#areaChartLineGradient");
-  --ids-area-chart-null-line-color: var(--hop-neutral-border-weak);
-  
-  /* Empty Label */
-  --ids-area-chart-empty-label-border-radius: var(--hop-shape-rounded-md);
-  --ids-area-chart-empty-label-font-size: var(--hop-body-sm-font-size);
-  --ids-area-chart-empty-label-color: var(--hop-neutral-text-weak);
-  --ids-area-chart-empty-label-background: var(--hop-neutral-surface-weakest);
-  --ids-area-chart-empty-label-line-height: var(--hop-body-sm-line-height);
-  --ids-area-chart-empty-label-max-width: 27.5rem;
-  --ids-area-chart-empty-label-padding: var(--hop-space-inset-md);
-  --ids-area-chart-empty-label-text-padding: var(--hop-space-inset-md);
-}
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-area-chart-font-family: var(--hop-body-xs-font-family);
+        --ids-area-chart-font-size: var(--hop-body-xs-font-size);
+        --ids-area-chart-font-weight: var(--hop-body-xs-font-weight);
+        --ids-area-chart-color: var(--hop-neutral-text-weak);
+        --ids-area-chart-grid-color: var(--hop-neutral-border-weakest);
+        --ids-area-chart-axis-color: var(--hop-neutral-border-weak);
+        --ids-area-chart-dot-stroke-color: var(--hop-neutral-icon-strong);
+        --ids-area-chart-line-color: url("#areaChartLineGradient");
+        --ids-area-chart-null-line-color: var(--hop-neutral-border-weak);
 
-.ids-area-chart {
-  color: var(--ids-area-chart-color);
-  font-family: var(--ids-area-chart-font-family);
-  font-size: var(--ids-area-chart-font-size);
-  font-weight: var(--ids-area-chart-font-weight);
-  
-  &,
-  & * {
-    box-sizing: border-box;
-  }
-}
+        /* Empty Label */
+        --ids-area-chart-empty-label-border-radius: var(--hop-shape-rounded-md);
+        --ids-area-chart-empty-label-font-size: var(--hop-body-sm-font-size);
+        --ids-area-chart-empty-label-color: var(--hop-neutral-text-weak);
+        --ids-area-chart-empty-label-background: var(--hop-neutral-surface-weakest);
+        --ids-area-chart-empty-label-line-height: var(--hop-body-sm-line-height);
+        --ids-area-chart-empty-label-max-width: 27.5rem;
+        --ids-area-chart-empty-label-padding: var(--hop-space-inset-md);
+        --ids-area-chart-empty-label-text-padding: var(--hop-space-inset-md);
+    }
 
-.ids-area-chart .recharts-tooltip-wrapper {
-  outline: none;
-}
+    .ids-area-chart {
+        color: var(--ids-area-chart-color);
+        font-family: var(--ids-area-chart-font-family);
+        font-size: var(--ids-area-chart-font-size);
+        font-weight: var(--ids-area-chart-font-weight);
 
-.ids-area-chart-skeleton-animation {
-  animation: ids-pulse-light 1.5s infinite ease-in-out;
-}
+        &,
+        & * {
+            box-sizing: border-box;
+        }
+    }
 
-.ids-area-chart__empty-label {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  padding-inline: var(--ids-area-chart-empty-label-padding);
-  text-align: center;
-}
+    .ids-area-chart .recharts-tooltip-wrapper {
+        outline: none;
+    }
 
-.ids-area-chart__empty-label-text {
-  background: var(--ids-area-chart-empty-label-background);
-  border-radius: var(--ids-area-chart-empty-label-border-radius);
-  color: var(--ids-area-chart-empty-label-color);
-  font-size: var(--ids-area-chart-empty-label-font-size);
-  line-height: var(--ids-area-chart-empty-label-line-height);
-  margin: 0 auto;
-  max-width: var(--ids-area-chart-empty-label-max-width);
-  padding: var(--ids-area-chart-empty-label-text-padding);
-  text-align: center;
-}
+    .ids-area-chart-skeleton-animation {
+        animation: ids-pulse-light 1.5s infinite ease-in-out;
+    }
 
-@keyframes ids-pulse-light {
-  0% {
-    fill: rgb(tokens.$grey-600, 0.01);
-  }
+    .ids-area-chart__empty-label {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        padding-inline: var(--ids-area-chart-empty-label-padding);
+        text-align: center;
+    }
 
-  50% {
-    fill: rgb(tokens.$grey-600, 0.1);
-  }
+    .ids-area-chart__empty-label-text {
+        background: var(--ids-area-chart-empty-label-background);
+        border-radius: var(--ids-area-chart-empty-label-border-radius);
+        color: var(--ids-area-chart-empty-label-color);
+        font-size: var(--ids-area-chart-empty-label-font-size);
+        line-height: var(--ids-area-chart-empty-label-line-height);
+        margin: 0 auto;
+        max-width: var(--ids-area-chart-empty-label-max-width);
+        padding: var(--ids-area-chart-empty-label-text-padding);
+        text-align: center;
+    }
 
-  100% {
-    fill: rgb(tokens.$grey-600, 0.01);
-  }
+    @keyframes ids-pulse-light {
+        0% {
+            fill: rgb(tokens.$grey-600, 0.01);
+        }
+
+        50% {
+            fill: rgb(tokens.$grey-600, 0.1);
+        }
+
+        100% {
+            fill: rgb(tokens.$grey-600, 0.01);
+        }
+    }
 }

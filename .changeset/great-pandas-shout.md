@@ -1,0 +1,50 @@
+---
+"@igloo-ui/action-menu": minor
+"@igloo-ui/alert": minor
+"@igloo-ui/area-chart": minor
+"@igloo-ui/avatar": minor
+"@igloo-ui/bar-chart": minor
+"@igloo-ui/breadcrumb": minor
+"@igloo-ui/button": minor
+"@igloo-ui/button-group": minor
+"@igloo-ui/card": minor
+"@igloo-ui/carousel": minor
+"@igloo-ui/checkbox": minor
+"@igloo-ui/color": minor
+"@igloo-ui/color-picker": minor
+"@igloo-ui/combobox": minor
+"@igloo-ui/datepicker": minor
+"@igloo-ui/dialog": minor
+"@igloo-ui/disclosure": minor
+"@igloo-ui/dropdown": minor
+"@igloo-ui/ellipsis": minor
+"@igloo-ui/filter": minor
+"@igloo-ui/form-group": minor
+"@igloo-ui/helper-text": minor
+"@igloo-ui/hyperlink": minor
+"@igloo-ui/icon-button": minor
+"@igloo-ui/input": minor
+"@igloo-ui/list": minor
+"@igloo-ui/metric": minor
+"@igloo-ui/modal": minor
+"@igloo-ui/option-button": minor
+"@igloo-ui/pager": minor
+"@igloo-ui/pie-chart": minor
+"@igloo-ui/popover": minor
+"@igloo-ui/progress-bar": minor
+"@igloo-ui/radio": minor
+"@igloo-ui/select": minor
+"@igloo-ui/stacked-bar": minor
+"@igloo-ui/stepper": minor
+"@igloo-ui/tabs": minor
+"@igloo-ui/tag": minor
+"@igloo-ui/tag-picker": minor
+"@igloo-ui/text-editor": minor
+"@igloo-ui/textarea": minor
+"@igloo-ui/toaster": minor
+"@igloo-ui/toggle": minor
+"@igloo-ui/tooltip": minor
+"@igloo-ui/vertical-bar-chart": minor
+---
+
+Wrapped Igloo CSS in @layer to isolate it.

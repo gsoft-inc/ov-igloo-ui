@@ -1,63 +1,65 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-    /* Default */
-    --ids-stepper-font-family: #{tokens.$primary-font-family};
-    --ids-stepper-font-size: #{tokens.$font-size-4};
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-stepper-font-family: #{tokens.$primary-font-family};
+        --ids-stepper-font-size: #{tokens.$font-size-4};
 
-    /* Divider */
-    --ids-stepper-divider-background: #{tokens.$grey-300};
-    --ids-stepper-divider-border-radius: 1rem;
-    --ids-stepper-divider-height: 0.2rem;
-    --ids-stepper-divider-margin: 0 #{tokens.$space-2};
-    --ids-stepper-divider-width: 5rem;
-    --ids-stepper-divider-background-completed: #{tokens.$electric-blue-500};
-    --ids-stepper-divider-height-completed: #{tokens.$space-1};
-}
-
-[data-brand="workleap"] {
-    /* Default */
-    --ids-stepper-font-family: var(--hop-body-md-font-family);
-    --ids-stepper-font-size: var(--hop-body-md-font-size);
-
-    /* Divider */
-    --ids-stepper-divider-background: var(--hop-neutral-border-weak);
-    --ids-stepper-divider-border-radius: var(--hop-shape-pill);
-    --ids-stepper-divider-height: 0.125rem;
-    --ids-stepper-divider-margin: 0 var(--hop-space-inline-sm);
-    --ids-stepper-divider-width: 3rem;
-    --ids-stepper-divider-background-completed: var(--hop-neutral-border-active);
-    --ids-stepper-divider-height-completed: 0.25rem;
-}
-
-.ids-stepper {
-    align-items: center;
-    display: flex;
-    font-family: var(--ids-stepper-font-family);
-    font-size: var(--ids-stepper-font-size);
-    justify-content: center;
-
-    &,
-    & * {
-        box-sizing: border-box;
+        /* Divider */
+        --ids-stepper-divider-background: #{tokens.$grey-300};
+        --ids-stepper-divider-border-radius: 1rem;
+        --ids-stepper-divider-height: 0.2rem;
+        --ids-stepper-divider-margin: 0 #{tokens.$space-2};
+        --ids-stepper-divider-width: 5rem;
+        --ids-stepper-divider-background-completed: #{tokens.$electric-blue-500};
+        --ids-stepper-divider-height-completed: #{tokens.$space-1};
     }
-}
 
-.ids-stepper__divider {
-    background: var(--ids-stepper-divider-background);
-    border-radius: var(--ids-stepper-divider-border-radius);
-    display: block;
-    flex: 0 1 var(--ids-stepper-divider-width);
-    height: var(--ids-stepper-divider-height);
-    margin: var(--ids-stepper-divider-margin);
-    min-width: 0;
-}
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-stepper-font-family: var(--hop-body-md-font-family);
+        --ids-stepper-font-size: var(--hop-body-md-font-size);
 
-.ids-step__wrapper--complete + .ids-stepper__divider {
-    background: var(--ids-stepper-divider-background-completed);
-    height: var(--ids-stepper-divider-height-completed);
+        /* Divider */
+        --ids-stepper-divider-background: var(--hop-neutral-border-weak);
+        --ids-stepper-divider-border-radius: var(--hop-shape-pill);
+        --ids-stepper-divider-height: 0.125rem;
+        --ids-stepper-divider-margin: 0 var(--hop-space-inline-sm);
+        --ids-stepper-divider-width: 3rem;
+        --ids-stepper-divider-background-completed: var(--hop-neutral-border-active);
+        --ids-stepper-divider-height-completed: 0.25rem;
+    }
+
+    .ids-stepper {
+        align-items: center;
+        display: flex;
+        font-family: var(--ids-stepper-font-family);
+        font-size: var(--ids-stepper-font-size);
+        justify-content: center;
+
+        &,
+        & * {
+            box-sizing: border-box;
+        }
+    }
+
+    .ids-stepper__divider {
+        background: var(--ids-stepper-divider-background);
+        border-radius: var(--ids-stepper-divider-border-radius);
+        display: block;
+        flex: 0 1 var(--ids-stepper-divider-width);
+        height: var(--ids-stepper-divider-height);
+        margin: var(--ids-stepper-divider-margin);
+        min-width: 0;
+    }
+
+    .ids-step__wrapper--complete + .ids-stepper__divider {
+        background: var(--ids-stepper-divider-background-completed);
+        height: var(--ids-stepper-divider-height-completed);
+    }
 }

@@ -2,308 +2,310 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-    --ids-modal-font-family: #{tokens.$primary-font-family};
-    --ids-modal-font-size: #{tokens.$font-size-4};
-    --ids-modal-background: #{tokens.$samoyed};
-    --ids-modal-text: #{tokens.$black};
-    --ids-modal-padding: #{tokens.$space-3};
-    --ids-modal-padding-with-header: #{tokens.$space-3};
-    --ids-modal-padding-full-content: #{tokens.$space-3};
-    --ids-modal-index: #{tokens.$z-index-100};
-    --ids-modal-shadow: none;
-    --ids-modal-radius: 0;
-    --ids-modal-height: 100%;
-    --ids-modal-width: 100%;
-    --ids-modal-max-width: none;
-    --ids-modal-header-close-display: flex;
-    --ids-modal-header-before-display: block;
-    --ids-modal-header-border: .1rem solid #{tokens.$grey-200};
-    --ids-modal-header-width: calc(#{tokens.$space-3} + #{tokens.$space-4});
-    --ids-modal-header-height: 5.6rem;
-    --ids-modal-header-alignment: center;
-    --ids-modal-header-title-alignment: center;
-    --ids-modal-header-font-family: #{tokens.$secondary-font-family};
-    --ids-modal-header-font-size: #{tokens.$font-size-3};
-    --ids-modal-header-font-weight: #{tokens.$font-weight-medium};
-    --ids-modal-header-line-height: #{tokens.$line-height-lg};
-    --ids-modal-header-padding: #{tokens.$space-0} #{tokens.$space-3};
-    --ids-modal-back-margin: #{tokens.$space-0} #{tokens.$space-3} #{tokens.$space-0} #{tokens.$space-0};
-    --ids-modal-close-margin: #{tokens.$space-0} #{tokens.$space-0} #{tokens.$space-0} #{tokens.$space-3};
-    --ids-modal-close-padding: 0;
-    --ids-modal-overlay: rgb(25 34 47 / 50%);
-    --ids-modal-overlay-index: #{tokens.$z-index-100};
-    --ids-modal-full-content-display: block;
-    --ids-modal-full-content-close-spacing-horizontal: #{tokens.$space-2};
-    --ids-modal-full-content-close-spacing-vertical: #{tokens.$space-2};
-    --ids-modal-footer-margin: #{tokens.$space-2} -#{tokens.$space-2} -#{tokens.$space-2};
-    --ids-modal-footer-action-margin: #{tokens.$space-2} #{tokens.$space-2};
-}
-
-[data-brand="workleap"] {
-    --ids-modal-font-family: var(--hop-body-md-font-family);
-    --ids-modal-font-size: var(--hop-body-md-font-size);
-    --ids-modal-background: var(--hop-neutral-surface);
-    --ids-modal-text: var(--hop-neutral-text);
-    --ids-modal-padding: var(--hop-space-inset-md);
-    --ids-modal-padding-with-header: var(--hop-space-inset-md);
-    --ids-modal-padding-full-content: var(--hop-space-inset-md);
-    --ids-modal-index: 100;
-    --ids-modal-shadow: none;
-    --ids-modal-radius: 0;
-    --ids-modal-height: 100%;
-    --ids-modal-width: 100%;
-    --ids-modal-max-width: none;
-    --ids-modal-header-close-display: flex;
-    --ids-modal-header-before-display: block;
-    --ids-modal-header-border: 0.0625rem solid var(--hop-neutral-border-weak);
-    --ids-modal-header-width: 0;
-    --ids-modal-header-height: 3.5rem;
-    --ids-modal-header-alignment: center;
-    --ids-modal-header-title-alignment: left;
-    --ids-modal-header-font-family: var(--hop-heading-lg-font-family);
-    --ids-modal-header-font-size: var(--hop-heading-lg-font-size);
-    --ids-modal-header-font-weight: var(--hop-heading-lg-font-weight);
-    --ids-modal-header-line-height: var(--hop-heading-lg-line-height);
-    --ids-modal-header-padding: 0 var(--hop-space-inset-md);
-    --ids-modal-back-margin: 0 var(--hop-space-inline-sm) 0 0;
-    --ids-modal-close-margin: 0 0 0 var(--hop-space-inline-sm);
-    --ids-modal-close-padding: calc(1.5rem + var(--hop-space-inline-md));
-    --ids-modal-overlay: rgb(25 34 47 / 50%);
-    --ids-modal-overlay-index: 100;
-    --ids-modal-full-content-display: block;
-    --ids-modal-full-content-close-spacing-horizontal: var(--hop-space-inline-sm);
-    --ids-modal-full-content-close-spacing-vertical: var(--hop-space-stack-sm);
-    --ids-modal-footer-margin: var(--hop-space-stack-sm) calc(-1 * var(--hop-space-inline-sm)) calc(-1 * var(--hop-space-stack-sm));
-    --ids-modal-footer-action-margin: var(--hop-space-stack-sm) var(--hop-space-inline-sm);
-}
-
-@media (width >= #{tokens.$breakpoints-sm}) {
+@layer igloo {
     :root {
-        --ids-modal-radius: #{tokens.$border-radius-sm};
-        --ids-modal-shadow: #{tokens.$shadow-12};
-        --ids-modal-height: auto;
-        --ids-modal-width: 46rem;
-        --ids-modal-width-medium: 58.4rem;
-        --ids-modal-width-large: 66.4rem;
-        --ids-modal-width-xlarge: 80rem;
-        --ids-modal-max-width: 94%;
-        --ids-modal-bottom: auto;
-        --ids-modal-left: 50%;
-        --ids-modal-right: auto;
-        --ids-modal-top: 50%;
-        --ids-modal-header-close-display: none;
-        --ids-modal-header-before-display: none;
-        --ids-modal-header-direction: column-reverse;
-        --ids-modal-header-border: none;
-        --ids-modal-header-height: auto;
+        --ids-modal-font-family: #{tokens.$primary-font-family};
+        --ids-modal-font-size: #{tokens.$font-size-4};
+        --ids-modal-background: #{tokens.$samoyed};
+        --ids-modal-text: #{tokens.$black};
+        --ids-modal-padding: #{tokens.$space-3};
+        --ids-modal-padding-with-header: #{tokens.$space-3};
+        --ids-modal-padding-full-content: #{tokens.$space-3};
+        --ids-modal-index: #{tokens.$z-index-100};
+        --ids-modal-shadow: none;
+        --ids-modal-radius: 0;
+        --ids-modal-height: 100%;
+        --ids-modal-width: 100%;
+        --ids-modal-max-width: none;
+        --ids-modal-header-close-display: flex;
+        --ids-modal-header-before-display: block;
+        --ids-modal-header-border: .1rem solid #{tokens.$grey-200};
+        --ids-modal-header-width: calc(#{tokens.$space-3} + #{tokens.$space-4});
+        --ids-modal-header-height: 5.6rem;
         --ids-modal-header-alignment: center;
-        --ids-modal-header-font-size: #{tokens.$font-size-6};
-        --ids-modal-header-padding: #{tokens.$space-4} #{tokens.$space-4} #{tokens.$space-2};
-        --ids-modal-title-display: none;
-        --ids-modal-close-margin: -#{tokens.$space-2} -#{tokens.$space-2} #{tokens.$space-0} #{tokens.$space-0};
-        --ids-modal-close-align: flex-end;
-        --ids-modal-padding: #{tokens.$space-4};
-        --ids-modal-padding-with-header: #{tokens.$space-4};
-        --ids-modal-full-content-display: none;
+        --ids-modal-header-title-alignment: center;
+        --ids-modal-header-font-family: #{tokens.$secondary-font-family};
+        --ids-modal-header-font-size: #{tokens.$font-size-3};
+        --ids-modal-header-font-weight: #{tokens.$font-weight-medium};
+        --ids-modal-header-line-height: #{tokens.$line-height-lg};
+        --ids-modal-header-padding: #{tokens.$space-0} #{tokens.$space-3};
+        --ids-modal-back-margin: #{tokens.$space-0} #{tokens.$space-3} #{tokens.$space-0} #{tokens.$space-0};
+        --ids-modal-close-margin: #{tokens.$space-0} #{tokens.$space-0} #{tokens.$space-0} #{tokens.$space-3};
+        --ids-modal-close-padding: 0;
+        --ids-modal-overlay: rgb(25 34 47 / 50%);
+        --ids-modal-overlay-index: #{tokens.$z-index-100};
+        --ids-modal-full-content-display: block;
+        --ids-modal-full-content-close-spacing-horizontal: #{tokens.$space-2};
+        --ids-modal-full-content-close-spacing-vertical: #{tokens.$space-2};
+        --ids-modal-footer-margin: #{tokens.$space-2} -#{tokens.$space-2} -#{tokens.$space-2};
+        --ids-modal-footer-action-margin: #{tokens.$space-2} #{tokens.$space-2};
     }
 
     [data-brand="workleap"] {
-        --ids-modal-radius: var(--hop-shape-rounded-md);
-        --ids-modal-shadow: var(--hop-elevation-lifted);
-        --ids-modal-width: 28.75rem;
-        --ids-modal-width-medium: 36.5rem;
-        --ids-modal-width-large: 41.5rem;
-        --ids-modal-width-xlarge: 50rem;
-        --ids-modal-max-width: 94%;
-        --ids-modal-bottom: auto;
-        --ids-modal-left: 50%;
-        --ids-modal-right: auto;
-        --ids-modal-top: 50%;
-        --ids-modal-header-close-display: none;
-        --ids-modal-header-before-display: none;
-        --ids-modal-header-direction: column-reverse;
-        --ids-modal-header-border: none;
-        --ids-modal-header-height: auto;
-        --ids-modal-header-alignment: left;
+        --ids-modal-font-family: var(--hop-body-md-font-family);
+        --ids-modal-font-size: var(--hop-body-md-font-size);
+        --ids-modal-background: var(--hop-neutral-surface);
+        --ids-modal-text: var(--hop-neutral-text);
+        --ids-modal-padding: var(--hop-space-inset-md);
+        --ids-modal-padding-with-header: var(--hop-space-inset-md);
+        --ids-modal-padding-full-content: var(--hop-space-inset-md);
+        --ids-modal-index: 100;
+        --ids-modal-shadow: none;
+        --ids-modal-radius: 0;
+        --ids-modal-height: 100%;
+        --ids-modal-width: 100%;
+        --ids-modal-max-width: none;
+        --ids-modal-header-close-display: flex;
+        --ids-modal-header-before-display: block;
+        --ids-modal-header-border: 0.0625rem solid var(--hop-neutral-border-weak);
+        --ids-modal-header-width: 0;
+        --ids-modal-header-height: 3.5rem;
+        --ids-modal-header-alignment: center;
+        --ids-modal-header-title-alignment: left;
+        --ids-modal-header-font-family: var(--hop-heading-lg-font-family);
         --ids-modal-header-font-size: var(--hop-heading-lg-font-size);
-        --ids-modal-header-padding: var(--hop-space-inset-lg) var(--hop-space-inset-lg) 0;
-        --ids-modal-title-display: none;
-        --ids-modal-close-margin: var(--hop-space-inset-lg);
-        --ids-modal-close-align: flex-end;
-        --ids-modal-padding: var(--hop-space-inset-lg);
-        --ids-modal-padding-with-header: var(--hop-space-inset-md) var(--hop-space-inset-lg) var(--hop-space-inset-lg);
-        --ids-modal-full-content-display: none;
+        --ids-modal-header-font-weight: var(--hop-heading-lg-font-weight);
+        --ids-modal-header-line-height: var(--hop-heading-lg-line-height);
+        --ids-modal-header-padding: 0 var(--hop-space-inset-md);
+        --ids-modal-back-margin: 0 var(--hop-space-inline-sm) 0 0;
+        --ids-modal-close-margin: 0 0 0 var(--hop-space-inline-sm);
+        --ids-modal-close-padding: calc(1.5rem + var(--hop-space-inline-md));
+        --ids-modal-overlay: rgb(25 34 47 / 50%);
+        --ids-modal-overlay-index: 100;
+        --ids-modal-full-content-display: block;
+        --ids-modal-full-content-close-spacing-horizontal: var(--hop-space-inline-sm);
+        --ids-modal-full-content-close-spacing-vertical: var(--hop-space-stack-sm);
+        --ids-modal-footer-margin: var(--hop-space-stack-sm) calc(-1 * var(--hop-space-inline-sm)) calc(-1 * var(--hop-space-stack-sm));
+        --ids-modal-footer-action-margin: var(--hop-space-stack-sm) var(--hop-space-inline-sm);
     }
-}
-
-.ids-overlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    inset: 0;
-    background-color: var(--ids-modal-overlay);
-    z-index: var(--ids-modal-overlay-index);
-}
-
-.ids-modal__wrapper {
-    display: flex;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    justify-content: center;
-    align-items: center;
-    z-index: var(--ids-modal-index);
-}
-
-.ids-modal {
-    background-color: var(--ids-modal-background);
-    border-radius: var(--ids-modal-radius);
-    box-shadow: var(--ids-modal-shadow);
-    box-sizing: border-box;
-    color: var(--ids-modal-text);
-    font-family: var(--ids-modal-font-family);
-    font-size: var(--ids-modal-font-size);
-    height: var(--ids-modal-height);
-    max-height: 100%;
-    max-width: var(--ids-modal-max-width);
-    overflow-y: auto;
-    width: var(--ids-modal-width);
-
-    /* Removes the focus-within outline around the modal */
-    outline: none;
-
-    &--medium {
-        width: var(--ids-modal-width-medium, 100%);
-    }
-
-    &--large {
-        width: var(--ids-modal-width-large, 100%);
-    }
-
-    &--xlarge {
-        width: var(--ids-modal-width-xlarge, 100%);
-    }
-}
-
-.ids-modal__header {
-    display: flex;
-    position: relative;
-    flex-direction: var(--ids-modal-header-direction, initial);
-    justify-content: flex-end;
-    align-items: var(--ids-modal-header-alignment);
-    padding: 0;
-    border-bottom: var(--ids-modal-header-border);
-    min-height: var(--ids-modal-header-height);
-
-    .ids-modal--with-title &,
-    .ids-modal--closable & {
-        padding: var(--ids-modal-header-padding);
-    }
-
-    .ids-modal--full-content & {
-        @media (width >= #{tokens.$breakpoints-sm}) {
-            --ids-modal-header-padding: #{tokens.$space-0};
-        }
-    }
-
-    &--with-back-btn,
-    .ids-modal:not(.ids-modal--closable, .ids-modal--dismissable) & {
-        --ids-modal-header-before-display: none;
-    }
-
-    &::before {
-        content: '';
-        display: var(--ids-modal-header-before-display);
-        min-width: var(--ids-modal-header-width);
-    }
-
-    .ids-modal__back {
-        margin: var(--ids-modal-back-margin);
-
-        @media (width >= #{tokens.$breakpoints-sm}) {
-            display: none;
-        }
-    }
-}
-
-.ids-modal__title {
-    flex: 1 1 100%;
-    text-align: var(--ids-modal-header-title-alignment);
-    font-family: var(--ids-modal-header-font-family);
-    font-size: var(--ids-modal-header-font-size);
-    font-weight: var(--ids-modal-header-font-weight);
-    line-height: var(--ids-modal-header-line-height);
-    margin: 0;
-
-    .ids-modal--full-content & {
-        display: var(--ids-modal-full-content-display);
-    }
-
-    .ids-modal--closable & {
-        padding-right: var(--ids-modal-close-padding);
-    }
-}
-
-.ids-modal__close {
-    align-self: var(--ids-modal-close-align, initial);
-    display: none;
-    top: var(--ids-modal-close-margin);
-    right: var(--ids-modal-close-margin);
-
-    .ids-modal & {
-        position: absolute;
-    }
-
-    .ids-modal--full-content & {
-        @media (width >= #{tokens.$breakpoints-sm}) {
-            right: var(--ids-modal-full-content-close-spacing-horizontal);
-            top: var(--ids-modal-full-content-close-spacing-vertical);
-        }
-    }
-
-    .ids-modal--dismissable & {
-        display: var(--ids-modal-header-close-display);
-    }
-
-    .ids-modal--closable & {
-        display: flex;
-    }
-}
-
-.ids-modal__content {
-    padding: var(--ids-modal-padding);
-
-    .ids-modal--with-title &,
-    .ids-modal--closable & {
-        padding: var(--ids-modal-padding-with-header);
-    }
-
-    .ids-modal--full-content & {
-        padding: var(--ids-modal-padding-full-content);
-    }
-}
-
-.ids-modal__footer {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    margin: var(--ids-modal-footer-margin);
-}
-
-.ids-modal__footer-action {
-    flex: 1 1 100%;
-    margin: var(--ids-modal-footer-action-margin);
 
     @media (width >= #{tokens.$breakpoints-sm}) {
-        flex: 0 0 auto;
+        :root {
+            --ids-modal-radius: #{tokens.$border-radius-sm};
+            --ids-modal-shadow: #{tokens.$shadow-12};
+            --ids-modal-height: auto;
+            --ids-modal-width: 46rem;
+            --ids-modal-width-medium: 58.4rem;
+            --ids-modal-width-large: 66.4rem;
+            --ids-modal-width-xlarge: 80rem;
+            --ids-modal-max-width: 94%;
+            --ids-modal-bottom: auto;
+            --ids-modal-left: 50%;
+            --ids-modal-right: auto;
+            --ids-modal-top: 50%;
+            --ids-modal-header-close-display: none;
+            --ids-modal-header-before-display: none;
+            --ids-modal-header-direction: column-reverse;
+            --ids-modal-header-border: none;
+            --ids-modal-header-height: auto;
+            --ids-modal-header-alignment: center;
+            --ids-modal-header-font-size: #{tokens.$font-size-6};
+            --ids-modal-header-padding: #{tokens.$space-4} #{tokens.$space-4} #{tokens.$space-2};
+            --ids-modal-title-display: none;
+            --ids-modal-close-margin: -#{tokens.$space-2} -#{tokens.$space-2} #{tokens.$space-0} #{tokens.$space-0};
+            --ids-modal-close-align: flex-end;
+            --ids-modal-padding: #{tokens.$space-4};
+            --ids-modal-padding-with-header: #{tokens.$space-4};
+            --ids-modal-full-content-display: none;
+        }
+
+        [data-brand="workleap"] {
+            --ids-modal-radius: var(--hop-shape-rounded-md);
+            --ids-modal-shadow: var(--hop-elevation-lifted);
+            --ids-modal-width: 28.75rem;
+            --ids-modal-width-medium: 36.5rem;
+            --ids-modal-width-large: 41.5rem;
+            --ids-modal-width-xlarge: 50rem;
+            --ids-modal-max-width: 94%;
+            --ids-modal-bottom: auto;
+            --ids-modal-left: 50%;
+            --ids-modal-right: auto;
+            --ids-modal-top: 50%;
+            --ids-modal-header-close-display: none;
+            --ids-modal-header-before-display: none;
+            --ids-modal-header-direction: column-reverse;
+            --ids-modal-header-border: none;
+            --ids-modal-header-height: auto;
+            --ids-modal-header-alignment: left;
+            --ids-modal-header-font-size: var(--hop-heading-lg-font-size);
+            --ids-modal-header-padding: var(--hop-space-inset-lg) var(--hop-space-inset-lg) 0;
+            --ids-modal-title-display: none;
+            --ids-modal-close-margin: var(--hop-space-inset-lg);
+            --ids-modal-close-align: flex-end;
+            --ids-modal-padding: var(--hop-space-inset-lg);
+            --ids-modal-padding-with-header: var(--hop-space-inset-md) var(--hop-space-inset-lg) var(--hop-space-inset-lg);
+            --ids-modal-full-content-display: none;
+        }
+    }
+
+    .ids-overlay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        inset: 0;
+        background-color: var(--ids-modal-overlay);
+        z-index: var(--ids-modal-overlay-index);
+    }
+
+    .ids-modal__wrapper {
+        display: flex;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        z-index: var(--ids-modal-index);
+    }
+
+    .ids-modal {
+        background-color: var(--ids-modal-background);
+        border-radius: var(--ids-modal-radius);
+        box-shadow: var(--ids-modal-shadow);
+        box-sizing: border-box;
+        color: var(--ids-modal-text);
+        font-family: var(--ids-modal-font-family);
+        font-size: var(--ids-modal-font-size);
+        height: var(--ids-modal-height);
+        max-height: 100%;
+        max-width: var(--ids-modal-max-width);
+        overflow-y: auto;
+        width: var(--ids-modal-width);
+
+        /* Removes the focus-within outline around the modal */
+        outline: none;
+
+        &--medium {
+            width: var(--ids-modal-width-medium, 100%);
+        }
+
+        &--large {
+            width: var(--ids-modal-width-large, 100%);
+        }
+
+        &--xlarge {
+            width: var(--ids-modal-width-xlarge, 100%);
+        }
+    }
+
+    .ids-modal__header {
+        display: flex;
+        position: relative;
+        flex-direction: var(--ids-modal-header-direction, initial);
+        justify-content: flex-end;
+        align-items: var(--ids-modal-header-alignment);
+        padding: 0;
+        border-bottom: var(--ids-modal-header-border);
+        min-height: var(--ids-modal-header-height);
+
+        .ids-modal--with-title &,
+        .ids-modal--closable & {
+            padding: var(--ids-modal-header-padding);
+        }
+
+        .ids-modal--full-content & {
+            @media (width >= #{tokens.$breakpoints-sm}) {
+                --ids-modal-header-padding: #{tokens.$space-0};
+            }
+        }
+
+        &--with-back-btn,
+        .ids-modal:not(.ids-modal--closable, .ids-modal--dismissable) & {
+            --ids-modal-header-before-display: none;
+        }
+
+        &::before {
+            content: '';
+            display: var(--ids-modal-header-before-display);
+            min-width: var(--ids-modal-header-width);
+        }
+
+        .ids-modal__back {
+            margin: var(--ids-modal-back-margin);
+
+            @media (width >= #{tokens.$breakpoints-sm}) {
+                display: none;
+            }
+        }
+    }
+
+    .ids-modal__title {
+        flex: 1 1 100%;
+        text-align: var(--ids-modal-header-title-alignment);
+        font-family: var(--ids-modal-header-font-family);
+        font-size: var(--ids-modal-header-font-size);
+        font-weight: var(--ids-modal-header-font-weight);
+        line-height: var(--ids-modal-header-line-height);
+        margin: 0;
+
+        .ids-modal--full-content & {
+            display: var(--ids-modal-full-content-display);
+        }
+
+        .ids-modal--closable & {
+            padding-right: var(--ids-modal-close-padding);
+        }
+    }
+
+    .ids-modal__close {
+        align-self: var(--ids-modal-close-align, initial);
+        display: none;
+        top: var(--ids-modal-close-margin);
+        right: var(--ids-modal-close-margin);
+
+        .ids-modal & {
+            position: absolute;
+        }
+
+        .ids-modal--full-content & {
+            @media (width >= #{tokens.$breakpoints-sm}) {
+                right: var(--ids-modal-full-content-close-spacing-horizontal);
+                top: var(--ids-modal-full-content-close-spacing-vertical);
+            }
+        }
+
+        .ids-modal--dismissable & {
+            display: var(--ids-modal-header-close-display);
+        }
+
+        .ids-modal--closable & {
+            display: flex;
+        }
+    }
+
+    .ids-modal__content {
+        padding: var(--ids-modal-padding);
+
+        .ids-modal--with-title &,
+        .ids-modal--closable & {
+            padding: var(--ids-modal-padding-with-header);
+        }
+
+        .ids-modal--full-content & {
+            padding: var(--ids-modal-padding-full-content);
+        }
+    }
+
+    .ids-modal__footer {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin: var(--ids-modal-footer-margin);
+    }
+
+    .ids-modal__footer-action {
+        flex: 1 1 100%;
+        margin: var(--ids-modal-footer-action-margin);
+
+        @media (width >= #{tokens.$breakpoints-sm}) {
+            flex: 0 0 auto;
+        }
     }
 }

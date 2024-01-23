@@ -1,137 +1,139 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-  /* Default */
-  --ids-link-font-family: #{tokens.$primary-font-family};
-  --ids-link-font-size: #{tokens.$font-size-4};
-  --ids-link-font-size-small: #{tokens.$font-size-3};
-  --ids-link-font-size-xsmall: #{tokens.$font-size-2};
-  --ids-link-font-weight: #{tokens.$font-weight-medium};
-  --ids-link-icon-color: currentcolor;
-  --ids-link-icon-margin: #{tokens.$space-1};
-  --ids-link-icon-padding-top: 0.2rem;
-  --ids-link-focus: #{tokens.$focus};
-  --ids-link-border-radius: #{tokens.$border-radius-sm};
+@layer igloo {
+    :root {
+      /* Default */
+      --ids-link-font-family: #{tokens.$primary-font-family};
+      --ids-link-font-size: #{tokens.$font-size-4};
+      --ids-link-font-size-small: #{tokens.$font-size-3};
+      --ids-link-font-size-xsmall: #{tokens.$font-size-2};
+      --ids-link-font-weight: #{tokens.$font-weight-medium};
+      --ids-link-icon-color: currentcolor;
+      --ids-link-icon-margin: #{tokens.$space-1};
+      --ids-link-icon-padding-top: 0.2rem;
+      --ids-link-focus: #{tokens.$focus};
+      --ids-link-border-radius: #{tokens.$border-radius-sm};
 
-  /* Primary */
-  --ids-link-text-primary: #{tokens.$electric-blue-500};
-  --ids-link-text-primary-hover: #{tokens.$electric-blue-600};
+      /* Primary */
+      --ids-link-text-primary: #{tokens.$electric-blue-500};
+      --ids-link-text-primary-hover: #{tokens.$electric-blue-600};
 
-  /* Secondary */
-  --ids-link-text-secondary: #{tokens.$grey-600};
-  --ids-link-text-secondary-hover: #{tokens.$grey-700};
+      /* Secondary */
+      --ids-link-text-secondary: #{tokens.$grey-600};
+      --ids-link-text-secondary-hover: #{tokens.$grey-700};
 
-  /* Danger */
-  --ids-link-text-danger: #{tokens.$coral-500};
-  --ids-link-text-danger-hover: #{tokens.$coral-600};
-}
+      /* Danger */
+      --ids-link-text-danger: #{tokens.$coral-500};
+      --ids-link-text-danger-hover: #{tokens.$coral-600};
+    }
 
-[data-brand="workleap"] {
-  /* Default */
-  --ids-link-font-family: var(--hop-body-sm-medium-font-family);
-  --ids-link-font-size: var(--hop-body-md-medium-font-size);
-  --ids-link-font-size-small: var(--hop-body-sm-medium-font-size);
-  --ids-link-font-size-xsmall: var(--hop-body-xs-medium-font-size);
-  --ids-link-font-weight: var(--hop-body-sm-medium-font-weight);
-  --ids-link-icon-color: currentcolor;
-  --ids-link-icon-margin: var(--hop-space-inline-xs);
-  --ids-link-icon-padding-top: 0.12rem;
-  --ids-link-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
-  --ids-link-border-radius: var(--hop-shape-rounded-md);
+    [data-brand="workleap"] {
+      /* Default */
+      --ids-link-font-family: var(--hop-body-sm-medium-font-family);
+      --ids-link-font-size: var(--hop-body-md-medium-font-size);
+      --ids-link-font-size-small: var(--hop-body-sm-medium-font-size);
+      --ids-link-font-size-xsmall: var(--hop-body-xs-medium-font-size);
+      --ids-link-font-weight: var(--hop-body-sm-medium-font-weight);
+      --ids-link-icon-color: currentcolor;
+      --ids-link-icon-margin: var(--hop-space-inline-xs);
+      --ids-link-icon-padding-top: 0.12rem;
+      --ids-link-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+      --ids-link-border-radius: var(--hop-shape-rounded-md);
 
-  /* Primary */
-  --ids-link-text-primary: var(--hop-primary-text);
-  --ids-link-text-primary-hover: var(--hop-primary-text-hover);
+      /* Primary */
+      --ids-link-text-primary: var(--hop-primary-text);
+      --ids-link-text-primary-hover: var(--hop-primary-text-hover);
 
-  /* Secondary */
-  --ids-link-text-secondary: var(--hop-neutral-text);
-  --ids-link-text-secondary-hover: var(--hop-neutral-text-hover);
+      /* Secondary */
+      --ids-link-text-secondary: var(--hop-neutral-text);
+      --ids-link-text-secondary-hover: var(--hop-neutral-text-hover);
 
-  /* Danger */
-  --ids-link-text-danger: var(--hop-danger-text-weak);
-  --ids-link-text-danger-hover: var(--hop-danger-text-hover);
-}
+      /* Danger */
+      --ids-link-text-danger: var(--hop-danger-text-weak);
+      --ids-link-text-danger-hover: var(--hop-danger-text-hover);
+    }
 
-.ids-link {
-  font-family: var(--ids-link-font-family);
-  font-size: var(--ids-link-font-size);
-  font-weight: var(--ids-link-font-weight);
-  text-decoration: none;
-  color: var(--ids-link-text-primary);
-  outline: 0;
+    .ids-link {
+      font-family: var(--ids-link-font-family);
+      font-size: var(--ids-link-font-size);
+      font-weight: var(--ids-link-font-weight);
+      text-decoration: none;
+      color: var(--ids-link-text-primary);
+      outline: 0;
 
-  &:focus,
-  &.focus,
-  &:hover {
-    cursor: pointer;
-    color: var(--ids-link-text-primary-hover);
-  }
+      &:focus,
+      &.focus,
+      &:hover {
+        cursor: pointer;
+        color: var(--ids-link-text-primary-hover);
+      }
 
-  &:focus,
-  &.focus {
-    border-radius: var(--ids-link-border-radius);
-    box-shadow: var(--ids-link-focus);
-  }
+      &:focus,
+      &.focus {
+        border-radius: var(--ids-link-border-radius);
+        box-shadow: var(--ids-link-focus);
+      }
 
-  &:focus:not(:focus-visible) {
-    border-radius: none;
-    box-shadow: none;
-  }
+      &:focus:not(:focus-visible) {
+        border-radius: none;
+        box-shadow: none;
+      }
 
-  &--small {
-    font-size: var(--ids-link-font-size-small);
-  }
+      &--small {
+        font-size: var(--ids-link-font-size-small);
+      }
 
-  &--xsmall {
-    font-size: var(--ids-link-font-size-xsmall);
-  }
+      &--xsmall {
+        font-size: var(--ids-link-font-size-xsmall);
+      }
 
-  &--underline {
-    text-decoration: underline;
-  }
+      &--underline {
+        text-decoration: underline;
+      }
 
-  &.has-icon {
-    display: inline-flex;
-    align-items: flex-start;
-  }
+      &.has-icon {
+        display: inline-flex;
+        align-items: flex-start;
+      }
 
-  &.has-icon .ids-icon {
-    color: var(--ids-link-icon-color);
-    flex-shrink: 0;
-    padding-top: var(--ids-link-icon-padding-top);
-  }
+      &.has-icon .ids-icon {
+        color: var(--ids-link-icon-color);
+        flex-shrink: 0;
+        padding-top: var(--ids-link-icon-padding-top);
+      }
 
-  &.has-icon--leading .ids-icon {
-    margin-right: var(--ids-link-icon-margin);
-  }
+      &.has-icon--leading .ids-icon {
+        margin-right: var(--ids-link-icon-margin);
+      }
 
-  &.has-icon--trailing .ids-icon {
-    margin-left: var(--ids-link-icon-margin);
-  }
-}
+      &.has-icon--trailing .ids-icon {
+        margin-left: var(--ids-link-icon-margin);
+      }
+    }
 
-.ids-link--secondary {
-  color: var(--ids-link-text-secondary);
+    .ids-link--secondary {
+      color: var(--ids-link-text-secondary);
 
-  &:focus,
-  &.focus,
-  &:hover {
-    cursor: pointer;
-    color: var(--ids-link-text-secondary-hover);
-  }
-}
+      &:focus,
+      &.focus,
+      &:hover {
+        cursor: pointer;
+        color: var(--ids-link-text-secondary-hover);
+      }
+    }
 
-.ids-link--danger {
-  color: var(--ids-link-text-danger);
+    .ids-link--danger {
+      color: var(--ids-link-text-danger);
 
-  &:focus,
-  &.focus,
-  &:hover {
-    cursor: pointer;
-    color: var(--ids-link-text-danger-hover);
-  }
+      &:focus,
+      &.focus,
+      &:hover {
+        cursor: pointer;
+        color: var(--ids-link-text-danger-hover);
+      }
+    }
 }

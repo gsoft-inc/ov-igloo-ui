@@ -1,21 +1,23 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-  /* Default */
-  --ids-action-menu-font-family: #{tokens.$primary-font-family};
-  --ids-action-menu-font-size: #{tokens.$font-size-4};
-}
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-action-menu-font-family: #{tokens.$primary-font-family};
+        --ids-action-menu-font-size: #{tokens.$font-size-4};
+    }
 
-[data-brand="workleap"] {
-  --ids-action-menu-font-family: var(--hop-body-sm-font-family);
-  --ids-action-menu-font-size: var(--hop-body-sm-font-size);
-}
+    [data-brand="workleap"] {
+        --ids-action-menu-font-family: var(--hop-body-sm-font-family);
+        --ids-action-menu-font-size: var(--hop-body-sm-font-size);
+    }
 
-.ids-action-menu {
-  font-family: var(--ids-action-menu-font-family);
-  font-size: var(--ids-action-menu-font-size);
+    .ids-action-menu {
+        font-family: var(--ids-action-menu-font-family);
+        font-size: var(--ids-action-menu-font-size);
+    }
 }

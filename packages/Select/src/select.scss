@@ -1,158 +1,160 @@
 @use "~@igloo-ui/tokens/dist/base10/variables" as tokens;
 @use "~@igloo-ui/tokens/dist/fonts";
 
-@import url("~@hopper-ui/tokens/fonts.css");
-@import url("~@hopper-ui/tokens/tokens.css");
+@import url("~@hopper-ui/tokens/fonts.css") layer(hopper-design-system);
+@import url("~@hopper-ui/tokens/tokens.css") layer(hopper-design-system);
 
-:root {
-    /* Default */
-    --ids-select-font-family: #{tokens.$primary-font-family};
-    --ids-select-font-size: #{tokens.$font-size-4};
-    --ids-select-font-weight: #{tokens.$font-weight-regular};
-    --ids-select-line-height: #{tokens.$space-4};
-    --ids-select-color: #{tokens.$grey-800};
-    --ids-select-background: #{tokens.$samoyed};
-    --ids-select-border-color: #{tokens.$grey-300};
-    --ids-select-border-radius: #{tokens.$border-radius-sm};
-    --ids-select-number-of-option-to-display: 4;
-    --ids-select-border-width: 0.1rem;
+@layer igloo {
+    :root {
+        /* Default */
+        --ids-select-font-family: #{tokens.$primary-font-family};
+        --ids-select-font-size: #{tokens.$font-size-4};
+        --ids-select-font-weight: #{tokens.$font-weight-regular};
+        --ids-select-line-height: #{tokens.$space-4};
+        --ids-select-color: #{tokens.$grey-800};
+        --ids-select-background: #{tokens.$samoyed};
+        --ids-select-border-color: #{tokens.$grey-300};
+        --ids-select-border-radius: #{tokens.$border-radius-sm};
+        --ids-select-number-of-option-to-display: 4;
+        --ids-select-border-width: 0.1rem;
 
-    /* Compact */
-    --ids-select-font-size-compact: #{tokens.$font-size-3};
-    --ids-select-line-height-compact: #{tokens.$line-height-xxl};
+        /* Compact */
+        --ids-select-font-size-compact: #{tokens.$font-size-3};
+        --ids-select-line-height-compact: #{tokens.$line-height-xxl};
 
-    /* Hover */
-    --ids-select-background-color-hover: #{tokens.$samoyed};
-    --ids-select-border-color-hover: #{tokens.$grey-600};
+        /* Hover */
+        --ids-select-background-color-hover: #{tokens.$samoyed};
+        --ids-select-border-color-hover: #{tokens.$grey-600};
 
-    /* Active */
-    --ids-select-background-active: #{tokens.$samoyed};
-    --ids-select-border-color-active: #{tokens.$electric-blue-500};
+        /* Active */
+        --ids-select-background-active: #{tokens.$samoyed};
+        --ids-select-border-color-active: #{tokens.$electric-blue-500};
 
-    /* Focus */
-    --ids-select-border-color-focus: #{tokens.$electric-blue-500};
-    --ids-select-background-focus: #{tokens.$samoyed};
-    --ids-select-focus: none;
+        /* Focus */
+        --ids-select-border-color-focus: #{tokens.$electric-blue-500};
+        --ids-select-background-focus: #{tokens.$samoyed};
+        --ids-select-focus: none;
 
-    /* Disabled */
-    --ids-select-color-disabled: #{tokens.$grey-500};
-    --ids-select-background-disabled: #{tokens.$grey-200};
-    --ids-select-border-color-disabled: #{tokens.$grey-200};
+        /* Disabled */
+        --ids-select-color-disabled: #{tokens.$grey-500};
+        --ids-select-background-disabled: #{tokens.$grey-200};
+        --ids-select-border-color-disabled: #{tokens.$grey-200};
 
-    /* Error */
-    --ids-select-border-color-error: #{tokens.$coral-500};
-}
+        /* Error */
+        --ids-select-border-color-error: #{tokens.$coral-500};
+    }
 
-[data-brand="workleap"] {
-    /* Default */
-    --ids-select-font-family: var(--hop-body-md-font-family);
-    --ids-select-font-size: var(--hop-body-md-font-size);
-    --ids-select-font-weight: var(--hop-body-md-font-weight);
-    --ids-select-line-height: var(--hop-body-md-line-height);
-    --ids-select-color: var(--hop-neutral-text);
-    --ids-select-background: var(--hop-neutral-surface);
-    --ids-select-border-color: var(--hop-neutral-border);
-    --ids-select-border-radius: var(--hop-shape-rounded-md);
-    --ids-select-border-width: 0.0625rem;
+    [data-brand="workleap"] {
+        /* Default */
+        --ids-select-font-family: var(--hop-body-md-font-family);
+        --ids-select-font-size: var(--hop-body-md-font-size);
+        --ids-select-font-weight: var(--hop-body-md-font-weight);
+        --ids-select-line-height: var(--hop-body-md-line-height);
+        --ids-select-color: var(--hop-neutral-text);
+        --ids-select-background: var(--hop-neutral-surface);
+        --ids-select-border-color: var(--hop-neutral-border);
+        --ids-select-border-radius: var(--hop-shape-rounded-md);
+        --ids-select-border-width: 0.0625rem;
 
-    /* Compact */
-    --ids-select-font-size-compact: var(--hop-body-sm-font-size);
-    --ids-select-line-height-compact: var(--hop-body-sm-line-height);
+        /* Compact */
+        --ids-select-font-size-compact: var(--hop-body-sm-font-size);
+        --ids-select-line-height-compact: var(--hop-body-sm-line-height);
 
-    /* Hover */
-    --ids-select-background-hover: var(--hop-neutral-surface-hover);
-    --ids-select-border-color-hover: var(--hop-neutral-border-hover);
+        /* Hover */
+        --ids-select-background-hover: var(--hop-neutral-surface-hover);
+        --ids-select-border-color-hover: var(--hop-neutral-border-hover);
 
-    /* Active */
-    --ids-select-background-active: var(--hop-neutral-surface);
-    --ids-select-border-color-active: var(--hop-neutral-border-active);
+        /* Active */
+        --ids-select-background-active: var(--hop-neutral-surface);
+        --ids-select-border-color-active: var(--hop-neutral-border-active);
 
-    /* Focus */
-    --ids-select-background-focus: var(--hop-neutral-surface-hover);
-    --ids-select-border-color-focus: var(--hop-neutral-border-hover);
-    --ids-select-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);;
+        /* Focus */
+        --ids-select-background-focus: var(--hop-neutral-surface-hover);
+        --ids-select-border-color-focus: var(--hop-neutral-border-hover);
+        --ids-select-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);;
 
-    /* Disabled */
-    --ids-select-color-disabled: var(--hop-neutral-text-disabled);
-    --ids-select-background-disabled: var(--hop-neutral-surface-disabled);
-    --ids-select-border-color-disabled: var(--hop-neutral-border-disabled);
+        /* Disabled */
+        --ids-select-color-disabled: var(--hop-neutral-text-disabled);
+        --ids-select-background-disabled: var(--hop-neutral-surface-disabled);
+        --ids-select-border-color-disabled: var(--hop-neutral-border-disabled);
 
-    /* Error */
-    --ids-select-border-color-error: var(--hop-danger-text-weak);
-}
+        /* Error */
+        --ids-select-border-color-error: var(--hop-danger-text-weak);
+    }
 
-.ids-select {
-    color: var(--ids-select-color);
-    font-size: var(--ids-select-font-size);
-    font-family: var(--ids-select-font-family);
-    font-weight: var(--ids-select-font-weight);
-    line-height: var(--ids-select-line-height);
-    width: 100%;
-    padding: 0;
-    position: relative;
-    background-color: var(--ids-select-background);
-    border: var(--ids-select-border-width) solid var(--ids-select-border-color);
-    border-radius: var(--ids-select-border-radius);
-    outline: none;
-    box-sizing: border-box;
-    transition: border-color .2s ease 0s;
-    cursor: pointer;
-    user-select: none;
-
-    &__dropdown {
+    .ids-select {
+        color: var(--ids-select-color);
+        font-size: var(--ids-select-font-size);
+        font-family: var(--ids-select-font-family);
+        font-weight: var(--ids-select-font-weight);
+        line-height: var(--ids-select-line-height);
+        width: 100%;
+        padding: 0;
+        position: relative;
+        background-color: var(--ids-select-background);
+        border: var(--ids-select-border-width) solid var(--ids-select-border-color);
+        border-radius: var(--ids-select-border-radius);
         outline: none;
-    }
-
-    &,
-    & * {
         box-sizing: border-box;
-    }
+        transition: border-color .2s ease 0s;
+        cursor: pointer;
+        user-select: none;
 
-    &:hover {
-        background: var(--ids-select-background-hover);
-        border-color: var(--ids-select-border-color-hover);
-    }
+        &__dropdown {
+            outline: none;
+        }
 
-    &:focus {
-        box-shadow: none;
-    }
+        &,
+        & * {
+            box-sizing: border-box;
+        }
 
-    &:focus-visible,
-    &.focus {
-        background-color: var(--ids-select-background-focus);
-        box-shadow: var(--ids-select-focus);
-        border-color: var(--ids-select-border-color-focus);
-    }
+        &:hover {
+            background: var(--ids-select-background-hover);
+            border-color: var(--ids-select-border-color-hover);
+        }
 
-    &--active,
-    &.active {
-        background-color: var(--ids-select-background-active);
-        border-color: var(--ids-select-border-color-active);
+        &:focus {
+            box-shadow: none;
+        }
 
         &:focus-visible,
         &.focus {
+            background-color: var(--ids-select-background-focus);
+            box-shadow: var(--ids-select-focus);
+            border-color: var(--ids-select-border-color-focus);
+        }
+
+        &--active,
+        &.active {
             background-color: var(--ids-select-background-active);
             border-color: var(--ids-select-border-color-active);
-            box-shadow: none;
+
+            &:focus-visible,
+            &.focus {
+                background-color: var(--ids-select-background-active);
+                border-color: var(--ids-select-border-color-active);
+                box-shadow: none;
+            }
         }
-    }
 
-    &.ids-select--disabled,
-    &.ids-select--disabled:focus-visible
-    &.ids-select--disabled:focus {
-        color: var(--ids-select-color-disabled);
-        background-color: var(--ids-select-background-disabled);
-        border-color: var(--ids-select-border-color-disabled);
-        box-shadow: none;
-        cursor: not-allowed;
-
-        &:hover {
-            border-color: var(--ids-select-border-color-disabled);
+        &.ids-select--disabled,
+        &.ids-select--disabled:focus-visible
+        &.ids-select--disabled:focus {
+            color: var(--ids-select-color-disabled);
             background-color: var(--ids-select-background-disabled);
-        }
-    }
+            border-color: var(--ids-select-border-color-disabled);
+            box-shadow: none;
+            cursor: not-allowed;
 
-    &--error {
-        border-color: var(--ids-select-border-color-error);
+            &:hover {
+                border-color: var(--ids-select-border-color-disabled);
+                background-color: var(--ids-select-background-disabled);
+            }
+        }
+
+        &--error {
+            border-color: var(--ids-select-border-color-error);
+        }
     }
 }

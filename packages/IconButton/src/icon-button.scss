@@ -1,89 +1,92 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
-@import url('~@hopper-ui/tokens/fonts.css');
-@import url('~@hopper-ui/tokens/tokens.css');
+@import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
+@import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
-:root {
-  /* Default */
-  --ids-icon-btn-height: #{tokens.$space-5};
-  --ids-icon-btn-width: #{tokens.$space-5};
+@layer igloo {
+    :root {
+      /* Default */
+      --ids-icon-btn-height: #{tokens.$space-5};
+      --ids-icon-btn-width: #{tokens.$space-5};
 
-  /* XSmall */
-  --ids-icon-btn-height-xsmall: #{tokens.$space-3};
-  --ids-icon-btn-width-xsmall: #{tokens.$space-3};
+      /* XSmall */
+      --ids-icon-btn-height-xsmall: #{tokens.$space-3};
+      --ids-icon-btn-width-xsmall: #{tokens.$space-3};
 
-  /* Small */
-  --ids-icon-btn-height-small: #{tokens.$space-4};
-  --ids-icon-btn-width-small: #{tokens.$space-4};
+      /* Small */
+      --ids-icon-btn-height-small: #{tokens.$space-4};
+      --ids-icon-btn-width-small: #{tokens.$space-4};
 
-  /* Large */
-  --ids-icon-btn-height-large: #{tokens.$space-6};
-  --ids-icon-btn-width-large: #{tokens.$space-6};
-}
-
-[data-brand="workleap"] {
-  /* Default */
-  --ids-icon-btn-height: 2rem;
-  --ids-icon-btn-width: 2rem;
-
-  /* XSmall */
-  --ids-icon-btn-height-xsmall: 1rem;
-  --ids-icon-btn-width-xsmall: 1rem;
-
-  /* Small */
-  --ids-icon-btn-height-small: 1.5rem;
-  --ids-icon-btn-width-small: 1.5rem;
-
-  /* Large */
-  --ids-icon-btn-height-large: 2.5rem;
-  --ids-icon-btn-width-large: 2.5rem;
-}
-
-.ids-icon-btn {
-  @at-root .ids-btn#{&} {
-    width: var(--ids-icon-btn-width);
-    height: var(--ids-icon-btn-height);
-    padding: 0;
-
-    svg {
-      display: block;
+      /* Large */
+      --ids-icon-btn-height-large: #{tokens.$space-6};
+      --ids-icon-btn-width-large: #{tokens.$space-6};
     }
 
-    &--xsmall {
-      width: var(--ids-icon-btn-width-xsmall);
-      height: var(--ids-icon-btn-height-xsmall);
+    [data-brand="workleap"] {
+      /* Default */
+      --ids-icon-btn-height: 2rem;
+      --ids-icon-btn-width: 2rem;
+
+      /* XSmall */
+      --ids-icon-btn-height-xsmall: 1rem;
+      --ids-icon-btn-width-xsmall: 1rem;
+
+      /* Small */
+      --ids-icon-btn-height-small: 1.5rem;
+      --ids-icon-btn-width-small: 1.5rem;
+
+      /* Large */
+      --ids-icon-btn-height-large: 2.5rem;
+      --ids-icon-btn-width-large: 2.5rem;
     }
 
-    &--small {
-      width: var(--ids-icon-btn-width-small);
-      height: var(--ids-icon-btn-height-small);
-    }
+    .ids-icon-btn {
+      @at-root .ids-btn#{&} {
+        width: var(--ids-icon-btn-width);
+        height: var(--ids-icon-btn-height);
+        padding: 0;
 
-    &--large {
-      width: var(--ids-icon-btn-width-large);
-      height: var(--ids-icon-btn-height-large);
-    }
+        svg {
+          display: block;
+        }
 
-    &--round {
-      border-radius: 50%;
-    }
+        &--xsmall {
+          width: var(--ids-icon-btn-width-xsmall);
+          height: var(--ids-icon-btn-height-xsmall);
+        }
 
-    &--round:focus::after {
-      border-radius: 50%;
-    }
-  }
+        &--small {
+          width: var(--ids-icon-btn-width-small);
+          height: var(--ids-icon-btn-height-small);
+        }
 
-  &.ids-btn {
-    > span {
-      /* stylelint-disable-next-line unit-allowed-list */
-      margin: -1px; // Since there is a 1px border for ids-btn
-    }
-  }
+        &--large {
+          width: var(--ids-icon-btn-width-large);
+          height: var(--ids-icon-btn-height-large);
+        }
 
-  &.ids-btn.ids-btn--ghost,
-  &.ids-btn.ids-btn--ghost-danger,
-  &.ids-btn.ids-btn--ghost-secondary {
-    padding: 0;
-  }
+        &--round {
+          border-radius: 50%;
+        }
+
+        &--round:focus::after {
+          border-radius: 50%;
+        }
+      }
+
+      &.ids-btn {
+        > span {
+          /* stylelint-disable-next-line unit-allowed-list */
+          margin: -1px; // Since there is a 1px border for ids-btn
+          display: flex;
+        }
+      }
+
+      &.ids-btn.ids-btn--ghost,
+      &.ids-btn.ids-btn--ghost-danger,
+      &.ids-btn.ids-btn--ghost-secondary {
+        padding: 0;
+      }
+    }
 }
