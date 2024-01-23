@@ -1,5 +1,16 @@
 # @igloo-ui/popover
 
+## 0.5.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
+### Patch Changes
+
+- Updated dependencies [4846c59]
+  - @igloo-ui/icon-button@1.2.0
+
 ## 0.4.4
 
 ### Patch Changes

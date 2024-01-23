@@ -1,5 +1,11 @@
 # @igloo-ui/color
 
+## 0.4.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
 ## 0.3.3
 
 ### Patch Changes

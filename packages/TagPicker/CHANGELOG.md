@@ -1,5 +1,18 @@
 # @igloo-ui/tag-picker
 
+## 0.8.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
+### Patch Changes
+
+- Updated dependencies [4846c59]
+  - @igloo-ui/dropdown@1.8.0
+  - @igloo-ui/input@2.2.0
+  - @igloo-ui/tag@1.3.0
+
 ## 0.7.0
 
 ### Minor Changes

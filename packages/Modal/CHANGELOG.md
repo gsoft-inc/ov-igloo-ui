@@ -1,5 +1,17 @@
 # @igloo-ui/modal
 
+## 1.6.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
+### Patch Changes
+
+- Updated dependencies [4846c59]
+  - @igloo-ui/carousel@0.3.0
+  - @igloo-ui/icon-button@1.2.0
+
 ## 1.5.4
 
 ### Patch Changes

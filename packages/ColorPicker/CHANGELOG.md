@@ -1,5 +1,17 @@
 # @igloo-ui/color-picker
 
+## 0.3.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
+### Patch Changes
+
+- Updated dependencies [4846c59]
+  - @igloo-ui/color@0.4.0
+  - @igloo-ui/dropdown@1.8.0
+
 ## 0.2.4
 
 ### Patch Changes

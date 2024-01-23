@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/list",
-  "version": "0.5.5",
+  "version": "0.6.0",
   "main": "dist/List.js",
   "module": "dist/List.js",
   "types": "dist/List.d.ts",
@@ -24,7 +24,7 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/checkbox": "^0.2.7",
+    "@igloo-ui/checkbox": "^0.3.0",
     "@igloo-ui/icons": "^1.12.2",
     "@igloo-ui/tokens": "^2.0.0",
     "@hopper-ui/tokens": "^3.1.3",
@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@shared/components": "0.2.0",
-    "@igloo-ui/button": "^0.7.7"
+    "@igloo-ui/button": "^0.8.0"
   },
   "browserslist": [
     "> 1%",

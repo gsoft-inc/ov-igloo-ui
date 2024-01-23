@@ -1,5 +1,16 @@
 # @igloo-ui/list
 
+## 0.6.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
+### Patch Changes
+
+- Updated dependencies [4846c59]
+  - @igloo-ui/checkbox@0.3.0
+
 ## 0.5.5
 
 ### Patch Changes

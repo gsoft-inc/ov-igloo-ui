@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.2.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
 ## 1.1.4
 
 ### Patch Changes

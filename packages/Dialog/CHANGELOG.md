@@ -1,5 +1,17 @@
 # @igloo-ui/dialog
 
+## 0.8.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
+### Patch Changes
+
+- Updated dependencies [4846c59]
+  - @igloo-ui/button@0.8.0
+  - @igloo-ui/modal@1.6.0
+
 ## 0.7.4
 
 ### Patch Changes

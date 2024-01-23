@@ -1,5 +1,16 @@
 # @igloo-ui/stacked-bar
 
+## 0.3.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
+### Patch Changes
+
+- Updated dependencies [4846c59]
+  - @igloo-ui/popover@0.5.0
+
 ## 0.2.4
 
 ### Patch Changes

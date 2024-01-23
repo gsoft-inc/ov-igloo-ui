@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.2.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
 ## 2.1.8
 
 ### Patch Changes

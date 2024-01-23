@@ -1,5 +1,18 @@
 # @igloo-ui/datepicker
 
+## 0.6.0
+
+### Minor Changes
+
+- 4846c59: Wrapped Igloo CSS in @layer to isolate it.
+
+### Patch Changes
+
+- Updated dependencies [4846c59]
+  - @igloo-ui/button@0.8.0
+  - @igloo-ui/dropdown@1.8.0
+  - @igloo-ui/icon-button@1.2.0
+
 ## 0.5.6
 
 ### Patch Changes
