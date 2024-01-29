@@ -16,7 +16,6 @@ import {
 
 import IconButton from "@igloo-ui/icon-button";
 import { AngleLeftIcon, DismissIcon } from "@hopper-ui/icons-react16";
-import ChevronLeft from "@igloo-ui/icons/dist/ChevronLeft";
 import Carousel from "@igloo-ui/carousel";
 
 import "./modal.scss";
