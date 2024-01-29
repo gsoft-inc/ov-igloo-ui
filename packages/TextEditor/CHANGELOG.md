@@ -1,5 +1,11 @@
 # @igloo-ui/text-editor
 
+## 0.7.1
+
+### Patch Changes
+
+- e31f263: Upgrade Lexical
+
 ## 0.7.0
 
 ### Minor Changes
