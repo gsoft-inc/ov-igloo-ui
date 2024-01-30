@@ -257,10 +257,6 @@
         display: none;
     }
 
-    .ids-input::placeholder {
-        color: var(--ids-input-color-placeholder);
-    }
-
     .ids-input::-webkit-inner-spin-button,
     .input::-webkit-outer-spin-button {
         margin: 0;
@@ -306,4 +302,9 @@
         border-color: var(--ids-input-border-color-disabled);
         box-shadow: none;
     }
+}
+
+// A bug in Chromium-based browsers causes the user agent placeholder color take precedence over the custom placeholder color when in a layer declaration.
+.ids-input::placeholder {
+    color: var(--ids-input-color-placeholder);
 }

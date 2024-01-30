@@ -112,10 +112,6 @@
                 scroll-padding-bottom: var(--ids-textarea-char-indicator-padding-bottom);
             }
 
-            &::placeholder {
-                color: var(--ids-textarea-color-placeholder);
-            }
-
             &:focus,
             .ids-textarea--focus & {
                 border-color: var(--ids-textarea-focus-border-color);
@@ -159,4 +155,8 @@
             right: var(--ids-textarea-char-indicator-right);
         }
     }
+}
+
+.ids-textarea__field::placeholder {
+    color: var(--ids-textarea-color-placeholder);;
 }
