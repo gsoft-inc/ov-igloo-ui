@@ -1,5 +1,13 @@
 # @igloo-ui/dialog
 
+## 0.8.1
+
+### Patch Changes
+
+- 37822b2: Fixed the style of the modal and Dialog headers and the spacing of the close button.
+- Updated dependencies [37822b2]
+  - @igloo-ui/modal@1.6.1
+
 ## 0.8.0
 
 ### Minor Changes
