@@ -14,7 +14,7 @@ module.exports = {
         "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
         "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
     },
-    preset: "ts-jest/presets/js-with-ts",
+    preset: "ts-jest/presets/js-with-babel",
     transformIgnorePatterns: [
         "node_modules/(?!(@igloo-ui/*|@react-hook/*|@hopper-ui/*)/)"
     ]
