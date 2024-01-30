@@ -3,14 +3,21 @@ import classNames from "classnames";
 
 import Button, { type Appearance as ButtonAppearance } from "@igloo-ui/button";
 import IconButton from "@igloo-ui/icon-button";
-import Close from "@igloo-ui/icons/dist/Close";
+import { DismissIcon } from "@hopper-ui/icons-react16";
 import {
-    TadaIcon,
     InfoIcon,
     CrownIcon,
     SuccessIcon,
     WarningIcon
 } from "./svgs";
+import {
+    TadaIcon as LegacyTadaIcon,
+    InfoIcon as LegacyInfoIcon,
+    CrownIcon as LegacyCrownIcon,
+    SuccessIcon as LegacySuccessIcon,
+    WarningIcon as LegacyWarningIcon
+} from "./legacy/svgs";
+import { useBrand } from "./hooks/useBrand";
 
 import "./alert.scss";
 
@@ -48,15 +55,12 @@ export interface AlertProps extends Omit<React.ComponentProps<"div">, "title"> {
     dataTest?: string;
 }
 
-const getBrand = (): string => {
-    return document.documentElement.getAttribute("data-brand") ?? "igloo";
-};
-
 const renderIcon = (
     style: Appearance,
     hasButton: boolean,
     type: Type,
-    icon?: React.ReactElement
+    icon?: React.ReactElement,
+    isWorkleap?: boolean
 ): JSX.Element => {
     const classes = classNames("ids-alert__icon", `ids-alert__icon--${style}`, {
         "ids-alert__icon--small-top": hasButton,
@@ -67,11 +71,11 @@ const renderIcon = (
         <div className={classes}>
             {icon || (
                 <>
-                    {type === "announcement" && <TadaIcon />}
-                    {type === "info" && <InfoIcon />}
-                    {type === "premium" && <CrownIcon />}
-                    {type === "success" && <SuccessIcon />}
-                    {type === "warning" && <WarningIcon />}
+                    {type === "announcement" && (isWorkleap ? <InfoIcon /> : <LegacyTadaIcon />)}
+                    {type === "info" && (isWorkleap ? <InfoIcon /> : <LegacyInfoIcon />)}
+                    {type === "premium" && (isWorkleap ? <CrownIcon /> : <LegacyCrownIcon />)}
+                    {type === "success" && (isWorkleap ? <SuccessIcon /> : <LegacySuccessIcon />)}
+                    {type === "warning" && (isWorkleap ? <WarningIcon /> : <LegacyWarningIcon />)}
                 </>
             )}
         </div>
@@ -96,8 +100,8 @@ const renderDismissButton = (
             appearance={{ type: "ghost", variant: "secondary" }}
             className="ids-alert__dismiss-btn"
             type="button"
-            size="medium"
-            icon={<Close size="medium" />}
+            size="xsmall"
+            icon={<DismissIcon size="sm" />}
             onClick={action}
         />
     );
@@ -105,13 +109,14 @@ const renderDismissButton = (
 
 const renderAlertActionButton = (
     style: Appearance,
-    button?: AlertButton
+    button?: AlertButton,
+    isWorkleap?: boolean
 ): JSX.Element => {
     if (button == null || button.onClick == null || button.label == null) {
         return <></>;
     }
 
-    const ghostAppearance = getBrand() === "workleap" ? 
+    const ghostAppearance = isWorkleap ? 
         { type: "ghost", variant: "secondary" } as ButtonAppearance : 
         "ghost";
 
@@ -152,7 +157,8 @@ const Alert: React.FunctionComponent<AlertProps> = ({
     const [show, setShow] = React.useState(true);
     const hasButton = button !== undefined;
     const isHorizontal = appearance === "horizontal";
-    const canBeClose = closable && !isHorizontal;
+    const canBeClosed = closable && !isHorizontal;
+    const isWorkleap = useBrand();
 
     if (show) {
         return (
@@ -164,7 +170,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
             >
                 {icon !== null &&
           !isHorizontal &&
-          renderIcon(appearance, hasButton, type, icon)}
+          renderIcon(appearance, hasButton, type, icon, isWorkleap)}
 
                 <div className="ids-alert__body">
                     <div className="ids-alert__header">
@@ -172,10 +178,10 @@ const Alert: React.FunctionComponent<AlertProps> = ({
                         <p className="ids-alert__metadata">{metadata}</p>
                     </div>
                     {!isHorizontal && <div className="ids-alert__content">{message}</div>}
-                    {hasButton && renderAlertActionButton(appearance, button)}
+                    {hasButton && renderAlertActionButton(appearance, button, isWorkleap)}
                 </div>
 
-                {canBeClose && renderDismissButton(parentElement, setShow, onClose)}
+                {canBeClosed && renderDismissButton(parentElement, setShow, onClose)}
             </div>
         );
     }
