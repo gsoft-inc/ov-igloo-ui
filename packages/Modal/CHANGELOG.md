@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.6.1
+
+### Patch Changes
+
+- 37822b2: Fixed the style of the modal and Dialog headers and the spacing of the close button.
+
 ## 1.6.0
 
 ### Minor Changes
