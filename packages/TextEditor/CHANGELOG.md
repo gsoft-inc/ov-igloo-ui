@@ -1,5 +1,11 @@
 # @igloo-ui/text-editor
 
+## 0.7.2
+
+### Patch Changes
+
+- 37822b2: Fixed a badly written import in the TextEditor.
+
 ## 0.7.1
 
 ### Patch Changes
