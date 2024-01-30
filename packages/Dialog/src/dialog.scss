@@ -26,6 +26,7 @@
         --ids-dialog-buttons-margin: #{tokens.$space-5} -#{tokens.$space-0} -#{tokens.$space-2};
         --ids-dialog-button-margin: #{tokens.$space-2} #{tokens.$space-0};
         --ids-dialog-button-width: #{tokens.$space-5};
+        --ids-dialog-button-min-width: 0;
     }
 
     [data-brand="workleap"] {
@@ -49,7 +50,8 @@
         --ids-dialog-close-padding-x: 0;
         --ids-dialog-buttons-margin: var(--hop-space-stack-xl) 0 calc(-1 * var(--hop-space-inset-sm));
         --ids-dialog-button-margin: var(--hop-space-stack-sm) 0;
-        --ids-dialog-button-width: 2rem;
+        --ids-dialog-button-width: fit-content;
+        --ids-dialog-button-min-width: 6rem;
     }
 
     /* stylelint-disable-next-line media-query-no-invalid */
@@ -160,6 +162,7 @@
         /* stylelint-disable-next-line media-query-no-invalid */
         @media (width >= #{tokens.$breakpoints-sm}) {
             flex: 1 1 var(--ids-dialog-button-width);
+            min-width: var(--ids-dialog-button-min-width);
         }
     }
 }
