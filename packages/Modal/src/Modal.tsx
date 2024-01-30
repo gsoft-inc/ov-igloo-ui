@@ -15,8 +15,7 @@ import {
 } from "react-aria";
 
 import IconButton from "@igloo-ui/icon-button";
-import Close from "@igloo-ui/icons/dist/Close";
-import ChevronLeft from "@igloo-ui/icons/dist/ChevronLeft";
+import { AngleLeftIcon, DismissIcon } from "@hopper-ui/icons-react16";
 import Carousel from "@igloo-ui/carousel";
 
 import "./modal.scss";
@@ -192,7 +191,6 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
                                 >
                                     {displayBackBtn ? (
                                         <IconButton
-                                            size="small"
                                             className="ids-modal__back"
                                             onClick={() => {
                                                 if (carousel && carousel.currentSlide) {
@@ -200,7 +198,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
                                                 }
                                             }}
                                             appearance={{ type: "ghost", variant: "secondary" }}
-                                            icon={<ChevronLeft size="medium" />}
+                                            icon={<AngleLeftIcon />}
                                         />
                                     ) : (
                                         <></>
@@ -209,12 +207,12 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
                                     {title && <h5 className="ids-modal__title">{title}</h5>}
 
                                     <IconButton
-                                        size="small"
+                                        size="medium"
                                         className="ids-modal__close"
                                         onClick={onClose}
                                         appearance={{ type: "ghost", variant: "secondary" }}
                                         aria-label={closeBtnAriaLabel}
-                                        icon={<Close />}
+                                        icon={<DismissIcon />}
                                     />
                                 </div>
                                 <div className="ids-modal__content">

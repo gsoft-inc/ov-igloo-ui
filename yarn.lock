@@ -2005,6 +2005,11 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
+"@hopper-ui/icons-react16@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@hopper-ui/icons-react16/-/icons-react16-1.1.1.tgz#76873ce9c47b8a22daa42f3827e124f349c63bf4"
+  integrity sha512-Fb5UOUeZ9VZMfOFujVLhh/sbZAWFaAfA8Jpsxoph9P5KfKSTdDujzb01nE+Km2lMkOM2cmXkonZfEy5mPxABBA==
+
 "@hopper-ui/tokens@^3.1.3":
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.1.3.tgz#2fe2a3dae7c64fe358d61937f0ab7e4ac657da90"

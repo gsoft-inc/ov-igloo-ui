@@ -4,6 +4,7 @@
 
 @import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
 @import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
+@import url("~@hopper-ui/icons-react16/index.css") layer(hopper-icons);
 
 @layer igloo {
     :root {
@@ -20,26 +21,29 @@
         --ids-modal-height: 100%;
         --ids-modal-width: 100%;
         --ids-modal-max-width: none;
-        --ids-modal-header-close-display: flex;
+        --ids-modal-header-dismissable-close-display: flex;
         --ids-modal-header-before-display: block;
+
+        .ids-modal__header--with-back-btn,
+        .ids-modal:not(.ids-modal--closable, .ids-modal--dismissable) {
+            --ids-modal-header-before-display: none;
+        }
+
         --ids-modal-header-border: .1rem solid #{tokens.$grey-200};
-        --ids-modal-header-width: calc(#{tokens.$space-3} + #{tokens.$space-4});
+        --ids-modal-header-gap: #{tokens.$space-3};
+        --ids-modal-header-icon-size: #{tokens.$space-5};
         --ids-modal-header-height: 5.6rem;
-        --ids-modal-header-alignment: center;
         --ids-modal-header-title-alignment: center;
         --ids-modal-header-font-family: #{tokens.$secondary-font-family};
         --ids-modal-header-font-size: #{tokens.$font-size-3};
         --ids-modal-header-font-weight: #{tokens.$font-weight-medium};
         --ids-modal-header-line-height: #{tokens.$line-height-lg};
         --ids-modal-header-padding: #{tokens.$space-0} #{tokens.$space-3};
-        --ids-modal-back-margin: #{tokens.$space-0} #{tokens.$space-3} #{tokens.$space-0} #{tokens.$space-0};
-        --ids-modal-close-margin: #{tokens.$space-0} #{tokens.$space-0} #{tokens.$space-0} #{tokens.$space-3};
-        --ids-modal-close-padding: 0;
         --ids-modal-overlay: rgb(25 34 47 / 50%);
         --ids-modal-overlay-index: #{tokens.$z-index-100};
         --ids-modal-full-content-display: block;
-        --ids-modal-full-content-close-spacing-horizontal: #{tokens.$space-2};
-        --ids-modal-full-content-close-spacing-vertical: #{tokens.$space-2};
+        --ids-modal-full-content-close-spacing-horizontal: #{tokens.$space-1};
+        --ids-modal-full-content-close-spacing-vertical: #{tokens.$space-1};
         --ids-modal-footer-margin: #{tokens.$space-2} -#{tokens.$space-2} -#{tokens.$space-2};
         --ids-modal-footer-action-margin: #{tokens.$space-2} #{tokens.$space-2};
     }
@@ -58,26 +62,30 @@
         --ids-modal-height: 100%;
         --ids-modal-width: 100%;
         --ids-modal-max-width: none;
-        --ids-modal-header-close-display: flex;
+        --ids-modal-header-dismissable-close-display: flex;
         --ids-modal-header-before-display: block;
+        
+        .ids-modal__header--with-back-btn,
+        .ids-modal:not(.ids-modal--closable, .ids-modal--dismissable) {
+            --ids-modal-header-before-display: none;
+        }
+
         --ids-modal-header-border: 0.0625rem solid var(--hop-neutral-border-weak);
         --ids-modal-header-width: 0;
-        --ids-modal-header-height: 3.5rem;
-        --ids-modal-header-alignment: center;
-        --ids-modal-header-title-alignment: left;
-        --ids-modal-header-font-family: var(--hop-heading-lg-font-family);
-        --ids-modal-header-font-size: var(--hop-heading-lg-font-size);
-        --ids-modal-header-font-weight: var(--hop-heading-lg-font-weight);
-        --ids-modal-header-line-height: var(--hop-heading-lg-line-height);
+        --ids-modal-header-height: 4rem;
+        --ids-modal-header-title-alignment: center;
+        --ids-modal-header-font-family: var(--hop-heading-xs-medium-font-family);
+        --ids-modal-header-font-size: var(--hop-heading-xs-medium-font-size);
+        --ids-modal-header-font-weight: var(--hop-heading-xs-medium-font-weight);
+        --ids-modal-header-line-height: var(--hop-heading-xs-medium-line-height);
         --ids-modal-header-padding: 0 var(--hop-space-inset-md);
-        --ids-modal-back-margin: 0 var(--hop-space-inline-sm) 0 0;
-        --ids-modal-close-margin: 0 0 0 var(--hop-space-inline-sm);
-        --ids-modal-close-padding: calc(1.5rem + var(--hop-space-inline-md));
+        --ids-modal-header-gap: var(--hop-space-inline-sm);
+        --ids-modal-header-icon-size: 2rem;
         --ids-modal-overlay: rgb(25 34 47 / 50%);
         --ids-modal-overlay-index: 100;
         --ids-modal-full-content-display: block;
-        --ids-modal-full-content-close-spacing-horizontal: var(--hop-space-inline-sm);
-        --ids-modal-full-content-close-spacing-vertical: var(--hop-space-stack-sm);
+        --ids-modal-full-content-close-spacing-horizontal: calc(var(--hop-space-inline-xs) + var(--hop-space-inline-sm));
+        --ids-modal-full-content-close-spacing-vertical: calc(var(--hop-space-stack-xs) + var(--hop-space-stack-sm));
         --ids-modal-footer-margin: var(--hop-space-stack-sm) calc(-1 * var(--hop-space-inline-sm)) calc(-1 * var(--hop-space-stack-sm));
         --ids-modal-footer-action-margin: var(--hop-space-stack-sm) var(--hop-space-inline-sm);
     }
@@ -96,17 +104,18 @@
             --ids-modal-left: 50%;
             --ids-modal-right: auto;
             --ids-modal-top: 50%;
-            --ids-modal-header-close-display: none;
-            --ids-modal-header-before-display: none;
-            --ids-modal-header-direction: column-reverse;
+            --ids-modal-header-dismissable-close-display: none;
+            --ids-modal-header-before-display: block;
+            
+            .ids-modal__header--with-back-btn {
+                --ids-modal-header-before-display: block; /* Display block since the back button in the header isn't displayed on desktop */
+            }
+
             --ids-modal-header-border: none;
             --ids-modal-header-height: auto;
-            --ids-modal-header-alignment: center;
             --ids-modal-header-font-size: #{tokens.$font-size-6};
             --ids-modal-header-padding: #{tokens.$space-4} #{tokens.$space-4} #{tokens.$space-2};
             --ids-modal-title-display: none;
-            --ids-modal-close-margin: -#{tokens.$space-2} -#{tokens.$space-2} #{tokens.$space-0} #{tokens.$space-0};
-            --ids-modal-close-align: flex-end;
             --ids-modal-padding: #{tokens.$space-4};
             --ids-modal-padding-with-header: #{tokens.$space-4};
             --ids-modal-full-content-display: none;
@@ -124,17 +133,22 @@
             --ids-modal-left: 50%;
             --ids-modal-right: auto;
             --ids-modal-top: 50%;
-            --ids-modal-header-close-display: none;
+            --ids-modal-header-dismissable-close-display: none;
             --ids-modal-header-before-display: none;
-            --ids-modal-header-direction: column-reverse;
+
+            .ids-modal__header--with-back-btn {
+                --ids-modal-header-before-display: none; /* It's left aligned here so we don't want a space on the left */
+            }
+    
             --ids-modal-header-border: none;
             --ids-modal-header-height: auto;
-            --ids-modal-header-alignment: left;
+            --ids-modal-header-title-alignment: left;
+            --ids-modal-header-font-family: var(--hop-heading-lg-font-family);
             --ids-modal-header-font-size: var(--hop-heading-lg-font-size);
+            --ids-modal-header-font-weight: var(--hop-heading-lg-font-weight);
+            --ids-modal-header-line-height: var(--hop-heading-lg-line-height);
             --ids-modal-header-padding: var(--hop-space-inset-lg) var(--hop-space-inset-lg) 0;
             --ids-modal-title-display: none;
-            --ids-modal-close-margin: var(--hop-space-inset-lg);
-            --ids-modal-close-align: flex-end;
             --ids-modal-padding: var(--hop-space-inset-lg);
             --ids-modal-padding-with-header: var(--hop-space-inset-md) var(--hop-space-inset-lg) var(--hop-space-inset-lg);
             --ids-modal-full-content-display: none;
@@ -195,39 +209,39 @@
     }
 
     .ids-modal__header {
-        display: flex;
-        position: relative;
-        flex-direction: var(--ids-modal-header-direction, initial);
-        justify-content: flex-end;
-        align-items: var(--ids-modal-header-alignment);
-        padding: 0;
+        align-items: center;
         border-bottom: var(--ids-modal-header-border);
+        display: flex;
+        gap: var(--ids-modal-header-gap);
         min-height: var(--ids-modal-header-height);
+        padding: 0;
+        position: relative;
 
         .ids-modal--with-title &,
-        .ids-modal--closable & {
+        .ids-modal--closable &,
+        .ids-modal--dismissable & {
             padding: var(--ids-modal-header-padding);
         }
 
-        .ids-modal--full-content & {
-            @media (width >= #{tokens.$breakpoints-sm}) {
-                --ids-modal-header-padding: #{tokens.$space-0};
+        @media (width >= #{tokens.$breakpoints-sm}) {
+            .ids-modal--full-content & {
+                --ids-modal-header-padding: 0;
             }
-        }
 
-        &--with-back-btn,
-        .ids-modal:not(.ids-modal--closable, .ids-modal--dismissable) & {
-            --ids-modal-header-before-display: none;
+            .ids-modal--dismissable:not(.ids-modal--closable, .ids-modal--with-title) & {
+                --ids-modal-header-padding: 0;
+            }
         }
 
         &::before {
             content: '';
             display: var(--ids-modal-header-before-display);
-            min-width: var(--ids-modal-header-width);
+            flex: 0 0 auto;
+            min-width: var(--ids-modal-header-icon-size);
         }
 
         .ids-modal__back {
-            margin: var(--ids-modal-back-margin);
+            flex: 0 0 auto;
 
             @media (width >= #{tokens.$breakpoints-sm}) {
                 display: none;
@@ -247,31 +261,23 @@
         .ids-modal--full-content & {
             display: var(--ids-modal-full-content-display);
         }
-
-        .ids-modal--closable & {
-            padding-right: var(--ids-modal-close-padding);
-        }
     }
 
     .ids-modal__close {
-        align-self: var(--ids-modal-close-align, initial);
         display: none;
-        top: var(--ids-modal-close-margin);
-        right: var(--ids-modal-close-margin);
-
-        .ids-modal & {
-            position: absolute;
-        }
+        flex: 0 0 auto;
+        margin-left: auto;
 
         .ids-modal--full-content & {
             @media (width >= #{tokens.$breakpoints-sm}) {
+                position: absolute;
                 right: var(--ids-modal-full-content-close-spacing-horizontal);
                 top: var(--ids-modal-full-content-close-spacing-vertical);
             }
         }
 
         .ids-modal--dismissable & {
-            display: var(--ids-modal-header-close-display);
+            display: var(--ids-modal-header-dismissable-close-display);
         }
 
         .ids-modal--closable & {
