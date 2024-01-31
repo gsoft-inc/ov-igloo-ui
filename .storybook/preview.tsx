@@ -1,20 +1,19 @@
-import React from 'react';
-import { Preview } from '@storybook/react';
 import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  Controls,
-  Stories,
+    Controls,
+    Description,
+    Primary,
+    Stories,
+    Subtitle,
+    Title,
 } from '@storybook/blocks';
-
-import {useBrand} from './useBrand';
+import { Preview } from '@storybook/react';
+import React from 'react';
 
 import './styles.css';
+import { withBrandDecorator } from './withBrandDecorator';
 
 const preview: Preview = {
-  decorators: [useBrand],
+  decorators: [withBrandDecorator],
   globalTypes: {
     brand: {
       description: 'Global brand for components',
