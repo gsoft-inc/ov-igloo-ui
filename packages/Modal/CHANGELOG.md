@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.6.2
+
+### Patch Changes
+
+- 40eb117: Updated the hopper icons version
+
 ## 1.6.1
 
 ### Patch Changes

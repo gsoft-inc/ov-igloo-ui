@@ -1,5 +1,11 @@
 # @igloo-ui/color-picker
 
+## 1.0.0
+
+### Major Changes
+
+- 40eb117: Removed the "brand" prop since we found a better alternative for checking the brand.
+
 ## 0.3.0
 
 ### Minor Changes
