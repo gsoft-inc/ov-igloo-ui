@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -30,13 +31,20 @@ type RadioStory = StoryObj<typeof Radio>;
 
 export const Overview: RadioStory = {
   render: (args) => {
-      return (
-          <Radio {...args} />
-      );
+    const [_, updateArgs] = useArgs();
+
+    const handleRadioChange = () => {
+      updateArgs({checked: !args.checked});
+    };
+    
+    return (
+      <Radio {...args} onChange={() => handleRadioChange()} checked={args.checked} />
+    );
   },
   args: {
     htmlFor: 'ids-radio',
     children: 'Label',
+    checked: false
   },
 };
 

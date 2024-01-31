@@ -7,7 +7,7 @@ import readme from '../README.md';
 
 import ColorPicker, { type ColorName } from './ColorPicker';
 
-export default {
+const meta:  Meta<typeof ColorPicker> =  {
   title: 'Components/ColorPicker',
   component: ColorPicker,
   parameters: {
@@ -16,8 +16,17 @@ export default {
         component: readme.replace(/<Example is="custom" \/>/g, '').replace(/<ReferenceLinks is="custom" \/>/g, ''),
       }
     }
-  }
-} as Meta<typeof ColorPicker>;
+  },
+  decorators: [
+    (Story) => (
+      <Section>
+        <Story />
+      </Section>
+    ),
+  ],
+};
+
+export default meta;
 
 type Story = StoryObj<typeof ColorPicker>;
 
@@ -27,13 +36,11 @@ export const Overview: Story = {
     const [selectedColor, setSelectedColor] = React.useState<ColorName>(defaultColor);
 
     return (
-      <Section>
-        <ColorPicker {...args} onSelect={
-          (color) => {
-            setSelectedColor(color);
-          }
-        } selectedColor={selectedColor} />
-      </Section>
+      <ColorPicker {...args} onSelect={
+        (color) => {
+          setSelectedColor(color);
+        }
+      } selectedColor={selectedColor} />
     );
   },
   args: {

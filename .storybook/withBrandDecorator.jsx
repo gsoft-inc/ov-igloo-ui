@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const withBrandDecorator = (Story, context) => {
+export const withBrandDecorator = (StoryFn, context) => {
     return (
         <BrandProvider brand={context.globals.brand} >
-            <Story />
+            {StoryFn()}
         </BrandProvider>
     )
 }

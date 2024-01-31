@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -24,14 +25,12 @@ type PagerStory = StoryObj<typeof meta>;
 
 export const Overview: PagerStory  = {
   render: (args) => {
-    const [currentPage, setCurrentPage] = React.useState(args.currentPage);
-
+    const [_, updateArgs] = useArgs();
     return (
-        <Pager
-            {...args}
-            currentPage={currentPage}
-            onPageChange={(page) => setCurrentPage(page)}
-        />
+      <Pager
+        {...args}
+        onPageChange={(page) => updateArgs({ currentPage: page })}
+      />
     );
   },
   args: {
