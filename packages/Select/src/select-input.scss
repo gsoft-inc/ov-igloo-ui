@@ -4,7 +4,6 @@
     :root {
         /* Default */
         --ids-select-input-height: #{tokens.$space-6};
-        --ids-select-input-chevron-padding: 0 #{tokens.$space-2};
         --ids-select-input-chevron-color: #{tokens.$grey-800};
         --ids-select-input-search-height: 3.9rem;
         --ids-select-input-actions-padding: 0 #{tokens.$space-2};
@@ -19,10 +18,9 @@
     [data-brand="workleap"] {
         /* Default */
         --ids-select-input-height: 2.5rem;
-        --ids-select-input-chevron-padding: 0;
         --ids-select-input-chevron-color: var(--hop-neutral-icon-weak);
         --ids-select-input-search-height: 2.4375rem;
-        --ids-select-input-actions-padding: 0 var(--hop-space-inline-sm);
+        --ids-select-input-actions-padding: 0 var(--hop-space-inline-md) 0 var(--hop-space-inline-sm);
 
         /* Compact **/
         --ids-select-input-height-compact: 2rem;
@@ -45,17 +43,13 @@
         }
 
         & &__chevron {
-            color: var(--ids-select-input-chevron-color);
-            padding: var(--ids-select-input-chevron-padding);
-            display: flex;
             align-items: center;
-            order: 99;
-            width: auto;
+            color: var(--ids-select-input-chevron-color);
             flex: 0 0 auto;
-        }
 
-        &--disabled &__chevron {
-            color: var(--ids-select-input-chevron-color-disabled);
+            &--disabled &__chevron {
+                color: var(--ids-select-input-chevron-color-disabled);
+            }
         }
     }
 
@@ -76,6 +70,7 @@
         flex: 0 0 auto;
         margin-left: auto;
         padding: var(--ids-select-input-actions-padding);
+        
     }
 
     .ids-select__input-clear {
