@@ -17,7 +17,6 @@ import {
     SuccessIcon as LegacySuccessIcon,
     WarningIcon as LegacyWarningIcon
 } from "./legacy/svgs";
-import { useBrand } from "./hooks/useBrand";
 
 import "./alert.scss";
 
@@ -54,6 +53,10 @@ export interface AlertProps extends Omit<React.ComponentProps<"div">, "title"> {
     /** Add a data-test tag for automated tests */
     dataTest?: string;
 }
+
+const getBrand = (): string => {
+    return document.documentElement.getAttribute("data-brand") ?? "igloo";
+};
 
 const renderIcon = (
     style: Appearance,
@@ -158,7 +161,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
     const hasButton = button !== undefined;
     const isHorizontal = appearance === "horizontal";
     const canBeClosed = closable && !isHorizontal;
-    const isWorkleap = useBrand();
+    const isWorkleap = getBrand() === "workleap";
 
     if (show) {
         return (
