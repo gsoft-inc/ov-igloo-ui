@@ -165,6 +165,9 @@ export type ColorNameWL = typeof colorNamesWorkleap[number]["id"];
 export type ColorName = ColorNameWL | ColorNameIgloo;
 
 export interface ColorPickerProps {
+    /** The brand to use for the color picker. 
+     * Defaults to data-brand if not set using JavaScript, otherwise Igloo is the default. */
+    brand?: "igloo" | "workleap";
     /** Add a specific class to the color picker */
     className?: string;
     /** Add a data-test tag for automated tests */
@@ -177,19 +180,16 @@ export interface ColorPickerProps {
     selectedColor?: ColorName;
 }
 
-const ColorPicker: React.FunctionComponent<ColorPickerProps> = ({
-    className,
+const ColorPicker: React.FunctionComponent<ColorPickerProps> = ({ 
+    brand: propBrand,
+    className, 
     dataTest,
     disabled = false,
     onSelect,
     selectedColor: propSelectedColor
 }: ColorPickerProps) => {
-    const getBrand = (): string => {
-        return document.documentElement.getAttribute("data-brand") ?? "igloo";
-    };
-
-    const brand = getBrand();
-
+    const brand = propBrand ?? document.documentElement.getAttribute("data-brand") ?? "igloo";
+    
     const getDefaultColor = (): ColorName => {
         return brand === "workleap" ? "decorativeOption3" : "dandelion200";
     };
@@ -197,7 +197,7 @@ const ColorPicker: React.FunctionComponent<ColorPickerProps> = ({
     const selectedColor = propSelectedColor ?? getDefaultColor();
 
     let colorNames: ReadonlyArray<Readonly<ColorNameItem>>;
-
+    
     if (brand === "workleap") {
         colorNames = colorNamesWorkleap;
     } else {

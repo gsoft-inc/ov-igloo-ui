@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import Section from '@components/section';
 import readme from '../README.md';
 
-import ColorPicker, { type ColorName } from './ColorPicker';
+import ColorPicker, {type ColorName} from './ColorPicker';
 
 export default {
   title: 'Components/ColorPicker',
@@ -31,8 +31,8 @@ export const Overview: Story = {
         <ColorPicker {...args} onSelect={
           (color) => {
             setSelectedColor(color);
-          }
-        } selectedColor={selectedColor} />
+          }          
+        } selectedColor={selectedColor} brand={brand} />
       </Section>
     );
   },
