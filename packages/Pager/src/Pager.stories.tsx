@@ -1,14 +1,13 @@
 import React from 'react';
 
-import { Meta, StoryFn } from '@storybook/react';
-import { useArgs } from '@storybook/preview-api';
+import { Meta, StoryObj } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
 
 import Pager from './Pager';
 
-export default {
+const meta = {
   title: 'Components/Pager',
   component: Pager,
   parameters: {
@@ -19,24 +18,25 @@ export default {
     }
   },
 } as Meta<typeof Pager>;
+export default meta;
 
-const Template: StoryFn<typeof Pager> = (args) => {
-  const [_, updateArgs] = useArgs();
-  return (
-    <Pager
-      {...args}
-      onPageChange={(page) => updateArgs({ currentPage: page })}
-    />
-  );
-};
+type PagerStory = StoryObj<typeof meta>;
 
-export const Overview = {
-  render: Template,
+export const Overview: PagerStory  = {
+  render: (args, context) => {
+    const [currentPage, setCurrentPage] = React.useState(1);
 
+    return (
+        <Pager
+            {...args}
+            currentPage={currentPage}
+            onPageChange={(page) => setCurrentPage(page)}
+        />
+    );
+  },
   args: {
     pageSize: 10,
     totalCount: 200,
-    currentPage: 1,
   },
 };
 
