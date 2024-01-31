@@ -30,15 +30,9 @@ type RadioStory = StoryObj<typeof Radio>;
 
 export const Overview: RadioStory = {
   render: (args) => {
-      const [isChecked, setIsChecked] = React.useState(false);
-
-        const handleRadioChange = () => {
-            setIsChecked(x => !x);
-        };
-
-        return (
-            <Radio {...args} checked={isChecked} onChange={() => handleRadioChange()} />
-        );
+      return (
+          <Radio {...args} />
+      );
   },
   args: {
     htmlFor: 'ids-radio',

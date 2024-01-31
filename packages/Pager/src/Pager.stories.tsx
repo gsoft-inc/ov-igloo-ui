@@ -23,8 +23,8 @@ export default meta;
 type PagerStory = StoryObj<typeof meta>;
 
 export const Overview: PagerStory  = {
-  render: (args, context) => {
-    const [currentPage, setCurrentPage] = React.useState(1);
+  render: (args) => {
+    const [currentPage, setCurrentPage] = React.useState(args.currentPage);
 
     return (
         <Pager
@@ -37,6 +37,7 @@ export const Overview: PagerStory  = {
   args: {
     pageSize: 10,
     totalCount: 200,
+    currentPage: 1
   },
 };
 
