@@ -1,5 +1,13 @@
 # @igloo-ui/dialog
 
+## 0.8.2
+
+### Patch Changes
+
+- 33ecc10: Updated the width behavior of the buttons in Dialog.
+- Updated dependencies [40eb117]
+  - @igloo-ui/modal@1.6.2
+
 ## 0.8.1
 
 ### Patch Changes

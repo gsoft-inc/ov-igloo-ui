@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.7.1
+
+### Patch Changes
+
+- 40eb117: Updated the icons in Alert and created a hook to determine if the Workleap branded icon should be displayed.
+
 ## 0.7.0
 
 ### Minor Changes
