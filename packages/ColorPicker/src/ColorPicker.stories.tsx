@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
-import Section from '@components/section';
 import readme from '../README.md';
 
 import ColorPicker, { type ColorName } from './ColorPicker';
@@ -16,14 +15,7 @@ const meta:  Meta<typeof ColorPicker> =  {
         component: readme.replace(/<Example is="custom" \/>/g, '').replace(/<ReferenceLinks is="custom" \/>/g, ''),
       }
     }
-  },
-  decorators: [
-    (Story) => (
-      <Section>
-        <Story />
-      </Section>
-    ),
-  ],
+  }
 };
 
 export default meta;
