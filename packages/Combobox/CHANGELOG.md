@@ -1,5 +1,11 @@
 # @igloo-ui/combobox
 
+## 2.2.1
+
+### Patch Changes
+
+- 289cad2: Update the chevron icon for Select and Combobox. Updated the clear icon as well and adjusted spacing.
+
 ## 2.2.0
 
 ### Minor Changes
