@@ -1,14 +1,14 @@
 import isChromatic from "chromatic/isChromatic";
 import React from 'react';
 
-export const withBrandDecorator = (Story, context) => {
+export const withBrandDecorator = (StoryFn, context) => {
     if(isChromatic()) { // The brand selector is not available in Chromatic
-        return <Story />;
+        return StoryFn();
     }
 
     return (
         <BrandProvider brand={context.globals.brand} >
-            <Story />
+            {StoryFn()}
         </BrandProvider>
     )
 }
