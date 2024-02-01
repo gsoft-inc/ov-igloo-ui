@@ -26,6 +26,11 @@ export const Overview: Story = {
     const defaultColor = brand === "workleap" ? "decorativeOption3" : "dandelion200";
     const [selectedColor, setSelectedColor] = React.useState<ColorName>(defaultColor);
 
+    React.useEffect(() => {
+        // update the selected color if the theme changes
+        setSelectedColor(defaultColor);
+    }, [defaultColor])
+
     return (
       <Section>
         <ColorPicker {...args} onSelect={

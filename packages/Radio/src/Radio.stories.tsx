@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Meta, StoryFn } from '@storybook/react';
 import { useArgs } from '@storybook/preview-api';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
@@ -31,7 +31,7 @@ const Template: StoryFn<typeof Radio> = (args) => {
   const handleRadioChange = () => {
     updateArgs({checked: !args.checked});
   };
-  
+
   return (
     <Radio {...args} onChange={() => handleRadioChange()} checked={args.checked} />
   );
