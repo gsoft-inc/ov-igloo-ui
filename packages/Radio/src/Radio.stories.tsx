@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { Meta, StoryObj } from '@storybook/react';
 import { useArgs } from '@storybook/preview-api';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Section from '@components/section';
 import readme from '../README.md';
 
 import Radio from './Radio';
 
-const meta = {
+export default {
   title: 'Components/Radio',
   component: Radio,
   parameters: {
@@ -25,22 +25,21 @@ const meta = {
   },
 } as Meta<typeof Radio>;
 
-export default meta;
+const Template: StoryFn<typeof Radio> = (args) => {
+  const [_, updateArgs] = useArgs();
 
-type RadioStory = StoryObj<typeof Radio>;
+  const handleRadioChange = () => {
+    updateArgs({checked: !args.checked});
+  };
 
-export const Overview: RadioStory = {
-  render: (args) => {
-    const [_, updateArgs] = useArgs();
+  return (
+    <Radio {...args} onChange={() => handleRadioChange()} checked={args.checked} />
+  );
+};
 
-    const handleRadioChange = () => {
-      updateArgs({checked: !args.checked});
-    };
-    
-    return (
-      <Radio {...args} onChange={() => handleRadioChange()} checked={args.checked} />
-    );
-  },
+export const Overview = {
+  render: Template,
+
   args: {
     htmlFor: 'ids-radio',
     children: 'Label',

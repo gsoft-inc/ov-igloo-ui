@@ -2,11 +2,12 @@ import React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
+import Section from '@components/section';
 import readme from '../README.md';
 
 import ColorPicker, { type ColorName } from './ColorPicker';
 
-const meta:  Meta<typeof ColorPicker> =  {
+export default {
   title: 'Components/ColorPicker',
   component: ColorPicker,
   parameters: {
@@ -16,9 +17,7 @@ const meta:  Meta<typeof ColorPicker> =  {
       }
     }
   }
-};
-
-export default meta;
+} as Meta<typeof ColorPicker>;
 
 type Story = StoryObj<typeof ColorPicker>;
 
@@ -28,11 +27,13 @@ export const Overview: Story = {
     const [selectedColor, setSelectedColor] = React.useState<ColorName>(defaultColor);
 
     return (
-      <ColorPicker {...args} onSelect={
-        (color) => {
-          setSelectedColor(color);
-        }
-      } selectedColor={selectedColor} />
+      <Section>
+        <ColorPicker {...args} onSelect={
+          (color) => {
+            setSelectedColor(color);
+          }
+        } selectedColor={selectedColor} />
+      </Section>
     );
   },
   args: {
