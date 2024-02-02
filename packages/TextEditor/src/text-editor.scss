@@ -232,7 +232,7 @@
         }
 
         &:hover {
-            --ids-text-editor-border-color: var(--ids-text-editor-border-color-hover);
+            --ids-text-editor-border-color: var(--ids-text-editor-border-color-focus);
             --ids-text-editor-background: var(--ids-text-editor-background-hover);
         }
 
