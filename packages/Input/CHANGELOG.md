@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.2.1
+
+### Patch Changes
+
+- 4c70af0: Fix border color for input and texteditor on active and hovered
+
 ## 2.2.0
 
 ### Minor Changes

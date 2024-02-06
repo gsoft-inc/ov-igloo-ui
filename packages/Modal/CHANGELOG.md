@@ -1,5 +1,13 @@
 # @igloo-ui/modal
 
+## 1.6.3
+
+### Patch Changes
+
+- 42efe0b: Fix issue where classNames were not passed to children when cloned
+- Updated dependencies [42efe0b]
+  - @igloo-ui/carousel@0.3.1
+
 ## 1.6.2
 
 ### Patch Changes

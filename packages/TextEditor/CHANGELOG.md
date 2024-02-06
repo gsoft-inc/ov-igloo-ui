@@ -1,5 +1,13 @@
 # @igloo-ui/text-editor
 
+## 0.7.3
+
+### Patch Changes
+
+- 4c70af0: Fix border color for input and texteditor on active and hovered
+- Updated dependencies [4c70af0]
+  - @igloo-ui/input@2.2.1
+
 ## 0.7.2
 
 ### Patch Changes
