@@ -8,8 +8,8 @@ import {
 import {
     type OverlayProps,
     useOverlay,
-    usePreventScroll, 
-    useDialog, 
+    usePreventScroll,
+    useDialog,
     type AriaDialogProps,
     FocusScope
 } from "react-aria";
@@ -241,11 +241,17 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
                                         <div className="ids-modal__footer">
                                             {secondaryAction
                       && React.cloneElement(secondaryAction, {
-                          className: "ids-modal__footer-action"
+                          className: cx(
+                              "ids-modal__footer-action",
+                              secondaryAction.props?.className
+                          )
                       })}
                                             {primaryAction
                       && React.cloneElement(primaryAction, {
-                          className: "ids-modal__footer-action"
+                          className: cx(
+                              "ids-modal__footer-action",
+                              primaryAction.props?.className
+                          )
                       })}
                                         </div>
                                     )}
