@@ -1,5 +1,13 @@
 # @igloo-ui/tag-picker
 
+## 0.8.1
+
+### Patch Changes
+
+- 0c419dc: Fix an issue where classNames were not passed to children when cloned
+- Updated dependencies [0c419dc]
+  - @igloo-ui/tag@1.3.1
+
 ## 0.8.0
 
 ### Minor Changes

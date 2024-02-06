@@ -1,5 +1,11 @@
 # @igloo-ui/list
 
+## 0.6.1
+
+### Patch Changes
+
+- 0c419dc: Fix an issue where classNames were not passed to children when cloned
+
 ## 0.6.0
 
 ### Minor Changes
