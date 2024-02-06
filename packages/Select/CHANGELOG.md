@@ -1,5 +1,13 @@
 # @igloo-ui/select
 
+## 1.4.2
+
+### Patch Changes
+
+- 0c419dc: Fix an issue where classNames were not passed to children when cloned
+- Updated dependencies [0c419dc]
+  - @igloo-ui/list@0.6.1
+
 ## 1.4.1
 
 ### Patch Changes

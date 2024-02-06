@@ -1,5 +1,11 @@
 # @igloo-ui/tag
 
+## 1.3.1
+
+### Patch Changes
+
+- 0c419dc: Fix an issue where classNames were not passed to children when cloned
+
 ## 1.3.0
 
 ### Minor Changes
