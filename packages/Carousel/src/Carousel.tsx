@@ -76,8 +76,9 @@ const Carousel: React.FunctionComponent<CarouselProps> = ({
                 <div className="ids-carousel__action-wrapper">
                     {primaryAction &&
                     React.cloneElement(primaryAction, {
-                        className: cx("ids-carousel__primary-action",
-                                      primaryAction.props?.className
+                        className: cx(
+                            "ids-carousel__primary-action",
+                            primaryAction.props?.className
                         )
                     })}
                 </div>
