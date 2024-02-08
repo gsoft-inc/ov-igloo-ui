@@ -1,5 +1,11 @@
 # @igloo-ui/metric
 
+## 0.3.1
+
+### Patch Changes
+
+- 4235d5c: Text color has been fixed for fluctuate Metric
+
 ## 0.3.0
 
 ### Minor Changes
