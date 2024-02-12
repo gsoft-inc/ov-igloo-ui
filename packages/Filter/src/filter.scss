@@ -67,7 +67,7 @@
 
         /* Disabled */
         --ids-filter-background-disabled: var(--hop-neutral-surface-disabled);
-        --ids-filter-border-color-disabled: var(--hop-neutral-border-disabled);
+        --ids-filter-border-color-disabled: transparent;
         --ids-filter-color-disabled: var(--hop-neutral-text-disabled);
 
         /* Focus */
@@ -138,7 +138,7 @@
 
     .ids-filter:disabled {
         background: var(--ids-filter-background-disabled);
-        border-color: var(--ids-filter-border-color);
+        border-color: var(--ids-filter-border-color-disabled);
         box-shadow: none;
         color: var(--ids-filter-color-disabled);
         cursor: not-allowed;
