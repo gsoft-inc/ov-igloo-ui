@@ -2,4 +2,5 @@
 "@igloo-ui/dialog": patch
 ---
 
-Dependency on Modal update
+Updated dependencies
+- @igloo-ui/modal@1.6.4
