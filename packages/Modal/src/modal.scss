@@ -64,7 +64,7 @@
         --ids-modal-max-width: none;
         --ids-modal-header-dismissable-close-display: flex;
         --ids-modal-header-before-display: block;
-        
+
         .ids-modal__header--with-back-btn,
         .ids-modal:not(.ids-modal--closable, .ids-modal--dismissable) {
             --ids-modal-header-before-display: none;
@@ -106,7 +106,7 @@
             --ids-modal-top: 50%;
             --ids-modal-header-dismissable-close-display: none;
             --ids-modal-header-before-display: block;
-            
+
             .ids-modal__header--with-back-btn {
                 --ids-modal-header-before-display: block; /* Display block since the back button in the header isn't displayed on desktop */
             }
@@ -139,7 +139,7 @@
             .ids-modal__header--with-back-btn {
                 --ids-modal-header-before-display: none; /* It's left aligned here so we don't want a space on the left */
             }
-    
+
             --ids-modal-header-border: none;
             --ids-modal-header-height: auto;
             --ids-modal-header-title-alignment: left;
@@ -224,6 +224,8 @@
         }
 
         @media (width >= #{tokens.$breakpoints-sm}) {
+            align-items: start;
+
             .ids-modal--full-content & {
                 --ids-modal-header-padding: 0;
             }
