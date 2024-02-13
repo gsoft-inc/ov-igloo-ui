@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.6.4
+
+### Patch Changes
+
+- 73f52dd: Fix Close icon position for modal
+
 ## 1.6.3
 
 ### Patch Changes

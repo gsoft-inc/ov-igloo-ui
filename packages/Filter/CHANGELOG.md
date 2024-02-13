@@ -1,5 +1,11 @@
 # @igloo-ui/filter
 
+## 0.3.1
+
+### Patch Changes
+
+- 5c4c95e: Fix of filter border color when disabled
+
 ## 0.3.0
 
 ### Minor Changes

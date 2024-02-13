@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/modal",
-    "version": "1.6.3",
+    "version": "1.6.4",
     "main": "dist/Modal.js",
     "module": "dist/Modal.js",
     "types": "dist/Modal.d.ts",
