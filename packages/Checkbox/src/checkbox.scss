@@ -215,7 +215,7 @@
             display: block;
             left: 0;
             top: 50%;
-            translate: 50% 0;
+            translate: calc(var(--ids-checkbox-check-width) / 2) 0;
             animation: check-animation ease-out 0.25s 0.15s both;
         }
 
