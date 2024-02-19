@@ -41,7 +41,8 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     dataTest,
     className,
     isInline = true,
-    tabs
+    tabs,
+    ...rest
 }) => {
     const classes = cx("ids-tabs", className, {
         "ids-tabs--inline": isInline,
@@ -79,8 +80,8 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
             );
         } else if (React.isValidElement(tab.label)) {
             tabContents = <span className="ids-tab__nav">
-                {React.cloneElement(tab.label, 
-                                    {}, 
+                {React.cloneElement(tab.label,
+                                    {},
                                     (tab.label as React.ReactElement).props.children, tabContents)
                 }
             </span>;
@@ -100,7 +101,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     };
 
     return (
-        <div className={classes} data-test={dataTest}>
+        <div className={classes} data-test={dataTest} {...rest}>
             <ul className="ids-tabs__list">
                 {tabs.map((tab, index) => renderTabItem(tab, index))}
             </ul>
