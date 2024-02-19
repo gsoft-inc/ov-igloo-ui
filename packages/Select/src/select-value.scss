@@ -15,6 +15,7 @@
         --ids-select-value-color-placeholder: #{tokens.$grey-400};
 
         /* Visual Identifier */
+        --ids-select-value-icon-color: inherit;
         --ids-select-value-icon-size: #{tokens.$space-4};
         --ids-select-value-icon-margin-right: #{tokens.$space-2};
     }
@@ -30,6 +31,7 @@
         --ids-select-value-color-placeholder: var(--hop-neutral-text-weakest);
 
         /* Visual Identifier */
+        --ids-select-value-icon-color: var(--hop-neutral-icon-weak);
         --ids-select-value-icon-size: 1.5rem;
         --ids-select-value-icon-margin-right: var(--hop-space-inline-sm);
     }
@@ -64,6 +66,7 @@
 
     .ids-select__value-visual-identifier-container {
         align-items: center;
+        color: var(--ids-select-value-icon-color);
         display: flex;
         flex: 0 0 auto;
         height: var(--ids-select-value-icon-size);
