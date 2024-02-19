@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.7.2
+
+### Patch Changes
+
+- 29430f9: Alert Border radius was not right this has been fixed / Color of icon and chevron in a Select was not right
+
 ## 0.7.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.2.1
+
+### Patch Changes
+
+- a77e5e0: Propagate extra props to the Tabs component wrapper.
+
 ## 1.2.0
 
 ### Minor Changes
