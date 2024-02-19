@@ -1,5 +1,13 @@
 # @igloo-ui/datepicker
 
+## 0.6.1
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+- Updated dependencies [8bf2e79]
+  - @igloo-ui/icon-button@1.2.1
+
 ## 0.6.0
 
 ### Minor Changes
