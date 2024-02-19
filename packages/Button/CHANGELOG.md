@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.1
+
+### Patch Changes
+
+- f30fe4b: Color adjustments for ghost buttons
+
 ## 0.8.0
 
 ### Minor Changes
