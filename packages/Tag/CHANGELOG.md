@@ -1,5 +1,13 @@
 # @igloo-ui/tag
 
+## 1.3.2
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+- Updated dependencies [8bf2e79]
+  - @igloo-ui/icon-button@1.2.1
+
 ## 1.3.1
 
 ### Patch Changes

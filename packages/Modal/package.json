@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/modal",
-    "version": "1.6.4",
+    "version": "1.6.5",
     "main": "dist/Modal.js",
     "module": "dist/Modal.js",
     "types": "dist/Modal.d.ts",
@@ -25,7 +25,7 @@
         "build": "rollup -c rollup.config.js"
     },
     "dependencies": {
-        "@igloo-ui/icon-button": "^1.2.0",
+        "@igloo-ui/icon-button": "^1.2.1",
         "@igloo-ui/icons": "^1.12.2",
         "@igloo-ui/tokens": "^2.0.0",
         "@hopper-ui/icons-react16": "1.2.0",
