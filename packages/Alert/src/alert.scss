@@ -96,6 +96,7 @@
 
     .ids-alert {
         align-items: flex-start;
+        border-radius: var(--ids-alert-border-radius);
         display: flex;
         border-style: solid;
         border-width: var(--ids-alert-border-default-width);
@@ -112,7 +113,6 @@
         /* Styles */
         &--card {
             background-color: var(--ids-alert-background-color-light);
-            border-radius: var(--ids-alert-border-radius);
             box-shadow: var(--ids-alert-box-shadow);
         }
 
