@@ -1,5 +1,11 @@
 # @igloo-ui/stacked-bar
 
+## 0.4.0
+
+### Minor Changes
+
+- 6e43ad7: Add the possibility to use a title in the StackedBarTooltip + custom classes on dataSet objects
+
 ## 0.3.0
 
 ### Minor Changes
