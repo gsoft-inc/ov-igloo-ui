@@ -1,5 +1,12 @@
 # @igloo-ui/list
 
+## 0.6.2
+
+### Patch Changes
+
+- Updated dependencies [9fbfa6f]
+  - @igloo-ui/checkbox@0.4.0
+
 ## 0.6.1
 
 ### Patch Changes
