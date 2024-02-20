@@ -6,15 +6,15 @@ import "./provider.scss";
 
 export type AvailableLocales = "en-US" | "fr-CA";
 
-export interface IglooProviderProps extends I18nProviderProps {
+export interface IglooProviderProps extends Omit<I18nProviderProps, "locale"> {
     locale: AvailableLocales;
 }
-const IglooProvider : React.FunctionComponent<IglooProviderProps> = props => { 
+const IglooProvider: React.FunctionComponent<IglooProviderProps> = props => { 
     return (
         <I18nProvider {...props} />
     );
 };
 
-export default IglooProvider;
-
 export { useLocale, useLocalizedStringFormatter }; 
+
+export default IglooProvider;

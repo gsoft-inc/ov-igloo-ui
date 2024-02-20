@@ -1,6 +1,6 @@
 # Provider
 
-TODO: Write your component description here.
+Provider allows you to set the locale for all Igloo components that need it. This should be done by wrapping the entire application in the provider. There are also hooks available such as useLocale and useLocalizedStringFormatter.
 
 <ReferenceLinks is="custom" />
 
@@ -23,7 +23,11 @@ yarn add @igloo-ui/provider
 Then to use the component in your code just import it!
 
 ```jsx
-import Provider from '@igloo-ui/provider';
+import IglooProvider from '@igloo-ui/provider';
 
-// TODO: Add your component usage here
+<IglooProvider locale="en-US">
+    const { locale } = useLocale();
+
+    <div>Here is the current locale: {locale}</div>;
+</IglooProvider>
 ```
