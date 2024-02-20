@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
-
 import Checkmark from "@igloo-ui/icons/dist/Checkmark";
+import Minus from "@igloo-ui/icons/dist/Minus";
 
 import "./checkbox.scss";
 
@@ -72,8 +72,6 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
             setStatus(!status);
         };
 
-        const showLabel = appearance === "completion" || children;
-
         return (
             <span
                 className={cx("ids-form-control", "ids-form-control-checkbox", className, {
@@ -93,23 +91,22 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
                     onChange={handleOnChange}
                     {...rest}
                 />
-                {showLabel && (
-                    <label
-                        className={cx("ids-checkbox__label", {
-                            [`ids-checkbox__label--${appearance}`]: appearance !== "default"
-                        })}
-                        htmlFor={htmlFor}
-                    >
-                        {appearance === "completion" && (
-                            <span className="ids-checkbox__box">
-                                <Checkmark size="small" className="ids-checkbox__check" />
-                            </span>
-                        )}
-                        {children && (
-                            <span className="ids-checkbox__label-text">{children}</span>
-                        )}
-                    </label>
-                )}
+                <label
+                    className={cx("ids-checkbox__label", {
+                        [`ids-checkbox__label--${appearance}`]: appearance !== "default"
+                    })}
+                    htmlFor={htmlFor}
+                >
+                    <span className="ids-checkbox__box">
+                        {indeterminate ? 
+                            <Minus size="small" className="ids-checkbox__check" /> :
+                            <Checkmark size="small" className="ids-checkbox__check" />
+                        }
+                    </span>
+                    {children && (
+                        <span className="ids-checkbox__label-text">{children}</span>
+                    )}
+                </label>
             </span>
         );
     }
