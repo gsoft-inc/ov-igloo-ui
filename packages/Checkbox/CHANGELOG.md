@@ -1,5 +1,11 @@
 # @igloo-ui/checkbox
 
+## 0.4.0
+
+### Minor Changes
+
+- 9fbfa6f: Updated the checkbox component to use svg icons for the check. This will also fix the centering of the checkmark.
+
 ## 0.3.0
 
 ### Minor Changes
