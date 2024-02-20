@@ -61,7 +61,7 @@ exports[`Alert It should render a snapshot 1`] = `
       />
     </div>
     <button
-      class="ids-btn ids-icon-btn ids-icon-btn--medium ids-alert__dismiss-btn ids-btn--ghost-secondary"
+      class="ids-btn ids-icon-btn ids-icon-btn--xsmall ids-alert__dismiss-btn ids-btn--ghost-secondary"
       title=""
       type="button"
     >
@@ -69,17 +69,16 @@ exports[`Alert It should render a snapshot 1`] = `
         class=""
       >
         <svg
-          class="ids-icon"
-          fill="none"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          class="Icon-module__hop-icon___9H6Vf"
+          focusable="false"
+          height="16"
+          role="img"
+          viewBox="0 0 16 16"
+          width="16"
         >
           <path
-            clip-rule="evenodd"
-            d="M16.216 17.276a.75.75 0 0 0 1.06-1.06L13.062 12l4.216-4.216a.75.75 0 0 0-1.06-1.06L12 10.938 7.784 6.723a.75.75 0 0 0-1.06 1.06L10.938 12l-4.216 4.216a.75.75 0 1 0 1.061 1.06L12 13.06l4.216 4.216Z"
-            fill="currentColor"
+            d="M12.947 4.114a.75.75 0 1 0-1.061-1.06L8 6.938 4.114 3.053a.75.75 0 0 0-1.06 1.061L6.938 8l-3.886 3.886a.75.75 0 0 0 1.061 1.06L8 9.062l3.886 3.886a.75.75 0 0 0 1.06-1.061L9.062 8z"
             fill-rule="evenodd"
           />
         </svg>

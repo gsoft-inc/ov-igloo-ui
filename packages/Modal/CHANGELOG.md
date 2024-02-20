@@ -1,5 +1,39 @@
 # @igloo-ui/modal
 
+## 1.6.5
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+- Updated dependencies [8bf2e79]
+  - @igloo-ui/icon-button@1.2.1
+
+## 1.6.4
+
+### Patch Changes
+
+- 73f52dd: Fix Close icon position for modal
+
+## 1.6.3
+
+### Patch Changes
+
+- 42efe0b: Fix issue where classNames were not passed to children when cloned
+- Updated dependencies [42efe0b]
+  - @igloo-ui/carousel@0.3.1
+
+## 1.6.2
+
+### Patch Changes
+
+- 40eb117: Updated the hopper icons version
+
+## 1.6.1
+
+### Patch Changes
+
+- 37822b2: Fixed the style of the modal and Dialog headers and the spacing of the close button.
+
 ## 1.6.0
 
 ### Minor Changes

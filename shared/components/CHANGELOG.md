@@ -1,5 +1,11 @@
 # @shared/components
 
+## 0.2.1
+
+### Patch Changes
+
+- 42efe0b: Fix issue where classNames were not passed to children when cloned
+
 ## 0.2.0
 
 ### Minor Changes

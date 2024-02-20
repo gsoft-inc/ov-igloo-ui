@@ -1,5 +1,25 @@
 # @igloo-ui/alert
 
+## 0.7.3
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+- Updated dependencies [8bf2e79]
+  - @igloo-ui/icon-button@1.2.1
+
+## 0.7.2
+
+### Patch Changes
+
+- 29430f9: Alert Border radius was not right this has been fixed / Color of icon and chevron in a Select was not right
+
+## 0.7.1
+
+### Patch Changes
+
+- 40eb117: Updated the icons in Alert and created a hook to determine if the Workleap branded icon should be displayed.
+
 ## 0.7.0
 
 ### Minor Changes

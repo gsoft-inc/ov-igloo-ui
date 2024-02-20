@@ -38,7 +38,7 @@ import UnorderedList from "@igloo-ui/icons/dist/UnorderedList";
 import IconButton from "@igloo-ui/icon-button";
 import Button from "@igloo-ui/button";
 
-import type { Messages } from "src/TextEditor";
+import type { Messages } from "../TextEditor";
 import { sanitizeUrl } from "../utils/url";
 import { getSelectedNode } from "../utils/getSelectedNode";
 

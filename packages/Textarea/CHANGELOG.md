@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.4.1
+
+### Patch Changes
+
+- adf94e4: Font family adjustment for Textarea
+
 ## 0.4.0
 
 ### Minor Changes

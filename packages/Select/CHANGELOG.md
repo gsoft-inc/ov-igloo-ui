@@ -1,5 +1,33 @@
 # @igloo-ui/select
 
+## 1.4.4
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+- Updated dependencies [8bf2e79]
+  - @igloo-ui/icon-button@1.2.1
+
+## 1.4.3
+
+### Patch Changes
+
+- 29430f9: Alert Border radius was not right this has been fixed / Color of icon and chevron in a Select was not right
+
+## 1.4.2
+
+### Patch Changes
+
+- 0c419dc: Fix an issue where classNames were not passed to children when cloned
+- Updated dependencies [0c419dc]
+  - @igloo-ui/list@0.6.1
+
+## 1.4.1
+
+### Patch Changes
+
+- 289cad2: Update the chevron icon for Select and Combobox. Updated the clear icon as well and adjusted spacing.
+
 ## 1.4.0
 
 ### Minor Changes

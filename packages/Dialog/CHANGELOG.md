@@ -1,5 +1,36 @@
 # @igloo-ui/dialog
 
+## 0.8.4
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+- Updated dependencies [8bf2e79]
+  - @igloo-ui/modal@1.6.5
+
+## 0.8.3
+
+### Patch Changes
+
+- 6b00f08: Updated dependencies
+  - @igloo-ui/modal@1.6.4
+
+## 0.8.2
+
+### Patch Changes
+
+- 33ecc10: Updated the width behavior of the buttons in Dialog.
+- Updated dependencies [40eb117]
+  - @igloo-ui/modal@1.6.2
+
+## 0.8.1
+
+### Patch Changes
+
+- 37822b2: Fixed the style of the modal and Dialog headers and the spacing of the close button.
+- Updated dependencies [37822b2]
+  - @igloo-ui/modal@1.6.1
+
 ## 0.8.0
 
 ### Minor Changes

@@ -1,5 +1,33 @@
 # @igloo-ui/text-editor
 
+## 0.7.4
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+- Updated dependencies [8bf2e79]
+  - @igloo-ui/icon-button@1.2.1
+
+## 0.7.3
+
+### Patch Changes
+
+- 4c70af0: Fix border color for input and texteditor on active and hovered
+- Updated dependencies [4c70af0]
+  - @igloo-ui/input@2.2.1
+
+## 0.7.2
+
+### Patch Changes
+
+- 37822b2: Fixed a badly written import in the TextEditor.
+
+## 0.7.1
+
+### Patch Changes
+
+- e31f263: Upgrade Lexical
+
 ## 0.7.0
 
 ### Minor Changes

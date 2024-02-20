@@ -73,7 +73,6 @@
     --ids-metric-sub-metric-selected-left-border-color: #{tokens.$electric-blue-500};
     --ids-metric-sub-metric-selected-left-border-width: #{tokens.$space-1};
     --ids-metric-sub-metric-selected-hover-border-color: #{tokens.$electric-blue-500};
-
 }
 
 [data-brand="workleap"] {
@@ -133,7 +132,7 @@
 
     /* Fluctuate */
     --ids-metric-alignment-icon-margin: var(--hop-space-inline-sm);
-    --ids-metric-fluctuate-name-color: var(--hop-neutral-text);
+    --ids-metric-fluctuate-name-color: var(--hop-neutral-text-weak);
 
     /* Sub Metric */
     --ids-metric-sub-metric-border-color: var(--hop-neutral-border-weak);

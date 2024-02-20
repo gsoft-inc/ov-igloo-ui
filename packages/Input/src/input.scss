@@ -275,7 +275,7 @@
     .ids-input.focus,{
         outline: 0;
         outline-offset: 0;
-        border: var(--ids-input-border-size) solid var(--ids-input-border-color-focus);
+        border: var(--ids-input-border-size) solid var(--ids-input-border-color-active);
         box-shadow: var(--ids-input-focus, none);
     }
 

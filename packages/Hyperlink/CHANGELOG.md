@@ -1,5 +1,11 @@
 # @igloo-ui/hyperlink
 
+## 0.4.1
+
+### Patch Changes
+
+- 42efe0b: Fix issue where classNames were not passed to children when cloned
+
 ## 0.4.0
 
 ### Minor Changes

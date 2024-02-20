@@ -101,7 +101,10 @@ const Hyperlink: React.FunctionComponent<HyperlinkProps> = ({
 
     return React.cloneElement(getWrappedElement(children), {
         ...linkProps,
-        className: classes,
+        className: cx(
+            classes,
+            getWrappedElement(children).props?.className
+        ),
         "data-test": dataTest,
         "data-intercom-target": intercomTarget,
         ref,

@@ -4,6 +4,7 @@
 
 @import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
 @import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
+@import url("~@hopper-ui/icons-react16/index.css") layer(hopper-icons);
 
 @layer igloo {
     :root {
@@ -63,10 +64,10 @@
         --ids-alert-metadata-color: var(--hop-neutral-text-weak);
 
         /* Announcement */
-        --ids-alert-color-announcement: var(--hop-success-text);
-        --ids-alert-border-color-announcement: var(--hop-success-border);
-        --ids-alert-background-color-announcement: var(--hop-success-surface);
-        --ids-alert-icon-color-announcement: var(--hop-success-icon-weakest);
+        --ids-alert-color-announcement: var(--hop-information-text);
+        --ids-alert-border-color-announcement: var(--hop-information-border);
+        --ids-alert-background-color-announcement: var(--hop-information-surface);
+        --ids-alert-icon-color-announcement: var(--hop-information-icon-weakest);
 
         /* Info */
         --ids-alert-color-info: var(--hop-information-text);
@@ -95,6 +96,7 @@
 
     .ids-alert {
         align-items: flex-start;
+        border-radius: var(--ids-alert-border-radius);
         display: flex;
         border-style: solid;
         border-width: var(--ids-alert-border-default-width);
@@ -111,7 +113,6 @@
         /* Styles */
         &--card {
             background-color: var(--ids-alert-background-color-light);
-            border-radius: var(--ids-alert-border-radius);
             box-shadow: var(--ids-alert-box-shadow);
         }
 
@@ -203,8 +204,7 @@
         &__dismiss-btn {
             flex: 0 0 auto;
             height: auto;
-            margin: -1rem -1rem 0 0;
-            width: auto;
+            margin: 0;
         }
 
         &__body {

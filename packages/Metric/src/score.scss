@@ -17,6 +17,7 @@
         --ids-score-variation-font-family: #{tokens.$primary-font-family};
         --ids-score-variation-font-size: #{tokens.$font-size-3};
         --ids-score-variation-font-weight: #{tokens.$font-weight-regular};
+        --ids-score-variation-margin-left: 0;
         --ids-score-variation-line-height: #{tokens.$line-height-xxl};
         --ids-score-single-variation-font-size: #{tokens.$font-size-9};
         --ids-score-single-variation-color: #{tokens.$grey-600};
@@ -42,9 +43,10 @@
         --ids-score-variation-font-family: var(--hop-body-sm-font-family);
         --ids-score-variation-font-size: var(--hop-body-sm-font-size);
         --ids-score-variation-font-weight: var(--hop-body-sm-font-weight);
+        --ids-score-variation-margin-left: 0.25rem;
         --ids-score-variation-line-height: var(--hop-body-sm-line-height);
         --ids-score-single-variation-font-size: var(--hop-body-2xl-font-size);
-        --ids-score-single-variation-color: var(--hop-neutral-text-weak);
+        --ids-score-single-variation-color: var(--hop-neutral-text);
         --ids-score-single-variation-line-height: var(--hop-body-2xl-line-height);
 
         /* Arrows */
@@ -52,7 +54,7 @@
         --ids-score-arrow-color-negative: var(--hop-danger-icon-weak);
         --ids-score-arrow-color-selected-positive: var(--hop-success-icon-weak);
         --ids-score-arrow-color-selected-negative: var(--hop-danger-icon-weak);
-        --ids-score-arrow-margin-right: var(--hop-space-inline-xs);
+        --ids-score-arrow-margin-right: var(--hop-space-inline-sm);
     }
 
     .ids-score {
@@ -106,5 +108,6 @@
     .ids-score__postfix {
         font-size: var(--ids-score-variation-font-size);
         line-height: var(--ids-score-variation-line-height);
+        margin-left: var(--ids-score-variation-margin-left);
     }
 }

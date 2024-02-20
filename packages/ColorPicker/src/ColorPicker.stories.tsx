@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import Section from '@components/section';
 import readme from '../README.md';
 
-import ColorPicker, {type ColorName} from './ColorPicker';
+import ColorPicker, { type ColorName } from './ColorPicker';
 
 export default {
   title: 'Components/ColorPicker',
@@ -26,13 +26,18 @@ export const Overview: Story = {
     const defaultColor = brand === "workleap" ? "decorativeOption3" : "dandelion200";
     const [selectedColor, setSelectedColor] = React.useState<ColorName>(defaultColor);
 
+    React.useEffect(() => {
+        // update the selected color if the theme changes
+        setSelectedColor(defaultColor);
+    }, [defaultColor])
+
     return (
       <Section>
         <ColorPicker {...args} onSelect={
           (color) => {
             setSelectedColor(color);
-          }          
-        } selectedColor={selectedColor} brand={brand} />
+          }
+        } selectedColor={selectedColor} />
       </Section>
     );
   },
