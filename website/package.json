@@ -43,6 +43,7 @@
     "@igloo-ui/pie-chart": "*",
     "@igloo-ui/popover": "*",
     "@igloo-ui/progress-bar": "*",
+    "@igloo-ui/provider": "*",
     "@igloo-ui/radio": "*",
     "@igloo-ui/select": "*",
     "@igloo-ui/stacked-bar": "*",

@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import IglooProvider from "@igloo-ui/provider";
 
 import Pager from './Pager';
 
@@ -24,6 +25,20 @@ describe('Pager', () => {
     );
     expect(screen.getByTestId('pager1')).toBeInTheDocument();
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  test('It should render messages in French', () => {
+    render(
+      <IglooProvider locale="fr-CA">
+        <Pager
+          pageSize={5}
+          totalCount={50}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      </IglooProvider>
+    );
+    expect(screen.getByLabelText("Avancer de 5 pages")).toBeInTheDocument();
   });
 
   test('It should render a disabled left chevron when on page 1', () => {

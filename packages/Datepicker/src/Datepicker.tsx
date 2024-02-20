@@ -21,7 +21,7 @@ import Calendar from "./components/Calendar";
 
 import "./datepicker.scss";
 
-interface Date { utc: string; local: string }
+interface Date { utc: string; local: string | null }
 
 const dateRegEx = /^(?:\d{4}[-/]\d{2}[-/]\d{2}|\d{2}[-/]\d{2}[-/]\d{4})$/;
 
@@ -106,7 +106,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
 
     const formatDate = (date: string | undefined): ZonedDateTime | undefined => {
         if (date && manageEverythingInUtc) {
-            return parseAbsolute(date, 'utc');
+            return parseAbsolute(date, "utc");
         }
 
         if (date) {
@@ -157,8 +157,8 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     };
 
     const isDateUnavailable = (date: DateValue): boolean => {
-        if(weekendUnavailable && manageEverythingInUtc) {
-            return isWeekend(date, 'utc');
+        if (weekendUnavailable && manageEverythingInUtc) {
+            return isWeekend(date, "utc");
         }
 
         if (weekendUnavailable && internalLocale) {
@@ -197,16 +197,16 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const { value: inputValue } = e.target
+        const { value: inputValue } = e.target;
 
         const isValidInputDate = dateRegEx.test(inputValue);
-        const isFormatYYYYMMDD = inputValue.indexOf('-') === 4 || inputValue.indexOf('/') === 4
+        const isFormatYYYYMMDD = inputValue.indexOf("-") === 4 || inputValue.indexOf("/") === 4;
 
         const date = isFormatYYYYMMDD ?
-            inputValue.split(/[/-]/).join('-') :
-            inputValue.split(/[/-]/).reverse().join('-');
+            inputValue.split(/[/-]/).join("-") :
+            inputValue.split(/[/-]/).reverse().join("-");
 
-        if(isValidInputDate) {
+        if (isValidInputDate) {
             const isoDate = DateTime.fromISO(date);
             if (isoDate.isValid) {
                 if (isDateSelectable(isoDate)) {
@@ -263,7 +263,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
         type: "text",
         onFocus,
         onChange: handleInputChange,
-        className: 'ids-datepicker__input'
+        className: "ids-datepicker__input"
     };
 
     if (readOnly) {
@@ -281,7 +281,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
                 dataTest={dataTest}
                 {...rest}
             >
-                <Input {...inputProps}  />
+                <Input {...inputProps} />
             </Dropdown>
         </I18nProvider>
     );
