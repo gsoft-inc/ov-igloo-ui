@@ -136,7 +136,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
         "ids-list-item--loading": loading
     });
 
-    let visualIdentifierSize = "medium";
+    let visualIdentifierSize: Size = "medium";
     if (option?.type === "member") {
         visualIdentifierSize = "large";
     } else if (isCompact) {
@@ -159,7 +159,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
                 icon={option?.icon}
                 color={option?.color}
                 src={option?.src}
-                size={visualIdentifierSize as Size}
+                size={visualIdentifierSize}
             />
         </div>
     );
