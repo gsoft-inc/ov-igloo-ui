@@ -2,7 +2,7 @@ import * as React from "react";
 import cx from "classnames";
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { VisualIdentifier } from "@shared/components";
+import { VisualIdentifier, type Size } from "@shared/components";
 import UserSolid from "@igloo-ui/icons/dist/UserSolid";
 import Checkmark from "@igloo-ui/icons/dist/Checkmark";
 
@@ -136,6 +136,13 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
         "ids-list-item--loading": loading
     });
 
+    let visualIdentifierSize = "medium";
+    if (option?.type === "member") {
+        visualIdentifierSize = "large";
+    } else if (isCompact) {
+        visualIdentifierSize = "small";
+    }
+
     const shouldShowVisualIdentifier =
     (option?.src || option?.color || option?.icon) && showIcon;
     const visualIdentifierContainerClasses = cx(
@@ -152,7 +159,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
                 icon={option?.icon}
                 color={option?.color}
                 src={option?.src}
-                size={option?.type === "member" ? "medium" : "small"}
+                size={visualIdentifierSize as Size}
             />
         </div>
     );
@@ -216,7 +223,11 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
             {...rest}
         >
             <div className="ids-list-item__content">
-                {useCheckbox && <span className="ids-list-item__checkbox" />}
+                {useCheckbox && (
+                    <span className="ids-list-item__checkbox">
+                        <Checkmark size="small" className="ids-list-item__checkbox-check" />
+                    </span>
+                )}
 
                 {loading ? (
                     <span className="ids-list-item__thumbnail" />

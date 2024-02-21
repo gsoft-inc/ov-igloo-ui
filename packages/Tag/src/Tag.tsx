@@ -6,7 +6,7 @@ import cx from "classnames";
 import { VisualIdentifier } from "@shared/components";
 import IconButton from "@igloo-ui/icon-button";
 import Ellipsis from "@igloo-ui/ellipsis";
-import Close from "@igloo-ui/icons/dist/Close";
+import { DismissIcon } from "@hopper-ui/icons-react16";
 
 import "./tag.scss";
 
@@ -19,9 +19,10 @@ export type AppearanceNew =
   | "positive"
   | "caution"
   | "negative"
-  | "neutral";
+  | "neutral"
+  | "select";
 
-/** @Deprecated This will be removed Nov. 1, 2023 */
+/** @Deprecated This will be removed April. 1, 2024 */
 export type AppearanceDep =
   | "info"
   | "success"
@@ -134,7 +135,7 @@ const Tag: React.FunctionComponent<TagProps> = ({
                 appearance={{ type: "ghost", variant: "secondary" }}
                 size="xsmall"
                 aria-label="close"
-                icon={<Close size="small" className="ids-tag__close" />}
+                icon={<DismissIcon size="sm" className="ids-tag__close" />}
             />
         );
     };

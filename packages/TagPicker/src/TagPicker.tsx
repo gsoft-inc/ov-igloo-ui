@@ -132,10 +132,6 @@ ref: React.Ref<HTMLInputElement>) => {
     const shouldShowResults =
     !disabled && focused && showResults && (hasResults || loading);
 
-    const getBrand = (): string => {
-        return document.documentElement.getAttribute("data-brand") ?? "igloo";
-    };
-
     const handleChange = ({
         target
     }: React.ChangeEvent<HTMLInputElement>): void => {
@@ -322,9 +318,10 @@ ref: React.Ref<HTMLInputElement>) => {
                 color={s.color}
                 icon={s.icon}
                 dismissible={!disabled}
-                appearance={getBrand() === "workleap" ? "default" : "neutral"}
+                appearance="select"
                 onRemove={handleTagRemove}
                 hasError={s.hasError}
+                size="small"
             >
                 {s.text}
             </Tag>

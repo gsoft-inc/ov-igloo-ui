@@ -3,13 +3,9 @@
 @layer igloo {
     :root {
         /* Default */
-        --ids-select-input-height: #{tokens.$space-6};
         --ids-select-input-chevron-color: #{tokens.$grey-800};
         --ids-select-input-search-height: 3.9rem;
         --ids-select-input-actions-padding: 0 #{tokens.$space-2};
-
-        /* Compact **/
-        --ids-select-input-height-compact: #{tokens.$space-5};
 
         /* Disabled */
         --ids-select-input-chevron-color-disabled: #{tokens.$grey-600};
@@ -17,13 +13,9 @@
 
     [data-brand="workleap"] {
         /* Default */
-        --ids-select-input-height: 2.5rem;
         --ids-select-input-chevron-color: var(--hop-neutral-icon-weak);
         --ids-select-input-search-height: 2.4375rem;
         --ids-select-input-actions-padding: 0 var(--hop-space-inline-md) 0 var(--hop-space-inline-sm);
-
-        /* Compact **/
-        --ids-select-input-height-compact: 2rem;
 
         /* Disabled */
         --ids-select-input-chevron-color-disabled: var(--hop-neutral-icon-disabled);
@@ -33,14 +25,9 @@
         width: 100%;
         display: flex;
         flex-flow: row nowrap;
-        height: var(--ids-select-input-height);
         justify-content: space-between;
         align-items: center;
         align-content: center;
-
-        .ids-select--compact & {
-            height: var(--ids-select-input-height-compact);
-        }
 
         & &__chevron {
             align-items: center;
