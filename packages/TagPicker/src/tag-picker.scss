@@ -18,25 +18,21 @@
         --ids-tag-picker-background-disabled: #{tokens.$grey-250};
         --ids-tag-picker-background-hover: transparent;
         --ids-tag-picker-border-disabled: #{tokens.$grey-250};
+        --ids-tag-picker-height: #{tokens.$space-6};
 
         /* Search icon */
         --ids-tag-picker-search-icon-color: #{tokens.$grey-400};
         --ids-tag-picker-search-icon-margin: 0 #{tokens.$space-2} 0 #{tokens.$space-3};
 
         /* Search input */
-        --ids-tag-picker-input-height: #{tokens.$space-5};
         --ids-tag-picker-input-min-width: 0.2rem;
         --ids-tag-picker-input-disabled-padding: 0;
 
         /* Tag */
-        --ids-tag-picker-tag-margin: #{tokens.$space-1};
-        --ids-tag-picker-tag-background: var(--ids-tag-background-neutral);
-        --ids-tag-picker-tag-background-error: var(--ids-tag-background-neutral);
-        --ids-tag-picker-tag-border: 0.1rem solid var(--ids-tag-border-neutral);
-        --ids-tag-picker-tag-border-color-error: var(--ids-tag-border-has-error);
+        --ids-tag-picker-tag-gap: #{tokens.$space-1};
 
         /* Results */
-        --ids-tag-picker-content-padding-selected: 0;
+        --ids-tag-picker-content-padding-selected: 0 #{tokens.$space-2};
         --ids-tag-picker-results-padding: #{tokens.$space-2} 0;
         --ids-tag-picker-results-min-width: 24rem;
 
@@ -59,24 +55,21 @@
         --ids-tag-picker-background-hover: var(--hop-neutral-surface-hover);
         --ids-tag-picker-background-disabled: var(--hop-neutral-surface-disabled);
         --ids-tag-picker-border-disabled: var(--hop-neutral-border-disabled);
+        --ids-tag-picker-height: 2.5rem;
 
         /* Search icon */
         --ids-tag-picker-search-icon-color: var(--hop-neutral-icon-weakest);
         --ids-tag-picker-search-icon-margin: 0 var(--hop-space-inline-sm);
 
         /* Search input */
-        --ids-tag-picker-input-height: calc(2.5rem - calc(var(--ids-tag-picker-tag-margin) * 2));
         --ids-tag-picker-input-min-width: 0.125rem;
         --ids-tag-picker-input-disabled-padding: var(--hop-space-inset-xs) 0;
 
         /* Tag */
-        --ids-tag-picker-tag-margin: var(--hop-space-inset-xs);
-        --ids-tag-picker-tag-background: var(--hop-neutral-surface-weakest);
-        --ids-tag-picker-tag-background-error: var(--hop-neutral-surface-weak);
-        --ids-tag-picker-tag-border: 0.0625rem solid var(--hop-neutral-border);
+        --ids-tag-picker-tag-gap: var(--hop-space-inset-xs);
 
         /* Results */
-        --ids-tag-picker-content-padding-selected: 0;
+        --ids-tag-picker-content-padding-selected: 0 var(--hop-space-inset-md);
         --ids-tag-picker-results-padding: var(--hop-space-inset-sm);
         --ids-tag-picker-results-min-width: 15rem;
 
@@ -88,8 +81,10 @@
     .ids-tag-picker {
         border: var(--ids-tag-picker-border-size) solid var(--ids-tag-picker-border-color);
         border-radius: var(--ids-tag-picker-border-radius);
+        display: flex;
         font-family: var(--ids-tag-picker-font-family);
         font-size: var(--ids-tag-picker-font-size);
+        height: var(--ids-tag-picker-height);
         overflow: auto;
 
         &,
@@ -129,7 +124,9 @@
     .ids-tag-picker__content {
         align-items: center;
         display: flex;
+        flex: 1 1 auto;
         flex-wrap: wrap;
+        gap: var(--ids-tag-picker-tag-gap);
         overflow: hidden;
 
         .ids-tag-picker--input-disabled & {
@@ -139,27 +136,14 @@
 
     .ids-tag-picker__tag {
         flex: 0 0 auto;
-        margin: var(--ids-tag-picker-tag-margin);
-
-        .ids-tag-picker & {
-            background: var(--ids-tag-picker-tag-background);
-            border: var(--ids-tag-picker-tag-border);
-        }
-
-        .ids-tag-picker &--error {
-            background: var(--ids-tag-picker-tag-background-error);
-            border-color: var(--ids-tag-picker-tag-border-color-error);
-        }
     }
 
     .ids-tag-picker__input-wrapper {
         align-items: center;
+        align-self: stretch;
         display: flex;
         font-size: var(--ids-tag-picker-font-size);
         flex: 1 1 auto;
-        margin: var(--ids-tag-picker-tag-margin);
-        margin-left: 0;
-        margin-right: 0;
         position: relative;
         visibility: visible;
     }
@@ -171,7 +155,6 @@
     .ids-tag-picker--has-selected .ids-tag-picker__input-wrapper {
         display: inline-grid;
         grid-template-columns: 0 min-content;
-        margin: var(--ids-tag-picker-tag-margin);
 
         &::after {
             content: attr(data-value);
@@ -191,7 +174,7 @@
     .ids-tag-picker .ids-tag-picker__input {
         border: none;
         flex: 1 1 auto;
-        height: var(--ids-tag-picker-input-height);
+        height: 100%;
         width: 100%;
     }
 

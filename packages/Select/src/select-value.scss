@@ -16,7 +16,7 @@
 
         /* Visual Identifier */
         --ids-select-value-icon-color: inherit;
-        --ids-select-value-icon-size: #{tokens.$space-4};
+        --ids-select-value-icon-size: #{tokens.$space-3};
         --ids-select-value-icon-margin-right: #{tokens.$space-2};
     }
 
@@ -32,7 +32,7 @@
 
         /* Visual Identifier */
         --ids-select-value-icon-color: var(--hop-neutral-icon-weak);
-        --ids-select-value-icon-size: 1.5rem;
+        --ids-select-value-icon-size: 1rem;
         --ids-select-value-icon-margin-right: var(--hop-space-inline-sm);
     }
 

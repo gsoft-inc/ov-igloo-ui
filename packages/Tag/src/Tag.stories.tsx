@@ -27,7 +27,7 @@ export default {
       table: {
         type: {
           summary:
-            'default | primary | progress | positive | caution | negative | neutral',
+            'default | primary | progress | positive | caution | negative | neutral | select',
         },
       },
       options: [
@@ -38,6 +38,7 @@ export default {
         'caution',
         'negative',
         'neutral',
+        'select'
       ],
     },
   },
@@ -61,6 +62,7 @@ export const Appearances = () => (
     <Tag appearance="negative">Negative Tag</Tag>
     <Tag appearance="primary">Primary Tag</Tag>
     <Tag appearance="neutral">Neutral Tag</Tag>
+    <Tag appearance="select" color="#9A3842" dismissible>Select Tag</Tag>
   </Section>
 );
 
@@ -98,11 +100,19 @@ export const Rounded = () => (
 );
 
 export const Sizes = () => (
-  <Section style={{ alignItems: 'center' }}>
-    <Tag size="medium">Medium Tag</Tag>
-    <Tag size="small">Small Tag</Tag>
-    <Tag size="xsmall">Xsmall Tag</Tag>
-    <Tag size="micro">Micro Tag</Tag>
+  <Section column>
+      <Section style={{ alignItems: 'center' }}>
+        <Tag size="medium">Medium Tag</Tag>
+        <Tag size="small">Small Tag</Tag>
+        <Tag size="xsmall">Xsmall Tag</Tag>
+        <Tag size="micro">Micro Tag</Tag>
+      </Section>
+      <Section style={{ alignItems: 'center' }}>
+        <Tag appearance="select" color="#9A3842" dismissible size="medium">Medium Tag</Tag>
+        <Tag appearance="select" color="#9A3842" dismissible size="small">Small Tag</Tag>
+        <Tag appearance="select" color="#9A3842" dismissible size="xsmall">Xsmall Tag</Tag>
+        <Tag appearance="select" color="#9A3842" dismissible size="micro">Micro Tag</Tag>
+      </Section>
   </Section>
 );
 
@@ -119,5 +129,6 @@ export const Error = () => (
     <Tag color="#00A587" hasError>
       Really long text so that the ellipsis will show
     </Tag>
+    <Tag appearance="select" color="#9A3842" dismissible hasError>Select Tag</Tag>
   </Section>
 );

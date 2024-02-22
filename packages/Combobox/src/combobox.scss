@@ -16,10 +16,12 @@
         --ids-combobox-border-width: 0.1rem;
         --ids-combobox-border-color: #{tokens.$grey-300};
         --ids-combobox-border-radius: #{tokens.$border-radius-sm};
+        --ids-combobox-height: #{tokens.$space-6};
 
         /* Compact */
         --ids-combobox-font-size-compact: #{tokens.$font-size-3};
         --ids-combobox-line-height-compact: #{tokens.$line-height-xxl};
+        --ids-combobox-height-compact: #{tokens.$space-5};
 
         /* Hover */
         --ids-combobox-border-color-hover: #{tokens.$grey-600};
@@ -60,10 +62,12 @@
         --ids-combobox-border-width: 0.0625rem;
         --ids-combobox-border-color: var(--hop-neutral-border);
         --ids-combobox-border-radius: var(--hop-shape-rounded-md);
+        --ids-combobox-height: 2.5rem;
 
         /* Compact */
         --ids-combobox-font-size-compact: var(--hop-body-sm-font-size);
         --ids-combobox-line-height-compact: var(--hop-body-sm-line-height);
+        --ids-combobox-height-compact: 2rem;
 
         /* Hover */
         --ids-combobox-border-color-hover: var(--hop-neutral-border-hover);
@@ -99,9 +103,11 @@
         border: var(--ids-combobox-border-width) solid var(--ids-combobox-border-color);
         border-radius: var(--ids-combobox-border-radius);
         cursor: pointer;
+        display: flex;
         font-size: var(--ids-combobox-font-size);
         font-family: var(--ids-combobox-font-family);
         font-weight: var(--ids-combobox-font-weight);
+        height: var(--ids-combobox-height);
         line-height: var(--ids-combobox-line-height);
         outline: 0;
         padding: 0 var(--ids-combobox-padding);
@@ -113,6 +119,11 @@
         &,
         & * {
             box-sizing: border-box;
+        }
+
+        .ids-dropdown__ref {
+            display: flex;
+            flex: 1 1 auto;
         }
 
         &:hover {
@@ -147,6 +158,7 @@
         &--compact {
             font-size: var(--ids-combobox-font-size-compact);
             line-height: var(--ids-combobox-line-height-compact);
+            height: var(--ids-combobox-height-compact);
         }
 
         &--disabled,
