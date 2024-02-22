@@ -42,7 +42,7 @@ VisualIdentifierProps
         "small": "xsmall",
         "medium": "small",
         "large": "medium"
-    };
+    } as const satisfies Record<Size, string>;
 
     const renderIcon = (): JSX.Element | null => {
         if (icon) {
@@ -57,7 +57,7 @@ VisualIdentifierProps
             return <Color className={classes} color={color} size={size} />;
         }
         if (src) {
-            const avatarSize = avatarSizeMapping[size] as Size;
+            const avatarSize = avatarSizeMapping[size];
 
             return <Avatar className={classes} src={src} size={avatarSize} />;
         }
