@@ -1,5 +1,11 @@
 # @shared/components
 
+## 0.3.0
+
+### Minor Changes
+
+- e2cc8b8: Updated the Avatar size in VisualIdentifier to match the sizing for Color.
+
 ## 0.2.1
 
 ### Patch Changes
