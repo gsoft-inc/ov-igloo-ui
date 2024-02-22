@@ -5,11 +5,19 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 import Provider, { useLocale, useLocalizedStringFormatter } from './Provider';
-import intlMessages from "./intl";
 
 interface TestComponentProps {
     message: string;
 }
+
+const intlMessages = {
+    "en-US": {
+        "testMessage": "test message"
+    },
+    "fr-CA": {
+        "testMessage": "test message fr"
+    }
+};
 
 const TestComponent = ({message}: TestComponentProps) => {
     const { locale } = useLocale();
