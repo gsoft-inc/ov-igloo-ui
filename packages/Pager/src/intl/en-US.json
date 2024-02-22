@@ -1,9 +1,9 @@
 {
-    "of": "of",
+    "pageResults": "{minResult}-{maxResult} of {totalResults}",
     "goToNextPage": "Go to next page",
     "goToPreviousPage": "Go to previous page",
     "jumpBack5Pages": "Jump back 5 pages",
     "jumpForward5Pages": "Jump forward 5 pages",
-    "page": "Page",
-    "goToPage": "Go to page"
+    "page": "Page {pageNumber}",
+    "goToPage": "Go to page {pageNumber}"
 }

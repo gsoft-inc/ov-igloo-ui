@@ -1,9 +1,9 @@
 {
-    "of": "sur",
+    "pageResults": "{minResult}-{maxResult} sur {totalResults}",
     "goToNextPage": "Aller à la page suivante",
     "goToPreviousPage": "Aller à la page précédente",
     "jumpBack5Pages": "Revenir 5 pages en arrière",
     "jumpForward5Pages": "Avancer de 5 pages",
-    "page": "Page",
-    "goToPage": "Aller à la page"
+    "page": "Page {pageNumber}",
+    "goToPage": "Aller à la page {pageNumber}"
 }

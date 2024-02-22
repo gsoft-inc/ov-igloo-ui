@@ -28,7 +28,7 @@
     "@igloo-ui/input": "^2.2.1",
     "@igloo-ui/tag": "^1.4.0",
     "@igloo-ui/tokens": "^2.0.0",
-    "@hopper-ui/tokens": "^3.1.4",
+    "@hopper-ui/tokens": "^3.1.5",
     "@react-aria/utils": "^3.23.2",
     "classnames": "^2.3.2"
   },

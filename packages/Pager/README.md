@@ -21,16 +21,22 @@ yarn add @igloo-ui/pager
 
 ## Usage
 
-Then to use the component in your code just import it!
+Then to use the component in your code, import it.
+It also requires the Provider package from Igloo to receive the correct locale.
+This should be wrapped around the entire application.
 
 ```jsx
+import IglooProvider from '@igloo-ui/provider';
 import Pager from '@igloo-ui/pager';
 
 const [currentPage, setCurrentPage] = React.useState(1);
-<Pager
-  pageSize={5}
-  totalCount={200}
-  currentPage={currentPage}
-  onPageChange={(page) => setCurrentPage(page)}
-/>;
+
+<IglooProvider locale="fr-CA">
+  <Pager
+    pageSize={5}
+    totalCount={200}
+    currentPage={currentPage}
+    onPageChange={(page) => setCurrentPage(page)}
+  />
+</IglooProvider>;
 ```

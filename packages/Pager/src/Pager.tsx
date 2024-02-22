@@ -137,8 +137,12 @@ const Pager: React.FunctionComponent<PagerProps> = ({
                                         aria-current={pageNumber === currentPage && "page"}
                                         aria-label={
                                             pageNumber === currentPage
-                                                ? `${stringFormatter.format("page")} ${pageNumber}`
-                                                : `${stringFormatter.format("goToPage")} ${pageNumber}`
+                                                ? `${stringFormatter.format("page", { 
+                                                    pageNumber: pageNumber 
+                                                })}`
+                                                : `${stringFormatter.format("goToPage", { 
+                                                    pageNumber: pageNumber 
+                                                })}`
                                         }
                                     >
                                         {pageNumber}
@@ -158,8 +162,11 @@ const Pager: React.FunctionComponent<PagerProps> = ({
                 </ol>
             </nav>
             <div className="ids-pager__results">
-                {pageSize * currentPage - pageSize + 1}-
-                {Math.min(pageSize * currentPage, totalCount)} {stringFormatter.format("of")} {totalCount}
+                {stringFormatter.format("pageResults", {
+                    minResult: pageSize * currentPage - pageSize + 1,
+                    maxResult: Math.min(pageSize * currentPage, totalCount),
+                    totalResults: totalCount
+                })}
             </div>
         </div>
     );
