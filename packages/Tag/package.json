@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/tag",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "main": "dist/Tag.js",
   "module": "dist/Tag.js",
   "types": "dist/Tag.d.ts",
@@ -33,7 +33,7 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@shared/components": "0.2.1"
+    "@shared/components": "0.3.0"
   },
   "browserslist": [
     "> 1%",
