@@ -38,6 +38,12 @@ VisualIdentifierProps
         className
     );
 
+    const avatarSizeMapping = {
+        "small": "xsmall",
+        "medium": "small",
+        "large": "medium"
+    } as const satisfies Record<Size, string>;
+
     const renderIcon = (): JSX.Element | null => {
         if (icon) {
             return React.cloneElement(icon, {
@@ -51,7 +57,9 @@ VisualIdentifierProps
             return <Color className={classes} color={color} size={size} />;
         }
         if (src) {
-            return <Avatar className={classes} src={src} size={size} />;
+            const avatarSize = avatarSizeMapping[size];
+
+            return <Avatar className={classes} src={src} size={avatarSize} />;
         }
 
         return null;

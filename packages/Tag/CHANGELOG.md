@@ -1,5 +1,11 @@
 # @igloo-ui/tag
 
+## 1.4.0
+
+### Minor Changes
+
+- e2cc8b8: Added the "select" appearence for the Tag that is used inside TagPicker. Fixed height and spacing of TagPicker.
+
 ## 1.3.2
 
 ### Patch Changes

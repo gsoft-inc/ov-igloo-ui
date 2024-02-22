@@ -1,21 +1,25 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 
+:root {
+    --ids-tag-border-size: 0.1rem;
+}
+
+[data-brand="workleap"] {
+    --ids-tag-border-size: 0.0625rem;
+}
+
 @mixin ids-tag-mixin-decoration(
     $backgroundColor,
-  $color,
-  $borderColor: transparent
+    $color,
+    $borderColor: transparent
 ) {
     background: $backgroundColor;
-    border: .1rem solid $borderColor;
+    border: var(--ids-tag-border-size) solid $borderColor;
     color: $color;
 }
 
-@mixin ids-tag-mixin-size($fontSize, $padding, $height, $contentPadding) {
+@mixin ids-tag-mixin-size($fontSize, $padding, $height) {
     font-size: $fontSize;
     height: $height;
     padding: $padding;
-
-    .ids-tag__content {
-        padding: $contentPadding;
-    }
 }
