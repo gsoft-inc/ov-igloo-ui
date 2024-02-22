@@ -26,10 +26,25 @@ It also requires the Provider package from Igloo to receive the correct locale.
 This should be wrapped around the entire application.
 
 ```jsx
-import IglooProvider from '@igloo-ui/provider';
 import Pager from '@igloo-ui/pager';
 
 const [currentPage, setCurrentPage] = React.useState(1);
+
+  <Pager
+    pageSize={5}
+    totalCount={200}
+    currentPage={currentPage}
+    onPageChange={(page) => setCurrentPage(page)}
+  />
+```
+
+
+## Internationalization
+
+The Pager component uses the [`@igloo-ui/provider`](https://igloo.officevibe.design/component/Provider) package to receive the correct locale. This should be wrapped around the entire application.
+
+```jsx
+import IglooProvider from '@igloo-ui/provider';
 
 <IglooProvider locale="fr-CA">
   <Pager
@@ -38,5 +53,5 @@ const [currentPage, setCurrentPage] = React.useState(1);
     currentPage={currentPage}
     onPageChange={(page) => setCurrentPage(page)}
   />
-</IglooProvider>;
+</IglooProvider>
 ```
