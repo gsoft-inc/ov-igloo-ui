@@ -65,9 +65,9 @@
         --ids-list-item-checkbox-one-px: 0.1rem;
         --ids-list-item-checkbox-check-color-disabled: #{tokens.$grey-600};
         --ids-list-item-checkbox-check-size: #{tokens.$font-size-3};
-        --ids-list-item-checkbox-check-color-hover: #{tokens.$grey-800};
+        --ids-list-item-checkbox-check-color-hover: transparent;
         --ids-list-item-checkbox-check-color-selected: #{tokens.$samoyed};
-        --ids-list-item-checkbox-check-color-default: #{tokens.$grey-200};
+        --ids-list-item-checkbox-check-color-default: transparent;
 
         /* Description */
         --ids-list-item-desc-color: #{tokens.$grey-600};
@@ -347,7 +347,7 @@
         background: var(--ids-list-item-checkbox-background);
         border: var(--ids-list-item-checkbox-one-px) solid var(--ids-list-item-checkbox-border);
         border-radius: var(--ids-list-item-checkbox-radius);
-        box-sizing: border-box;
+        box-sizing: var(--ids-list-item-checkbox-box-sizing);
         color: var(--ids-list-item-checkbox-check);
         cursor: pointer;
         display: inline-block;
