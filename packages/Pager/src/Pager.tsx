@@ -17,15 +17,19 @@ export interface PagerProps extends React.ComponentProps<"div"> {
     currentPage: number;
     /** Add a data-test tag for automated tests */
     dataTest?: string;
-    /** Called when the page is changed. */
+    /** Called when the page is changed */
     onPageChange: (pageNum: number) => void;
     /** Specify the number of elements each page should contain */
     pageSize: number;
+    /** Whether or not to show the text to the right of the pager */
+    showValueLabel?: boolean;
     /** Represents how many pages should
-   * be on each side of the current page.  */
+   * be on each side of the current page  */
     siblingCount?: number;
     /** The total amount of elements */
     totalCount: number;
+    /** The label to show on the right of the pager */
+    valueLabel?: React.ReactNode;
 }
 
 const Pager: React.FunctionComponent<PagerProps> = ({
@@ -34,8 +38,10 @@ const Pager: React.FunctionComponent<PagerProps> = ({
     dataTest,
     onPageChange,
     pageSize,
+    showValueLabel = true,
     siblingCount = 1,
     totalCount,
+    valueLabel,
     ...rest
 }: PagerProps) => {
     const stringFormatter = useLocalizedStringFormatter(intlMessages);
@@ -49,6 +55,9 @@ const Pager: React.FunctionComponent<PagerProps> = ({
 
     const lastPage = paginationRange[paginationRange.length - 1];
     const totalPageCount = Math.ceil(totalCount / pageSize);
+    const pageResults = valueLabel ? valueLabel :
+        `${pageSize * currentPage - pageSize + 1}-${Math.min(pageSize * currentPage, totalCount)} 
+${stringFormatter.format("of")} ${totalCount}`;
 
     const onNext = (): void => {
         if (totalPageCount > currentPage) {
@@ -137,12 +146,8 @@ const Pager: React.FunctionComponent<PagerProps> = ({
                                         aria-current={pageNumber === currentPage && "page"}
                                         aria-label={
                                             pageNumber === currentPage
-                                                ? `${stringFormatter.format("page", { 
-                                                    pageNumber: pageNumber 
-                                                })}`
-                                                : `${stringFormatter.format("goToPage", { 
-                                                    pageNumber: pageNumber 
-                                                })}`
+                                                ? `${stringFormatter.format("page")} ${pageNumber}`
+                                                : `${stringFormatter.format("goToPage")} ${pageNumber}`
                                         }
                                     >
                                         {pageNumber}
@@ -162,11 +167,7 @@ const Pager: React.FunctionComponent<PagerProps> = ({
                 </ol>
             </nav>
             <div className="ids-pager__results">
-                {stringFormatter.format("pageResults", {
-                    minResult: pageSize * currentPage - pageSize + 1,
-                    maxResult: Math.min(pageSize * currentPage, totalCount),
-                    totalResults: totalCount
-                })}
+                {showValueLabel && pageResults}
             </div>
         </div>
     );

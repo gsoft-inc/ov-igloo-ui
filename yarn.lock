@@ -2053,10 +2053,10 @@
   resolved "https://registry.yarnpkg.com/@hopper-ui/icons-react16/-/icons-react16-1.2.0.tgz#59ccc9d6fe92aa59fe4d986e50c2989c7abc5e54"
   integrity sha512-2DW4NnSeTFCdL24c99po4fLcO31N66SfTN38BhEHIA5Tn6v3CKboN3F8rozi1+JE0/DSaP+/hJUBT84YssP7JA==
 
-"@hopper-ui/tokens@^3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.1.4.tgz#88a859e02c94b0aa88ca2ef36a89fc3a049e9d29"
-  integrity sha512-h1yfRVh7aMJvyAnVY/hY5A2rkvf6Qi+N9I9bKaVz9cotW0eZJy6qUDx5erLAcGY77Vg3AWq87eaeDwOvWTGiRA==
+"@hopper-ui/tokens@^3.1.5":
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.1.5.tgz#e0b33fbe294ad8e7f0b567e349aa80c116cd488b"
+  integrity sha512-ytZ31EKklSWF1FLm6IqXw7+xoIUDbtSxDCAxGIbWwFc9MEsCqVSu8T38fsPNEXIaZsn9gMXZFBwbKYDDgn2U6A==
 
 "@humanwhocodes/config-array@^0.11.13":
   version "0.11.13"

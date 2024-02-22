@@ -97,3 +97,22 @@ export const NoSiblingCount = () => {
     </Section>
   );
 };
+
+export const CustomValueLabel = () => {
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const total = 100;
+  const pageSize = 50;
+
+  return (
+    <Section>
+      <Pager
+        pageSize={50}
+        totalCount={100}
+        currentPage={currentPage}
+        onPageChange={(page) => setCurrentPage(page)}
+        valueLabel={(pageSize * currentPage - pageSize + 1)+'-'+(Math.min(pageSize * currentPage, total)) }
+      />
+    </Section>
+  );
+};
+
