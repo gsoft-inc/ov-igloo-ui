@@ -1,5 +1,11 @@
 # @igloo-ui/pager
 
+## 1.0.1
+
+### Patch Changes
+
+- 8e6c600: Updated the pager's build step to properly be able to use igloo's provider
+
 ## 1.0.0
 
 ### Minor Changes
