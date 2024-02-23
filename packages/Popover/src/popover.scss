@@ -42,7 +42,7 @@
         --ids-popover-title-color: var(--hop-neutral-text);
         --ids-popover-title-font-weight: var(--hop-body-sm-semibold-font-weight);
         --ids-popover-title-padding: var(--hop-space-inset-xl);
-        --ids-popover-close-offset: 1rem;
+        --ids-popover-close-offset: var(--hop-space-inline-md);
     }
 
     /* stylelint-disable-next-line media-query-no-invalid */
