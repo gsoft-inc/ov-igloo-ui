@@ -1,5 +1,14 @@
 # @igloo-ui/tag
 
+## 1.4.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/ellipsis@0.3.1
+  - @igloo-ui/icon-button@1.2.2
+
 ## 1.4.0
 
 ### Minor Changes

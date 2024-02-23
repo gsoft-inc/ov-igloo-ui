@@ -1,5 +1,11 @@
 # @igloo-ui/radio
 
+## 0.2.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 0.2.0
 
 ### Minor Changes

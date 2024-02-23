@@ -1,5 +1,14 @@
 # @igloo-ui/dialog
 
+## 0.8.5
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/button@0.8.2
+  - @igloo-ui/modal@1.6.6
+
 ## 0.8.4
 
 ### Patch Changes

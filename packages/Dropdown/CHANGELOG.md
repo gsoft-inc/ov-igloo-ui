@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.8.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 1.8.0
 
 ### Minor Changes

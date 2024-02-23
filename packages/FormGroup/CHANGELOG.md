@@ -1,5 +1,13 @@
 # @igloo-ui/form-group
 
+## 1.1.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/helper-text@0.3.1
+
 ## 1.1.0
 
 ### Minor Changes

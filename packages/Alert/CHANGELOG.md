@@ -1,5 +1,14 @@
 # @igloo-ui/alert
 
+## 0.7.4
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/button@0.8.2
+  - @igloo-ui/icon-button@1.2.2
+
 ## 0.7.3
 
 ### Patch Changes

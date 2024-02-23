@@ -1,5 +1,13 @@
 # @igloo-ui/list
 
+## 0.6.4
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/checkbox@0.4.1
+
 ## 0.6.3
 
 ### Patch Changes

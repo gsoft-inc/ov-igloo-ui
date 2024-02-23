@@ -1,5 +1,13 @@
 # @igloo-ui/stacked-bar
 
+## 0.4.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/popover@0.5.2
+
 ## 0.4.0
 
 ### Minor Changes

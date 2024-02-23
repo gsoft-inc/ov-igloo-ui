@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/carousel",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "main": "dist/Carousel.js",
   "module": "dist/Carousel.js",
   "types": "dist/Carousel.d.ts",
@@ -29,7 +29,7 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@igloo-ui/button": "^0.8.0"
+    "@igloo-ui/button": "^0.8.2"
   },
   "browserslist": [
     "> 1%",

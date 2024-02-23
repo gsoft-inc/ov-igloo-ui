@@ -1,5 +1,13 @@
 # @igloo-ui/metric
 
+## 0.3.2
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/tooltip@3.5.1
+
 ## 0.3.1
 
 ### Patch Changes

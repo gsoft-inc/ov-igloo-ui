@@ -1,5 +1,15 @@
 # @igloo-ui/tag-picker
 
+## 0.9.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/dropdown@1.8.1
+  - @igloo-ui/input@2.2.2
+  - @igloo-ui/tag@1.4.1
+
 ## 0.9.0
 
 ### Minor Changes
