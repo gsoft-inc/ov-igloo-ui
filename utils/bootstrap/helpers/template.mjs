@@ -38,14 +38,14 @@ const setup = (props = {}) => {
     );
 };
 
-describe('${pascalCaseName}', () => {
-    test('It should render without errors', () => {
+describe("${pascalCaseName}", () => {
+    test("It should render without errors", () => {
         setup();
-        const wrapper = screen.getByTestId('ids-${name}');
+        const wrapper = screen.getByTestId("ids-${name}");
         expect(wrapper).toBeInTheDocument();
   });
 
-    test('It should render a snapshot', () => {
+    test("It should render a snapshot", () => {
         const {asFragment} = setup();
         expect(asFragment()).toMatchSnapshot();
     });
@@ -71,7 +71,7 @@ export default {
     parameters: {
         docs: {
             description: {
-                component: readme.replace(/<Example is="custom" \/>/g, '').replace(/<ReferenceLinks is="custom" \/>/g, ''),
+                component: readme.replace(/<Example is="custom" \\/>/g, '').replace(/<ReferenceLinks is="custom" \\/>/g, ''),
             }
         }
     }
