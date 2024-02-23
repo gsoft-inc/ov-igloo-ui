@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/pager",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "main": "dist/Pager.js",
   "module": "dist/Pager.js",
   "types": "dist/Pager.d.ts",
@@ -31,7 +31,7 @@
     "@igloo-ui/icons": "^1.12.2"
   },
   "devDependencies": {
-    "@igloo-ui/provider": "^0.0.0"
+    "@igloo-ui/provider": "^0.1.0"
   },
   "browserslist": [
     "> 1%",

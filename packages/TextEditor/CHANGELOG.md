@@ -1,5 +1,16 @@
 # @igloo-ui/text-editor
 
+## 0.7.5
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/button@0.8.2
+  - @igloo-ui/icon-button@1.2.2
+  - @igloo-ui/input@2.2.2
+  - @igloo-ui/tooltip@3.5.1
+
 ## 0.7.4
 
 ### Patch Changes

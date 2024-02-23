@@ -1,5 +1,14 @@
 # @shared/components
 
+## 0.3.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/avatar@0.3.1
+  - @igloo-ui/color@0.4.1
+
 ## 0.3.0
 
 ### Minor Changes

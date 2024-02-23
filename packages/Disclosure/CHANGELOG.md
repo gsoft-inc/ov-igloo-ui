@@ -1,5 +1,11 @@
 # @igloo-ui/disclosure
 
+## 1.1.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 1.1.0
 
 ### Minor Changes

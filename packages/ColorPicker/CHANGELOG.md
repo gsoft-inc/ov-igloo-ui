@@ -1,5 +1,14 @@
 # @igloo-ui/color-picker
 
+## 1.0.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/color@0.4.1
+  - @igloo-ui/dropdown@1.8.1
+
 ## 1.0.0
 
 ### Major Changes

@@ -1,5 +1,17 @@
 # @igloo-ui/pager
 
+## 1.0.0
+
+### Minor Changes
+
+- 6ea531f: Added localization for the pager component. It will use the new Igloo provider.
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/provider@0.1.0
+
 ## 0.3.0
 
 ### Minor Changes
