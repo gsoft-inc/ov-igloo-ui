@@ -1,5 +1,13 @@
 # @igloo-ui/list
 
+## 0.6.5
+
+### Patch Changes
+
+- bdc38d5: Fixed the styling of the checkbox of the older brand.
+- Updated dependencies [bdc38d5]
+  - @igloo-ui/checkbox@0.4.2
+
 ## 0.6.4
 
 ### Patch Changes
