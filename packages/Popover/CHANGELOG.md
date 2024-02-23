@@ -1,5 +1,15 @@
 # @igloo-ui/popover
 
+## 0.5.3
+
+### Patch Changes
+
+- ae1e944: ## Popover
+
+  - Removed padding on title when no close button is present.
+  - Removed padding on content.
+  - Adjusted close button position in Workleap theme.
+
 ## 0.5.2
 
 ### Patch Changes

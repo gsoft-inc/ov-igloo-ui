@@ -1,5 +1,11 @@
 # @igloo-ui/list
 
+## 0.6.6
+
+### Patch Changes
+
+- bea2c50: Fixed the checkbox inside the list as well as adjusments to the visual identifier.
+
 ## 0.6.5
 
 ### Patch Changes

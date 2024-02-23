@@ -1,5 +1,17 @@
 # @igloo-ui/tag-picker
 
+## 0.10.0
+
+### Minor Changes
+
+- bea2c50: Added the "select" appearence for the Tag that is used inside TagPicker. Fixed height and spacing of TagPicker.
+
+### Patch Changes
+
+- bea2c50: Fixed issue where scrollbar wasn't working in tagPicker.
+- Updated dependencies [bea2c50]
+  - @igloo-ui/tag@1.5.0
+
 ## 0.9.1
 
 ### Patch Changes

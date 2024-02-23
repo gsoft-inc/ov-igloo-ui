@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/popover",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "main": "dist/Popover.js",
   "module": "dist/Popover.js",
   "types": "dist/Popover.d.ts",

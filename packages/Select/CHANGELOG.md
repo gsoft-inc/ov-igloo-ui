@@ -1,5 +1,13 @@
 # @igloo-ui/select
 
+## 1.4.7
+
+### Patch Changes
+
+- bea2c50: Fixed the height of Combobox and Select to be 42px and not 40px and made adjustments for the visualIdentifier update.
+- Updated dependencies [bea2c50]
+  - @igloo-ui/list@0.6.6
+
 ## 1.4.6
 
 ### Patch Changes
