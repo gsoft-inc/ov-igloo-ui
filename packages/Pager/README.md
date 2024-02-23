@@ -21,9 +21,7 @@ yarn add @igloo-ui/pager
 
 ## Usage
 
-Then to use the component in your code, import it.
-It also requires the Provider package from Igloo to receive the correct locale.
-This should be wrapped around the entire application.
+Then to use the component in your code, import it!
 
 ```jsx
 import Pager from '@igloo-ui/pager';
