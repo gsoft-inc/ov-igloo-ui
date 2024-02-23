@@ -129,7 +129,7 @@ export const MaxHeight = {
 
   args: {
     placeholder: 'Enter multiple tags to see how the max height works.',
-    maxHeight: '16rem',
+    maxHeight: '8rem',
     className: 'isb-tag-picker--small-width',
   },
 };
