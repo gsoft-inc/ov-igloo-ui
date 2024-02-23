@@ -1,5 +1,11 @@
 # @igloo-ui/radio
 
+## 0.2.2
+
+### Patch Changes
+
+- 72417d0: Small Radio font-size was not being applied
+
 ## 0.2.1
 
 ### Patch Changes
