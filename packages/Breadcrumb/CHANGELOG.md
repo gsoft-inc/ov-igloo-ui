@@ -1,5 +1,11 @@
 # @igloo-ui/breadcrumb
 
+## 0.3.2
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 0.3.1
 
 ### Patch Changes

@@ -1,5 +1,61 @@
 # docs
 
+## 0.2.5
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+- Updated dependencies [6ea531f]
+- Updated dependencies [6ea531f]
+  - @igloo-ui/action-menu@1.5.1
+  - @igloo-ui/alert@0.7.4
+  - @igloo-ui/area-chart@1.2.1
+  - @igloo-ui/avatar@0.3.1
+  - @igloo-ui/bar-chart@0.4.1
+  - @igloo-ui/breadcrumb@0.3.2
+  - @igloo-ui/button@0.8.2
+  - @igloo-ui/button-group@0.4.1
+  - @igloo-ui/card@0.2.1
+  - @igloo-ui/carousel@0.3.2
+  - @igloo-ui/checkbox@0.4.1
+  - @igloo-ui/color@0.4.1
+  - @igloo-ui/color-picker@1.0.1
+  - @igloo-ui/combobox@2.2.5
+  - @igloo-ui/datepicker@0.6.2
+  - @igloo-ui/dialog@0.8.5
+  - @igloo-ui/disclosure@1.1.1
+  - @igloo-ui/dropdown@1.8.1
+  - @igloo-ui/ellipsis@0.3.1
+  - @igloo-ui/filter@0.3.2
+  - @igloo-ui/form-group@1.1.1
+  - @igloo-ui/helper-text@0.3.1
+  - @igloo-ui/hyperlink@0.4.2
+  - @igloo-ui/icon-button@1.2.2
+  - @igloo-ui/input@2.2.2
+  - @igloo-ui/list@0.6.4
+  - @igloo-ui/metric@0.3.2
+  - @igloo-ui/modal@1.6.6
+  - @igloo-ui/option-button@0.2.1
+  - @igloo-ui/pager@1.0.0
+  - @igloo-ui/pie-chart@0.3.1
+  - @igloo-ui/popover@0.5.2
+  - @igloo-ui/progress-bar@1.1.1
+  - @igloo-ui/radio@0.2.1
+  - @igloo-ui/select@1.4.6
+  - @igloo-ui/stacked-bar@0.4.1
+  - @igloo-ui/stepper@0.3.1
+  - @igloo-ui/tabs@1.2.2
+  - @igloo-ui/tag@1.4.1
+  - @igloo-ui/tag-picker@0.9.1
+  - @igloo-ui/text-editor@0.7.5
+  - @igloo-ui/textarea@0.4.2
+  - @igloo-ui/toaster@2.1.2
+  - @igloo-ui/toggle@1.2.1
+  - @igloo-ui/tooltip@3.5.1
+  - @igloo-ui/vertical-bar-chart@0.3.1
+  - @igloo-ui/provider@0.1.0
+
 ## 0.2.4
 
 ### Patch Changes

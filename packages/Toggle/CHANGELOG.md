@@ -1,5 +1,17 @@
 # @igloo-ui/toggle
 
+## 1.2.2
+
+### Patch Changes
+
+- bdc38d5: Fixed font-weight and removed extra spacing from Toggle.
+
+## 1.2.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 1.2.0
 
 ### Minor Changes

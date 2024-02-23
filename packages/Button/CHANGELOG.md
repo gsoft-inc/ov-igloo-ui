@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.2
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 0.8.1
 
 ### Patch Changes

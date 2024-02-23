@@ -1,5 +1,27 @@
 # @igloo-ui/list
 
+## 0.6.5
+
+### Patch Changes
+
+- bdc38d5: Fixed the styling of the checkbox of the older brand.
+- Updated dependencies [bdc38d5]
+  - @igloo-ui/checkbox@0.4.2
+
+## 0.6.4
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/checkbox@0.4.1
+
+## 0.6.3
+
+### Patch Changes
+
+- e2cc8b8: Fixed the checkbox inside the list as well as adjusments to the visual identifier.
+
 ## 0.6.2
 
 ### Patch Changes

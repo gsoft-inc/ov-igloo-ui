@@ -1,5 +1,14 @@
 # @igloo-ui/action-menu
 
+## 1.5.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/dropdown@1.8.1
+  - @igloo-ui/list@0.6.4
+
 ## 1.5.0
 
 ### Minor Changes

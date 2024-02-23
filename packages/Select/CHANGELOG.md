@@ -1,5 +1,24 @@
 # @igloo-ui/select
 
+## 1.4.6
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/dropdown@1.8.1
+  - @igloo-ui/icon-button@1.2.2
+  - @igloo-ui/input@2.2.2
+  - @igloo-ui/list@0.6.4
+
+## 1.4.5
+
+### Patch Changes
+
+- e2cc8b8: Fixed the height of Combobox and Select to be 42px and not 40px and made adjustments for the visualIdentifier update.
+- Updated dependencies [e2cc8b8]
+  - @igloo-ui/list@0.6.3
+
 ## 1.4.4
 
 ### Patch Changes

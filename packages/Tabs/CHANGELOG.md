@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.2.2
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 1.2.1
 
 ### Patch Changes

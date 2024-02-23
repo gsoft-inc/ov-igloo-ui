@@ -1,5 +1,20 @@
 # @igloo-ui/tag
 
+## 1.4.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/ellipsis@0.3.1
+  - @igloo-ui/icon-button@1.2.2
+
+## 1.4.0
+
+### Minor Changes
+
+- e2cc8b8: Added the "select" appearence for the Tag that is used inside TagPicker. Fixed height and spacing of TagPicker.
+
 ## 1.3.2
 
 ### Patch Changes

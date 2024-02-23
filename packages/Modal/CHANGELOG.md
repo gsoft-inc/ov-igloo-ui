@@ -1,5 +1,14 @@
 # @igloo-ui/modal
 
+## 1.6.6
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/carousel@0.3.2
+  - @igloo-ui/icon-button@1.2.2
+
 ## 1.6.5
 
 ### Patch Changes

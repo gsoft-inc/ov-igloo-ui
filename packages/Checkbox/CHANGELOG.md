@@ -1,5 +1,17 @@
 # @igloo-ui/checkbox
 
+## 0.4.2
+
+### Patch Changes
+
+- bdc38d5: Fixed the styling of the checkbox of the older brand.
+
+## 0.4.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 0.4.0
 
 ### Minor Changes

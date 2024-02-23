@@ -1,5 +1,13 @@
 # @igloo-ui/popover
 
+## 0.5.2
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/icon-button@1.2.2
+
 ## 0.5.1
 
 ### Patch Changes
