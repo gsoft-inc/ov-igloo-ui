@@ -1,5 +1,11 @@
 # @igloo-ui/toggle
 
+## 1.2.2
+
+### Patch Changes
+
+- bdc38d5: Fixed font-weight and removed extra spacing from Toggle.
+
 ## 1.2.1
 
 ### Patch Changes
