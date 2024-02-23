@@ -45,8 +45,18 @@ function injectCssImport(file) {
     };
 }
 
+const providerPackageName = "@igloo-ui/provider";
+
 export function createRollupConfig(packageName) {
     const { component, style } = handleName(packageName);
+
+    const external = ["react"];
+    if (packageName !== providerPackageName) {
+        // @igloo-ui/provider uses a context that needs to be shared with other packages that uses it
+        // as a peer dependency. So any package referencing @igloo-ui/provider should mark it as external,
+        // except the provider itself.
+        external.push(providerPackageName);
+    }
 
     return {
         input: path.resolve(__dirname, `./src/${component}.tsx`),
@@ -56,7 +66,7 @@ export function createRollupConfig(packageName) {
             name: component,
             sourcemap: true
         },
-        external: ["react"],
+        external,
         plugins: [
             postcss({
                 plugins: [autoprefixer(), flexbugs()],
