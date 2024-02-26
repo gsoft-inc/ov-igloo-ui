@@ -1,8 +1,11 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@layer hopper-design-system, hopper-icons, igloo;
+
 @import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
 @import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
+@import url("~@hopper-ui/icons-react16/index.css") layer(hopper-icons);
 
 @layer igloo {
     :root {
