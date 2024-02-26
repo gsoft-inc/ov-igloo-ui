@@ -246,7 +246,67 @@ export const ZeroFirstAndLast = {
         },
       ],
     },
-  };
+};
+
+export const OnlyZeroButLast = {
+    args: {
+      showValue: true,
+      valueRange: { min: 0, max: 'dataMax' },
+      formatValue: (value: number) => {
+        return `${value} units`;
+      },
+      dataSet: [
+        {
+          key: 'stronglyUnfavorable',
+          label: 'Strongly Unfavorable',
+          value: 0,
+          strength: -2,
+        },
+        {
+          key: 'unfavorable',
+          label: 'Unfavorable',
+          value: 0,
+          strength: -2,
+        },
+        {
+          key: 'favorable',
+          label: 'Favorable',
+          value: 245,
+          strength: 2,
+        }
+      ],
+    },
+};
+
+export const OnlyZeroButFirst = {
+    args: {
+      showValue: true,
+      valueRange: { min: 0, max: 'dataMax' },
+      formatValue: (value: number) => {
+        return `${value} units`;
+      },
+      dataSet: [
+        {
+          key: 'stronglyUnfavorable',
+          label: 'Strongly Unfavorable',
+          value: 245,
+          strength: -2,
+        },
+        {
+          key: 'unfavorable',
+          label: 'Unfavorable',
+          value: 0,
+          strength: -2,
+        },
+        {
+          key: 'favorable',
+          label: 'Favorable',
+          value: 0,
+          strength: 2,
+        }
+      ],
+    },
+};
 
 export const CustomClassAndPopoverTitle = {
   args: {

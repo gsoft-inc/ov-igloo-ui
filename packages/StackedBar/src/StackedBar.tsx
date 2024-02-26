@@ -22,7 +22,7 @@ export interface StackedBarLabel extends LabelProps {
     dataKey?: string;
 }
 
-export type Pos = "first" | "last";
+export type Pos = "first" | "last" | "firstAndLast";
 
 export type Strength = -2 | -1 | 0 | 1 | 2;
 
@@ -117,6 +117,10 @@ const StackedBar: React.FunctionComponent<StackedBarProps> = ({
     });
 
     const getRadius = (position?: Pos): [number, number, number, number] => {
+        if (position === "firstAndLast") {
+            return [4, 4, 4, 4];
+        }
+
         return [
             position === "first" ? 4 : 0,
             position === "last" ? 4 : 0,
@@ -196,21 +200,36 @@ const StackedBar: React.FunctionComponent<StackedBarProps> = ({
     let bars = null;
 
     if (dataSet && dataSet.length) {
-        bars = dataSet.map((barInfo, key) => {
-            let isFirstNonZero = true;
+        let firstNonZeroIndex = -1;
+        let lastNonZeroIndex = -1;
 
+        dataSet.forEach((barInfo, index) => {
+            if (barInfo.value && firstNonZeroIndex === -1) {
+                firstNonZeroIndex = index;
+            }
+            if (barInfo.value) {
+                lastNonZeroIndex = index;
+            }
+        });
+
+        bars = dataSet.map((barInfo, key) => {
             if (barInfo.value) {
                 const dataKey = barInfo.key;
                 let pos;
 
-                if (isFirstNonZero) {
+                if (key === firstNonZeroIndex && key !== lastNonZeroIndex) {
                     pos = "first" as Pos;
-                    isFirstNonZero = false;
                 }
 
-                if (key === dataSet.length - 1 || dataSet.slice(key + 1).every(item => !item.value)) {
+                if (key === lastNonZeroIndex && key !== firstNonZeroIndex) {
                     pos = "last" as Pos;
                 }
+
+                if (key === lastNonZeroIndex && key === firstNonZeroIndex) {
+                    pos = "firstAndLast" as Pos;
+                }
+
+                const radius = getRadius(pos); // Use the getRadius function to get the border-radius
 
                 barDataObj[dataKey] = barInfo.value;
 
@@ -233,7 +252,7 @@ const StackedBar: React.FunctionComponent<StackedBarProps> = ({
                         dataKey={dataKey}
                         label={getLabel(dataKey)}
                         fill={getColor(barInfo)}
-                        radius={getRadius(pos)}
+                        radius={radius}
                     />
                 );
             }
