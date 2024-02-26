@@ -1,5 +1,11 @@
 # @igloo-ui/dialog
 
+## 0.8.6
+
+### Patch Changes
+
+- f9ec17f: Updated the old brand's Dialog validate button to use fit-content for the width.
+
 ## 0.8.5
 
 ### Patch Changes

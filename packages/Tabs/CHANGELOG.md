@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.2.3
+
+### Patch Changes
+
+- f717ae9: Using hopper icons for Workleap brand in Tabs component.
+
 ## 1.2.2
 
 ### Patch Changes
