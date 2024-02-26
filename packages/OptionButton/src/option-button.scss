@@ -29,19 +29,19 @@
         --ids-option-button-icon-container-disabled-background: #{tokens.$grey-200};
         --ids-option-button-border-color-disabled: #{tokens.$grey-400};
         --ids-option-button-background-color-disabled: transparent;
+        --ids-option-button-text-color-disabled: #{tokens.$grey-600};
 
         /* Icon */
         --ids-option-button-icon-container-background: #{tokens.$electric-blue-50};
         --ids-option-button-icon-container-height: 5.6rem;
         --ids-option-button-icon-container-width: 6.2rem;
+        --ids-option-button-icon-background: #{tokens.$sky-100};
         --ids-option-button-icon-background-disabled: #{tokens.$grey-300};
+        --ids-option-button-icon-background-hover: #{tokens.$sky-100};
+        --ids-option-button-icon-color: #{tokens.$grey-800};
+        --ids-option-button-icon-color-disabled: #{tokens.$grey-600};
         --ids-option-button-icon-width: auto;
         --ids-option-button-icon-height: auto;
-        --ids-option-button-icon-circle-fill: #{tokens.$sky-100};
-        --ids-option-button-icon-path-fill: #{tokens.$grey-800};
-        --ids-option-button-icon-stroke: #{tokens.$grey-800};
-        --ids-option-button-icon-circle-fill-hover: #{tokens.$sky-100};
-        --ids-option-button-icon-circle-fill-disabled: #{tokens.$sky-100};
 
         /* Text */
         --ids-option-button-text-container-padding: #{tokens.$space-1} #{tokens.$space-3};
@@ -67,12 +67,12 @@
 
         /* Hover */
         --ids-option-button-hover-border-color: var(--hop-neutral-border-hover);
-        --ids-option-button-hover-background-color: var(--hop-neutral-surface-weak-hover);
+        --ids-option-button-hover-background-color: var(--hop-neutral-surface-hover);
 
         /* Checked */
         --ids-option-button-checked-box-shadow: none;
         --ids-option-button-checked-border-color: var(--hop-neutral-border-active);
-        --ids-option-button-checked-background-color: var(--hop-neutral-surface-weak-hover);
+        --ids-option-button-checked-background-color: var(--hop-neutral-surface-weak-active);
         --ids-option-button-checked-outline: 0.125rem solid var(--hop-neutral-border-active);
         --ids-option-button-checked-outline-offset: -0.125rem;
 
@@ -80,19 +80,19 @@
         --ids-option-button-icon-container-disabled-background: transparent;
         --ids-option-button-border-color-disabled: var(--hop-neutral-border-disabled);
         --ids-option-button-background-color-disabled: var(--hop-neutral-surface-disabled);
+        --ids-option-button-text-color-disabled: var(--hop-neutral-text-disabled);
 
         /* Icon */
         --ids-option-button-icon-container-background: transparent;
         --ids-option-button-icon-container-height: 3.5rem;
         --ids-option-button-icon-container-width: 2.5rem;
+        --ids-option-button-icon-background: var(--hop-decorative-option7-surface);
         --ids-option-button-icon-background-disabled: transparent;
+        --ids-option-button-icon-background-hover: var(--hop-decorative-option7-surface-hover);
+        --ids-option-button-icon-color: var(--hop-decorative-option7-icon);
+        --ids-option-button-icon-color-disabled: var(--hop-neutral-icon-disabled);
         --ids-option-button-icon-width: 2.5rem;
         --ids-option-button-icon-height: 2.5rem;
-        --ids-option-button-icon-circle-fill: #F0EAE3; // will be decorative-option7-surface
-        --ids-option-button-icon-path-fill: #2A2620; // will be decorative-option7-icon
-        --ids-option-button-icon-stroke: #2A2620; // will be decorative-option7-icon
-        --ids-option-button-icon-circle-fill-hover: #E5DED6; // will be decorative-option7-surface-strong
-        --ids-option-button-icon-circle-fill-disabled: transparent;
 
         /* Text */
         --ids-option-button-text-container-padding: var(--hop-space-inset-sm) var(--hop-space-inset-lg) var(--hop-space-inset-sm) var(--hop-space-inset-sm);
@@ -149,20 +149,16 @@
             padding: var(--ids-option-button-padding);
         }
 
-        &__radio:hover:not(:disabled) ~ &__label {
+        &:hover:not(.ids-option-button--disabled, .ids-option-button--checked) &__label {
             border-color: var(--ids-option-button-hover-border-color);
             background-color: var(--ids-option-button-hover-background-color);
-        }
-
-        &__radio:hover:not(:disabled) ~ &__label &__icon-circle {
-            fill: var(--ids-option-button-icon-circle-fill-hover);
         }
 
         &__radio:focus ~ &__label {
             box-shadow: var(--ids-option-focus);
         }
 
-        &__radio:checked ~ &__label {
+        &--checked &__label {
             background-color: var(--ids-option-button-checked-background-color);
             border: var(--ids-option-button-border-dimension) solid var(--ids-option-button-checked-border-color);
             box-shadow: var(--ids-option-button-checked-box-shadow);
@@ -171,11 +167,7 @@
             outline-offset: var(--ids-option-button-checked-outline-offset);
         }
 
-        &__radio:checked ~ &__label &__icon-circle {
-            fill: var(--ids-option-button-icon-circle-fill-hover);
-        }
-
-        &__radio:disabled ~ &__label {
+        &--disabled &__label {
             border: var(--ids-option-button-border-dimension) solid var(--ids-option-button-border-color-disabled);
             box-shadow: none;
             cursor: not-allowed;
@@ -183,11 +175,14 @@
             background-color: var(--ids-option-button-background-color-disabled);
         }
 
-        &__radio:disabled ~ &__label &__icon-circle {
-            fill: var(--ids-option-button-icon-circle-fill-disabled);
+        &--checked.ids-option-button--disabled &__label {
+            border: var(--ids-option-button-border-dimension) solid var(--ids-option-button-checked-border-color);
+            box-shadow: var(--ids-option-button-checked-box-shadow);
+            outline: var(--ids-option-button-checked-outline);
+            outline-offset: var(--ids-option-button-checked-outline-offset);
         }
 
-        &--unchecked &__radio:checked ~ &__label {
+        &--unchecked.ids-option-button--checked &__label {
             box-shadow: none;
         }
 
@@ -204,40 +199,43 @@
             width: var(--ids-option-button-icon-container-width);
         }
 
-        &__icon-circle {
-            fill: var(--ids-option-button-icon-circle-fill);
-        }
-
-        &__icon-path {
-            fill: var(--ids-option-button-icon-path-fill);
-        }
-
-        &__icon-stroke {
-            stroke: var(--ids-option-button-icon-stroke);
-        }
-
-        &__multiple-choice-icon,
-        &__text-icon,
-        &__option-scale-icon,
-        &__likert-icon {
-            height: var(--ids-option-button-icon-width);
-            width: var(--ids-option-button-icon-width);
-        }
-
         &--unchecked &__icon-container {
             @extend %disabled-icon-container;
         }
 
-        &__radio:checked ~ &__label &__icon-container {
+        &--checked &__icon-container {
             @extend %active-icon-container;
         }
 
-        &__radio:disabled ~ &__label &__icon-container,
-        &--unchecked &__radio:checked ~ &__label &__icon-container {
+        &--disabled &__icon-container,
+        &--unchecked.ids-option-button--checked &__icon-container {
             @extend %disabled-icon-container;
         }
 
-        &__icon-container svg.disabled [fill$='#{tokens.$sky-100}'] {
+        &__icon {
+            color: var(--ids-option-button-icon-color);
+            height: var(--ids-option-button-icon-width);
+            width: var(--ids-option-button-icon-width);
+        }
+
+        &--disabled &__icon {
+            color: var(--ids-option-button-icon-color-disabled);
+        }
+
+        &__icon-circle {
+            fill: var(--ids-option-button-icon-background);
+        }
+
+        &:hover:not(.ids-option-button--disabled, .ids-option-button--checked) &__icon-circle {
+            fill: var(--ids-option-button-icon-background-hover);
+        }
+
+        &--checked &__icon-circle {
+            fill: var(--ids-option-button-icon-background-hover);
+        }
+
+
+        &--disabled &__icon-circle {
             fill: var(--ids-option-button-icon-background-disabled);
         }
 
@@ -254,6 +252,10 @@
             line-height: var(--ids-option-button-text-line-height);
 
             @extend %ellipsis;
+
+            .ids-option-button--disabled & {
+                color: var(--ids-option-button-text-color-disabled);
+            }
         }
 
         &__desc {
