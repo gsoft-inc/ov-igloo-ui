@@ -1,5 +1,11 @@
 # @igloo-ui/stacked-bar
 
+## 0.4.2
+
+### Patch Changes
+
+- a783512: Addressed a bug in the StackedBar component where the radius wasn't applied with items of value 0.
+
 ## 0.4.1
 
 ### Patch Changes
