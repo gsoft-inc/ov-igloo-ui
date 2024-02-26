@@ -207,6 +207,47 @@ export const CustomRangeAndFormat = {
   },
 };
 
+export const ZeroFirstAndLast = {
+    args: {
+      showValue: true,
+      valueRange: { min: 0, max: 'dataMax' },
+      formatValue: (value: number) => {
+        return `${value} units`;
+      },
+      dataSet: [
+        {
+          key: 'stronglyUnfavorable',
+          label: 'Strongly Unfavorable',
+          value: 0,
+          strength: -2,
+        },
+        {
+          key: 'unfavorable',
+          label: 'Unfavorable',
+          value: 135,
+          strength: -2,
+        },
+        {
+          key: 'skipped',
+          label: 'Skipped',
+          value: 120,
+        },
+        {
+          key: 'favorable',
+          label: 'Favorable',
+          value: 245,
+          strength: 2,
+        },
+        {
+          key: 'stronglyFavorable',
+          label: 'Strongly Favorable',
+          value: 0,
+          strength: 2,
+        },
+      ],
+    },
+  };
+
 export const CustomClassAndPopoverTitle = {
   args: {
     showValue: true,

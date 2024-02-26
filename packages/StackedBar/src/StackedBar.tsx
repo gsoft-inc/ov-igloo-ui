@@ -197,15 +197,18 @@ const StackedBar: React.FunctionComponent<StackedBarProps> = ({
 
     if (dataSet && dataSet.length) {
         bars = dataSet.map((barInfo, key) => {
+            let isFirstNonZero = true;
+
             if (barInfo.value) {
                 const dataKey = barInfo.key;
                 let pos;
 
-                if (key === 0) {
+                if (isFirstNonZero) {
                     pos = "first" as Pos;
+                    isFirstNonZero = false;
                 }
 
-                if (key === dataSet.length - 1) {
+                if (key === dataSet.length - 1 || dataSet.slice(key + 1).every(item => !item.value)) {
                     pos = "last" as Pos;
                 }
 
