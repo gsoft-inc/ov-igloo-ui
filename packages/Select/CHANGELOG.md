@@ -1,5 +1,13 @@
 # @igloo-ui/select
 
+## 1.4.8
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+- Updated dependencies [97edb0e]
+  - @igloo-ui/icon-button@1.2.3
+
 ## 1.4.7
 
 ### Patch Changes
