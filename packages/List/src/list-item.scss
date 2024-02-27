@@ -290,10 +290,6 @@
         }
     }
 
-    .ids-visual-identifier__visual {
-        flex-shrink: 0;
-    }
-
     .ids-list-item--loading .ids-list-item__thumbnail {
         animation: loading-pulse-light ease-in-out 1.5s infinite both;
         border-radius: var(--ids-list-item-loading-thumbnail-border-radius);
