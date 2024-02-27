@@ -47,7 +47,8 @@ const Radio: React.FunctionComponent<RadioProps> = React.forwardRef(
         return (
             <span
                 className={cx("ids-form-control", "ids-form-control-radio", {
-                    "has-description": helperText
+                    "ids-form-control-radio--disabled": disabled,
+                    "ids-form-control-radio--checked": checked
                 })}
             >
                 <input
