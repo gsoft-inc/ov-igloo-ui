@@ -76,15 +76,22 @@
         background: var(--ids-radio-background);
     }
 
-    .ids-form-control {
+    .ids-form-control-radio {
         display: inline-flex;
         align-items: flex-start;
-    }
+        cursor: pointer;
 
-    .ids-form-control-radio {
         &,
         & * {
             box-sizing: border-box;
+        }
+
+        &--checked {
+            cursor: default;
+        }
+
+        &--disabled {
+            cursor: not-allowed;
         }
     }
 
@@ -93,6 +100,7 @@
         font-size: var(--ids-radio-font-size);
         font-weight: var(--ids-radio-font-weight);
         color: var(--ids-radio-text);
+        cursor: inherit;
         line-height: var(--ids-radio-line-height);
         padding-left: var(--ids-radio-padding);
     }
@@ -105,8 +113,8 @@
         margin: var(--ids-radio-margin);
         display: inline-block;
         position: relative;
-        cursor: pointer;
         color: var(--ids-radio-check);
+        cursor: inherit;
         border: var(--ids-radio-border-size, .1rem) solid var(--ids-radio-border);
         border-radius: 50%;
         background: var(--ids-radio-background);
