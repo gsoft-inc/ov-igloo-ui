@@ -111,6 +111,10 @@
                 --ids-modal-header-before-display: block; /* Display block since the back button in the header isn't displayed on desktop */
             }
 
+            .ids-modal:not(.ids-modal--closable) {
+                --ids-modal-header-before-display: none; // Hide the before element if the modal isn't showing the close button
+            }
+
             --ids-modal-header-border: none;
             --ids-modal-header-height: auto;
             --ids-modal-header-font-size: #{tokens.$font-size-6};

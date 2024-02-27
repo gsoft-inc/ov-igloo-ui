@@ -104,8 +104,16 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
 
     const ref = React.useRef<HTMLDivElement>(null);
     const { overlayProps, underlayProps } = useOverlay(
-        { isOpen, onClose, isDismissable, isKeyboardDismissDisabled: !dismissOnEscape },
-        ref
+        { isOpen, onClose, isDismissable, isKeyboardDismissDisabled: !dismissOnEscape, 
+            shouldCloseOnInteractOutside: element => {
+                // Don't close if a dropdown is clicked
+                if (element.closest("[data-floating-ui-portal]")) {
+                    return false;
+                }
+
+                return true;
+            }
+        }, ref
     );
 
     usePreventScroll({ isDisabled: !isOpen });
