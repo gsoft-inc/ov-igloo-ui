@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/stacked-bar",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "main": "dist/StackedBar.js",
   "module": "dist/StackedBar.js",
   "types": "dist/StackedBar.d.ts",

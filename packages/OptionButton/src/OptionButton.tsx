@@ -2,6 +2,10 @@ import * as React from "react";
 import cx from "classnames";
 
 import {
+    LegacyTextIcon,
+    LegacyOptionScaleIcon,
+    LegacyMultipleChoiceIcon,
+    LegacyLikertIcon,
     TextIcon,
     OptionScaleIcon,
     MultipleChoiceIcon,
@@ -40,6 +44,10 @@ export interface OptionButtonProps extends React.ComponentProps<"input"> {
     unchecked?: boolean;
 }
 
+const getBrand = (): string => {
+    return document.documentElement.getAttribute("data-brand") ?? "igloo";
+};
+
 const OptionButton: React.FunctionComponent<OptionButtonProps> = ({
     buttonType = "text",
     checked,
@@ -58,41 +66,55 @@ const OptionButton: React.FunctionComponent<OptionButtonProps> = ({
         if (icon) {
             return icon;
         }
-        let disabledClass = "";
-        if (disabled || unchecked) {
-            disabledClass = "disabled";
+
+        const isWorkleap = getBrand() === "workleap";
+        let OptionScale = LegacyOptionScaleIcon;
+        let MultipleChoice = LegacyMultipleChoiceIcon;
+        let Likert = LegacyLikertIcon;
+        let Text = LegacyTextIcon;
+        if (isWorkleap) {
+            OptionScale = OptionScaleIcon;
+            MultipleChoice = MultipleChoiceIcon;
+            Likert = LikertIcon;
+            Text = TextIcon;
         }
+
         switch (buttonType) {
             case "optionScale":
                 return (
-                    <OptionScaleIcon
-                        className={`ids-option-button__option-scale-icon ${disabledClass}`}
+                    <OptionScale
+                        className={`ids-option-button__icon 
+                        ids-option-button__option-scale-icon`}
                     />
                 );
             case "multipleChoice":
                 return (
-                    <MultipleChoiceIcon
-                        // eslint-disable-next-line max-len
-                        className={`ids-option-button__multiple-choice-icon ${disabledClass}`}
+                    <MultipleChoice
+                        className={`ids-option-button__icon 
+                        ids-option-button__multiple-choice-icon`}
                     />
                 );
             case "likert":
                 return (
-                    <LikertIcon
-                        className={`ids-option-button__likert-icon ${disabledClass}`}
+                    <Likert
+                        className={`ids-option-button__icon 
+                        ids-option-button__likert-icon`}
                     />
                 );
             default:
                 return (
-                    <TextIcon
-                        className={`ids-option-button__text-icon ${disabledClass}`}
+                    <Text
+                        className={`ids-option-button__icon 
+                        ids-option-button__text-icon`}
                     />
                 );
         }
     };
 
     const classes = cx("ids-option-button", className, {
-        "ids-option-button--unchecked": unchecked
+        "ids-option-button--unchecked": unchecked,
+        "ids-option-button--checked": checked,
+        "ids-option-button--disabled": disabled
     });
 
     return (
