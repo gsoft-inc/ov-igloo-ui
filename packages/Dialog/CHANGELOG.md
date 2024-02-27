@@ -1,5 +1,14 @@
 # @igloo-ui/dialog
 
+## 0.8.7
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+- Updated dependencies [97edb0e]
+  - @igloo-ui/button@0.8.3
+  - @igloo-ui/modal@1.6.7
+
 ## 0.8.6
 
 ### Patch Changes
