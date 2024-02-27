@@ -7,7 +7,7 @@ import Tag from "@igloo-ui/tag";
 import Dropdown from "@igloo-ui/dropdown";
 import Input from "@igloo-ui/input";
 import useClickOutside from "./hooks/useClickOutside";
-import TagPickerResult from "./TagPickerResult";
+import List, { type OptionType } from "@igloo-ui/list";
 import { mergeRefs } from "@react-aria/utils";
 
 import "./tag-picker.scss";
@@ -22,6 +22,8 @@ export enum Keys {
     Tab = "Tab"
 }
 
+export type TagPickerListSize = "small" | "medium";
+
 export interface TagItem {
     /** Add a colored square instead of an image or an icon */
     color?: string;
@@ -31,12 +33,18 @@ export interface TagItem {
     icon?: React.ReactElement;
     /** Specify a specific ID */
     id: string;
+    /** Whether or not the color should be square */
+    isColorSquare?: boolean;
+    /** Displays an icon that shows the member is a manager (Only used with type "member") */
+    isManager?: boolean;
     /** Specifies the url for the image icon */
     src?: string;
     /** The sub text for the tag */
     subtext?: string;
     /** The text for the tag */
     text: string;
+    /** The TagItem type */
+    type?: "list" | "member";
 }
 
 export interface TagPickerProps
@@ -84,6 +92,10 @@ export interface TagPickerProps
     separators?: (Keys.Enter | Keys.Comma | Keys.Space)[];
     /** The value of the input */
     inputValue?: string;
+    /** Size of the list */
+    listSize?: TagPickerListSize;
+    /** Class name for the dropdown */
+    dropdownClassName?: string;
 }
 
 const TagPicker: React.FunctionComponent<
@@ -110,6 +122,8 @@ TagPickerProps & React.RefAttributes<HTMLInputElement>
     showSearchIcon,
     separators = [Keys.Enter],
     inputValue,
+    listSize = "small",
+    dropdownClassName,
     ...rest
 }: TagPickerProps,
 ref: React.Ref<HTMLInputElement>) => {
@@ -126,6 +140,36 @@ ref: React.Ref<HTMLInputElement>) => {
         defaultKeyboardFocusIndex
     );
     const mergedInputRef = mergeRefs(inputRef, ref);
+    const listResults = React.useMemo(
+        () => results?.map(result => {
+            let listResultItem: OptionType = {
+                value: result.id,
+                label: result.text,
+                description: result.subtext,
+                type: "list",
+                color: result.color,
+                icon: result.icon,
+                src: result.src,
+                isColorSquare: result.isColorSquare
+            };
+
+            if (result.type === "member") {
+                listResultItem = {
+                    value: result.id,
+                    member: result.text,
+                    role: result.subtext,
+                    type: "member",
+                    color: result.color,
+                    icon: result.icon,
+                    src: result.src,
+                    manager: result.isManager
+                };
+            }
+
+            return listResultItem;
+        }),
+        [results]
+    );
 
     const selectedResultsCount = selectedResults.length;
     const hasResults = !!results;
@@ -136,13 +180,13 @@ ref: React.Ref<HTMLInputElement>) => {
         target
     }: React.ChangeEvent<HTMLInputElement>): void => {
         const { value } = target;
-        const shouldShowResults = value.length >= minSearchLength;
+        const displayResults = value.length >= minSearchLength;
 
         setLocalInputValue(value);
 
-        setShowResults(shouldShowResults);
+        setShowResults(displayResults);
 
-        if (onInput && shouldShowResults) {
+        if (onInput && displayResults) {
             onInput(value);
         }
     };
@@ -184,9 +228,20 @@ ref: React.Ref<HTMLInputElement>) => {
 
     useClickOutside([tagPickerRef, dropdownRef], handleLoseFocus);
 
-    const handleResultHover = (): void => {
+    const handleResultHover = (option: OptionType): void => {
+        const index = listResults?.findIndex(
+            result => result.value === option.value
+        );
+
+        if (index !== undefined) {
+            setKeyboardFocusIndex(index);
+        }
+    };
+
+    const handleResultBlur = (): void => {
         resetKeyboardFocus();
     };
+
 
     const handleResultSelection = (resultId: string): void => {
         onSelection(resultId);
@@ -328,38 +383,32 @@ ref: React.Ref<HTMLInputElement>) => {
         );
     });
 
-    const List = ({ items }: { items: TagItem[] | undefined }): JSX.Element => {
-        if (items && items.length > 0) {
-            const listItem = items.map((item, key) => (
-                <li className="ids-tag-picker__results-item" key={item.id}>
-                    <TagPickerResult
-                        onHover={handleResultHover}
-                        onSelect={handleResultSelection}
-                        result={item}
-                        focused={keyboardFocusIndex === key}
-                    />
-                </li>
-            ));
-
-            return <ul className="ids-tag-picker__results">{listItem}</ul>;
-        }
-
-        return <div className="ids-tag-picker__no-results">{noResultsText}</div>;
-    };
-
-    const loadingList = (
-        <ul className="ids-tag-picker__results ids-tag-picker__results--loading">
-            {Array.from({ length: 6 }, (_, index) => (
-                <li
-                    className="ids-tag-picker-result ids-tag-picker-result--loading"
-                    key={`loading_${index.toString()}`}
-                >
-                    <span className="ids-tag-picker-result__loading-thumbnail" />
-                    <span className="ids-tag-picker-result__loading-text" />
-                </li>
-            ))}
-        </ul>
+    let dropdownContent = (
+        <div className="ids-tag-picker__no-results">{noResultsText}</div>
     );
+
+    if (loading) {
+        dropdownContent = (
+            <List
+                isCompact={listSize === "small"}
+                loading
+                className="tag-picker__list"
+            />
+        );
+    } else if (results && results.length) {
+        dropdownContent = (
+            <List
+                options={listResults}
+                isCompact={listSize === "small"}
+                onOptionFocus={handleResultHover}
+                onOptionBlur={handleResultBlur}
+                onOptionChange={option => {handleResultSelection(option.value as string);}}
+                focusedOption={listResults?.[keyboardFocusIndex]}
+                disableTabbing
+                className="tag-picker__list"
+            />
+        );
+    }
 
     const showIcon = showSearchIcon && selectedResults.length === 0;
 
@@ -401,6 +450,14 @@ ref: React.Ref<HTMLInputElement>) => {
         { "ids-tag-picker--error": error }
     );
 
+    const dropdownClasses = cx(
+        dropdownClassName,
+        "ids-tag-picker__dropdown",
+        {
+            "ids-tag-picker__dropdown--loading": loading
+        }
+    );
+
     const tagPickerElem = (
         <div
             ref={tagPickerRef}
@@ -424,7 +481,8 @@ ref: React.Ref<HTMLInputElement>) => {
     return results || loading ? (
         <Dropdown
             ref={dropdownRef}
-            content={loading ? loadingList : <List items={results} />}
+            className={dropdownClasses}
+            content={dropdownContent}
             isOpen={shouldShowResults}
             onClose={handleLoseFocus}
             onClick={handleGainFocus}

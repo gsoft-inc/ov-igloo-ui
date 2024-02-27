@@ -20,6 +20,8 @@ export interface ColorProps {
     color?: string;
     /** Add a data-test tag for automated tests */
     dataTest?: string;
+    /** Whether or not the color is square */
+    isSquare?: boolean;
     /** Specify the name that will be used to create initials */
     name?: string;
     /** Specifies the size of the color */
@@ -33,11 +35,19 @@ const Color: React.FunctionComponent<ColorProps> = ({
     className,
     color,
     dataTest,
+    isSquare = false,
     name,
     size = "small",
     textColor
 }) => {
-    const classes = cx("ids-color", `ids-color--${size}`, className);
+    const classes = cx(
+        "ids-color",
+        {
+            [`ids-color--${size}`]: size, 
+            "ids-color--square": isSquare
+        },
+        className
+    );
 
     const initialsFromName = React.useMemo(() => {
         if (!name) {

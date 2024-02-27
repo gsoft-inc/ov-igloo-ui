@@ -12,6 +12,8 @@ export interface VisualIdentifierProps extends React.ComponentProps<"div"> {
     color?: string;
     /** Add an icon */
     icon?: React.ReactElement;
+    /** Whether or not the color should be square */
+    isColorSquare?: boolean;
     /** Specify the size. For icon, the size is set directly on the icon
    * These sizes are common between Color and Avatar components */
     size?: Size;
@@ -25,6 +27,7 @@ VisualIdentifierProps
     className,
     color,
     icon,
+    isColorSquare = false,
     size = "small",
     src
 }: VisualIdentifierProps) => {
@@ -54,7 +57,7 @@ VisualIdentifierProps
             });
         }
         if (color) {
-            return <Color className={classes} color={color} size={size} />;
+            return <Color className={classes} color={color} size={size} isSquare={isColorSquare} />;
         }
         if (src) {
             const avatarSize = avatarSizeMapping[size];

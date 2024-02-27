@@ -22,6 +22,8 @@ export type FocusDirection = "first" | "last" | "up" | "down";
 
 export type SelectOptiontype = Omit<Option, "type">;
 
+export type SelectListSize = "small" | "medium";
+
 export interface SelectProps {
     /** Set this to true and the dropdown will take the width of its content,
    * not the width of the select */
@@ -40,6 +42,8 @@ export interface SelectProps {
     isCompact?: boolean;
     /** True if the option list is displayed */
     isOpen?: boolean;
+    /** Size of the list */
+    listSize?: SelectListSize;
     /** Whether or not the list is loading */
     loading?: boolean;
     /** Callback when selected content changes */
@@ -62,6 +66,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
     error,
     isCompact = false,
     isOpen = false,
+    listSize = "small",
     loading,
     onChange,
     options,
@@ -270,7 +275,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
                 content={
                     <List
                         options={results}
-                        isCompact
+                        isCompact={listSize === "small"}
                         onOptionFocus={hoverOption}
                         onOptionChange={selectOption}
                         onOptionBlur={() => setCurrentFocusedOption(undefined)}

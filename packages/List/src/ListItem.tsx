@@ -5,6 +5,7 @@ import cx from "classnames";
 import { VisualIdentifier, type Size } from "@shared/components";
 import UserSolid from "@igloo-ui/icons/dist/UserSolid";
 import Checkmark from "@igloo-ui/icons/dist/Checkmark";
+import { UserIcon } from "@hopper-ui/icons-react16";
 
 import "./list-item.scss";
 
@@ -15,6 +16,8 @@ interface ListItem {
     icon?: React.ReactElement;
     /** Unique id used in Intercom to link a components to a Product Tour step */
     intercomTarget?: string;
+    /** Whether or not the color should be square */
+    isColorSquare?: boolean;
     /** Specifies the url for the image to show */
     src?: string;
     /** The option value */
@@ -77,6 +80,10 @@ export interface ListItemProps extends React.ComponentProps<"li"> {
     useCheckbox?: boolean;
 }
 
+const getBrand = (): string => {
+    return document.documentElement.getAttribute("data-brand") ?? "igloo";
+};
+
 const ListItem: React.FunctionComponent<ListItemProps> = ({
     className,
     disableTabbing = false,
@@ -93,6 +100,8 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
     useCheckbox,
     ...rest
 }: ListItemProps) => {
+    const isWorkleap = getBrand() === "workleap";
+
     const isOptionDisabled = (): boolean => {
         if (option?.type === "list") {
             return option?.disabled ?? false;
@@ -136,11 +145,11 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
         "ids-list-item--loading": loading
     });
 
-    let visualIdentifierSize: Size = "medium";
-    if (option?.type === "member") {
-        visualIdentifierSize = "large";
-    } else if (isCompact) {
-        visualIdentifierSize = "small";
+    let visualIdentifierSize: Size = "small";
+    if (option?.src) {
+        if (option?.src && (option?.type === "member" || !isCompact)) {
+            visualIdentifierSize = "large";
+        }
     }
 
     const shouldShowVisualIdentifier =
@@ -160,6 +169,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
                 color={option?.color}
                 src={option?.src}
                 size={visualIdentifierSize}
+                isColorSquare={option?.isColorSquare}
             />
         </div>
     );
@@ -184,7 +194,9 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
             <span className="ids-list-item__text-member">
                 {option?.member}
                 {option?.manager && (
-                    <UserSolid size="small" className="ids-list-item__manager" />
+                    isWorkleap ? 
+                        <UserIcon size="sm" className="ids-list-item__manager" /> :
+                        <UserSolid size="small" className="ids-list-item__manager" />
                 )}
             </span>
             {option?.role && (

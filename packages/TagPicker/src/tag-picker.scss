@@ -33,6 +33,9 @@
         /* Tag */
         --ids-tag-picker-tag-gap: #{tokens.$space-1};
 
+        /* Dropdown */
+        --ids-tag-picker-dropdown-loading-width: 45rem;
+
         /* Results */
         --ids-tag-picker-content-padding-vertical: #{tokens.$space-1};
         --ids-tag-picker-content-padding-selected: calc(var(--ids-tag-picker-content-padding-vertical) - var(--ids-tag-picker-border-size)) #{tokens.$space-2};
@@ -62,7 +65,7 @@
 
         /* Search icon */
         --ids-tag-picker-search-icon-color: var(--hop-neutral-icon-weakest);
-        --ids-tag-picker-search-icon-margin: 0 var(--hop-space-inline-sm);
+        --ids-tag-picker-search-icon-margin: 0 var(--hop-space-inline-sm) 0 var(--hop-space-inline-md);
 
         /* Search input */
         --ids-tag-picker-input-min-width: 0.125rem;
@@ -71,6 +74,9 @@
 
         /* Tag */
         --ids-tag-picker-tag-gap: var(--hop-space-inset-xs);
+
+        /* Dropdown */
+        --ids-tag-picker-dropdown-loading-width: 28rem;
 
         /* Results */
         --ids-tag-picker-content-padding-vertical: var(--hop-space-inset-sm);
@@ -190,6 +196,11 @@
 
     .ids-tag-picker .ids-tag-picker__search-icon + .ids-tag-picker__input {
         padding-left: 0;
+    }
+
+    .ids-tag-picker__dropdown--loading {
+        max-width: 100%;
+        width: var(--ids-tag-picker-dropdown-loading-width);
     }
 
     .ids-tag-picker__results {

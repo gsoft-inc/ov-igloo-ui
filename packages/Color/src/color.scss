@@ -9,6 +9,8 @@
         --ids-color-background: var(--ids-color-background);
         --ids-color-border-radius: #{tokens.$border-radius-sm};
         --ids-color-border-radius-xs: #{tokens.$border-radius-xs};
+        --ids-color-border-radius-square: #{tokens.$border-radius-sm};
+        --ids-color-border-radius-square-xs: #{tokens.$border-radius-xs};
         --ids-color-color: var(--ids-color-text, #{tokens.$samoyed});
         --ids-color-font-family: #{tokens.$secondary-font-family};
         --ids-color-font-size: #{tokens.$font-size-4};
@@ -27,6 +29,8 @@
     [data-brand="workleap"] {
         --ids-color-border-radius: var(--hop-shape-circle);
         --ids-color-border-radius-xs: var(--hop-shape-circle);
+        --ids-color-border-radius-square: var(--hop-shape-rounded-sm);
+        --ids-color-border-radius-square-xs: calc(var(--hop-shape-rounded-sm) / 2);
         --ids-color-color: var(--ids-color-text, var(--hop-neutral-text));
         --ids-color-font-family: var(--hop-body-xl-font-family);
         --ids-color-font-size: var(--hop-body-lg-font-size);
@@ -57,6 +61,15 @@
         font-weight: var(--ids-color-font-weight);
         justify-content: center;
         user-select: none;
+
+        &--square {
+            border-radius: var(--ids-color-border-radius-square);
+        }
+
+        &--square.ids-color--small,
+        &--square.ids-color--medium {
+            border-radius: var(--ids-color-border-radius-square-xs);
+        }
 
         &--small {
             border-radius: var(--ids-color-border-radius-xs);
