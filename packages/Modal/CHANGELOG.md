@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.6.8
+
+### Patch Changes
+
+- 78c7724: Action buttons in Modal are now at the bottom when in mobile
+
 ## 1.6.7
 
 ### Patch Changes
