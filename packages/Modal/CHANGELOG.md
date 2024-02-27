@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.6.9
+
+### Patch Changes
+
+- ee51218: Modal no longer closes when using an Igloo component that uses a dropdown. Also did small css fix for old brand's modal title not being centered on desktop when no close button was visible.
+
 ## 1.6.8
 
 ### Patch Changes
