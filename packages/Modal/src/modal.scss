@@ -184,6 +184,8 @@
         box-shadow: var(--ids-modal-shadow);
         box-sizing: border-box;
         color: var(--ids-modal-text);
+        display: flex;
+        flex-direction: column;
         font-family: var(--ids-modal-font-family);
         font-size: var(--ids-modal-font-size);
         height: var(--ids-modal-height);
@@ -288,6 +290,9 @@
     }
 
     .ids-modal__content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
         padding: var(--ids-modal-padding);
 
         .ids-modal--with-title &,
@@ -300,12 +305,23 @@
         }
     }
 
+    .ids-modal__carousel {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        .ids-carousel__nav-bar {
+            margin-top: auto;
+        }
+    }
+
     .ids-modal__footer {
         align-items: center;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
         margin: var(--ids-modal-footer-margin);
+        margin-top: auto;
     }
 
     .ids-modal__footer-action {
