@@ -15,6 +15,8 @@
         --ids-btn-line-height-small: normal;
         --ids-btn-height: #{tokens.$space-6};
         --ids-btn-height-small: #{tokens.$space-5};
+        --ids-btn-width: #{tokens.$space-6};
+        --ids-btn-width-small: #{tokens.$space-5};
         --ids-btn-padding: 0 #{tokens.$space-3};
         --ids-btn-border-width: 0.1rem;
         --ids-btn-border-radius: #{tokens.$border-radius-sm};
@@ -107,6 +109,8 @@
           --ids-btn-line-height-small: var(--hop-body-sm-medium-line-height);
           --ids-btn-height: 2.5rem;
           --ids-btn-height-small: 2rem;
+          --ids-btn-width: 2.5rem;
+          --ids-btn-width-small: 2rem;
           --ids-btn-padding: 0 var(--hop-space-inset-md);
           --ids-btn-border-width: 0.0625rem;
           --ids-btn-border-radius: var(--hop-shape-rounded-md);
@@ -497,7 +501,12 @@
       }
 
       .ids-btn--mobile {
-        width: auto;
+        padding: 0;
+        width: var(--ids-btn-width);
+      }
+
+      .ids-btn--mobile.ids-btn--small {
+        width: var(--ids-btn-width-small);
       }
 
       .ids-btn--mobile.has-icon--leading .ids-icon,
@@ -510,7 +519,8 @@
       }
 
       @media (width >= #{tokens.$breakpoints-sm}) {
-        .ids-btn {
+        .ids-btn,
+        .ids-btn--mobile.ids-btn--small {
           width: auto;
         }
 
