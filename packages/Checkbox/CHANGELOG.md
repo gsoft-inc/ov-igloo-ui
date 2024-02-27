@@ -1,5 +1,11 @@
 # @igloo-ui/checkbox
 
+## 0.4.3
+
+### Patch Changes
+
+- 7ffde7b: Fixed conflicting css between checkbox and radio. Also fixed cursor styles for checkbox and radio.
+
 ## 0.4.2
 
 ### Patch Changes

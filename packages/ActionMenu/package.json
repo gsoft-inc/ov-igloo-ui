@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/action-menu",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "main": "dist/ActionMenu.js",
   "module": "dist/ActionMenu.js",
   "types": "dist/ActionMenu.d.ts",
@@ -26,7 +26,7 @@
   "dependencies": {
     "@igloo-ui/tokens": "^2.0.0",
     "@igloo-ui/dropdown": "^1.8.1",
-    "@igloo-ui/list": "^0.6.4",
+    "@igloo-ui/list": "^0.6.7",
     "@hopper-ui/tokens": "^3.1.5",
     "classnames": "^2.3.2"
   },

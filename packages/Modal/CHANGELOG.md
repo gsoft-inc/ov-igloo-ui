@@ -1,5 +1,19 @@
 # @igloo-ui/modal
 
+## 1.6.8
+
+### Patch Changes
+
+- 78c7724: Action buttons in Modal are now at the bottom when in mobile
+
+## 1.6.7
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+- Updated dependencies [97edb0e]
+  - @igloo-ui/icon-button@1.2.3
+
 ## 1.6.6
 
 ### Patch Changes

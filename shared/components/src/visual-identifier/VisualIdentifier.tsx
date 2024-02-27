@@ -4,6 +4,8 @@ import cx from "classnames";
 import Color from "@igloo-ui/color";
 import Avatar from "@igloo-ui/avatar";
 
+import "./visual-identifier.scss";
+
 export type Size = "small" | "medium" | "large";
 export interface VisualIdentifierProps extends React.ComponentProps<"div"> {
     /** Add a specific class to the visual identifier */

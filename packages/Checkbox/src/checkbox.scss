@@ -86,14 +86,17 @@
         --ids-checkbox-completion-check-color-default: transparent;
     }
 
-    .ids-form-control {
-        display: inline-block;
-    }
-
     .ids-form-control-checkbox {
+        cursor: pointer;
+        display: inline-block;
+
         &,
         & * {
             box-sizing: var(--ids-checkbox-box-sizing);
+        }
+
+        &--disabled {
+            cursor: not-allowed;
         }
     }
 
@@ -111,6 +114,7 @@
     .ids-checkbox__label {
         align-items: flex-start;
         color: var(--ids-checkbox-text);
+        cursor: inherit;
         display: flex;
         font-family: var(--ids-checkbox-font-family);
         font-size: var(--ids-checkbox-font-size);
@@ -137,7 +141,7 @@
         border: var(--ids-checkbox-one-px) solid var(--ids-checkbox-border);
         border-radius: var(--ids-checkbox-radius);
         color: var(--ids-checkbox-check);
-        cursor: pointer;
+        cursor: inherit;
         display: inline-block;
         flex: 0 0 auto;
         height: var(--ids-checkbox-size);

@@ -1,5 +1,21 @@
 # @igloo-ui/select
 
+## 1.4.9
+
+### Patch Changes
+
+- e83ee46: Stopped icons from shrinking when in a list component
+- Updated dependencies [e83ee46]
+  - @igloo-ui/list@0.6.7
+
+## 1.4.8
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+- Updated dependencies [97edb0e]
+  - @igloo-ui/icon-button@1.2.3
+
 ## 1.4.7
 
 ### Patch Changes

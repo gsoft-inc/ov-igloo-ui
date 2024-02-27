@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.3
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+
 ## 0.8.2
 
 ### Patch Changes

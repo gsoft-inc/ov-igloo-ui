@@ -1,5 +1,13 @@
 # @igloo-ui/action-menu
 
+## 1.5.2
+
+### Patch Changes
+
+- e83ee46: Stopped icons from shrinking when in a list component
+- Updated dependencies [e83ee46]
+  - @igloo-ui/list@0.6.7
+
 ## 1.5.1
 
 ### Patch Changes

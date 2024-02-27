@@ -1,5 +1,13 @@
 # @igloo-ui/toaster
 
+## 2.1.3
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+- Updated dependencies [97edb0e]
+  - @igloo-ui/icon-button@1.2.3
+
 ## 2.1.2
 
 ### Patch Changes

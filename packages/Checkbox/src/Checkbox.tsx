@@ -75,7 +75,9 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = React.forwardRef(
         return (
             <span
                 className={cx("ids-form-control", "ids-form-control-checkbox", className, {
-                    [`ids-form-control--${appearance}`]: appearance !== "default"
+                    [`ids-form-control--${appearance}`]: appearance !== "default",
+                    "ids-form-control-checkbox--disabled": disabled,
+                    "ids-form-control-checkbox--checked": checked
                 })}
             >
                 <input

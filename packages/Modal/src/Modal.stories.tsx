@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import isChromatic from 'chromatic/isChromatic';
 import Button from '@igloo-ui/button';
+import Select from '@igloo-ui/select';
 
 import { Meta, StoryFn } from '@storybook/react';
 
@@ -117,6 +118,39 @@ export const removeClose = () => {
       </Button>
       <Modal isDismissable isOpen={show} onClose={() => setShow(false)}>
         Modal content
+      </Modal>
+    </ChromaticWrapper>
+  );
+};
+
+export const WithSelect = () => {
+  const [show, setShow] = useState(isChromatic());
+
+  return (
+    <ChromaticWrapper>
+      <Button appearance="secondary" onClick={() => setShow(true)}>
+        open
+      </Button>
+      <Modal 
+          title="I'm a modal"
+          isDismissable isOpen={show} onClose={() => setShow(false)}>
+        <Select options={[
+            {
+                label: 'Text option',
+                value: 'text',
+            },
+            {
+                label: 'Disabled option',
+                value: 'disabled',
+                disabled: true,
+            },
+            {
+                label: 'Text option with icon',
+                value: 'icon'
+            },
+        ]}>
+            Default
+        </Select>
       </Modal>
     </ChromaticWrapper>
   );

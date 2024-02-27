@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/checkbox",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "main": "dist/Checkbox.js",
     "module": "dist/Checkbox.js",
     "types": "dist/Checkbox.d.ts",
