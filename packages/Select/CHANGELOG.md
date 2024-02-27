@@ -1,5 +1,13 @@
 # @igloo-ui/select
 
+## 1.4.9
+
+### Patch Changes
+
+- e83ee46: Stopped icons from shrinking when in a list component
+- Updated dependencies [e83ee46]
+  - @igloo-ui/list@0.6.7
+
 ## 1.4.8
 
 ### Patch Changes

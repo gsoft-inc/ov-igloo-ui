@@ -1,5 +1,13 @@
 # @igloo-ui/combobox
 
+## 2.2.8
+
+### Patch Changes
+
+- e83ee46: Stopped icons from shrinking when in a list component
+- Updated dependencies [e83ee46]
+  - @igloo-ui/list@0.6.7
+
 ## 2.2.7
 
 ### Patch Changes
