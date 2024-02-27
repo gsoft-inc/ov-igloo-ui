@@ -497,6 +497,8 @@
       }
 
       .ids-btn--mobile {
+        padding: 0;
+        aspect-ratio: 1 / 1;
         width: auto;
       }
 
@@ -511,6 +513,7 @@
 
       @media (width >= #{tokens.$breakpoints-sm}) {
         .ids-btn {
+          aspect-ratio: auto;
           width: auto;
         }
 
