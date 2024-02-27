@@ -14,7 +14,8 @@ export interface ListProps extends React.ComponentPropsWithRef<"ul"> {
     disableTabbing?: boolean;
     /** The option that is currently being focused or hovered */
     focusedOption?: OptionType | null;
-    /** True for a compact appearance (In figma, isCompact = "small" and not compact is "medium") */
+    /** True for a compact appearance 
+     * (Corresponds to "small" in Figma for compact, and "medium" for non-compact) */
     isCompact?: boolean;
     /** Whether or not the list is loading */
     loading?: boolean;
