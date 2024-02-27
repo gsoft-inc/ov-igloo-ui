@@ -292,7 +292,7 @@
     .ids-modal__content {
         display: flex;
         flex-direction: column;
-        flex-grow: 1;
+        flex: 1 1 auto;
         padding: var(--ids-modal-padding);
 
         .ids-modal--with-title &,
@@ -308,7 +308,7 @@
     .ids-modal__carousel {
         display: flex;
         flex-direction: column;
-        flex-grow: 1;
+        flex: 1 1 auto;
 
         .ids-carousel__nav-bar {
             margin-top: auto;
