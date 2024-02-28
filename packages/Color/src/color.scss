@@ -59,6 +59,7 @@
     }
 
     .ids-color {
+        border-radius: var(--ids-color-border-radius);
         box-sizing: border-box;
         display: flex;
         font-family: var(--ids-color-font-family);
@@ -69,6 +70,7 @@
         user-select: none;
 
         &--small {
+            border-radius: var(--ids-color-border-radius-xs);
             font-size: var(--ids-color-font-size-small);
             height: var(--ids-color-size-s);
             line-height: var(--ids-color-size-s);
@@ -76,6 +78,7 @@
         }
 
         &--medium {
+            border-radius: var(--ids-color-border-radius-xs);
             font-size: var(--ids-color-font-size-medium);
             height: var(--ids-color-size-m);
             line-height: var(--ids-color-size-m);
@@ -96,7 +99,10 @@
         }
 
         &--square {
+            border-radius: var(--ids-color-border-radius-square);
+
             &.ids-color--small {
+                border-radius: var(--ids-color-border-radius-square-xs);
                 padding: var(--ids-color-padding-square-s);
             }
 

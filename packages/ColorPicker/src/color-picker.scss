@@ -82,11 +82,11 @@
         }
     }
 
-    .ids-color-picker__button .ids-color {
+    .ids-color-picker__button .ids-color__inner {
         transition: background-color .2s ease-out;
     }
 
-    .ids-color-picker__button:hover .ids-color {
+    .ids-color-picker__button:hover .ids-color__inner {
         background-color: var(--ids-picker-selected-color-hover); /* variable set in code */
     }
 
