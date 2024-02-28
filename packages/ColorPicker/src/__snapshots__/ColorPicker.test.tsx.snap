@@ -14,9 +14,13 @@ exports[`ColorPicker It should render a snapshot 1`] = `
       type="button"
     >
       <div
-        class="ids-color ids-color--large"
-        style="--ids-color-background: #FDDE88;"
-      />
+        class="ids-color ids-color--large ids-color--circular"
+      >
+        <div
+          class="ids-color__inner"
+          style="--ids-color-background: #FDDE88;"
+        />
+      </div>
     </button>
   </div>
 </DocumentFragment>
