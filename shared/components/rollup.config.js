@@ -1,3 +1,3 @@
-import { createRollupConfig } from '../../rollup.config.js';
+import { createRollupConfig } from "../../rollup.config.js";
 
-export default [createRollupConfig('index')];
+export default [createRollupConfig("index")];
