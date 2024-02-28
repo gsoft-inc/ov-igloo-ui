@@ -1,5 +1,5 @@
-import * as pkg from './package.json';
-import { createRollupConfig } from '../../rollup.config.js';
+import * as pkg from "./package.json";
+import { createRollupConfig } from "../../rollup.config.js";
 
 const { name } = pkg;
 
