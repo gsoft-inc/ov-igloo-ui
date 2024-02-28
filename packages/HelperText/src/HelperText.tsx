@@ -14,19 +14,19 @@ export interface HelperTextProps extends React.ComponentProps<"div"> {
 }
 
 const HelperText: React.FunctionComponent<HelperTextProps> = ({
-        children,
-        error,
-        className,
-        ...rest
-    }: HelperTextProps) => {
-        const classes = cx("ids-helperText", className, {
-            [`ids-helperText--error`]: error
-        });
+    children,
+    error,
+    className,
+    ...rest
+}: HelperTextProps) => {
+    const classes = cx("ids-helperText", className, {
+        "ids-helperText--error": error
+    });
 
-        return (
-            <span className={classes} {...rest}>
-          {error && <Alert className="ids-helperText__icon" size="small" />}
-                {children}
+    return (
+        <span className={classes} {...rest}>
+            {error && <Alert className="ids-helperText__icon" size="small" />}
+            {children}
         </span>
     );
 };

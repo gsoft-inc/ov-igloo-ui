@@ -1,1 +1,1 @@
-export * from './visual-identifier/VisualIdentifier';
+export * from "./visual-identifier/VisualIdentifier";

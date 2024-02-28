@@ -43,10 +43,10 @@ IconButtonProps
             ...rest
         }: IconButtonProps,
         ref
-  ) => {
+    ) => {
         const classes = cx("ids-icon-btn", `ids-icon-btn--${size}`, className, {
             "ids-icon-btn--round": rounded
-    });
+        });
 
         return (
             <Button
