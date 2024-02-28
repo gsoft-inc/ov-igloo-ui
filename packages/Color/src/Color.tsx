@@ -12,6 +12,8 @@ export interface CustomCSSProps extends React.CSSProperties {
 }
 
 export interface ColorProps {
+    /** The appearance of the color */
+    appearance?: "circular" | "square";
     /** The content of the color */
     children?: React.ReactNode;
     /** Add a specific class to the color */
@@ -20,8 +22,6 @@ export interface ColorProps {
     color?: string;
     /** Add a data-test tag for automated tests */
     dataTest?: string;
-    /** Whether or not the color is square */
-    isSquare?: boolean;
     /** Specify the name that will be used to create initials */
     name?: string;
     /** Specifies the size of the color */
@@ -31,11 +31,11 @@ export interface ColorProps {
 }
 
 const Color: React.FunctionComponent<ColorProps> = ({
+    appearance = "circular",
     children,
     className,
     color,
     dataTest,
-    isSquare = false,
     name,
     size = "small",
     textColor
@@ -44,7 +44,7 @@ const Color: React.FunctionComponent<ColorProps> = ({
         "ids-color",
         {
             [`ids-color--${size}`]: size, 
-            "ids-color--square": isSquare
+            [`ids-color--${appearance}`]: appearance
         },
         className
     );
@@ -100,9 +100,10 @@ const Color: React.FunctionComponent<ColorProps> = ({
         <div
             className={classes}
             data-test={dataTest}
-            style={styleProps}
         >
-            {children || initialsFromName}
+            <div className="ids-color__inner"
+                style={styleProps}
+            >{children || initialsFromName}</div>
         </div>
     );
 };

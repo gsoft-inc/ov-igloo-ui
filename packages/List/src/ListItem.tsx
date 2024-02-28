@@ -16,8 +16,6 @@ interface ListItem {
     icon?: React.ReactElement;
     /** Unique id used in Intercom to link a components to a Product Tour step */
     intercomTarget?: string;
-    /** Whether or not the color should be square */
-    isColorSquare?: boolean;
     /** Specifies the url for the image to show */
     src?: string;
     /** The option value */
@@ -101,6 +99,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
     ...rest
 }: ListItemProps) => {
     const isWorkleap = getBrand() === "workleap";
+    const noDescription = option?.type === "list" ? !option?.description : !option?.role;
 
     const isOptionDisabled = (): boolean => {
         if (option?.type === "list") {
@@ -142,14 +141,17 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
         "ids-list-item--focused": isFocused,
         "ids-list-item--disabled":
       option?.type === "list" ? option?.disabled : false,
-        "ids-list-item--loading": loading
+        "ids-list-item--loading": loading,
+        "ids-list-item--no-description": noDescription
     });
 
-    let visualIdentifierSize: Size = "small";
+    let visualIdentifierSize: Size = "medium";
     if (option?.src) {
         if (option?.src && (option?.type === "member" || !isCompact)) {
             visualIdentifierSize = "large";
         }
+    } else if (isCompact) {
+        visualIdentifierSize = "small";
     }
 
     const shouldShowVisualIdentifier =
@@ -169,7 +171,6 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
                 color={option?.color}
                 src={option?.src}
                 size={visualIdentifierSize}
-                isColorSquare={option?.isColorSquare}
             />
         </div>
     );

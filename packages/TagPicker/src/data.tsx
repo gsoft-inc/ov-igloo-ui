@@ -62,8 +62,7 @@ export const mockData: TagItem[] = [
     {
         id: "13",
         text: "Bobinater",
-        color: "#7f34d8",
-        isColorSquare: true
+        color: "#7f34d8"
     }
 ];
 

@@ -3,4 +3,4 @@
 "@shared/components": minor
 ---
 
-Added the isSquare option to indicate whether or not the Color should be square for the new brand.
+Added the appearance option to indicate whether or not the Color should be square or circular for the new brand.

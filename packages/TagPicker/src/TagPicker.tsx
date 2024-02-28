@@ -33,8 +33,6 @@ export interface TagItem {
     icon?: React.ReactElement;
     /** Specify a specific ID */
     id: string;
-    /** Whether or not the color should be square */
-    isColorSquare?: boolean;
     /** Displays an icon that shows the member is a manager (Only used with type "member") */
     isManager?: boolean;
     /** Specifies the url for the image icon */
@@ -149,8 +147,7 @@ ref: React.Ref<HTMLInputElement>) => {
                 type: "list",
                 color: result.color,
                 icon: result.icon,
-                src: result.src,
-                isColorSquare: result.isColorSquare
+                src: result.src
             };
 
             if (result.type === "member") {
