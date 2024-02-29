@@ -1,5 +1,11 @@
 # @igloo-ui/tag-picker
 
+## 0.11.0
+
+### Minor Changes
+
+- 538873b: TagPicker now uses the List component internally. Added props isManager and type to TagItem. Added listSize and dropdownClassName to TagPickerProps. Added support for a member list.
+
 ## 0.10.0
 
 ### Minor Changes

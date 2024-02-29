@@ -1,5 +1,16 @@
 # @igloo-ui/combobox
 
+## 2.3.0
+
+### Minor Changes
+
+- 538873b: Added the listSize option to indicate whether the list should be size small or medium (compact or not).
+
+### Patch Changes
+
+- Updated dependencies [538873b]
+  - @igloo-ui/list@0.7.0
+
 ## 2.2.8
 
 ### Patch Changes
