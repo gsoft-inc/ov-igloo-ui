@@ -6,6 +6,8 @@
 @use 'layout';
 @use 'typography';
 
+@layer igloo-design-system, hopper-icons, hopper-design-system, igloo;
+
 :root {
   --io-scoll-padding: #{token.$space-5};
 }
