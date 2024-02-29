@@ -58,5 +58,58 @@ export const mockData: TagItem[] = [
         id: "12",
         text: "And one more team for good measure",
         color: "#aa34d8"
+    },
+    {
+        id: "13",
+        text: "Bobinater",
+        color: "#7f34d8"
+    }
+];
+
+export const memberMockData: TagItem[] = [
+    {
+        id: "1",
+        text: "Fred Allen",
+        src: "https://cdn-stg.officevibe-dev.com/assets/avatars/avatar-2.svg",
+        type: "member",
+        isManager: true
+    },
+    {
+        id: "2",
+        text: "Kathy Allen",
+        src: "https://i.pravatar.cc/100",
+        type: "member"
+    },
+    {
+        id: "4",
+        text: "Karen Allen",
+        src: "https://i.pravatar.cc/200",
+        type: "member"
+    },
+    {
+        id: "5",
+        text: "Bob O'Bob",
+        subtext: "Writer",
+        src: "https://cdn-stg.officevibe-dev.com/assets/avatars/avatar-0.svg",
+        type: "member"
+    },
+    {
+        id: "6",
+        text: "Bob Roberts",
+        src: "https://cdn-stg.officevibe-dev.com/assets/avatars/avatar-1.svg",
+        type: "member"
+    },
+    {
+        id: "7",
+        text: "Sponge Bob",
+        subtext: "Artist",
+        src: "https://i.pravatar.cc/300",
+        type: "member"
+    },
+    {
+        id: "8",
+        text: "FredBobAdamRichard Allinson",
+        src: "https://i.pravatar.cc/400",
+        type: "member"
     }
 ];

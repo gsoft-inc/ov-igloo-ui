@@ -56,7 +56,7 @@ VisualIdentifierProps
             });
         }
         if (color) {
-            return <Color className={classes} color={color} size={size} />;
+            return <Color className={classes} color={color} size={size} appearance="square" />;
         }
         if (src) {
             const avatarSize = avatarSizeMapping[size];

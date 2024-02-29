@@ -110,6 +110,7 @@
         .ids-dropdown__ref {
             display: flex;
             flex: 1 1 auto;
+            min-width: 0;
         }
 
         &__dropdown {

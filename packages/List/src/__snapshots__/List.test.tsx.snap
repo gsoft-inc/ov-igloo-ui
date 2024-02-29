@@ -43,7 +43,7 @@ exports[`List It should render a snapshot 1`] = `
     </li>
     <li
       aria-selected="false"
-      class="ids-list-item ids-list-item--compact ids-list-item--disabled"
+      class="ids-list-item ids-list-item--compact ids-list-item--disabled ids-list-item--no-description"
       role="option"
       tabindex="-1"
     >
@@ -123,7 +123,7 @@ exports[`List It should render a snapshot 1`] = `
     </li>
     <li
       aria-selected="false"
-      class="ids-list-item ids-list-item--compact"
+      class="ids-list-item ids-list-item--compact ids-list-item--no-description"
       role="option"
       tabindex="-1"
     >
@@ -151,7 +151,7 @@ exports[`List It should render a snapshot 1`] = `
     </li>
     <li
       aria-selected="false"
-      class="ids-list-item ids-list-item--compact"
+      class="ids-list-item ids-list-item--compact ids-list-item--no-description"
       role="option"
       tabindex="-1"
     >
@@ -162,9 +162,13 @@ exports[`List It should render a snapshot 1`] = `
           class="ids-list-item__visual-identifier-container"
         >
           <div
-            class="ids-color ids-color--small ids-visual-identifier ids-visual-identifier__color ids-list-item__visual"
-            style="--ids-color-background: #74DCC9;"
-          />
+            class="ids-color ids-color--small ids-color--square ids-visual-identifier ids-visual-identifier__color ids-list-item__visual"
+          >
+            <div
+              class="ids-color__inner"
+              style="--ids-color-background: #74DCC9;"
+            />
+          </div>
         </div>
         <span
           class="ids-list-item__text"
@@ -187,7 +191,7 @@ exports[`List It should render a snapshot 1`] = `
     </li>
     <li
       aria-selected="false"
-      class="ids-list-item ids-list-item--compact"
+      class="ids-list-item ids-list-item--compact ids-list-item--no-description"
       role="option"
       tabindex="-1"
     >
@@ -215,7 +219,7 @@ exports[`List It should render a snapshot 1`] = `
     </li>
     <li
       aria-selected="false"
-      class="ids-list-item ids-list-item--compact"
+      class="ids-list-item ids-list-item--compact ids-list-item--no-description"
       role="option"
       tabindex="-1"
     >

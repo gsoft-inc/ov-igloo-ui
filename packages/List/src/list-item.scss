@@ -8,7 +8,7 @@
     :root {
         /* Default */
         --ids-list-item-padding: #{tokens.$space-2} #{tokens.$space-3};
-        --ids-list-item-min-height: #{tokens.$space-8};
+        --ids-list-item-min-height: 5.6rem;
         --ids-list-item-action-margin: #{tokens.$space-3};
         --ids-list-item-border-radius: 0;
 
@@ -37,7 +37,7 @@
         /* Visual Identifier */
         --ids-list-item-icon-size: #{tokens.$space-4};
         --ids-list-item-icon-size-compact: #{tokens.$space-3};
-        --ids-list-item-icon-margin: 0.25rem #{tokens.$space-2} 0 0.25rem;
+        --ids-list-item-icon-margin: 0.25rem #{tokens.$space-2} 0.25rem 0;
         --ids-list-item-svg-margin: 0 #{tokens.$space-2} 0 0;
         --ids-list-item-svg-color: #{tokens.$grey-600};
         --ids-list-item-icon-member-size: #{tokens.$space-5};
@@ -120,9 +120,9 @@
         --ids-list-item-icon-color-disabled: var(--hop-neutral-icon-disabled);
 
         /* Visual Identifier */
-        --ids-list-item-icon-size: 1.5rem;
+        --ids-list-item-icon-size: 2rem;
         --ids-list-item-icon-size-compact: 1rem;
-        --ids-list-item-icon-margin: 0.125rem var(--hop-space-inline-sm) 0 0;
+        --ids-list-item-icon-margin: 0.125rem var(--hop-space-inline-sm) 0.125rem 0;
         --ids-list-item-svg-margin: 0 var(--hop-space-inline-sm) 0 0;
         --ids-list-item-svg-color: var(--hop-neutral-icon);
         --ids-list-item-icon-member-size: 2rem;
@@ -165,12 +165,12 @@
         --ids-list-item-member-font-weight: var(--hop-body-sm-semibold-font-weight);
 
         /* Loading */
-        --ids-list-item-loading-thumbnail-border-radius: var(--hop-shape-rounded-sm);
-        --ids-list-item-loading-thumbnail-margin: 0 var(--hop-space-inline-md) 0 0;
+        --ids-list-item-loading-thumbnail-border-radius: var(--hop-shape-circle);
+        --ids-list-item-loading-thumbnail-margin: 0 var(--hop-space-inline-sm) 0 0;
         --ids-list-item-loading-text-border-radius: var(--hop-shape-pill);
         --ids-list-item-loading-text-height: 0.5rem;
         --ids-list-item-loading-text-width: 60%;
-        --ids-list-item-loading-color: var(--hop-neutral-surface-weakest);
+        --ids-list-item-loading-color: var(--hop-neutral-surface-weak);
     }
 
     @keyframes list-check-animation {
@@ -262,6 +262,10 @@
         .ids-list-item--member & {
             align-items: center;
         }
+
+        .ids-list-item--no-description & {
+            align-items: center;
+        }
     }
 
     .ids-list-item__visual-identifier-container {
@@ -270,13 +274,10 @@
         flex: 0 0 auto;
         justify-content: center;
         margin: var(--ids-list-item-icon-margin);
-        width: var(--ids-list-item-icon-size);
-
-        .ids-list-item--compact & {
-            width: var(--ids-list-item-icon-size-compact);
-        }
 
         .ids-list-item--member & {
+            margin-bottom: 0;
+            margin-top: 0;
             width: var(--ids-list-item-icon-member-size);
         }
     }
@@ -297,6 +298,16 @@
         height: var(--ids-list-item-icon-size);
         margin: var(--ids-list-item-loading-thumbnail-margin);
         width: var(--ids-list-item-icon-size);
+    }
+
+    .ids-list-item--loading.ids-list-item--compact .ids-list-item__thumbnail {
+        height: var(--ids-list-item-icon-size-compact);
+        width: var(--ids-list-item-icon-size-compact);
+    }
+
+    .ids-list-item--loading.ids-list-item--member .ids-list-item__thumbnail {
+        height: var(--ids-list-item-icon-member-size);
+        width: var(--ids-list-item-icon-member-size);
     }
 
     .ids-list-item__text {
@@ -426,8 +437,9 @@
     /* List Item Text */
     .ids-list-item__text-label {
         display: block;
-        word-break: break-word;
-        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .ids-list-item__text-description {
@@ -436,8 +448,9 @@
         font-size: var(--ids-list-item-desc-font-size);
         line-height: var(--ids-list-item-desc-line-height);
         margin: var(--ids-list-item-desc-margin);
-        word-break: break-word;
-        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 
         .ids-list-item--disabled & {
             color: var(--ids-list-item-color-disabled);
