@@ -101,9 +101,12 @@ const Color: React.FunctionComponent<ColorProps> = ({
             className={classes}
             data-test={dataTest}
         >
-            <div className="ids-color__inner"
+            <div 
+                className="ids-color__inner"
                 style={styleProps}
-            >{children || initialsFromName}</div>
+            >
+                {children || initialsFromName}
+            </div>
         </div>
     );
 };
