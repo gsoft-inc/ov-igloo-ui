@@ -1,5 +1,13 @@
 # @igloo-ui/toaster
 
+## 2.1.4
+
+### Patch Changes
+
+- a91a24d: Updated the ghost secondary color of the icon button since it differs from the ghost secondary button color.
+- Updated dependencies [a91a24d]
+  - @igloo-ui/icon-button@1.2.4
+
 ## 2.1.3
 
 ### Patch Changes
