@@ -43,6 +43,7 @@
     ],
     "devDependencies": {
         "@igloo-ui/button": "^0.8.3",
+        "@igloo-ui/hyperlink": "^0.4.2",
         "@igloo-ui/select": "^1.5.1"
     }
 }

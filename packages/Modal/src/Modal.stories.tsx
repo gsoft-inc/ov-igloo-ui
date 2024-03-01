@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import isChromatic from 'chromatic/isChromatic';
 import Button from '@igloo-ui/button';
+import Hyperlink from '@igloo-ui/hyperlink';
 import Select from '@igloo-ui/select';
 
 import { Meta, StoryFn } from '@storybook/react';
@@ -248,6 +249,14 @@ export const WithActions = {
             >
               Cancel
             </Button>
+          }
+          tertiaryAction={
+            <Hyperlink
+              appearance="danger"
+              onClick={handleSecondaryActionClick}
+            >
+              Delete Card
+            </Hyperlink>
           }
         >
           <p>Static content</p>
