@@ -1,5 +1,13 @@
 # @igloo-ui/alert
 
+## 0.7.6
+
+### Patch Changes
+
+- a91a24d: Fixed Alert so that the svg fill doesn't override the dismiss button color.
+- Updated dependencies [a91a24d]
+  - @igloo-ui/icon-button@1.2.4
+
 ## 0.7.5
 
 ### Patch Changes

@@ -1,5 +1,24 @@
 # @igloo-ui/select
 
+## 1.5.1
+
+### Patch Changes
+
+- a91a24d: Updated the ghost secondary color of the icon button since it differs from the ghost secondary button color.
+- Updated dependencies [a91a24d]
+  - @igloo-ui/icon-button@1.2.4
+
+## 1.5.0
+
+### Minor Changes
+
+- 538873b: Added the listSize option to indicate whether the list should be size small or medium (compact or not).
+
+### Patch Changes
+
+- Updated dependencies [538873b]
+  - @igloo-ui/list@0.7.0
+
 ## 1.4.9
 
 ### Patch Changes

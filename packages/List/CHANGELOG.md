@@ -1,5 +1,11 @@
 # @igloo-ui/list
 
+## 0.7.0
+
+### Minor Changes
+
+- 538873b: Updated the manager icon for Workleap brand. Updated the loading style for Workleap brand and adjusted icon size.
+
 ## 0.6.7
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @shared/components
 
+## 0.5.0
+
+### Minor Changes
+
+- 538873b: Added the appearance option to indicate whether or not the Color should be square or circular for the new brand.
+
+### Patch Changes
+
+- Updated dependencies [538873b]
+  - @igloo-ui/color@0.5.0
+
 ## 0.4.0
 
 ### Minor Changes
