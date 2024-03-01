@@ -1,8 +1,8 @@
 # @igloo-ui/modal
 
-## 2.0.0
+## 1.7.0
 
-### Major Changes
+### Minor Changes
 
 - 29247f0: Added tertiaryAction to the Modal component.
 
