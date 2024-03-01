@@ -249,6 +249,14 @@ export const WithActions = {
               Cancel
             </Button>
           }
+          tertiaryAction={
+            <Button
+              appearance={{ type: "ghost", variant: "danger" }}
+              onClick={handleSecondaryActionClick}
+            >
+              Delete Card
+            </Button>
+          }
         >
           <p>Static content</p>
         </Modal>
