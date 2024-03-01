@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 
-import { useLocale, type DateValue, I18nProvider } from "react-aria";
+import type { DateValue } from "react-aria";
 
 import {
     getLocalTimeZone,
@@ -16,6 +16,7 @@ import Input, { type InputProps } from "@igloo-ui/input";
 import Button from "@igloo-ui/button";
 import IconCalendar from "@igloo-ui/icons/dist/Calendar";
 import { DateTime } from "luxon";
+import { useLocale } from "@igloo-ui/provider";
 
 import Calendar from "./components/Calendar";
 
@@ -68,7 +69,10 @@ export interface DatepickerProps {
     maxDate?: string;
     /** True if the input is readonly */
     readOnly?: boolean;
-    /** The locale to use for formatting/parsing. If not specified, the default locale will be used. */
+    /** The locale to use for formatting/parsing. If not specified, the default locale will be used
+     * @deprecated This prop is deprecated and will be removed 
+     * in the next major version in favor of Igloo's provider
+     */
     locale?: string;
     /** If true, the date picker will manage everything in UTC. */
     manageEverythingInUtc?: boolean;
@@ -99,8 +103,8 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     locale,
     ...rest
 }: DatepickerProps) => {
-    const { locale: ariaLocale } = useLocale();
-    const internalLocale = locale || ariaLocale;
+    const { locale: providerLocale } = useLocale();
+    const internalLocale = locale || providerLocale;
     const timeZone = manageEverythingInUtc ? "utc" : getLocalTimeZone();
     const dateTimeOfDay = now(timeZone);
 
@@ -271,19 +275,17 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     }
 
     return (
-        <I18nProvider locale={locale}>
-            <Dropdown
-                isOpen={!disabled && isOpen}
-                onClose={onClose}
-                content={calendar}
-                size="medium"
-                className="ids-datepicker__dropdown"
-                dataTest={dataTest}
-                {...rest}
-            >
-                <Input {...inputProps} />
-            </Dropdown>
-        </I18nProvider>
+        <Dropdown
+            isOpen={!disabled && isOpen}
+            onClose={onClose}
+            content={calendar}
+            size="medium"
+            className="ids-datepicker__dropdown"
+            dataTest={dataTest}
+            {...rest}
+        >
+            <Input {...inputProps} />
+        </Dropdown>
     );
 };
 

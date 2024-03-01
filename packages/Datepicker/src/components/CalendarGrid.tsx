@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import { getWeeksInMonth } from "@internationalized/date";
-import { useCalendarGrid, useLocale } from "react-aria";
 import type { CalendarState, RangeCalendarState } from "@react-stately/calendar";
+import { useLocale, useCalendarGrid } from "@igloo-ui/provider";
 
 import CalendarCell from "./CalendarCell";
 

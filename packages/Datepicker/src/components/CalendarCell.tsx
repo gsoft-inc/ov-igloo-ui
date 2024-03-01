@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 
-import { useCalendarCell } from "react-aria";
+import { useCalendarCell } from "@igloo-ui/provider";
 import type { CalendarState, RangeCalendarState } from "@react-stately/calendar";
 import {
     type CalendarDate,

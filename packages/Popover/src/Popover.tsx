@@ -22,6 +22,8 @@ import {
 
 import IconButton from "@igloo-ui/icon-button";
 import Close from "@igloo-ui/icons/dist/Close";
+import { useLocalizedStringFormatter } from "@igloo-ui/provider";
+import intlMessages from "./intl";
 
 import "./popover.scss";
 
@@ -80,6 +82,7 @@ const Popover: React.FunctionComponent<PopoverProps> = ({
     ...rest
 }: PopoverProps) => {
     const classes = cx("ids-popover__container", className);
+    const stringFormatter = useLocalizedStringFormatter(intlMessages);
 
     const getBrand = (): string => {
         return document.documentElement.getAttribute("data-brand") ?? "igloo";
@@ -188,7 +191,7 @@ const Popover: React.FunctionComponent<PopoverProps> = ({
                     className="ids-popover__close"
                     onClick={onClose}
                     appearance={{ type: "ghost", variant: "secondary" }}
-                    aria-label="close"
+                    aria-label={stringFormatter.format("close")}
                     icon={<Close size="small" />}
                 />
             )}

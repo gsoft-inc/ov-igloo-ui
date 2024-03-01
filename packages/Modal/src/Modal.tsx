@@ -17,6 +17,8 @@ import {
 import IconButton from "@igloo-ui/icon-button";
 import { AngleLeftIcon, DismissIcon } from "@hopper-ui/icons-react16";
 import Carousel from "@igloo-ui/carousel";
+import { useLocalizedStringFormatter } from "@igloo-ui/provider";
+import intlMessages from "./intl";
 
 import "./modal.scss";
 
@@ -56,7 +58,9 @@ export interface ModalProps extends OverlayProps, AriaDialogProps {
     onClose?: () => void;
     /** Handler that is called when the modal is closed and no longer visible */
     onAfterClose?: () => void;
-    /** The content for the aria-label on the close button */
+    /** The content for the aria-label on the close button
+     * @deprecated We now use Igloo's provider to set the aria-label
+     */
     closeBtnAriaLabel?: string;
     /** Remove the default padding and the title from the modal */
     fullContent?: boolean;
@@ -94,6 +98,14 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
         keyValue = "",
         dismissOnEscape = true
     } = props;
+
+    // Check if the deprecated prop is being used
+    if (closeBtnAriaLabel !== undefined) {
+        console.warn("Warning: The closeBtnAriaLabel prop in the Modal component is deprecated " +
+        "and will be removed in a future version.");
+    }
+    
+    const stringFormatter = useLocalizedStringFormatter(intlMessages);
 
     const displayBackBtn = carousel && carousel.currentSlide && carousel.currentSlide > 0;
     const handleOnPageChange = (index: number): void => {
@@ -219,7 +231,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
                                         className="ids-modal__close"
                                         onClick={onClose}
                                         appearance={{ type: "ghost", variant: "secondary" }}
-                                        aria-label={closeBtnAriaLabel}
+                                        aria-label={stringFormatter.format("close")}
                                         icon={<DismissIcon />}
                                     />
                                 </div>

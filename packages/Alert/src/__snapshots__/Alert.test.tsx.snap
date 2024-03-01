@@ -61,6 +61,7 @@ exports[`Alert It should render a snapshot 1`] = `
       />
     </div>
     <button
+      aria-label="Close"
       class="ids-btn ids-icon-btn ids-icon-btn--xsmall ids-alert__dismiss-btn ids-btn--ghost-secondary"
       title=""
       type="button"

@@ -93,7 +93,6 @@ export const Sizes = {
           isOpen={show}
           // @ts-ignore
           size={size}
-          closeBtnAriaLabel={`Close`}
           onClose={() => setShow(false)}
           onAfterClose={() => setSize('')}
         >
@@ -364,7 +363,6 @@ export const ModalWithParentKey = {
           isDismissable={true}
           isClosable={true}
           isOpen={isOpen}
-          closeBtnAriaLabel={`Close`}
           onClose={handleOnClose}
           onAfterClose={handleOnAfterClose}
           fullContent
@@ -441,7 +439,6 @@ export const ModalWithKey = {
           isDismissable={true}
           isClosable={true}
           isOpen={isOpen}
-          closeBtnAriaLabel={`Close`}
           onClose={handleOnClose}
           fullContent
         >

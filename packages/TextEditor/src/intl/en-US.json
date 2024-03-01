@@ -1,0 +1,17 @@
+{
+    "bold": "Bold",
+    "clear": "Clear",
+    "clearAllText": "Clear all text",
+    "italic": "Italic",
+    "link": "Link",
+    "orderedList": "Ordered List",
+    "strikethrough": "Strikethrough",
+    "underline": "Underline",
+    "unorderedList": "Unordered List" ,
+    "private": "Visible to you only",
+    "editLink": "Edit link",
+    "cancel": "Cancel",
+    "openInNewTab": "Open in a new tab",
+    "removeLink": "Remove link",
+    "save": "Save"
+}

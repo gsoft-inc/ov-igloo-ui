@@ -17,6 +17,8 @@ import {
     SuccessIcon as LegacySuccessIcon,
     WarningIcon as LegacyWarningIcon
 } from "./legacy/svgs";
+import { useLocalizedStringFormatter } from "@igloo-ui/provider";
+import intlMessages from "./intl";
 
 import "./alert.scss";
 
@@ -86,9 +88,9 @@ const renderIcon = (
 };
 
 const renderDismissButton = (
-    ref: React.RefObject<HTMLDivElement>,
     setShow: (show: boolean) => void,
-    onDismissClick?: () => void
+    onDismissClick?: () => void,
+    ariaLabel?: string
 ): JSX.Element => {
     const action = (): void => {
         if (onDismissClick) {
@@ -106,6 +108,7 @@ const renderDismissButton = (
             size="xsmall"
             icon={<DismissIcon size="sm" />}
             onClick={action}
+            aria-label={ariaLabel}
         />
     );
 };
@@ -149,6 +152,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
     dataTest,
     ...rest
 }: AlertProps) => {
+    const stringFormatter = useLocalizedStringFormatter(intlMessages);
     const classes = classNames(
         "ids-alert",
         `ids-alert--${appearance}`,
@@ -184,7 +188,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
                     {hasButton && renderAlertActionButton(appearance, button, isWorkleap)}
                 </div>
 
-                {canBeClosed && renderDismissButton(parentElement, setShow, onClose)}
+                {canBeClosed && renderDismissButton(setShow, onClose, stringFormatter.format("close"))}
             </div>
         );
     }

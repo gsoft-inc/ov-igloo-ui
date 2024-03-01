@@ -21,7 +21,7 @@ export default {
   argTypes: {
     locale: {
       control: 'select',
-      options: ['fr', 'en'],
+      options: ['fr-CA', 'en-US'],
     },
   },
 } as Meta<typeof AreaChart>;
@@ -228,7 +228,6 @@ export const Overview = {
     },
     scoreFormatter: nFormatter,
     range: { min: 'auto', max: 'auto' },
-    locale: 'en',
     loading: false,
   },
 };
@@ -285,21 +284,6 @@ export const ScoreAutoRange = () => {
   );
 };
 
-export const Locale = () => {
-  return (
-    <AreaChart
-      range={{ min: 'auto', max: 'auto' }}
-      scoreFormatter={nFormatter}
-      dateRange={{
-        start: '2022-10-01',
-        end: '2022-10-07',
-      }}
-      dataSet={weekDataset}
-      locale="fr"
-    />
-  );
-};
-
 export const Last7Days = () => {
   return (
     <AreaChart
@@ -319,7 +303,6 @@ export const Last7Days = () => {
         },
       ]}
       xAxisTickCount={8}
-      locale="en"
     />
   );
 };
