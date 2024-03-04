@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 
-import type { DateValue } from "react-aria";
+import { I18nProvider, type DateValue } from "react-aria";
 
 import {
     getLocalTimeZone,
@@ -104,7 +104,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     ...rest
 }: DatepickerProps) => {
     const { locale: providerLocale } = useLocale();
-    const internalLocale = locale || providerLocale;
+    const internalLocale = locale ?? providerLocale;
     const timeZone = manageEverythingInUtc ? "utc" : getLocalTimeZone();
     const dateTimeOfDay = now(timeZone);
 
@@ -275,17 +275,19 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     }
 
     return (
-        <Dropdown
-            isOpen={!disabled && isOpen}
-            onClose={onClose}
-            content={calendar}
-            size="medium"
-            className="ids-datepicker__dropdown"
-            dataTest={dataTest}
-            {...rest}
-        >
-            <Input {...inputProps} />
-        </Dropdown>
+        <I18nProvider locale={internalLocale}>
+            <Dropdown
+                isOpen={!disabled && isOpen}
+                onClose={onClose}
+                content={calendar}
+                size="medium"
+                className="ids-datepicker__dropdown"
+                dataTest={dataTest}
+                {...rest}
+            >
+                <Input {...inputProps} />
+            </Dropdown>
+        </I18nProvider>
     );
 };
 

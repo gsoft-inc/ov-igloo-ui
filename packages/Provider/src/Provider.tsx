@@ -1,13 +1,6 @@
 import * as React from "react";
 
-import { I18nProvider, 
-    type I18nProviderProps, 
-    useLocale, 
-    useLocalizedStringFormatter, 
-    useCalendar, 
-    useCalendarGrid,
-    useCalendarCell
-} from "react-aria";
+import { I18nProvider, type I18nProviderProps, useLocale, useLocalizedStringFormatter } from "react-aria";
 
 import "./provider.scss";
 
@@ -22,6 +15,6 @@ const IglooProvider: React.FunctionComponent<IglooProviderProps> = props => {
     );
 };
 
-export { useLocale, useLocalizedStringFormatter, useCalendar, useCalendarGrid, useCalendarCell }; 
+export { useLocale, useLocalizedStringFormatter }; 
 
 export default IglooProvider;

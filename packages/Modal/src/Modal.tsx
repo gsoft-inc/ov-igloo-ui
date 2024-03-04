@@ -234,7 +234,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
                                         className="ids-modal__close"
                                         onClick={onClose}
                                         appearance={{ type: "ghost", variant: "secondary" }}
-                                        aria-label={stringFormatter.format("close")}
+                                        aria-label={closeBtnAriaLabel ?? stringFormatter.format("close")}
                                         icon={<DismissIcon />}
                                     />
                                 </div>

@@ -108,6 +108,9 @@ export interface AreaChartProps extends React.ComponentProps<"div"> {
     loading?: boolean;
 }
 
+const DEFAULT_SKELETON_WIDTH = 24;
+const DEFAULT_SKELETON_HEIGHT = 8;
+
 const getScores = (data: DataSet[]): number[] => {
     const scores = data.filter(score => score !== null).map(dataSet => dataSet.score) as number[];
 
@@ -140,9 +143,6 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     tooltipScoreFormatter,
     unavailableDataMessage
 }: AreaChartProps) => {
-    const DEFAULT_SKELETON_WIDTH = 24;
-    const DEFAULT_SKELETON_HEIGHT = 8;
-
     const localeMapping: Record<string, string> = {
         "en": "en-US",
         "fr": "fr-CA"
