@@ -126,6 +126,9 @@
         --ids-input-width-character-indicator-suffix: 6rem;
         --ids-input-width-character-indicator-suffix-compact: 5rem;
         --ids-input-character-indicator-color: var(--hop-neutral-text-weakest);
+
+        /* Placeholder */
+        --ids-input-color-placeholder: var(--hop-neutral-text-weakest);
     }
 
     %ids-input-asset {
@@ -257,10 +260,6 @@
         display: none;
     }
 
-    .ids-input::placeholder {
-        color: var(--ids-input-color-placeholder);
-    }
-
     .ids-input::-webkit-inner-spin-button,
     .input::-webkit-outer-spin-button {
         margin: 0;
@@ -306,4 +305,9 @@
         border-color: var(--ids-input-border-color-disabled);
         box-shadow: none;
     }
+}
+
+/* Removed from layer to have it like it was before. We don't want keeper to override the placeholder color */
+.ids-input::placeholder {
+    color: var(--ids-input-color-placeholder);
 }

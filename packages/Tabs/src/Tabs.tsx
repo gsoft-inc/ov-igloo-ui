@@ -66,6 +66,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
         const isTypeString = typeof tab.label === "string";
         const notificationClass = "ids-tab__icon ids-tab__bullet";
         const premiumClass = "ids-tab__icon ids-tab__crown";
+        const tabTextClass = "ids-tab__text";
         let tabContents = (
             <>
                 {tab.notification && (
@@ -100,15 +101,18 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
         if (isTypeString) {
             tabContents = (
                 <button className="ids-tab__btn" onClick={() => handleOnClick(index)}>
-                    {tab.label}
+                    <span className={tabTextClass}>{tab.label}</span>
                     {tabContents}
                 </button>
             );
         } else if (React.isValidElement(tab.label)) {
+            const textWrapper = <span className={tabTextClass}>
+                {(tab.label as React.ReactElement).props.children}
+            </span>;
             tabContents = <span className="ids-tab__nav">
                 {React.cloneElement(tab.label,
                                     {},
-                                    (tab.label as React.ReactElement).props.children, tabContents)
+                                    textWrapper, tabContents)
                 }
             </span>;
         }

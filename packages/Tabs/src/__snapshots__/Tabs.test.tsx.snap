@@ -15,7 +15,11 @@ exports[`Tabs It should render a snapshot 1`] = `
         <button
           class="ids-tab__btn"
         >
-          tab 1
+          <span
+            class="ids-tab__text"
+          >
+            tab 1
+          </span>
         </button>
       </li>
       <li
@@ -24,7 +28,11 @@ exports[`Tabs It should render a snapshot 1`] = `
         <button
           class="ids-tab__btn"
         >
-          tab 2
+          <span
+            class="ids-tab__text"
+          >
+            tab 2
+          </span>
         </button>
       </li>
     </ul>
