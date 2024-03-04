@@ -1,5 +1,13 @@
 # @igloo-ui/alert
 
+## 0.7.7
+
+### Patch Changes
+
+- 4a2812e: Added locale support using Igloo's provider.
+- Updated dependencies [4a2812e]
+  - @igloo-ui/provider@0.1.1
+
 ## 0.7.6
 
 ### Patch Changes

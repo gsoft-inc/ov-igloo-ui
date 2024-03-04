@@ -1,5 +1,13 @@
 # @igloo-ui/tag
 
+## 1.5.3
+
+### Patch Changes
+
+- 4a2812e: Added locale support using Igloo's provider.
+- Updated dependencies [4a2812e]
+  - @igloo-ui/provider@0.1.1
+
 ## 1.5.2
 
 ### Patch Changes

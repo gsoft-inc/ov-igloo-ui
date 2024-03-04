@@ -1,5 +1,13 @@
 # @igloo-ui/datepicker
 
+## 0.6.5
+
+### Patch Changes
+
+- 4a2812e: Added locale support using Igloo's provider.
+- Updated dependencies [4a2812e]
+  - @igloo-ui/provider@0.1.1
+
 ## 0.6.4
 
 ### Patch Changes

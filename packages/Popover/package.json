@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/popover",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "main": "dist/Popover.js",
   "module": "dist/Popover.js",
   "types": "dist/Popover.d.ts",
@@ -15,7 +15,7 @@
   ],
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@igloo-ui/provider": ">=0.1.0",
+    "@igloo-ui/provider": ">=0.1.1",
     "react": ">= 16.8.6",
     "react-dom": ">= 16.8.6"
   },
@@ -40,7 +40,7 @@
   ],
   "devDependencies": {
     "@igloo-ui/hyperlink": "^0.4.2",
-    "@igloo-ui/provider": "^0.1.0",
+    "@igloo-ui/provider": "^0.1.1",
     "@types/luxon": "^3.4.2",
     "luxon": "^3.4.4"
   }
