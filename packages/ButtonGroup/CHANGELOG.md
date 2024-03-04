@@ -1,5 +1,11 @@
 # @igloo-ui/button-group
 
+## 0.4.2
+
+### Patch Changes
+
+- 49b8b82: Button group now supports long text in tight spaces.
+
 ## 0.4.1
 
 ### Patch Changes
