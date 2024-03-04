@@ -1,5 +1,11 @@
 # @igloo-ui/icon-button
 
+## 1.2.5
+
+### Patch Changes
+
+- 4a2812e: Updated the ghost secondary color of the icon button since it differs from the ghost secondary button color.
+
 ## 1.2.4
 
 ### Patch Changes

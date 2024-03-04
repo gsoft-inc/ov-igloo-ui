@@ -1,5 +1,16 @@
 # @igloo-ui/combobox
 
+## 2.3.2
+
+### Patch Changes
+
+- 4a2812e: Updated the ghost secondary color of the icon button since it differs from the ghost secondary button color.
+- 4a2812e: Added locale support using Igloo's provider.
+- Updated dependencies [4a2812e]
+- Updated dependencies [4a2812e]
+  - @igloo-ui/icon-button@1.2.5
+  - @igloo-ui/provider@0.1.1
+
 ## 2.3.1
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @igloo-ui/area-chart
 
+## 1.2.2
+
+### Patch Changes
+
+- 4a2812e: Added locale support using Igloo's provider.
+- Updated dependencies [4a2812e]
+  - @igloo-ui/provider@0.1.1
+
 ## 1.2.1
 
 ### Patch Changes

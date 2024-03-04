@@ -1,5 +1,13 @@
 # @igloo-ui/select
 
+## 1.5.2
+
+### Patch Changes
+
+- 4a2812e: Updated the ghost secondary color of the icon button since it differs from the ghost secondary button color.
+- Updated dependencies [4a2812e]
+  - @igloo-ui/icon-button@1.2.5
+
 ## 1.5.1
 
 ### Patch Changes
