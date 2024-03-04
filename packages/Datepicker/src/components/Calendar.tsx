@@ -1,11 +1,7 @@
 import * as React from "react";
 
-import {
-    useCalendar,
-    useLocale,
-    type DateValue,
-    type AriaCalendarProps
-} from "react-aria";
+import { useCalendar, type DateValue, type AriaCalendarProps } from "react-aria";
+import { useLocale } from "@igloo-ui/provider";
 import { useCalendarState } from "react-stately";
 import {
     GregorianCalendar,

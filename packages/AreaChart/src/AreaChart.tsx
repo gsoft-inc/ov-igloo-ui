@@ -17,6 +17,7 @@ import {
 } from "recharts";
 import type { CurveType } from "recharts/types/shape/Curve";
 import type { CartesianViewBox } from "recharts/types/util/types";
+import { useLocale } from "@igloo-ui/provider";
 
 import ChartTooltip from "./ChartTooltip";
 import useDynamicYAxisWidth from "./hooks/useDynamicYAxisWidth";
@@ -86,7 +87,10 @@ export interface AreaChartProps extends React.ComponentProps<"div"> {
     dateRange: DateTimeRange;
     /** Whether or not the chart should resize */
     isResponsive?: boolean;
-    /** Update the default locale */
+    /** Update the default locale
+     * @deprecated This prop is deprecated and will be removed 
+     * in the next major version in favor of Igloo's provider
+     */
     locale?: string;
     /** The min and max value of the y-axis
    * (Possible values: number, 'auto', 'dataMin' or 'dataMax')
@@ -103,6 +107,9 @@ export interface AreaChartProps extends React.ComponentProps<"div"> {
     /** Replaces AreaChart label with a skeleton */
     loading?: boolean;
 }
+
+const DEFAULT_SKELETON_WIDTH = 24;
+const DEFAULT_SKELETON_HEIGHT = 8;
 
 const getScores = (data: DataSet[]): number[] => {
     const scores = data.filter(score => score !== null).map(dataSet => dataSet.score) as number[];
@@ -129,17 +136,26 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     dateRange,
     loading = false,
     isResponsive = true,
-    locale = "en",
+    locale,
     range = { max: "auto", min: 0 },
     xAxisTickCount = 7,
     scoreFormatter,
     tooltipScoreFormatter,
     unavailableDataMessage
 }: AreaChartProps) => {
-    const DEFAULT_SKELETON_WIDTH = 24;
-    const DEFAULT_SKELETON_HEIGHT = 8;
+    const localeMapping: Record<string, string> = {
+        "en": "en-US",
+        "fr": "fr-CA"
+    };
+    const providerLocale = useLocale();
+    let actualLocale = providerLocale.locale;
+    if (locale && localeMapping[locale]) {
+        actualLocale = localeMapping[locale];
+    } else if (locale) {
+        actualLocale = locale;
+    }
 
-    Settings.defaultLocale = locale;
+    Settings.defaultLocale = actualLocale;
 
     const SkeletonAxisTick = ({
         x,
@@ -196,7 +212,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     const [areaChartData, setAreaChartData] = React.useState<AreaChartData[]>();
 
     const formatSpecialMonth = (date: DateTime): string => {
-        if (date.locale !== "en") {
+        if (date.locale !== "en-US") {
             return date.toLocaleString({
                 month: "short",
                 day: "numeric",

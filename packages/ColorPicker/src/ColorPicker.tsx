@@ -9,7 +9,9 @@ import Dropdown from "@igloo-ui/dropdown";
 import Color from "@igloo-ui/color";
 import Checkmark from "@igloo-ui/icons/dist/Checkmark";
 import variables from "@igloo-ui/tokens/dist/base10/tokens.json";
+import { useLocalizedStringFormatter } from "@igloo-ui/provider";
 
+import intlMessages from "./intl";
 import ColorPickerOption from "./ColorPickerOption";
 
 import "./color-picker.scss";
@@ -189,6 +191,7 @@ const ColorPicker: React.FunctionComponent<ColorPickerProps> = ({
     };
 
     const brand = getBrand();
+    const stringFormatter = useLocalizedStringFormatter(intlMessages);
 
     const getDefaultColor = (): ColorName => {
         return brand === "workleap" ? "decorativeOption3" : "dandelion200";
@@ -235,7 +238,7 @@ const ColorPicker: React.FunctionComponent<ColorPickerProps> = ({
                             selectedKeys={[selectedColor]} 
                             onSelectionChange={handleSelectionChange}
                             items={colorNames}
-                            aria-label="Color Options"
+                            aria-label={stringFormatter.format("colorOptions")}
                             orientation="horizontal"
                             className="ids-color-picker__list"
                             disallowEmptySelection

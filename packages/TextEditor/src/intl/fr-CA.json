@@ -1,0 +1,17 @@
+{
+    "bold": "Gras",
+    "clear": "Effacer",
+    "clearAllText": "Effacer tout le texte",
+    "italic": "Italique",
+    "link": "Lien",
+    "orderedList": "Liste ordonnée",
+    "strikethrough": "Barré",
+    "underline": "Souligné",
+    "unorderedList": "Liste non ordonnée",
+    "private": "Visible uniquement par vous",
+    "editLink": "Modifier le lien",
+    "cancel": "Annuler",
+    "openInNewTab": "Ouvrir dans un nouvel onglet",
+    "removeLink": "Supprimer le lien",
+    "save": "Enregistrer"
+}

@@ -15,6 +15,7 @@
     ],
     "license": "Apache-2.0",
     "peerDependencies": {
+        "@igloo-ui/provider": ">=0.1.0",
         "react": ">= 16.8.6"
     },
     "files": [
@@ -37,6 +38,7 @@
     },
     "devDependencies": {
         "@igloo-ui/button": "^0.8.3",
+        "@igloo-ui/provider": "^0.1.0",
         "@igloo-ui/tag": "^1.5.2",
         "@shared/components": "0.5.0"
     },

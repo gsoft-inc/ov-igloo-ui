@@ -28,6 +28,7 @@ import { CodeNode, CodeHighlightNode } from "@lexical/code";
 
 import { TRANSFORMERS } from "@lexical/markdown";
 
+import { useLocalizedStringFormatter } from "@igloo-ui/provider";
 import Lock from "@igloo-ui/icons/dist/Lock";
 
 import { ToolbarPlugin } from "./plugins/ToolbarPlugin";
@@ -39,6 +40,7 @@ import { FloatingLinkEditorPlugin } from "./plugins/FloatingLinkEditorPlugin";
 import { LinkPlugin } from "./plugins/LinkPlugin";
 import { CodeHighlightPlugin } from "./plugins/CodeHighlightPlugin";
 
+import intlMessages from "./intl";
 import EditorTheme from "./themes/TextEditor.theme";
 
 import "./text-editor.scss";
@@ -121,22 +123,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
     isClearable = true,
     isPrivate,
     maxLength,
-    messages = {
-        bold: { tooltip: "Bold" },
-        clear: { text: "Clear", tooltip: "Clear all text" },
-        italic: { tooltip: "Italic" },
-        link: { tooltip: "Link" },
-        orderedList: { tooltip: "Ordered List" },
-        strikethrough: { tooltip: "Strikethrough" },
-        underline: { tooltip: "Underline" },
-        unorderedList: { tooltip: "Unordered List" },
-        private: { text: "Visible to you only" },
-        linkEditorEdit: { tooltip: "Edit link" },
-        linkEditorCancel: { tooltip: "Cancel" },
-        linkEditorTargetBlank: { tooltip: "Open in a new tab" },
-        linkEditorRemove: { tooltip: "Remove link" },
-        linkEditorSave: { tooltip: "Save" }
-    },
+    messages,
     onBlur,
     onChange,
     onFocus,
@@ -148,7 +135,27 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
     showToolbarOnFocus = false,
     canSelectLinkOpeningMode = false
 }: TextEditorProps) => {
+    const stringFormatter = useLocalizedStringFormatter(intlMessages);
     const [hasFocus, setHasFocus] = React.useState(autoFocus);
+
+    const defaultMessages: Messages = {
+        bold: { tooltip: stringFormatter.format("bold") },
+        clear: { text: stringFormatter.format("clear"), tooltip: stringFormatter.format("clearAllText") },
+        italic: { tooltip: stringFormatter.format("italic") },
+        link: { tooltip: stringFormatter.format("link") },
+        orderedList: { tooltip: stringFormatter.format("orderedList") },
+        strikethrough: { tooltip: stringFormatter.format("strikethrough") },
+        underline: { tooltip: stringFormatter.format("underline") },
+        unorderedList: { tooltip: stringFormatter.format("unorderedList") },
+        private: { text: stringFormatter.format("private") },
+        linkEditorEdit: { tooltip: stringFormatter.format("editLink") },
+        linkEditorCancel: { tooltip: stringFormatter.format("cancel") },
+        linkEditorTargetBlank: { tooltip: stringFormatter.format("openInNewTab") },
+        linkEditorRemove: { tooltip: stringFormatter.format("removeLink") },
+        linkEditorSave: { tooltip: stringFormatter.format("save") }
+    };
+
+    const mergedMessages = { ...defaultMessages, ...messages };
 
     const [floatingAnchorElem, setFloatingAnchorElem] =
         React.useState<HTMLDivElement | null>(null);
@@ -218,7 +225,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
                     <ToolbarPlugin
                         disabled={disabled}
                         isClearable={isClearable}
-                        messages={messages}
+                        messages={mergedMessages}
                         showOnFocus={showToolbarOnFocus}
                     />
                 )}
@@ -247,7 +254,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
                             {floatingAnchorElem && (
                                 <FloatingLinkEditorPlugin
                                     anchorElem={floatingAnchorElem}
-                                    messages={messages}
+                                    messages={mergedMessages}
                                     canSelectLinkOpeningMode={canSelectLinkOpeningMode}
                                 />
                             )}
@@ -261,7 +268,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
                         {isPrivate && (
                             <span className="ids-text-editor__private">
                                 <Lock size="small" className="ids-text-editor__private-icon" />
-                                {messages.private?.text}
+                                {mergedMessages.private?.text}
                             </span>
                         )}
                         {maxLength && (

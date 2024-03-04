@@ -7,6 +7,8 @@ import { VisualIdentifier } from "@shared/components";
 import IconButton from "@igloo-ui/icon-button";
 import Ellipsis from "@igloo-ui/ellipsis";
 import { DismissIcon } from "@hopper-ui/icons-react16";
+import { useLocalizedStringFormatter } from "@igloo-ui/provider";
+import intlMessages from "./intl";
 
 import "./tag.scss";
 
@@ -80,6 +82,7 @@ const Tag: React.FunctionComponent<TagProps> = ({
     size = "medium",
     src
 }) => {
+    const stringFormatter = useLocalizedStringFormatter(intlMessages);
     const [show, setShow] = React.useState(true);
 
     const printDeprecationWarning = (oldValue: string, newValue: string): void => {
@@ -134,7 +137,7 @@ const Tag: React.FunctionComponent<TagProps> = ({
                 onClick={action}
                 appearance={{ type: "ghost", variant: "secondary" }}
                 size="xsmall"
-                aria-label="close"
+                aria-label={stringFormatter.format("close")}
                 icon={<DismissIcon size="sm" className="ids-tag__close" />}
             />
         );

@@ -3,8 +3,10 @@ import cx from "classnames";
 
 import Dropdown from "@igloo-ui/dropdown";
 import List, { type OptionType, type Option } from "@igloo-ui/list";
+import { useLocalizedStringFormatter } from "@igloo-ui/provider";
 
 import ComboboxInput from "./ComboboxInput";
+import intlMessages from "./intl";
 
 import "./combobox.scss";
 
@@ -57,7 +59,9 @@ export interface ComboboxProps
     /** The Combobox gains checkboxes beside each option
    * to be able to select multiple options */
     multiple?: boolean;
-    /** Specify the text to display when there are no results found */
+    /** Specify the text to display when there are no results found
+     * @default No Results / Aucun résultats
+     */
     noResultsText?: string;
     /** Callback when the dropdown is closed and animations are done */
     onAfterClose?: () => void;
@@ -102,7 +106,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     listSize = "small",
     loading,
     multiple = false,
-    noResultsText = "No Results",
+    noResultsText,
     onAfterClose,
     onChange,
     onClear,
@@ -117,6 +121,8 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     showSearchIcon = true,
     ...rest
 }: ComboboxProps) => {
+    const stringFormatter = useLocalizedStringFormatter(intlMessages);
+    const actualNoResultsText = noResultsText ?? stringFormatter.format("noResults");
     const comboboxOptions = React.useMemo(
         () =>
             options?.map((option): OptionType => {
@@ -402,7 +408,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     });
 
     let dropdownContent = (
-        <div className="ids-combobox__no-results">{noResultsText}</div>
+        <div className="ids-combobox__no-results">{actualNoResultsText}</div>
     );
 
     if (loading) {
