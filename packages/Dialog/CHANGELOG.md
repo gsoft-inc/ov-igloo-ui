@@ -1,5 +1,12 @@
 # @igloo-ui/dialog
 
+## 0.8.9
+
+### Patch Changes
+
+- Updated dependencies [29247f0]
+  - @igloo-ui/modal@2.0.0
+
 ## 0.8.8
 
 ### Patch Changes

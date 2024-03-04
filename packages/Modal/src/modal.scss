@@ -332,6 +332,14 @@
         flex: 1 1 100%;
         margin: var(--ids-modal-footer-action-margin);
 
+        &--tertiary {
+            text-align: center;
+
+            @media (width >= #{tokens.$breakpoints-sm}) {
+                margin-right: auto;
+            }
+        }
+
         @media (width >= #{tokens.$breakpoints-sm}) {
             flex: 0 0 auto;
         }

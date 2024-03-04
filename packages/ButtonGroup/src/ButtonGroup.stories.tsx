@@ -162,3 +162,19 @@ export const WithTooltip = () => (
         </ButtonGroup>
     </Section>
 );
+
+export const LongText = () => (
+    <Section column style={{maxWidth: '10rem'}}>
+        <ButtonGroup>
+            <ButtonItem active>
+                long text here
+            </ButtonItem>
+            <ButtonItem>sm</ButtonItem>
+        </ButtonGroup>
+
+        <ButtonGroup small>
+            <ButtonItem>long text</ButtonItem>
+            <ButtonItem active>long text</ButtonItem>
+        </ButtonGroup>
+    </Section>
+);

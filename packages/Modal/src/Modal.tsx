@@ -66,8 +66,10 @@ export interface ModalProps extends OverlayProps, AriaDialogProps {
     fullContent?: boolean;
     /** The button displayed on the right */
     primaryAction?: React.ReactElement;
-    /** The secondary button displayed on the left */
+    /** The secondary button displayed on the left of the primary button */
     secondaryAction?: React.ReactElement;
+    /** The 3rd button displayed on the far left */
+    tertiaryAction?: React.ReactElement;
     /** The object to build the carousel inside the modal */
     carousel?: CarouselInterface;
     /** A unique key for the modal */
@@ -94,6 +96,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
         isOpen,
         primaryAction,
         secondaryAction,
+        tertiaryAction,
         carousel,
         keyValue = "",
         dismissOnEscape = true
@@ -257,22 +260,30 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
                                         </Carousel>
                                     )}
 
-                                    {(primaryAction || secondaryAction) && !carousel && (
+                                    {(primaryAction || secondaryAction || tertiaryAction) && !carousel && (
                                         <div className="ids-modal__footer">
+                                            {tertiaryAction
+                        && React.cloneElement(tertiaryAction, {
+                            className: cx(
+                                "ids-modal__footer-action",
+                                "ids-modal__footer-action--tertiary",
+                                tertiaryAction.props?.className
+                            )
+                        })}
                                             {secondaryAction
-                      && React.cloneElement(secondaryAction, {
-                          className: cx(
-                              "ids-modal__footer-action",
-                              secondaryAction.props?.className
-                          )
-                      })}
+                        && React.cloneElement(secondaryAction, {
+                            className: cx(
+                                "ids-modal__footer-action",
+                                secondaryAction.props?.className
+                            )
+                        })}
                                             {primaryAction
-                      && React.cloneElement(primaryAction, {
-                          className: cx(
-                              "ids-modal__footer-action",
-                              primaryAction.props?.className
-                          )
-                      })}
+                        && React.cloneElement(primaryAction, {
+                            className: cx(
+                                "ids-modal__footer-action",
+                                primaryAction.props?.className
+                            )
+                        })}
                                         </div>
                                     )}
                                 </div>
