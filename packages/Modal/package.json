@@ -45,6 +45,6 @@
     "devDependencies": {
         "@igloo-ui/button": "^0.8.3",
         "@igloo-ui/provider": "^0.1.1",
-        "@igloo-ui/select": "^1.5.2"
+        "@igloo-ui/select": "^1.5.1"
     }
 }
