@@ -4,11 +4,8 @@
 
 ### Patch Changes
 
-- 4a2812e: Fixed Alert so that the svg fill doesn't override the dismiss button color.
 - 4a2812e: Added locale support using Igloo's provider.
 - Updated dependencies [4a2812e]
-- Updated dependencies [4a2812e]
-  - @igloo-ui/icon-button@1.2.5
   - @igloo-ui/provider@0.1.1
 
 ## 0.7.6
