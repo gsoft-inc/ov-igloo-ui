@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.2.4
+
+### Patch Changes
+
+- 22bf61c: Fixed Tabs height and padding.
+
 ## 1.2.3
 
 ### Patch Changes
