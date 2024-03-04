@@ -26,7 +26,7 @@
         "build": "rollup -c rollup.config.js"
     },
     "dependencies": {
-        "@igloo-ui/icon-button": "^1.2.5",
+        "@igloo-ui/icon-button": "^1.2.4",
         "@igloo-ui/icons": "^1.12.2",
         "@igloo-ui/tokens": "^2.0.0",
         "@hopper-ui/icons-react16": "1.2.0",
