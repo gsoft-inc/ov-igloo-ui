@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.5.2
+
+### Patch Changes
+
+- 95cd203: Fixed the base font size for Workleap brand inside Tooltip so that the max width works properly.
+
 ## 3.5.1
 
 ### Patch Changes
