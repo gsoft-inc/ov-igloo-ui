@@ -1,5 +1,11 @@
 # @igloo-ui/tag
 
+## 1.5.4
+
+### Patch Changes
+
+- 6e1f98a: Fixed Tag's default appearance's text color for Workleap brand.
+
 ## 1.5.3
 
 ### Patch Changes
