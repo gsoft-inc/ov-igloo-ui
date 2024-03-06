@@ -108,6 +108,12 @@ export const Sizes = () => (
         <Tag size="micro">Micro Tag</Tag>
       </Section>
       <Section style={{ alignItems: 'center' }}>
+        <Tag appearance="progress" size="medium">Medium Tag</Tag>
+        <Tag appearance="progress" size="small">Small Tag</Tag>
+        <Tag appearance="progress" size="xsmall">Xsmall Tag</Tag>
+        <Tag appearance="progress" size="micro">Micro Tag</Tag>
+      </Section>
+      <Section style={{ alignItems: 'center' }}>
         <Tag appearance="select" color="#9A3842" dismissible size="medium">Medium Tag</Tag>
         <Tag appearance="select" color="#9A3842" dismissible size="small">Small Tag</Tag>
         <Tag appearance="select" color="#9A3842" dismissible size="xsmall">Xsmall Tag</Tag>

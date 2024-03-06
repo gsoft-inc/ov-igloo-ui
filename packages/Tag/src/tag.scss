@@ -17,6 +17,9 @@
         --ids-tag-line-height: #{tokens.$line-height-xl};
         --ids-tag-max-width: 24rem;
         --ids-tag-caution-icon-color: #{tokens.$coral-500};
+        --ids-tag-badge-font-family: #{tokens.$primary-font-family};
+        --ids-tag-badge-font-weight: #{tokens.$font-weight-regular};
+        --ids-tag-badge-line-height: #{tokens.$line-height-xl};
 
         /* === Appearance === */
 
@@ -63,12 +66,14 @@
 
         /* Medium */
         --ids-tag-font-size: #{tokens.$font-size-3};
+        --ids-tag-badge-font-size: #{tokens.$font-size-3};
         --ids-tag-height: #{tokens.$space-5};
         --ids-tag-padding: #{tokens.$space-0} #{tokens.$space-3};
         --ids-tag-icon-gap: #{tokens.$space-2};
 
         /* Small */
         --ids-tag-font-size-small: #{tokens.$font-size-2};
+        --ids-tag-badge-font-size-small: #{tokens.$font-size-3};
         --ids-tag-height-small: #{tokens.$space-4};
         --ids-tag-padding-small: 0 #{tokens.$space-2};
         --ids-tag-padding-small-select: 0 #{tokens.$space-3};
@@ -92,12 +97,15 @@
         --ids-tag-font-weight: var(--hop-body-xs-font-weight);
         --ids-tag-line-height: var(--hop-body-xs-line-height);
         --ids-tag-max-width: 15rem;
+        --ids-tag-badge-font-family: var(--hop-overline-font-family);
+        --ids-tag-badge-font-weight: var(--hop-overline-font-weight);
+        --ids-tag-badge-line-height: var(--hop-overline-line-height);
 
         /* === Appearance === */
 
         /* Default */
         --ids-tag-background-default: var(--hop-neutral-surface-weak);
-        --ids-tag-color-default: var(--hop-neutral-text);
+        --ids-tag-color-default: var(--hop-neutral-text-weak);
 
         /* Progress */
         --ids-tag-background-progress: var(--hop-status-progress-surface);
@@ -139,12 +147,14 @@
 
         /* Medium */
         --ids-tag-font-size: var(--hop-body-sm-font-size);
+        --ids-tag-badge-font-size: var(--hop-overline-font-size);
         --ids-tag-height: 2rem;
         --ids-tag-padding: 0 var(--hop-space-inset-md);
         --ids-tag-icon-gap: var(--hop-space-inline-xs);
 
         /* Small */
         --ids-tag-font-size-small: var(--hop-body-xs-font-size);
+        --ids-tag-badge-font-size-small: var(--hop-overline-font-size);
         --ids-tag-height-small: 1.5rem;
         --ids-tag-padding-small: 0 var(--hop-space-inset-sm);
         --ids-tag-padding-small-select: 0 var(--hop-space-inset-md);
@@ -194,6 +204,10 @@
         /* == Appearance == */
 
         &--default {
+            font-family: var(--ids-tag-badge-font-family);
+            font-weight: var(--ids-tag-badge-font-weight);
+            line-height: var(--ids-tag-badge-line-height);
+
             @include mixins.ids-tag-mixin-decoration(
                 var(--ids-tag-background-default),
                 var(--ids-tag-color-default)
@@ -229,6 +243,10 @@
         }
 
         &--primary {
+            font-family: var(--ids-tag-badge-font-family);
+            font-weight: var(--ids-tag-badge-font-weight);
+            line-height: var(--ids-tag-badge-line-height);
+
             @include mixins.ids-tag-mixin-decoration(
                 var(--ids-tag-background-primary),
                 var(--ids-tag-color-primary)
@@ -297,10 +315,28 @@
             );
         }
 
+        &--medium.ids-tag--default, 
+        &--medium.ids-tag--primary {
+            @include mixins.ids-tag-mixin-size(
+                var(--ids-tag-badge-font-size),
+                var(--ids-tag-padding),
+                var(--ids-tag-height)
+            );
+        }
+
         /* Small */
         &--small {
             @include mixins.ids-tag-mixin-size(
                 var(--ids-tag-font-size-small),
+                var(--ids-tag-padding-small),
+                var(--ids-tag-height-small)
+            );
+        }
+
+        &--small.ids-tag--default, 
+        &--small.ids-tag--primary {
+            @include mixins.ids-tag-mixin-size(
+                var(--ids-tag-badge-font-size-small),
                 var(--ids-tag-padding-small),
                 var(--ids-tag-height-small)
             );
