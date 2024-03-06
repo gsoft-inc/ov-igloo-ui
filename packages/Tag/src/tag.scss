@@ -315,7 +315,8 @@
             );
         }
 
-        &--medium.ids-tag--default, &--medium.ids-tag--primary {
+        &--medium.ids-tag--default, 
+        &--medium.ids-tag--primary {
             @include mixins.ids-tag-mixin-size(
                 var(--ids-tag-badge-font-size),
                 var(--ids-tag-padding),
@@ -332,7 +333,8 @@
             );
         }
 
-        &--small.ids-tag--default, &--small.ids-tag--primary {
+        &--small.ids-tag--default, 
+        &--small.ids-tag--primary {
             @include mixins.ids-tag-mixin-size(
                 var(--ids-tag-badge-font-size-small),
                 var(--ids-tag-padding-small),
