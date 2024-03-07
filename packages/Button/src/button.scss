@@ -25,10 +25,13 @@
         /* Primary */
         --ids-btn-text-primary: #{tokens.$samoyed};
         --ids-btn-text-primary-disabled: #{tokens.$samoyed};
+        --ids-btn-text-primary-active: #{tokens.$electric-blue-500};
         --ids-btn-border-primary: transparent;
+        --ids-btn-border-primary-active: #{tokens.$electric-blue-500};
         --ids-btn-background-primary: #{tokens.$electric-blue-500};
         --ids-btn-background-primary-hover: #{tokens.$electric-blue-600};
         --ids-btn-background-primary-disabled: #{tokens.$electric-blue-300};
+        --ids-btn-background-primary-active: #{tokens.$electric-blue-50};
 
         /* Secondary */
         --ids-btn-text-secondary: #{tokens.$grey-800};
@@ -46,28 +49,42 @@
         /* Premium */
         --ids-btn-text-premium: #{tokens.$grey-800};
         --ids-btn-text-premium-disabled: #{tokens.$grey-500};
+        --ids-btn-text-premium-active: #{tokens.$grey-800};
+        --ids-btn-border-premium: #{tokens.$dandelion-100};
+        --ids-btn-border-premium-active: #{tokens.$dandelion-100};
         --ids-btn-background-premium: #{tokens.$dandelion-100};
         --ids-btn-background-premium-hover: #{tokens.$dandelion-200};
         --ids-btn-background-premium-disabled: #{tokens.$dandelion-50};
+        --ids-btn-background-premium-active: #{tokens.$dandelion-100};
 
         /* Danger */
+        --ids-btn-text-danger: #{tokens.$samoyed};
+        --ids-btn-text-danger-disabled: #{tokens.$samoyed};
+        --ids-btn-text-danger-active: #{tokens.$samoyed};
+        --ids-btn-border-danger: transparent;
+        --ids-btn-border-danger-active: transparent;
         --ids-btn-background-danger: #{tokens.$coral-500};
         --ids-btn-background-danger-hover: #{tokens.$coral-600};
         --ids-btn-background-danger-disabled: #{tokens.$coral-200};
+        --ids-btn-background-danger-active: #{tokens.$coral-500};
 
         /* Ghost */
         --ids-btn-padding-ghost: 0 #{tokens.$space-1};
         --ids-btn-text-ghost: #{tokens.$electric-blue-500};
         --ids-btn-text-ghost-hover: #{tokens.$electric-blue-600};
         --ids-btn-text-ghost-disabled: #{tokens.$electric-blue-300};
+        --ids-btn-text-ghost-active: #{tokens.$electric-blue-500};
+        --ids-btn-border-ghost-active: transparent;
         --ids-btn-background-ghost: transparent;
         --ids-btn-background-ghost-hover: transparent;
         --ids-btn-background-ghost-disabled: transparent;
+        --ids-btn-background-ghost-active: transparent;
         --ids-loader-size: 1.2rem;
         --ids-loader-border: 0.2rem solid rgb(255 255 255 / 30%);
         --ids-loader-border-ghost: 0.2rem solid rgb(16 83 255 / 30%);
         --ids-loader-primary: #{tokens.$samoyed};
         --ids-loader-premium: #{tokens.$grey-800};
+        --ids-loader-premium-active: #{tokens.$grey-800};
         --ids-loader-premium-disabled: #{tokens.$grey-600};
         --ids-loader-secondary: #{tokens.$grey-800};
         --ids-loader-secondary-disabled: #{tokens.$grey-600};
@@ -79,16 +96,21 @@
         --ids-btn-text-ghost-danger: #{tokens.$coral-500};
         --ids-btn-text-ghost-danger-hover: #{tokens.$coral-600};
         --ids-btn-text-ghost-danger-disabled: #{tokens.$coral-300};
+        --ids-btn-text-ghost-danger-active: #{tokens.$coral-500};
+        --ids-btn-border-ghost-danger-active: transparent;
         --ids-btn-background-ghost-danger-hover: transparent;
         --ids-btn-background-ghost-danger-disabled: transparent;
+        --ids-btn-background-ghost-danger-active: transparent;
         --ids-loader-border-ghost-danger: 0.2rem solid rgb(249 97 85 / 30%);
         --ids-loader-ghost-danger: #{tokens.$coral-500};
+        --ids-loader-ghost-danger-active: #{tokens.$coral-500};
 
         /* Ghost, variant: Secondary */
         --ids-btn-text-ghost-secondary: #{tokens.$grey-600};
         --ids-btn-text-ghost-secondary-hover: #{tokens.$grey-800};
         --ids-btn-text-ghost-secondary-active: #{tokens.$electric-blue-500};
         --ids-btn-text-ghost-secondary-disabled: #{tokens.$grey-400};
+        --ids-btn-border-ghost-secondary-active: transparent;
         --ids-btn-background-ghost-secondary-hover: transparent;
         --ids-btn-background-ghost-secondary-active: transparent;
         --ids-btn-background-ghost-secondary-disabled: transparent;
@@ -117,10 +139,13 @@
           /* Primary */
           --ids-btn-text-primary: var(--hop-primary-text-strong);
           --ids-btn-text-primary-disabled: var(--hop-neutral-text-disabled);
+          --ids-btn-text-primary-active: var(--hop-primary-text-active);
           --ids-btn-border-primary: transparent;
+          --ids-btn-border-primary-active: var(--hop-primary-border-active);
           --ids-btn-background-primary: var(--hop-primary-surface-strong);
           --ids-btn-background-primary-hover: var(--hop-primary-surface-hover);
           --ids-btn-background-primary-disabled: var(--hop-neutral-surface-disabled);
+          --ids-btn-background-primary-active: var(--hop-primary-surface-active);
 
           /* Secondary */
           --ids-btn-text-secondary: var(--hop-neutral-text);
@@ -138,51 +163,68 @@
           /* Premium */
           --ids-btn-text-premium: var(--hop-upsell-text);
           --ids-btn-text-premium-disabled: var(--hop-neutral-text-disabled);
+          --ids-btn-text-premium-active: var(--hop-upsell-text-active);
+          --ids-btn-border-premium-active: var(--hop-upsell-border-active);
           --ids-btn-background-premium: var(--hop-upsell-surface);
           --ids-btn-background-premium-hover: var(--hop-upsell-surface-hover);
           --ids-btn-background-premium-disabled: var(--hop-neutral-surface-disabled);
+          --ids-btn-background-premium-active: var(--hop-upsell-surface-active);
 
           /* Danger */
           --ids-btn-text-danger: var(--hop-danger-text-strong);
+          --ids-btn-text-danger-active: var(--hop-danger-text-active);
+          --ids-btn-border-danger-active: var(--hop-danger-border-active);
           --ids-btn-background-danger: var(--hop-danger-surface-strong);
           --ids-btn-background-danger-hover: var(--hop-danger-surface-hover);
           --ids-btn-background-danger-disabled: var(--hop-neutral-surface-disabled);
+          --ids-btn-background-danger-active: var(--hop-danger-surface-active);
 
           /* Ghost */
           --ids-btn-padding-ghost: 0 var(--hop-space-inset-sm);
           --ids-btn-text-ghost: var(--hop-primary-text);
           --ids-btn-text-ghost-hover: var(--hop-primary-text-hover);
           --ids-btn-text-ghost-disabled: var(--hop-primary-text-disabled);
+          --ids-btn-text-ghost-active: var(--hop-neutral-text);
+          --ids-btn-border-ghost-active: transparent;
           --ids-btn-background-ghost: transparent;
           --ids-btn-background-ghost-hover: var(--hop-neutral-surface-hover);
           --ids-btn-background-ghost-disabled: transparent;
+          --ids-btn-background-ghost-active: var(--hop-neutral-surface-weak-active);
           --ids-loader-size: 0.75rem;
           --ids-loader-border: 0.125rem solid rgb(255 255 255 / 30%);
           --ids-loader-border-ghost: 0.125rem solid rgb(59 87 255 / 30%);
           --ids-loader-primary: var(--hop-primary-icon-strong);
+          --ids-loader-primary-active: var(--hop-primary-icon-active);
           --ids-loader-premium: var(--hop-upsell-icon);
           --ids-loader-premium-disabled: var(--hop-neutral-icon);
+          --ids-loader-premium-active: var(--hop-upsell-icon-active);
           --ids-loader-secondary: var(--hop-neutral-icon);
           --ids-loader-secondary-disabled: var(--hop-neutral-icon);
           --ids-loader-secondary-active: var(--hop-neutral-icon-active);
           --ids-loader-ghost: var(--hop-primary-icon);
+          --ids-loader-ghost-active: var(--hop-primary-icon-active);
           --ids-loader-ghost-disabled: var(--hop-neutral-icon);
 
           /* Ghost, variant: Danger */
           --ids-btn-text-ghost-danger: var(--hop-danger-text-weak);
           --ids-btn-background-ghost-danger-hover: var(--hop-neutral-surface-hover);
+          --ids-btn-background-ghost-danger-active: var(--hop-neutral-surface-weak-active);
+          --ids-btn-border-ghost-danger-active: transparent;
           --ids-btn-text-ghost-danger-hover: var(--hop-danger-text-hover);
+          --ids-btn-text-ghost-danger-active: var(--hop-danger-text-active);
           --ids-btn-background-ghost-danger-disabled: transparent;
           --ids-btn-text-ghost-danger-disabled: var(--hop-danger-text-disabled);
           --ids-loader-border-ghost-danger: 0.125rem solid rgb(149 41 39 / 30%);
           --ids-loader-ghost-danger: var(--hop-danger-icon);
+          --ids-loader-ghost-danger-active: var(--hop-danger-icon-active);
 
           /* Ghost, variant: Secondary */
           --ids-btn-text-ghost-secondary: var(--hop-neutral-text);
           --ids-btn-background-ghost-secondary-hover: var(--hop-neutral-surface-hover);
           --ids-btn-text-ghost-secondary-hover: var(--hop-neutral-text-hover);
-          --ids-btn-background-ghost-secondary-active: var(--hop-neutral-surface-active);
-          --ids-btn-text-ghost-secondary-active: var(--hop-neutral-text-active);
+          --ids-btn-background-ghost-secondary-active: var(--hop-neutral-surface-weak-active);
+          --ids-btn-border-ghost-secondary-active: transparent;
+          --ids-btn-text-ghost-secondary-active: var(--hop-neutral-text);
           --ids-btn-background-ghost-secondary-disabled: transparent;
           --ids-btn-text-ghost-secondary-disabled: var(--hop-neutral-text-disabled);
           --ids-loader-border-ghost-secondary: 0.125rem solid rgb(60 60 60 / 30%);
@@ -271,6 +313,14 @@
         background: var(--ids-btn-background-primary-hover);
       }
 
+      .ids-btn.ids-btn--active {
+        color: var(--ids-btn-text-primary-active);
+        background: var(--ids-btn-background-primary-active);
+        border-color: var(--ids-btn-border-primary-active);
+        pointer-events: none;
+        user-select: none;
+      }
+
       .ids-btn.ids-btn--disabled,
       .ids-btn:disabled {
         color: var(--ids-btn-text-primary-disabled);
@@ -323,8 +373,20 @@
         border-left-color: var(--ids-loader-premium);
       }
 
+      .ids-btn--premium.ids-btn--active .ids-loader {
+        border-left-color: var(--ids-loader-premium-active);
+      }
+
       .ids-btn--secondary .ids-loader {
         border-left-color: var(--ids-loader-secondary);
+      }
+
+      .ids-btn--ghost.ids-btn--active .ids-loader {
+        border-left-color: var(--ids-loader-ghost-active);
+      }
+
+      .ids-btn--ghost-danger.ids-btn--active .ids-loader {
+        border-left-color: var(--ids-loader-ghost-danger-active);
       }
 
       .ids-btn--secondary.ids-btn--active .ids-loader,
@@ -342,11 +404,6 @@
         border-left-color: var(--ids-loader-ghost-disabled);
       }
 
-      .ids-btn.ids-btn--active {
-        pointer-events: none;
-        user-select: none;
-      }
-
       .ids-btn--small {
         font-size: var(--ids-btn-font-size-small);
         line-height: var(--ids-btn-line-height-small);
@@ -356,19 +413,19 @@
       %btn-secondary-disabled {
         color: var(--ids-btn-text-secondary-disabled);
         background: var(--ids-btn-background-secondary-disabled);
-        border: var(--ids-btn-border-width) solid var(--ids-btn-background-secondary-disabled);
+        border-color: var(--ids-btn-background-secondary-disabled);
       }
 
       .ids-btn--secondary {
         color: var(--ids-btn-text-secondary);
         background: var(--ids-btn-background-secondary);
-        border: var(--ids-btn-border-width) solid var(--ids-btn-border-secondary);
+        border-color: var(--ids-btn-border-secondary);
       }
 
       .ids-btn--secondary.ids-btn--active {
         color: var(--ids-btn-text-secondary-active);
         background: var(--ids-btn-background-secondary-active);
-        border: var(--ids-btn-border-width) solid var(--ids-btn-border-secondary-active);
+        border-color: var(--ids-btn-border-secondary-active);
       }
 
       .ids-btn--secondary:disabled {
@@ -381,7 +438,7 @@
       .ids-btn--secondary.ids-btn--active:hover {
         color: var(--ids-btn-text-secondary-hover);
         background: var(--ids-btn-background-secondary-hover);
-        border: var(--ids-btn-border-width) solid var(--ids-btn-border-secondary-hover);
+        border-color: var(--ids-btn-border-secondary-hover);
       }
 
       .ids-btn--secondary.ids-btn--disabled,
@@ -393,6 +450,12 @@
       .ids-btn--premium {
         color: var(--ids-btn-text-premium);
         background: var(--ids-btn-background-premium);
+      }
+
+      .ids-btn--premium.ids-btn--active {
+        color: var(--ids-btn-text-premium-active);
+        background: var(--ids-btn-background-premium-active);
+        border-color: var(--ids-btn-border-premium-active);
       }
 
       .ids-btn--premium:not(.ids-btn--loading):focus-visible,
@@ -408,7 +471,15 @@
       }
 
       .ids-btn--danger {
+        color: var(--ids-btn-text-danger);
         background: var(--ids-btn-background-danger);
+        border-color: var(--ids-btn-border-danger);
+      }
+
+      .ids-btn--danger.ids-btn--active {
+        color: var(--ids-btn-text-danger-active);
+        background: var(--ids-btn-background-danger-active);
+        border-color: var(--ids-btn-border-danger-active);
       }
 
       .ids-btn--danger:not(.ids-btn--loading):focus-visible,
@@ -428,6 +499,12 @@
         padding: var(--ids-btn-padding-ghost);
       }
 
+      .ids-btn--ghost.ids-btn--active {
+        color: var(--ids-btn-text-ghost-active);
+        background: var(--ids-btn-background-ghost-active);
+        border-color: var(--ids-btn-border-ghost-active);
+      }
+
       .ids-btn--ghost:not(.ids-btn--loading):focus-visible,
       .ids-btn--ghost.focus,
       .ids-btn--ghost:hover {
@@ -445,6 +522,12 @@
         color: var(--ids-btn-text-ghost-danger);
         background: var(--ids-btn-background-ghost);
         padding: var(--ids-btn-padding-ghost);
+      }
+
+      .ids-btn.ids-btn--ghost-danger.ids-btn--active {
+        color: var(--ids-btn-text-ghost-danger-active);
+        border-color: var(--ids-btn-border-ghost-danger-active);
+        background: var(--ids-btn-background-ghost-danger-active);
       }
 
       .ids-btn.ids-btn--ghost-danger:not(.ids-btn--loading):focus-visible,
@@ -475,6 +558,7 @@
 
       .ids-btn.ids-btn--ghost-secondary.ids-btn--active {
         background: var(--ids-btn-background-ghost-secondary-active);
+        border-color: var(--ids-btn-border-ghost-secondary-active);
         color: var(--ids-btn-text-ghost-secondary-active);
       }
 
