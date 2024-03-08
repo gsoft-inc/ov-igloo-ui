@@ -1,5 +1,18 @@
 # @igloo-ui/tag-picker
 
+## 0.12.0
+
+### Minor Changes
+
+- aca4fc9: Added new appearances
+- aca4fc9: Added an Inactive apperarance to Tag / Centered text in Tag
+
+### Patch Changes
+
+- Updated dependencies [aca4fc9]
+- Updated dependencies [aca4fc9]
+  - @igloo-ui/tag@1.6.0
+
 ## 0.11.0
 
 ### Minor Changes

@@ -1,5 +1,12 @@
 # @igloo-ui/tag
 
+## 1.6.0
+
+### Minor Changes
+
+- aca4fc9: Added new appearances
+- aca4fc9: Added an Inactive apperarance to Tag / Centered text in Tag
+
 ## 1.5.5
 
 ### Patch Changes
