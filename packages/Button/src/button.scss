@@ -572,12 +572,8 @@
         color: var(--ids-btn-icon-color);
       }
 
-      .has-icon--leading .ids-icon {
-        margin-right: var(--ids-btn-icon-margin);
-      }
-
-      .has-icon--trailing .ids-icon {
-        margin-left: var(--ids-btn-icon-margin);
+      .has-icon {
+        gap: var(--ids-btn-icon-margin);
       }
 
       .ids-btn--mobile {
@@ -605,12 +601,8 @@
           padding: var(--ids-btn-padding);
         }
 
-        .ids-btn--mobile.has-icon--leading .ids-icon {
-          margin-right: var(--ids-btn-icon-margin);
-        }
-
-        .ids-btn--mobile.has-icon--trailing .ids-icon {
-          margin-left: var(--ids-btn-icon-margin);
+        .ids-btn--mobile.has-icon {
+          gap: var(--ids-btn-icon-margin);
         }
 
         .ids-btn__label {
