@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.4
+
+### Patch Changes
+
+- a00a83f: Added and fixed the active styles for the buttons.
+
 ## 0.8.3
 
 ### Patch Changes

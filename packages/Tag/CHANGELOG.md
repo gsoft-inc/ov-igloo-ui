@@ -1,5 +1,13 @@
 # @igloo-ui/tag
 
+## 1.5.5
+
+### Patch Changes
+
+- a00a83f: Added and fixed the active styles for the buttons.
+- Updated dependencies [a00a83f]
+  - @igloo-ui/icon-button@1.2.5
+
 ## 1.5.4
 
 ### Patch Changes

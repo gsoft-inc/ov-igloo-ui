@@ -1,5 +1,14 @@
 # @igloo-ui/alert
 
+## 0.7.8
+
+### Patch Changes
+
+- a00a83f: Added and fixed the active styles for the buttons.
+- Updated dependencies [a00a83f]
+  - @igloo-ui/button@0.8.4
+  - @igloo-ui/icon-button@1.2.5
+
 ## 0.7.7
 
 ### Patch Changes

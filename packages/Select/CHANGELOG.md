@@ -1,5 +1,13 @@
 # @igloo-ui/select
 
+## 1.5.2
+
+### Patch Changes
+
+- a00a83f: Added and fixed the active styles for the buttons.
+- Updated dependencies [a00a83f]
+  - @igloo-ui/icon-button@1.2.5
+
 ## 1.5.1
 
 ### Patch Changes
