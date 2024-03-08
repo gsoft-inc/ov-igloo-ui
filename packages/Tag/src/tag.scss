@@ -100,6 +100,7 @@
         --ids-tag-badge-font-family: var(--hop-overline-font-family);
         --ids-tag-badge-font-weight: var(--hop-overline-font-weight);
         --ids-tag-badge-line-height: var(--hop-overline-line-height);
+        --ids-tag-as-badge-text-offset: -0.125em;
 
         /* === Appearance === */
 
@@ -128,13 +129,17 @@
         --ids-tag-background-primary: var(--hop-primary-surface-strong);
         --ids-tag-color-primary: var(--hop-primary-text-strong);
 
+        /* Inactive */
+        --ids-tag-background-inactive: var(--hop-status-inactive-surface);
+        --ids-tag-color-inactive: var(--hop-status-inactive-text);
+
         /* Neutral */
         --ids-tag-background-neutral: var(--hop-status-neutral-surface);
         --ids-tag-color-neutral: var(--hop-status-neutral-text);
         --ids-tag-border-neutral: var(--hop-neutral-border-weak);
         --ids-tag-neutral-dismiss-btn-color: var(--hop-neutral-icon-weak);
         --ids-tag-neutral-dismiss-btn-hover-color: var(--hop-neutral-icon-hover);
-        
+
         /* Select */
         --ids-tag-background-select: var(--hop-neutral-surface-weakest);
         --ids-tag-background-has-error-select: var(--hop-neutral-surface-weak);
@@ -208,6 +213,10 @@
             font-weight: var(--ids-tag-badge-font-weight);
             line-height: var(--ids-tag-badge-line-height);
 
+            .ids-tag__ellipsis {
+                margin-bottom: var(--ids-tag-as-badge-text-offset, 0);
+            }
+
             @include mixins.ids-tag-mixin-decoration(
                 var(--ids-tag-background-default),
                 var(--ids-tag-color-default)
@@ -235,6 +244,13 @@
             );
         }
 
+        &--inactive {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-inactive),
+                var(--ids-tag-color-inactive)
+            );
+        }
+
         &--caution {
             @include mixins.ids-tag-mixin-decoration(
                 var(--ids-tag-background-caution),
@@ -246,6 +262,10 @@
             font-family: var(--ids-tag-badge-font-family);
             font-weight: var(--ids-tag-badge-font-weight);
             line-height: var(--ids-tag-badge-line-height);
+
+            .ids-tag__ellipsis {
+                margin-bottom: var(--ids-tag-as-badge-text-offset, 0);
+            }
 
             @include mixins.ids-tag-mixin-decoration(
                 var(--ids-tag-background-primary),
@@ -315,7 +335,7 @@
             );
         }
 
-        &--medium.ids-tag--default, 
+        &--medium.ids-tag--default,
         &--medium.ids-tag--primary {
             @include mixins.ids-tag-mixin-size(
                 var(--ids-tag-badge-font-size),
@@ -333,7 +353,7 @@
             );
         }
 
-        &--small.ids-tag--default, 
+        &--small.ids-tag--default,
         &--small.ids-tag--primary {
             @include mixins.ids-tag-mixin-size(
                 var(--ids-tag-badge-font-size-small),
