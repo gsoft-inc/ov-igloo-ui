@@ -1,5 +1,13 @@
 # @igloo-ui/combobox
 
+## 2.3.3
+
+### Patch Changes
+
+- a00a83f: Added and fixed the active styles for the buttons.
+- Updated dependencies [a00a83f]
+  - @igloo-ui/icon-button@1.2.5
+
 ## 2.3.2
 
 ### Patch Changes
