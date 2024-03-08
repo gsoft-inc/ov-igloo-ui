@@ -18,9 +18,16 @@ export type AppearanceNew =
   | "default"
   | "primary"
   | "progress"
+  | "inactive"
   | "positive"
   | "caution"
   | "negative"
+  | "option1"
+  | "option2"
+  | "option3"
+  | "option4"
+  | "option5"
+  | "option6"
   | "neutral"
   | "select";
 
@@ -165,7 +172,7 @@ const Tag: React.FunctionComponent<TagProps> = ({
                 />
 
                 <div className="ids-tag__content">
-                    <Ellipsis>{children}</Ellipsis>
+                    <Ellipsis className="ids-tag__ellipsis">{children}</Ellipsis>
                 </div>
 
                 {dismissible && renderDismissButton()}

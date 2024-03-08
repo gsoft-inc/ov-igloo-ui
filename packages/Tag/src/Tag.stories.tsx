@@ -27,16 +27,23 @@ export default {
       table: {
         type: {
           summary:
-            'default | primary | progress | positive | caution | negative | neutral | select',
+            'default | primary | inactive | progress | positive | caution | negative | option1 | option2 | option3 | option4 | option5 | option6 | neutral | select',
         },
       },
       options: [
         'default',
         'primary',
+        'inactive',
         'progress',
         'positive',
         'caution',
         'negative',
+        'option1',
+        'option2',
+        'option3',
+        'option4',
+        'option5',
+        'option6',
         'neutral',
         'select'
       ],
@@ -57,9 +64,16 @@ export const Appearances = () => (
   <Section style={{ flexWrap: 'wrap', gap: 'var(--space-3) 0' }}>
     <Tag appearance="default">Default Tag</Tag>
     <Tag appearance="progress">Progress Tag</Tag>
+    <Tag appearance="inactive">Inactive Tag</Tag>
     <Tag appearance="positive">Positive Tag</Tag>
     <Tag appearance="caution">Caution Tag</Tag>
     <Tag appearance="negative">Negative Tag</Tag>
+    <Tag appearance="option1">Option 1 Tag</Tag>
+    <Tag appearance="option2">Option 2 Tag</Tag>
+    <Tag appearance="option3">Option 3 Tag</Tag>
+    <Tag appearance="option4">Option 4 Tag</Tag>
+    <Tag appearance="option5">Option 5 Tag</Tag>
+    <Tag appearance="option6">Option 6 Tag</Tag>
     <Tag appearance="primary">Primary Tag</Tag>
     <Tag appearance="neutral">Neutral Tag</Tag>
     <Tag appearance="select" color="#9A3842" dismissible>Select Tag</Tag>
