@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.5
+
+### Patch Changes
+
+- 2beb214: - Spacing in Button with Icon is now always shown even with non Hopper icons.
+
 ## 0.8.4
 
 ### Patch Changes
