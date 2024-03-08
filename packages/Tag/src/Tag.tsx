@@ -22,6 +22,12 @@ export type AppearanceNew =
   | "positive"
   | "caution"
   | "negative"
+  | "option1"
+  | "option2"
+  | "option3"
+  | "option4"
+  | "option5"
+  | "option6"
   | "neutral"
   | "select";
 

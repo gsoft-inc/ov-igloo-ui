@@ -47,12 +47,40 @@
         --ids-tag-background-primary: #{tokens.$electric-blue-500};
         --ids-tag-color-primary: #{tokens.$samoyed};
 
+        /* Inactive */
+        --ids-tag-background-inactive: #{tokens.$grey-200};
+        --ids-tag-color-inactive: #{tokens.$grey-600};
+
         /* Neutral */
         --ids-tag-background-neutral: #{tokens.$samoyed};
         --ids-tag-color-neutral: #{tokens.$grey-800};
         --ids-tag-border-neutral: #{tokens.$grey-300};
         --ids-tag-neutral-dismiss-btn-color: #{tokens.$grey-600};
         --ids-tag-neutral-dismiss-btn-hover-color: #{tokens.$grey-800};
+
+        /* Option 1 */
+        --ids-tag-background-option1: #{tokens.$electric-blue-200};
+        --ids-tag-color-option1: #{tokens.$grey-800};
+
+        /* Option 2 */
+        --ids-tag-background-option2: #{tokens.$strawberry-fields-200};
+        --ids-tag-color-option2: #{tokens.$grey-800};
+
+        /* Option 3 */
+        --ids-tag-background-option3: #{tokens.$seaweed-400};
+        --ids-tag-color-option3: #{tokens.$grey-800};
+
+        /* Option 4 */
+        --ids-tag-background-option4: #{tokens.$electric-blue-500};
+        --ids-tag-color-option4: #{tokens.$samoyed};
+
+        /* Option 5 */
+        --ids-tag-background-option5: #{tokens.$grey-500};
+        --ids-tag-color-option5: #{tokens.$samoyed};
+
+        /* Option 6 */
+        --ids-tag-background-option6: #{tokens.$dandelion-400};
+        --ids-tag-color-option6: #{tokens.$grey-800};
 
         /* Select */
         --ids-tag-background-select: #{tokens.$samoyed};
@@ -139,6 +167,30 @@
         --ids-tag-border-neutral: var(--hop-neutral-border-weak);
         --ids-tag-neutral-dismiss-btn-color: var(--hop-neutral-icon-weak);
         --ids-tag-neutral-dismiss-btn-hover-color: var(--hop-neutral-icon-hover);
+
+        /* Option 1 */
+        --ids-tag-background-option1: var(--hop-status-option1-surface);
+        --ids-tag-color-option1: var(--hop-status-option1-text);
+
+        /* Option 2 */
+        --ids-tag-background-option2: var(--hop-status-option2-surface);
+        --ids-tag-color-option2: var(--hop-status-option2-text);
+
+        /* Option 3 */
+        --ids-tag-background-option3: var(--hop-status-option3-surface);
+        --ids-tag-color-option3: var(--hop-status-option3-text);
+
+        /* Option 4 */
+        --ids-tag-background-option4: var(--hop-status-option4-surface);
+        --ids-tag-color-option4: var(--hop-status-option4-text);
+
+        /* Option 5 */
+        --ids-tag-background-option5: var(--hop-status-option5-surface);
+        --ids-tag-color-option5: var(--hop-status-option5-text);
+
+        /* Option 6 */
+        --ids-tag-background-option6: var(--hop-status-option6-surface);
+        --ids-tag-color-option6: var(--hop-status-option6-text);
 
         /* Select */
         --ids-tag-background-select: var(--hop-neutral-surface-weakest);
@@ -241,6 +293,48 @@
             @include mixins.ids-tag-mixin-decoration(
                 var(--ids-tag-background-positive),
                 var(--ids-tag-color-positive)
+            );
+        }
+
+        &--option1 {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-option1),
+                var(--ids-tag-color-option1)
+            );
+        }
+
+        &--option2 {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-option2),
+                var(--ids-tag-color-option2)
+            );
+        }
+
+        &--option3 {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-option3),
+                var(--ids-tag-color-option3)
+            );
+        }
+
+        &--option4 {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-option4),
+                var(--ids-tag-color-option4)
+            );
+        }
+
+        &--option5 {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-option5),
+                var(--ids-tag-color-option5)
+            );
+        }
+
+        &--option6 {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-option6),
+                var(--ids-tag-color-option6)
             );
         }
 
