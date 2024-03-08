@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/text-editor",
-    "version": "0.7.9",
+    "version": "0.7.10",
     "main": "dist/TextEditor.js",
     "module": "dist/TextEditor.js",
     "types": "dist/TextEditor.d.ts",
@@ -26,8 +26,8 @@
     },
     "dependencies": {
         "@floating-ui/react": "^0.24.8",
-        "@igloo-ui/button": "^0.8.4",
-        "@igloo-ui/icon-button": "^1.2.5",
+        "@igloo-ui/button": "^0.8.5",
+        "@igloo-ui/icon-button": "^1.2.6",
         "@igloo-ui/input": "^2.2.2",
         "@igloo-ui/tokens": "^2.0.0",
         "@hopper-ui/tokens": "^3.1.5",

@@ -1,5 +1,13 @@
 # @igloo-ui/icon-button
 
+## 1.2.6
+
+### Patch Changes
+
+- 2beb214: - Spacing in Button with Icon is now always shown even with non Hopper icons.
+- Updated dependencies [2beb214]
+  - @igloo-ui/button@0.8.5
+
 ## 1.2.5
 
 ### Patch Changes
