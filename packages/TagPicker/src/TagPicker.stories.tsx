@@ -9,13 +9,6 @@ import FormGroup from '@igloo-ui/form-group';
 import { mockData, memberMockData } from './data';
 import TagPicker, { TagItem, Keys } from './TagPicker';
 
-export const Debug = {
-    args: {
-        disabled: true,
-        selectedResults: [{ id: '1', text: 'Tag 1', color: 'red' }, { id: '2', text: 'Tag 2', color: "blue" }],
-    }
-}
-
 export default {
   title: 'Components/TagPicker',
   component: TagPicker,
