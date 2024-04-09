@@ -72,6 +72,8 @@ export interface TagProps extends React.ComponentProps<"div"> {
     size?: Size;
     /** Specifies the image url to show */
     src?: string;
+    /** Specifies if the tag is disabled */
+    disabled?: boolean;
 }
 
 const Tag: React.FunctionComponent<TagProps> = ({
@@ -87,7 +89,8 @@ const Tag: React.FunctionComponent<TagProps> = ({
     onRemove,
     rounded = false,
     size = "medium",
-    src
+    src,
+    disabled
 }) => {
     const stringFormatter = useLocalizedStringFormatter(intlMessages);
     const [show, setShow] = React.useState(true);
@@ -156,7 +159,8 @@ const Tag: React.FunctionComponent<TagProps> = ({
         `ids-tag--${size}`,
         {
             "ids-tag--rounded": rounded,
-            "ids-tag--has-error": hasError
+            "ids-tag--has-error": hasError,
+            "ids-tag--disabled": disabled
         },
         className
     );

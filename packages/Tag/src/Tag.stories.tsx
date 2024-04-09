@@ -88,6 +88,14 @@ export const Dismissible = () => (
   </Section>
 );
 
+export const Disabled = () => (
+    <Section>
+        <Tag disabled>
+            Disabled Tag
+        </Tag>
+    </Section>
+);
+
 export const Icons = () => (
   <Section
     style={{ alignItems: 'center', flexWrap: 'wrap', gap: 'var(--space-3) 0' }}
