@@ -66,7 +66,9 @@ const Breadcrumb: React.FunctionComponent<BreadcrumbProps> = ({
                         {displayLabel}
                     </a>
                 ) : (
-                    displayLabel
+                    <span className="ids-breadcrumb__text">
+                        {displayLabel}
+                    </span>
                 )}
 
                 {!isBackLink && !current && (

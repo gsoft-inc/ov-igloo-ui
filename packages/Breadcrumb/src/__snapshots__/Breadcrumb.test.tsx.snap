@@ -68,7 +68,11 @@ exports[`Breadcrumb It should render without error and a snapshot 1`] = `
         aria-current="page"
         class="ids-breadcrumb__item ids-breadcrumb__item--current"
       >
-        Developer
+        <span
+          class="ids-breadcrumb__text"
+        >
+          Developer
+        </span>
       </li>
     </ol>
   </nav>
