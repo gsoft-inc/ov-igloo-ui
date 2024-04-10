@@ -88,6 +88,33 @@ export const Dismissible = () => (
   </Section>
 );
 
+export const Disabled = () => (
+    <Section style={{ flexWrap: 'wrap', gap: 'var(--space-3) 0' }}>
+        <Tag disabled>Default Tag</Tag>
+        <Tag disabled appearance="progress">Progress Tag</Tag>
+        <Tag disabled appearance="inactive">Inactive Tag</Tag>
+        <Tag disabled appearance="positive">Positive Tag</Tag>
+        <Tag disabled appearance="caution">Caution Tag</Tag>
+        <Tag disabled appearance="negative">Negative Tag</Tag>
+        <Tag disabled appearance="option1">Option 1 Tag</Tag>
+        <Tag disabled appearance="option2">Option 2 Tag</Tag>
+        <Tag disabled appearance="option3">Option 3 Tag</Tag>
+        <Tag disabled appearance="option4">Option 4 Tag</Tag>
+        <Tag disabled appearance="option5">Option 5 Tag</Tag>
+        <Tag disabled appearance="option6">Option 6 Tag</Tag>
+        <Tag disabled appearance="primary">Primary Tag</Tag>
+        <Tag disabled appearance="neutral">Neutral Tag</Tag>
+        <Tag disabled appearance="select" color="#9A3842" dismissible>Select Tag</Tag>
+        <Tag disabled icon={<LabelSolid size="small" />}>Tag with Icon</Tag>
+        <Tag
+            disabled
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEB3tCC4oJsa4ZZsiEDIhWi06EyN3iHYMoOg&usqp=CAU"
+        >
+            Tag with an image icon
+        </Tag>
+    </Section>
+);
+
 export const Icons = () => (
   <Section
     style={{ alignItems: 'center', flexWrap: 'wrap', gap: 'var(--space-3) 0' }}

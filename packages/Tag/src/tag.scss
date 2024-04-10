@@ -199,6 +199,9 @@
         --ids-tag-color-select: var(--hop-neutral-text);
         --ids-tag-select-dismiss-btn-color: var(--hop-neutral-icon-weakest);
         --ids-tag-select-dismiss-btn-hover-color: var(--hop-neutral-icon-hover);
+        --ids-tag-select-color-inner: var(--hop-neutral-icon-disabled);
+        --ids-tag-select-disabled-dismiss-btn-color: var(--hop-neutral-icon-disabled);
+        --ids-tag-select-disabled-dismiss-btn-cursor: not-allowed;
 
         /* === Sizes === */
 
@@ -390,6 +393,10 @@
                 var(--ids-tag-border-select)
             );
 
+            &.ids-tag--disabled .ids-color__inner {
+                background-color: var(--ids-tag-select-color-inner, var(--ids-color-background)) !important;
+            }
+
             &.ids-tag--has-error {
                 background: var(--ids-tag-background-has-error-select);
             }
@@ -400,6 +407,12 @@
 
             .ids-tag__dismiss-btn.ids-icon-btn:hover {
                 color: var(--ids-tag-select-dismiss-btn-hover-color);
+            }
+
+            &.ids-tag--disabled .ids-tag__dismiss-btn.ids-icon-btn,
+            &.ids-tag--disabled .ids-tag__dismiss-btn.ids-icon-btn:hover {
+                color: var(--ids-tag-select-disabled-dismiss-btn-color);
+                cursor: var(--ids-tag-select-disabled-dismiss-btn-cursor, pointer);
             }
         }
 

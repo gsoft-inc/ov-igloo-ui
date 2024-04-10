@@ -369,6 +369,7 @@ ref: React.Ref<HTMLInputElement>) => {
                 src={s.src}
                 color={s.color}
                 icon={s.icon}
+                disabled={disabled}
                 dismissible={!disabled}
                 appearance="select"
                 onRemove={handleTagRemove}

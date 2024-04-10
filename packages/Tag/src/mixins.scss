@@ -2,10 +2,16 @@
 
 :root {
     --ids-tag-border-size: 0.1rem;
+    --ids-tag-hover-cursor: initial;
 }
 
 [data-brand="workleap"] {
     --ids-tag-border-size: 0.0625rem;
+    --ids-tag-background-disabled: var(--hop-neutral-surface-disabled);
+    --ids-tag-color-disabled: var(--hop-neutral-text-disabled);
+    --ids-tag-border-disabled: var(--hop-neutral-border-weak);
+    --ids-tag-hover-cursor: not-allowed;
+    --ids-tag-image-disabled: grayscale(100%);
 }
 
 @mixin ids-tag-mixin-decoration(
@@ -16,6 +22,20 @@
     background: $backgroundColor;
     border: var(--ids-tag-border-size) solid $borderColor;
     color: $color;
+
+    &.ids-tag--disabled {
+        color: var( --ids-tag-color-disabled, $color);
+        background-color: var(--ids-tag-background-disabled, $backgroundColor);
+        border-color: var(--ids-tag-border-disabled, $borderColor);
+
+        &:hover {
+            cursor: var(--ids-tag-hover-cursor);
+        }
+
+        .ids-avatar__image {
+            filter: var(--ids-tag-image-disabled, inherit) ;
+        }
+    }
 }
 
 @mixin ids-tag-mixin-size($fontSize, $padding, $height) {
