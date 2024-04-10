@@ -30,7 +30,7 @@
         "@igloo-ui/icon-button": "^1.2.6",
         "@igloo-ui/input": "^2.2.2",
         "@igloo-ui/tokens": "^2.0.0",
-        "@hopper-ui/tokens": "^3.1.5",
+        "@hopper-ui/tokens": "^3.5.0",
         "@igloo-ui/tooltip": "^3.5.1",
         "@lexical/code": "^0.13.0",
         "@lexical/link": "^0.13.0",

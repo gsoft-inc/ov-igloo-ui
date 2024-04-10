@@ -28,6 +28,7 @@
         /* Chevron */
         --ids-breadcrumb-chevron-color: #{tokens.$grey-800};
         --ids-breadcrumb-chevron-spacing: 0 #{tokens.$space-2};
+        --ids-breadcrumb-chevron-dimension: auto;
     }
 
     [data-brand="workleap"] {
@@ -52,6 +53,7 @@
         /* Chevron */
         --ids-breadcrumb-chevron-color:var(--hop-neutral-icon-weak);
         --ids-breadcrumb-chevron-spacing: 0 var(--hop-space-inline-sm);
+        --ids-breadcrumb-chevron-dimension: 0.75rem;
     }
 
     .ids-breadcrumb {
@@ -72,6 +74,7 @@
 
     .ids-breadcrumb__item {
         color: var(--ids-breadcrumb-item-color);
+        display: flex;
         flex: 0 0 auto;
 
         .ids-breadcrumb__link {
@@ -97,13 +100,42 @@
             }
         }
 
+        &.ids-breadcrumb__item--current {
+            min-height: 0.75rem;
+        }
+
         .ids-breadcrumb__chevron {
             color: var(--ids-breadcrumb-chevron-color);
+            height: var(--ids-breadcrumb-chevron-dimension);
             margin: var(--ids-breadcrumb-chevron-spacing);
+            width: var(--ids-breadcrumb-chevron-dimension)
         }
 
         .ids-breadcrumb__item--is-back-link .ids-breadcrumb__chevron {
             margin-left: 0;
+        }
+    }
+}
+
+[data-brand="workleap"] {
+    .ids-breadcrumb__item--current .ids-breadcrumb__text,
+    .ids-breadcrumb__link {
+        &::after,
+        &::before {
+            content: "";
+            display: block;
+            height: 0;
+            width: 0;
+        }
+
+        &::after {
+            margin-top: var(--hop-overline-top-offset);
+        }
+
+        &::before {
+            // 0.03125rem is to micro adjust the alignment of the text relative to the icon
+            /* stylelint-disable-next-line number-max-precision */
+            margin-bottom: calc(var(--hop-overline-bottom-offset) + 0.03125rem);
         }
     }
 }
