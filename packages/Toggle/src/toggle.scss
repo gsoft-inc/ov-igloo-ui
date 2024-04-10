@@ -53,11 +53,11 @@
 
     [data-brand="workleap"] {
         /* Default */
-        --ids-toggle-font-family: var(--hop-body-md-medium-font-family);
-        --ids-toggle-font-size: var(--hop-body-md-medium-font-size);
-        --ids-toggle-line-height: var(--hop-body-md-medium-line-height);
+        --ids-toggle-font-family: var(--hop-body-md-font-family);
+        --ids-toggle-font-size: var(--hop-body-md-font-size);
+        --ids-toggle-line-height: var(--hop-body-md-line-height);
         --ids-toggle-text-padding: var(--hop-space-inline-sm);
-        --ids-toggle-font-weight: var(--hop-body-md-medium-font-weight);
+        --ids-toggle-font-weight: var(--hop-body-md-font-weight);
         --ids-toggle-width: 3rem;
         --ids-toggle-height: 1.5rem;
         --ids-toggle-background: var(--hop-neutral-surface);
@@ -133,6 +133,7 @@
         display: inline-flex;
         align-items: center;
         cursor: pointer;
+        vertical-align: middle;
 
         &::before {
             @extend %block;
@@ -144,6 +145,7 @@
             background-color: var(--ids-toggle-background);
             transition: var(--ids-toggle-transition);
             border: var(--ids-toggle-border);
+            flex: 0 0 auto;
         }
 
         &::after {

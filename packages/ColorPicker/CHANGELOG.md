@@ -1,5 +1,30 @@
 # @igloo-ui/color-picker
 
+## 1.0.3
+
+### Patch Changes
+
+- 4a2812e: Added locale support using Igloo's provider.
+- Updated dependencies [4a2812e]
+  - @igloo-ui/provider@0.1.1
+
+## 1.0.2
+
+### Patch Changes
+
+- 538873b: Updated css to accommodate the change made in Color.
+- Updated dependencies [538873b]
+  - @igloo-ui/color@0.5.0
+
+## 1.0.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/color@0.4.1
+  - @igloo-ui/dropdown@1.8.1
+
 ## 1.0.0
 
 ### Major Changes

@@ -1,5 +1,17 @@
 # @igloo-ui/button-group
 
+## 0.4.2
+
+### Patch Changes
+
+- 49b8b82: Button group now supports long text in tight spaces.
+
+## 0.4.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 0.4.0
 
 ### Minor Changes

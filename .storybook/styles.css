@@ -1,6 +1,8 @@
 @import url('~@igloo-ui/tokens/dist/base10/variables.css') layer(igloo-design-system);
 @import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
 
+@layer igloo-design-system, hopper-icons, hopper-design-system, igloo;
+
 :root {
     --isb-section-margin: var(--space-3);
     --isb-mockup-content-padding: 3.2rem;

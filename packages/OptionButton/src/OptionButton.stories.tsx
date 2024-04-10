@@ -146,6 +146,44 @@ export const CheckedStates = () => {
   );
 };
 
+export const CheckedDisabledStates = () => {
+  const [checkedId, setCheckedId] = React.useState('radio-2');
+
+  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setCheckedId(event.target.id);
+  };
+
+  return (
+    <Section>
+      <OptionButton
+        className="isb-option-button__item"
+        htmlFor="radio1"
+        name="checkedState"
+        buttonType="multipleChoice"
+        title="Unchecked Button"
+        onChange={handleOnChange}
+        checked={checkedId == 'radio-1'}
+        unchecked={checkedId != 'radio1'}
+        disabled
+      >
+        Unchecked Button
+      </OptionButton>
+      <OptionButton
+        className="isb-option-button__item"
+        htmlFor="radio-2"
+        name="checkedState"
+        buttonType="likert"
+        onChange={handleOnChange}
+        checked={checkedId == 'radio-2'}
+        unchecked={checkedId != 'radio-2'}
+        disabled
+      >
+        Checked
+      </OptionButton>
+    </Section>
+  );
+};
+
 export const Description = () => (
   <Section>
     <span title="Description with a lot of text to be cut off">

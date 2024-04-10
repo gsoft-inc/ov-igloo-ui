@@ -1,5 +1,17 @@
 # @igloo-ui/tooltip
 
+## 3.5.2
+
+### Patch Changes
+
+- 95cd203: Fixed the base font size for Workleap brand inside Tooltip so that the max width works properly.
+
+## 3.5.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 3.5.0
 
 ### Minor Changes

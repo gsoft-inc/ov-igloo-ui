@@ -1,5 +1,23 @@
 # @igloo-ui/radio
 
+## 0.2.3
+
+### Patch Changes
+
+- 7ffde7b: Fixed conflicting css between checkbox and radio. Also fixed cursor styles for checkbox and radio.
+
+## 0.2.2
+
+### Patch Changes
+
+- 72417d0: Small Radio font-size was not being applied
+
+## 0.2.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 0.2.0
 
 ### Minor Changes

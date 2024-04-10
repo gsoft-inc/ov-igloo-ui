@@ -4,6 +4,7 @@ import cx from "classnames";
 
 import CrownSolid from "@igloo-ui/icons/dist/CrownSolid";
 import TextBulletSolid from "@igloo-ui/icons/dist/TextBulletSolid";
+import { BulletIcon, UpsellIcon } from "@hopper-ui/icons-react16";
 
 import "./tabs.scss";
 
@@ -35,6 +36,10 @@ export interface TabsProps extends React.ComponentProps<"div"> {
     tabs: Array<TabInterface>;
 }
 
+const getBrand = (): string => {
+    return document.documentElement.getAttribute("data-brand") ?? "igloo";
+};
+
 const Tabs: React.FunctionComponent<TabsProps> = ({
     onSelectTab,
     selected = 0,
@@ -48,6 +53,8 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
         "ids-tabs--inline": isInline,
         "ids-tabs--heading": !isInline
     });
+    
+    const isWorkleap = getBrand() === "workleap";
 
     const handleOnClick = (index: number): void => {
         if (onSelectTab) {
@@ -57,16 +64,36 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
 
     const renderTabItem = (tab: TabInterface, index: number): React.ReactNode => {
         const isTypeString = typeof tab.label === "string";
+        const notificationClass = "ids-tab__icon ids-tab__bullet";
+        const premiumClass = "ids-tab__icon ids-tab__crown";
+        const tabTextClass = "ids-tab__text";
         let tabContents = (
             <>
                 {tab.notification && (
-                    <TextBulletSolid
-                        size="small"
-                        className="ids-tab__icon ids-tab__bullet"
-                    />
+                    isWorkleap ? (
+                        <BulletIcon
+                            size="sm"
+                            className={notificationClass}
+                        />
+                    ) : (
+                        <TextBulletSolid
+                            size="small"
+                            className={notificationClass}
+                        />
+                    )
                 )}
                 {tab.premium && (
-                    <CrownSolid size="small" className="ids-tab__icon ids-tab__crown" />
+                    isWorkleap ? (
+                        <UpsellIcon
+                            size="sm"
+                            className={premiumClass}
+                        />
+                    ) : (
+                        <CrownSolid
+                            size="small"
+                            className={premiumClass}
+                        />
+                    )
                 )}
             </>
         );
@@ -74,15 +101,18 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
         if (isTypeString) {
             tabContents = (
                 <button className="ids-tab__btn" onClick={() => handleOnClick(index)}>
-                    {tab.label}
+                    <span className={tabTextClass}>{tab.label}</span>
                     {tabContents}
                 </button>
             );
         } else if (React.isValidElement(tab.label)) {
+            const textWrapper = <span className={tabTextClass}>
+                {(tab.label as React.ReactElement).props.children}
+            </span>;
             tabContents = <span className="ids-tab__nav">
                 {React.cloneElement(tab.label,
                                     {},
-                                    (tab.label as React.ReactElement).props.children, tabContents)
+                                    textWrapper, tabContents)
                 }
             </span>;
         }

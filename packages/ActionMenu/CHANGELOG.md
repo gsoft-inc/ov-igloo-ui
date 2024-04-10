@@ -1,5 +1,29 @@
 # @igloo-ui/action-menu
 
+## 1.5.3
+
+### Patch Changes
+
+- Updated dependencies [538873b]
+  - @igloo-ui/list@0.7.0
+
+## 1.5.2
+
+### Patch Changes
+
+- e83ee46: Stopped icons from shrinking when in a list component
+- Updated dependencies [e83ee46]
+  - @igloo-ui/list@0.6.7
+
+## 1.5.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/dropdown@1.8.1
+  - @igloo-ui/list@0.6.4
+
 ## 1.5.0
 
 ### Minor Changes

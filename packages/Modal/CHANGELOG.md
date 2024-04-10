@@ -1,5 +1,72 @@
 # @igloo-ui/modal
 
+## 1.7.2
+
+### Patch Changes
+
+- a00a83f: Added and fixed the active styles for the buttons.
+- Updated dependencies [a00a83f]
+  - @igloo-ui/icon-button@1.2.5
+
+## 1.7.1
+
+### Patch Changes
+
+- 4a2812e: Added locale support using Igloo's provider.
+- Updated dependencies [4a2812e]
+  - @igloo-ui/provider@0.1.1
+
+## 1.7.0
+
+### Minor Changes
+
+- 29247f0: Added tertiaryAction to the Modal component.
+
+## 1.6.10
+
+### Patch Changes
+
+- a91a24d: Updated the ghost secondary color of the icon button since it differs from the ghost secondary button color.
+- Updated dependencies [a91a24d]
+  - @igloo-ui/icon-button@1.2.4
+
+## 1.6.9
+
+### Patch Changes
+
+- ee51218: Modal no longer closes when using an Igloo component that uses a dropdown. Also did small css fix for old brand's modal title not being centered on desktop when no close button was visible.
+
+## 1.6.8
+
+### Patch Changes
+
+- 78c7724: Action buttons in Modal are now at the bottom when in mobile
+
+## 1.6.7
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+- Updated dependencies [97edb0e]
+  - @igloo-ui/icon-button@1.2.3
+
+## 1.6.6
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/carousel@0.3.2
+  - @igloo-ui/icon-button@1.2.2
+
+## 1.6.5
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+- Updated dependencies [8bf2e79]
+  - @igloo-ui/icon-button@1.2.1
+
 ## 1.6.4
 
 ### Patch Changes

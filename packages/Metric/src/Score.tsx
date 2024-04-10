@@ -3,6 +3,8 @@ import cx from "classnames";
 
 import ArrowUp from "@igloo-ui/icons/dist/ArrowUp";
 import ArrowDown from "@igloo-ui/icons/dist/ArrowDown";
+import { useLocalizedStringFormatter, useLocale } from "@igloo-ui/provider";
+import intlMessages from "./intl";
 
 import "./score.scss";
 
@@ -32,6 +34,8 @@ const Score: React.FunctionComponent<ScoreProps> = ({
     isVariation = false,
     value
 }: ScoreProps) => {
+    const stringFormatter = useLocalizedStringFormatter(intlMessages);
+    const { locale } = useLocale();
     if (!isVariation && (value === undefined || value === null)) {
         return <span
             className={cx("ids-score", className, {
@@ -64,7 +68,15 @@ const Score: React.FunctionComponent<ScoreProps> = ({
             })}
         />
     );
-    const postFix = absoluteValue === 1 ? " pt" : " pts";
+    let postFix = absoluteValue === 1 ? 
+        ` ${stringFormatter.format("pt")}` : 
+        ` ${stringFormatter.format("pts")}`;
+
+    if (locale === "fr-CA") {
+        postFix = absoluteValue === 1 || absoluteValue === 0 ? 
+            ` ${stringFormatter.format("pt")}` : 
+            ` ${stringFormatter.format("pts")}`;
+    }
 
     if (!hideValue) {
         return (

@@ -6,6 +6,8 @@ import type { DataSet } from "./StackedBar";
 import "./stacked-bar-tooltip.scss";
 
 export interface StackedBarTooltipProps {
+    /** Add a title to the tooltip */
+    title?: React.ReactNode;
     /** All the data needed to build the stacked bar */
     dataSet?: DataSet[];
     /** A function to format the value in the tooltip (Default: adds %) */
@@ -19,14 +21,17 @@ export interface StackedBarTooltipProps {
 const StackedBarTooltip: React.FunctionComponent<StackedBarTooltipProps> = (
     props: StackedBarTooltipProps
 ) => {
-    const { dataSet, formatValue, hasData = false, noDataMessage } = props;
+    const { title, dataSet, formatValue, hasData = false, noDataMessage } = props;
 
     return (
         <div className="ids-stacked-bar-tooltip__content">
+            {title && (
+                <div className="ids-stacked-bar-tooltip__title">{title}</div>
+            )}
             {hasData && dataSet && dataSet.length && (
                 <ul className="ids-stacked-bar-tooltip__data">
                     {dataSet.map((dataInfo: DataSet): React.ReactElement => {
-                        const listItemClass = cx("ids-stacked-bar-tooltip__data-item", {
+                        const listItemClass = cx(dataInfo.className, "ids-stacked-bar-tooltip__data-item", {
                             // eslint-disable-next-line max-len
                             [`ids-stacked-bar-tooltip__data-item--strength-${dataInfo.strength}`]:
                 dataInfo.strength !== undefined,

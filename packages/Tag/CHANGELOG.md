@@ -1,5 +1,79 @@
 # @igloo-ui/tag
 
+## 1.6.0
+
+### Minor Changes
+
+- aca4fc9: Added new appearances
+- aca4fc9: Added an Inactive apperarance to Tag / Centered text in Tag
+
+## 1.5.5
+
+### Patch Changes
+
+- a00a83f: Added and fixed the active styles for the buttons.
+- Updated dependencies [a00a83f]
+  - @igloo-ui/icon-button@1.2.5
+
+## 1.5.4
+
+### Patch Changes
+
+- 6e1f98a: Fixed Tag's default appearance's text color for Workleap brand.
+
+## 1.5.3
+
+### Patch Changes
+
+- 4a2812e: Added locale support using Igloo's provider.
+- Updated dependencies [4a2812e]
+  - @igloo-ui/provider@0.1.1
+
+## 1.5.2
+
+### Patch Changes
+
+- a91a24d: Updated the ghost secondary color of the icon button since it differs from the ghost secondary button color.
+- Updated dependencies [a91a24d]
+  - @igloo-ui/icon-button@1.2.4
+
+## 1.5.1
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+- Updated dependencies [97edb0e]
+  - @igloo-ui/icon-button@1.2.3
+
+## 1.5.0
+
+### Minor Changes
+
+- bea2c50: Added the "select" appearence for the Tag that is used inside TagPicker. Fixed height and spacing of TagPicker.
+
+## 1.4.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/ellipsis@0.3.1
+  - @igloo-ui/icon-button@1.2.2
+
+## 1.4.0
+
+### Minor Changes
+
+- e2cc8b8: Added the "select" appearence for the Tag that is used inside TagPicker. Fixed height and spacing of TagPicker.
+
+## 1.3.2
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+- Updated dependencies [8bf2e79]
+  - @igloo-ui/icon-button@1.2.1
+
 ## 1.3.1
 
 ### Patch Changes

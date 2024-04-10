@@ -1,8 +1,11 @@
 @use '~@igloo-ui/tokens/dist/base10/variables' as tokens;
 @use '~@igloo-ui/tokens/dist/fonts';
 
+@layer hopper-design-system, hopper-icons, igloo;
+
 @import url('~@hopper-ui/tokens/fonts.css') layer(hopper-design-system);
 @import url('~@hopper-ui/tokens/tokens.css') layer(hopper-design-system);
+@import url("~@hopper-ui/icons-react16/index.css") layer(hopper-icons);
 
 @layer igloo {
     :root {
@@ -12,6 +15,7 @@
         --ids-tabs-margin: #{tokens.$space-0} #{tokens.$space-0} 2rem;
 
         /* Tab */
+        --ids-tab-height: 4rem;
         --ids-tab-button-padding: #{tokens.$space-2};
         --ids-tab-button-font-size: #{tokens.$font-size-4};
         --ids-tab-button-font-weight: #{tokens.$font-weight-medium};
@@ -36,6 +40,7 @@
 
         /* === Inline Style === */
 
+        --ids-inline-tab-height: 4.5rem;
         --ids-inline-tab-background-color: transparent;
         --ids-inline-tab-border-radius: 0;
         --ids-inline-tab-outline: none;
@@ -46,7 +51,7 @@
         --ids-inline-tab-button-focus-width: 100%;
 
         /* Tab */
-        --ids-inline-tab-button-padding: calc(#{tokens.$space-1} + #{tokens.$space-2}) #{tokens.$space-3};
+        --ids-inline-tab-button-padding: #{tokens.$space-2} #{tokens.$space-3};
         --ids-inline-tab-button-after-bottom: -#{tokens.$space-1};
         --ids-inline-tab-button-after-height: #{tokens.$space-1};
         --ids-inline-tab-button-after-horizontal-space: #{tokens.$space-0};
@@ -59,6 +64,7 @@
         --ids-tabs-margin: 0 0 1.25rem;
 
         /* Tab */
+        --ids-tab-height: 2.5rem;
         --ids-tab-button-padding: var(--hop-space-inset-sm);
         --ids-tab-button-font-size: var(--hop-body-md-font-size);
         --ids-tab-button-font-weight: var(--hop-body-md-medium-font-weight);
@@ -83,6 +89,7 @@
 
         /* === Inline Style === */
 
+        --ids-inline-tab-height: 3rem;
         --ids-inline-tab-background-color: var(--hop-neutral-surface-weakest);
         --ids-inline-tab-border-radius: var(--hop-shape-rounded-md);
         --ids-inline-tab-outline: 0.0625rem solid var(--hop-neutral-border-weak);
@@ -94,7 +101,7 @@
         --ids-inline-tab-button-focus-width: calc(100% - 1.5rem);
 
         /* Tab */
-        --ids-inline-tab-button-padding: calc(var(--hop-space-inset-md) - 0.125rem) var(--hop-space-inset-md);
+        --ids-inline-tab-button-padding: calc(var(--hop-space-inset-sm) - 0.125rem) var(--hop-space-inset-md);
         --ids-inline-tab-button-after-bottom: 0;
         --ids-inline-tab-button-after-height: 0.125rem;
         --ids-inline-tab-button-after-horizontal-space: 1rem;
@@ -120,7 +127,18 @@
     }
 
     .ids-tab {
+        display: flex;
+        flex: 0 1 auto;
+        flex-direction: column;
+        height: var(--ids-tab-height);
+        min-width: 0;
+
+        .ids-tabs--inline & {
+            height: var(--ids-inline-tab-height);
+        }
+
         &__icon {
+            flex: 0 0 auto;
             margin-left: var(--ids-tab-icon-margin-left);
         }
 
@@ -131,6 +149,16 @@
         &__crown {
             color: var(--ids-tab-icon-premium-color);
         }
+    }
+
+    .ids-tab__nav,
+    .ids-tab__btn,
+    .ids-tab__nav > a {
+        flex: 1 1 auto;
+    }
+
+    .ids-tab__nav {
+        display: flex;
     }
 
     .ids-tab__btn,
@@ -210,5 +238,13 @@
                 background: var(--ids-tab-button-after-background);
             }
         }
+    }
+
+    .ids-tab__text {
+        flex: 1 1 auto;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 }

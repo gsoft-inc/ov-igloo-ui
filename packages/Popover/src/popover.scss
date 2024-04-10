@@ -22,6 +22,7 @@
         --ids-popover-title-color: #{tokens.$grey-800};
         --ids-popover-title-font-weight: #{tokens.$font-weight-semi-bold};
         --ids-popover-title-padding: #{tokens.$space-5};
+        --ids-popover-close-offset: #{tokens.$space-3};
     }
 
     [data-brand="workleap"] {
@@ -41,6 +42,7 @@
         --ids-popover-title-color: var(--hop-neutral-text);
         --ids-popover-title-font-weight: var(--hop-body-sm-semibold-font-weight);
         --ids-popover-title-padding: var(--hop-space-inset-xl);
+        --ids-popover-close-offset: var(--hop-space-inline-md);
     }
 
     /* stylelint-disable-next-line media-query-no-invalid */
@@ -79,20 +81,21 @@
         /* Needs to be more specific to ensure it overrides .ids-btn */
         & &__close {
             position: absolute;
-            top: tokens.$space-3;
-            right: tokens.$space-3;
+            top: var(--ids-popover-close-offset);
+            right: var(--ids-popover-close-offset);
             display: var(--ids-popover-close-display, inline-flex);
-        }
-
-        &__title,
-        &__content {
-            padding-right: var(--ids-popover-title-padding, 0);
         }
 
         &__title {
             font-weight: var(--ids-popover-title-font-weight);
             color: var(--ids-popover-title-color);
             margin-bottom: var(--ids-popover-spacing);
+            padding-right: var(--ids-popover-title-padding, 0);
+
+            /* stylelint-disable-next-line media-query-no-invalid */
+            @media (width >= #{tokens.$breakpoints-sm}) {
+                padding-right: 0;
+            }
         }
 
         &__action {

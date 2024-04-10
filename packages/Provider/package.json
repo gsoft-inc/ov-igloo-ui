@@ -1,0 +1,36 @@
+{
+  "name": "@igloo-ui/provider",
+  "version": "0.1.1",
+  "main": "dist/Provider.js",
+  "module": "dist/Provider.js",
+  "types": "dist/Provider.d.ts",
+  "styles": "dist/provider.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "author": "Officevibe Inc.",
+  "contributors": [
+    "Vicky Comeau vicky.comeau@workleap.com"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.js"
+  },
+  "dependencies": {
+    "@igloo-ui/tokens": "^2.0.0",
+    "@hopper-ui/tokens": "^3.1.5",
+    "react-aria": "^3.32.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE >= 11"
+  ]
+}

@@ -1,5 +1,11 @@
 # @igloo-ui/bar-chart
 
+## 0.4.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 0.4.0
 
 ### Minor Changes

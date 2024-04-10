@@ -111,6 +111,10 @@
                 --ids-modal-header-before-display: block; /* Display block since the back button in the header isn't displayed on desktop */
             }
 
+            .ids-modal:not(.ids-modal--closable) {
+                --ids-modal-header-before-display: none; // Hide the before element if the modal isn't showing the close button
+            }
+
             --ids-modal-header-border: none;
             --ids-modal-header-height: auto;
             --ids-modal-header-font-size: #{tokens.$font-size-6};
@@ -184,6 +188,8 @@
         box-shadow: var(--ids-modal-shadow);
         box-sizing: border-box;
         color: var(--ids-modal-text);
+        display: flex;
+        flex-direction: column;
         font-family: var(--ids-modal-font-family);
         font-size: var(--ids-modal-font-size);
         height: var(--ids-modal-height);
@@ -288,6 +294,9 @@
     }
 
     .ids-modal__content {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
         padding: var(--ids-modal-padding);
 
         .ids-modal--with-title &,
@@ -300,17 +309,36 @@
         }
     }
 
+    .ids-modal__carousel {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+
+        .ids-carousel__nav-bar {
+            margin-top: auto;
+        }
+    }
+
     .ids-modal__footer {
         align-items: center;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
         margin: var(--ids-modal-footer-margin);
+        margin-top: auto;
     }
 
     .ids-modal__footer-action {
         flex: 1 1 100%;
         margin: var(--ids-modal-footer-action-margin);
+
+        &--tertiary {
+            text-align: center;
+
+            @media (width >= #{tokens.$breakpoints-sm}) {
+                margin-right: auto;
+            }
+        }
 
         @media (width >= #{tokens.$breakpoints-sm}) {
             flex: 0 0 auto;

@@ -32,7 +32,7 @@ exports[`ActionMenu It should render without errors and a snapshot 1`] = `
         >
           <li
             aria-selected="false"
-            class="ids-list-item ids-list-item--compact ids-list-item--selectable"
+            class="ids-list-item ids-list-item--compact ids-list-item--selectable ids-list-item--no-description"
             role="option"
             tabindex="-1"
           >
@@ -60,7 +60,7 @@ exports[`ActionMenu It should render without errors and a snapshot 1`] = `
           </li>
           <li
             aria-selected="false"
-            class="ids-list-item ids-list-item--compact ids-list-item--disabled"
+            class="ids-list-item ids-list-item--compact ids-list-item--disabled ids-list-item--no-description"
             role="option"
             tabindex="-1"
           >
@@ -88,7 +88,7 @@ exports[`ActionMenu It should render without errors and a snapshot 1`] = `
           </li>
           <li
             aria-selected="false"
-            class="ids-list-item ids-list-item--compact ids-list-item--selectable"
+            class="ids-list-item ids-list-item--compact ids-list-item--selectable ids-list-item--no-description"
             role="option"
             tabindex="-1"
           >

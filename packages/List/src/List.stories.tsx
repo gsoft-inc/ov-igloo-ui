@@ -409,6 +409,13 @@ export const Action = () => {
 
 export const Loading = () => {
   return (
+    <List loading style={{ maxWidth: '40rem' }} isCompact={false} />
+  );
+};
+
+export const LoadingCompact = () => {
+  return (
     <List loading style={{ maxWidth: '40rem' }} />
   );
 };
+

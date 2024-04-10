@@ -26,7 +26,7 @@
         --ids-button-group-item-border-radius-middle: 0;
         --ids-button-group-item-background: #{tokens.$samoyed};
         --ids-button-group-item-margin: -0.1rem;
-        --ids-button-group-item-padding: #{tokens.$space-3};
+        --ids-button-group-item-padding: calc(#{tokens.$space-1} / 2) #{tokens.$space-3};
         --ids-button-group-item-index: #{tokens.$z-index-0};
         --ids-button-group-item-index-max: #{tokens.$z-index-max};
         --ids-button-group-item-focus: 0 0 0 .2rem #{tokens.$electric-blue-600};
@@ -49,8 +49,8 @@
 
         /* Variant */
         --ids-button-group-font-size-small: #{tokens.$font-size-3};
-        --ids-button-group-item-padding-small: #{tokens.$space-1};
-        --ids-button-group-item-padding-compact: #{tokens.$space-2};
+        --ids-button-group-item-horizontal-padding-small: #{tokens.$space-1};
+        --ids-button-group-item-horizontal-padding-compact: #{tokens.$space-2};
         --ids-button-group-height-small: #{tokens.$space-5};
 
         /* With icons */
@@ -80,7 +80,7 @@
         --ids-button-group-item-border-radius-middle: var(--hop-shape-rounded-sm);
         --ids-button-group-item-background: var(--hop-neutral-surface);
         --ids-button-group-item-margin: 0;
-        --ids-button-group-item-padding: var(--hop-space-inset-md);
+        --ids-button-group-item-padding: calc(var(--hop-space-inset-xs) / 2) var(--hop-space-inset-md);
         --ids-button-group-item-index: 0;
         --ids-button-group-item-index-max: 999;
         --ids-button-group-item-focus: 0 0 0 0.09375rem var(--hop-primary-border-focus);
@@ -103,8 +103,8 @@
 
         /* Variant */
         --ids-button-group-font-size-small: var(--hop-body-sm-medium-font-size);
-        --ids-button-group-item-padding-small: var(--hop-space-inset-md);
-        --ids-button-group-item-padding-compact: var(--hop-space-inset-sm);
+        --ids-button-group-item-horizontal-padding-small: var(--hop-space-inset-md);
+        --ids-button-group-item-horizontal-padding-compact: var(--hop-space-inset-sm);
         --ids-button-group-height-small: 2rem;
 
         /* With icons */
@@ -123,7 +123,7 @@
         font-size: var(--ids-button-group-font-size);
         font-weight: var(--ids-button-group-font-weight);
         gap: var(--ids-button-group-gap);
-        height: var(--ids-button-group-height);
+        min-height: var(--ids-button-group-height);
         padding: var(--ids-button-group-padding);
 
         &,
@@ -149,6 +149,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex: 1 1 auto;
         font-family: inherit;
         font-size: inherit;
         font-weight: inherit;
@@ -159,7 +160,7 @@
         border-radius: var(--ids-button-group-item-border-radius-middle);
         background-color: var(--ids-button-group-item-background);
         margin: 0;
-        padding: 0 var(--ids-button-group-item-padding);
+        padding: var(--ids-button-group-item-padding);
         z-index: var(--ids-button-group-item-index);
 
         &.is-icon-only {
@@ -212,8 +213,8 @@
 
     .ids-btn-group--compact {
         .ids-btn-group__item {
-            padding-left: var(--ids-button-group-item-padding-compact);
-            padding-right: var(--ids-button-group-item-padding-compact);
+            padding-left: var(--ids-button-group-item-horizontal-padding-compact);
+            padding-right: var(--ids-button-group-item-horizontal-padding-compact);
 
             &.is-icon-only {
                 width: var(--ids-button-group-item-icon-only-width-compact);
@@ -227,15 +228,15 @@
 
         &.ids-btn-group--small {
             .ids-btn-group__item {
-                padding-left: var(--ids-button-group-item-padding-small);
-                padding-right: var(--ids-button-group-item-padding-small);
+                padding-left: var(--ids-button-group-item-horizontal-padding-small);
+                padding-right: var(--ids-button-group-item-horizontal-padding-small);
             }
         }
     }
 
     .ids-btn-group--small {
         font-size: var(--ids-button-group-font-size-small);
-        height: var(--ids-button-group-height-small);
+        min-height: var(--ids-button-group-height-small);
     }
 
     .ids-btn-group__item:focus:not(:focus-visible) {

@@ -6,7 +6,9 @@ import cx from "classnames";
 import { VisualIdentifier } from "@shared/components";
 import IconButton from "@igloo-ui/icon-button";
 import Ellipsis from "@igloo-ui/ellipsis";
-import Close from "@igloo-ui/icons/dist/Close";
+import { DismissIcon } from "@hopper-ui/icons-react16";
+import { useLocalizedStringFormatter } from "@igloo-ui/provider";
+import intlMessages from "./intl";
 
 import "./tag.scss";
 
@@ -16,12 +18,20 @@ export type AppearanceNew =
   | "default"
   | "primary"
   | "progress"
+  | "inactive"
   | "positive"
   | "caution"
   | "negative"
-  | "neutral";
+  | "option1"
+  | "option2"
+  | "option3"
+  | "option4"
+  | "option5"
+  | "option6"
+  | "neutral"
+  | "select";
 
-/** @Deprecated This will be removed Nov. 1, 2023 */
+/** @Deprecated This will be removed April. 1, 2024 */
 export type AppearanceDep =
   | "info"
   | "success"
@@ -79,6 +89,7 @@ const Tag: React.FunctionComponent<TagProps> = ({
     size = "medium",
     src
 }) => {
+    const stringFormatter = useLocalizedStringFormatter(intlMessages);
     const [show, setShow] = React.useState(true);
 
     const printDeprecationWarning = (oldValue: string, newValue: string): void => {
@@ -133,8 +144,8 @@ const Tag: React.FunctionComponent<TagProps> = ({
                 onClick={action}
                 appearance={{ type: "ghost", variant: "secondary" }}
                 size="xsmall"
-                aria-label="close"
-                icon={<Close size="small" className="ids-tag__close" />}
+                aria-label={stringFormatter.format("close")}
+                icon={<DismissIcon size="sm" className="ids-tag__close" />}
             />
         );
     };
@@ -161,7 +172,7 @@ const Tag: React.FunctionComponent<TagProps> = ({
                 />
 
                 <div className="ids-tag__content">
-                    <Ellipsis>{children}</Ellipsis>
+                    <Ellipsis className="ids-tag__ellipsis">{children}</Ellipsis>
                 </div>
 
                 {dismissible && renderDismissButton()}

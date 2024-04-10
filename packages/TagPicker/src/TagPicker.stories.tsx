@@ -2,10 +2,11 @@ import React from 'react';
 
 import { Meta, StoryFn } from '@storybook/react';
 
+import Section from '@components/section';
 import readme from '../README.md';
 
 import FormGroup from '@igloo-ui/form-group';
-import { mockData } from './data';
+import { mockData, memberMockData } from './data';
 import TagPicker, { TagItem, Keys } from './TagPicker';
 
 export default {
@@ -115,6 +116,46 @@ const SearchTemplate: StoryFn<typeof TagPicker> = (args) => {
   );
 };
 
+const MemberSearchTemplate: StoryFn<typeof TagPicker> = (args) => {
+  const [selected, setSelected] = React.useState<TagItem[]>([]);
+  const [results, setResults] = React.useState<TagItem[]>([]);
+
+  const onInput = (value: string): void => {
+    setResults(
+      memberMockData.filter(
+        (d) =>
+          d.text.toLowerCase().includes(value.toLowerCase()) &&
+          !selected.includes(d)
+      )
+    );
+  };
+
+  const select = (id: string): void => {
+    const selectedItem = memberMockData.find((d) => d.id === id);
+    if (selectedItem) {
+      setSelected([...selected, selectedItem]);
+    } else {
+      setSelected([...selected]);
+    }
+  };
+
+  const remove = (id: string): void => {
+    setSelected(selected.filter((s) => s.id !== id));
+  };
+
+  return (
+    <TagPicker
+      {...args}
+      results={results}
+      selectedResults={selected}
+      onInput={onInput}
+      onSelection={select}
+      onTagRemove={remove}
+      noResultsText="No results"
+    />
+  );
+};
+
 export const WithSearching = {
   render: SearchTemplate,
 
@@ -124,12 +165,31 @@ export const WithSearching = {
   },
 };
 
+export const MemberResults = {
+  render: MemberSearchTemplate,
+
+  args: {
+    placeholder: 'Search for a name (example: Bob or Allen)',
+    showSearchIcon: true,
+  },
+};
+
+export const SizeMediumResults = {
+  render: SearchTemplate,
+
+  args: {
+    placeholder: 'Enter Team or Bob',
+    showSearchIcon: true,
+    listSize: 'medium'
+  },
+};
+
 export const MaxHeight = {
   render: SearchTemplate,
 
   args: {
     placeholder: 'Enter multiple tags to see how the max height works.',
-    maxHeight: '16rem',
+    maxHeight: '8rem',
     className: 'isb-tag-picker--small-width',
   },
 };
@@ -361,14 +421,26 @@ export const LoadingOptions = () => {
   };
 
   return (
-    <TagPicker
-      selectedResults={selected}
-      onSelection={select}
-      onTagRemove={remove}
-      noResultsText="No results"
-      placeholder="Enter more options"
-      showSearchIcon
-      loading
-    />
+    <Section column>
+      <TagPicker
+        selectedResults={selected}
+        onSelection={select}
+        onTagRemove={remove}
+        noResultsText="No results"
+        placeholder="Enter more options"
+        showSearchIcon
+        loading
+      />
+      <TagPicker
+        selectedResults={selected}
+        onSelection={select}
+        onTagRemove={remove}
+        noResultsText="No results"
+        placeholder="Enter more options"
+        showSearchIcon
+        loading
+        listSize='medium'
+      />
+    </Section>
   );
 };

@@ -1,5 +1,45 @@
 # @igloo-ui/toaster
 
+## 2.1.5
+
+### Patch Changes
+
+- a00a83f: Added and fixed the active styles for the buttons.
+- Updated dependencies [a00a83f]
+  - @igloo-ui/icon-button@1.2.5
+
+## 2.1.4
+
+### Patch Changes
+
+- a91a24d: Updated the ghost secondary color of the icon button since it differs from the ghost secondary button color.
+- Updated dependencies [a91a24d]
+  - @igloo-ui/icon-button@1.2.4
+
+## 2.1.3
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+- Updated dependencies [97edb0e]
+  - @igloo-ui/icon-button@1.2.3
+
+## 2.1.2
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/icon-button@1.2.2
+
+## 2.1.1
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+- Updated dependencies [8bf2e79]
+  - @igloo-ui/icon-button@1.2.1
+
 ## 2.1.0
 
 ### Minor Changes

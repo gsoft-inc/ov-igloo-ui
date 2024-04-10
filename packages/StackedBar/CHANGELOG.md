@@ -1,5 +1,25 @@
 # @igloo-ui/stacked-bar
 
+## 0.4.2
+
+### Patch Changes
+
+- a783512: Addressed a bug in the StackedBar component where the radius wasn't applied with items of value 0.
+
+## 0.4.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/popover@0.5.2
+
+## 0.4.0
+
+### Minor Changes
+
+- 6e43ad7: Add the possibility to use a title in the StackedBarTooltip + custom classes on dataSet objects
+
 ## 0.3.0
 
 ### Minor Changes

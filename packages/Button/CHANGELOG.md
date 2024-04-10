@@ -1,5 +1,29 @@
 # Change Log
 
+## 0.8.5
+
+### Patch Changes
+
+- 2beb214: - Spacing in Button with Icon is now always shown even with non Hopper icons.
+
+## 0.8.4
+
+### Patch Changes
+
+- a00a83f: Added and fixed the active styles for the buttons.
+
+## 0.8.3
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+
+## 0.8.2
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 0.8.1
 
 ### Patch Changes

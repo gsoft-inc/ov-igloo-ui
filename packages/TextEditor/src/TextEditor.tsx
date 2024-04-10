@@ -1,47 +1,49 @@
-import * as React from 'react';
+import * as React from "react";
 
-import cx from 'classnames';
+import cx from "classnames";
 
-import { EditorState, LexicalEditor } from 'lexical';
+import type { EditorState, LexicalEditor } from "lexical";
 import {
     LexicalComposer,
-    InitialConfigType,
-} from '@lexical/react/LexicalComposer';
-import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
-import { ContentEditable } from '@lexical/react/LexicalContentEditable';
-import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
-import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
-import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
+    type InitialConfigType
+} from "@lexical/react/LexicalComposer";
+import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
+import { ContentEditable } from "@lexical/react/LexicalContentEditable";
+import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
+import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
+import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 // eslint-disable-next-line max-len
-import { CharacterLimitPlugin } from '@lexical/react/LexicalCharacterLimitPlugin';
-import { ListPlugin } from '@lexical/react/LexicalListPlugin';
+import { CharacterLimitPlugin } from "@lexical/react/LexicalCharacterLimitPlugin";
+import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 // eslint-disable-next-line max-len
-import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin';
-import { ClearEditorPlugin } from '@lexical/react/LexicalClearEditorPlugin';
-import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
+import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
+import { ClearEditorPlugin } from "@lexical/react/LexicalClearEditorPlugin";
+import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 
-import { HeadingNode, QuoteNode } from '@lexical/rich-text';
-import { ListItemNode, ListNode } from '@lexical/list';
-import { AutoLinkNode, LinkNode } from '@lexical/link';
-import { OverflowNode } from '@lexical/overflow';
-import { CodeNode, CodeHighlightNode } from '@lexical/code';
+import { HeadingNode, QuoteNode } from "@lexical/rich-text";
+import { ListItemNode, ListNode } from "@lexical/list";
+import { AutoLinkNode, LinkNode } from "@lexical/link";
+import { OverflowNode } from "@lexical/overflow";
+import { CodeNode, CodeHighlightNode } from "@lexical/code";
 
-import { TRANSFORMERS } from '@lexical/markdown';
+import { TRANSFORMERS } from "@lexical/markdown";
 
-import Lock from '@igloo-ui/icons/dist/Lock';
+import { useLocalizedStringFormatter } from "@igloo-ui/provider";
+import Lock from "@igloo-ui/icons/dist/Lock";
 
-import { ToolbarPlugin } from './plugins/ToolbarPlugin';
-import { OnFocusPlugin } from './plugins/OnFocusPlugin';
-import { DisablePlugin } from './plugins/DisablePlugin';
-import { MaxLengthPlugin } from './plugins/MaxLengthPlugin';
-import { OnContentIsEmptyPlugin } from './plugins/OnContentIsEmptyPlugin';
-import { FloatingLinkEditorPlugin } from './plugins/FloatingLinkEditorPlugin';
-import { LinkPlugin } from './plugins/LinkPlugin';
-import { CodeHighlightPlugin } from './plugins/CodeHighlightPlugin';
+import { ToolbarPlugin } from "./plugins/ToolbarPlugin";
+import { OnFocusPlugin } from "./plugins/OnFocusPlugin";
+import { DisablePlugin } from "./plugins/DisablePlugin";
+import { MaxLengthPlugin } from "./plugins/MaxLengthPlugin";
+import { OnContentIsEmptyPlugin } from "./plugins/OnContentIsEmptyPlugin";
+import { FloatingLinkEditorPlugin } from "./plugins/FloatingLinkEditorPlugin";
+import { LinkPlugin } from "./plugins/LinkPlugin";
+import { CodeHighlightPlugin } from "./plugins/CodeHighlightPlugin";
 
-import EditorTheme from './themes/TextEditor.theme';
+import intlMessages from "./intl";
+import EditorTheme from "./themes/TextEditor.theme";
 
-import './text-editor.scss';
+import "./text-editor.scss";
 
 export interface MessageOptions {
     text?: string;
@@ -66,7 +68,7 @@ export interface Messages {
 }
 
 export interface TextEditorProps
-    extends Omit<React.ComponentProps<'div'>, 'onChange' | 'onFocus' | 'onBlur'> {
+    extends Omit<React.ComponentProps<"div">, "onChange" | "onFocus" | "onBlur"> {
     /** Whether or not the editor should be focused on load */
     autoFocus?: boolean;
     /** Add a class name to the rich text editor */
@@ -121,22 +123,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
     isClearable = true,
     isPrivate,
     maxLength,
-    messages = {
-        bold: { tooltip: 'Bold' },
-        clear: { text: 'Clear', tooltip: 'Clear all text' },
-        italic: { tooltip: 'Italic' },
-        link: { tooltip: 'Link' },
-        orderedList: { tooltip: 'Ordered List' },
-        strikethrough: { tooltip: 'Strikethrough' },
-        underline: { tooltip: 'Underline' },
-        unorderedList: { tooltip: 'Unordered List' },
-        private: { text: 'Visible to you only' },
-        linkEditorEdit: { tooltip: 'Edit link' },
-        linkEditorCancel: { tooltip: 'Cancel' },
-        linkEditorTargetBlank: { tooltip: 'Open in a new tab' },
-        linkEditorRemove: { tooltip: 'Remove link' },
-        linkEditorSave: { tooltip: 'Save' },
-    },
+    messages,
     onBlur,
     onChange,
     onFocus,
@@ -146,10 +133,29 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
     readOnly = false,
     showToolbar = true,
     showToolbarOnFocus = false,
-    canSelectLinkOpeningMode = false,
-    }: TextEditorProps) =>
-{
+    canSelectLinkOpeningMode = false
+}: TextEditorProps) => {
+    const stringFormatter = useLocalizedStringFormatter(intlMessages);
     const [hasFocus, setHasFocus] = React.useState(autoFocus);
+
+    const defaultMessages: Messages = {
+        bold: { tooltip: stringFormatter.format("bold") },
+        clear: { text: stringFormatter.format("clear"), tooltip: stringFormatter.format("clearAllText") },
+        italic: { tooltip: stringFormatter.format("italic") },
+        link: { tooltip: stringFormatter.format("link") },
+        orderedList: { tooltip: stringFormatter.format("orderedList") },
+        strikethrough: { tooltip: stringFormatter.format("strikethrough") },
+        underline: { tooltip: stringFormatter.format("underline") },
+        unorderedList: { tooltip: stringFormatter.format("unorderedList") },
+        private: { text: stringFormatter.format("private") },
+        linkEditorEdit: { tooltip: stringFormatter.format("editLink") },
+        linkEditorCancel: { tooltip: stringFormatter.format("cancel") },
+        linkEditorTargetBlank: { tooltip: stringFormatter.format("openInNewTab") },
+        linkEditorRemove: { tooltip: stringFormatter.format("removeLink") },
+        linkEditorSave: { tooltip: stringFormatter.format("save") }
+    };
+
+    const mergedMessages = { ...defaultMessages, ...messages };
 
     const [floatingAnchorElem, setFloatingAnchorElem] =
         React.useState<HTMLDivElement | null>(null);
@@ -165,7 +171,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
     }
 
     const editorConfig: InitialConfigType = {
-        namespace: 'ids-text-editor',
+        namespace: "ids-text-editor",
         theme: EditorTheme,
         editorState: initialState,
         editable: !disabled && !readOnly,
@@ -183,16 +189,16 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
             QuoteNode,
             CodeNode,
             CodeHighlightNode,
-            OverflowNode,
-        ],
+            OverflowNode
+        ]
     };
 
-    const classes = cx('ids-text-editor', className, {
-        'ids-text-editor--error': error,
-        'ids-text-editor--private': isPrivate && !readOnly,
-        'ids-text-editor--focus': hasFocus,
-        'ids-text-editor--disabled': disabled,
-        'ids-text-editor--read-only': readOnly,
+    const classes = cx("ids-text-editor", className, {
+        "ids-text-editor--error": error,
+        "ids-text-editor--private": isPrivate && !readOnly,
+        "ids-text-editor--focus": hasFocus,
+        "ids-text-editor--disabled": disabled,
+        "ids-text-editor--read-only": readOnly
     });
 
     const handleOnChange = (editorState: EditorState): void => {
@@ -219,7 +225,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
                     <ToolbarPlugin
                         disabled={disabled}
                         isClearable={isClearable}
-                        messages={messages}
+                        messages={mergedMessages}
                         showOnFocus={showToolbarOnFocus}
                     />
                 )}
@@ -248,7 +254,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
                             {floatingAnchorElem && (
                                 <FloatingLinkEditorPlugin
                                     anchorElem={floatingAnchorElem}
-                                    messages={messages}
+                                    messages={mergedMessages}
                                     canSelectLinkOpeningMode={canSelectLinkOpeningMode}
                                 />
                             )}
@@ -262,7 +268,7 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
                         {isPrivate && (
                             <span className="ids-text-editor__private">
                                 <Lock size="small" className="ids-text-editor__private-icon" />
-                                {messages.private?.text}
+                                {mergedMessages.private?.text}
                             </span>
                         )}
                         {maxLength && (
@@ -274,9 +280,9 @@ const TextEditor: React.FunctionComponent<TextEditorProps> = ({
                         {primaryBtn &&
                             React.cloneElement(primaryBtn, {
                                 className: cx(
-                                    'ids-text-editor__primary-btn',
-                                    primaryBtn.props?.className,
-                                ),
+                                    "ids-text-editor__primary-btn",
+                                    primaryBtn.props?.className
+                                )
                             })
                         }
                     </div>

@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import IglooProvider from "@igloo-ui/provider";
 
 import Modal from './Modal';
 
@@ -27,12 +28,14 @@ describe('Modal', () => {
 
   test('It should render the close button', () => {
     render(
-      <Modal isOpen isClosable closeBtnAriaLabel="close">
-        Modal content
-      </Modal>
+      <IglooProvider locale="en-US">
+        <Modal isOpen isClosable>
+          Modal content
+        </Modal>
+      </IglooProvider>
     );
 
-    const closeButton = screen.getByLabelText('close');
+    const closeButton = screen.getByLabelText('Close');
     expect(closeButton).toBeInTheDocument();
   });
 });

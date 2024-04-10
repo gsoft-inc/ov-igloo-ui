@@ -22,7 +22,7 @@ export interface StackedBarLabel extends LabelProps {
     dataKey?: string;
 }
 
-export type Pos = "first" | "last";
+export type Pos = "first" | "last" | "firstAndLast";
 
 export type Strength = -2 | -1 | 0 | 1 | 2;
 
@@ -34,6 +34,8 @@ interface ValueRange {
 }
 
 export interface DataSet {
+    /** Set a custom class on the bar */
+    className?: string;
     /** Set a custom Hex or RGB color */
     color?: string;
     /** The key that represents the stack on the bar */
@@ -50,6 +52,10 @@ export interface DataSet {
 export interface StackedBarProps extends React.ComponentProps<"div"> {
     /** Add a class name to the stacked bar */
     className?: string;
+    /** Add a class name to the popover */
+    popoverClassName?: string;
+    /** Add a title to the popover */
+    popoverTitle?: React.ReactNode;
     /** All the data needed to build the stacked bar. If empty, leave blank */
     dataSet?: DataSet[];
     /** Add a data-test tag for automated tests */
@@ -68,6 +74,8 @@ export interface StackedBarProps extends React.ComponentProps<"div"> {
 
 const StackedBar: React.FunctionComponent<StackedBarProps> = ({
     className,
+    popoverClassName,
+    popoverTitle,
     dataSet,
     dataTest,
     formatValue = (value: number) => {
@@ -109,6 +117,10 @@ const StackedBar: React.FunctionComponent<StackedBarProps> = ({
     });
 
     const getRadius = (position?: Pos): [number, number, number, number] => {
+        if (position === "firstAndLast") {
+            return [4, 4, 4, 4];
+        }
+
         return [
             position === "first" ? 4 : 0,
             position === "last" ? 4 : 0,
@@ -188,18 +200,36 @@ const StackedBar: React.FunctionComponent<StackedBarProps> = ({
     let bars = null;
 
     if (dataSet && dataSet.length) {
+        let firstNonZeroIndex = -1;
+        let lastNonZeroIndex = -1;
+
+        dataSet.forEach((barInfo, index) => {
+            if (barInfo.value && firstNonZeroIndex === -1) {
+                firstNonZeroIndex = index;
+            }
+            if (barInfo.value) {
+                lastNonZeroIndex = index;
+            }
+        });
+
         bars = dataSet.map((barInfo, key) => {
             if (barInfo.value) {
                 const dataKey = barInfo.key;
                 let pos;
 
-                if (key === 0) {
+                if (key === firstNonZeroIndex && key !== lastNonZeroIndex) {
                     pos = "first" as Pos;
                 }
 
-                if (key === dataSet.length - 1) {
+                if (key === lastNonZeroIndex && key !== firstNonZeroIndex) {
                     pos = "last" as Pos;
                 }
+
+                if (key === lastNonZeroIndex && key === firstNonZeroIndex) {
+                    pos = "firstAndLast" as Pos;
+                }
+
+                const radius = getRadius(pos); // Use the getRadius function to get the border-radius
 
                 barDataObj[dataKey] = barInfo.value;
 
@@ -208,6 +238,7 @@ const StackedBar: React.FunctionComponent<StackedBarProps> = ({
                         {...barConfig}
                         key={`data-bar-${dataKey}`}
                         className={cx(
+                            barInfo.className,
                             "ids-stacked-bar__bar",
                             `ids-stacked-bar__bar--${dataKey}`,
                             {
@@ -221,7 +252,7 @@ const StackedBar: React.FunctionComponent<StackedBarProps> = ({
                         dataKey={dataKey}
                         label={getLabel(dataKey)}
                         fill={getColor(barInfo)}
-                        radius={getRadius(pos)}
+                        radius={radius}
                     />
                 );
             }
@@ -239,6 +270,7 @@ const StackedBar: React.FunctionComponent<StackedBarProps> = ({
                 component: bars,
                 tooltip: (
                     <StackedBarTooltip
+                        title={popoverTitle}
                         hasData={hasData}
                         dataSet={dataSet}
                         formatValue={formatValue}
@@ -263,13 +295,14 @@ const StackedBar: React.FunctionComponent<StackedBarProps> = ({
     })();
 
     const classes = cx("ids-stacked-bar", className, `ids-stacked-bar--${size}`);
+    const popoverClasses = cx("ids-stacked-bar-tooltip", popoverClassName);
 
     return (
         <div className={classes} data-test={dataTest} {...rest}>
             <Popover
                 content={barChart.tooltip}
                 className="ids-stacked-bar-tooltip__container"
-                popoverClassName="ids-stacked-bar-tooltip"
+                popoverClassName={popoverClasses}
                 disabled={!hasData && !noDataMessage}
                 triggerEvent="hover"
                 maxWidth={600}

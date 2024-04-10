@@ -17,6 +17,8 @@ import {
 import IconButton from "@igloo-ui/icon-button";
 import { AngleLeftIcon, DismissIcon } from "@hopper-ui/icons-react16";
 import Carousel from "@igloo-ui/carousel";
+import { useLocalizedStringFormatter } from "@igloo-ui/provider";
+import intlMessages from "./intl";
 
 import "./modal.scss";
 
@@ -56,14 +58,18 @@ export interface ModalProps extends OverlayProps, AriaDialogProps {
     onClose?: () => void;
     /** Handler that is called when the modal is closed and no longer visible */
     onAfterClose?: () => void;
-    /** The content for the aria-label on the close button */
+    /** The content for the aria-label on the close button
+     * @deprecated We now use Igloo's provider to set the aria-label
+     */
     closeBtnAriaLabel?: string;
     /** Remove the default padding and the title from the modal */
     fullContent?: boolean;
     /** The button displayed on the right */
     primaryAction?: React.ReactElement;
-    /** The secondary button displayed on the left */
+    /** The secondary button displayed on the left of the primary button */
     secondaryAction?: React.ReactElement;
+    /** The 3rd button displayed on the far left */
+    tertiaryAction?: React.ReactElement;
     /** The object to build the carousel inside the modal */
     carousel?: CarouselInterface;
     /** A unique key for the modal */
@@ -90,10 +96,19 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
         isOpen,
         primaryAction,
         secondaryAction,
+        tertiaryAction,
         carousel,
         keyValue = "",
         dismissOnEscape = true
     } = props;
+
+    // Check if the deprecated prop is being used
+    if (closeBtnAriaLabel !== undefined) {
+        console.warn("Warning: The closeBtnAriaLabel prop in the Modal component is deprecated " +
+        "and will be removed in a future version.");
+    }
+    
+    const stringFormatter = useLocalizedStringFormatter(intlMessages);
 
     const displayBackBtn = carousel && carousel.currentSlide && carousel.currentSlide > 0;
     const handleOnPageChange = (index: number): void => {
@@ -104,8 +119,16 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
 
     const ref = React.useRef<HTMLDivElement>(null);
     const { overlayProps, underlayProps } = useOverlay(
-        { isOpen, onClose, isDismissable, isKeyboardDismissDisabled: !dismissOnEscape },
-        ref
+        { isOpen, onClose, isDismissable, isKeyboardDismissDisabled: !dismissOnEscape, 
+            shouldCloseOnInteractOutside: element => {
+                // Don't close if a dropdown is clicked
+                if (element.closest("[data-floating-ui-portal]")) {
+                    return false;
+                }
+
+                return true;
+            }
+        }, ref
     );
 
     usePreventScroll({ isDisabled: !isOpen });
@@ -211,7 +234,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
                                         className="ids-modal__close"
                                         onClick={onClose}
                                         appearance={{ type: "ghost", variant: "secondary" }}
-                                        aria-label={closeBtnAriaLabel}
+                                        aria-label={closeBtnAriaLabel ?? stringFormatter.format("close")}
                                         icon={<DismissIcon />}
                                     />
                                 </div>
@@ -237,22 +260,30 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
                                         </Carousel>
                                     )}
 
-                                    {(primaryAction || secondaryAction) && !carousel && (
+                                    {(primaryAction || secondaryAction || tertiaryAction) && !carousel && (
                                         <div className="ids-modal__footer">
+                                            {tertiaryAction
+                        && React.cloneElement(tertiaryAction, {
+                            className: cx(
+                                "ids-modal__footer-action",
+                                "ids-modal__footer-action--tertiary",
+                                tertiaryAction.props?.className
+                            )
+                        })}
                                             {secondaryAction
-                      && React.cloneElement(secondaryAction, {
-                          className: cx(
-                              "ids-modal__footer-action",
-                              secondaryAction.props?.className
-                          )
-                      })}
+                        && React.cloneElement(secondaryAction, {
+                            className: cx(
+                                "ids-modal__footer-action",
+                                secondaryAction.props?.className
+                            )
+                        })}
                                             {primaryAction
-                      && React.cloneElement(primaryAction, {
-                          className: cx(
-                              "ids-modal__footer-action",
-                              primaryAction.props?.className
-                          )
-                      })}
+                        && React.cloneElement(primaryAction, {
+                            className: cx(
+                                "ids-modal__footer-action",
+                                primaryAction.props?.className
+                            )
+                        })}
                                         </div>
                                     )}
                                 </div>

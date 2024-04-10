@@ -2,7 +2,6 @@
 
 :root {
     /* Default */
-    --ids-combobox-input-height: #{tokens.$space-6};
     --ids-combobox-input-chevron-color: #{tokens.$grey-800};
     --ids-combobox-input-search-height: 3.9rem;
     --ids-combobox-input-actions-padding: 0 #{tokens.$space-2};
@@ -15,7 +14,6 @@
     --ids-combobox-input-value-color-disabled: #{tokens.$grey-500};
 
     /* Compact **/
-    --ids-combobox-input-height-compact: #{tokens.$space-5};
     --ids-combobox-input-value-padding-compact: #{tokens.$space-1} #{tokens.$space-3};
     --ids-combobox-input-search-height-compact: 3rem;
 
@@ -23,7 +21,7 @@
     --ids-combobox-input-value-color-placeholder: #{tokens.$grey-400};
 
     /* Visual Identifier */
-    --ids-combobox-input-icon-size: #{tokens.$space-4};
+    --ids-combobox-input-icon-size: #{tokens.$space-3};
     --ids-combobox-input-icon-margin-right: #{tokens.$space-2};
 
     /* Search icon */
@@ -33,7 +31,6 @@
 
 [data-brand="workleap"] {
     /* Default */
-    --ids-combobox-input-height: 2.5rem;
     --ids-combobox-input-chevron-color: var(--hop-neutral-icon-weak);
     --ids-combobox-input-search-height: 2.4375rem;
     --ids-combobox-input-actions-padding: 0 var(--hop-space-inline-md) 0 var(--hop-space-inline-sm);
@@ -46,7 +43,6 @@
     --ids-combobox-input-value-color-disabled: var(--hop-neutral-text-disabled);
 
     /* Compact **/
-    --ids-combobox-input-height-compact: 2rem;
     --ids-combobox-input-value-padding-compact: var(--hop-space-stack-xs) var(--hop-space-inline-md);
     --ids-combobox-input-search-height-compact: 1.875rem;
 
@@ -54,7 +50,7 @@
     --ids-combobox-input-value-color-placeholder: var(--hop-neutral-text-weakest);
 
     /* Visual Identifier */
-    --ids-combobox-input-icon-size: 1.5rem;
+    --ids-combobox-input-icon-size: 1rem;
     --ids-combobox-input-icon-margin-right: var(--hop-space-inline-sm);
 
     /* Search icon */
@@ -69,13 +65,8 @@
     color: var(--ids-combobox-input-value-color);
     display: flex;
     flex-flow: row nowrap;
-    height: var(--ids-combobox-input-height);
     justify-content: space-between;
     width: 100%;
-
-    .ids-combobox--compact & {
-        height: var(--ids-combobox-input-height-compact);
-    }
 
     &__chevron {
         align-items: center;

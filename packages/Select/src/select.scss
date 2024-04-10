@@ -18,10 +18,12 @@
         --ids-select-border-radius: #{tokens.$border-radius-sm};
         --ids-select-number-of-option-to-display: 4;
         --ids-select-border-width: 0.1rem;
+        --ids-select-height: #{tokens.$space-6};
 
         /* Compact */
         --ids-select-font-size-compact: #{tokens.$font-size-3};
         --ids-select-line-height-compact: #{tokens.$line-height-xxl};
+        --ids-select-height-compact: #{tokens.$space-5};
 
         /* Hover */
         --ids-select-background-color-hover: #{tokens.$samoyed};
@@ -56,10 +58,12 @@
         --ids-select-border-color: var(--hop-neutral-border);
         --ids-select-border-radius: var(--hop-shape-rounded-md);
         --ids-select-border-width: 0.0625rem;
+        --ids-select-height: 2.5rem;
 
         /* Compact */
         --ids-select-font-size-compact: var(--hop-body-sm-font-size);
         --ids-select-line-height-compact: var(--hop-body-sm-line-height);
+        --ids-select-height-compact: 2rem;
 
         /* Hover */
         --ids-select-background-hover: var(--hop-neutral-surface-hover);
@@ -85,9 +89,11 @@
 
     .ids-select {
         color: var(--ids-select-color);
+        display: flex;
         font-size: var(--ids-select-font-size);
         font-family: var(--ids-select-font-family);
         font-weight: var(--ids-select-font-weight);
+        height: var(--ids-select-height);
         line-height: var(--ids-select-line-height);
         width: 100%;
         padding: 0;
@@ -100,6 +106,12 @@
         transition: border-color .2s ease 0s;
         cursor: pointer;
         user-select: none;
+
+        .ids-dropdown__ref {
+            display: flex;
+            flex: 1 1 auto;
+            min-width: 0;
+        }
 
         &__dropdown {
             outline: none;
@@ -152,6 +164,12 @@
                 border-color: var(--ids-select-border-color-disabled);
                 background-color: var(--ids-select-background-disabled);
             }
+        }
+
+        &--compact {
+            font-size: var(--ids-select-font-size-compact);
+            line-height: var(--ids-select-line-height-compact);
+            height: var(--ids-select-height-compact);
         }
 
         &--error {

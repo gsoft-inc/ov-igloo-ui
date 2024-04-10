@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.build.json",
-  "include": ["src/**/*", "../../typings/**/*", "rollup.config.js"],
+  "include": ["src/**/*", "src/intl/*.json", "../../typings/**/*", "rollup.config.js"],
   "exclude": ["dist"],
   "compilerOptions": {
     "outDir": "./dist",

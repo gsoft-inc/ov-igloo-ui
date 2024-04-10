@@ -54,7 +54,7 @@ export const Overview: Story = {
   render: (args, { globals: { brand } }) => {
     return (
       <Section>
-        <Color color={getColors(brand)[2]} size={args.size} />
+        <Color {...args} color={getColors(brand)[2]} />
       </Section>
     );
   },

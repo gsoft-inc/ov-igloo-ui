@@ -4,6 +4,8 @@ import cx from "classnames";
 
 import ChevronLeft from "@igloo-ui/icons/dist/ChevronLeft";
 import ChevronRight from "@igloo-ui/icons/dist/ChevronRight";
+import { useLocalizedStringFormatter } from "@igloo-ui/provider";
+import intlMessages from "./intl";
 
 import "./breadcrumb.scss";
 
@@ -28,6 +30,7 @@ const Breadcrumb: React.FunctionComponent<BreadcrumbProps> = ({
     items
 }: BreadcrumbProps) => {
     const classes = cx("ids-breadcrumb", className);
+    const stringFormatter = useLocalizedStringFormatter(intlMessages);
 
     const listItems = items.map((item, index) => {
         const { label, link } = item;
@@ -74,7 +77,7 @@ const Breadcrumb: React.FunctionComponent<BreadcrumbProps> = ({
     });
 
     return (
-        <nav aria-label="Breadcrumb" className={classes} data-test={dataTest}>
+        <nav aria-label={stringFormatter.format("breadcrumb")} className={classes} data-test={dataTest}>
             <ol className="ids-breadcrumb__list">{listItems}</ol>
         </nav>
     );

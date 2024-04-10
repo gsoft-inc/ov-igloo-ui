@@ -1,5 +1,17 @@
 # @igloo-ui/textarea
 
+## 0.4.3
+
+### Patch Changes
+
+- b07a418: Fixed the font-size - it now match text-input font size
+
+## 0.4.2
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 0.4.1
 
 ### Patch Changes

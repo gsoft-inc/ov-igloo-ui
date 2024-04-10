@@ -3,8 +3,10 @@ import cx from "classnames";
 
 import Dropdown from "@igloo-ui/dropdown";
 import List, { type OptionType, type Option } from "@igloo-ui/list";
+import { useLocalizedStringFormatter } from "@igloo-ui/provider";
 
 import ComboboxInput from "./ComboboxInput";
+import intlMessages from "./intl";
 
 import "./combobox.scss";
 
@@ -20,6 +22,8 @@ export enum Keys {
 export type FocusDirection = "first" | "last" | "up" | "down";
 
 export type ComboboxOption = Omit<Option, "type">;
+
+export type ComboboxListSize = "small" | "medium";
 
 export interface ComboboxProps
     extends Omit<React.ComponentProps<"div">, "onChange" | "onInput"> {
@@ -48,12 +52,16 @@ export interface ComboboxProps
     isCompact?: boolean;
     /** True if the option list is displayed */
     isOpen?: boolean;
+    /** Size of the list */
+    listSize?: ComboboxListSize;
     /** Whether or not the list is loading */
     loading?: boolean;
     /** The Combobox gains checkboxes beside each option
    * to be able to select multiple options */
     multiple?: boolean;
-    /** Specify the text to display when there are no results found */
+    /** Specify the text to display when there are no results found
+     * @default No Results / Aucun résultats
+     */
     noResultsText?: string;
     /** Callback when the dropdown is closed and animations are done */
     onAfterClose?: () => void;
@@ -95,9 +103,10 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     footer,
     isCompact = false,
     isOpen = false,
+    listSize = "small",
     loading,
     multiple = false,
-    noResultsText = "No Results",
+    noResultsText,
     onAfterClose,
     onChange,
     onClear,
@@ -112,30 +121,32 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     showSearchIcon = true,
     ...rest
 }: ComboboxProps) => {
+    const stringFormatter = useLocalizedStringFormatter(intlMessages);
+    const actualNoResultsText = noResultsText ?? stringFormatter.format("noResults");
     const comboboxOptions = React.useMemo(
         () =>
             options?.map((option): OptionType => {
                 return {
                     ...option,
-                    type: "list",
+                    type: "list"
                 };
             }),
         [options]
-  );
+    );
 
     const comboboxRef = React.useRef<HTMLDivElement>(null);
     const searchInputRef = React.useRef<HTMLInputElement>(null);
     const [inputValue, setInputValue] = React.useState("");
     const [currentFocusedOption, setCurrentFocusedOption] = React.useState(
         !Array.isArray(selectedOption) ? selectedOption : undefined
-  );
+    );
     const [currentSelectedOption, setCurrentSelectedOption] = React.useState(
         !Array.isArray(selectedOption) ? selectedOption : undefined
-  );
+    );
     const [showMenu, setShowMenu] = React.useState(isOpen);
     const [results, setResults] = React.useState<OptionType[]>(
         comboboxOptions || []
-  );
+    );
 
     const keepOpen = !closeOnSelect || multiple;
 
@@ -239,12 +250,12 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
                             ? currentFocusedIndex - 1
                             : options.length - 1
                     ]
-        );
+                );
                 break;
             case "down":
                 setCurrentFocusedOption(
                     options[(currentFocusedIndex + 1) % options.length]
-        );
+                );
                 break;
             case "last":
                 setCurrentFocusedOption(options[options.length - 1]);
@@ -281,7 +292,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
 
     const handleOnKeyDown = (
         keyboardEvent: React.KeyboardEvent<HTMLDivElement>
-  ): void => {
+    ): void => {
         const { target } = keyboardEvent;
         switch (keyboardEvent.key) {
             case Keys.Escape:
@@ -388,22 +399,22 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
         "ids-combobox--compact": isCompact,
         "ids-combobox--disabled": disabled,
         "ids-combobox--error": error
-  });
+    });
 
     const comboboxDropdownClassname = cx("ids-combobox__dropdown", {
         [`${className}__dropdown`]: !!className,
         "ids-combobox__dropdown--compact": isCompact,
         "ids-combobox__dropdown--has-footer": !!footer
-  });
+    });
 
     let dropdownContent = (
-        <div className="ids-combobox__no-results">{noResultsText}</div>
+        <div className="ids-combobox__no-results">{actualNoResultsText}</div>
     );
 
     if (loading) {
         dropdownContent = (
             <List
-                isCompact
+                isCompact={listSize === "small"}
                 loading
                 multiple={multiple}
                 className="ids-combobox__list"
@@ -413,7 +424,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
         dropdownContent = (
             <List
                 options={results}
-                isCompact
+                isCompact={listSize === "small"}
                 onOptionFocus={hoverOption}
                 onOptionChange={updateOption}
                 onOptionBlur={() => setCurrentFocusedOption(undefined)}

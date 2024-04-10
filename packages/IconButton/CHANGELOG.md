@@ -1,5 +1,49 @@
 # @igloo-ui/icon-button
 
+## 1.2.6
+
+### Patch Changes
+
+- 2beb214: - Spacing in Button with Icon is now always shown even with non Hopper icons.
+- Updated dependencies [2beb214]
+  - @igloo-ui/button@0.8.5
+
+## 1.2.5
+
+### Patch Changes
+
+- a00a83f: Added and fixed the active styles for the buttons.
+- Updated dependencies [a00a83f]
+  - @igloo-ui/button@0.8.4
+
+## 1.2.4
+
+### Patch Changes
+
+- a91a24d: Updated the ghost secondary color of the icon button since it differs from the ghost secondary button color.
+
+## 1.2.3
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+- Updated dependencies [97edb0e]
+  - @igloo-ui/button@0.8.3
+
+## 1.2.2
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/button@0.8.2
+
+## 1.2.1
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+
 ## 1.2.0
 
 ### Minor Changes

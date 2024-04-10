@@ -1,5 +1,92 @@
 # @igloo-ui/combobox
 
+## 2.3.3
+
+### Patch Changes
+
+- a00a83f: Added and fixed the active styles for the buttons.
+- Updated dependencies [a00a83f]
+  - @igloo-ui/icon-button@1.2.5
+
+## 2.3.2
+
+### Patch Changes
+
+- 4a2812e: Added locale support using Igloo's provider.
+- Updated dependencies [4a2812e]
+  - @igloo-ui/provider@0.1.1
+
+## 2.3.1
+
+### Patch Changes
+
+- a91a24d: Updated the ghost secondary color of the icon button since it differs from the ghost secondary button color.
+- Updated dependencies [a91a24d]
+  - @igloo-ui/icon-button@1.2.4
+
+## 2.3.0
+
+### Minor Changes
+
+- 538873b: Added the listSize option to indicate whether the list should be size small or medium (compact or not).
+
+### Patch Changes
+
+- Updated dependencies [538873b]
+  - @igloo-ui/list@0.7.0
+
+## 2.2.8
+
+### Patch Changes
+
+- e83ee46: Stopped icons from shrinking when in a list component
+- Updated dependencies [e83ee46]
+  - @igloo-ui/list@0.6.7
+
+## 2.2.7
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+- Updated dependencies [97edb0e]
+  - @igloo-ui/icon-button@1.2.3
+
+## 2.2.6
+
+### Patch Changes
+
+- bea2c50: Fixed the height of Combobox and Select to be 42px and not 40px and made adjustments for the visualIdentifier update.
+- Updated dependencies [bea2c50]
+  - @igloo-ui/list@0.6.6
+
+## 2.2.5
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/dropdown@1.8.1
+  - @igloo-ui/icon-button@1.2.2
+  - @igloo-ui/input@2.2.2
+  - @igloo-ui/list@0.6.4
+  - @igloo-ui/tooltip@3.5.1
+
+## 2.2.4
+
+### Patch Changes
+
+- e2cc8b8: Fixed the height of Combobox and Select to be 42px and not 40px and made adjustments for the visualIdentifier update.
+- Updated dependencies [e2cc8b8]
+  - @igloo-ui/list@0.6.3
+
+## 2.2.3
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+- Updated dependencies [8bf2e79]
+  - @igloo-ui/icon-button@1.2.1
+
 ## 2.2.2
 
 ### Patch Changes

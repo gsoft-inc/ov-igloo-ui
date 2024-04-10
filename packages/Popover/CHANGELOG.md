@@ -1,5 +1,63 @@
 # @igloo-ui/popover
 
+## 0.5.7
+
+### Patch Changes
+
+- a00a83f: Added and fixed the active styles for the buttons.
+- Updated dependencies [a00a83f]
+  - @igloo-ui/icon-button@1.2.5
+
+## 0.5.6
+
+### Patch Changes
+
+- 4a2812e: Added locale support using Igloo's provider.
+- Updated dependencies [4a2812e]
+  - @igloo-ui/provider@0.1.1
+
+## 0.5.5
+
+### Patch Changes
+
+- a91a24d: Updated the ghost secondary color of the icon button since it differs from the ghost secondary button color.
+- Updated dependencies [a91a24d]
+  - @igloo-ui/icon-button@1.2.4
+
+## 0.5.4
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+- Updated dependencies [97edb0e]
+  - @igloo-ui/icon-button@1.2.3
+
+## 0.5.3
+
+### Patch Changes
+
+- ae1e944: ## Popover
+
+  - Removed padding on title when no close button is present.
+  - Removed padding on content.
+  - Adjusted close button position in Workleap theme.
+
+## 0.5.2
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/icon-button@1.2.2
+
+## 0.5.1
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+- Updated dependencies [8bf2e79]
+  - @igloo-ui/icon-button@1.2.1
+
 ## 0.5.0
 
 ### Minor Changes

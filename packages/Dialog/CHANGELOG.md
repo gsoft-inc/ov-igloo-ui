@@ -1,5 +1,69 @@
 # @igloo-ui/dialog
 
+## 0.8.11
+
+### Patch Changes
+
+- 2beb214: - Spacing in Button with Icon is now always shown even with non Hopper icons.
+- Updated dependencies [2beb214]
+  - @igloo-ui/button@0.8.5
+
+## 0.8.10
+
+### Patch Changes
+
+- a00a83f: Added and fixed the active styles for the buttons.
+- Updated dependencies [a00a83f]
+  - @igloo-ui/button@0.8.4
+  - @igloo-ui/modal@1.7.2
+
+## 0.8.9
+
+### Patch Changes
+
+- Updated dependencies [29247f0]
+  - @igloo-ui/modal@2.0.0
+
+## 0.8.8
+
+### Patch Changes
+
+- ee51218: Modal no longer closes when using an Igloo component that uses a dropdown. Also did small css fix for old brand's modal title not being centered on desktop when no close button was visible.
+- Updated dependencies [ee51218]
+  - @igloo-ui/modal@1.6.9
+
+## 0.8.7
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+- Updated dependencies [97edb0e]
+  - @igloo-ui/button@0.8.3
+  - @igloo-ui/modal@1.6.7
+
+## 0.8.6
+
+### Patch Changes
+
+- f9ec17f: Updated the old brand's Dialog validate button to use fit-content for the width.
+
+## 0.8.5
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/button@0.8.2
+  - @igloo-ui/modal@1.6.6
+
+## 0.8.4
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+- Updated dependencies [8bf2e79]
+  - @igloo-ui/modal@1.6.5
+
 ## 0.8.3
 
 ### Patch Changes

@@ -1,5 +1,57 @@
 # @igloo-ui/tag-picker
 
+## 0.12.0
+
+### Minor Changes
+
+- aca4fc9: Added new appearances
+- aca4fc9: Added an Inactive apperarance to Tag / Centered text in Tag
+
+### Patch Changes
+
+- Updated dependencies [aca4fc9]
+- Updated dependencies [aca4fc9]
+  - @igloo-ui/tag@1.6.0
+
+## 0.11.0
+
+### Minor Changes
+
+- 538873b: TagPicker now uses the List component internally. Added props isManager and type to TagItem. Added listSize and dropdownClassName to TagPickerProps. Added support for a member list.
+
+## 0.10.0
+
+### Minor Changes
+
+- bea2c50: Added the "select" appearence for the Tag that is used inside TagPicker. Fixed height and spacing of TagPicker.
+
+### Patch Changes
+
+- bea2c50: Fixed issue where scrollbar wasn't working in tagPicker.
+- Updated dependencies [bea2c50]
+  - @igloo-ui/tag@1.5.0
+
+## 0.9.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/dropdown@1.8.1
+  - @igloo-ui/input@2.2.2
+  - @igloo-ui/tag@1.4.1
+
+## 0.9.0
+
+### Minor Changes
+
+- e2cc8b8: Added the "select" appearence for the Tag that is used inside TagPicker. Fixed height and spacing of TagPicker.
+
+### Patch Changes
+
+- Updated dependencies [e2cc8b8]
+  - @igloo-ui/tag@1.4.0
+
 ## 0.8.1
 
 ### Patch Changes

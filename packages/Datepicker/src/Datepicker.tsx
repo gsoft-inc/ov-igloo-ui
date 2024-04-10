@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 
-import { useLocale, type DateValue, I18nProvider } from "react-aria";
+import { I18nProvider, type DateValue } from "react-aria";
 
 import {
     getLocalTimeZone,
@@ -16,12 +16,13 @@ import Input, { type InputProps } from "@igloo-ui/input";
 import Button from "@igloo-ui/button";
 import IconCalendar from "@igloo-ui/icons/dist/Calendar";
 import { DateTime } from "luxon";
+import { useLocale } from "@igloo-ui/provider";
 
 import Calendar from "./components/Calendar";
 
 import "./datepicker.scss";
 
-interface Date { utc: string; local: string }
+interface Date { utc: string; local: string | null }
 
 const dateRegEx = /^(?:\d{4}[-/]\d{2}[-/]\d{2}|\d{2}[-/]\d{2}[-/]\d{4})$/;
 
@@ -68,7 +69,10 @@ export interface DatepickerProps {
     maxDate?: string;
     /** True if the input is readonly */
     readOnly?: boolean;
-    /** The locale to use for formatting/parsing. If not specified, the default locale will be used. */
+    /** The locale to use for formatting/parsing. If not specified, the default locale will be used
+     * @deprecated This prop is deprecated and will be removed 
+     * in the next major version in favor of Igloo's provider
+     */
     locale?: string;
     /** If true, the date picker will manage everything in UTC. */
     manageEverythingInUtc?: boolean;
@@ -99,14 +103,14 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     locale,
     ...rest
 }: DatepickerProps) => {
-    const { locale: ariaLocale } = useLocale();
-    const internalLocale = locale || ariaLocale;
+    const { locale: providerLocale } = useLocale();
+    const internalLocale = locale ?? providerLocale;
     const timeZone = manageEverythingInUtc ? "utc" : getLocalTimeZone();
     const dateTimeOfDay = now(timeZone);
 
     const formatDate = (date: string | undefined): ZonedDateTime | undefined => {
         if (date && manageEverythingInUtc) {
-            return parseAbsolute(date, 'utc');
+            return parseAbsolute(date, "utc");
         }
 
         if (date) {
@@ -157,8 +161,8 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     };
 
     const isDateUnavailable = (date: DateValue): boolean => {
-        if(weekendUnavailable && manageEverythingInUtc) {
-            return isWeekend(date, 'utc');
+        if (weekendUnavailable && manageEverythingInUtc) {
+            return isWeekend(date, "utc");
         }
 
         if (weekendUnavailable && internalLocale) {
@@ -197,16 +201,16 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const { value: inputValue } = e.target
+        const { value: inputValue } = e.target;
 
         const isValidInputDate = dateRegEx.test(inputValue);
-        const isFormatYYYYMMDD = inputValue.indexOf('-') === 4 || inputValue.indexOf('/') === 4
+        const isFormatYYYYMMDD = inputValue.indexOf("-") === 4 || inputValue.indexOf("/") === 4;
 
         const date = isFormatYYYYMMDD ?
-            inputValue.split(/[/-]/).join('-') :
-            inputValue.split(/[/-]/).reverse().join('-');
+            inputValue.split(/[/-]/).join("-") :
+            inputValue.split(/[/-]/).reverse().join("-");
 
-        if(isValidInputDate) {
+        if (isValidInputDate) {
             const isoDate = DateTime.fromISO(date);
             if (isoDate.isValid) {
                 if (isDateSelectable(isoDate)) {
@@ -263,7 +267,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
         type: "text",
         onFocus,
         onChange: handleInputChange,
-        className: 'ids-datepicker__input'
+        className: "ids-datepicker__input"
     };
 
     if (readOnly) {
@@ -271,7 +275,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
     }
 
     return (
-        <I18nProvider locale={locale}>
+        <I18nProvider locale={internalLocale}>
             <Dropdown
                 isOpen={!disabled && isOpen}
                 onClose={onClose}
@@ -281,7 +285,7 @@ const Datepicker: React.FunctionComponent<DatepickerProps> = ({
                 dataTest={dataTest}
                 {...rest}
             >
-                <Input {...inputProps}  />
+                <Input {...inputProps} />
             </Dropdown>
         </I18nProvider>
     );

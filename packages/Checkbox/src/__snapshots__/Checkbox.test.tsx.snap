@@ -3,7 +3,7 @@
 exports[`Checkbox It should render a checked state 1`] = `
 <DocumentFragment>
   <span
-    class="ids-form-control ids-form-control-checkbox"
+    class="ids-form-control ids-form-control-checkbox ids-form-control-checkbox--checked"
   >
     <input
       checked=""
@@ -11,6 +11,31 @@ exports[`Checkbox It should render a checked state 1`] = `
       id="checkbox-master"
       type="checkbox"
     />
+    <label
+      class="ids-checkbox__label"
+      for="checkbox-master"
+    >
+      <span
+        class="ids-checkbox__box"
+      >
+        <svg
+          class="ids-icon ids-checkbox__check"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m3.333 7.833 3.334 3.334 6-6.334"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+      </span>
+    </label>
   </span>
 </DocumentFragment>
 `;
@@ -18,7 +43,7 @@ exports[`Checkbox It should render a checked state 1`] = `
 exports[`Checkbox It should render a disabled state 1`] = `
 <DocumentFragment>
   <span
-    class="ids-form-control ids-form-control-checkbox"
+    class="ids-form-control ids-form-control-checkbox ids-form-control-checkbox--disabled"
   >
     <input
       class="ids-checkbox"
@@ -26,6 +51,31 @@ exports[`Checkbox It should render a disabled state 1`] = `
       id="checkbox-master"
       type="checkbox"
     />
+    <label
+      class="ids-checkbox__label"
+      for="checkbox-master"
+    >
+      <span
+        class="ids-checkbox__box"
+      >
+        <svg
+          class="ids-icon ids-checkbox__check"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m3.333 7.833 3.334 3.334 6-6.334"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+      </span>
+    </label>
   </span>
 </DocumentFragment>
 `;
@@ -40,6 +90,31 @@ exports[`Checkbox It should render a indeterminate state 1`] = `
       id="checkbox-master"
       type="checkbox"
     />
+    <label
+      class="ids-checkbox__label"
+      for="checkbox-master"
+    >
+      <span
+        class="ids-checkbox__box"
+      >
+        <svg
+          class="ids-icon ids-checkbox__check"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 8h8"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+      </span>
+    </label>
   </span>
 </DocumentFragment>
 `;

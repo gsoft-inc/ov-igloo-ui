@@ -1,5 +1,19 @@
 # @igloo-ui/area-chart
 
+## 1.2.2
+
+### Patch Changes
+
+- 4a2812e: Added locale support using Igloo's provider.
+- Updated dependencies [4a2812e]
+  - @igloo-ui/provider@0.1.1
+
+## 1.2.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 1.2.0
 
 ### Minor Changes

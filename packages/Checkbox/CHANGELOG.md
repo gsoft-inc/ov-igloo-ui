@@ -1,5 +1,29 @@
 # @igloo-ui/checkbox
 
+## 0.4.3
+
+### Patch Changes
+
+- 7ffde7b: Fixed conflicting css between checkbox and radio. Also fixed cursor styles for checkbox and radio.
+
+## 0.4.2
+
+### Patch Changes
+
+- bdc38d5: Fixed the styling of the checkbox of the older brand.
+
+## 0.4.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
+## 0.4.0
+
+### Minor Changes
+
+- 9fbfa6f: Updated the checkbox component to use svg icons for the check. This will also fix the centering of the checkmark.
+
 ## 0.3.0
 
 ### Minor Changes

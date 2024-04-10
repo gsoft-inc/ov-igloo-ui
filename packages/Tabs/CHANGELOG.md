@@ -1,5 +1,23 @@
 # @igloo-ui/tabs
 
+## 1.2.4
+
+### Patch Changes
+
+- 22bf61c: Fixed Tabs height and padding.
+
+## 1.2.3
+
+### Patch Changes
+
+- f717ae9: Using hopper icons for Workleap brand in Tabs component.
+
+## 1.2.2
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 1.2.1
 
 ### Patch Changes

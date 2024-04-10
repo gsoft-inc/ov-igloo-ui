@@ -1,5 +1,37 @@
 # @shared/components
 
+## 0.5.0
+
+### Minor Changes
+
+- 538873b: Added the appearance option to indicate whether or not the Color should be square or circular for the new brand.
+
+### Patch Changes
+
+- Updated dependencies [538873b]
+  - @igloo-ui/color@0.5.0
+
+## 0.4.0
+
+### Minor Changes
+
+- bea2c50: Updated the Avatar size in VisualIdentifier to match the sizing for Color.
+
+## 0.3.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/avatar@0.3.1
+  - @igloo-ui/color@0.4.1
+
+## 0.3.0
+
+### Minor Changes
+
+- e2cc8b8: Updated the Avatar size in VisualIdentifier to match the sizing for Color.
+
 ## 0.2.1
 
 ### Patch Changes

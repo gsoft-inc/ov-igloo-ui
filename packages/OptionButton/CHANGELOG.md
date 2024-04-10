@@ -1,5 +1,17 @@
 # @igloo-ui/option-button
 
+## 0.2.2
+
+### Patch Changes
+
+- b9d0197: Fixed Optionbutton style for Workleap brand. Also updated its icons and added a checked disabled look.
+
+## 0.2.1
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+
 ## 0.2.0
 
 ### Minor Changes

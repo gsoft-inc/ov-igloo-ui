@@ -2,6 +2,9 @@ import React from 'react';
 
 import { Meta, StoryFn } from '@storybook/react';
 
+import Tag from '@igloo-ui/tag';
+import BarGraph from '@igloo-ui/icons/dist/BarGraph';
+
 import Section from '@components/section';
 import readme from '../README.md';
 
@@ -198,6 +201,136 @@ export const CustomRangeAndFormat = {
         key: 'favorable',
         label: 'Favorable',
         value: 245,
+        strength: 2,
+      },
+    ],
+  },
+};
+
+export const ZeroFirstAndLast = {
+    args: {
+      showValue: true,
+      valueRange: { min: 0, max: 'dataMax' },
+      formatValue: (value: number) => {
+        return `${value} units`;
+      },
+      dataSet: [
+        {
+          key: 'stronglyUnfavorable',
+          label: 'Strongly Unfavorable',
+          value: 0,
+          strength: -2,
+        },
+        {
+          key: 'unfavorable',
+          label: 'Unfavorable',
+          value: 135,
+          strength: -2,
+        },
+        {
+          key: 'skipped',
+          label: 'Skipped',
+          value: 120,
+        },
+        {
+          key: 'favorable',
+          label: 'Favorable',
+          value: 245,
+          strength: 2,
+        },
+        {
+          key: 'stronglyFavorable',
+          label: 'Strongly Favorable',
+          value: 0,
+          strength: 2,
+        },
+      ],
+    },
+};
+
+export const OnlyZeroButLast = {
+    args: {
+      showValue: true,
+      valueRange: { min: 0, max: 'dataMax' },
+      formatValue: (value: number) => {
+        return `${value} units`;
+      },
+      dataSet: [
+        {
+          key: 'stronglyUnfavorable',
+          label: 'Strongly Unfavorable',
+          value: 0,
+          strength: -2,
+        },
+        {
+          key: 'unfavorable',
+          label: 'Unfavorable',
+          value: 0,
+          strength: -2,
+        },
+        {
+          key: 'favorable',
+          label: 'Favorable',
+          value: 245,
+          strength: 2,
+        }
+      ],
+    },
+};
+
+export const OnlyZeroButFirst = {
+    args: {
+      showValue: true,
+      valueRange: { min: 0, max: 'dataMax' },
+      formatValue: (value: number) => {
+        return `${value} units`;
+      },
+      dataSet: [
+        {
+          key: 'stronglyUnfavorable',
+          label: 'Strongly Unfavorable',
+          value: 245,
+          strength: -2,
+        },
+        {
+          key: 'unfavorable',
+          label: 'Unfavorable',
+          value: 0,
+          strength: -2,
+        },
+        {
+          key: 'favorable',
+          label: 'Favorable',
+          value: 0,
+          strength: 2,
+        }
+      ],
+    },
+};
+
+export const CustomClassAndPopoverTitle = {
+  args: {
+    showValue: true,
+    popoverClassName: "my-popover-classname",
+    popoverTitle: <Tag icon={<BarGraph size="medium" />}>DataSet</Tag>,
+    dataSet: [
+      {
+        key: 'unfavorable',
+        label: 'Unfavorable',
+        value: 30,
+        strength: 0,
+      },
+      {
+        key: 'skipped',
+        label: 'Skipped',
+        value: 25,
+        strength: 1,
+      },
+      {
+        key: 'favorable',
+        label: 'Favorable',
+        className: "my-custom-class",
+        value: 45,
         strength: 2,
       },
     ],

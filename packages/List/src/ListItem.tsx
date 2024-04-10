@@ -2,9 +2,10 @@ import * as React from "react";
 import cx from "classnames";
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { VisualIdentifier } from "@shared/components";
+import { VisualIdentifier, type Size } from "@shared/components";
 import UserSolid from "@igloo-ui/icons/dist/UserSolid";
 import Checkmark from "@igloo-ui/icons/dist/Checkmark";
+import { UserIcon } from "@hopper-ui/icons-react16";
 
 import "./list-item.scss";
 
@@ -77,6 +78,10 @@ export interface ListItemProps extends React.ComponentProps<"li"> {
     useCheckbox?: boolean;
 }
 
+const getBrand = (): string => {
+    return document.documentElement.getAttribute("data-brand") ?? "igloo";
+};
+
 const ListItem: React.FunctionComponent<ListItemProps> = ({
     className,
     disableTabbing = false,
@@ -93,6 +98,9 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
     useCheckbox,
     ...rest
 }: ListItemProps) => {
+    const isWorkleap = getBrand() === "workleap";
+    const noDescription = option?.type === "list" ? !option?.description : !option?.role;
+
     const isOptionDisabled = (): boolean => {
         if (option?.type === "list") {
             return option?.disabled ?? false;
@@ -133,8 +141,18 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
         "ids-list-item--focused": isFocused,
         "ids-list-item--disabled":
       option?.type === "list" ? option?.disabled : false,
-        "ids-list-item--loading": loading
+        "ids-list-item--loading": loading,
+        "ids-list-item--no-description": noDescription
     });
+
+    let visualIdentifierSize: Size = "medium";
+    if (option?.src) {
+        if (option?.src && (option?.type === "member" || !isCompact)) {
+            visualIdentifierSize = "large";
+        }
+    } else if (isCompact) {
+        visualIdentifierSize = "small";
+    }
 
     const shouldShowVisualIdentifier =
     (option?.src || option?.color || option?.icon) && showIcon;
@@ -152,7 +170,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
                 icon={option?.icon}
                 color={option?.color}
                 src={option?.src}
-                size={option?.type === "member" ? "medium" : "small"}
+                size={visualIdentifierSize}
             />
         </div>
     );
@@ -177,7 +195,9 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
             <span className="ids-list-item__text-member">
                 {option?.member}
                 {option?.manager && (
-                    <UserSolid size="small" className="ids-list-item__manager" />
+                    isWorkleap ? 
+                        <UserIcon size="sm" className="ids-list-item__manager" /> :
+                        <UserSolid size="small" className="ids-list-item__manager" />
                 )}
             </span>
             {option?.role && (
@@ -216,7 +236,11 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
             {...rest}
         >
             <div className="ids-list-item__content">
-                {useCheckbox && <span className="ids-list-item__checkbox" />}
+                {useCheckbox && (
+                    <span className="ids-list-item__checkbox">
+                        <Checkmark size="small" className="ids-list-item__checkbox-check" />
+                    </span>
+                )}
 
                 {loading ? (
                     <span className="ids-list-item__thumbnail" />

@@ -78,7 +78,7 @@
         /* Premium */
         --ids-alert-color-premium: var(--hop-upsell-text);
         --ids-alert-border-color-premium: var(--hop-upsell-border);
-        --ids-alert-background-color-premium: var(--hop-upsell-surface);
+        --ids-alert-background-color-premium: var(--hop-upsell-surface-weak);
         --ids-alert-icon-color-premium: var(--hop-upsell-icon-weakest);
 
         /* Success */
@@ -153,7 +153,7 @@
             );
         }
 
-        [data-brand="workleap"] & {
+        :where([data-brand="workleap"]) & {
             &--announcement {
                 @include mixins.ids-alert-mixin-decoration(
                     var(--ids-alert-border-color-announcement),
@@ -205,6 +205,10 @@
             flex: 0 0 auto;
             height: auto;
             margin: 0;
+
+            & svg {
+                fill: currentcolor;
+            }
         }
 
         &__body {

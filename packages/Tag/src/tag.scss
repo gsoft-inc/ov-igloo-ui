@@ -4,6 +4,7 @@
 
 @import url("~@hopper-ui/tokens/fonts.css") layer(hopper-design-system);
 @import url("~@hopper-ui/tokens/tokens.css") layer(hopper-design-system);
+@import url("~@hopper-ui/icons-react16/index.css") layer(hopper-icons);
 
 @layer igloo {
     :root {
@@ -16,6 +17,9 @@
         --ids-tag-line-height: #{tokens.$line-height-xl};
         --ids-tag-max-width: 24rem;
         --ids-tag-caution-icon-color: #{tokens.$coral-500};
+        --ids-tag-badge-font-family: #{tokens.$primary-font-family};
+        --ids-tag-badge-font-weight: #{tokens.$font-weight-regular};
+        --ids-tag-badge-line-height: #{tokens.$line-height-xl};
 
         /* === Appearance === */
 
@@ -43,6 +47,10 @@
         --ids-tag-background-primary: #{tokens.$electric-blue-500};
         --ids-tag-color-primary: #{tokens.$samoyed};
 
+        /* Inactive */
+        --ids-tag-background-inactive: #{tokens.$grey-200};
+        --ids-tag-color-inactive: #{tokens.$grey-600};
+
         /* Neutral */
         --ids-tag-background-neutral: #{tokens.$samoyed};
         --ids-tag-color-neutral: #{tokens.$grey-800};
@@ -50,27 +58,59 @@
         --ids-tag-neutral-dismiss-btn-color: #{tokens.$grey-600};
         --ids-tag-neutral-dismiss-btn-hover-color: #{tokens.$grey-800};
 
+        /* Option 1 */
+        --ids-tag-background-option1: #{tokens.$electric-blue-200};
+        --ids-tag-color-option1: #{tokens.$grey-800};
+
+        /* Option 2 */
+        --ids-tag-background-option2: #{tokens.$strawberry-fields-200};
+        --ids-tag-color-option2: #{tokens.$grey-800};
+
+        /* Option 3 */
+        --ids-tag-background-option3: #{tokens.$seaweed-400};
+        --ids-tag-color-option3: #{tokens.$grey-800};
+
+        /* Option 4 */
+        --ids-tag-background-option4: #{tokens.$electric-blue-500};
+        --ids-tag-color-option4: #{tokens.$samoyed};
+
+        /* Option 5 */
+        --ids-tag-background-option5: #{tokens.$grey-500};
+        --ids-tag-color-option5: #{tokens.$samoyed};
+
+        /* Option 6 */
+        --ids-tag-background-option6: #{tokens.$dandelion-400};
+        --ids-tag-color-option6: #{tokens.$grey-800};
+
+        /* Select */
+        --ids-tag-background-select: #{tokens.$samoyed};
+        --ids-tag-background-has-error-select: #{tokens.$samoyed};
+        --ids-tag-color-select: #{tokens.$grey-800};
+        --ids-tag-border-select: #{tokens.$grey-300};
+        --ids-tag-select-dismiss-btn-color: #{tokens.$grey-600};
+        --ids-tag-select-dismiss-btn-hover-color: #{tokens.$grey-800};
+
         /* === Sizes === */
 
         /* Medium */
         --ids-tag-font-size: #{tokens.$font-size-3};
+        --ids-tag-badge-font-size: #{tokens.$font-size-3};
         --ids-tag-height: #{tokens.$space-5};
-        --ids-tag-padding: #{tokens.$space-0} #{tokens.$space-2};
-        --ids-tag-content-padding: #{tokens.$space-0} #{tokens.$space-2};
+        --ids-tag-padding: #{tokens.$space-0} #{tokens.$space-3};
+        --ids-tag-icon-gap: #{tokens.$space-2};
 
         /* Small */
         --ids-tag-font-size-small: #{tokens.$font-size-2};
+        --ids-tag-badge-font-size-small: #{tokens.$font-size-3};
         --ids-tag-height-small: #{tokens.$space-4};
-        --ids-tag-padding-small: #{tokens.$space-0};
-        --ids-tag-icon-margin-small: #{tokens.$space-2};
+        --ids-tag-padding-small: 0 #{tokens.$space-2};
+        --ids-tag-padding-small-select: 0 #{tokens.$space-3};
 
         /* XSmall */
         --ids-tag-height-xsmall: 2rem;
-        --ids-tag-icon-margin-xsmall: #{tokens.$space-2};
 
         /* Micro */
         --ids-tag-height-micro: #{tokens.$space-3};
-        --ids-tag-icon-margin-micro: #{tokens.$space-2};
 
         /* === isError === */
         --ids-tag-border-has-error: #{tokens.$coral-600};
@@ -85,12 +125,16 @@
         --ids-tag-font-weight: var(--hop-body-xs-font-weight);
         --ids-tag-line-height: var(--hop-body-xs-line-height);
         --ids-tag-max-width: 15rem;
+        --ids-tag-badge-font-family: var(--hop-overline-font-family);
+        --ids-tag-badge-font-weight: var(--hop-overline-font-weight);
+        --ids-tag-badge-line-height: var(--hop-overline-line-height);
+        --ids-tag-as-badge-text-offset: -0.125em;
 
         /* === Appearance === */
 
         /* Default */
         --ids-tag-background-default: var(--hop-neutral-surface-weak);
-        --ids-tag-color-default: var(--hop-neutral-text);
+        --ids-tag-color-default: var(--hop-neutral-text-weak);
 
         /* Progress */
         --ids-tag-background-progress: var(--hop-status-progress-surface);
@@ -113,6 +157,10 @@
         --ids-tag-background-primary: var(--hop-primary-surface-strong);
         --ids-tag-color-primary: var(--hop-primary-text-strong);
 
+        /* Inactive */
+        --ids-tag-background-inactive: var(--hop-status-inactive-surface);
+        --ids-tag-color-inactive: var(--hop-status-inactive-text);
+
         /* Neutral */
         --ids-tag-background-neutral: var(--hop-status-neutral-surface);
         --ids-tag-color-neutral: var(--hop-status-neutral-text);
@@ -120,27 +168,59 @@
         --ids-tag-neutral-dismiss-btn-color: var(--hop-neutral-icon-weak);
         --ids-tag-neutral-dismiss-btn-hover-color: var(--hop-neutral-icon-hover);
 
+        /* Option 1 */
+        --ids-tag-background-option1: var(--hop-status-option1-surface);
+        --ids-tag-color-option1: var(--hop-status-option1-text);
+
+        /* Option 2 */
+        --ids-tag-background-option2: var(--hop-status-option2-surface);
+        --ids-tag-color-option2: var(--hop-status-option2-text);
+
+        /* Option 3 */
+        --ids-tag-background-option3: var(--hop-status-option3-surface);
+        --ids-tag-color-option3: var(--hop-status-option3-text);
+
+        /* Option 4 */
+        --ids-tag-background-option4: var(--hop-status-option4-surface);
+        --ids-tag-color-option4: var(--hop-status-option4-text);
+
+        /* Option 5 */
+        --ids-tag-background-option5: var(--hop-status-option5-surface);
+        --ids-tag-color-option5: var(--hop-status-option5-text);
+
+        /* Option 6 */
+        --ids-tag-background-option6: var(--hop-status-option6-surface);
+        --ids-tag-color-option6: var(--hop-status-option6-text);
+
+        /* Select */
+        --ids-tag-background-select: var(--hop-neutral-surface-weakest);
+        --ids-tag-background-has-error-select: var(--hop-neutral-surface-weak);
+        --ids-tag-border-select: var(--hop-neutral-border);
+        --ids-tag-color-select: var(--hop-neutral-text);
+        --ids-tag-select-dismiss-btn-color: var(--hop-neutral-icon-weakest);
+        --ids-tag-select-dismiss-btn-hover-color: var(--hop-neutral-icon-hover);
+
         /* === Sizes === */
 
         /* Medium */
         --ids-tag-font-size: var(--hop-body-sm-font-size);
+        --ids-tag-badge-font-size: var(--hop-overline-font-size);
         --ids-tag-height: 2rem;
-        --ids-tag-padding: 0 var(--hop-space-inset-sm);
-        --ids-tag-content-padding: 0 var(--hop-space-inset-sm);
+        --ids-tag-padding: 0 var(--hop-space-inset-md);
+        --ids-tag-icon-gap: var(--hop-space-inline-xs);
 
         /* Small */
         --ids-tag-font-size-small: var(--hop-body-xs-font-size);
+        --ids-tag-badge-font-size-small: var(--hop-overline-font-size);
         --ids-tag-height-small: 1.5rem;
-        --ids-tag-padding-small: 0;
-        --ids-tag-icon-margin-small: 0.5rem;
+        --ids-tag-padding-small: 0 var(--hop-space-inset-sm);
+        --ids-tag-padding-small-select: 0 var(--hop-space-inset-md);
 
         /* XSmall */
         --ids-tag-height-xsmall: 1.25rem;
-        --ids-tag-icon-margin-xsmall: 0.5rem;
 
         /* Micro */
         --ids-tag-height-micro: 1.125rem;
-        --ids-tag-icon-margin-micro: 0.5rem;
 
         /* === isError === */
         --ids-tag-border-has-error: var(--hop-danger-border-strong);
@@ -152,6 +232,7 @@
         display: inline-flex;
         font-family: var(--ids-tag-font-family);
         font-weight: var(--ids-tag-font-weight);
+        gap: var(--ids-tag-icon-gap);
         line-height: var(--ids-tag-line-height);
 
         &,
@@ -180,6 +261,14 @@
         /* == Appearance == */
 
         &--default {
+            font-family: var(--ids-tag-badge-font-family);
+            font-weight: var(--ids-tag-badge-font-weight);
+            line-height: var(--ids-tag-badge-line-height);
+
+            .ids-tag__ellipsis {
+                margin-bottom: var(--ids-tag-as-badge-text-offset, 0);
+            }
+
             @include mixins.ids-tag-mixin-decoration(
                 var(--ids-tag-background-default),
                 var(--ids-tag-color-default)
@@ -207,6 +296,55 @@
             );
         }
 
+        &--option1 {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-option1),
+                var(--ids-tag-color-option1)
+            );
+        }
+
+        &--option2 {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-option2),
+                var(--ids-tag-color-option2)
+            );
+        }
+
+        &--option3 {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-option3),
+                var(--ids-tag-color-option3)
+            );
+        }
+
+        &--option4 {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-option4),
+                var(--ids-tag-color-option4)
+            );
+        }
+
+        &--option5 {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-option5),
+                var(--ids-tag-color-option5)
+            );
+        }
+
+        &--option6 {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-option6),
+                var(--ids-tag-color-option6)
+            );
+        }
+
+        &--inactive {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-inactive),
+                var(--ids-tag-color-inactive)
+            );
+        }
+
         &--caution {
             @include mixins.ids-tag-mixin-decoration(
                 var(--ids-tag-background-caution),
@@ -215,6 +353,14 @@
         }
 
         &--primary {
+            font-family: var(--ids-tag-badge-font-family);
+            font-weight: var(--ids-tag-badge-font-weight);
+            line-height: var(--ids-tag-badge-line-height);
+
+            .ids-tag__ellipsis {
+                margin-bottom: var(--ids-tag-as-badge-text-offset, 0);
+            }
+
             @include mixins.ids-tag-mixin-decoration(
                 var(--ids-tag-background-primary),
                 var(--ids-tag-color-primary)
@@ -225,7 +371,7 @@
             @include mixins.ids-tag-mixin-decoration(
                 var(--ids-tag-background-neutral),
                 var(--ids-tag-color-neutral),
-                    var(--ids-tag-border-neutral)
+                var(--ids-tag-border-neutral)
             );
 
             .ids-tag__dismiss-btn.ids-icon-btn {
@@ -237,24 +383,32 @@
             }
         }
 
+        &--select {
+            @include mixins.ids-tag-mixin-decoration(
+                var(--ids-tag-background-select),
+                var(--ids-tag-color-select),
+                var(--ids-tag-border-select)
+            );
+
+            &.ids-tag--has-error {
+                background: var(--ids-tag-background-has-error-select);
+            }
+
+            .ids-tag__dismiss-btn.ids-icon-btn {
+                color: var(--ids-tag-select-dismiss-btn-color);
+            }
+
+            .ids-tag__dismiss-btn.ids-icon-btn:hover {
+                color: var(--ids-tag-select-dismiss-btn-hover-color);
+            }
+        }
+
         /* == Rounded == */
         &--rounded {
             border-radius: var(--ids-tag-border-radius-rounded);
 
             &.ids-tag--medium {
                 border-radius: var(--ids-tag-border-radius-rounded-medium);
-            }
-
-            &.ids-tag--small > .ids-tag__visual {
-                margin-left: var(--ids-tag-icon-margin-small);
-            }
-
-            &.ids-tag--xsmall > .ids-tag__visual {
-                margin-left: var(--ids-tag-icon-margin-xsmall);
-            }
-
-            &.ids-tag--micro > .ids-tag__visual {
-                margin-left: var(--ids-tag-icon-margin-micro);
             }
         }
 
@@ -271,8 +425,16 @@
             @include mixins.ids-tag-mixin-size(
                 var(--ids-tag-font-size),
                 var(--ids-tag-padding),
-                    var(--ids-tag-height),
-                    var(--ids-tag-content-padding)
+                var(--ids-tag-height)
+            );
+        }
+
+        &--medium.ids-tag--default,
+        &--medium.ids-tag--primary {
+            @include mixins.ids-tag-mixin-size(
+                var(--ids-tag-badge-font-size),
+                var(--ids-tag-padding),
+                var(--ids-tag-height)
             );
         }
 
@@ -281,8 +443,24 @@
             @include mixins.ids-tag-mixin-size(
                 var(--ids-tag-font-size-small),
                 var(--ids-tag-padding-small),
-                    var(--ids-tag-height-small),
-                    var(--ids-tag-content-padding)
+                var(--ids-tag-height-small)
+            );
+        }
+
+        &--small.ids-tag--default,
+        &--small.ids-tag--primary {
+            @include mixins.ids-tag-mixin-size(
+                var(--ids-tag-badge-font-size-small),
+                var(--ids-tag-padding-small),
+                var(--ids-tag-height-small)
+            );
+        }
+
+        &--small.ids-tag--select {
+            @include mixins.ids-tag-mixin-size(
+                var(--ids-tag-font-size-small),
+                var(--ids-tag-padding-small-select),
+                var(--ids-tag-height-small)
             );
         }
 
@@ -291,8 +469,7 @@
             @include mixins.ids-tag-mixin-size(
                 var(--ids-tag-font-size-small),
                 var(--ids-tag-padding-small),
-                    var(--ids-tag-height-xsmall),
-                    var(--ids-tag-content-padding)
+                var(--ids-tag-height-xsmall)
             );
         }
 
@@ -301,8 +478,7 @@
             @include mixins.ids-tag-mixin-size(
                 var(--ids-tag-font-size-small),
                 var(--ids-tag-padding-small),
-                    var(--ids-tag-height-micro),
-                    var(--ids-tag-content-padding)
+                var(--ids-tag-height-micro)
             );
         }
     }

@@ -4,6 +4,8 @@ import cx from "classnames";
 import Color from "@igloo-ui/color";
 import Avatar from "@igloo-ui/avatar";
 
+import "./visual-identifier.scss";
+
 export type Size = "small" | "medium" | "large";
 export interface VisualIdentifierProps extends React.ComponentProps<"div"> {
     /** Add a specific class to the visual identifier */
@@ -38,6 +40,12 @@ VisualIdentifierProps
         className
     );
 
+    const avatarSizeMapping = {
+        "small": "xsmall",
+        "medium": "small",
+        "large": "medium"
+    } as const satisfies Record<Size, string>;
+
     const renderIcon = (): JSX.Element | null => {
         if (icon) {
             return React.cloneElement(icon, {
@@ -48,10 +56,12 @@ VisualIdentifierProps
             });
         }
         if (color) {
-            return <Color className={classes} color={color} size={size} />;
+            return <Color className={classes} color={color} size={size} appearance="square" />;
         }
         if (src) {
-            return <Avatar className={classes} src={src} size={size} />;
+            const avatarSize = avatarSizeMapping[size];
+
+            return <Avatar className={classes} src={src} size={avatarSize} />;
         }
 
         return null;

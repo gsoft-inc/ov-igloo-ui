@@ -1,5 +1,52 @@
 # @igloo-ui/list
 
+## 0.7.0
+
+### Minor Changes
+
+- 538873b: Updated the manager icon for Workleap brand. Updated the loading style for Workleap brand and adjusted icon size.
+
+## 0.6.7
+
+### Patch Changes
+
+- e83ee46: Stopped icons from shrinking when in a list component
+
+## 0.6.6
+
+### Patch Changes
+
+- bea2c50: Fixed the checkbox inside the list as well as adjusments to the visual identifier.
+
+## 0.6.5
+
+### Patch Changes
+
+- bdc38d5: Fixed the styling of the checkbox of the older brand.
+- Updated dependencies [bdc38d5]
+  - @igloo-ui/checkbox@0.4.2
+
+## 0.6.4
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/checkbox@0.4.1
+
+## 0.6.3
+
+### Patch Changes
+
+- e2cc8b8: Fixed the checkbox inside the list as well as adjusments to the visual identifier.
+
+## 0.6.2
+
+### Patch Changes
+
+- Updated dependencies [9fbfa6f]
+  - @igloo-ui/checkbox@0.4.0
+
 ## 0.6.1
 
 ### Patch Changes

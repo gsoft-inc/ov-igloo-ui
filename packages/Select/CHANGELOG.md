@@ -1,5 +1,83 @@
 # @igloo-ui/select
 
+## 1.5.2
+
+### Patch Changes
+
+- a00a83f: Added and fixed the active styles for the buttons.
+- Updated dependencies [a00a83f]
+  - @igloo-ui/icon-button@1.2.5
+
+## 1.5.1
+
+### Patch Changes
+
+- a91a24d: Updated the ghost secondary color of the icon button since it differs from the ghost secondary button color.
+- Updated dependencies [a91a24d]
+  - @igloo-ui/icon-button@1.2.4
+
+## 1.5.0
+
+### Minor Changes
+
+- 538873b: Added the listSize option to indicate whether the list should be size small or medium (compact or not).
+
+### Patch Changes
+
+- Updated dependencies [538873b]
+  - @igloo-ui/list@0.7.0
+
+## 1.4.9
+
+### Patch Changes
+
+- e83ee46: Stopped icons from shrinking when in a list component
+- Updated dependencies [e83ee46]
+  - @igloo-ui/list@0.6.7
+
+## 1.4.8
+
+### Patch Changes
+
+- 97edb0e: The button is now square when there's only an icon showing on mobile.
+- Updated dependencies [97edb0e]
+  - @igloo-ui/icon-button@1.2.3
+
+## 1.4.7
+
+### Patch Changes
+
+- bea2c50: Fixed the height of Combobox and Select to be 42px and not 40px and made adjustments for the visualIdentifier update.
+- Updated dependencies [bea2c50]
+  - @igloo-ui/list@0.6.6
+
+## 1.4.6
+
+### Patch Changes
+
+- 6ea531f: Updated dependency versions for react-aria packages, luxon and hopper
+- Updated dependencies [6ea531f]
+  - @igloo-ui/dropdown@1.8.1
+  - @igloo-ui/icon-button@1.2.2
+  - @igloo-ui/input@2.2.2
+  - @igloo-ui/list@0.6.4
+
+## 1.4.5
+
+### Patch Changes
+
+- e2cc8b8: Fixed the height of Combobox and Select to be 42px and not 40px and made adjustments for the visualIdentifier update.
+- Updated dependencies [e2cc8b8]
+  - @igloo-ui/list@0.6.3
+
+## 1.4.4
+
+### Patch Changes
+
+- 8bf2e79: Version bump to acknowledge button patch version
+- Updated dependencies [8bf2e79]
+  - @igloo-ui/icon-button@1.2.1
+
 ## 1.4.3
 
 ### Patch Changes
