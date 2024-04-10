@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/stepper",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "main": "dist/Stepper.js",
   "module": "dist/Stepper.js",
   "types": "dist/Stepper.d.ts",

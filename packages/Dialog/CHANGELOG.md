@@ -1,5 +1,14 @@
 # @igloo-ui/dialog
 
+## 0.8.12
+
+### Patch Changes
+
+- f2f6d49: Version bump to acknowledge button patch version
+- Updated dependencies [f2f6d49]
+- Updated dependencies [f2f6d49]
+  - @igloo-ui/modal@1.7.3
+
 ## 0.8.11
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @igloo-ui/tag-picker
 
+## 0.12.1
+
+### Patch Changes
+
+- af9d178: Add a disabled state to the Tag component
+- Updated dependencies [f2f6d49]
+- Updated dependencies [af9d178]
+- Updated dependencies [f2f6d49]
+  - @igloo-ui/tag@1.7.0
+
 ## 0.12.0
 
 ### Minor Changes

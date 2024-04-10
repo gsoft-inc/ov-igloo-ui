@@ -1,5 +1,11 @@
 # @igloo-ui/disclosure
 
+## 1.1.2
+
+### Patch Changes
+
+- f2f6d49: Version bump for button 0.8.5
+
 ## 1.1.1
 
 ### Patch Changes

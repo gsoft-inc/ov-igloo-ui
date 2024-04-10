@@ -1,5 +1,13 @@
 # @igloo-ui/text-editor
 
+## 0.7.11
+
+### Patch Changes
+
+- f2f6d49: Version bump to acknowledge button patch version
+- Updated dependencies [f2f6d49]
+  - @igloo-ui/icon-button@1.2.7
+
 ## 0.7.10
 
 ### Patch Changes

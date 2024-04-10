@@ -1,5 +1,16 @@
 # @igloo-ui/select
 
+## 1.5.3
+
+### Patch Changes
+
+- f2f6d49: Version bump to acknowledge button patch version
+- f2f6d49: Version bump for button 0.8.5
+- Updated dependencies [f2f6d49]
+- Updated dependencies [f2f6d49]
+  - @igloo-ui/icon-button@1.2.7
+  - @igloo-ui/list@0.7.1
+
 ## 1.5.2
 
 ### Patch Changes

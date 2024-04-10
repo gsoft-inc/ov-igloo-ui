@@ -1,5 +1,11 @@
 # @igloo-ui/list
 
+## 0.7.1
+
+### Patch Changes
+
+- f2f6d49: Version bump for button 0.8.5
+
 ## 0.7.0
 
 ### Minor Changes

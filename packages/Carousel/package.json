@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/carousel",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "main": "dist/Carousel.js",
   "module": "dist/Carousel.js",
   "types": "dist/Carousel.d.ts",
