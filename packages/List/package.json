@@ -31,8 +31,8 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@shared/components": "0.2.1",
-    "@igloo-ui/button": "^0.8.0"
+    "@shared/components": "0.5.0",
+    "@igloo-ui/button": "^0.8.5"
   },
   "browserslist": [
     "> 1%",

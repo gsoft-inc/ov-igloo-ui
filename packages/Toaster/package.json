@@ -36,7 +36,7 @@
     "use-sync-external-store": "^1.2.0"
   },
   "devDependencies": {
-    "@igloo-ui/button": "^0.8.0",
+    "@igloo-ui/button": "^0.8.5",
     "@types/react-dom": "^18.0.11",
     "@types/use-sync-external-store": "^0.0.3"
   },
