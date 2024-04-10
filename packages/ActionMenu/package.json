@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@igloo-ui/icons": "^1.12.2",
-    "@igloo-ui/button": "^0.8.2",
+    "@igloo-ui/button": "^0.8.5",
     "@igloo-ui/helper-text": "^0.3.1",
     "@igloo-ui/icon-button": "^1.2.2"
   },

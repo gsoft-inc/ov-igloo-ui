@@ -43,7 +43,7 @@
         "IE >= 11"
     ],
     "devDependencies": {
-        "@igloo-ui/button": "^0.8.4",
+        "@igloo-ui/button": "^0.8.5",
         "@igloo-ui/provider": "^0.1.1",
         "@igloo-ui/select": "^1.5.2"
     }
