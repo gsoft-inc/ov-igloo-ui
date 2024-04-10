@@ -1,5 +1,11 @@
 # @igloo-ui/breadcrumb
 
+## 0.3.4
+
+### Patch Changes
+
+- a99dfba: Fix UI issue
+
 ## 0.3.3
 
 ### Patch Changes

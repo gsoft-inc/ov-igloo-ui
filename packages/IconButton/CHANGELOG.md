@@ -1,5 +1,11 @@
 # @igloo-ui/icon-button
 
+## 1.2.7
+
+### Patch Changes
+
+- f2f6d49: Version bump to acknowledge button patch version
+
 ## 1.2.6
 
 ### Patch Changes

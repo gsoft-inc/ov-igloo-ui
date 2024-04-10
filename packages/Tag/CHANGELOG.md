@@ -1,5 +1,18 @@
 # @igloo-ui/tag
 
+## 1.7.0
+
+### Minor Changes
+
+- af9d178: Add a disabled state to the Tag component
+
+### Patch Changes
+
+- f2f6d49: Version bump to acknowledge button patch version
+- f2f6d49: Version bump for button 0.8.5
+- Updated dependencies [f2f6d49]
+  - @igloo-ui/icon-button@1.2.7
+
 ## 1.6.0
 
 ### Minor Changes

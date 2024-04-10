@@ -1,5 +1,11 @@
 # @igloo-ui/stepper
 
+## 0.3.2
+
+### Patch Changes
+
+- f2f6d49: Version bump for button 0.8.5
+
 ## 0.3.1
 
 ### Patch Changes

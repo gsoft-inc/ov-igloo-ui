@@ -1,5 +1,16 @@
 # @igloo-ui/modal
 
+## 1.7.3
+
+### Patch Changes
+
+- f2f6d49: Version bump to acknowledge button patch version
+- f2f6d49: Version bump for button 0.8.5
+- Updated dependencies [f2f6d49]
+- Updated dependencies [f2f6d49]
+  - @igloo-ui/icon-button@1.2.7
+  - @igloo-ui/carousel@0.3.3
+
 ## 1.7.2
 
 ### Patch Changes

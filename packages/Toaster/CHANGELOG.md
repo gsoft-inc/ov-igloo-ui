@@ -1,5 +1,14 @@
 # @igloo-ui/toaster
 
+## 2.1.6
+
+### Patch Changes
+
+- f2f6d49: Version bump to acknowledge button patch version
+- f2f6d49: Version bump for button 0.8.5
+- Updated dependencies [f2f6d49]
+  - @igloo-ui/icon-button@1.2.7
+
 ## 2.1.5
 
 ### Patch Changes

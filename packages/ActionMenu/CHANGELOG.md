@@ -1,5 +1,13 @@
 # @igloo-ui/action-menu
 
+## 1.5.4
+
+### Patch Changes
+
+- f2f6d49: Version bump for button 0.8.5
+- Updated dependencies [f2f6d49]
+  - @igloo-ui/list@0.7.1
+
 ## 1.5.3
 
 ### Patch Changes
