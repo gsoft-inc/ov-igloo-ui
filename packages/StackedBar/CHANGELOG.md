@@ -1,5 +1,11 @@
 # @igloo-ui/stacked-bar
 
+## 0.4.3
+
+### Patch Changes
+
+- c95d307: Stacked bar still has old button styles so we need to update it.
+
 ## 0.4.2
 
 ### Patch Changes
