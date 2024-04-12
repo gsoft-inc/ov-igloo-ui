@@ -11,16 +11,15 @@ concurrency:
 jobs:
   install-cache:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 18 ]
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node }}
+
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version-file: ".nvmrc"
+
       - name: Cache yarn dependencies
         uses: actions/cache@v3
         id: cache-dependencies
@@ -28,7 +27,8 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.ox }}-yarn-
+            ${{ runner.os }}-yarn-
+
       - name: Install Dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: |
@@ -36,17 +36,16 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 18 ]
     needs: install-cache
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node }}
+
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version-file: ".nvmrc"
+
       - name: Restore yarn dependencies
         uses: actions/cache@v3
         id: cache-dependencies
@@ -54,9 +53,11 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.ox }}-yarn-
+            ${{ runner.os }}-yarn-
+
       - name: Run Eslint
         run: yarn lint
+
       - name: Run Stylelint
         run: yarn lint:style
 
@@ -69,10 +70,12 @@ jobs:
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node }}
+
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version-file: ".nvmrc"
+
       - name: Restore yarn dependencies
         uses: actions/cache@v3
         id: cache-dependencies
@@ -80,27 +83,29 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.ox }}-yarn-
+            ${{ runner.os }}-yarn-
+
       - name: Run build Shared components
         run: yarn build:shared
+
       - name: Run build Components
         run: yarn build:components
+
       - name: Run tests
         run: yarn test
 
   build_doc:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 18 ]
     needs: [install-cache, build_and_test_components]
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node }}
+
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version-file: ".nvmrc"
+
       - name: Restore yarn dependencies
         uses: actions/cache@v3
         id: cache-dependencies
@@ -108,7 +113,8 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.ox }}-yarn-
+            ${{ runner.os }}-yarn-
+
       - name: Run build Doc
         run: yarn doc:build
 

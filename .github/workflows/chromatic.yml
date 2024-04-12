@@ -1,37 +1,56 @@
-name: 'Chromatic'
+# Chromatic Main and Active PRs only
+# Trigger example found here: https://github.com/chromaui/chromatic-cli/blob/main/.github/workflows/chromatic-main-and-prs.yml
+
+name: Chromatic
 
 on:
   push:
-    paths:
-      - 'packages/**'
-    branches-ignore:
+    branches:
       - main
-      - dependabot/*
-      - changeset-release/*
+  pull_request:
+    # Workflows will not run on pull_request activity if the pull request has a merge conflict. The merge conflict must be resolved first.
+    # By default, a workflow only runs when a pull_request event's activity type is opened, synchronize, or reopened.
+    branches-ignore:
+    - changeset-release/*
+    - dependabot/*
 
 jobs:
-  chromatic-deployment:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18.x'
-      - name: Cache Node.js modules
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock')}}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        with:
-          token: ${{ secrets.CHROMATIC_TOKEN }}
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+    chromatic-deployment:
+        runs-on: ubuntu-latest
+        permissions:
+          contents: write
+          pull-requests: write
+        steps:
+          - name: Checkout Commit
+            uses: actions/checkout@v3
+            with:
+              fetch-depth: 0
+
+          - name: Install Node.js
+            uses: actions/setup-node@v3
+            with:
+              node-version-file: ".nvmrc"
+
+          - name: Cache Node.js modules
+            uses: actions/cache@v3
+            with:
+              path: ~/.npm
+              key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock')}}
+              restore-keys: |
+                        ${{ runner.OS }}-node-
+                        ${{ runner.OS }}-
+
+          - name: Install dependencies
+            run: yarn install --frozen-lockfile
+
+          - name: Build Packages
+            run: yarn build
+
+          - name: Publish to Chromatic
+            uses: chromaui/action@v1
+            with:
+              projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+              traceChanged: true
+              onlyChanged: true # TurboSnap
+              exitOnceUploaded: true # The PRs will be marked as success/failure based on the Chromatic build status
+              skip: ${{ github.event.pull_request.draft == true }}
