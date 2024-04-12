@@ -43,8 +43,11 @@ jobs:
           - name: Install dependencies
             run: yarn install --frozen-lockfile
 
-          - name: Build Packages
-            run: yarn build
+          - name: Run build Shared components
+            run: yarn build:shared
+
+          - name: Run build Components
+            run: yarn build:components
 
           - name: Publish to Chromatic
             uses: chromaui/action@v1
