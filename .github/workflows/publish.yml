@@ -40,7 +40,7 @@ jobs:
               with:
                   commit: "ci(changesets): version packages"
                   title: "Changeset: New Version"
-                  publish: yarn publish-ci
+                  publish: yarn build && yarn publish-ci
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.npm_token }}
