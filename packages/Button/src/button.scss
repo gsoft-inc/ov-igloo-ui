@@ -23,7 +23,7 @@
         --ids-focus-shadow: #{tokens.$focus};
 
         /* Primary */
-        --ids-btn-text-primary: #{tokens.$samoyed};
+        --ids-btn-text-primary: red;
         --ids-btn-text-primary-disabled: #{tokens.$samoyed};
         --ids-btn-text-primary-active: #{tokens.$electric-blue-500};
         --ids-btn-border-primary: transparent;
@@ -137,7 +137,7 @@
           --ids-focus-shadow: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
 
           /* Primary */
-          --ids-btn-text-primary: var(--hop-primary-text-strong);
+          --ids-btn-text-primary: green;
           --ids-btn-text-primary-disabled: var(--hop-neutral-text-disabled);
           --ids-btn-text-primary-active: var(--hop-primary-text-active);
           --ids-btn-border-primary: transparent;
