@@ -27,5 +27,5 @@ Then to use the component in your code just import it!
 ```jsx
 import Avatar from '@igloo-ui/avatar';
 
-<Avatar src="https://i.pravatar.cc/100" />;
+<Avatar src="https://randomuser.me/api/portraits/men/10.jpg" />;
 ```
