@@ -26,7 +26,7 @@
     "dev": "yarn build:shared && yarn build:components && yarn storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepublish-ci": "yarn build",
+    "prepublish-ci": "yarn build:shared && yarn build:components",
     "publish-ci": "npx lerna publish from-package -y",
     "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN --only-changed",
     "bootstrap": "node utils/bootstrap/component.mjs && npx lerna bootstrap && yarn fix:all"
