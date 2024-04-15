@@ -1,5 +1,11 @@
 # @igloo-ui/checkbox
 
+## 0.4.4
+
+### Patch Changes
+
+- 319f367: Internal changes
+
 ## 0.4.3
 
 ### Patch Changes
