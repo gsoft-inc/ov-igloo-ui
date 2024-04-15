@@ -83,7 +83,7 @@ const largeOptionList: SelectOptiontype[] = [
     {
         label: 'Text 5',
         value: '5',
-        src: 'https://i.pravatar.cc/100',
+        src: 'https://randomuser.me/api/portraits/men/11.jpg',
     },
     {
         label: 'Text 6',

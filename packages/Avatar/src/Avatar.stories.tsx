@@ -27,7 +27,7 @@ export default {
   },
 } as Meta<typeof Avatar>;
 
-const imageSrc = 'https://i.pravatar.cc/100';
+const imageSrc = 'https://randomuser.me/api/portraits/men/10.jpg';
 
 export const Overview = {
   args: {

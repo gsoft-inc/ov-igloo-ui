@@ -236,8 +236,13 @@ export const Interaction: Story = {
 
 export const ManageEverythingInUtc: Story = {
     render: Template,
+
     args: {
         ...Overview.args,
         manageEverythingInUtc: true,
-    }
+    },
+
+    parameters: {
+        chromatic: { disableSnapshot: true },
+    },
 }

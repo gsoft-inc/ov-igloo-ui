@@ -236,7 +236,7 @@ const membersList: Member[] = [
     member: 'Member name',
     role: 'Member role',
     value: '1',
-    src: 'https://i.pravatar.cc/100',
+    src: 'https://randomuser.me/api/portraits/men/1.jpg',
   },
   {
     type: 'member',
@@ -244,42 +244,42 @@ const membersList: Member[] = [
     value: '2',
     role: 'Member role',
     manager: true,
-    src: 'https://i.pravatar.cc/100',
+    src: 'https://randomuser.me/api/portraits/men/2.jpg',
   },
   {
     type: 'member',
     member: 'Member name',
     role: 'Member role',
     value: '3',
-    src: 'https://i.pravatar.cc/100',
+    src: 'https://randomuser.me/api/portraits/men/3.jpg',
   },
   {
     type: 'member',
     member: 'Member name',
     role: 'Member role',
     value: '4',
-    src: 'https://i.pravatar.cc/100',
+    src: 'https://randomuser.me/api/portraits/men/4.jpg',
   },
   {
     type: 'member',
     member: 'Member name',
     role: 'Member role',
     value: '5',
-    src: 'https://i.pravatar.cc/100',
+    src: 'https://randomuser.me/api/portraits/men/5.jpg',
   },
   {
     type: 'member',
     member: 'Member name',
     role: 'Member role',
     value: '6',
-    src: 'https://i.pravatar.cc/100',
+    src: 'https://randomuser.me/api/portraits/men/6.jpg',
   },
   {
     type: 'member',
     member: 'Member name',
     role: 'Member role',
     value: 'icon',
-    src: 'https://i.pravatar.cc/100',
+    src: 'https://randomuser.me/api/portraits/men/7.jpg',
   },
 ];
 
@@ -397,7 +397,7 @@ export const Action = () => {
   }
 
   return (
-    <List options={listWithAction} 
+    <List options={listWithAction}
     onOptionChange={handleOptionSelect}
     onOptionFocus={handleOptionFocus}
     onOptionBlur={() => setFocusedOption(undefined)}
