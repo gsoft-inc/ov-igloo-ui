@@ -32,7 +32,7 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: |
-          yarn install --force --non-interactive
+            yarn install --frozen-lockfile
 
   lint:
     runs-on: ubuntu-latest
