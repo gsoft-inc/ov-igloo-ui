@@ -164,7 +164,7 @@ exports[`Pager It should render without error and a snapshot 1`] = `
     <div
       class="ids-pager__results"
     >
-      1-5 
+      1-5
 of 50
     </div>
   </div>
