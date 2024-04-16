@@ -10,6 +10,11 @@ import { useLocalizedStringFormatter } from "@igloo-ui/provider";
 
 import "./pager.scss";
 
+
+const getBrand = (): string => {
+    return document.documentElement.getAttribute("data-brand") ?? "igloo";
+};
+
 export interface PagerProps extends React.ComponentProps<"div"> {
     /** Add a specific class to the pager component */
     className?: string;
@@ -45,7 +50,7 @@ const Pager: React.FunctionComponent<PagerProps> = ({
     ...rest
 }: PagerProps) => {
     const stringFormatter = useLocalizedStringFormatter(intlMessages);
-
+    const isWorkleap = getBrand() === "workleap";
     const paginationRange = usePagination({
         currentPage,
         pageSize,
@@ -56,7 +61,7 @@ const Pager: React.FunctionComponent<PagerProps> = ({
     const lastPage = paginationRange[paginationRange.length - 1];
     const totalPageCount = Math.ceil(totalCount / pageSize);
     const pageResults = valueLabel ? valueLabel :
-        `${pageSize * currentPage - pageSize + 1}-${Math.min(pageSize * currentPage, totalCount)} 
+        `${pageSize * currentPage - pageSize + 1}-${Math.min(pageSize * currentPage, totalCount)}
 ${stringFormatter.format("of")} ${totalCount}`;
 
     const onNext = (): void => {
@@ -82,6 +87,13 @@ ${stringFormatter.format("of")} ${totalCount}`;
     const renderPrevNext = (type: string): React.ReactNode => {
         const isPrev = type === "prev";
         const isDisabled = isPrev ? currentPage === 1 : currentPage === lastPage;
+        const ChevronLeftIcon = isWorkleap ?
+            <ChevronLeft size="medium" /> :
+            <ChevronLeft size="small" />;
+
+        const ChevronRightIcon = isWorkleap ?
+            <ChevronRight size="medium" /> :
+            <ChevronRight size="small" />;
 
         return (
             <li className="ids-pager__item">
@@ -89,12 +101,12 @@ ${stringFormatter.format("of")} ${totalCount}`;
                     className={cx("ids-pager__button", `ids-pager__${type}`)}
                     onClick={isPrev ? onPrevious : onNext}
                     disabled={isDisabled}
-                    aria-label={isPrev ? 
-                        stringFormatter.format("goToPreviousPage") : 
+                    aria-label={isPrev ?
+                        stringFormatter.format("goToPreviousPage") :
                         stringFormatter.format("goToNextPage")}
                 >
-                    {isPrev && <ChevronLeft size="small" />}
-                    {!isPrev && <ChevronRight size="small" />}
+                    {isPrev && ChevronLeftIcon}
+                    {!isPrev && ChevronRightIcon}
                 </button>
             </li>
         );
