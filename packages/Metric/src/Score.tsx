@@ -3,6 +3,8 @@ import cx from "classnames";
 
 import ArrowUp from "@igloo-ui/icons/dist/ArrowUp";
 import ArrowDown from "@igloo-ui/icons/dist/ArrowDown";
+import { ArrowUpIcon, ArrowDownIcon } from "@hopper-ui/icons-react16";
+
 import { useLocalizedStringFormatter, useLocale } from "@igloo-ui/provider";
 import intlMessages from "./intl";
 
@@ -36,6 +38,30 @@ const Score: React.FunctionComponent<ScoreProps> = ({
 }: ScoreProps) => {
     const stringFormatter = useLocalizedStringFormatter(intlMessages);
     const { locale } = useLocale();
+
+    const getBrand = (): string => {
+        return document.documentElement.getAttribute("data-brand") ?? "igloo";
+    };
+
+    const isWorkleap = getBrand() === "workleap";
+
+    const sizeAdapter = (size: "small" | "medium" | "large"): "sm" | "md" | "lg" => {
+        if (isWorkleap) {
+            switch (size) {
+                case "small":
+                    return "sm";
+                case "medium":
+                    return "md";
+                case "large":
+                    return "lg";
+                default:
+                    return "sm";
+            }
+        } else {
+            return size;
+        }
+    };
+
     if (!isVariation && (value === undefined || value === null)) {
         return <span
             className={cx("ids-score", className, {
@@ -53,28 +79,48 @@ const Score: React.FunctionComponent<ScoreProps> = ({
     if (forceDecimal) {
         displayValue = metricValue.toFixed(1);
     }
+
     const arrow = isNegative ? (
-        <ArrowDown
-            size={arrowSize}
-            className={cx("ids-score__arrow", "ids-score__arrow--negative", {
-                "ids-score__arrow--selected": isSelected
-            })}
-        />
+        isWorkleap ? (
+            <ArrowDownIcon
+                size={sizeAdapter(arrowSize)}
+                className={cx("ids-score__arrow", "ids-score__arrow--negative", {
+                    "ids-score__arrow--selected": isSelected
+                })}
+            />
+        ) : (
+            <ArrowDown
+                size={arrowSize}
+                className={cx("ids-score__arrow", "ids-score__arrow--negative", {
+                    "ids-score__arrow--selected": isSelected
+                })}
+            />
+        )
     ) : (
-        <ArrowUp
-            size={arrowSize}
-            className={cx("ids-score__arrow", "ids-score__arrow--positive", {
-                "ids-score__arrow--selected": isSelected
-            })}
-        />
+        isWorkleap ? (
+            <ArrowUpIcon
+                size={sizeAdapter(arrowSize)}
+                className={cx("ids-score__arrow", "ids-score__arrow--positive", {
+                    "ids-score__arrow--selected": isSelected
+                })}
+            />
+        ) : (
+            <ArrowUp
+                size={arrowSize}
+                className={cx("ids-score__arrow", "ids-score__arrow--positive", {
+                    "ids-score__arrow--selected": isSelected
+                })}
+            />
+        )
     );
-    let postFix = absoluteValue === 1 ? 
-        ` ${stringFormatter.format("pt")}` : 
+
+    let postFix = absoluteValue === 1 ?
+        ` ${stringFormatter.format("pt")}` :
         ` ${stringFormatter.format("pts")}`;
 
     if (locale === "fr-CA") {
-        postFix = absoluteValue === 1 || absoluteValue === 0 ? 
-            ` ${stringFormatter.format("pt")}` : 
+        postFix = absoluteValue === 1 || absoluteValue === 0 ?
+            ` ${stringFormatter.format("pt")}` :
             ` ${stringFormatter.format("pts")}`;
     }
 

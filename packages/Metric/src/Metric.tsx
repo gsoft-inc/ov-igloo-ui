@@ -54,6 +54,8 @@ const Metric: React.FunctionComponent<MetricProps> = ({
         return document.documentElement.getAttribute("data-brand") ?? "igloo";
     };
 
+    const isWorkleap = getBrand() === "workleap";
+
     const { buttonProps } = useButton(rest, btnRef);
 
     const classes = cx("ids-metric", className, {
@@ -106,7 +108,7 @@ const Metric: React.FunctionComponent<MetricProps> = ({
                     >
                         {tooltip && appearance !== "selected" && (
                             <Tooltip content={tooltip}>
-                                {getBrand() === "workleap" ? (
+                                {isWorkleap ? (
                                     <Help size="small" />) : <HelpSolid size="small" />}
                             </Tooltip>
                         )}
