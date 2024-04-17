@@ -1,5 +1,13 @@
 # @igloo-ui/stacked-bar
 
+## 0.4.4
+
+### Patch Changes
+
+- 8281f80: Dependency of dependency
+- Updated dependencies [8281f80]
+  - @igloo-ui/popover@0.5.9
+
 ## 0.4.3
 
 ### Patch Changes

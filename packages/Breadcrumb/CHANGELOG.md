@@ -1,5 +1,11 @@
 # @igloo-ui/breadcrumb
 
+## 0.3.5
+
+### Patch Changes
+
+- 8281f80: Bumped dependency
+
 ## 0.3.4
 
 ### Patch Changes

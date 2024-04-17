@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/select",
-    "version": "1.5.3",
+    "version": "1.5.4",
     "main": "dist/Select.js",
     "module": "dist/Select.js",
     "types": "dist/Select.d.ts",
@@ -25,7 +25,7 @@
     },
     "dependencies": {
         "@igloo-ui/dropdown": "^1.8.1",
-        "@igloo-ui/list": "^0.7.1",
+        "@igloo-ui/list": "^0.7.2",
         "@igloo-ui/icons": "^1.12.2",
         "@igloo-ui/icon-button": "^1.2.7",
         "@igloo-ui/input": "^2.2.2",

@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.2.5
+
+### Patch Changes
+
+- 8281f80: Bumped dependency
+
 ## 1.2.4
 
 ### Patch Changes

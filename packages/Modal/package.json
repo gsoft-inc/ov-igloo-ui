@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/modal",
-    "version": "1.7.3",
+    "version": "1.7.4",
     "main": "dist/Modal.js",
     "module": "dist/Modal.js",
     "types": "dist/Modal.d.ts",
@@ -45,6 +45,6 @@
     "devDependencies": {
         "@igloo-ui/button": "^0.8.5",
         "@igloo-ui/provider": "^0.1.1",
-        "@igloo-ui/select": "^1.5.3"
+        "@igloo-ui/select": "^1.5.4"
     }
 }

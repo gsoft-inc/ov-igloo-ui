@@ -1,5 +1,11 @@
 # @igloo-ui/message
 
+## 0.3.2
+
+### Patch Changes
+
+- 8281f80: Bumped dependency
+
 ## 0.3.1
 
 ### Patch Changes
