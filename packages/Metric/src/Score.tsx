@@ -33,6 +33,10 @@ const sizeMap = {
     large: "lg"
 } as const;
 
+const getBrand = (): string => {
+    return document.documentElement.getAttribute("data-brand") ?? "igloo";
+};
+
 const Score: React.FunctionComponent<ScoreProps> = ({
     arrowSize = "small",
     className,
@@ -44,10 +48,6 @@ const Score: React.FunctionComponent<ScoreProps> = ({
 }: ScoreProps) => {
     const stringFormatter = useLocalizedStringFormatter(intlMessages);
     const { locale } = useLocale();
-
-    const getBrand = (): string => {
-        return document.documentElement.getAttribute("data-brand") ?? "igloo";
-    };
 
     const isWorkleap = getBrand() === "workleap";
 
