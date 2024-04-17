@@ -3,6 +3,8 @@ import cx from "classnames";
 
 import ArrowUp from "@igloo-ui/icons/dist/ArrowUp";
 import ArrowDown from "@igloo-ui/icons/dist/ArrowDown";
+import { ArrowUpIcon, ArrowDownIcon } from "@hopper-ui/icons-react16";
+
 import { useLocalizedStringFormatter, useLocale } from "@igloo-ui/provider";
 import intlMessages from "./intl";
 
@@ -25,6 +27,16 @@ export interface ScoreProps extends React.ComponentProps<"div"> {
     value?: number | null;
 }
 
+const sizeMap = {
+    small: "sm",
+    medium: "md",
+    large: "lg"
+} as const;
+
+const getBrand = (): string => {
+    return document.documentElement.getAttribute("data-brand") ?? "igloo";
+};
+
 const Score: React.FunctionComponent<ScoreProps> = ({
     arrowSize = "small",
     className,
@@ -36,6 +48,25 @@ const Score: React.FunctionComponent<ScoreProps> = ({
 }: ScoreProps) => {
     const stringFormatter = useLocalizedStringFormatter(intlMessages);
     const { locale } = useLocale();
+
+    const isWorkleap = getBrand() === "workleap";
+
+    const arrowPositiveClass = cx("ids-score__arrow", "ids-score__arrow--positive", {
+        "ids-score__arrow--selected": isSelected
+    });
+
+    const arrowNegativeClass = cx("ids-score__arrow", "ids-score__arrow--negative", {
+        "ids-score__arrow--selected": isSelected
+    });
+
+    const ArrowUpIconElement = isWorkleap ?
+        <ArrowUpIcon className={arrowPositiveClass} size={sizeMap[arrowSize]} /> :
+        <ArrowUp className={arrowPositiveClass} size={arrowSize} />;
+
+    const ArrowDownIconElement = isWorkleap ?
+        <ArrowDownIcon className={arrowNegativeClass} size={sizeMap[arrowSize]} /> :
+        <ArrowDown className={arrowNegativeClass} size={arrowSize} />;
+
     if (!isVariation && (value === undefined || value === null)) {
         return <span
             className={cx("ids-score", className, {
@@ -53,28 +84,20 @@ const Score: React.FunctionComponent<ScoreProps> = ({
     if (forceDecimal) {
         displayValue = metricValue.toFixed(1);
     }
+
     const arrow = isNegative ? (
-        <ArrowDown
-            size={arrowSize}
-            className={cx("ids-score__arrow", "ids-score__arrow--negative", {
-                "ids-score__arrow--selected": isSelected
-            })}
-        />
+        ArrowDownIconElement
     ) : (
-        <ArrowUp
-            size={arrowSize}
-            className={cx("ids-score__arrow", "ids-score__arrow--positive", {
-                "ids-score__arrow--selected": isSelected
-            })}
-        />
+        ArrowUpIconElement
     );
-    let postFix = absoluteValue === 1 ? 
-        ` ${stringFormatter.format("pt")}` : 
+
+    let postFix = absoluteValue === 1 ?
+        ` ${stringFormatter.format("pt")}` :
         ` ${stringFormatter.format("pts")}`;
 
     if (locale === "fr-CA") {
-        postFix = absoluteValue === 1 || absoluteValue === 0 ? 
-            ` ${stringFormatter.format("pt")}` : 
+        postFix = absoluteValue === 1 || absoluteValue === 0 ?
+            ` ${stringFormatter.format("pt")}` :
             ` ${stringFormatter.format("pts")}`;
     }
 
