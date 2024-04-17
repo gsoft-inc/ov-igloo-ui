@@ -3,7 +3,7 @@ import cx from "classnames";
 
 import ArrowUp from "@igloo-ui/icons/dist/ArrowUp";
 import ArrowDown from "@igloo-ui/icons/dist/ArrowDown";
-import { ArrowUpIcon, ArrowDownIcon } from "@hopper-ui/icons-react16";
+import { ArrowUpIcon, ArrowDownIcon, type IconProps } from "@hopper-ui/icons-react16";
 
 import { useLocalizedStringFormatter, useLocale } from "@igloo-ui/provider";
 import intlMessages from "./intl";
@@ -45,22 +45,27 @@ const Score: React.FunctionComponent<ScoreProps> = ({
 
     const isWorkleap = getBrand() === "workleap";
 
-    const sizeAdapter = (size: "small" | "medium" | "large"): "sm" | "md" | "lg" => {
-        if (isWorkleap) {
-            switch (size) {
-                case "small":
-                    return "sm";
-                case "medium":
-                    return "md";
-                case "large":
-                    return "lg";
-                default:
-                    return "sm";
-            }
-        } else {
-            return size;
-        }
+    const sizeMap = {
+        small: "sm",
+        medium: "md",
+        large: "lg"
     };
+
+    const arrowPositiveClass = cx("ids-score__arrow", "ids-score__arrow--positive", {
+        "ids-score__arrow--selected": isSelected
+    });
+
+    const arrowNegativeClass = cx("ids-score__arrow", "ids-score__arrow--negative", {
+        "ids-score__arrow--selected": isSelected
+    });
+
+    const ArrowUpIconElement = isWorkleap ?
+        <ArrowUpIcon className={arrowPositiveClass} size={sizeMap[arrowSize] as IconProps["size"]} /> :
+        <ArrowUp className={arrowPositiveClass} size={arrowSize} />;
+
+    const ArrowDownIconElement = isWorkleap ?
+        <ArrowDownIcon className={arrowNegativeClass} size={sizeMap[arrowSize] as IconProps["size"]} /> :
+        <ArrowDown className={arrowNegativeClass} size={arrowSize} />;
 
     if (!isVariation && (value === undefined || value === null)) {
         return <span
@@ -81,37 +86,9 @@ const Score: React.FunctionComponent<ScoreProps> = ({
     }
 
     const arrow = isNegative ? (
-        isWorkleap ? (
-            <ArrowDownIcon
-                size={sizeAdapter(arrowSize)}
-                className={cx("ids-score__arrow", "ids-score__arrow--negative", {
-                    "ids-score__arrow--selected": isSelected
-                })}
-            />
-        ) : (
-            <ArrowDown
-                size={arrowSize}
-                className={cx("ids-score__arrow", "ids-score__arrow--negative", {
-                    "ids-score__arrow--selected": isSelected
-                })}
-            />
-        )
+        ArrowDownIconElement
     ) : (
-        isWorkleap ? (
-            <ArrowUpIcon
-                size={sizeAdapter(arrowSize)}
-                className={cx("ids-score__arrow", "ids-score__arrow--positive", {
-                    "ids-score__arrow--selected": isSelected
-                })}
-            />
-        ) : (
-            <ArrowUp
-                size={arrowSize}
-                className={cx("ids-score__arrow", "ids-score__arrow--positive", {
-                    "ids-score__arrow--selected": isSelected
-                })}
-            />
-        )
+        ArrowUpIconElement
     );
 
     let postFix = absoluteValue === 1 ?
