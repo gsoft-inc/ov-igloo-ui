@@ -3,7 +3,7 @@ import cx from "classnames";
 
 import ArrowUp from "@igloo-ui/icons/dist/ArrowUp";
 import ArrowDown from "@igloo-ui/icons/dist/ArrowDown";
-import { ArrowUpIcon, ArrowDownIcon, type IconProps } from "@hopper-ui/icons-react16";
+import { ArrowUpIcon, ArrowDownIcon } from "@hopper-ui/icons-react16";
 
 import { useLocalizedStringFormatter, useLocale } from "@igloo-ui/provider";
 import intlMessages from "./intl";
