@@ -1,5 +1,11 @@
 # @igloo-ui/tag
 
+## 1.7.1
+
+### Patch Changes
+
+- 8281f80: Bumped dependency
+
 ## 1.7.0
 
 ### Minor Changes

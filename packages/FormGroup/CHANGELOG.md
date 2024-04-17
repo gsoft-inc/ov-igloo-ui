@@ -1,5 +1,14 @@
 # @igloo-ui/form-group
 
+## 1.1.2
+
+### Patch Changes
+
+- 8281f80: Dependency of dependency
+- 8281f80: Bumped dependency
+- Updated dependencies [8281f80]
+  - @igloo-ui/helper-text@0.3.2
+
 ## 1.1.1
 
 ### Patch Changes

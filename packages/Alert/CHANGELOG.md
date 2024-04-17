@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.7.11
+
+### Patch Changes
+
+- 8281f80: Bumped dependency
+
 ## 0.7.10
 
 ### Patch Changes

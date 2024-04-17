@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/toaster",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "main": "dist/Toaster.js",
   "module": "dist/Toaster.js",
   "types": "dist/Toaster.d.ts",

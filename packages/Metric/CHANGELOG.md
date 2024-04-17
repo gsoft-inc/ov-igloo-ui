@@ -1,5 +1,12 @@
 # @igloo-ui/metric
 
+## 0.3.4
+
+### Patch Changes
+
+- e7e3fc7: Fixed Metric Score Icon size
+- 8281f80: Bumped dependency
+
 ## 0.3.3
 
 ### Patch Changes

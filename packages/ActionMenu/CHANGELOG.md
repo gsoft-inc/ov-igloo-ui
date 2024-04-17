@@ -1,5 +1,13 @@
 # @igloo-ui/action-menu
 
+## 1.5.5
+
+### Patch Changes
+
+- 8281f80: Dependency of dependency
+- Updated dependencies [8281f80]
+  - @igloo-ui/list@0.7.2
+
 ## 1.5.4
 
 ### Patch Changes

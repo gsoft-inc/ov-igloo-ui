@@ -1,5 +1,11 @@
 # @igloo-ui/list
 
+## 0.7.2
+
+### Patch Changes
+
+- 8281f80: Bumped dependency
+
 ## 0.7.1
 
 ### Patch Changes

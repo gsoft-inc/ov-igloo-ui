@@ -1,5 +1,11 @@
 # @igloo-ui/toaster
 
+## 2.1.7
+
+### Patch Changes
+
+- 8281f80: Bumped dependency
+
 ## 2.1.6
 
 ### Patch Changes

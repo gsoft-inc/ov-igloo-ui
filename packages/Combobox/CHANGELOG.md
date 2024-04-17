@@ -1,5 +1,13 @@
 # @igloo-ui/combobox
 
+## 2.3.5
+
+### Patch Changes
+
+- 8281f80: Bumped dependency
+- Updated dependencies [8281f80]
+  - @igloo-ui/list@0.7.2
+
 ## 2.3.4
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @igloo-ui/select
 
+## 1.5.4
+
+### Patch Changes
+
+- 8281f80: Dependency of dependency
+- 8281f80: Bumped dependency
+- Updated dependencies [8281f80]
+  - @igloo-ui/list@0.7.2
+
 ## 1.5.3
 
 ### Patch Changes

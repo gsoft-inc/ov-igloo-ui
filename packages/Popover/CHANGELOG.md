@@ -1,5 +1,11 @@
 # @igloo-ui/popover
 
+## 0.5.9
+
+### Patch Changes
+
+- 8281f80: Bumped dependency
+
 ## 0.5.8
 
 ### Patch Changes

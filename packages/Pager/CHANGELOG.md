@@ -1,5 +1,12 @@
 # @igloo-ui/pager
 
+## 1.0.2
+
+### Patch Changes
+
+- 8281f80: Bumped dependency
+- 731061b: Changed Chevron size
+
 ## 1.0.1
 
 ### Patch Changes

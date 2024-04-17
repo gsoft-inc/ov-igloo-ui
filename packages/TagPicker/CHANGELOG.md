@@ -1,5 +1,13 @@
 # @igloo-ui/tag-picker
 
+## 0.12.2
+
+### Patch Changes
+
+- 8281f80: Dependency of dependency
+- Updated dependencies [8281f80]
+  - @igloo-ui/tag@1.7.1
+
 ## 0.12.1
 
 ### Patch Changes

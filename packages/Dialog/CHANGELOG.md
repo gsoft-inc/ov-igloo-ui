@@ -1,5 +1,13 @@
 # @igloo-ui/dialog
 
+## 0.8.13
+
+### Patch Changes
+
+- 8281f80: Dependency of dependency
+- Updated dependencies [8281f80]
+  - @igloo-ui/modal@1.7.4
+
 ## 0.8.12
 
 ### Patch Changes
