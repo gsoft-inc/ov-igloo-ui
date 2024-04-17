@@ -3,9 +3,10 @@ import cx from "classnames";
 import { useButton, type AriaButtonProps, FocusRing } from "react-aria";
 
 import HelpSolid from "@igloo-ui/icons/dist/HelpSolid";
-import Help from "@igloo-ui/icons/dist/Help";
 import Alignment from "@igloo-ui/icons/dist/Alignment";
 import Checkmark from "@igloo-ui/icons/dist/Checkmark";
+
+import { QuestionIcon } from "@hopper-ui/icons-react16";
 
 import Tooltip from "@igloo-ui/tooltip";
 import Score from "./Score";
@@ -109,7 +110,7 @@ const Metric: React.FunctionComponent<MetricProps> = ({
                         {tooltip && appearance !== "selected" && (
                             <Tooltip content={tooltip}>
                                 {isWorkleap ? (
-                                    <Help size="small" />) : <HelpSolid size="small" />}
+                                    <QuestionIcon size="sm" />) : <HelpSolid size="small" />}
                             </Tooltip>
                         )}
                         {type !== "subMetric" && appearance === "selected" && (

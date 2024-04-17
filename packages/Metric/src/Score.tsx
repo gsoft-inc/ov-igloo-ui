@@ -27,6 +27,12 @@ export interface ScoreProps extends React.ComponentProps<"div"> {
     value?: number | null;
 }
 
+const sizeMap = {
+    small: "sm",
+    medium: "md",
+    large: "lg"
+} as const;
+
 const Score: React.FunctionComponent<ScoreProps> = ({
     arrowSize = "small",
     className,
@@ -45,12 +51,6 @@ const Score: React.FunctionComponent<ScoreProps> = ({
 
     const isWorkleap = getBrand() === "workleap";
 
-    const sizeMap = {
-        small: "sm",
-        medium: "md",
-        large: "lg"
-    };
-
     const arrowPositiveClass = cx("ids-score__arrow", "ids-score__arrow--positive", {
         "ids-score__arrow--selected": isSelected
     });
@@ -60,11 +60,11 @@ const Score: React.FunctionComponent<ScoreProps> = ({
     });
 
     const ArrowUpIconElement = isWorkleap ?
-        <ArrowUpIcon className={arrowPositiveClass} size={sizeMap[arrowSize] as IconProps["size"]} /> :
+        <ArrowUpIcon className={arrowPositiveClass} size={sizeMap[arrowSize]} /> :
         <ArrowUp className={arrowPositiveClass} size={arrowSize} />;
 
     const ArrowDownIconElement = isWorkleap ?
-        <ArrowDownIcon className={arrowNegativeClass} size={sizeMap[arrowSize] as IconProps["size"]} /> :
+        <ArrowDownIcon className={arrowNegativeClass} size={sizeMap[arrowSize]} /> :
         <ArrowDown className={arrowNegativeClass} size={arrowSize} />;
 
     if (!isVariation && (value === undefined || value === null)) {
