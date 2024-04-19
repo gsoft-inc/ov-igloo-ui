@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.7.5
+
+### Patch Changes
+
+- 1e7eb00: Fixed a margin issue with footer action buttons
+
 ## 1.7.4
 
 ### Patch Changes
