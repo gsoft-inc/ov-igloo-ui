@@ -46,6 +46,7 @@
         --ids-modal-full-content-close-spacing-vertical: #{tokens.$space-1};
         --ids-modal-footer-margin: #{tokens.$space-2} -#{tokens.$space-2} -#{tokens.$space-2};
         --ids-modal-footer-action-margin: #{tokens.$space-2} #{tokens.$space-2};
+        --ids-modal-footer-action-secondary-margin: #{tokens.$space-2};
     }
 
     [data-brand="workleap"] {
@@ -87,7 +88,8 @@
         --ids-modal-full-content-close-spacing-horizontal: calc(var(--hop-space-inline-xs) + var(--hop-space-inline-sm));
         --ids-modal-full-content-close-spacing-vertical: calc(var(--hop-space-stack-xs) + var(--hop-space-stack-sm));
         --ids-modal-footer-margin: var(--hop-space-stack-sm) calc(-1 * var(--hop-space-inline-sm)) calc(-1 * var(--hop-space-stack-sm));
-        --ids-modal-footer-action-margin: var(--hop-space-stack-sm) var(--hop-space-inline-sm);
+        --ids-modal-footer-action-margin: 0;
+        --ids-modal-footer-action-secondary-margin: var(--hop-space-inset-sm);
     }
 
     @media (width >= #{tokens.$breakpoints-sm}) {
@@ -331,6 +333,10 @@
     .ids-modal__footer-action {
         flex: 1 1 100%;
         margin: var(--ids-modal-footer-action-margin);
+
+        &--secondary {
+            margin-right: var(--ids-modal-footer-action-secondary-margin);
+        }
 
         &--tertiary {
             text-align: center;

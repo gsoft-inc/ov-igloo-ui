@@ -107,7 +107,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
         console.warn("Warning: The closeBtnAriaLabel prop in the Modal component is deprecated " +
         "and will be removed in a future version.");
     }
-    
+
     const stringFormatter = useLocalizedStringFormatter(intlMessages);
 
     const displayBackBtn = carousel && carousel.currentSlide && carousel.currentSlide > 0;
@@ -119,7 +119,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
 
     const ref = React.useRef<HTMLDivElement>(null);
     const { overlayProps, underlayProps } = useOverlay(
-        { isOpen, onClose, isDismissable, isKeyboardDismissDisabled: !dismissOnEscape, 
+        { isOpen, onClose, isDismissable, isKeyboardDismissDisabled: !dismissOnEscape,
             shouldCloseOnInteractOutside: element => {
                 // Don't close if a dropdown is clicked
                 if (element.closest("[data-floating-ui-portal]")) {
@@ -274,6 +274,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
                         && React.cloneElement(secondaryAction, {
                             className: cx(
                                 "ids-modal__footer-action",
+                                "ids-modal__footer-action--secondary",
                                 secondaryAction.props?.className
                             )
                         })}
