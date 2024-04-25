@@ -1,5 +1,11 @@
 # @igloo-ui/dialog
 
+## 0.8.14
+
+### Patch Changes
+
+- 1c98ed2: Updated dependency for Dialog on Modal
+
 ## 0.8.13
 
 ### Patch Changes
