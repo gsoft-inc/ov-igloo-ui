@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.6
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+
 ## 0.8.5
 
 ### Patch Changes

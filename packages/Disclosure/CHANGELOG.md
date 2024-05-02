@@ -1,5 +1,11 @@
 # @igloo-ui/disclosure
 
+## 1.1.3
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+
 ## 1.1.2
 
 ### Patch Changes

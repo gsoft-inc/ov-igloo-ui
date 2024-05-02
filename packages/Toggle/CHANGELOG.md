@@ -1,5 +1,11 @@
 # @igloo-ui/toggle
 
+## 1.2.3
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+
 ## 1.2.2
 
 ### Patch Changes

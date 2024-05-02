@@ -1,5 +1,11 @@
 # @igloo-ui/hyperlink
 
+## 0.4.3
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+
 ## 0.4.2
 
 ### Patch Changes

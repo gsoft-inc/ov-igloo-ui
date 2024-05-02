@@ -1,5 +1,13 @@
 # @igloo-ui/stepper
 
+## 0.3.3
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+- Updated dependencies [1613653]
+  - @igloo-ui/tooltip@3.5.3
+
 ## 0.3.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.5.3
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+
 ## 3.5.2
 
 ### Patch Changes

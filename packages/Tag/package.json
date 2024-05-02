@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/tag",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "main": "dist/Tag.js",
   "module": "dist/Tag.js",
   "types": "dist/Tag.d.ts",
@@ -15,7 +15,7 @@
   ],
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@igloo-ui/provider": ">=0.1.1",
+    "@igloo-ui/provider": ">=0.1.2",
     "react": ">= 16.8.6"
   },
   "files": [
@@ -25,16 +25,16 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/icon-button": "^1.2.7",
+    "@igloo-ui/icon-button": "^1.2.8",
     "@igloo-ui/icons": "^1.12.2",
     "@igloo-ui/tokens": "^2.1.0",
-    "@igloo-ui/ellipsis": "^0.3.1",
+    "@igloo-ui/ellipsis": "^0.3.2",
     "@hopper-ui/icons-react16": "1.2.0",
     "@hopper-ui/tokens": "^3.5.1",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@igloo-ui/provider": "^0.1.1",
+    "@igloo-ui/provider": "^0.1.2",
     "@shared/components": "0.5.0"
   },
   "browserslist": [

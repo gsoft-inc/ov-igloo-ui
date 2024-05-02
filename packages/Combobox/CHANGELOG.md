@@ -1,5 +1,18 @@
 # @igloo-ui/combobox
 
+## 2.3.6
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+- Updated dependencies [1613653]
+  - @igloo-ui/dropdown@1.8.2
+  - @igloo-ui/icon-button@1.2.8
+  - @igloo-ui/input@2.2.4
+  - @igloo-ui/list@0.7.3
+  - @igloo-ui/provider@0.1.2
+  - @igloo-ui/tooltip@3.5.3
+
 ## 2.3.5
 
 ### Patch Changes

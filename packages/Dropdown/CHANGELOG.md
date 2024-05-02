@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.8.2
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+
 ## 1.8.1
 
 ### Patch Changes
