@@ -24,8 +24,8 @@
         "build": "rollup -c rollup.config.js"
     },
     "dependencies": {
-        "@igloo-ui/tokens": "^2.0.0",
-        "@hopper-ui/tokens": "^3.5.0",
+        "@igloo-ui/tokens": "^2.1.0",
+        "@hopper-ui/tokens": "^3.5.1",
         "classnames": "^2.3.2",
         "graphemer": "^1.4.0"
     },

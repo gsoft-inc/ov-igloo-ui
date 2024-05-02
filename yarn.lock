@@ -2058,10 +2058,10 @@
   resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.1.5.tgz#e0b33fbe294ad8e7f0b567e349aa80c116cd488b"
   integrity sha512-ytZ31EKklSWF1FLm6IqXw7+xoIUDbtSxDCAxGIbWwFc9MEsCqVSu8T38fsPNEXIaZsn9gMXZFBwbKYDDgn2U6A==
 
-"@hopper-ui/tokens@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.5.0.tgz#9c3e7eb8038d5f272c2d36c946dcc04b6cfebf19"
-  integrity sha512-asKtkx+pGuStCOUzD22JHGs37WAlIE7/kUSvsXeAhMTRjFw/0wC3qQUcZ0Pd6MgAOCnTnpwkcH6qE+c6GOtlkg==
+"@hopper-ui/tokens@^3.5.1":
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.5.1.tgz#7a1423a3856bf32e9ce0d97217d8ae737c1c1b0f"
+  integrity sha512-XieI4G2wK8RJP1uvm/KhZ+d8rCNA+ab0wVleAR/J+GOF+7mha96an066IDs3/YgfXyojudq0B+fbs14SER3KHQ==
 
 "@humanwhocodes/config-array@^0.11.13":
   version "0.11.13"
@@ -2109,10 +2109,12 @@
     classnames "^2.3.1"
     html-react-parser "^1.2.7"
 
-"@igloo-ui/tokens@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-2.0.0.tgz#a7977f0f7875659de8751f9413e4fc72ad2bdcd4"
-  integrity sha512-pkwNI08nUBq6021auftK6LcaPpIro6jhQqBU87RDRfrH+Y3783jghYH5rsCsty5UJRVP3OUUEZLSjHAgh5cTdA==
+"@igloo-ui/tokens@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-2.1.0.tgz#4604966f3b5dac07647dc42ecbfd15873240fa88"
+  integrity sha512-Qj4esHBN+570+cuc7byjWHig4NJmIDJfsruVzx3bx7xMLQumenp+CFLvI4buZoyh+EDwxDXnDPGfnzeaTvDaKA==
+  dependencies:
+    camelcase "^7.0.1"
 
 "@internationalized/date@^3.5.0":
   version "3.5.0"
@@ -8740,6 +8742,11 @@ camelcase@^5.0.0, camelcase@^5.3.1:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
+
+camelcase@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-7.0.1.tgz#f02e50af9fd7782bc8b88a3558c32fd3a388f048"
+  integrity sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==
 
 caniuse-api@^3.0.0:
   version "3.0.0"
