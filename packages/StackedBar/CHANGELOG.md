@@ -1,5 +1,13 @@
 # @igloo-ui/stacked-bar
 
+## 0.4.5
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+- Updated dependencies [1613653]
+  - @igloo-ui/popover@0.5.10
+
 ## 0.4.4
 
 ### Patch Changes

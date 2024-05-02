@@ -1,5 +1,14 @@
 # @igloo-ui/action-menu
 
+## 1.5.6
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+- Updated dependencies [1613653]
+  - @igloo-ui/dropdown@1.8.2
+  - @igloo-ui/list@0.7.3
+
 ## 1.5.5
 
 ### Patch Changes

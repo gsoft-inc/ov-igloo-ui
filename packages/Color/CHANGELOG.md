@@ -1,5 +1,11 @@
 # @igloo-ui/color
 
+## 0.5.1
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+
 ## 0.5.0
 
 ### Minor Changes

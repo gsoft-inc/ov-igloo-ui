@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.2.6
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+
 ## 1.2.5
 
 ### Patch Changes

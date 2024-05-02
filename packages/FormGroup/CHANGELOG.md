@@ -1,5 +1,13 @@
 # @igloo-ui/form-group
 
+## 1.1.3
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+- Updated dependencies [1613653]
+  - @igloo-ui/helper-text@0.3.3
+
 ## 1.1.2
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @igloo-ui/text-editor
 
+## 0.7.12
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+- Updated dependencies [1613653]
+  - @igloo-ui/button@0.8.6
+  - @igloo-ui/icon-button@1.2.8
+  - @igloo-ui/input@2.2.4
+  - @igloo-ui/provider@0.1.2
+  - @igloo-ui/tooltip@3.5.3
+
 ## 0.7.11
 
 ### Patch Changes

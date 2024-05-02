@@ -1,5 +1,15 @@
 # @igloo-ui/tag-picker
 
+## 0.12.3
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+- Updated dependencies [1613653]
+  - @igloo-ui/dropdown@1.8.2
+  - @igloo-ui/input@2.2.4
+  - @igloo-ui/tag@1.7.2
+
 ## 0.12.2
 
 ### Patch Changes

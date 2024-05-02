@@ -1,5 +1,11 @@
 # @igloo-ui/card
 
+## 0.2.2
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+
 ## 0.2.1
 
 ### Patch Changes

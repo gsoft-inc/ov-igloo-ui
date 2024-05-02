@@ -1,5 +1,11 @@
 # @igloo-ui/option-button
 
+## 0.2.3
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+
 ## 0.2.2
 
 ### Patch Changes

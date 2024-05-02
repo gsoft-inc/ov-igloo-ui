@@ -1,5 +1,13 @@
 # @igloo-ui/toaster
 
+## 2.1.8
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+- Updated dependencies [1613653]
+  - @igloo-ui/icon-button@1.2.8
+
 ## 2.1.7
 
 ### Patch Changes

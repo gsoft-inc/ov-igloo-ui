@@ -1,5 +1,13 @@
 # @igloo-ui/list
 
+## 0.7.3
+
+### Patch Changes
+
+- 1613653: Updated Hopper Tokens Fonts package
+- Updated dependencies [1613653]
+  - @igloo-ui/checkbox@0.4.5
+
 ## 0.7.2
 
 ### Patch Changes
