@@ -93,7 +93,6 @@ const VerticalBarChart: React.FunctionComponent<VerticalBarChartProps> = ({
                                 className: cx("ids-vertical-bar-chart__bar", entry.className),
                                 key: `cell-${index}`
                             };
-
                             if (entry.color) {
                                 cellProps.fill = entry.color;
                             }
