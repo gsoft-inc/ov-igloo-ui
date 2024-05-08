@@ -36,8 +36,6 @@ export interface VerticalBarChartProps extends React.ComponentProps<"div"> {
     height?: number;
     /** Whether or not the chart bars should be animated */
     isAnimationActive?: boolean;
-    /** Whether or not the chart bars are following the heat colors */
-    isSolid?: boolean;
     /** The label to be displayed on the bottom right of the chart */
     maxLabel?: string;
     /** The label to be displayed on the bottom left of the chart */
@@ -50,7 +48,6 @@ const VerticalBarChart: React.FunctionComponent<VerticalBarChartProps> = ({
     dataTest,
     height = 200,
     isAnimationActive = true,
-    isSolid = false,
     maxLabel = "10",
     minLabel = "0",
     ...rest
@@ -90,7 +87,6 @@ const VerticalBarChart: React.FunctionComponent<VerticalBarChartProps> = ({
                         dataKey="value"
                         radius={[5, 5, 0, 0]}
                         isAnimationActive={isAnimationActive}
-                        isSolid={isSolid}
                     >
                         {data.map((entry, index) => {
                             const cellProps: CellProps = {
@@ -100,10 +96,6 @@ const VerticalBarChart: React.FunctionComponent<VerticalBarChartProps> = ({
 
                             if (entry.color) {
                                 cellProps.fill = entry.color;
-                            }
-
-                            if (isSolid) {
-                                cellProps.fill = "var(--ids-vertical-bar-chart-solid-color)";
                             }
 
                             return <Cell {...cellProps} />;
