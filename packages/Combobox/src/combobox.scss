@@ -36,7 +36,6 @@
         --ids-combobox-background-focus: #{tokens.$samoyed};
         --ids-combobox-focus: none;
 
-
         /* Disabled */
         --ids-combobox-color-disabled: #{tokens.$grey-500};
         --ids-combobox-background-disabled: #{tokens.$grey-200};
@@ -79,8 +78,7 @@
 
         /* Focus */
         --ids-combobox-background-focus: var(--hop-neutral-surface-hover);
-        --ids-combobox-border-color-focus: var(--hop-neutral-border-hover);
-        --ids-combobox-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+        --ids-combobox-border-color-focus: var(--hop-primary-border-focus);
 
         /* Disabled */
         --ids-combobox-color-disabled: var(--hop-neutral-text-disabled);
@@ -139,7 +137,6 @@
         &:focus-visible,
         &.focus {
             background-color: var(--ids-combobox-background-focus);
-            box-shadow: var(--ids-combobox-focus);
             border-color: var(--ids-combobox-border-color-focus);
         }
 
