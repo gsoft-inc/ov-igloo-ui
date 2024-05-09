@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/select",
-    "version": "1.5.5",
+    "version": "1.5.6",
     "main": "dist/Select.js",
     "module": "dist/Select.js",
     "types": "dist/Select.d.ts",
@@ -28,7 +28,7 @@
         "@igloo-ui/list": "^0.7.3",
         "@igloo-ui/icons": "^1.12.2",
         "@igloo-ui/icon-button": "^1.2.8",
-        "@igloo-ui/input": "^2.2.4",
+        "@igloo-ui/input": "^2.2.5",
         "@igloo-ui/tokens": "^2.1.0",
         "@hopper-ui/tokens": "^3.5.1",
         "@hopper-ui/icons-react16": "1.2.0",

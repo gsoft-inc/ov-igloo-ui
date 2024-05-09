@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.4.5
+
+### Patch Changes
+
+- e934837: UI fix for focused state
+
 ## 0.4.4
 
 ### Patch Changes
