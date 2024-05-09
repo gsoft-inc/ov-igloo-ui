@@ -1,5 +1,13 @@
 # @igloo-ui/combobox
 
+## 2.3.7
+
+### Patch Changes
+
+- e934837: UI fix for focused state
+- Updated dependencies [e934837]
+  - @igloo-ui/input@2.2.5
+
 ## 2.3.6
 
 ### Patch Changes

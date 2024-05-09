@@ -1,5 +1,14 @@
 # @igloo-ui/tag-picker
 
+## 0.12.4
+
+### Patch Changes
+
+- e934837: UI fix for focused state
+- e934837: Added focus border color
+- Updated dependencies [e934837]
+  - @igloo-ui/input@2.2.5
+
 ## 0.12.3
 
 ### Patch Changes

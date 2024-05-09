@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.2.5
+
+### Patch Changes
+
+- e934837: UI fix for focused state
+
 ## 2.2.4
 
 ### Patch Changes

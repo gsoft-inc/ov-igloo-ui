@@ -1,5 +1,13 @@
 # @igloo-ui/select
 
+## 1.5.6
+
+### Patch Changes
+
+- e934837: UI fix for focused state
+- Updated dependencies [e934837]
+  - @igloo-ui/input@2.2.5
+
 ## 1.5.5
 
 ### Patch Changes

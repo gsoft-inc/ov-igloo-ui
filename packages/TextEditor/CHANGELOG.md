@@ -1,5 +1,13 @@
 # @igloo-ui/text-editor
 
+## 0.7.13
+
+### Patch Changes
+
+- e934837: UI fix for focused state
+- Updated dependencies [e934837]
+  - @igloo-ui/input@2.2.5
+
 ## 0.7.12
 
 ### Patch Changes

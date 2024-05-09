@@ -1,5 +1,11 @@
 # @igloo-ui/form-group
 
+## 1.1.4
+
+### Patch Changes
+
+- e934837: UI fix for focused state
+
 ## 1.1.3
 
 ### Patch Changes

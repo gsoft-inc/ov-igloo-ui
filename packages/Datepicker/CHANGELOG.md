@@ -1,5 +1,11 @@
 # @igloo-ui/datepicker
 
+## 0.6.11
+
+### Patch Changes
+
+- e934837: UI fix for focused state
+
 ## 0.6.10
 
 ### Patch Changes
