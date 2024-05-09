@@ -52,8 +52,7 @@
         --ids-tag-picker-border-size: 0.0625rem;
         --ids-tag-picker-border-color: var(--hop-neutral-border);
         --ids-tag-picker-border-color-hover: var(--hop-neutral-border-hover);
-        --ids-tag-picker-border-color-focus: var(--hop-neutral-border-hover);
-        --ids-tag-picker-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+        --ids-tag-picker-border-color-focus: var(--hop-primary-border-focus);
         --ids-tag-picker-border-color-error: var(--hop-danger-border-strong);
         --ids-tag-picker-border-radius: var(--hop-shape-rounded-md);
         --ids-tag-picker-font-family: var(--hop-body-md-font-family);
@@ -108,7 +107,6 @@
 
         &--focused {
             border-color: var(--ids-tag-picker-border-color-focus);
-            box-shadow: var(--ids-tag-picker-focus);
         }
 
         &--disabled {

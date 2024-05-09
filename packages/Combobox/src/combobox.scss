@@ -36,7 +36,6 @@
         --ids-combobox-background-focus: #{tokens.$samoyed};
         --ids-combobox-focus: none;
 
-
         /* Disabled */
         --ids-combobox-color-disabled: #{tokens.$grey-500};
         --ids-combobox-background-disabled: #{tokens.$grey-200};
@@ -76,6 +75,7 @@
         /* Active */
         --ids-combobox-background-active: var(--hop-neutral-surface);
         --ids-combobox-border-color-active: var(--hop-neutral-border-active);
+        --ids-combobox-search-border-color-active: var(--hop-primary-border-focus);
 
         /* Focus */
         --ids-combobox-background-focus: var(--hop-neutral-surface-hover);
@@ -139,8 +139,8 @@
         &:focus-visible,
         &.focus {
             background-color: var(--ids-combobox-background-focus);
-            box-shadow: var(--ids-combobox-focus);
             border-color: var(--ids-combobox-border-color-focus);
+            box-shadow: var(--ids-combobox-focus);
         }
 
         &--active,
@@ -167,6 +167,7 @@
             color: var(--ids-combobox-color-disabled);
             background-color: var(--ids-combobox-background-disabled);
             border-color: var(--ids-combobox-border-color-disabled);
+            box-shadow: none;
             cursor: not-allowed;
 
             &:hover {
@@ -178,6 +179,11 @@
         &--error {
             border-color: var(--ids-combobox-border-color-error);
         }
+    }
+
+    .ids-combobox--search.ids-combobox--active,
+    .ids-combobox.active .ids-combobox--search {
+        border-color: var(--ids-combobox-search-border-color-active);
     }
 
     .ids-combobox__dropdown {

@@ -59,8 +59,7 @@
         --ids-textarea-color-placeholder: var(--hop-neutral-text-weakest);
 
         /* Focus */
-        --ids-textarea-focus-border-color: var(--hop-neutral-border-active);
-        --ids-textarea-focus-box-shadow: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+        --ids-textarea-focus-border-color: var(-hop-primary-border-focus);
 
         /* Hover */
         --ids-textarea-hover-border-color: var(--hop-neutral-border-hover);

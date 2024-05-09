@@ -104,11 +104,10 @@
         --ids-input-background-hover: var(--hop-neutral-surface-hover);
 
         /* Focus */
-        --ids-input-border-color-focus: var(--hop-neutral-border-hover);
-        --ids-input-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+        --ids-input-border-color-focus: var(--hop-primary-border-focus);
 
         /* Active */
-        --ids-input-border-color-active: var(--hop-neutral-border-active);
+        --ids-input-border-color-active: var(--hop-primary-border-active);
 
         /* disabled */
         --ids-input-color-disabled: var(--hop-neutral-text-disabled);
@@ -275,7 +274,6 @@
         outline: 0;
         outline-offset: 0;
         border: var(--ids-input-border-size) solid var(--ids-input-border-color-active);
-        box-shadow: var(--ids-input-focus, none);
     }
 
     .ids-input:active,
