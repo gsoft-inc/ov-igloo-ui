@@ -77,7 +77,7 @@ const VerticalBarChart: React.FunctionComponent<VerticalBarChartProps> = ({
                     barCategoryGap="15%"
                     margin={{ top: 2, left: 2, right: 2, bottom: 2 }}
                     width={800}
-                    /* Width and height here are ignored because of ResponsiveContainer, 
+                    /* Width and height here are ignored because of ResponsiveContainer,
           but are useful for tests. */
                     height={height}
                 >

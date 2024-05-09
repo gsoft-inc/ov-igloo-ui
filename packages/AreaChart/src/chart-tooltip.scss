@@ -60,12 +60,12 @@
         --ids-chart-tooltip-score-text-font-weight: var(--hop-body-sm-font-weight);
 
         /* Circle */
-        --ids-chart-tooltip-circle-secondary-background: var(--hop-dataviz-categorical-2colorgroup-option4-category2);
+        --ids-chart-tooltip-circle-secondary-background: var(--hop-dataviz-categorical-2colorgroup-option4-category1);
         --ids-chart-tooltip-circle-margin-right: var(--hop-space-inline-sm);
         --ids-chart-tooltip-circle-size: 0.75rem;
 
         .ids-tooltip-score__circle {
-            --ids-chart-tooltip-circle-background: var(--ids-tooltip-score-dot-color, var(--hop-dataviz-categorical-2colorgroup-option4-category1));
+            --ids-chart-tooltip-circle-background: var(--ids-tooltip-score-dot-color, var(--hop-dataviz-categorical-2colorgroup-option4-category2));
         }
     }
 

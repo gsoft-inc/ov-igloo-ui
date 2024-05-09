@@ -46,7 +46,7 @@ const ChartTooltip: React.FunctionComponent<ChartTooltipProps> = (
         const formattedScore = formatter ? formatter(score) : score;
 
         return (
-            <div className="ids-tooltip-score" 
+            <div className="ids-tooltip-score"
                 style={{
                     "--ids-tooltip-score-dot-color": dotColor ? dotColor : undefined
                 } as React.CSSProperties}

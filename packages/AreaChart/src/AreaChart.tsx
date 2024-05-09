@@ -88,7 +88,7 @@ export interface AreaChartProps extends React.ComponentProps<"div"> {
     /** Whether or not the chart should resize */
     isResponsive?: boolean;
     /** Update the default locale
-     * @deprecated This prop is deprecated and will be removed 
+     * @deprecated This prop is deprecated and will be removed
      * in the next major version in favor of Igloo's provider
      */
     locale?: string;
@@ -110,24 +110,6 @@ export interface AreaChartProps extends React.ComponentProps<"div"> {
 
 const DEFAULT_SKELETON_WIDTH = 24;
 const DEFAULT_SKELETON_HEIGHT = 8;
-
-const getScores = (data: DataSet[]): number[] => {
-    const scores = data.filter(score => score !== null).map(dataSet => dataSet.score) as number[];
-
-    return scores;
-};
-
-const getScoreMin = (data: DataSet[]): number => {
-    const min = Math.min(...getScores(data));
-
-    return min;
-};
-
-const getScoreMax = (data: DataSet[]): number => {
-    const max = Math.max(...getScores(data));
-
-    return max;
-};
 
 const AreaChart: React.FunctionComponent<AreaChartProps> = ({
     className,
@@ -419,50 +401,6 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
         fill: "none"
     };
 
-    const getDataHue = (score: number, scoreRange: DataRange): string => {
-        const scoreMin = (typeof scoreRange.min === "number") ? scoreRange.min : getScoreMin(dataSet);
-        const scoreMax = (typeof scoreRange.max === "number") ? scoreRange.max : getScoreMax(dataSet);
-        const relativeScore = Math.round((score - scoreMin) * 100) / 100;
-        const scale = Math.round((scoreMax - scoreMin) * 100) / 100;
-        const ratio = relativeScore / scale;
-    
-        if (ratio <= 0.06) { return "var(--hop-dataviz-diverging-sequence-1-negative5)"; }
-        if (ratio <= 0.12) { return "var(--hop-dataviz-diverging-sequence-1-negative4)"; }
-        if (ratio <= 0.3) { return "var(--hop-dataviz-diverging-sequence-1-negative3)"; }
-        if (ratio <= 0.43) { return "var(--hop-dataviz-diverging-sequence-1-negative2)"; }
-        if (ratio <= 0.56) { return "var(--hop-dataviz-diverging-sequence-1-neutral)"; }
-        if (ratio <= 0.68) { return "var(--hop-dataviz-diverging-sequence-1-positive2)"; }
-        if (ratio <= 0.81) { return "var(--hop-dataviz-diverging-sequence-1-positive3)"; }
-        if (ratio <= 0.94) { return "var(--hop-dataviz-diverging-sequence-1-positive4)"; }
-    
-        return "var(--hop-dataviz-diverging-sequence-1-positive5)";
-    };
-
-    const buildAreaDefs = (): JSX.Element => {
-        return (
-            <defs>
-                <linearGradient 
-                    id="areaChartLineGradient" 
-                    x1="0" 
-                    y1="0" 
-                    x2="0"
-                    y2="96%"
-                    gradientUnits="userSpaceOnUse"
-                >
-                    <stop stopColor="var(--hop-dataviz-diverging-sequence-1-positive5)" />
-                    <stop offset="0.119792" stopColor="var(--hop-dataviz-diverging-sequence-1-positive4)" />
-                    <stop offset="0.239583" stopColor="var(--hop-dataviz-diverging-sequence-1-positive3)" />
-                    <stop offset="0.369792" stopColor="var(--hop-dataviz-diverging-sequence-1-positive2)" />
-                    <stop offset="0.498366" stopColor="var(--hop-dataviz-diverging-sequence-1-neutral)" />
-                    <stop offset="0.625" stopColor="var(--hop-dataviz-diverging-sequence-1-negative2)" />
-                    <stop offset="0.75" stopColor="var(--hop-dataviz-diverging-sequence-1-negative3)" />
-                    <stop offset="0.875" stopColor="var(--hop-dataviz-diverging-sequence-1-negative4)" />
-                    <stop offset="1" stopColor="var(--hop-dataviz-diverging-sequence-1-negative5)" />
-                </linearGradient>
-            </defs>
-        );
-    };
-
     React.useEffect(() => {
         let updatedAreaChartData = [];
 
@@ -556,7 +494,6 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
             margin={{ right: 26, top: 10, bottom: 10, left: 0 }}
             ref={setChartRef}
         >
-            {buildAreaDefs()}
             <CartesianGrid {...cartesianGridConfig} />
             <XAxis {...xAxisConfig} />
             <YAxis {...yAxisConfig} />
@@ -581,7 +518,6 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
                             dateFormatter={tooltipDateFormatter}
                             scoreFormatter={tooltipScoreFormatter}
                             unavailableDataMessage={unavailableDataMessage}
-                            getDataScoreHue={score => getDataHue(score, range)}
                         />
                     }
                 />
