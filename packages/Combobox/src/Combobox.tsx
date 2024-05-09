@@ -397,6 +397,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
     const comboboxClassname = cx("ids-combobox", className, {
         "ids-combobox--active": canShowMenu,
         "ids-combobox--compact": isCompact,
+        "ids-combobox--search": search,
         "ids-combobox--disabled": disabled,
         "ids-combobox--error": error
     });

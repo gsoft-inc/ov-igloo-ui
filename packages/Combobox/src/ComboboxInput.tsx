@@ -72,10 +72,10 @@ const ComboboxInput: React.FunctionComponent<ComboboxInputProps> = ({
     const isWorkleap = getBrand() === "workleap";
     const chevronClass = "ids-combobox-input__chevron";
     const chevronUpIcon = isWorkleap ?
-        <AngleUpIcon className={chevronClass} size="sm" /> : 
+        <AngleUpIcon className={chevronClass} size="sm" /> :
         <ChevronUp className={chevronClass} size="small" />;
-    const chevronDownIcon = isWorkleap ? 
-        <AngleDownIcon className={chevronClass} size="sm" /> : 
+    const chevronDownIcon = isWorkleap ?
+        <AngleDownIcon className={chevronClass} size="sm" /> :
         <ChevronDown className={chevronClass} size="small" />;
 
     const handleChange = ({
