@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 1.2.4
+
+### Patch Changes
+
+- 8bb3586: UI fix - Reverting to a solid colored line for complexity reasons
+
 ## 1.2.3
 
 ### Patch Changes
