@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.7.13
+
+### Patch Changes
+
+- bec0ec9: Font-weight adjustment to match Hopper Design
+
 ## 0.7.12
 
 ### Patch Changes
