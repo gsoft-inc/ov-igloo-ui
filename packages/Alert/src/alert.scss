@@ -51,7 +51,7 @@
         --ids-alert-font-size: var(--hop-body-sm-semibold-font-size);
         --ids-alert-line-height: var(--hop-body-sm-semibold-line-height);
         --ids-alert-title-font-weight: var(--hop-body-sm-semibold-font-weight);
-        --ids-alert-horizonta-title-font-weight: var(--hop-body-sm-font-weight);
+        --ids-alert-horizontal-title-font-weight: var(--hop-body-sm-font-weight);
         --ids-alert-padding: var(--hop-space-inset-md);
         --ids-alert-flex-gap-component: var(--hop-space-inline-md);
         --ids-alert-border-radius: var(--hop-shape-rounded-md);
@@ -125,7 +125,7 @@
 
         &--horizontal {
             .ids-alert__title {
-                font-weight: var(--ids-alert-horizonta-title-font-weight, var(--ids-alert-title-font-weight))
+                font-weight: var(--ids-alert-horizontal-title-font-weight, var(--ids-alert-title-font-weight))
             }
         }
 
