@@ -15,6 +15,7 @@
         --ids-dialog-header-font-size: #{tokens.$font-size-6};
         --ids-dialog-header-font-weight: #{tokens.$font-weight-medium};
         --ids-dialog-header-padding: #{tokens.$space-6} #{tokens.$space-3} #{tokens.$space-2};
+        --ids-dialog-header-title-alignment: center;
         --ids-dialog-content-padding: #{tokens.$space-2} #{tokens.$space-3} #{tokens.$space-3};
         --ids-dialog-sub-title-line-height: #{tokens.$line-height-xxxl};
         --ids-dialog-sub-title-color: #{tokens.$grey-600};
@@ -22,7 +23,8 @@
         --ids-dialog-close-spacing-horizontal: #{tokens.$space-2};
         --ids-dialog-close-spacing-vertical: #{tokens.$space-2};
         --ids-dialog-close-position: absolute;
-        --ids-dialog-close-padding-x: 0;
+        --ids-dialog-close-padding-x-left: 0;
+        --ids-dialog-close-padding-x-right: 0;
         --ids-dialog-buttons-margin: #{tokens.$space-5} -#{tokens.$space-0} -#{tokens.$space-2};
         --ids-dialog-button-margin: #{tokens.$space-2} #{tokens.$space-0};
         --ids-dialog-button-width: fit-content;
@@ -40,14 +42,16 @@
         --ids-dialog-header-font-weight: var(--hop-heading-md-font-weight);
         --ids-dialog-header-line-height: var(--hop-heading-md-line-height);
         --ids-dialog-header-padding: calc(var(--hop-space-inset-md) + var(--hop-space-inset-xl)) var(--hop-space-inset-md) 0;
+        --ids-dialog-header-title-alignment: center;
         --ids-dialog-content-padding: 0 var(--hop-space-inset-md) var(--hop-space-inset-md);
         --ids-dialog-sub-title-line-height: var(--hop-body-md-line-height);
-        --ids-dialog-sub-title-color: var(--hop-neutral-text-weak);
+        --ids-dialog-sub-title-color: var(--hop-neutral-text);
         --ids-dialog-sub-title-padding-top: var(--hop-space-inset-md);
         --ids-dialog-close-spacing-horizontal: calc(var(--hop-space-inline-xs) + var(--hop-space-inline-sm));
         --ids-dialog-close-spacing-vertical: calc(var(--hop-space-stack-xs) + var(--hop-space-stack-sm));
         --ids-dialog-close-position: absolute;
-        --ids-dialog-close-padding-x: 0;
+        --ids-dialog-close-padding-x-left: 0;
+        --ids-dialog-close-padding-x-right: 0;
         --ids-dialog-buttons-margin: var(--hop-space-stack-xl) 0 calc(-1 * var(--hop-space-inset-sm));
         --ids-dialog-button-margin: var(--hop-space-stack-sm) 0;
         --ids-dialog-button-width: fit-content;
@@ -58,10 +62,12 @@
     @media (width >= #{tokens.$breakpoints-sm}) {
         :root {
             --ids-dialog-header-padding: #{tokens.$space-4} #{tokens.$space-4} #{tokens.$space-2};
+            --ids-dialog-header-title-alignment: center;
             --ids-dialog-close-spacing-horizontal: #{tokens.$space-3};
             --ids-dialog-close-spacing-vertical: #{tokens.$space-3};
             --ids-dialog-close-position: absolute;
-            --ids-dialog-close-padding-x: #{tokens.$space-5};
+            --ids-dialog-close-padding-x-left: #{tokens.$space-5};
+            --ids-dialog-close-padding-x-right: #{tokens.$space-5};
             --ids-dialog-content-padding: #{tokens.$space-0} #{tokens.$space-4} #{tokens.$space-4};
             --ids-dialog-buttons-margin: var(--hop-space-stack-lg) -#{tokens.$space-2} #{tokens.$space-0};
             --ids-dialog-button-margin: 0 #{tokens.$space-2};
@@ -72,10 +78,12 @@
 
         [data-brand="workleap"] {
             --ids-dialog-header-padding: var(--hop-space-inset-lg) var(--hop-space-inset-lg) 0;
+            --ids-dialog-header-title-alignment: left;
             --ids-dialog-close-spacing-horizontal: calc(var(--hop-space-inline-xs) + var(--hop-space-inline-md));
             --ids-dialog-close-spacing-vertical: calc(var(--hop-space-stack-xs) + var(--hop-space-stack-md));
             --ids-dialog-close-position: absolute;
-            --ids-dialog-close-padding-x: var(--hop-space-inset-xl);
+            --ids-dialog-close-padding-x-left: 0;
+            --ids-dialog-close-padding-x-right: var(--hop-space-inset-xl);
             --ids-dialog-content-padding: 0 var(--hop-space-inset-lg) var(--hop-space-inset-lg);
             --ids-dialog-buttons-margin: var(--hop-space-stack-xl) calc(-1 * var(--hop-space-inset-sm)) 0;
             --ids-dialog-button-margin: 0 var(--hop-space-inset-sm);
@@ -114,12 +122,12 @@
         font-size: var(--ids-dialog-header-font-size);
         font-weight: var(--ids-dialog-header-font-weight);
         line-height: var(--ids-dialog-header-line-height);
-        text-align: center;
+        text-align: var(--ids-dialog-header-title-alignment);
     }
 
     .ids-dialog.ids-modal--closable .ids-modal__title {
-        padding-left: var(--ids-dialog-close-padding-x);
-        padding-right: var(--ids-dialog-close-padding-x);
+        padding-left: var(--ids-dialog-close-padding-x-left);
+        padding-right: var(--ids-dialog-close-padding-x-right);
         padding-top: var(--ids-dialog-close-padding-top);
     }
 
@@ -137,7 +145,7 @@
     .ids-dialog__sub-title {
         color: var(--ids-dialog-sub-title-color);
         line-height: var(--ids-dialog-sub-title-line-height);
-        text-align: center;
+        text-align: var(--ids-dialog-header-title-alignment);
         padding-top: var(--ids-dialog-sub-title-padding-top);
     }
 
