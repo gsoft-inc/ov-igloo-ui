@@ -2058,7 +2058,7 @@
   resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.1.5.tgz#e0b33fbe294ad8e7f0b567e349aa80c116cd488b"
   integrity sha512-ytZ31EKklSWF1FLm6IqXw7+xoIUDbtSxDCAxGIbWwFc9MEsCqVSu8T38fsPNEXIaZsn9gMXZFBwbKYDDgn2U6A==
 
-"@hopper-ui/tokens@^3.5.1":
+"@hopper-ui/tokens@^3.5.0", "@hopper-ui/tokens@^3.5.1":
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.5.1.tgz#7a1423a3856bf32e9ce0d97217d8ae737c1c1b0f"
   integrity sha512-XieI4G2wK8RJP1uvm/KhZ+d8rCNA+ab0wVleAR/J+GOF+7mha96an066IDs3/YgfXyojudq0B+fbs14SER3KHQ==
@@ -2109,7 +2109,7 @@
     classnames "^2.3.1"
     html-react-parser "^1.2.7"
 
-"@igloo-ui/tokens@^2.1.0":
+"@igloo-ui/tokens@^2.0.0", "@igloo-ui/tokens@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-2.1.0.tgz#4604966f3b5dac07647dc42ecbfd15873240fa88"
   integrity sha512-Qj4esHBN+570+cuc7byjWHig4NJmIDJfsruVzx3bx7xMLQumenp+CFLvI4buZoyh+EDwxDXnDPGfnzeaTvDaKA==
@@ -8927,11 +8927,6 @@ classnames@^2.2.5, classnames@^2.3.1, classnames@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
   integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
-
-classnames@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.5.1.tgz#ba774c614be0f016da105c858e7159eae8e7687b"
-  integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
 
 clean-css@^5.2.2:
   version "5.3.2"
