@@ -1,5 +1,11 @@
 # @igloo-ui/dialog
 
+## 0.8.15
+
+### Patch Changes
+
+- 7dbf267: Change of alignment for title and subtitle in Workleap brand
+
 ## 0.8.14
 
 ### Patch Changes

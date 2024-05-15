@@ -1,5 +1,11 @@
 # @igloo-ui/datepicker
 
+## 0.6.12
+
+### Patch Changes
+
+- 4b5c9bd: Updated dependencies
+
 ## 0.6.11
 
 ### Patch Changes
