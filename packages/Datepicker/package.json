@@ -25,13 +25,13 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/button": "^0.8.5",
-    "@igloo-ui/dropdown": "^1.8.1",
-    "@igloo-ui/icon-button": "^1.2.7",
-    "@igloo-ui/icons": "^1.12.2",
+    "@igloo-ui/button": "^0.8.6",
+    "@igloo-ui/dropdown": "^1.8.2",
+    "@igloo-ui/icon-button": "^1.2.8",
+    "@igloo-ui/icons": "^1.12.3",
     "@igloo-ui/input": "^2.2.5",
-    "@igloo-ui/tokens": "^2.0.0",
-    "@hopper-ui/tokens": "^3.5.0",
+    "@igloo-ui/tokens": "^2.1.0",
+    "@hopper-ui/tokens": "^3.5.1",
     "@internationalized/date": "^3.5.2",
     "classnames": "^2.3.2",
     "luxon": "^3.4.4",
@@ -39,7 +39,7 @@
     "react-stately": "^3.30.1"
   },
   "devDependencies": {
-    "@igloo-ui/provider": "^0.1.1"
+    "@igloo-ui/provider": "^0.1.2"
   },
   "browserslist": [
     "> 1%",

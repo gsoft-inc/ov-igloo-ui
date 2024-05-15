@@ -2058,7 +2058,7 @@
   resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.1.5.tgz#e0b33fbe294ad8e7f0b567e349aa80c116cd488b"
   integrity sha512-ytZ31EKklSWF1FLm6IqXw7+xoIUDbtSxDCAxGIbWwFc9MEsCqVSu8T38fsPNEXIaZsn9gMXZFBwbKYDDgn2U6A==
 
-"@hopper-ui/tokens@^3.5.0", "@hopper-ui/tokens@^3.5.1":
+"@hopper-ui/tokens@^3.5.1":
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.5.1.tgz#7a1423a3856bf32e9ce0d97217d8ae737c1c1b0f"
   integrity sha512-XieI4G2wK8RJP1uvm/KhZ+d8rCNA+ab0wVleAR/J+GOF+7mha96an066IDs3/YgfXyojudq0B+fbs14SER3KHQ==
@@ -2109,7 +2109,15 @@
     classnames "^2.3.1"
     html-react-parser "^1.2.7"
 
-"@igloo-ui/tokens@^2.0.0", "@igloo-ui/tokens@^2.1.0":
+"@igloo-ui/icons@^1.12.3":
+  version "1.12.3"
+  resolved "https://registry.yarnpkg.com/@igloo-ui/icons/-/icons-1.12.3.tgz#d837551afd8504b732ae05bf28d1ff7d809a978d"
+  integrity sha512-G3gUTsbehsu5MutDPl0iyhxjxcBHMuD6j6RTUL11fd/u+Vl2n9t2xO2RKFx1u9fuE1Q731PbE4+BzewgrH340g==
+  dependencies:
+    classnames "^2.3.1"
+    html-react-parser "^1.2.7"
+
+"@igloo-ui/tokens@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@igloo-ui/tokens/-/tokens-2.1.0.tgz#4604966f3b5dac07647dc42ecbfd15873240fa88"
   integrity sha512-Qj4esHBN+570+cuc7byjWHig4NJmIDJfsruVzx3bx7xMLQumenp+CFLvI4buZoyh+EDwxDXnDPGfnzeaTvDaKA==
