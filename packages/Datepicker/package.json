@@ -29,6 +29,7 @@
     "@igloo-ui/dropdown": "^1.8.2",
     "@igloo-ui/icon-button": "^1.2.8",
     "@igloo-ui/icons": "^1.12.2",
+    "@igloo-ui/input": "^2.2.5",
     "@igloo-ui/tokens": "^2.1.0",
     "@hopper-ui/tokens": "^3.5.1",
     "@internationalized/date": "^3.5.2",
