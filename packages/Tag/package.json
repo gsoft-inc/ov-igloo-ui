@@ -30,7 +30,7 @@
     "@igloo-ui/tokens": "^2.1.0",
     "@igloo-ui/ellipsis": "^0.3.2",
     "@hopper-ui/icons-react16": "1.2.0",
-    "@hopper-ui/tokens": "^3.5.1",
+    "@hopper-ui/tokens": "^4.0.0",
     "classnames": "^2.3.2"
   },
   "devDependencies": {

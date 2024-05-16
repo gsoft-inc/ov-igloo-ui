@@ -32,7 +32,7 @@ const mockData = [
 const mockDataWL = [
   { id: 'positive', percentage: 25, color: "var(--hop-status-positive-surface-strong)" },
   { id: 'negative', percentage: 10, color: "var(--hop-status-negative-surface-strong)" },
-  { id: 'skipped', percentage: 40, color: "var(--hop-upsell-surface-active)" },
+  { id: 'skipped', percentage: 40, color: "var(--hop-upsell-surface-selected)" },
   { id: 'unanswered', percentage: 25, color: "var(--hop-neutral-surface-disabled)" },
 ];
 
@@ -44,7 +44,7 @@ const getMockData = (brand: string) => {
 export const Overview: Story = {
   render: (args, { globals: { brand } }) => {
     return (
-      <Section> 
+      <Section>
         <PieChart
           {...args}
           data={getMockData(brand)}

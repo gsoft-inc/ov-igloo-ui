@@ -35,18 +35,18 @@
         --ids-step-background: var(--hop-neutral-surface);
         --ids-step-border: var(--hop-neutral-border);
         --ids-step-size: 1.5rem;
-        --ids-step-complete-color: var(--hop-neutral-icon-active);
-        --ids-step-complete-background: var(--hop-neutral-surface-active);
+        --ids-step-complete-color: var(--hop-neutral-icon-selected);
+        --ids-step-complete-background: var(--hop-neutral-surface-selected);
 
         /* Hover */
         --ids-step-border-hover: var(--hop-neutral-border-hover);
         --ids-step-background-hover: var(--hop-neutral-surface-hover);
-        --ids-step-complete-background-hover: var(--hop-neutral-surface-active);
+        --ids-step-complete-background-hover: var(--hop-neutral-surface-selected);
 
         /* Current Step */
-        --ids-step-current-background: var(--hop-neutral-surface-active);
-        --ids-step-current-border: var(--hop-neutral-border-active);
-        --ids-step-current-dot-background: var(--hop-neutral-icon-active);
+        --ids-step-current-background: var(--hop-neutral-surface-selected);
+        --ids-step-current-border: var(--hop-neutral-border-selected);
+        --ids-step-current-dot-background: var(--hop-neutral-icon-selected);
         --ids-step-current-dot-size: 0.75rem;
     }
 

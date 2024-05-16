@@ -71,9 +71,9 @@
 
         /* Checked */
         --ids-option-button-checked-box-shadow: none;
-        --ids-option-button-checked-border-color: var(--hop-neutral-border-active);
-        --ids-option-button-checked-background-color: var(--hop-neutral-surface-weak-active);
-        --ids-option-button-checked-outline: 0.125rem solid var(--hop-neutral-border-active);
+        --ids-option-button-checked-border-color: var(--hop-neutral-border-selected);
+        --ids-option-button-checked-background-color: var(--hop-neutral-surface-weak-selected);
+        --ids-option-button-checked-outline: 0.125rem solid var(--hop-neutral-border-selected);
         --ids-option-button-checked-outline-offset: -0.125rem;
 
         /* Disabled */

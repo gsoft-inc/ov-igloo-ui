@@ -134,23 +134,23 @@
         /* Checkbox */
         --ids-list-item-checkbox-size: 1rem;
         --ids-list-item-checkbox-radius: var(--hop-shape-rounded-sm);
-        --ids-list-item-checkbox-check: var(--hop-neutral-icon-active);
+        --ids-list-item-checkbox-check: var(--hop-neutral-icon-selected);
         --ids-list-item-checkbox-margin: 0.15rem var(--hop-space-inline-sm) 0 0;
         --ids-list-item-checkbox-box-sizing: border-box;
         --ids-list-item-checkbox-background: var(--hop-neutral-surface);
         --ids-list-item-checkbox-background-hover: var(--hop-neutral-surface-hover);
         --ids-list-item-checkbox-background-disabled: var(--hop-neutral-surface-disabled);
-        --ids-list-item-checkbox-background-checked: var(--hop-neutral-surface-active);
+        --ids-list-item-checkbox-background-checked: var(--hop-neutral-surface-selected);
         --ids-list-item-checkbox-background-checked-disabled: var(--hop-neutral-surface-disabled);
         --ids-list-item-checkbox-border: var(--hop-neutral-border);
         --ids-list-item-checkbox-border-hover: var(--hop-neutral-border-hover);
-        --ids-list-item-checkbox-border-checked: var(--hop-neutral-border-active);
-        --ids-list-item-checkbox-border-checked-hover: var(--hop-neutral-border-active);
+        --ids-list-item-checkbox-border-checked: var(--hop-neutral-border-selected);
+        --ids-list-item-checkbox-border-checked-hover: var(--hop-neutral-border-selected);
         --ids-list-item-checkbox-border-disabled: var(--hop-neutral-border-disabled);
         --ids-list-item-checkbox-one-px: 0.0625rem;
         --ids-list-item-checkbox-check-size: 1rem;
         --ids-list-item-checkbox-check-color-hover: transparent;
-        --ids-list-item-checkbox-check-color-selected: var(--hop-neutral-icon-active);
+        --ids-list-item-checkbox-check-color-selected: var(--hop-neutral-icon-selected);
         --ids-list-item-checkbox-check-color-default: transparent;
         --ids-list-item-checkbox-check-color-disabled: var(--hop-neutral-icon-disabled);
 
