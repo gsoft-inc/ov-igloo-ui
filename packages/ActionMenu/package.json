@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/action-menu",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "main": "dist/ActionMenu.js",
   "module": "dist/ActionMenu.js",
   "types": "dist/ActionMenu.d.ts",
@@ -25,16 +25,16 @@
   },
   "dependencies": {
     "@igloo-ui/tokens": "^2.1.0",
-    "@igloo-ui/dropdown": "^1.8.2",
-    "@igloo-ui/list": "^0.7.3",
+    "@igloo-ui/dropdown": "^1.8.3",
+    "@igloo-ui/list": "^0.7.4",
     "@hopper-ui/tokens": "^4.0.0",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
     "@igloo-ui/icons": "^1.12.2",
-    "@igloo-ui/button": "^0.8.6",
-    "@igloo-ui/helper-text": "^0.3.3",
-    "@igloo-ui/icon-button": "^1.2.8"
+    "@igloo-ui/button": "^0.8.7",
+    "@igloo-ui/helper-text": "^0.3.4",
+    "@igloo-ui/icon-button": "^1.2.9"
   },
   "browserslist": [
     "> 1%",

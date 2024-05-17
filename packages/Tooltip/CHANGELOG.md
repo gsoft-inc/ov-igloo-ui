@@ -1,5 +1,11 @@
 # @igloo-ui/tooltip
 
+## 3.5.4
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+
 ## 3.5.3
 
 ### Patch Changes

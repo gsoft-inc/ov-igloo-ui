@@ -1,5 +1,14 @@
 # @igloo-ui/popover
 
+## 0.5.11
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+- Updated dependencies [81723d0]
+  - @igloo-ui/icon-button@1.2.9
+  - @igloo-ui/provider@0.1.3
+
 ## 0.5.10
 
 ### Patch Changes

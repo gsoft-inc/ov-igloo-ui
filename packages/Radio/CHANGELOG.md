@@ -1,5 +1,11 @@
 # @igloo-ui/radio
 
+## 0.2.5
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+
 ## 0.2.4
 
 ### Patch Changes

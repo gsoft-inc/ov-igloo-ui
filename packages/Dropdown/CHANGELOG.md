@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.8.3
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+
 ## 1.8.2
 
 ### Patch Changes

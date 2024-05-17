@@ -1,5 +1,11 @@
 # @igloo-ui/color
 
+## 0.5.2
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+
 ## 0.5.1
 
 ### Patch Changes

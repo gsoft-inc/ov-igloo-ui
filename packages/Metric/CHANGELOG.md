@@ -1,5 +1,14 @@
 # @igloo-ui/metric
 
+## 0.3.6
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+- Updated dependencies [81723d0]
+  - @igloo-ui/provider@0.1.3
+  - @igloo-ui/tooltip@3.5.4
+
 ## 0.3.5
 
 ### Patch Changes

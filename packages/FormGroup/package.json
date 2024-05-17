@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/form-group",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "main": "dist/FormGroup.js",
     "module": "dist/FormGroup.js",
     "types": "dist/FormGroup.d.ts",
@@ -28,7 +28,7 @@
         "@igloo-ui/icons": "^1.12.2",
         "@hopper-ui/tokens": "^4.0.0",
         "classnames": "^2.3.2",
-        "@igloo-ui/helper-text": "^0.3.3"
+        "@igloo-ui/helper-text": "^0.3.4"
     },
     "browserslist": [
         "> 1%",
@@ -36,8 +36,8 @@
         "IE >= 11"
     ],
     "devDependencies": {
-        "@igloo-ui/input": "^2.2.5",
-        "@igloo-ui/select": "^1.5.6",
-        "@igloo-ui/textarea": "^0.4.5"
+        "@igloo-ui/input": "^2.2.6",
+        "@igloo-ui/select": "^1.5.7",
+        "@igloo-ui/textarea": "^0.4.6"
     }
 }

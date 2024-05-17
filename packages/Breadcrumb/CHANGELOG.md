@@ -1,5 +1,13 @@
 # @igloo-ui/breadcrumb
 
+## 0.3.7
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+- Updated dependencies [81723d0]
+  - @igloo-ui/provider@0.1.3
+
 ## 0.3.6
 
 ### Patch Changes

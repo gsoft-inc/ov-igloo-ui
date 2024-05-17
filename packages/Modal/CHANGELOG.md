@@ -1,5 +1,15 @@
 # @igloo-ui/modal
 
+## 1.7.7
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+- Updated dependencies [81723d0]
+  - @igloo-ui/carousel@0.3.5
+  - @igloo-ui/icon-button@1.2.9
+  - @igloo-ui/provider@0.1.3
+
 ## 1.7.6
 
 ### Patch Changes

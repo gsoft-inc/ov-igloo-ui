@@ -1,5 +1,13 @@
 # @igloo-ui/stepper
 
+## 0.3.4
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+- Updated dependencies [81723d0]
+  - @igloo-ui/tooltip@3.5.4
+
 ## 0.3.3
 
 ### Patch Changes

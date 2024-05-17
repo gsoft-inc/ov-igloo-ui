@@ -1,5 +1,11 @@
 # @igloo-ui/avatar
 
+## 0.3.3
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+
 ## 0.3.2
 
 ### Patch Changes

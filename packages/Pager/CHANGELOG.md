@@ -1,5 +1,13 @@
 # @igloo-ui/pager
 
+## 1.0.4
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+- Updated dependencies [81723d0]
+  - @igloo-ui/provider@0.1.3
+
 ## 1.0.3
 
 ### Patch Changes

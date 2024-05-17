@@ -1,5 +1,11 @@
 # @igloo-ui/progress-bar
 
+## 1.1.3
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+
 ## 1.1.2
 
 ### Patch Changes

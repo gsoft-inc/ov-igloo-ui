@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.4.6
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+
 ## 0.4.5
 
 ### Patch Changes

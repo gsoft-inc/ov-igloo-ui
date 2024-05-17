@@ -1,5 +1,11 @@
 # @igloo-ui/toggle
 
+## 1.2.4
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+
 ## 1.2.3
 
 ### Patch Changes
