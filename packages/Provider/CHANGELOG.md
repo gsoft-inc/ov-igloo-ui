@@ -1,5 +1,11 @@
 # @igloo-ui/provider
 
+## 0.1.3
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+
 ## 0.1.2
 
 ### Patch Changes

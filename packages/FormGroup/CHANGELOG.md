@@ -1,5 +1,13 @@
 # @igloo-ui/form-group
 
+## 1.1.5
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+- Updated dependencies [81723d0]
+  - @igloo-ui/helper-text@0.3.4
+
 ## 1.1.4
 
 ### Patch Changes

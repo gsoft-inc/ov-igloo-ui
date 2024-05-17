@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.7
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+
 ## 0.8.6
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @igloo-ui/list
 
+## 0.7.4
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+- Updated dependencies [81723d0]
+  - @igloo-ui/checkbox@0.4.6
+
 ## 0.7.3
 
 ### Patch Changes

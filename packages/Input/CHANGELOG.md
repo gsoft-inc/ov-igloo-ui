@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.2.6
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+
 ## 2.2.5
 
 ### Patch Changes

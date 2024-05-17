@@ -1,5 +1,15 @@
 # @igloo-ui/color-picker
 
+## 1.0.5
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+- Updated dependencies [81723d0]
+  - @igloo-ui/color@0.5.2
+  - @igloo-ui/dropdown@1.8.3
+  - @igloo-ui/provider@0.1.3
+
 ## 1.0.4
 
 ### Patch Changes

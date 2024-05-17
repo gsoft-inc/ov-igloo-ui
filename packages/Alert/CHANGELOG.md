@@ -1,5 +1,15 @@
 # @igloo-ui/alert
 
+## 0.7.14
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+- Updated dependencies [81723d0]
+  - @igloo-ui/button@0.8.7
+  - @igloo-ui/icon-button@1.2.9
+  - @igloo-ui/provider@0.1.3
+
 ## 0.7.13
 
 ### Patch Changes

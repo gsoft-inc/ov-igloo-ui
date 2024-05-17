@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.2.7
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+
 ## 1.2.6
 
 ### Patch Changes

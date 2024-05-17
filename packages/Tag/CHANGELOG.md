@@ -1,5 +1,15 @@
 # @igloo-ui/tag
 
+## 1.7.3
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+- Updated dependencies [81723d0]
+  - @igloo-ui/ellipsis@0.3.3
+  - @igloo-ui/icon-button@1.2.9
+  - @igloo-ui/provider@0.1.3
+
 ## 1.7.2
 
 ### Patch Changes

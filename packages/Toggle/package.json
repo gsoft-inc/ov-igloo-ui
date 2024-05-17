@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/toggle",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "main": "dist/Toggle.js",
   "module": "dist/Toggle.js",
   "types": "dist/Toggle.d.ts",

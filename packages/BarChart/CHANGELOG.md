@@ -1,5 +1,11 @@
 # @igloo-ui/bar-chart
 
+## 0.4.3
+
+### Patch Changes
+
+- 81723d0: Updated Hopper depedency
+
 ## 0.4.2
 
 ### Patch Changes
