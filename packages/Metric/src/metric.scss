@@ -98,8 +98,8 @@
     --ids-metric-visual-positive-color: #0C796B; /* Data Viz token */
     --ids-metric-visual-negative-background: #FDE6E5; /* Data Viz token */
     --ids-metric-visual-negative-color: #CB2E31; /* Data Viz token */
-    --ids-metric-visual-selected-background: var(--hop-neutral-surface-active);
-    --ids-metric-visual-selected-color: var(--hop-neutral-text-active);
+    --ids-metric-visual-selected-background: var(--hop-neutral-surface-selected);
+    --ids-metric-visual-selected-color: var(--hop-neutral-text-selected);
     --ids-metric-visual-margin-right: var(--hop-space-inline-md);
 
     /* Hover */
@@ -114,8 +114,8 @@
     /* Selected */
     --ids-metric-selected-shadow: var(--hop-elevation-raised);
     --ids-metric-selected-border-width: 0.1rem; /* 1.5px generates too small of a border. Usually 0.8px */
-    --ids-metric-selected-border-color: var(--hop-neutral-border-active);
-    --ids-metric-selected-hover-border-color: var(--hop-neutral-border-active);
+    --ids-metric-selected-border-color: var(--hop-neutral-border-selected);
+    --ids-metric-selected-hover-border-color: var(--hop-neutral-border-selected);
     --ids-metric-selected-hover-background: var(--hop-neutral-surface-hover);
     --ids-metric-selected-hover-shadow: var(--hop-elevation-lifted);
     --ids-metric-selected-focus-shadow: var(--ids-metric-focus-shadow);
@@ -141,10 +141,10 @@
     --ids-metric-sub-metric-hover-border-color: var(--hop-neutral-border-hover);
 
     /* Sub Metric Selected */
-    --ids-metric-sub-metric-selected-border-color: var(--hop-neutral-border-active);
+    --ids-metric-sub-metric-selected-border-color: var(--hop-neutral-border-selected);
     --ids-metric-sub-metric-selected-left-border-color: transparent;
     --ids-metric-sub-metric-selected-left-border-width: 0;
-    --ids-metric-sub-metric-selected-hover-border-color: var(--hop-neutral-border-active);
+    --ids-metric-sub-metric-selected-hover-border-color: var(--hop-neutral-border-selected);
 }
 
 .ids-metric {

@@ -32,7 +32,7 @@
         "@igloo-ui/input": "^2.2.5",
         "@igloo-ui/tokens": "^2.1.0",
         "@hopper-ui/icons-react16": "1.2.0",
-        "@hopper-ui/tokens": "^3.5.1",
+        "@hopper-ui/tokens": "^4.0.0",
         "@igloo-ui/tooltip": "^3.5.3",
         "classnames": "^2.3.2"
     },

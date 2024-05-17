@@ -55,8 +55,8 @@
         --ids-carousel-bullet-color-hover: var(--hop-neutral-surface-weak-hover);
 
         /* Active */
-        --ids-carousel-bullet-color-active: var(--hop-neutral-surface-active);
-        --ids-carousel-bullet-color-active-hover: var(--hop-neutral-surface-active);
+        --ids-carousel-bullet-color-active: var(--hop-neutral-surface-selected);
+        --ids-carousel-bullet-color-active-hover: var(--hop-neutral-surface-selected);
 
         /* Needed to add a 0.1px blur to fix a bug where
         chrome would have a lingering blue line when focusing in and out */

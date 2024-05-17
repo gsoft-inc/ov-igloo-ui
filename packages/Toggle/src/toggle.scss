@@ -78,9 +78,9 @@
         --ids-toggle-shadow-switch: none;
 
         /* checked */
-        --ids-toggle-background-checked: var(--hop-neutral-surface-active);
+        --ids-toggle-background-checked: var(--hop-neutral-surface-selected);
         --ids-toggle-background-switch-checked: var(--hop-neutral-surface);
-        --ids-toggle-border-checked: 0.0625rem solid var(--hop-neutral-border-active);
+        --ids-toggle-border-checked: 0.0625rem solid var(--hop-neutral-border-selected);
         --ids-toggle-position-checked:
             calc(
                 var(--ids-toggle-width) - var(--ids-toggle-width-switch) - calc(var(--ids-toggle-margin) * 2)

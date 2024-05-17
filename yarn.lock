@@ -2058,10 +2058,10 @@
   resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.1.5.tgz#e0b33fbe294ad8e7f0b567e349aa80c116cd488b"
   integrity sha512-ytZ31EKklSWF1FLm6IqXw7+xoIUDbtSxDCAxGIbWwFc9MEsCqVSu8T38fsPNEXIaZsn9gMXZFBwbKYDDgn2U6A==
 
-"@hopper-ui/tokens@^3.5.1":
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-3.5.1.tgz#7a1423a3856bf32e9ce0d97217d8ae737c1c1b0f"
-  integrity sha512-XieI4G2wK8RJP1uvm/KhZ+d8rCNA+ab0wVleAR/J+GOF+7mha96an066IDs3/YgfXyojudq0B+fbs14SER3KHQ==
+"@hopper-ui/tokens@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@hopper-ui/tokens/-/tokens-4.0.0.tgz#e2450804cc8f30622e1c5ad38a7c6572d7293175"
+  integrity sha512-rpsDeB91SMzViwBdiwzr4mt279Mf0C1qoTkmES/r7vbCXwfbgU1Ua7N/zsVJvTW6+GBNqa9nz+CUQwt7xoR73A==
 
 "@humanwhocodes/config-array@^0.11.13":
   version "0.11.13"

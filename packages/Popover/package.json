@@ -29,7 +29,7 @@
     "@igloo-ui/icon-button": "^1.2.8",
     "@igloo-ui/icons": "^1.12.2",
     "@igloo-ui/tokens": "^2.1.0",
-    "@hopper-ui/tokens": "^3.5.1",
+    "@hopper-ui/tokens": "^4.0.0",
     "classnames": "^2.3.2",
     "@floating-ui/react": "^0.26.9"
   },

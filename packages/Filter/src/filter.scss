@@ -58,12 +58,12 @@
         --ids-filter-color-hover: var(--hop-neutral-text-hover);
 
         /* Selected */
-        --ids-filter-background-selected: var(--hop-neutral-surface-active);
-        --ids-filter-border-color-selected: var(--hop-neutral-border-active);
-        --ids-filter-color-selected: var(--hop-neutral-text-active);
+        --ids-filter-background-selected: var(--hop-neutral-surface-selected);
+        --ids-filter-border-color-selected: var(--hop-neutral-border-selected);
+        --ids-filter-color-selected: var(--hop-neutral-text-selected);
 
         /* Selected Hover */
-        --ids-filter-background-selected-hover: var(--hop-neutral-surface-active);
+        --ids-filter-background-selected-hover: var(--hop-neutral-surface-selected);
 
         /* Disabled */
         --ids-filter-background-disabled: var(--hop-neutral-surface-disabled);
