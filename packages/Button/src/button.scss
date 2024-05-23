@@ -32,11 +32,13 @@
         --ids-btn-background-primary-hover: #{tokens.$electric-blue-600};
         --ids-btn-background-primary-disabled: #{tokens.$electric-blue-300};
         --ids-btn-background-primary-active: #{tokens.$electric-blue-50};
+        --ids-btn-background-primary-pressed: #{tokens.$electric-blue-600};
 
         /* Secondary */
         --ids-btn-text-secondary: #{tokens.$grey-800};
         --ids-btn-text-secondary-hover: #{tokens.$grey-800};
         --ids-btn-text-secondary-active: #{tokens.$electric-blue-500};
+        --ids-btn-text-secondary-pressed: #{tokens.$grey-800};
         --ids-btn-text-secondary-disabled: #{tokens.$grey-600};
         --ids-btn-border-secondary: #{tokens.$grey-300};
         --ids-btn-border-secondary-hover: #{tokens.$grey-600};
@@ -45,17 +47,21 @@
         --ids-btn-background-secondary-hover: #{tokens.$samoyed};
         --ids-btn-background-secondary-active: #{tokens.$electric-blue-50};
         --ids-btn-background-secondary-disabled: #{tokens.$grey-300};
+        --ids-btn-background-secondary-pressed: #{tokens.$samoyed};
 
         /* Premium */
         --ids-btn-text-premium: #{tokens.$grey-800};
         --ids-btn-text-premium-disabled: #{tokens.$grey-500};
         --ids-btn-text-premium-active: #{tokens.$grey-800};
+        --ids-btn-text-premium-hover: #{tokens.$grey-800};
+        --ids-btn-text-premium-pressed: #{tokens.$grey-800};
         --ids-btn-border-premium: #{tokens.$dandelion-100};
         --ids-btn-border-premium-active: #{tokens.$dandelion-100};
         --ids-btn-background-premium: #{tokens.$dandelion-100};
         --ids-btn-background-premium-hover: #{tokens.$dandelion-200};
         --ids-btn-background-premium-disabled: #{tokens.$dandelion-50};
         --ids-btn-background-premium-active: #{tokens.$dandelion-100};
+        --ids-btn-background-premium-pressed: #{tokens.$dandelion-200};
 
         /* Danger */
         --ids-btn-text-danger: #{tokens.$samoyed};
@@ -67,16 +73,21 @@
         --ids-btn-background-danger-hover: #{tokens.$coral-600};
         --ids-btn-background-danger-disabled: #{tokens.$coral-200};
         --ids-btn-background-danger-active: #{tokens.$coral-500};
+        --ids-btn-background-danger-pressed: #{tokens.$coral-600};
 
         /* Ghost */
         --ids-btn-padding-ghost: 0 #{tokens.$space-1};
         --ids-btn-text-ghost: #{tokens.$electric-blue-500};
         --ids-btn-text-ghost-hover: #{tokens.$electric-blue-600};
+        --ids-btn-text-ghost-pressed: #{tokens.$electric-blue-600};
+        --ids-btn-text-decoration-hover: none;
+        --ids-btn-text-decoration-pressed: none;
         --ids-btn-text-ghost-disabled: #{tokens.$electric-blue-300};
         --ids-btn-text-ghost-active: #{tokens.$electric-blue-500};
         --ids-btn-border-ghost-active: transparent;
         --ids-btn-background-ghost: transparent;
         --ids-btn-background-ghost-hover: transparent;
+        --ids-btn-background-ghost-pressed: transparent;
         --ids-btn-background-ghost-disabled: transparent;
         --ids-btn-background-ghost-active: transparent;
         --ids-loader-size: 1.2rem;
@@ -97,10 +108,12 @@
         --ids-btn-text-ghost-danger-hover: #{tokens.$coral-600};
         --ids-btn-text-ghost-danger-disabled: #{tokens.$coral-300};
         --ids-btn-text-ghost-danger-active: #{tokens.$coral-500};
+        --ids-btn-text-ghost-danger-pressed: #{tokens.$coral-600};
         --ids-btn-border-ghost-danger-active: transparent;
         --ids-btn-background-ghost-danger-hover: transparent;
         --ids-btn-background-ghost-danger-disabled: transparent;
         --ids-btn-background-ghost-danger-active: transparent;
+        --ids-btn-background-ghost-danger-pressed: transparent;
         --ids-loader-border-ghost-danger: 0.2rem solid rgb(249 97 85 / 30%);
         --ids-loader-ghost-danger: #{tokens.$coral-500};
         --ids-loader-ghost-danger-active: #{tokens.$coral-500};
@@ -109,11 +122,13 @@
         --ids-btn-text-ghost-secondary: #{tokens.$grey-600};
         --ids-btn-text-ghost-secondary-hover: #{tokens.$grey-800};
         --ids-btn-text-ghost-secondary-active: #{tokens.$electric-blue-500};
+        --ids-btn-text-ghost-secondary-pressed: #{tokens.$grey-800};
         --ids-btn-text-ghost-secondary-disabled: #{tokens.$grey-400};
         --ids-btn-border-ghost-secondary-active: transparent;
         --ids-btn-background-ghost-secondary-hover: transparent;
         --ids-btn-background-ghost-secondary-active: transparent;
         --ids-btn-background-ghost-secondary-disabled: transparent;
+        --ids-btn-background-ghost-secondary-pressed: transparent;
         --ids-loader-border-ghost-secondary: 0.2rem solid rgb(96 107 121 / 30%);
         --ids-loader-ghost-secondary: #{tokens.$grey-600};
         --ids-loader-position: calc(-0.6rem - 0.1rem);
@@ -146,11 +161,13 @@
           --ids-btn-background-primary-hover: var(--hop-primary-surface-strong-hover);
           --ids-btn-background-primary-disabled: var(--hop-neutral-surface-disabled);
           --ids-btn-background-primary-active: var(--hop-primary-surface-active);
+          --ids-btn-background-primary-pressed: var(--hop-primary-surface-strong-press);
 
           /* Secondary */
           --ids-btn-text-secondary: var(--hop-neutral-text);
           --ids-btn-text-secondary-hover: var(--hop-neutral-text);
           --ids-btn-text-secondary-active: var(--hop-neutral-text-active);
+          --ids-btn-text-secondary-pressed: var(--hop-neutral-text-press);
           --ids-btn-text-secondary-disabled: var(--hop-neutral-text-disabled);
           --ids-btn-border-secondary: var(--hop-neutral-border-strong);
           --ids-btn-border-secondary-hover: var(--hop-neutral-border-strong);
@@ -159,16 +176,20 @@
           --ids-btn-background-secondary-hover: var(--hop-neutral-surface-hover);
           --ids-btn-background-secondary-active: var(--hop-neutral-surface-active);
           --ids-btn-background-secondary-disabled: var(--hop-neutral-surface-disabled);
+          --ids-btn-background-secondary-pressed: var(--hop-neutral-surface-press);
 
           /* Premium */
           --ids-btn-text-premium: var(--hop-upsell-text);
           --ids-btn-text-premium-disabled: var(--hop-neutral-text-disabled);
+          --ids-btn-text-premium-hover: var(--hop-upsell-text-hover);
+          --ids-btn-text-premium-pressed: var(--hop-upsell-text-press);
           --ids-btn-text-premium-active: var(--hop-upsell-text-active);
           --ids-btn-border-premium-active: var(--hop-upsell-border-active);
           --ids-btn-background-premium: var(--hop-upsell-surface);
           --ids-btn-background-premium-hover: var(--hop-upsell-surface-hover);
           --ids-btn-background-premium-disabled: var(--hop-neutral-surface-disabled);
           --ids-btn-background-premium-active: var(--hop-upsell-surface-active);
+          --ids-btn-background-premium-pressed: var(--hop-upsell-surface-press);
 
           /* Danger */
           --ids-btn-text-danger: var(--hop-danger-text-strong);
@@ -178,6 +199,7 @@
           --ids-btn-background-danger-hover: var(--hop-danger-surface-hover);
           --ids-btn-background-danger-disabled: var(--hop-neutral-surface-disabled);
           --ids-btn-background-danger-active: var(--hop-danger-surface-active);
+          --ids-btn-background-danger-pressed: var(--hop-danger-surface-press);
 
           /* Ghost */
           --ids-btn-padding-ghost: 0 var(--hop-space-inset-sm);
@@ -185,9 +207,13 @@
           --ids-btn-text-ghost-hover: var(--hop-primary-text-hover);
           --ids-btn-text-ghost-disabled: var(--hop-primary-text-disabled);
           --ids-btn-text-ghost-active: var(--hop-neutral-text);
+          --ids-btn-text-ghost-pressed: var(--hop-primary-text-press);
+          --ids-btn-text-ghost-decoration-hover: underline;
+          --ids-btn-text-ghost-decoration-pressed: underline;
           --ids-btn-border-ghost-active: transparent;
           --ids-btn-background-ghost: transparent;
           --ids-btn-background-ghost-hover: var(--hop-neutral-surface-hover);
+          --ids-btn-background-ghost-pressed: var(--hop-primary-surface-weak-press);
           --ids-btn-background-ghost-disabled: transparent;
           --ids-btn-background-ghost-active: var(--hop-neutral-surface-weak-active);
           --ids-loader-size: 0.75rem;
@@ -209,9 +235,11 @@
           --ids-btn-text-ghost-danger: var(--hop-danger-text-weak);
           --ids-btn-background-ghost-danger-hover: var(--hop-neutral-surface-hover);
           --ids-btn-background-ghost-danger-active: var(--hop-neutral-surface-weak-active);
+          --ids-btn-background-ghost-danger-pressed: var(--hop-danger-surface-weak-press);
           --ids-btn-border-ghost-danger-active: transparent;
           --ids-btn-text-ghost-danger-hover: var(--hop-danger-text-hover);
           --ids-btn-text-ghost-danger-active: var(--hop-danger-text-active);
+          --ids-btn-text-ghost-danger-pressed: var(--hop-danger-text-press);
           --ids-btn-background-ghost-danger-disabled: transparent;
           --ids-btn-text-ghost-danger-disabled: var(--hop-danger-text-disabled);
           --ids-loader-border-ghost-danger: 0.125rem solid rgb(149 41 39 / 30%);
@@ -221,7 +249,9 @@
           /* Ghost, variant: Secondary */
           --ids-btn-text-ghost-secondary: var(--hop-neutral-text);
           --ids-btn-background-ghost-secondary-hover: var(--hop-neutral-surface-hover);
+          --ids-btn-background-ghost-secondary-pressed: var(--hop-neutral-surface-press);
           --ids-btn-text-ghost-secondary-hover: var(--hop-neutral-text-hover);
+          --ids-btn-text-ghost-secondary-pressed: var(--hop-neutral-text-press);
           --ids-btn-background-ghost-secondary-active: var(--hop-neutral-surface-weak-active);
           --ids-btn-border-ghost-secondary-active: transparent;
           --ids-btn-text-ghost-secondary-active: var(--hop-neutral-text);
@@ -311,6 +341,10 @@
       .ids-btn:hover {
         cursor: pointer;
         background: var(--ids-btn-background-primary-hover);
+      }
+
+      .ids-btn:not(.ids-btn--loading):active {
+          background-color: var(--ids-btn-background-primary-pressed);
       }
 
       .ids-btn.ids-btn--active {
@@ -428,6 +462,11 @@
         border-color: var(--ids-btn-border-secondary-active);
       }
 
+      .ids-btn--secondary:not(.ids-btn--loading):active {
+          background-color: var(--ids-btn-background-secondary-pressed);
+          color: var(--ids-btn-text-secondary-pressed);
+      }
+
       .ids-btn--secondary:disabled {
         @extend %btn-secondary-disabled;
       }
@@ -458,6 +497,11 @@
         border-color: var(--ids-btn-border-premium-active);
       }
 
+      .ids-btn--premium:not(.ids-btn--loading):active {
+        background-color: var(--ids-btn-background-premium-pressed);
+        color: var(--ids-btn-text-premium-pressed);
+      }
+
       .ids-btn--premium:not(.ids-btn--loading):focus-visible,
       .ids-btn--premium.focus,
       .ids-btn--premium:hover {
@@ -480,6 +524,10 @@
         color: var(--ids-btn-text-danger-active);
         background: var(--ids-btn-background-danger-active);
         border-color: var(--ids-btn-border-danger-active);
+      }
+
+      .ids-btn--danger:not(.ids-btn--loading):active {
+        background-color: var(--ids-btn-background-danger-pressed);
       }
 
       .ids-btn--danger:not(.ids-btn--loading):focus-visible,
@@ -505,17 +553,25 @@
         border-color: var(--ids-btn-border-ghost-active);
       }
 
+      .ids-btn--ghost:not(.ids-btn--loading):active {
+        background-color: var(--ids-btn-background-ghost-pressed);
+        color: var(--ids-btn-text-ghost-pressed);
+        text-decoration: var(--ids-btn-text-ghost-decoration-pressed);
+      }
+
       .ids-btn--ghost:not(.ids-btn--loading):focus-visible,
       .ids-btn--ghost.focus,
       .ids-btn--ghost:hover {
         color: var(--ids-btn-text-ghost-hover);
         background: var(--ids-btn-background-ghost-hover);
+        text-decoration: var(--ids-btn-text-ghost-decoration-hover);
       }
 
       .ids-btn--ghost.ids-btn--disabled,
       .ids-btn--ghost:disabled {
         color: var(--ids-btn-text-ghost-disabled);
         background: var(--ids-btn-background-ghost-disabled);
+        text-decoration: none;
       }
 
       .ids-btn.ids-btn--ghost-danger {
@@ -530,17 +586,25 @@
         background: var(--ids-btn-background-ghost-danger-active);
       }
 
+      .ids-btn:not(.ids-btn--loading).ids-btn--ghost-danger:active {
+        background: var(--ids-btn-background-ghost-danger-pressed);
+        color: var(--ids-btn-text-ghost-danger-pressed);
+        text-decoration: var(--ids-btn-text-ghost-decoration-pressed);
+      }
+
       .ids-btn.ids-btn--ghost-danger:not(.ids-btn--loading):focus-visible,
       .ids-btn.ids-btn--ghost-danger.focus,
       .ids-btn.ids-btn--ghost-danger:hover {
         color: var(--ids-btn-text-ghost-danger-hover);
         background: var(--ids-btn-background-ghost-danger-hover);
+        text-decoration: var(--ids-btn-text-ghost-decoration-hover);
       }
 
       .ids-btn.ids-btn--ghost-danger.ids-btn--disabled,
       .ids-btn.ids-btn--ghost-danger:disabled {
         color: var(--ids-btn-text-ghost-danger-disabled);
         background: var(--ids-btn-background-ghost-danger-disabled);
+        text-decoration: none;
       }
 
       .ids-btn.ids-btn--ghost-secondary {
@@ -554,6 +618,7 @@
       .ids-btn.ids-btn--ghost-secondary:hover {
         color: var(--ids-btn-text-ghost-secondary-hover);
         background: var(--ids-btn-background-ghost-secondary-hover);
+        text-decoration: var(--ids-btn-text-ghost-decoration-pressed);
       }
 
       .ids-btn.ids-btn--ghost-secondary.ids-btn--active {
@@ -562,10 +627,17 @@
         color: var(--ids-btn-text-ghost-secondary-active);
       }
 
+      .ids-btn.ids-btn--ghost-secondary:not(.ids-btn--loading):active {
+        background: var(--ids-btn-background-ghost-secondary-pressed);
+        color: var(--ids-btn-text-ghost-secondary-pressed);
+        text-decoration: var(--ids-btn-text-ghost-decoration-hover);
+      }
+
       .ids-btn.ids-btn--ghost-secondary.ids-btn--disabled,
       .ids-btn.ids-btn--ghost-secondary:disabled {
         color: var(--ids-btn-text-ghost-secondary-disabled);
         background: var(--ids-btn-background-ghost-secondary-disabled);
+        text-decoration: none;
       }
 
       .has-icon .ids-icon {

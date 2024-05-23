@@ -162,6 +162,13 @@ export const States = () => (
         <Select
             options={smallOptionList}
             onChange={handleOnChange}
+            className={'opened'}
+        >
+            Opened
+        </Select>
+        <Select
+            options={smallOptionList}
+            onChange={handleOnChange}
             className={'focus'}
         >
             Focus

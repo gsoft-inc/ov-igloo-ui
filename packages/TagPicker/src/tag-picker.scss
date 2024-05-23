@@ -117,6 +117,9 @@
 
         &:hover:not(.ids-tag-picker--disabled) {
             background-color: var(--ids-tag-picker-background-hover);
+        }
+
+        &:hover:not(.ids-tag-picker--disabled, .ids-tag-picker--focused) {
             border-color: var(--ids-tag-picker-border-color-hover);
         }
 
