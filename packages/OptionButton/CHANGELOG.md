@@ -1,5 +1,11 @@
 # @igloo-ui/option-button
 
+## 0.3.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed states
+
 ## 0.2.4
 
 ### Patch Changes

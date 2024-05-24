@@ -1,5 +1,17 @@
 # @igloo-ui/alert
 
+## 0.8.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed state to components that needed it / fixed focus style for fields
+
+### Patch Changes
+
+- Updated dependencies [7c83d3d]
+  - @igloo-ui/button@0.9.0
+  - @igloo-ui/icon-button@1.3.0
+
 ## 0.7.14
 
 ### Patch Changes

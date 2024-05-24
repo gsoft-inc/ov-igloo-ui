@@ -1,5 +1,12 @@
 # @igloo-ui/stacked-bar
 
+## 0.4.7
+
+### Patch Changes
+
+- Updated dependencies [7c83d3d]
+  - @igloo-ui/popover@0.6.0
+
 ## 0.4.6
 
 ### Patch Changes

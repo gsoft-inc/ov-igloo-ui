@@ -1,5 +1,11 @@
 # @igloo-ui/metric
 
+## 0.4.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed states
+
 ## 0.3.6
 
 ### Patch Changes

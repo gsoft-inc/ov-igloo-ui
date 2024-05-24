@@ -1,5 +1,11 @@
 # @igloo-ui/pager
 
+## 1.1.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed states
+
 ## 1.0.4
 
 ### Patch Changes

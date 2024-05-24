@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed state to components that needed it / fixed focus style for fields
+
 ## 0.8.7
 
 ### Patch Changes

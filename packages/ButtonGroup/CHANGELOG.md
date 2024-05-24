@@ -1,5 +1,12 @@
 # @igloo-ui/button-group
 
+## 0.5.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed states
+- 7c83d3d: Added pressed state to components that needed it / fixed focus style for fields
+
 ## 0.4.4
 
 ### Patch Changes

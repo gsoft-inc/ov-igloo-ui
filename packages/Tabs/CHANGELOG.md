@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.3.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed states
+
 ## 1.2.7
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/radio
 
+## 0.3.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed state to components that needed it / fixed focus style for fields
+
 ## 0.2.5
 
 ### Patch Changes

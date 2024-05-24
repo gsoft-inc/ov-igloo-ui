@@ -1,5 +1,18 @@
 # @igloo-ui/tag-picker
 
+## 0.13.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed state to components that needed it / fixed focus style for fields
+
+### Patch Changes
+
+- Updated dependencies [7c83d3d]
+  - @igloo-ui/dropdown@1.9.0
+  - @igloo-ui/input@2.3.0
+  - @igloo-ui/tag@1.8.0
+
 ## 0.12.5
 
 ### Patch Changes
