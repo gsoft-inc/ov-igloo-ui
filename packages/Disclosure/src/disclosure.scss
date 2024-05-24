@@ -11,6 +11,7 @@
         --ids-disclosure-border-width: 0;
         --ids-disclosure-border-color: transparent;
         --ids-disclosure-border-color-hover: transparent;
+        --ids-disclosure-border-color-pressed: transparent;
         --ids-disclosure-border-width-focus: 0.1rem;
         --ids-disclosure-border-color-focus: #{tokens.$electric-blue-600};
         --ids-disclosure-color: #{tokens.$grey-800};
@@ -21,6 +22,7 @@
         /* Header/Button */
         --ids-disclosure-header-background: #{tokens.$samoyed};
         --ids-disclosure-header-background-hover: #{tokens.$samoyed};
+        --ids-disclosure-header-background-pressed: #{tokens.$samoyed};
         --ids-disclosure-header-line-height: #{tokens.$line-height-xxl};
         --ids-disclosure-header-padding: #{tokens.$space-4};
         --ids-disclosure-header-icon-margin: 0 #{tokens.$space-4} 0 0;
@@ -44,6 +46,7 @@
         --ids-disclosure-low-contrast-header-icon-margin: 0 #{tokens.$space-1} 0 0;
         --ids-disclosure-low-contrast-header-color: #{tokens.$grey-600};
         --ids-disclosure-low-contrast-header-color-hover: #{tokens.$grey-600};
+        --ids-disclosure-low-contrast-header-color-pressed: #{tokens.$grey-600};
         --ids-disclosure-low-contrast-header-title-font-family: #{tokens.$primary-font-family};
         --ids-disclosure-low-contrast-header-title-font-size: #{tokens.$font-size-3};
         --ids-disclosure-low-contrast-header-title-font-weight: #{tokens.$font-weight-medium};
@@ -56,6 +59,7 @@
         --ids-disclosure-border-width: 0.0625rem;
         --ids-disclosure-border-color: var(--hop-neutral-border-weak);
         --ids-disclosure-border-color-hover: var(--hop-neutral-border-hover);
+        --ids-disclosure-border-color-pressed: var(--hop-neutral-border-press);
         --ids-disclosure-border-width-focus: var(--ids-disclosure-border-width);
         --ids-disclosure-border-color-focus: var(--hop-primary-border-focus);
         --ids-disclosure-color: var(--hop-neutral-text);
@@ -66,6 +70,7 @@
         /* Header/Button */
         --ids-disclosure-header-background: var(--hop-neutral-surface);
         --ids-disclosure-header-background-hover: var(--hop-neutral-surface-hover);
+        --ids-disclosure-header-background-pressed: var(--hop-neutral-surface-press);
         --ids-disclosure-header-line-height: var(--hop-body-sm-line-height);
         --ids-disclosure-header-padding: var(--hop-space-inset-md);
         --ids-disclosure-header-icon-margin: 0 var(--hop-space-inline-md) 0 0;
@@ -87,6 +92,7 @@
         --ids-disclosure-low-contrast-header-icon-margin: 0 var(--hop-space-inline-xs) 0 0;
         --ids-disclosure-low-contrast-header-color: var(--hop-neutral-text);
         --ids-disclosure-low-contrast-header-color-hover: var(--hop-neutral-text-hover);
+        --ids-disclosure-low-contrast-header-color-pressed: var(--hop-neutral-text-press);
         --ids-disclosure-low-contrast-header-title-font-family: var(--hop-body-sm-medium-font-family);
         --ids-disclosure-low-contrast-header-title-font-size: var(--hop-body-sm-medium-font-size);
         --ids-disclosure-low-contrast-header-title-font-weight: var(--hop-body-sm-medium-font-weight);
@@ -145,6 +151,10 @@
             border-color: var(--ids-disclosure-border-color-hover);
         }
 
+        &:not(&--focus-visible):active::before {
+            border-color: var(--ids-disclosure-border-color-pressed);
+        }
+
         &[aria-expanded='true']::before {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
@@ -160,7 +170,8 @@
             border-radius: var(--ids-disclosure-border-radius);
         }
 
-        .ids-disclosure--low-contrast &:not(&--focus-visible):hover::before {
+        .ids-disclosure--low-contrast &:not(&--focus-visible):hover::before,
+        .ids-disclosure--low-contrast &:not(&--focus-visible):active::before {
             border-color: transparent;
         }
 
@@ -170,6 +181,15 @@
 
             .ids-disclosure--low-contrast & {
                 color: var(--ids-disclosure-low-contrast-header-color-hover);
+                background-color: none;
+            }
+        }
+
+        &:active {
+            background-color: var(--ids-disclosure-header-background-pressed);
+
+            .ids-disclosure--low-contrast & {
+                color: var(--ids-disclosure-low-contrast-header-color-pressed);
                 background-color: none;
             }
         }

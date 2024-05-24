@@ -43,6 +43,13 @@
         /* hover */
         --ids-toggle-background-hover: #{tokens.$grey-300};
         --ids-toggle-border-hover: transparent;
+        --ids-toggle-text-label-hover: inherit;
+        --ids-toggle-background-switch-hover: var(--ids-toggle-background);
+
+        /* pressed */
+        --ids-toggle-background-pressed: #{tokens.$grey-300};
+        --ids-toggle-border-pressed: transparent;
+        --ids-toggle-text-label-pressed: inherit;
 
         /* disabled */
         --ids-toggle-background-disabled: #{tokens.$grey-200};
@@ -89,6 +96,13 @@
         /* hover */
         --ids-toggle-background-hover: var(--hop-neutral-surface-hover);
         --ids-toggle-border-hover: var(--hop-neutral-border-hover);
+        --ids-toggle-text-label-hover: var(--hop-neutral-text-hover);
+        --ids-toggle-background-switch-hover: var(--hop-neutral-surface-hover);
+
+        /* pressed */
+        --ids-toggle-background-pressed: var(--hop-neutral-surface-press);
+        --ids-toggle-border-pressed: var(--hop-neutral-border-press);
+        --ids-toggle-text-label-pressed: var(--hop-neutral-text-press);
 
         /* disabled */
         --ids-toggle-background-disabled: var(--hop-neutral-surface-disabled);
@@ -199,6 +213,25 @@
         &:focus + .ids-toggle__label {
             &::before {
                 box-shadow: var(--ids-toggle-focus);
+            }
+        }
+
+        &:hover:not(:checked) + .ids-toggle__label {
+            color: var(--ids-toggle-text-label-hover);
+
+            &::before {
+                background-color: var(--ids-toggle-background-switch-hover);
+                box-shadow: var(--ids-toggle-border-hover);
+            }
+        }
+
+        &:active:not(:checked) + .ids-toggle__label,
+        &:active:hover:not(:checked) + .ids-toggle__label {
+            color: var(--ids-toggle-text-label-pressed);
+
+            &::before {
+                background-color: var(--ids-toggle-background-pressed);
+                box-shadow: var(--ids-toggle-border-pressed);
             }
         }
 

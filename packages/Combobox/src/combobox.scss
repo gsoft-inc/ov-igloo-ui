@@ -27,6 +27,10 @@
         --ids-combobox-border-color-hover: #{tokens.$grey-600};
         --ids-combobox-background-hover: #{tokens.$samoyed};
 
+        /* Pressed */
+        --ids-combobox-border-color-pressed: #{tokens.$grey-600};
+        --ids-combobox-background-pressed: #{tokens.$samoyed};
+
         /* Active */
         --ids-combobox-border-color-active: #{tokens.$electric-blue-500};
         --ids-combobox-background-active: #{tokens.$samoyed};
@@ -71,6 +75,10 @@
         /* Hover */
         --ids-combobox-border-color-hover: var(--hop-neutral-border-hover);
         --ids-combobox-background-hover: var(--hop-neutral-surface-hover);
+
+        /* Pressed */
+        --ids-combobox-border-color-pressed: var(--hop-neutral-border-press);
+        --ids-combobox-background-pressed: var(--hop-neutral-surface-press);
 
         /* Active */
         --ids-combobox-background-active: var(--hop-neutral-surface);
@@ -130,6 +138,11 @@
         &:hover {
             border-color: var(--ids-combobox-border-color-hover);
             background-color: var(--ids-combobox-background-hover);
+        }
+
+        &:active {
+            border-color: var(--ids-combobox-border-color-pressed);
+            background-color: var(--ids-combobox-background-pressed);
         }
 
         &:focus {

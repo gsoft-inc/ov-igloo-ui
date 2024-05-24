@@ -21,6 +21,11 @@
         --ids-filter-border-color-hover: transparent;
         --ids-filter-color-hover:  #{tokens.$grey-600};
 
+        /* Pressed */
+        --ids-filter-background-pressed: #{tokens.$grey-300};
+        --ids-filter-border-color-pressed: transparent;
+        --ids-filter-color-pressed:  #{tokens.$grey-600};
+
         /* Selected */
         --ids-filter-background-selected: #{tokens.$grey-500};
         --ids-filter-border-color-selected: transparent;
@@ -57,6 +62,11 @@
         --ids-filter-border-color-hover: var(--hop-neutral-border-hover);
         --ids-filter-color-hover: var(--hop-neutral-text-hover);
 
+        /* Pressed */
+        --ids-filter-background-pressed: var(--hop-neutral-surface-weak-press);
+        --ids-filter-border-color-pressed: var(--hop-neutral-border-press);
+        --ids-filter-color-pressed: var(--hop-neutral-text-press);
+
         /* Selected */
         --ids-filter-background-selected: var(--hop-neutral-surface-selected);
         --ids-filter-border-color-selected: var(--hop-neutral-border-selected);
@@ -87,6 +97,12 @@
         background: var(--ids-filter-background-hover);
         border-color: var(--ids-filter-border-color-hover);
         color: var(--ids-filter-color-hover);
+    }
+
+    %pressed-style {
+        background: var(--ids-filter-background-pressed);
+        border-color: var(--ids-filter-border-color-pressed);
+        color: var(--ids-filter-color-pressed);
     }
 
     %selected-style {
@@ -122,6 +138,11 @@
 
     .ids-filter:hover {
         @extend %hover-style;
+    }
+
+    .ids-filter:active,
+    .ids-filter:hover:active {
+        @extend %pressed-style;
     }
 
     .ids-filter--selected:hover {

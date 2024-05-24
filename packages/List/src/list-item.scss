@@ -54,6 +54,7 @@
         --ids-list-item-checkbox-box-sizing: content-box;
         --ids-list-item-checkbox-background: #{tokens.$samoyed};
         --ids-list-item-checkbox-background-hover: #{tokens.$samoyed};
+        --ids-list-item-checkbox-background-pressed: #{tokens.$samoyed};
         --ids-list-item-checkbox-background-disabled: #{tokens.$grey-200};
         --ids-list-item-checkbox-background-checked: #{tokens.$electric-blue-500};
         --ids-list-item-checkbox-border-checked-hover: #{tokens.$electric-blue-500};
@@ -139,6 +140,7 @@
         --ids-list-item-checkbox-box-sizing: border-box;
         --ids-list-item-checkbox-background: var(--hop-neutral-surface);
         --ids-list-item-checkbox-background-hover: var(--hop-neutral-surface-hover);
+        --ids-list-item-checkbox-background-pressed: var(--hop-neutral-surface-press);
         --ids-list-item-checkbox-background-disabled: var(--hop-neutral-surface-disabled);
         --ids-list-item-checkbox-background-checked: var(--hop-neutral-surface-selected);
         --ids-list-item-checkbox-background-checked-disabled: var(--hop-neutral-surface-disabled);

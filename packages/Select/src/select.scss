@@ -38,6 +38,10 @@
         --ids-select-background-focus: #{tokens.$samoyed};
         --ids-select-focus: none;
 
+        /* Pressed */
+        --ids-select-border-color-pressed: #{tokens.$grey-600};
+        --ids-select-background-pressed: #{tokens.$samoyed};
+
         /* Disabled */
         --ids-select-color-disabled: #{tokens.$grey-500};
         --ids-select-background-disabled: #{tokens.$grey-200};
@@ -68,6 +72,10 @@
         /* Hover */
         --ids-select-background-hover: var(--hop-neutral-surface-hover);
         --ids-select-border-color-hover: var(--hop-neutral-border-hover);
+
+        /* Pressed */
+        --ids-select-border-color-pressed: var(--hop-neutral-border-press);
+        --ids-select-background-pressed: var(--hop-neutral-surface-press);
 
         /* Active */
         --ids-select-background-active: var(--hop-neutral-surface);
@@ -138,8 +146,14 @@
             border-color: var(--ids-select-border-color-focus);
         }
 
-        &--active,
+        &:active,
         &.active {
+            background-color: var(--ids-select-background-pressed);
+            border-color: var(--ids-select-border-color-pressed);
+        }
+
+        &--opened,
+        &.opened {
             background-color: var(--ids-select-background-active);
             border-color: var(--ids-select-border-color-active);
 

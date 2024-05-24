@@ -20,15 +20,19 @@
         --ids-checkbox-box-sizing: content-box;
         --ids-checkbox-text: #{tokens.$grey-800};
         --ids-checkbox-text-disabled: #{tokens.$grey-600};
+        --ids-checkbox-text-hover: #{tokens.$grey-800};
+        --ids-checkbox-text-press: #{tokens.$grey-800};
         --ids-checkbox-background: #{tokens.$samoyed};
         --ids-checkbox-background-hover: #{tokens.$samoyed};
         --ids-checkbox-background-disabled: #{tokens.$grey-200};
         --ids-checkbox-background-checked: #{tokens.$electric-blue-500};
         --ids-checkbox-border-checked-hover: #{tokens.$electric-blue-500};
         --ids-checkbox-background-checked-disabled: #{tokens.$grey-400};
+        --ids-checkbox-background-pressed: #{tokens.$samoyed};
         --ids-checkbox-border: #{tokens.$grey-400};
         --ids-checkbox-border-hover: #{tokens.$grey-800};
         --ids-checkbox-border-checked: #{tokens.$electric-blue-500};
+        --ids-checkbox-border-pressed: #{tokens.$grey-800};
         --ids-checkbox-border-disabled: #{tokens.$grey-400};
         --ids-checkbox-check-color-disabled: #{tokens.$grey-600};
         --ids-checkbox-check-size: #{tokens.$font-size-3};
@@ -60,15 +64,19 @@
         --ids-checkbox-box-sizing: border-box;
         --ids-checkbox-text: var(--hop-neutral-text);
         --ids-checkbox-text-disabled: var(--hop-neutral-text-disabled);
+        --ids-checkbox-text-hover: var(--hop-neutral-text-hover);
+        --ids-checkbox-text-press: var(--hop-neutral-text-press);
         --ids-checkbox-background: var(--hop-neutral-surface);
         --ids-checkbox-background-hover: var(--hop-neutral-surface-hover);
         --ids-checkbox-background-disabled: var(--hop-neutral-surface-disabled);
         --ids-checkbox-background-checked: var(--hop-neutral-surface-selected);
         --ids-checkbox-background-checked-disabled: var(--hop-neutral-surface-disabled);
+        --ids-checkbox-background-pressed: var(--hop-neutral-surface-press);
         --ids-checkbox-border: var(--hop-neutral-border);
         --ids-checkbox-border-hover: var(--hop-neutral-border-hover);
         --ids-checkbox-border-checked: var(--hop-neutral-border-selected);
         --ids-checkbox-border-checked-hover: var(--hop-neutral-border-selected);
+        --ids-checkbox-border-pressed: var(--hop-neutral-border-press);
         --ids-checkbox-border-disabled: var(--hop-neutral-border-disabled);
         --ids-checkbox-one-px: 0.0625rem;
         --ids-checkbox-check-size: 1rem;
@@ -124,6 +132,14 @@
         &--completion {
             align-items: center;
         }
+
+        .ids-form-control-checkbox:hover & {
+            color: var(--ids-checkbox-text-hover);
+        }
+
+        .ids-form-control-checkbox:active & {
+            color: var(--ids-checkbox-text-press);
+        }
     }
 
     .ids-checkbox:disabled ~ .ids-checkbox__label {
@@ -164,7 +180,9 @@
         }
 
         .ids-checkbox:checked ~ .ids-checkbox__label &,
-        .ids-checkbox:indeterminate ~ .ids-checkbox__label & {
+        .ids-checkbox:indeterminate ~ .ids-checkbox__label &,
+        .ids-form-control-checkbox:not(.ids-form-control-checkbox--disabled):active .ids-checkbox:checked ~ .ids-checkbox__label &,
+        .ids-form-control-checkbox:not(.ids-form-control-checkbox--disabled):active .ids-checkbox:indeterminate ~ .ids-checkbox__label & {
             border-color: var(--ids-checkbox-border-checked);
             background: var(--ids-checkbox-background-checked);
         }
@@ -195,6 +213,12 @@
 
         .ids-checkbox:disabled:hover ~ .ids-checkbox__label & {
             border-color: var(--ids-checkbox-border-disabled);
+        }
+
+        .ids-form-control-checkbox:active &,
+        .ids-form-control-checkbox:active:hover & {
+            background-color: var(--ids-checkbox-background-pressed);
+            border-color: var(--ids-checkbox-border-pressed);
         }
     }
 

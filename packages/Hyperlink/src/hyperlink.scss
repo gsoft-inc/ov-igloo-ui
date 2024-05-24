@@ -6,134 +6,155 @@
 
 @layer igloo {
     :root {
-      /* Default */
-      --ids-link-font-family: #{tokens.$primary-font-family};
-      --ids-link-font-size: #{tokens.$font-size-4};
-      --ids-link-font-size-small: #{tokens.$font-size-3};
-      --ids-link-font-size-xsmall: #{tokens.$font-size-2};
-      --ids-link-font-weight: #{tokens.$font-weight-medium};
-      --ids-link-icon-color: currentcolor;
-      --ids-link-icon-margin: #{tokens.$space-1};
-      --ids-link-icon-padding-top: 0.2rem;
-      --ids-link-focus: #{tokens.$focus};
-      --ids-link-border-radius: #{tokens.$border-radius-sm};
+        /* Default */
+        --ids-link-font-family: #{tokens.$primary-font-family};
+        --ids-link-font-size: #{tokens.$font-size-4};
+        --ids-link-font-size-small: #{tokens.$font-size-3};
+        --ids-link-font-size-xsmall: #{tokens.$font-size-2};
+        --ids-link-font-weight: #{tokens.$font-weight-medium};
+        --ids-link-icon-color: currentcolor;
+        --ids-link-icon-margin: #{tokens.$space-1};
+        --ids-link-icon-padding-top: 0.2rem;
+        --ids-link-focus: #{tokens.$focus};
+        --ids-link-border-radius: #{tokens.$border-radius-sm};
 
-      /* Primary */
-      --ids-link-text-primary: #{tokens.$electric-blue-500};
-      --ids-link-text-primary-hover: #{tokens.$electric-blue-600};
+        /* Primary */
+        --ids-link-text-primary: #{tokens.$electric-blue-500};
+        --ids-link-text-primary-hover: #{tokens.$electric-blue-600};
+        --ids-link-text-primary-pressed: #{tokens.$electric-blue-600};
 
-      /* Secondary */
-      --ids-link-text-secondary: #{tokens.$grey-600};
-      --ids-link-text-secondary-hover: #{tokens.$grey-700};
+        /* Secondary */
+        --ids-link-text-secondary: #{tokens.$grey-600};
+        --ids-link-text-secondary-hover: #{tokens.$grey-700};
+        --ids-link-text-secondary-pressed: #{tokens.$grey-700};
 
-      /* Danger */
-      --ids-link-text-danger: #{tokens.$coral-500};
-      --ids-link-text-danger-hover: #{tokens.$coral-600};
+        /* Danger */
+        --ids-link-text-danger: #{tokens.$coral-500};
+        --ids-link-text-danger-hover: #{tokens.$coral-600};
+        --ids-link-text-danger-pressed: #{tokens.$coral-600};
     }
 
     [data-brand="workleap"] {
-      /* Default */
-      --ids-link-font-family: var(--hop-body-sm-medium-font-family);
-      --ids-link-font-size: var(--hop-body-md-medium-font-size);
-      --ids-link-font-size-small: var(--hop-body-sm-medium-font-size);
-      --ids-link-font-size-xsmall: var(--hop-body-xs-medium-font-size);
-      --ids-link-font-weight: var(--hop-body-sm-medium-font-weight);
-      --ids-link-icon-color: currentcolor;
-      --ids-link-icon-margin: var(--hop-space-inline-xs);
-      --ids-link-icon-padding-top: 0.12rem;
-      --ids-link-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
-      --ids-link-border-radius: var(--hop-shape-rounded-md);
+        /* Default */
+        --ids-link-font-family: var(--hop-body-sm-medium-font-family);
+        --ids-link-font-size: var(--hop-body-md-medium-font-size);
+        --ids-link-font-size-small: var(--hop-body-sm-medium-font-size);
+        --ids-link-font-size-xsmall: var(--hop-body-xs-medium-font-size);
+        --ids-link-font-weight: var(--hop-body-sm-medium-font-weight);
+        --ids-link-icon-color: currentcolor;
+        --ids-link-icon-margin: var(--hop-space-inline-xs);
+        --ids-link-icon-padding-top: 0.12rem;
+        --ids-link-focus: 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
+        --ids-link-border-radius: var(--hop-shape-rounded-md);
 
-      /* Primary */
-      --ids-link-text-primary: var(--hop-primary-text);
-      --ids-link-text-primary-hover: var(--hop-primary-text-hover);
+        /* Primary */
+        --ids-link-text-primary: var(--hop-primary-text);
+        --ids-link-text-primary-hover: var(--hop-primary-text-hover);
+        --ids-link-text-primary-pressed: var(--hop-primary-text-press);
 
-      /* Secondary */
-      --ids-link-text-secondary: var(--hop-neutral-text);
-      --ids-link-text-secondary-hover: var(--hop-neutral-text-hover);
+        /* Secondary */
+        --ids-link-text-secondary: var(--hop-neutral-text);
+        --ids-link-text-secondary-hover: var(--hop-neutral-text-hover);
+        --ids-link-text-secondary-pressed: var(--hop-neutral-text-press);
 
-      /* Danger */
-      --ids-link-text-danger: var(--hop-danger-text-weak);
-      --ids-link-text-danger-hover: var(--hop-danger-text-hover);
+        /* Danger */
+        --ids-link-text-danger: var(--hop-danger-text-weak);
+        --ids-link-text-danger-hover: var(--hop-danger-text-hover);
+        --ids-link-text-danger-pressed: var(--hop-danger-text-press);
     }
 
     .ids-link {
-      font-family: var(--ids-link-font-family);
-      font-size: var(--ids-link-font-size);
-      font-weight: var(--ids-link-font-weight);
-      text-decoration: none;
-      color: var(--ids-link-text-primary);
-      outline: 0;
+        font-family: var(--ids-link-font-family);
+        font-size: var(--ids-link-font-size);
+        font-weight: var(--ids-link-font-weight);
+        text-decoration: none;
+        color: var(--ids-link-text-primary);
+        outline: 0;
 
-      &:focus,
-      &.focus,
-      &:hover {
-        cursor: pointer;
-        color: var(--ids-link-text-primary-hover);
-      }
+        &:focus,
+        &.focus,
+        &:hover {
+            cursor: pointer;
+            color: var(--ids-link-text-primary-hover);
+        }
 
-      &:focus,
-      &.focus {
-        border-radius: var(--ids-link-border-radius);
-        box-shadow: var(--ids-link-focus);
-      }
+        &:active,
+        &.active {
+            color: var(--ids-link-text-primary-pressed);
+        }
 
-      &:focus:not(:focus-visible) {
-        border-radius: none;
-        box-shadow: none;
-      }
+        &:focus,
+        &.focus {
+            border-radius: var(--ids-link-border-radius);
+            box-shadow: var(--ids-link-focus);
+        }
 
-      &--small {
-        font-size: var(--ids-link-font-size-small);
-      }
+        &:focus:not(:focus-visible) {
+            border-radius: none;
+            box-shadow: none;
+        }
 
-      &--xsmall {
-        font-size: var(--ids-link-font-size-xsmall);
-      }
+        &--small {
+            font-size: var(--ids-link-font-size-small);
+        }
 
-      &--underline {
-        text-decoration: underline;
-      }
+        &--xsmall {
+            font-size: var(--ids-link-font-size-xsmall);
+        }
 
-      &.has-icon {
-        display: inline-flex;
-        align-items: flex-start;
-      }
+        &--underline {
+            text-decoration: underline;
+        }
 
-      &.has-icon .ids-icon {
-        color: var(--ids-link-icon-color);
-        flex-shrink: 0;
-        padding-top: var(--ids-link-icon-padding-top);
-      }
+        &.has-icon {
+            display: inline-flex;
+            align-items: flex-start;
+        }
 
-      &.has-icon--leading .ids-icon {
-        margin-right: var(--ids-link-icon-margin);
-      }
+        &.has-icon .ids-icon {
+            color: var(--ids-link-icon-color);
+            flex-shrink: 0;
+            padding-top: var(--ids-link-icon-padding-top);
+        }
 
-      &.has-icon--trailing .ids-icon {
-        margin-left: var(--ids-link-icon-margin);
-      }
+        &.has-icon--leading .ids-icon {
+            margin-right: var(--ids-link-icon-margin);
+        }
+
+        &.has-icon--trailing .ids-icon {
+            margin-left: var(--ids-link-icon-margin);
+        }
     }
 
     .ids-link--secondary {
-      color: var(--ids-link-text-secondary);
+        color: var(--ids-link-text-secondary);
 
-      &:focus,
-      &.focus,
-      &:hover {
-        cursor: pointer;
-        color: var(--ids-link-text-secondary-hover);
-      }
+        &:focus,
+        &.focus,
+        &:hover {
+            cursor: pointer;
+            color: var(--ids-link-text-secondary-hover);
+        }
+
+        &:active,
+        &.active {
+            color: var(--ids-link-text-secondary-pressed);
+        }
     }
 
     .ids-link--danger {
-      color: var(--ids-link-text-danger);
+        color: var(--ids-link-text-danger);
 
-      &:focus,
-      &.focus,
-      &:hover {
-        cursor: pointer;
-        color: var(--ids-link-text-danger-hover);
-      }
+        &:focus,
+        &.focus,
+        &:hover {
+            cursor: pointer;
+            color: var(--ids-link-text-danger-hover);
+        }
+
+        &:active,
+        &.ac:active {
+            color: var(--ids-link-text-danger-pressed);
+        }
     }
 }

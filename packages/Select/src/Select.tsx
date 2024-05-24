@@ -245,7 +245,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
     const canShowMenu = showMenu && !disabled;
 
     const selectClassname = cx("ids-select", className, {
-        "ids-select--active": canShowMenu,
+        "ids-select--opened": canShowMenu,
         "ids-select--compact": isCompact,
         "ids-select--disabled": disabled,
         "ids-select--error": error

@@ -35,6 +35,11 @@
     --ids-metric-hover-background: var(--ids-metric-background);
     --ids-metric-hover-border-color: transparent;
 
+    /* Pressed */
+    --ids-metric-pressed-shadow: #{tokens.$shadow-12};
+    --ids-metric-pressed-background: var(--ids-metric-background);
+    --ids-metric-pressed-border-color: transparent;
+
     /* Focus */
     --ids-metric-focus-border-color: #{tokens.$electric-blue-600};
     --ids-metric-focus-shadow: #{tokens.$shadow-12};
@@ -107,6 +112,11 @@
     --ids-metric-hover-background: var(--hop-neutral-surface-hover);
     --ids-metric-hover-border-color: var(--hop-neutral-border-hover);
 
+    /* Pressed */
+    --ids-metric-pressed-shadow: var(--hop-elevation-lifted);
+    --ids-metric-pressed-background: var(--hop-neutral-surface-press);
+    --ids-metric-pressed-border-color: var(--hop-neutral-border-press);
+
     /* Focus */
     --ids-metric-focus-border-color: var(--hop-neutral-border-hover);
     --ids-metric-focus-shadow: var(--hop-elevation-lifted), 0 0 0 0.12rem var(--hop-neutral-surface), 0 0 0 0.219rem var(--hop-primary-border-focus);
@@ -174,6 +184,13 @@
         background: var(--ids-metric-hover-background);
         border-color: var(--ids-metric-hover-border-color);
         box-shadow: var(--ids-metric-hover-shadow);
+        cursor: pointer;
+    }
+
+    &:active {
+        background: var(--ids-metric-pressed-background);
+        border-color: var(--ids-metric-pressed-border-color);
+        box-shadow: var(--ids-metric-pressed-shadow);
         cursor: pointer;
     }
 

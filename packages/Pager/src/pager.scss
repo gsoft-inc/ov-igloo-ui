@@ -36,6 +36,10 @@
         --ids-pager-item-hover-border: .1rem solid #{tokens.$grey-600};
         --ids-pager-item-hover-background: transparent;
 
+        /* Pressed */
+        --ids-pager-item-pressed-border: .1rem solid #{tokens.$grey-600};
+        --ids-pager-item-pressed-background: transparent;
+
         /* Focus */
         --ids-pager-item-focus-border-width: .1rem;
         --ids-pager-item-focus-outline-width: 0;
@@ -90,6 +94,10 @@
         --ids-pager-item-hover-border: none;
         --ids-pager-item-hover-background: var(--hop-neutral-surface-hover);
 
+        /* Pressed */
+        --ids-pager-item-pressed-border: none;
+        --ids-pager-item-pressed-background: var(--hop-neutral-surface-press);
+
         /* Focus */
         --ids-pager-item-focus-border-width: 0;
         --ids-pager-item-focus-outline-width: 0.0938rem;
@@ -124,6 +132,12 @@
     %hover-style {
         background-color: var(--ids-pager-item-hover-background);
         border: var(--ids-pager-item-hover-border);
+        z-index: var(--ids-pager-item-z-index);
+    }
+
+    %pressed-style {
+        background-color: var(--ids-pager-item-pressed-background);
+        border: var(--ids-pager-item-pressed-border);
         z-index: var(--ids-pager-item-z-index);
     }
 
@@ -168,7 +182,7 @@
         height: var(--ids-pager-height);
         justify-content: center;
         line-height: var(--ids-pager-line-height);
-        margin: 0 0 0 calc(--ids-pager-item-vertical-offset);
+        margin: 0 0 0 calc(var(--ids-pager-item-vertical-offset));
         min-width: var(--ids-pager-item-min-width);
         outline: 0;
         padding: var(--ids-pager-item-padding);
@@ -176,6 +190,13 @@
 
         &:hover {
             @extend %hover-style;
+        }
+
+        &:active,
+        &:active:hover,
+        &:active:hover:focus,
+        &:active:focus {
+            @extend %pressed-style;
         }
 
         &:disabled {
@@ -186,7 +207,7 @@
             z-index: 0;
         }
 
-        &:focus {
+        &:focus-visible {
             @extend %focus-style;
         }
 

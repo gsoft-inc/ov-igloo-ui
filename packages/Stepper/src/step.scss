@@ -18,8 +18,13 @@
 
         /* Hover */
         --ids-step-border-hover: #{tokens.$grey-800};
-        --ids-step-background-hover: var(--hop-neutral-surface-hover);
+        --ids-step-background-hover: #{tokens.$samoyed};
         --ids-step-complete-background-hover: #{tokens.$electric-blue-600};
+
+        /* Pressed */
+        --ids-step-border-pressed: #{tokens.$grey-800};
+        --ids-step-background-pressed: #{tokens.$samoyed};
+        --ids-step-complete-background-pressed: #{tokens.$electric-blue-600};
 
         /* Current Step */
         --ids-step-current-background: #{tokens.$samoyed};
@@ -42,6 +47,11 @@
         --ids-step-border-hover: var(--hop-neutral-border-hover);
         --ids-step-background-hover: var(--hop-neutral-surface-hover);
         --ids-step-complete-background-hover: var(--hop-neutral-surface-selected);
+
+        /* Pressed */
+        --ids-step-border-pressed: var(--hop-neutral-border-press);
+        --ids-step-background-pressed: var(--hop-neutral-surface-press);
+        --ids-step-complete-background-pressed: var(--hop-neutral-surface-selected);
 
         /* Current Step */
         --ids-step-current-background: var(--hop-neutral-surface-selected);
@@ -85,6 +95,11 @@
             background: var(--ids-step-background-hover);
         }
 
+        &:active {
+            background-color: var(--ids-step-background-pressed);
+            border-color: var(--ids-step-border-pressed);
+        }
+
         &.ids-step--focus-visible {
             box-shadow: var(--ids-step-focus);
         }
@@ -96,6 +111,11 @@
         color: var(--ids-step-complete-color);
 
         &:hover {
+            background: var(--ids-step-complete-background-hover);
+            border-color: var(--ids-step-complete-background-hover);
+        }
+
+        &:active {
             background: var(--ids-step-complete-background-hover);
             border-color: var(--ids-step-complete-background-hover);
         }

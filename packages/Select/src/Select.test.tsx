@@ -80,7 +80,7 @@ describe('Select', () => {
 
     const select = screen.getByTestId('select1');
 
-    expect(select).toHaveClass('ids-select--active');
+    expect(select).toHaveClass('ids-select--opened');
   });
 
   /* Dropdown */

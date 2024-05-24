@@ -15,6 +15,8 @@
         --ids-radio-line-height: normal;
         --ids-radio-line-height-small: normal;
         --ids-radio-text: #{tokens.$grey-800};
+        --ids-radio-text-hover: #{tokens.$grey-800};
+        --ids-radio-text-pressed: #{tokens.$grey-800};
         --ids-radio-text-description: #{tokens.$grey-600};
         --ids-radio-description-padding: #{tokens.$space-1};
         --ids-radio-padding: #{tokens.$space-2};
@@ -26,6 +28,9 @@
         --ids-radio-border-hover: #{tokens.$grey-800};
         --ids-radio-border-disabled: #{tokens.$grey-300};
         --ids-radio-border-checked: #{tokens.$electric-blue-500};
+        --ids-radio-border-checked-hover: #{tokens.$electric-blue-500};
+        --ids-radio-border-pressed: #{tokens.$grey-800};
+        --ids-radio-background-pressed: #{tokens.$samoyed};
         --ids-radio-background: #{tokens.$samoyed};
         --ids-radio-background-disabled: #{tokens.$grey-200};
         --ids-radio-background-checked: #{tokens.$electric-blue-500};
@@ -42,6 +47,8 @@
         --ids-radio-line-height: var(--hop-body-md-line-height);
         --ids-radio-line-height-small: var(--hop-body-sm-line-height);
         --ids-radio-text: var(--hop-neutral-text);
+        --ids-radio-text-hover: var(--hop-neutral-text-hover);
+        --ids-radio-text-pressed: var(--hop-neutral-text-press);
         --ids-radio-text-description: var(--hop-neutral-text-weak);
         --ids-radio-description-padding: 0;
         --ids-radio-padding: var(--hop-space-inline-sm);
@@ -57,6 +64,8 @@
         --ids-radio-border-disabled: var(--hop-neutral-border-disabled);
         --ids-radio-border-checked: var(--hop-neutral-border-selected);
         --ids-radio-border-checked-hover: var(--hop-neutral-border-selected);
+        --ids-radio-border-pressed: var(--hop-neutral-border-press);
+        --ids-radio-background-pressed: var(--hop-neutral-surface-press);
         --ids-radio-background: var(--hop-neutral-surface);
         --ids-radio-background-hover: var(--hop-neutral-surface-hover);
         --ids-radio-background-disabled: var(--hop-neutral-surface-disabled);
@@ -103,6 +112,14 @@
         cursor: inherit;
         line-height: var(--ids-radio-line-height);
         padding-left: var(--ids-radio-padding);
+
+        .ids-form-control-radio:hover & {
+            color: var(--ids-radio-text-hover);
+        }
+
+        .ids-form-control-radio:active & {
+            color: var(--ids-radio-text-pressed);
+        }
     }
 
     .ids-radio {
@@ -123,6 +140,11 @@
         &:checked {
             border-color: var(--ids-radio-border-checked);
             background: var(--ids-radio-background-checked);
+
+            .ids-form-control-radio:active & {
+                border-color: var(--ids-radio-border-checked);
+                background: var(--ids-radio-background-checked);
+            }
 
             &::after {
                 @extend %radio;
@@ -171,6 +193,11 @@
             &::after {
                 background: var(--ids-radio-check-background-disabled, var(--ids-radio-background));
             }
+        }
+
+        .ids-form-control-radio:active & {
+            border-color: var(--ids-radio-border-pressed);
+            background-color: var(--ids-radio-background-pressed);
         }
 
         &--small {
