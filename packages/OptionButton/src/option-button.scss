@@ -18,6 +18,10 @@
         --ids-option-button-hover-border-color: #{tokens.$grey-600};
         --ids-option-button-hover-background-color: transparent;
 
+        /* Pressed */
+        --ids-option-button-pressed-border-color: #{tokens.$grey-600};
+        --ids-option-button-pressed-background-color: transparent;
+
         /* Checked */
         --ids-option-button-checked-box-shadow: 0 0 0.6rem #3c7dff;
         --ids-option-button-checked-border-color: transparent;
@@ -68,6 +72,10 @@
         /* Hover */
         --ids-option-button-hover-border-color: var(--hop-neutral-border-hover);
         --ids-option-button-hover-background-color: var(--hop-neutral-surface-hover);
+
+        /* Pressed */
+        --ids-option-button-pressed-border-color: var(--hop-neutral-border-press);
+        --ids-option-button-pressed-background-color: var(--hop-neutral-surface-press);
 
         /* Checked */
         --ids-option-button-checked-box-shadow: none;
@@ -152,6 +160,11 @@
         &:hover:not(.ids-option-button--disabled, .ids-option-button--checked) &__label {
             border-color: var(--ids-option-button-hover-border-color);
             background-color: var(--ids-option-button-hover-background-color);
+        }
+
+        &:active:not(.ids-option-button--disabled, .ids-option-button--checked) &__label {
+            border-color: var(--ids-option-button-pressed-border-color);
+            background-color: var(--ids-option-button-pressed-background-color);
         }
 
         &__radio:focus ~ &__label {

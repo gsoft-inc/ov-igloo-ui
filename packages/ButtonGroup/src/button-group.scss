@@ -36,6 +36,11 @@
         --ids-button-group-item-background-hover: var(--ids-button-group-item-background);
         --ids-button-group-item-border-color-hover: #{tokens.$grey-600};
 
+        /* Active */
+        --ids-button-group-item-text-pressed: var(--ids-button-group-text);
+        --ids-button-group-item-background-pressed: var(--ids-button-group-item-background);
+        --ids-button-group-item-border-color-pressed: #{tokens.$grey-600};
+
         /* Selected */
         --ids-button-group-item-border-selected: #{tokens.$electric-blue-500};
         --ids-button-group-item-text-selected: #{tokens.$electric-blue-500};
@@ -89,6 +94,11 @@
         --ids-button-group-item-text-hover: var(--hop-neutral-text-hover);
         --ids-button-group-item-background-hover: var(--hop-neutral-surface-hover);
         --ids-button-group-item-border-color-hover: transparent;
+
+        /* Active */
+        --ids-button-group-item-text-pressed: var(--hop-neutral-text-press);
+        --ids-button-group-item-background-pressed: var(--hop-neutral-surface-press);
+        --ids-button-group-item-border-color-pressed: transparent;
 
         /* Selected */
         --ids-button-group-item-border-selected: transparent;
@@ -187,6 +197,13 @@
             border-color: var(--ids-button-group-item-border-color-hover);
             color: var(--ids-button-group-item-text-hover);
             cursor: pointer;
+        }
+
+        &:active,
+        &:active:hover {
+            background-color: var(--ids-button-group-item-background-pressed);
+            border-color: var(--ids-button-group-item-border-color-pressed);
+            color: var(--ids-button-group-item-text-pressed);
         }
 
         &:focus {

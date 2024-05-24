@@ -22,6 +22,7 @@
         --ids-tab-button-line-height: #{tokens.$line-height-xxxl};
         --ids-tab-button-color: #{tokens.$grey-600};
         --ids-tab-button-hover-color: #{tokens.$electric-blue-500};
+        --ids-tab-button-pressed-color: #{tokens.$electric-blue-500};
         --ids-tab-button-active-color: #{tokens.$electric-blue-500};
         --ids-tab-button-after-horizontal-space: #{tokens.$space-2};
         --ids-tab-button-after-height: calc(#{tokens.$space-1} / 2);
@@ -71,6 +72,7 @@
         --ids-tab-button-line-height: var(--hop-body-md-medium-line-height);
         --ids-tab-button-color: var(--hop-neutral-text-weak);
         --ids-tab-button-hover-color: var(--hop-neutral-text-hover);
+        --ids-tab-button-pressed-color: var(--hop-neutral-text-press);
         --ids-tab-button-active-color: var(--hop-neutral-text);
         --ids-tab-button-after-horizontal-space: 0.5rem;
         --ids-tab-button-after-height: 0.125rem;
@@ -190,6 +192,10 @@
 
         &:hover {
             color: var(--ids-tab-button-hover-color);
+        }
+
+        &:active {
+            color: var(--ids-tab-button-pressed-color);
         }
 
         &:focus-visible {

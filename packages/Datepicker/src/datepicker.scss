@@ -35,8 +35,10 @@
       --ids-datepicker-title-line-height: 1.333;
       --ids-datepicker-content-color-today: #{tokens.$electric-blue-500};
       --ids-datepicker-content-background-hover: #{tokens.$electric-blue-600};
+      --ids-datepicker-content-background-pressed: #{tokens.$electric-blue-600};
       --ids-datepicker-content-color: #{tokens.$black};
       --ids-datepicker-content-color-hover: #{tokens.$samoyed};
+      --ids-datepicker-content-color-pressed: #{tokens.$samoyed};
       --ids-datepicker-content-background-selected: #{tokens.$electric-blue-500};
       --ids-datepicker-content-color-selected: #{tokens.$samoyed};
       --ids-datepicker-content-line-height: 3.8rem;
@@ -78,8 +80,10 @@
       --ids-datepicker-content-today-outline: 0.125rem solid var(--hop-neutral-border-strong);
       --ids-datepicker-content-today-outline-offset: -0.125rem;
       --ids-datepicker-content-background-hover: var(--hop-neutral-surface-hover);
+      --ids-datepicker-content-background-pressed: var(--hop-neutral-surface-press);
       --ids-datepicker-content-color: var(--hop-neutral-text);
       --ids-datepicker-content-color-hover: var(--hop-neutral-text-hover);
+      --ids-datepicker-content-color-pressed: var(--hop-neutral-text-press);
       --ids-datepicker-content-background-selected: var(--hop-neutral-surface-selected);
       --ids-datepicker-content-color-selected: var(--hop-neutral-text-selected);
       --ids-datepicker-content-line-height: 2.5rem;
@@ -183,6 +187,12 @@
       &:hover {
         color: var(--ids-datepicker-content-color-hover);
         background-color: var(--ids-datepicker-content-background-hover);
+        cursor: pointer;
+      }
+
+      &:active {
+        color: var(--ids-datepicker-content-color-pressed);
+        background-color: var(--ids-datepicker-content-background-pressed);
         cursor: pointer;
       }
 
