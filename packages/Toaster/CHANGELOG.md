@@ -1,5 +1,16 @@
 # @igloo-ui/toaster
 
+## 2.2.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed state to components that needed it / fixed focus style for fields
+
+### Patch Changes
+
+- Updated dependencies [7c83d3d]
+  - @igloo-ui/icon-button@1.3.0
+
 ## 2.1.9
 
 ### Patch Changes

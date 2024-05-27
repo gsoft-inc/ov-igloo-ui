@@ -1,5 +1,11 @@
 # @igloo-ui/toggle
 
+## 1.3.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed state to components that needed it / fixed focus style for fields
+
 ## 1.2.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/disclosure
 
+## 1.2.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed states
+
 ## 1.1.4
 
 ### Patch Changes

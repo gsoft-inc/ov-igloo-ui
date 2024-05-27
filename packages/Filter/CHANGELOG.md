@@ -1,5 +1,11 @@
 # @igloo-ui/filter
 
+## 0.4.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed states
+
 ## 0.3.4
 
 ### Patch Changes

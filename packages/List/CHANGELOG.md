@@ -1,5 +1,16 @@
 # @igloo-ui/list
 
+## 0.8.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed state to components that needed it / fixed focus style for fields
+
+### Patch Changes
+
+- Updated dependencies [7c83d3d]
+  - @igloo-ui/checkbox@0.5.0
+
 ## 0.7.4
 
 ### Patch Changes

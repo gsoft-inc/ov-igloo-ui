@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/form-group",
-    "version": "1.1.5",
+    "version": "1.2.0",
     "main": "dist/FormGroup.js",
     "module": "dist/FormGroup.js",
     "types": "dist/FormGroup.d.ts",
@@ -36,8 +36,8 @@
         "IE >= 11"
     ],
     "devDependencies": {
-        "@igloo-ui/input": "^2.2.6",
-        "@igloo-ui/select": "^1.5.7",
-        "@igloo-ui/textarea": "^0.4.6"
+        "@igloo-ui/input": "^2.3.0",
+        "@igloo-ui/select": "^1.6.0",
+        "@igloo-ui/textarea": "^0.5.0"
     }
 }

@@ -1,5 +1,11 @@
 # @igloo-ui/stepper
 
+## 0.4.0
+
+### Minor Changes
+
+- 7c83d3d: Added pressed state to components that needed it / fixed focus style for fields
+
 ## 0.3.4
 
 ### Patch Changes
