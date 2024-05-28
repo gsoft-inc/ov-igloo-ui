@@ -74,10 +74,10 @@
         --ids-disclosure-header-line-height: var(--hop-body-sm-line-height);
         --ids-disclosure-header-padding: var(--hop-space-inset-md);
         --ids-disclosure-header-icon-margin: 0 var(--hop-space-inline-md) 0 0;
-        --ids-disclosure-header-title-font-family: var(--hop-heading-xs-font-family);
-        --ids-disclosure-header-title-font-size: var(--hop-heading-xs-font-size);
-        --ids-disclosure-header-title-font-weight: var(--hop-heading-xs-font-weight);
-        --ids-disclosure-header-title-line-height: var(--hop-heading-xs-line-height);
+        --ids-disclosure-header-title-font-family: var(--hop-heading-lg-font-family);
+        --ids-disclosure-header-title-font-size: var(--hop-heading-lg-font-size);
+        --ids-disclosure-header-title-font-weight: var(--hop-heading-lg-font-weight);
+        --ids-disclosure-header-title-line-height: var(--hop-heading-lg-line-height);
         --ids-disclosure-header-desc-color: var(--hop-neutral-text-weak);
         --ids-disclosure-header-content-margin: 0.125rem calc(-1 * var(--hop-space-inset-sm));
         --ids-disclosure-header-content-padding: 0.125rem var(--hop-space-inset-sm);
@@ -213,14 +213,13 @@
     }
 
     .ids-disclosure__header-content {
-        display: block;
         margin: var(--ids-disclosure-header-content-margin);
+        display: flex;
+        flex: 1 1 auto;
 
         /* stylelint-disable-next-line media-query-no-invalid */
         @media (width >= #{tokens.$breakpoints-sm}) {
             align-items: baseline;
-            display: flex;
-            flex: 1 1 auto;
         }
     }
 
