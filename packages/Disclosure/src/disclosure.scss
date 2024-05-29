@@ -220,6 +220,7 @@
         /* stylelint-disable-next-line media-query-no-invalid */
         @media (width >= #{tokens.$breakpoints-sm}) {
             align-items: baseline;
+            display: flex;
         }
     }
 
