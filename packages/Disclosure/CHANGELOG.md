@@ -1,5 +1,11 @@
 # @igloo-ui/disclosure
 
+## 1.2.1
+
+### Patch Changes
+
+- a7e0d52: adjusted the header font size / adjusted the alignment of the arrow
+
 ## 1.2.0
 
 ### Minor Changes
