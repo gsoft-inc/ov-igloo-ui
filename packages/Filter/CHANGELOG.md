@@ -1,5 +1,11 @@
 # @igloo-ui/filter
 
+## 0.4.1
+
+### Patch Changes
+
+- 5f7e49c: Fixed the hover state of selected filter.
+
 ## 0.4.0
 
 ### Minor Changes

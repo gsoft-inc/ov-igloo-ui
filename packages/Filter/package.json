@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/filter",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "main": "dist/Filter.js",
   "module": "dist/Filter.js",
   "types": "dist/Filter.d.ts",
