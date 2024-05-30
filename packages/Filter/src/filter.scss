@@ -33,6 +33,7 @@
 
         /* Selected Hover */
         --ids-filter-background-selected-hover: #{tokens.$grey-800};
+        --ids-filter-border-color-selected-hover: #{tokens.$grey-800};
 
         /* Disabled */
         --ids-filter-background-disabled: #{tokens.$grey-200};
@@ -74,6 +75,7 @@
 
         /* Selected Hover */
         --ids-filter-background-selected-hover: var(--hop-neutral-surface-selected);
+        --ids-filter-border-color-selected-hover: var(--hop-neutral-surface-selected);
 
         /* Disabled */
         --ids-filter-background-disabled: var(--hop-neutral-surface-disabled);
@@ -125,7 +127,7 @@
         outline: none;
         padding: var(--ids-filter-padding);
         position: relative;
-        transition: background 0.4s, color 0.4s;
+        transition: background 0.4s, color 0.4s, border-color 0.4s;
 
         & * {
             box-sizing: border-box;
@@ -147,6 +149,7 @@
 
     .ids-filter--selected:hover {
         background: var(--ids-filter-background-selected-hover);
+        border-color: var(--ids-filter-border-color-selected-hover);
         color: var(--ids-filter-color-selected);
     }
 
