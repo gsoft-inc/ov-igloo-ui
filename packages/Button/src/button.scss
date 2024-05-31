@@ -154,27 +154,27 @@
           /* Primary */
           --ids-btn-text-primary: var(--hop-primary-text-strong);
           --ids-btn-text-primary-disabled: var(--hop-neutral-text-disabled);
-          --ids-btn-text-primary-active: var(--hop-primary-text-active);
+          --ids-btn-text-primary-active: var(--hop-primary-text-selected);
           --ids-btn-border-primary: transparent;
-          --ids-btn-border-primary-active: var(--hop-primary-border-active);
+          --ids-btn-border-primary-active: var(--hop-primary-border-selected);
           --ids-btn-background-primary: var(--hop-primary-surface-strong);
           --ids-btn-background-primary-hover: var(--hop-primary-surface-strong-hover);
           --ids-btn-background-primary-disabled: var(--hop-neutral-surface-disabled);
-          --ids-btn-background-primary-active: var(--hop-primary-surface-active);
+          --ids-btn-background-primary-active: var(--hop-primary-surface-selected);
           --ids-btn-background-primary-pressed: var(--hop-primary-surface-strong-press);
 
           /* Secondary */
           --ids-btn-text-secondary: var(--hop-neutral-text);
           --ids-btn-text-secondary-hover: var(--hop-neutral-text);
-          --ids-btn-text-secondary-active: var(--hop-neutral-text-active);
+          --ids-btn-text-secondary-active: var(--hop-neutral-text-selected);
           --ids-btn-text-secondary-pressed: var(--hop-neutral-text-press);
           --ids-btn-text-secondary-disabled: var(--hop-neutral-text-disabled);
           --ids-btn-border-secondary: var(--hop-neutral-border-strong);
           --ids-btn-border-secondary-hover: var(--hop-neutral-border-strong);
-          --ids-btn-border-secondary-active: var(--hop-neutral-border-active);
+          --ids-btn-border-secondary-active: var(--hop-neutral-border-selected);
           --ids-btn-background-secondary: var(--hop-neutral-surface);
           --ids-btn-background-secondary-hover: var(--hop-neutral-surface-hover);
-          --ids-btn-background-secondary-active: var(--hop-neutral-surface-active);
+          --ids-btn-background-secondary-active: var(--hop-neutral-surface-selected);
           --ids-btn-background-secondary-disabled: var(--hop-neutral-surface-disabled);
           --ids-btn-background-secondary-pressed: var(--hop-neutral-surface-press);
 
@@ -183,22 +183,22 @@
           --ids-btn-text-premium-disabled: var(--hop-neutral-text-disabled);
           --ids-btn-text-premium-hover: var(--hop-upsell-text-hover);
           --ids-btn-text-premium-pressed: var(--hop-upsell-text-press);
-          --ids-btn-text-premium-active: var(--hop-upsell-text-active);
-          --ids-btn-border-premium-active: var(--hop-upsell-border-active);
+          --ids-btn-text-premium-active: var(--hop-upsell-text-selected);
+          --ids-btn-border-premium-active: var(--hop-upsell-border-selected);
           --ids-btn-background-premium: var(--hop-upsell-surface);
           --ids-btn-background-premium-hover: var(--hop-upsell-surface-hover);
           --ids-btn-background-premium-disabled: var(--hop-neutral-surface-disabled);
-          --ids-btn-background-premium-active: var(--hop-upsell-surface-active);
+          --ids-btn-background-premium-active: var(--hop-upsell-surface-selected);
           --ids-btn-background-premium-pressed: var(--hop-upsell-surface-press);
 
           /* Danger */
           --ids-btn-text-danger: var(--hop-danger-text-strong);
-          --ids-btn-text-danger-active: var(--hop-danger-text-active);
-          --ids-btn-border-danger-active: var(--hop-danger-border-active);
+          --ids-btn-text-danger-active: var(--hop-danger-text-selected);
+          --ids-btn-border-danger-active: var(--hop-danger-border-selected);
           --ids-btn-background-danger: var(--hop-danger-surface-strong);
           --ids-btn-background-danger-hover: var(--hop-danger-surface-hover);
           --ids-btn-background-danger-disabled: var(--hop-neutral-surface-disabled);
-          --ids-btn-background-danger-active: var(--hop-danger-surface-active);
+          --ids-btn-background-danger-active: var(--hop-danger-surface-selected);
           --ids-btn-background-danger-pressed: var(--hop-danger-surface-press);
 
           /* Ghost */
@@ -215,36 +215,36 @@
           --ids-btn-background-ghost-hover: var(--hop-neutral-surface-hover);
           --ids-btn-background-ghost-pressed: var(--hop-primary-surface-weak-press);
           --ids-btn-background-ghost-disabled: transparent;
-          --ids-btn-background-ghost-active: var(--hop-neutral-surface-weak-active);
+          --ids-btn-background-ghost-active: var(--hop-neutral-surface-weak-selected);
           --ids-loader-size: 0.75rem;
           --ids-loader-border: 0.125rem solid rgb(255 255 255 / 30%);
           --ids-loader-border-ghost: 0.125rem solid rgb(59 87 255 / 30%);
           --ids-loader-primary: var(--hop-primary-icon-strong);
-          --ids-loader-primary-active: var(--hop-primary-icon-active);
+          --ids-loader-primary-active: var(--hop-primary-icon-selected);
           --ids-loader-premium: var(--hop-upsell-icon);
           --ids-loader-premium-disabled: var(--hop-neutral-icon);
-          --ids-loader-premium-active: var(--hop-upsell-icon-active);
+          --ids-loader-premium-active: var(--hop-upsell-icon-selected);
           --ids-loader-secondary: var(--hop-neutral-icon);
           --ids-loader-secondary-disabled: var(--hop-neutral-icon);
-          --ids-loader-secondary-active: var(--hop-neutral-icon-active);
+          --ids-loader-secondary-active: var(--hop-neutral-icon-selected);
           --ids-loader-ghost: var(--hop-primary-icon);
-          --ids-loader-ghost-active: var(--hop-primary-icon-active);
+          --ids-loader-ghost-active: var(--hop-primary-icon-selected);
           --ids-loader-ghost-disabled: var(--hop-neutral-icon);
 
           /* Ghost, variant: Danger */
           --ids-btn-text-ghost-danger: var(--hop-danger-text-weak);
           --ids-btn-background-ghost-danger-hover: var(--hop-neutral-surface-hover);
-          --ids-btn-background-ghost-danger-active: var(--hop-neutral-surface-weak-active);
+          --ids-btn-background-ghost-danger-active: var(--hop-neutral-surface-weak-selected);
           --ids-btn-background-ghost-danger-pressed: var(--hop-danger-surface-weak-press);
           --ids-btn-border-ghost-danger-active: transparent;
           --ids-btn-text-ghost-danger-hover: var(--hop-danger-text-hover);
-          --ids-btn-text-ghost-danger-active: var(--hop-danger-text-active);
+          --ids-btn-text-ghost-danger-active: var(--hop-danger-text-selected);
           --ids-btn-text-ghost-danger-pressed: var(--hop-danger-text-press);
           --ids-btn-background-ghost-danger-disabled: transparent;
           --ids-btn-text-ghost-danger-disabled: var(--hop-danger-text-disabled);
           --ids-loader-border-ghost-danger: 0.125rem solid rgb(149 41 39 / 30%);
           --ids-loader-ghost-danger: var(--hop-danger-icon);
-          --ids-loader-ghost-danger-active: var(--hop-danger-icon-active);
+          --ids-loader-ghost-danger-active: var(--hop-danger-icon-selected);
 
           /* Ghost, variant: Secondary */
           --ids-btn-text-ghost-secondary: var(--hop-neutral-text);
@@ -252,7 +252,7 @@
           --ids-btn-background-ghost-secondary-pressed: var(--hop-neutral-surface-press);
           --ids-btn-text-ghost-secondary-hover: var(--hop-neutral-text-hover);
           --ids-btn-text-ghost-secondary-pressed: var(--hop-neutral-text-press);
-          --ids-btn-background-ghost-secondary-active: var(--hop-neutral-surface-weak-active);
+          --ids-btn-background-ghost-secondary-active: var(--hop-neutral-surface-weak-selected);
           --ids-btn-border-ghost-secondary-active: transparent;
           --ids-btn-text-ghost-secondary-active: var(--hop-neutral-text);
           --ids-btn-background-ghost-secondary-disabled: transparent;
@@ -343,7 +343,7 @@
         background: var(--ids-btn-background-primary-hover);
       }
 
-      .ids-btn:not(.ids-btn--loading):active {
+      .ids-btn:not(.ids-btn--loading, :disabled):active {
           background-color: var(--ids-btn-background-primary-pressed);
       }
 
@@ -462,7 +462,7 @@
         border-color: var(--ids-btn-border-secondary-active);
       }
 
-      .ids-btn--secondary:not(.ids-btn--loading):active {
+      .ids-btn--secondary:not(.ids-btn--loading, :disabled):active {
           background-color: var(--ids-btn-background-secondary-pressed);
           color: var(--ids-btn-text-secondary-pressed);
       }
@@ -491,18 +491,18 @@
         background: var(--ids-btn-background-premium);
       }
 
-      .ids-btn--premium.ids-btn--active {
+      .ids-btn--premium.ids-btn--active:not(.ids-btn--loading, :disabled) {
         color: var(--ids-btn-text-premium-active);
         background: var(--ids-btn-background-premium-active);
         border-color: var(--ids-btn-border-premium-active);
       }
 
-      .ids-btn--premium:not(.ids-btn--loading):active {
+      .ids-btn--premium:not(.ids-btn--loading, :disabled):active {
         background-color: var(--ids-btn-background-premium-pressed);
         color: var(--ids-btn-text-premium-pressed);
       }
 
-      .ids-btn--premium:not(.ids-btn--loading):focus-visible,
+      .ids-btn--premium:not(.ids-btn--loading, :disabled):focus-visible,
       .ids-btn--premium.focus,
       .ids-btn--premium:hover {
         background: var(--ids-btn-background-premium-hover);
@@ -526,7 +526,7 @@
         border-color: var(--ids-btn-border-danger-active);
       }
 
-      .ids-btn--danger:not(.ids-btn--loading):active {
+      .ids-btn--danger:not(.ids-btn--loading, :disabled):active {
         background-color: var(--ids-btn-background-danger-pressed);
       }
 
@@ -553,7 +553,7 @@
         border-color: var(--ids-btn-border-ghost-active);
       }
 
-      .ids-btn--ghost:not(.ids-btn--loading):active {
+      .ids-btn--ghost:not(.ids-btn--loading, :disabled):active {
         background-color: var(--ids-btn-background-ghost-pressed);
         color: var(--ids-btn-text-ghost-pressed);
         text-decoration: var(--ids-btn-text-ghost-decoration-pressed);
@@ -586,7 +586,7 @@
         background: var(--ids-btn-background-ghost-danger-active);
       }
 
-      .ids-btn:not(.ids-btn--loading).ids-btn--ghost-danger:active {
+      .ids-btn:not(.ids-btn--loading, :disabled).ids-btn--ghost-danger:active {
         background: var(--ids-btn-background-ghost-danger-pressed);
         color: var(--ids-btn-text-ghost-danger-pressed);
         text-decoration: var(--ids-btn-text-ghost-decoration-pressed);
@@ -627,7 +627,7 @@
         color: var(--ids-btn-text-ghost-secondary-active);
       }
 
-      .ids-btn.ids-btn--ghost-secondary:not(.ids-btn--loading):active {
+      .ids-btn.ids-btn--ghost-secondary:not(.ids-btn--loading, :disabled):active {
         background: var(--ids-btn-background-ghost-secondary-pressed);
         color: var(--ids-btn-text-ghost-secondary-pressed);
         text-decoration: var(--ids-btn-text-ghost-decoration-hover);
