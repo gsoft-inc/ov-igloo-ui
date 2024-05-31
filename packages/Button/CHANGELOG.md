@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.1
+
+### Patch Changes
+
+- 20d9170: Fixed disabled press state appearance / fixed active state in workleap theme for button
+
 ## 0.9.0
 
 ### Minor Changes

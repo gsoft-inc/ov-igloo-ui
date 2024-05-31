@@ -1,5 +1,14 @@
 # @igloo-ui/dialog
 
+## 0.9.1
+
+### Patch Changes
+
+- 20d9170: Fixed disabled press state appearance / fixed active state in workleap theme for button
+- Updated dependencies [20d9170]
+  - @igloo-ui/button@0.9.1
+  - @igloo-ui/modal@1.8.1
+
 ## 0.9.0
 
 ### Minor Changes

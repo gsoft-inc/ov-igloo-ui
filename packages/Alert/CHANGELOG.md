@@ -1,5 +1,14 @@
 # @igloo-ui/alert
 
+## 0.8.1
+
+### Patch Changes
+
+- 20d9170: Fixed disabled press state appearance / fixed active state in workleap theme for button
+- Updated dependencies [20d9170]
+  - @igloo-ui/button@0.9.1
+  - @igloo-ui/icon-button@1.3.1
+
 ## 0.8.0
 
 ### Minor Changes
