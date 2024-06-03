@@ -14,6 +14,7 @@
         --ids-alert-line-height: #{tokens.$line-height-xxl};
         --ids-alert-title-font-weight: #{tokens.$font-weight-semi-bold};
         --ids-alert-padding: #{tokens.$space-3};
+        --ids-alert-padding-compact: #{tokens.$space-3};
         --ids-alert-flex-gap-component: #{tokens.$space-3};
         --ids-alert-border-radius: #{tokens.$border-radius-sm};
         --ids-alert-box-shadow: #{tokens.$shadow-6};
@@ -53,6 +54,7 @@
         --ids-alert-title-font-weight: var(--hop-body-sm-semibold-font-weight);
         --ids-alert-horizontal-title-font-weight: var(--hop-body-sm-font-weight);
         --ids-alert-padding: var(--hop-space-inset-md);
+        --ids-alert-padding-compact: var(--hop-space-inset-sm);
         --ids-alert-flex-gap-component: var(--hop-space-inline-md);
         --ids-alert-border-radius: var(--hop-shape-rounded-md);
         --ids-alert-box-shadow: none;
@@ -119,9 +121,9 @@
 
         &--inline,
         &--horizontal {
-            padding: 0.5rem;
             background-color: var(--ids-alert-background-color-darker);
             border-width: var(--ids-alert-border-width);
+            padding: var(--ids-alert-padding-compact);
         }
 
         &--horizontal {
