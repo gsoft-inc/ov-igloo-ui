@@ -122,13 +122,13 @@ const renderAlertActionButton = (
         return <></>;
     }
 
-    const ghostAppearance = isWorkleap ? 
-        { type: "ghost", variant: "secondary" } as ButtonAppearance : 
+    const ghostAppearance = isWorkleap ?
+        { type: "ghost", variant: "secondary" } as ButtonAppearance :
         "ghost";
 
     return (
         <Button
-            appearance={style === "horizontal" ? ghostAppearance : "secondary"}
+            appearance={style === "horizontal" && !isWorkleap ? ghostAppearance : "secondary"}
             size="small"
             onClick={button.onClick}
             className="ids-alert__action-btn"
