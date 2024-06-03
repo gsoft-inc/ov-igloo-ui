@@ -1,5 +1,11 @@
 # @igloo-ui/breadcrumb
 
+## 0.3.8
+
+### Patch Changes
+
+- 38608a7: Fixed an issue where breadcrumbs were not wrapping in mobile
+
 ## 0.3.7
 
 ### Patch Changes
