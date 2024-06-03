@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.8.2
+
+### Patch Changes
+
+- 39b9737: UI adjustments
+
 ## 0.8.1
 
 ### Patch Changes
