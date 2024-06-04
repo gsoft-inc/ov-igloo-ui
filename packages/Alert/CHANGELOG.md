@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.8.3
+
+### Patch Changes
+
+- 698c3a8: Fixed an UI padding issue for Alert
+
 ## 0.8.2
 
 ### Patch Changes
