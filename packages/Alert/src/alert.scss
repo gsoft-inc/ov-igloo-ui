@@ -54,7 +54,7 @@
         --ids-alert-title-font-weight: var(--hop-body-sm-semibold-font-weight);
         --ids-alert-horizontal-title-font-weight: var(--hop-body-sm-font-weight);
         --ids-alert-padding: var(--hop-space-inset-md);
-        --ids-alert-padding-compact: var(--hop-space-inset-sm);
+        --ids-alert-padding-compact: var(--hop-space-inset-sm) var(--hop-space-inset-md);
         --ids-alert-flex-gap-component: var(--hop-space-inline-md);
         --ids-alert-border-radius: var(--hop-shape-rounded-md);
         --ids-alert-box-shadow: none;
@@ -123,10 +123,11 @@
         &--horizontal {
             background-color: var(--ids-alert-background-color-darker);
             border-width: var(--ids-alert-border-width);
-            padding: var(--ids-alert-padding-compact);
         }
 
         &--horizontal {
+            padding: var(--ids-alert-padding-compact);
+
             .ids-alert__title {
                 font-weight: var(--ids-alert-horizontal-title-font-weight, var(--ids-alert-title-font-weight))
             }
