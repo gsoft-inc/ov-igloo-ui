@@ -1,5 +1,11 @@
 # @igloo-ui/dialog
 
+## 0.9.2
+
+### Patch Changes
+
+- 0f52446: Updated to latest Hopper tokens version
+
 ## 0.9.1
 
 ### Patch Changes
