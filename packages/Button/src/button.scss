@@ -247,11 +247,11 @@
           --ids-loader-ghost-danger-active: var(--hop-danger-icon-selected);
 
           /* Ghost, variant: Secondary */
-          --ids-btn-text-ghost-secondary: var(--hop-neutral-text);
+          --ids-btn-text-ghost-secondary: var(--hop-neutral-text-weak);
           --ids-btn-background-ghost-secondary-hover: var(--hop-neutral-surface-hover);
           --ids-btn-background-ghost-secondary-pressed: var(--hop-neutral-surface-press);
-          --ids-btn-text-ghost-secondary-hover: var(--hop-neutral-text-hover);
-          --ids-btn-text-ghost-secondary-pressed: var(--hop-neutral-text-press);
+          --ids-btn-text-ghost-secondary-hover: var(--hop-neutral-text-weak-hover);
+          --ids-btn-text-ghost-secondary-pressed: var(--hop-neutral-text-weak-press);
           --ids-btn-background-ghost-secondary-active: var(--hop-neutral-surface-weak-selected);
           --ids-btn-border-ghost-secondary-active: transparent;
           --ids-btn-text-ghost-secondary-active: var(--hop-neutral-text);
