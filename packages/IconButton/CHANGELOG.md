@@ -1,5 +1,13 @@
 # @igloo-ui/icon-button
 
+## 1.3.2
+
+### Patch Changes
+
+- 9b2c48b: UI sync with Hopper
+- Updated dependencies [9b2c48b]
+  - @igloo-ui/button@0.9.2
+
 ## 1.3.1
 
 ### Patch Changes
