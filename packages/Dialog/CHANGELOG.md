@@ -1,5 +1,13 @@
 # @igloo-ui/dialog
 
+## 0.9.3
+
+### Patch Changes
+
+- 9b2c48b: UI sync with Hopper
+- Updated dependencies [9b2c48b]
+  - @igloo-ui/button@0.9.2
+
 ## 0.9.2
 
 ### Patch Changes

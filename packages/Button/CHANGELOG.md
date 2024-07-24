@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.2
+
+### Patch Changes
+
+- 9b2c48b: UI sync with Hopper
+
 ## 0.9.1
 
 ### Patch Changes
