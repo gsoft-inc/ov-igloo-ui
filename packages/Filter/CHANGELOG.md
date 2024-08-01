@@ -1,5 +1,11 @@
 # @igloo-ui/filter
 
+## 0.4.2
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+
 ## 0.4.1
 
 ### Patch Changes

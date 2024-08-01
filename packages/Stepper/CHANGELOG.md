@@ -1,5 +1,13 @@
 # @igloo-ui/stepper
 
+## 0.4.1
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+- Updated dependencies [d8dc4ea]
+  - @igloo-ui/tooltip@3.5.5
+
 ## 0.4.0
 
 ### Minor Changes

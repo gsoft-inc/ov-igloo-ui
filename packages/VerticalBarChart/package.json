@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/vertical-bar-chart",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "main": "dist/VerticalBarChart.js",
   "module": "dist/VerticalBarChart.js",
   "types": "dist/VerticalBarChart.d.ts",

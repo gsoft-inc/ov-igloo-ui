@@ -1,5 +1,13 @@
 # @igloo-ui/breadcrumb
 
+## 0.3.9
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+- Updated dependencies [d8dc4ea]
+  - @igloo-ui/provider@0.1.4
+
 ## 0.3.8
 
 ### Patch Changes

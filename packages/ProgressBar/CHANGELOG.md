@@ -1,5 +1,11 @@
 # @igloo-ui/progress-bar
 
+## 1.1.4
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+
 ## 1.1.3
 
 ### Patch Changes

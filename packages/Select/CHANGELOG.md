@@ -1,5 +1,16 @@
 # @igloo-ui/select
 
+## 1.6.1
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+- Updated dependencies [d8dc4ea]
+  - @igloo-ui/dropdown@1.9.1
+  - @igloo-ui/icon-button@1.3.3
+  - @igloo-ui/input@2.3.1
+  - @igloo-ui/list@0.8.1
+
 ## 1.6.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/radio
 
+## 0.3.1
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+
 ## 0.3.0
 
 ### Minor Changes

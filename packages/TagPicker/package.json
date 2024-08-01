@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/tag-picker",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "main": "dist/TagPicker.js",
   "module": "dist/TagPicker.js",
   "types": "dist/TagPicker.d.ts",
@@ -24,16 +24,16 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/dropdown": "^1.9.0",
-    "@igloo-ui/input": "^2.3.0",
-    "@igloo-ui/tag": "^1.8.0",
+    "@igloo-ui/dropdown": "^1.9.1",
+    "@igloo-ui/input": "^2.3.1",
+    "@igloo-ui/tag": "^1.8.1",
     "@igloo-ui/tokens": "^2.1.0",
     "@hopper-ui/tokens": "^4.2.0",
     "@react-aria/utils": "^3.23.2",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@igloo-ui/form-group": "^1.2.0",
+    "@igloo-ui/form-group": "^1.2.1",
     "@shared/components": "0.5.0"
   },
   "browserslist": [

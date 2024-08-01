@@ -1,5 +1,13 @@
 # @igloo-ui/icon-button
 
+## 1.3.3
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+- Updated dependencies [d8dc4ea]
+  - @igloo-ui/button@0.9.3
+
 ## 1.3.2
 
 ### Patch Changes

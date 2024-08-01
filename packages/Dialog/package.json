@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/dialog",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "main": "dist/Dialog.js",
   "module": "dist/Dialog.js",
   "types": "dist/Dialog.d.ts",
@@ -26,8 +26,8 @@
   "dependencies": {
     "@igloo-ui/tokens": "^2.1.0",
     "classnames": "^2.3.2",
-    "@igloo-ui/modal": "^1.8.1",
-    "@igloo-ui/button": "^0.9.2",
+    "@igloo-ui/modal": "^1.8.2",
+    "@igloo-ui/button": "^0.9.3",
     "@hopper-ui/tokens": "^4.2.0"
   },
   "browserslist": [

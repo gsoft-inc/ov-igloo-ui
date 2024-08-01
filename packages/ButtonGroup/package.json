@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/button-group",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "main": "dist/ButtonGroup.js",
   "module": "dist/ButtonGroup.js",
   "types": "dist/ButtonGroup.d.ts",
@@ -35,6 +35,6 @@
   ],
   "devDependencies": {
     "@igloo-ui/icons": "^1.12.2",
-    "@igloo-ui/tooltip": "^3.5.4"
+    "@igloo-ui/tooltip": "^3.5.5"
   }
 }

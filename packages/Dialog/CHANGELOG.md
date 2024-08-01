@@ -1,5 +1,14 @@
 # @igloo-ui/dialog
 
+## 0.9.4
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+- Updated dependencies [d8dc4ea]
+  - @igloo-ui/button@0.9.3
+  - @igloo-ui/modal@1.8.2
+
 ## 0.9.3
 
 ### Patch Changes

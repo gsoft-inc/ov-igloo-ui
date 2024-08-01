@@ -1,5 +1,13 @@
 # @igloo-ui/stacked-bar
 
+## 0.4.8
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+- Updated dependencies [d8dc4ea]
+  - @igloo-ui/popover@0.6.1
+
 ## 0.4.7
 
 ### Patch Changes

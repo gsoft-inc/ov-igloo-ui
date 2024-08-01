@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.3.1
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+
 ## 1.3.0
 
 ### Minor Changes

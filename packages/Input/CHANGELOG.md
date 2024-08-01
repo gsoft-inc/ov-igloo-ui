@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.3.1
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+
 ## 2.3.0
 
 ### Minor Changes
