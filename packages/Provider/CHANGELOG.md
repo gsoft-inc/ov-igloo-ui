@@ -1,5 +1,11 @@
 # @igloo-ui/provider
 
+## 0.1.4
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+
 ## 0.1.3
 
 ### Patch Changes

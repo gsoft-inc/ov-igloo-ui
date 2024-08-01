@@ -1,5 +1,17 @@
 # @igloo-ui/datepicker
 
+## 0.7.3
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+- Updated dependencies [d8dc4ea]
+  - @igloo-ui/button@0.9.3
+  - @igloo-ui/dropdown@1.9.1
+  - @igloo-ui/icon-button@1.3.3
+  - @igloo-ui/input@2.3.1
+  - @igloo-ui/provider@0.1.4
+
 ## 0.7.2
 
 ### Patch Changes

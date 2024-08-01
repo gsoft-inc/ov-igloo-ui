@@ -1,5 +1,14 @@
 # @igloo-ui/popover
 
+## 0.6.1
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+- Updated dependencies [d8dc4ea]
+  - @igloo-ui/icon-button@1.3.3
+  - @igloo-ui/provider@0.1.4
+
 ## 0.6.0
 
 ### Minor Changes

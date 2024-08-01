@@ -1,5 +1,11 @@
 # @igloo-ui/textarea
 
+## 0.5.1
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+
 ## 0.5.0
 
 ### Minor Changes

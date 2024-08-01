@@ -1,5 +1,17 @@
 # @igloo-ui/text-editor
 
+## 0.8.3
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+- Updated dependencies [d8dc4ea]
+  - @igloo-ui/button@0.9.3
+  - @igloo-ui/icon-button@1.3.3
+  - @igloo-ui/input@2.3.1
+  - @igloo-ui/provider@0.1.4
+  - @igloo-ui/tooltip@3.5.5
+
 ## 0.8.2
 
 ### Patch Changes

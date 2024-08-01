@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.9.1
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+
 ## 1.9.0
 
 ### Minor Changes

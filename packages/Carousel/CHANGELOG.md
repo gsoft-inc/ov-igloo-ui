@@ -1,5 +1,11 @@
 # @igloo-ui/carousel
 
+## 0.3.6
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+
 ## 0.3.5
 
 ### Patch Changes

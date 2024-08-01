@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/disclosure",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "main": "dist/Disclosure.js",
     "module": "dist/Disclosure.js",
     "types": "dist/Disclosure.d.ts",
@@ -32,7 +32,7 @@
         "react-stately": "^3.30.1"
     },
     "devDependencies": {
-        "@igloo-ui/button": "^0.9.0"
+        "@igloo-ui/button": "^0.9.3"
     },
     "browserslist": [
         "> 1%",

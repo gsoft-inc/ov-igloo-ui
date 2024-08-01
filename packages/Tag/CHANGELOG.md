@@ -1,5 +1,15 @@
 # @igloo-ui/tag
 
+## 1.8.1
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+- Updated dependencies [d8dc4ea]
+  - @igloo-ui/ellipsis@0.3.4
+  - @igloo-ui/icon-button@1.3.3
+  - @igloo-ui/provider@0.1.4
+
 ## 1.8.0
 
 ### Minor Changes

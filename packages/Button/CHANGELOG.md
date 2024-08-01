@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.3
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+
 ## 0.9.2
 
 ### Patch Changes

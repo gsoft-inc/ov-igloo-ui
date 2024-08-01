@@ -1,5 +1,13 @@
 # @igloo-ui/area-chart
 
+## 1.2.6
+
+### Patch Changes
+
+- d8dc4ea: Updated Hopper-UI tokens dependencies
+- Updated dependencies [d8dc4ea]
+  - @igloo-ui/provider@0.1.4
+
 ## 1.2.5
 
 ### Patch Changes
