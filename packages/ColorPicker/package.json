@@ -28,7 +28,7 @@
     "@igloo-ui/color": "^0.5.2",
     "@igloo-ui/dropdown": "^1.8.3",
     "@igloo-ui/tokens": "^2.1.0",
-    "@hopper-ui/tokens": "^4.0.0",
+    "@hopper-ui/tokens": "^4.2.0",
     "classnames": "^2.3.2",
     "react-aria": "^3.32.1",
     "react-aria-components": "^1.1.1",
