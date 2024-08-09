@@ -25,11 +25,11 @@
   },
   "dependencies": {
     "@igloo-ui/checkbox": "^0.5.1",
-    "@igloo-ui/icons": "^1.12.2",
+    "@igloo-ui/icons": "^1.12.3",
     "@igloo-ui/tokens": "^2.1.0",
-    "@hopper-ui/icons-react16": "1.2.0",
-    "@hopper-ui/tokens": "^4.2.0",
-    "classnames": "^2.3.2"
+    "@hopper-ui/icons-react16": "2.3.0",
+    "@hopper-ui/tokens": "^4.3.0",
+    "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@shared/components": "0.5.0",
