@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/dropdown",
-    "version": "1.9.1",
+    "version": "1.9.2",
     "main": "dist/Dropdown.js",
     "module": "dist/Dropdown.js",
     "types": "dist/Dropdown.d.ts",
