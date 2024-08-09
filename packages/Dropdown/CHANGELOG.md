@@ -1,5 +1,11 @@
 # @igloo-ui/dropdown
 
+## 1.9.2
+
+### Patch Changes
+
+- 0790ab4: Updated packages.
+
 ## 1.9.1
 
 ### Patch Changes
