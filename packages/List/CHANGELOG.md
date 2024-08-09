@@ -1,5 +1,11 @@
 # @igloo-ui/list
 
+## 0.8.2
+
+### Patch Changes
+
+- 0790ab4: Updated packages.
+
 ## 0.8.1
 
 ### Patch Changes
