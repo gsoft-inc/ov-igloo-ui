@@ -42,7 +42,7 @@ const Avatar: React.FunctionComponent<AvatarProps> = ({
     };
 
     return (
-        <div className={classes}>
+        <div className={classes} data-private>
             <img
                 alt={alt}
                 className={cx("ids-avatar__image", `ids-avatar__image--${size}`)}
