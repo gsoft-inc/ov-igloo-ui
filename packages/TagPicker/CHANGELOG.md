@@ -1,5 +1,16 @@
 # @igloo-ui/tag-picker
 
+## 0.14.0
+
+### Minor Changes
+
+- 2b61fe2: Added data-private to the avatar component because it is needed for LogRocket.
+
+### Patch Changes
+
+- Updated dependencies [2b61fe2]
+  - @igloo-ui/tag@1.9.0
+
 ## 0.13.1
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @igloo-ui/combobox
 
+## 2.5.0
+
+### Minor Changes
+
+- 2b61fe2: Added data-private to the avatar component because it is needed for LogRocket.
+
+### Patch Changes
+
+- Updated dependencies [2b61fe2]
+  - @igloo-ui/list@0.9.0
+
 ## 2.4.2
 
 ### Patch Changes

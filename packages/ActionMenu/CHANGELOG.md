@@ -1,5 +1,12 @@
 # @igloo-ui/action-menu
 
+## 1.5.10
+
+### Patch Changes
+
+- Updated dependencies [2b61fe2]
+  - @igloo-ui/list@0.9.0
+
 ## 1.5.9
 
 ### Patch Changes
