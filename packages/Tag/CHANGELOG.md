@@ -1,5 +1,11 @@
 # @igloo-ui/tag
 
+## 1.9.0
+
+### Minor Changes
+
+- 2b61fe2: Added data-private to the avatar component because it is needed for LogRocket.
+
 ## 1.8.1
 
 ### Patch Changes
