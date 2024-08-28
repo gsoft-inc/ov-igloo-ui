@@ -111,6 +111,38 @@ export const WithButton = () => (
   </Section>
 );
 
+export const WithLink = () => (
+  <Section column>
+    <Alert
+      link={{ 
+        children: <a href="#">Tell me more</a>
+       }}
+      type="info"
+      appearance="card"
+      title={mockContent.title}
+      message={mockContent.message}
+    />
+    <Alert
+      link={{ 
+        children: <a href="#">Tell me more</a>
+       }}
+      type="info"
+      appearance="inline"
+      title={mockContent.title}
+      message={mockContent.message}
+    />
+    <Alert
+      link={{ 
+        children: <a href="#">Tell me more</a>
+       }}
+      type="info"
+      appearance="horizontal"
+      title={mockContent.title}
+      closable
+    />
+  </Section>
+);
+
 export const Closable = () => (
   <Section column>
     <Alert

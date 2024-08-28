@@ -4,6 +4,7 @@ exports[`Avatar It should render a snapshot 1`] = `
 <DocumentFragment>
   <div
     class="ids-avatar ids-avatar--medium"
+    data-private="true"
   >
     <img
       alt="Avatar"
