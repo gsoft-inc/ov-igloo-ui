@@ -2,7 +2,8 @@ import * as React from "react";
 import classNames from "classnames";
 
 import Button, { type Appearance as ButtonAppearance } from "@igloo-ui/button";
-import IconButton from "@igloo-ui/icon-button";
+import type { HyperlinkProps } from "@igloo-ui/hyperlink";
+import IconButton, { type Size as IconButtonSize } from "@igloo-ui/icon-button";
 import { DismissIcon } from "@hopper-ui/icons-react16";
 import {
     InfoIcon,
@@ -21,6 +22,7 @@ import { useLocalizedStringFormatter } from "@igloo-ui/provider";
 import intlMessages from "./intl";
 
 import "./alert.scss";
+import Hyperlink from "@igloo-ui/hyperlink";
 
 export type Type = "announcement" | "info" | "premium" | "success" | "warning";
 
@@ -54,6 +56,8 @@ export interface AlertProps extends Omit<React.ComponentProps<"div">, "title"> {
     button?: AlertButton;
     /** Add a data-test tag for automated tests */
     dataTest?: string;
+    /** Alert Link. Used in place of the button */
+    link?: HyperlinkProps;
 }
 
 const getBrand = (): string => {
@@ -89,6 +93,7 @@ const renderIcon = (
 
 const renderDismissButton = (
     setShow: (show: boolean) => void,
+    size: IconButtonSize = "xsmall",
     onDismissClick?: () => void,
     ariaLabel?: string
 ): JSX.Element => {
@@ -105,7 +110,7 @@ const renderDismissButton = (
             appearance={{ type: "ghost", variant: "secondary" }}
             className="ids-alert__dismiss-btn"
             type="button"
-            size="xsmall"
+            size={size}
             icon={<DismissIcon size="sm" />}
             onClick={action}
             aria-label={ariaLabel}
@@ -138,6 +143,24 @@ const renderAlertActionButton = (
     );
 };
 
+const renderAlertActionLink = (
+    link?: HyperlinkProps
+): JSX.Element => {
+    if (link == null || link.children == null) {
+        return <></>;
+    }
+
+    return (
+        <Hyperlink
+            appearance={link.appearance ?? "secondary"}
+            size={link.size ?? "small"}
+            className={classNames(link.className, "ids-alert__action-btn")}
+        >
+            {link.children}
+        </Hyperlink>
+    );
+};
+
 const Alert: React.FunctionComponent<AlertProps> = ({
     title,
     message,
@@ -145,11 +168,12 @@ const Alert: React.FunctionComponent<AlertProps> = ({
     type,
     appearance = "card",
     className,
-    closable = true,
+    closable = appearance !== "horizontal",
     icon,
     onClose,
     button,
     dataTest,
+    link,
     ...rest
 }: AlertProps) => {
     const stringFormatter = useLocalizedStringFormatter(intlMessages);
@@ -163,8 +187,9 @@ const Alert: React.FunctionComponent<AlertProps> = ({
     const parentElement = React.useRef<HTMLDivElement>(null);
     const [show, setShow] = React.useState(true);
     const hasButton = button !== undefined;
+    const hasLink = link !== undefined;
     const isHorizontal = appearance === "horizontal";
-    const canBeClosed = closable && !isHorizontal;
+    const canBeClosed = closable;
     const isWorkleap = getBrand() === "workleap";
 
     if (show) {
@@ -177,7 +202,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
             >
                 {icon !== null &&
           !isHorizontal &&
-          renderIcon(appearance, hasButton, type, icon, isWorkleap)}
+          renderIcon(appearance, hasButton || hasLink, type, icon, isWorkleap)}
 
                 <div className="ids-alert__body">
                     <div className="ids-alert__header">
@@ -185,10 +210,14 @@ const Alert: React.FunctionComponent<AlertProps> = ({
                         <p className="ids-alert__metadata">{metadata}</p>
                     </div>
                     {!isHorizontal && <div className="ids-alert__content">{message}</div>}
+                    {hasLink && renderAlertActionLink(link)}
                     {hasButton && renderAlertActionButton(appearance, button, isWorkleap)}
                 </div>
 
-                {canBeClosed && renderDismissButton(setShow, onClose, stringFormatter.format("close"))}
+                {canBeClosed && renderDismissButton(setShow, 
+                                                    isHorizontal ? "medium" : "xsmall", 
+                                                    onClose, 
+                                                    stringFormatter.format("close"))}
             </div>
         );
     }
