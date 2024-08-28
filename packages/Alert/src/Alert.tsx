@@ -104,7 +104,6 @@ const renderDismissButton = (
 
         setShow(false);
     };
-    console.log(size);
 
     return (
         <IconButton
