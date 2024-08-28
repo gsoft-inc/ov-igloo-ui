@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.9.0
+
+### Minor Changes
+
+- abc53df: Added the option to have an action link instead of a button in an Alert. Allowed the horizontal appearance to have a dismiss button. It is hidden by default for backwards compatibility.
+
 ## 0.8.5
 
 ### Patch Changes
