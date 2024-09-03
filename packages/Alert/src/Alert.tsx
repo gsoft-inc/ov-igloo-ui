@@ -29,7 +29,7 @@ export type Type = "announcement" | "info" | "premium" | "success" | "warning";
 export type Appearance = "card" | "inline" | "horizontal";
 
 export interface AlertButton {
-    label: string;
+    label: React.ReactNode;
     onClick: () => void;
 }
 
@@ -214,9 +214,9 @@ const Alert: React.FunctionComponent<AlertProps> = ({
                     {hasButton && renderAlertActionButton(appearance, button, isWorkleap)}
                 </div>
 
-                {canBeClosed && renderDismissButton(setShow, 
-                                                    isHorizontal ? "medium" : "xsmall", 
-                                                    onClose, 
+                {canBeClosed && renderDismissButton(setShow,
+                                                    isHorizontal ? "medium" : "xsmall",
+                                                    onClose,
                                                     stringFormatter.format("close"))}
             </div>
         );

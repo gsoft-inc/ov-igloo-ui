@@ -15,13 +15,13 @@ export interface FormGroupProps extends React.ComponentProps<"div"> {
     /** Add a data-test tag for automated tests */
     dataTest?: string;
     /** Add a message below the form element */
-    message?: string;
+    message?: React.ReactNode;
     /** Specifies the type of message to display */
     messageType?: MessageType;
     /** Add the htmlFor attribute to the label of the form element */
     htmlFor?: string;
     /** Add label text above the form element */
-    label?: string;
+    label?: React.ReactNode;
     /** Decides when to show the message */
     showMessage?: boolean;
 }
