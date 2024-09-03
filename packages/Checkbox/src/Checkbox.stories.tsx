@@ -63,11 +63,11 @@ export const Disabled: Story = {
         <Checkbox htmlFor="ids-checkbox-disabled" disabled>
           Label
         </Checkbox>
-    
+
         <Checkbox htmlFor="ids-checkbox-disabled-active" checked disabled>
           Label
         </Checkbox>
-    
+
         <Checkbox
           htmlFor="ids-checkbox-disabled-indeterminate"
           indeterminate

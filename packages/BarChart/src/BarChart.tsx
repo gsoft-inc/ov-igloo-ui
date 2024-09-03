@@ -8,7 +8,7 @@ export interface DataSet {
     /** Add id for bar chart. */
     id: string | number;
     /** Add label text above the bar chart. */
-    label: string;
+    label: React.ReactNode;
     /** The value displayed beside the bar chart. */
     value: number;
     /** Add the color to the bar chart. */
