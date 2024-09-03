@@ -1,5 +1,11 @@
 # @igloo-ui/bar-chart
 
+## 0.4.5
+
+### Patch Changes
+
+- 2df12a9: Certain components are now allowing react.reactnode instead of string in their typings
+
 ## 0.4.4
 
 ### Patch Changes
