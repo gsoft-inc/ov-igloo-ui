@@ -2,7 +2,6 @@
 "@igloo-ui/alert": patch
 "@igloo-ui/bar-chart": patch
 "@igloo-ui/checkbox": patch
-"@igloo-ui/dropdown": patch
 "@igloo-ui/form-group": patch
 "@igloo-ui/list": patch
 ---
