@@ -1,5 +1,11 @@
 # @igloo-ui/form-group
 
+## 1.2.2
+
+### Patch Changes
+
+- 2df12a9: Certain components are now allowing react.reactnode instead of string in their typings
+
 ## 1.2.1
 
 ### Patch Changes

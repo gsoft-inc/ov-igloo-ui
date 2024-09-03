@@ -1,5 +1,13 @@
 # @igloo-ui/list
 
+## 0.9.1
+
+### Patch Changes
+
+- 2df12a9: Certain components are now allowing react.reactnode instead of string in their typings
+- Updated dependencies [2df12a9]
+  - @igloo-ui/checkbox@0.5.2
+
 ## 0.9.0
 
 ### Minor Changes
