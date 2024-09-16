@@ -2,7 +2,9 @@
 
 exports[`Dropdown It should render without error and a snapshot 1`] = `
 <body>
-  <div>
+  <div
+    data-floating-ui-inert=""
+  >
     <div
       aria-controls=":r0:"
       aria-expanded="true"
@@ -39,6 +41,7 @@ exports[`Dropdown It should render without error and a snapshot 1`] = `
   >
     <span
       data-floating-ui-focus-guard=""
+      data-floating-ui-inert=""
       data-type="inside"
       role="button"
       style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
@@ -51,7 +54,7 @@ exports[`Dropdown It should render without error and a snapshot 1`] = `
       id=":r0:"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px; opacity: 0; transform: translateY(1rem);"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="ids-dropdown__scroll-content"
@@ -61,6 +64,7 @@ exports[`Dropdown It should render without error and a snapshot 1`] = `
     </div>
     <span
       data-floating-ui-focus-guard=""
+      data-floating-ui-inert=""
       data-type="inside"
       role="button"
       style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
