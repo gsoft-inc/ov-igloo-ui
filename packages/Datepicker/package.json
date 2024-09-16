@@ -31,7 +31,7 @@
     "@igloo-ui/icons": "^1.12.2",
     "@igloo-ui/input": "^2.3.1",
     "@igloo-ui/tokens": "^2.1.0",
-    "@hopper-ui/tokens": "^4.2.0",
+    "@hopper-ui/tokens": "^4.3.2",
     "@internationalized/date": "^3.5.2",
     "classnames": "^2.3.2",
     "luxon": "^3.4.4",
