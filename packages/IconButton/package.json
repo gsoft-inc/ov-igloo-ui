@@ -26,7 +26,7 @@
   "dependencies": {
     "@igloo-ui/button": "^0.9.3",
     "@igloo-ui/tokens": "^2.1.0",
-    "@hopper-ui/tokens": "^4.2.0",
+    "@hopper-ui/tokens": "^4.3.2",
     "classnames": "^2.3.2"
   },
   "devDependencies": {

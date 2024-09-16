@@ -28,7 +28,7 @@
     "classnames": "^2.3.2",
     "@igloo-ui/modal": "^1.8.2",
     "@igloo-ui/button": "^0.9.3",
-    "@hopper-ui/tokens": "^4.2.0"
+    "@hopper-ui/tokens": "^4.3.2"
   },
   "browserslist": [
     "> 1%",
