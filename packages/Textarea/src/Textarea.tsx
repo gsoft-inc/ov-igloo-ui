@@ -7,6 +7,7 @@ import useCharLength from "./hooks/useCharLength";
 import useTruncateValue from "./hooks/useTruncateValue";
 
 import "./textarea.scss";
+import { useDebounce } from "./hooks/useDebounce";
 
 export interface TextareaProps extends React.ComponentPropsWithRef<"textarea"> {
     /** True if the textarea should allow new lines with Enter. */
@@ -58,6 +59,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
         const textareaRef = React.useRef<HTMLTextAreaElement | null>(null);
         const mergedTextareaRef = mergeRefs(textareaRef, ref);
         const [currentValue, setCurrentValue] = React.useState(value ?? "");
+        const debounceCurrentValue = useDebounce(currentValue, 300);
         const textareaMaxLength = maxLength ?? 0;
         const charLength = useCharLength(currentValue, textareaMaxLength);
         const displayCharIndicator =
@@ -106,7 +108,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = React.forwardRef(
                 autosize(textareaRef.current);
                 autosize.update(textareaRef.current);
             }
-        }, [textareaRef, isAutoResize]);
+        }, [textareaRef, isAutoResize, debounceCurrentValue]);
 
         React.useEffect(() => {
             const newValue = truncateValue(value?.toString() ?? "", maxLength);
