@@ -1,5 +1,13 @@
 # @igloo-ui/stepper
 
+## 0.4.2
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+- Updated dependencies [2afe0d0]
+  - @igloo-ui/tooltip@3.5.6
+
 ## 0.4.1
 
 ### Patch Changes

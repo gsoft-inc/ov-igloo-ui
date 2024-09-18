@@ -1,5 +1,12 @@
 # @igloo-ui/textarea
 
+## 0.5.2
+
+### Patch Changes
+
+- 8e702ce: Resize textarea on value change with a 300ms debounce
+- 2afe0d0: Updated to latest icons and tokens
+
 ## 0.5.1
 
 ### Patch Changes

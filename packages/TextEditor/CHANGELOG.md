@@ -1,5 +1,17 @@
 # @igloo-ui/text-editor
 
+## 0.8.4
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+- Updated dependencies [2afe0d0]
+  - @igloo-ui/button@0.9.4
+  - @igloo-ui/icon-button@1.3.4
+  - @igloo-ui/input@2.3.2
+  - @igloo-ui/provider@0.1.5
+  - @igloo-ui/tooltip@3.5.6
+
 ## 0.8.3
 
 ### Patch Changes

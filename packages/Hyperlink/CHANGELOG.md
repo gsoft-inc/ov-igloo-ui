@@ -1,5 +1,11 @@
 # @igloo-ui/hyperlink
 
+## 0.5.2
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+
 ## 0.5.1
 
 ### Patch Changes

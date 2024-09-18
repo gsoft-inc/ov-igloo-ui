@@ -1,5 +1,13 @@
 # @igloo-ui/breadcrumb
 
+## 0.3.10
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+- Updated dependencies [2afe0d0]
+  - @igloo-ui/provider@0.1.5
+
 ## 0.3.9
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @igloo-ui/tag-picker
 
+## 0.14.1
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+- Updated dependencies [2afe0d0]
+  - @igloo-ui/input@2.3.2
+  - @igloo-ui/tag@1.9.1
+
 ## 0.14.0
 
 ### Minor Changes

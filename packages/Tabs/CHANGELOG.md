@@ -1,5 +1,11 @@
 # @igloo-ui/tabs
 
+## 1.3.2
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+
 ## 1.3.1
 
 ### Patch Changes

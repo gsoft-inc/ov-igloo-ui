@@ -1,5 +1,11 @@
 # @igloo-ui/card
 
+## 0.2.5
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+
 ## 0.2.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @igloo-ui/pie-chart
 
+## 0.3.5
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+
 ## 0.3.4
 
 ### Patch Changes

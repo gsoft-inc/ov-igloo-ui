@@ -1,5 +1,11 @@
 # @igloo-ui/action-menu
 
+## 1.5.11
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+
 ## 1.5.10
 
 ### Patch Changes

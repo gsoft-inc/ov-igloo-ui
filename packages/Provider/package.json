@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/provider",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "dist/Provider.js",
   "module": "dist/Provider.js",
   "types": "dist/Provider.d.ts",

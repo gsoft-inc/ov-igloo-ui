@@ -1,5 +1,15 @@
 # @igloo-ui/tag
 
+## 1.9.1
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+- Updated dependencies [2afe0d0]
+  - @igloo-ui/ellipsis@0.3.5
+  - @igloo-ui/icon-button@1.3.4
+  - @igloo-ui/provider@0.1.5
+
 ## 1.9.0
 
 ### Minor Changes

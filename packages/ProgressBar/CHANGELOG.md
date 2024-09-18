@@ -1,5 +1,11 @@
 # @igloo-ui/progress-bar
 
+## 1.1.5
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+
 ## 1.1.4
 
 ### Patch Changes

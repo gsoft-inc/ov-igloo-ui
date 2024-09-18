@@ -1,5 +1,11 @@
 # @igloo-ui/input
 
+## 2.3.2
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+
 ## 2.3.1
 
 ### Patch Changes

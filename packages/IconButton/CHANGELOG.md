@@ -1,5 +1,13 @@
 # @igloo-ui/icon-button
 
+## 1.3.4
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+- Updated dependencies [2afe0d0]
+  - @igloo-ui/button@0.9.4
+
 ## 1.3.3
 
 ### Patch Changes

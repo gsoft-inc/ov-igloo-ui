@@ -1,5 +1,14 @@
 # @igloo-ui/color-picker
 
+## 1.0.7
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+- Updated dependencies [2afe0d0]
+  - @igloo-ui/color@0.5.4
+  - @igloo-ui/provider@0.1.5
+
 ## 1.0.6
 
 ### Patch Changes

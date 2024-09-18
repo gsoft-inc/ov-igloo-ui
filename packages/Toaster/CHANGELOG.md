@@ -1,5 +1,13 @@
 # @igloo-ui/toaster
 
+## 2.2.2
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+- Updated dependencies [2afe0d0]
+  - @igloo-ui/icon-button@1.3.4
+
 ## 2.2.1
 
 ### Patch Changes
