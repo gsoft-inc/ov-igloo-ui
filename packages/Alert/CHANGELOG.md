@@ -1,5 +1,15 @@
 # @igloo-ui/alert
 
+## 0.9.2
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+- Updated dependencies [2afe0d0]
+  - @igloo-ui/button@0.9.4
+  - @igloo-ui/icon-button@1.3.4
+  - @igloo-ui/provider@0.1.5
+
 ## 0.9.1
 
 ### Patch Changes

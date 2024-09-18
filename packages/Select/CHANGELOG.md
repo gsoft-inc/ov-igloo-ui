@@ -1,5 +1,14 @@
 # @igloo-ui/select
 
+## 1.7.1
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+- Updated dependencies [2afe0d0]
+  - @igloo-ui/icon-button@1.3.4
+  - @igloo-ui/input@2.3.2
+
 ## 1.7.0
 
 ### Minor Changes

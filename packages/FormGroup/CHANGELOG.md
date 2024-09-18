@@ -1,5 +1,13 @@
 # @igloo-ui/form-group
 
+## 1.2.3
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+- Updated dependencies [2afe0d0]
+  - @igloo-ui/helper-text@0.3.6
+
 ## 1.2.2
 
 ### Patch Changes

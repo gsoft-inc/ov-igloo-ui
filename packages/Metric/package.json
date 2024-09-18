@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/metric",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "main": "dist/Metric.js",
   "module": "dist/Metric.js",
   "types": "dist/Metric.d.ts",
@@ -15,7 +15,7 @@
   ],
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@igloo-ui/provider": ">=0.1.4",
+    "@igloo-ui/provider": ">=0.1.5",
     "react": ">= 16.8.6"
   },
   "files": [
@@ -27,13 +27,13 @@
   "dependencies": {
     "@igloo-ui/icons": "^1.12.2",
     "@igloo-ui/tokens": "^2.1.0",
-    "@igloo-ui/tooltip": "^3.5.5",
+    "@igloo-ui/tooltip": "^3.5.6",
     "@hopper-ui/tokens": "^4.3.2",
     "classnames": "^2.3.2",
     "react-aria": "^3.32.1"
   },
   "devDependencies": {
-    "@igloo-ui/provider": "^0.1.4"
+    "@igloo-ui/provider": "^0.1.5"
   },
   "browserslist": [
     "> 1%",

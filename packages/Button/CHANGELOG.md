@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.4
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+
 ## 0.9.3
 
 ### Patch Changes

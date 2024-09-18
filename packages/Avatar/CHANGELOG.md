@@ -1,5 +1,11 @@
 # @igloo-ui/avatar
 
+## 0.4.1
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+
 ## 0.4.0
 
 ### Minor Changes

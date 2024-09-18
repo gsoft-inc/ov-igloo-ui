@@ -1,5 +1,13 @@
 # @igloo-ui/pager
 
+## 1.1.2
+
+### Patch Changes
+
+- 2afe0d0: Updated to latest icons and tokens
+- Updated dependencies [2afe0d0]
+  - @igloo-ui/provider@0.1.5
+
 ## 1.1.1
 
 ### Patch Changes
