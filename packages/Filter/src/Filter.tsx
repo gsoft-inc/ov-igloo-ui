@@ -13,7 +13,7 @@ export interface FilterProps extends React.ComponentProps<"button"> {
     /** True if the filter should be disabled */
     disabled?: boolean;
     /** Add an event for when the filter is clicked */
-    onClick?: () => void;
+    onClick?: (() => void) | React.MouseEventHandler<HTMLButtonElement>;
     /** True if the tag is selected */
     selected?: boolean;
 }

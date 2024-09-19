@@ -30,7 +30,7 @@ export type Appearance = "card" | "inline" | "horizontal";
 
 export interface AlertButton {
     label: React.ReactNode;
-    onClick: () => void;
+    onClick: (() => void) | React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export interface AlertProps extends Omit<React.ComponentProps<"div">, "title"> {

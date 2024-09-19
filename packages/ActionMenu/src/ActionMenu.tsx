@@ -23,7 +23,7 @@ export interface ActionMenuOption extends Omit<Option, "type"> {
     /** Whether or not the action menu should close when an option is selected */
     closeOnSelect?: boolean | ((option: OptionType) => boolean);
     /** Callback when an option is selected */
-    onClick?: () => void;
+    onClick?: (() => void) | React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export interface ActionMenuProps extends React.ComponentProps<"div"> {
@@ -125,7 +125,14 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
         );
         const onOptionSelect = actionMenuOption?.onClick;
         if (onOptionSelect) {
-            onOptionSelect();
+            if (onOptionSelect.length > 0) {
+                // eslint-disable-next-line max-len
+                const syntheticEvent = new MouseEvent("click") as unknown as React.MouseEvent<HTMLButtonElement>;
+                onOptionSelect(syntheticEvent);
+            } else {
+                // Call the function without arguments if it doesn't expect any
+                (onOptionSelect as () => void)();
+            }
         }
 
         if (closeMenuOnSelect(option)) {

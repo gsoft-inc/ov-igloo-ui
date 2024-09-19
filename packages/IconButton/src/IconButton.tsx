@@ -15,7 +15,7 @@ export interface IconButtonProps extends Omit<ButtonOwnProps, "size"> {
     icon: React.ReactNode;
     /** Callback function that will be called
    * when the user clicks on the button */
-    onClick?: () => void;
+    onClick?: (() => void) | React.MouseEventHandler<HTMLButtonElement>;
     /** True if the control is disabled and shows a disabled state.
    * The user cannot click on the button */
     disabled?: boolean;

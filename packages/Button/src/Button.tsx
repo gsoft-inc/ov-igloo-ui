@@ -56,7 +56,7 @@ export interface ButtonOwnProps {
     /** Display only the icon in mobile */
     showOnlyIconOnMobile?: boolean;
     /** Callback when clicked */
-    onClick?: () => void;
+    onClick?: (() => void) | React.MouseEventHandler<HTMLButtonElement>;
     /** Optional prop to specify the type of the Button */
     type?: "button" | "reset" | "submit";
     /** Add a data-intercom-target with unique id to link a

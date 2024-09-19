@@ -74,15 +74,38 @@ describe('Stepper', () => {
     }
   });
 
+  test('It should accept React.MouseEventHandler<HTMLButtonElement> as onClick prop', () => {
+    const mockOnClick: React.MouseEventHandler<HTMLButtonElement> = jest.fn();
+
+    const steps = [
+      { title: 'Step 1', onClick: mockOnClick },
+      { title: 'Step 2' },
+      { title: 'Step 3' },
+    ];
+
+    const currentStep = 1;
+    const {container} = setup({steps: steps, currentStep: currentStep, clickableNextSteps: false});
+
+    const props: StepperProps = {
+      steps: steps,
+      currentStep: 0,
+    };
+
+    render(<Stepper {...props} />);
+
+    const stepElements = container.querySelectorAll('.ids-step');
+    fireEvent.click(stepElements[0]);
+
+    expect(mockOnClick).toHaveBeenCalled();
+  });
+
   test('Enables steps after the current step if clickableNextSteps is true', () => {
     const currentStep = 1;
-    
+
     const {container} = setup({steps: steps, currentStep: currentStep, clickableNextSteps: true});
     const stepElements = container.querySelectorAll('.ids-step');
     for (let i = currentStep + 1; i < stepElements.length; i++) {
       expect(stepElements[i]).not.toBeDisabled();
     }
   });
-
-
 });

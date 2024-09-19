@@ -1,5 +1,6 @@
 import * as React from "react";
 import cx from "classnames";
+import type { PressEvent } from "react-aria";
 
 import Step from "./Step";
 
@@ -7,7 +8,7 @@ import "./stepper.scss";
 
 export interface Step {
     /** The callback function that is called when the step is clicked */
-    onClick?: (index: number) => void;
+    onClick?: ((index: number) => void) | React.MouseEventHandler<HTMLButtonElement>;
     /** The title for the step */
     title: string;
 }
@@ -54,7 +55,14 @@ const Stepper: React.FunctionComponent<StepperProps> = ({
                             isComplete={isComplete}
                             isCurrent={isCurrent}
                             disabled={disabled}
-                            onPress={() => step.onClick?.(index)}
+                            onPress={(event: PressEvent) => {
+                                if (typeof step.onClick === "function") {
+                                    (step.onClick as (index: number) => void)(index);
+                                } else if (step.onClick) {
+                                    // eslint-disable-next-line max-len
+                                    (step.onClick as React.MouseEventHandler<HTMLButtonElement>)(event as unknown as React.MouseEvent<HTMLButtonElement>);
+                                }
+                            }}
                         />
                         {index < steps.length - 1 && (
                             <div

@@ -30,7 +30,7 @@ export interface Option extends ListItem {
     /** Whether or not the option is disabled */
     disabled?: boolean;
     /** The option label */
-    label: string;
+    label: React.ReactNode;
     /** The option type */
     type: "list";
 }
@@ -195,7 +195,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
             <span className="ids-list-item__text-member">
                 {option?.member}
                 {option?.manager && (
-                    isWorkleap ? 
+                    isWorkleap ?
                         <UserIcon size="sm" className="ids-list-item__manager" /> :
                         <UserSolid size="small" className="ids-list-item__manager" />
                 )}

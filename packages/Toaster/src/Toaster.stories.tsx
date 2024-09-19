@@ -116,3 +116,16 @@ export const ErrorToast = () => {
     </ChromaticWrapper>
   );
 };
+
+
+export const NodeMessageSuccessToast = () => {
+
+    return (
+      <ChromaticWrapper>
+        <Button appearance="secondary" onClick={() => toast.success(<span>Andrew's <em>profile</em> has been deleted</span>)}>
+          Remove profile
+        </Button>
+          <Toaster />
+      </ChromaticWrapper>
+    );
+  };

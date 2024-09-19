@@ -155,6 +155,21 @@ describe('Combobox', () => {
     expect(comboboxOptions.length).toBe(options.length);
   });
 
+  test('It should support react nodes', () => {
+    const options: ComboboxOption[] = [
+      { label: <span>1</span>, value: 1 },
+      { label: <span>2</span>, value: 2 },
+      { label: <span>3</span>, value: 3 },
+      { label: <span>4</span>, value: 4 },
+    ];
+
+    setup({ isOpen: true }, options);
+    const combobox = screen.getByTestId('combobox1');
+    const comboboxOptions = combobox.querySelectorAll('.ids-list-item');
+
+    expect(comboboxOptions.length).toBe(options.length);
+  });
+
   test("It should put the option label in the header after it's clicked", () => {
     const options = [{ label: '1', value: 1 }];
 
