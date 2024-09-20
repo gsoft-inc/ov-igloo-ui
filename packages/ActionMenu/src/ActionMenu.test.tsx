@@ -87,7 +87,7 @@ describe('ActionMenu', () => {
           label: 'Add Item',
           value: 'add',
           onClick: (e) => {
-            e.preventDefault();
+            e?.preventDefault();
             selected = true;
           }
         },

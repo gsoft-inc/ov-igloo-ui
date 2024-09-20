@@ -8,7 +8,7 @@ import "./stepper.scss";
 
 export interface Step {
     /** The callback function that is called when the step is clicked */
-    onClick?: ((index: number) => void) | React.MouseEventHandler<HTMLButtonElement>;
+    onClick?: ((index: number, e?: PressEvent) => void);
     /** The title for the step */
     title: string;
 }
@@ -55,13 +55,8 @@ const Stepper: React.FunctionComponent<StepperProps> = ({
                             isComplete={isComplete}
                             isCurrent={isCurrent}
                             disabled={disabled}
-                            onPress={(event: PressEvent) => {
-                                if (typeof step.onClick === "function") {
-                                    (step.onClick as (index: number) => void)(index);
-                                } else if (step.onClick) {
-                                    // eslint-disable-next-line max-len
-                                    (step.onClick as React.MouseEventHandler<HTMLButtonElement>)(event as unknown as React.MouseEvent<HTMLButtonElement>);
-                                }
+                            onPress={(e: PressEvent) => {
+                                step.onClick?.(index, e);
                             }}
                         />
                         {index < steps.length - 1 && (
