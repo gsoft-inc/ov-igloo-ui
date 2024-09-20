@@ -25,7 +25,7 @@ export interface ListProps extends React.ComponentPropsWithRef<"ul"> {
     /** Called when an option becomes focused or hovered */
     onOptionFocus?: (option: OptionType) => void;
     /** Called when an option is selected */
-    onOptionChange?: (option: OptionType, e: React.SyntheticEvent) => void;
+    onOptionChange?: (option: OptionType, e?: React.SyntheticEvent) => void;
     /** Called when the mouse moves outside of the option
    * or the option loses focus */
     onOptionBlur?: (option: OptionType) => void;

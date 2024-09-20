@@ -119,7 +119,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
         return closeOnSelect;
     };
 
-    const selectOption = (option: OptionType, e: React.SyntheticEvent): void => {
+    const selectOption = (option: OptionType, e?: React.SyntheticEvent): void => {
         const actionMenuOption = options.find(
             actionMenuOption => actionMenuOption.value === option.value
         );

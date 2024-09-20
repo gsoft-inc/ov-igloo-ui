@@ -64,7 +64,7 @@ export interface ListItemProps extends React.ComponentProps<"li"> {
     /** Called when an option becomes focused or hovered */
     onOptionFocus?: (option: OptionType) => void;
     /** Called when an option is selected */
-    onOptionChange?: (option: OptionType, e: React.SyntheticEvent) => void;
+    onOptionChange?: (option: OptionType, e?: React.SyntheticEvent) => void;
     /** Called when the mouse moves outside of the option
    * or the option loses focus */
     onOptionBlur?: (option: OptionType) => void;
@@ -127,7 +127,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
         }
     };
 
-    const handleOptionChange = (item: OptionType, e: React.SyntheticEvent): void => {
+    const handleOptionChange = (item: OptionType, e?: React.SyntheticEvent): void => {
         if (!isOptionDisabled() && onOptionChange) {
             onOptionChange(item, e);
         }
