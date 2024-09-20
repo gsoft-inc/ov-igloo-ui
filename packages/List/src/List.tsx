@@ -14,7 +14,7 @@ export interface ListProps extends React.ComponentPropsWithRef<"ul"> {
     disableTabbing?: boolean;
     /** The option that is currently being focused or hovered */
     focusedOption?: OptionType | null;
-    /** True for a compact appearance 
+    /** True for a compact appearance
      * (Corresponds to "small" in Figma for compact, and "medium" for non-compact) */
     isCompact?: boolean;
     /** Whether or not the list is loading */
@@ -25,7 +25,7 @@ export interface ListProps extends React.ComponentPropsWithRef<"ul"> {
     /** Called when an option becomes focused or hovered */
     onOptionFocus?: (option: OptionType) => void;
     /** Called when an option is selected */
-    onOptionChange?: (option: OptionType) => void;
+    onOptionChange?: (option: OptionType, e: React.SyntheticEvent) => void;
     /** Called when the mouse moves outside of the option
    * or the option loses focus */
     onOptionBlur?: (option: OptionType) => void;
