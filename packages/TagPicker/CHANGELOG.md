@@ -1,5 +1,16 @@
 # @igloo-ui/tag-picker
 
+## 0.15.0
+
+### Minor Changes
+
+- a7761cd: Updated typings
+
+### Patch Changes
+
+- Updated dependencies [a7761cd]
+  - @igloo-ui/tag@1.10.0
+
 ## 0.14.1
 
 ### Patch Changes

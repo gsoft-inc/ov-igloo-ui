@@ -1,5 +1,16 @@
 # @igloo-ui/popover
 
+## 0.7.0
+
+### Minor Changes
+
+- a7761cd: Updated typings
+
+### Patch Changes
+
+- Updated dependencies [a7761cd]
+  - @igloo-ui/icon-button@1.4.0
+
 ## 0.6.2
 
 ### Patch Changes

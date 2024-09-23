@@ -1,5 +1,16 @@
 # @igloo-ui/action-menu
 
+## 1.6.0
+
+### Minor Changes
+
+- a7761cd: Updated typings
+
+### Patch Changes
+
+- Updated dependencies [a7761cd]
+  - @igloo-ui/list@0.10.0
+
 ## 1.5.11
 
 ### Patch Changes

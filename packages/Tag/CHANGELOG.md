@@ -1,5 +1,16 @@
 # @igloo-ui/tag
 
+## 1.10.0
+
+### Minor Changes
+
+- a7761cd: Updated typings
+
+### Patch Changes
+
+- Updated dependencies [a7761cd]
+  - @igloo-ui/icon-button@1.4.0
+
 ## 1.9.1
 
 ### Patch Changes
