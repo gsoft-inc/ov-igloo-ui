@@ -30,7 +30,7 @@ export type Appearance = "card" | "inline" | "horizontal";
 
 export interface AlertButton {
     label: React.ReactNode;
-    onClick?: (e?: React.SyntheticEvent) => void;
+    onClick: (e?: React.SyntheticEvent) => void;
 }
 
 export interface AlertProps extends Omit<React.ComponentProps<"div">, "title"> {

@@ -117,9 +117,7 @@ export const ErrorToast = () => {
   );
 };
 
-
 export const NodeMessageSuccessToast = () => {
-
     return (
       <ChromaticWrapper>
         <Button appearance="secondary" onClick={() => toast.success(<span>Andrew's <em>profile</em> has been deleted</span>)}>
