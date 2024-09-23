@@ -1,5 +1,16 @@
 # @igloo-ui/toaster
 
+## 2.3.0
+
+### Minor Changes
+
+- a7761cd: Updated typings
+
+### Patch Changes
+
+- Updated dependencies [a7761cd]
+  - @igloo-ui/icon-button@1.4.0
+
 ## 2.2.2
 
 ### Patch Changes

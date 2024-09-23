@@ -1,5 +1,11 @@
 # @igloo-ui/stepper
 
+## 0.5.0
+
+### Minor Changes
+
+- a7761cd: Updated typings
+
 ## 0.4.2
 
 ### Patch Changes

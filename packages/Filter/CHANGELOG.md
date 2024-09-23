@@ -1,5 +1,11 @@
 # @igloo-ui/filter
 
+## 0.5.0
+
+### Minor Changes
+
+- a7761cd: Updated typings
+
 ## 0.4.3
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @igloo-ui/select
 
+## 1.8.0
+
+### Minor Changes
+
+- a7761cd: Updated typings
+
+### Patch Changes
+
+- Updated dependencies [a7761cd]
+  - @igloo-ui/icon-button@1.4.0
+  - @igloo-ui/list@0.10.0
+
 ## 1.7.1
 
 ### Patch Changes

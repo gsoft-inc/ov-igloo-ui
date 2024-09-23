@@ -1,5 +1,17 @@
 # @igloo-ui/dialog
 
+## 0.10.0
+
+### Minor Changes
+
+- a7761cd: Updated typings
+
+### Patch Changes
+
+- Updated dependencies [a7761cd]
+  - @igloo-ui/button@0.10.0
+  - @igloo-ui/modal@1.9.0
+
 ## 0.9.5
 
 ### Patch Changes

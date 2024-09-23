@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/tag",
-  "version": "1.9.1",
+  "version": "1.10.0",
   "main": "dist/Tag.js",
   "module": "dist/Tag.js",
   "types": "dist/Tag.d.ts",
@@ -25,7 +25,7 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@igloo-ui/icon-button": "^1.3.4",
+    "@igloo-ui/icon-button": "^1.4.0",
     "@igloo-ui/icons": "^1.12.2",
     "@igloo-ui/tokens": "^2.1.0",
     "@igloo-ui/ellipsis": "^0.3.5",

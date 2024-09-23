@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/list",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "main": "dist/List.js",
   "module": "dist/List.js",
   "types": "dist/List.d.ts",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@shared/components": "0.6.0",
-    "@igloo-ui/button": "^0.9.3"
+    "@igloo-ui/button": "^0.10.0"
   },
   "browserslist": [
     "> 1%",

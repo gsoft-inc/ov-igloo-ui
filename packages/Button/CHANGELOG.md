@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.10.0
+
+### Minor Changes
+
+- a7761cd: Updated typings
+
 ## 0.9.4
 
 ### Patch Changes
