@@ -92,7 +92,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
     React.useState(selectedOption);
     const [showMenu, setShowMenu] = React.useState(isOpen);
 
-    const optionText = (option: OptionType | undefined): string | undefined => {
+    const optionText = (option: OptionType | undefined): React.ReactNode | undefined => {
         if (option?.type === "member") {
             return option?.member;
         }

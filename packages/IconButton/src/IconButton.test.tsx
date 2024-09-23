@@ -2,13 +2,14 @@
  * @jest-environment jsdom
  */
 import React from 'react';
+
 import { render, screen } from '@testing-library/react';
 import Plus from '@igloo-ui/icons/dist/Plus';
 
 import IconButton from './IconButton';
 
 const setUp = (props = {}) => {
-  return render(
+    return render(
     <IconButton
       icon={<Plus size="small" />}
       dataTest="ids-icon-btn"

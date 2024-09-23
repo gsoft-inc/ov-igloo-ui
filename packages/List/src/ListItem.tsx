@@ -30,7 +30,7 @@ export interface Option extends ListItem {
     /** Whether or not the option is disabled */
     disabled?: boolean;
     /** The option label */
-    label: string;
+    label: React.ReactNode;
     /** The option type */
     type: "list";
 }
@@ -64,7 +64,7 @@ export interface ListItemProps extends React.ComponentProps<"li"> {
     /** Called when an option becomes focused or hovered */
     onOptionFocus?: (option: OptionType) => void;
     /** Called when an option is selected */
-    onOptionChange?: (option: OptionType) => void;
+    onOptionChange?: (option: OptionType, e?: React.SyntheticEvent) => void;
     /** Called when the mouse moves outside of the option
    * or the option loses focus */
     onOptionBlur?: (option: OptionType) => void;
@@ -127,9 +127,9 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
         }
     };
 
-    const handleOptionChange = (item: OptionType): void => {
+    const handleOptionChange = (item: OptionType, e?: React.SyntheticEvent): void => {
         if (!isOptionDisabled() && onOptionChange) {
-            onOptionChange(item);
+            onOptionChange(item, e);
         }
     };
 
@@ -195,7 +195,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
             <span className="ids-list-item__text-member">
                 {option?.member}
                 {option?.manager && (
-                    isWorkleap ? 
+                    isWorkleap ?
                         <UserIcon size="sm" className="ids-list-item__manager" /> :
                         <UserSolid size="small" className="ids-list-item__manager" />
                 )}
@@ -218,7 +218,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = ({
           !(target as HTMLElement).closest("button")
                 ) {
                     if (option) {
-                        handleOptionChange(option);
+                        handleOptionChange(option, e);
                     }
                 }
             }}

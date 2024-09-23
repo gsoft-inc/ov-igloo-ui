@@ -53,16 +53,17 @@ describe('Stepper', () => {
   });
 
   test('Calls the step onClick callback when a step is clicked', () => {
-    const onStepChange = jest.fn();
+    let currentStep = 0;
+    const onStepChange = jest.fn((step: number) => currentStep = step);
     const stepsWithClicks = [
-      { title: 'Step 1', onClick: onStepChange },
-      { title: 'Step 2', onClick: onStepChange },
-      { title: 'Step 3', onClick: onStepChange },
+      { title: 'Step 1', onClick: () => onStepChange(1) },
+      { title: 'Step 2', onClick: () => onStepChange(2) },
+      { title: 'Step 3', onClick: () => onStepChange(3) },
     ];
     const {container} = setup({steps: stepsWithClicks, currentStep: 2});
-    const stepElements = container.querySelectorAll('.ids-step');
-    fireEvent.click(stepElements[0]);
-    expect(onStepChange).toHaveBeenCalledWith(0);
+    const [firstStep] = container.querySelectorAll('.ids-step');
+    fireEvent.click(firstStep);
+    expect(onStepChange).toHaveBeenCalledWith(1);
   });
 
   test('Disables steps after the current step if clickableNextSteps is false', () => {
@@ -76,13 +77,11 @@ describe('Stepper', () => {
 
   test('Enables steps after the current step if clickableNextSteps is true', () => {
     const currentStep = 1;
-    
+
     const {container} = setup({steps: steps, currentStep: currentStep, clickableNextSteps: true});
     const stepElements = container.querySelectorAll('.ids-step');
     for (let i = currentStep + 1; i < stepElements.length; i++) {
       expect(stepElements[i]).not.toBeDisabled();
     }
   });
-
-
 });

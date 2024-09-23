@@ -11,7 +11,7 @@ import "./toaster.scss";
 export interface ToastArgs {
     isClosable?: boolean;
     status?: "success" | "error";
-    message: string;
+    message: React.ReactNode;
 }
 
 export interface ToastQueueOptionsProps {
@@ -20,8 +20,8 @@ export interface ToastQueueOptionsProps {
 }
 
 export interface ToastQueueProps {
-    success: (message: string, options?: ToastQueueOptionsProps) => void;
-    error: (message: string, options?: ToastQueueOptionsProps) => void;
+    success: (message: React.ReactNode, options?: ToastQueueOptionsProps) => void;
+    error: (message: React.ReactNode, options?: ToastQueueOptionsProps) => void;
 }
 
 const TOAST_DURATION = 4000 as const;
@@ -66,7 +66,7 @@ const useActiveToastContainer = (): unknown => {
 };
 
 const addToast = (
-    message: string,
+    message: React.ReactNode,
     status: "success" | "error",
     duration: number | "infinite",
     isClosable: boolean

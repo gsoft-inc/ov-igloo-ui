@@ -23,7 +23,7 @@ export interface ActionMenuOption extends Omit<Option, "type"> {
     /** Whether or not the action menu should close when an option is selected */
     closeOnSelect?: boolean | ((option: OptionType) => boolean);
     /** Callback when an option is selected */
-    onClick?: () => void;
+    onClick?: (e?: React.SyntheticEvent) => void;
 }
 
 export interface ActionMenuProps extends React.ComponentProps<"div"> {
@@ -119,14 +119,12 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
         return closeOnSelect;
     };
 
-    const selectOption = (option: OptionType): void => {
+    const selectOption = (option: OptionType, e?: React.SyntheticEvent): void => {
         const actionMenuOption = options.find(
             actionMenuOption => actionMenuOption.value === option.value
         );
-        const onOptionSelect = actionMenuOption?.onClick;
-        if (onOptionSelect) {
-            onOptionSelect();
-        }
+
+        actionMenuOption?.onClick?.(e);
 
         if (closeMenuOnSelect(option)) {
             toggleMenu(false);
@@ -187,7 +185,7 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
                 keyboardEvent.preventDefault();
                 keyboardEvent.stopPropagation();
                 if (currentFocusedOption) {
-                    selectOption(currentFocusedOption);
+                    selectOption(currentFocusedOption, keyboardEvent);
                 }
                 if ((!currentFocusedOption && showMenu) || !showMenu) {
                     toggleMenu(!showMenu);

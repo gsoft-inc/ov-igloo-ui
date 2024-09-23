@@ -78,4 +78,25 @@ describe('ActionMenu', () => {
     }
     expect(selected).toBeTruthy();
   });
+
+  test('It calls the onClick of the option even with an eventHandler', () => {
+    let selected = false;
+    setup({
+      ...actionMenuProps, options: [
+        {
+          label: 'Add Item',
+          value: 'add',
+          onClick: (e) => {
+            e?.preventDefault();
+            selected = true;
+          }
+        },
+      ]
+    });
+    const listItem = screen.getByText('Add Item');
+    if (listItem) {
+      fireEvent.click(listItem);
+    }
+    expect(selected).toBeTruthy();
+  });
 });

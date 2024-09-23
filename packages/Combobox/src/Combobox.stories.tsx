@@ -61,6 +61,23 @@ const smallOptionList: ComboboxOption[] = [
   },
 ];
 
+const NodeLabelOptionList: ComboboxOption[] = [
+    {
+      label: <span>Text option</span>,
+      value: 'text',
+    },
+    {
+      label: <span>Disabled option</span>,
+      value: 'disabled',
+      disabled: true,
+    },
+    {
+      label: <span>Text option with icon</span>,
+      value: 'icon',
+      icon: <Happiness size="small" />,
+    },
+  ];
+
 const largeOptionList: ComboboxOption[] = [
   {
     label: 'Text 1',
@@ -154,21 +171,38 @@ const listWithAction: ComboboxOption[] = [
 type Story = StoryObj<typeof Combobox>;
 
 export const Overview: Story = {
-  args: {
-    children: comboboxPlaceholder,
-    options: smallOptionList,
-  },
+    args: {
+      children: comboboxPlaceholder,
+      options: smallOptionList,
+    },
 
-  play: async ({ canvasElement }) => {
-    const body = canvasElement.ownerDocument.body;
-    const canvas = within(body);
+    play: async ({ canvasElement }) => {
+      const body = canvasElement.ownerDocument.body;
+      const canvas = within(body);
 
-    await userEvent.click(canvas.getByRole('button'));
-    const firstOption = await canvas.findByText('Text option');
+      await userEvent.click(canvas.getByRole('button'));
+      const firstOption = await canvas.findByText('Text option');
 
-    await expect(firstOption).toBeInTheDocument();
-  },
-};
+      await expect(firstOption).toBeInTheDocument();
+    },
+  };
+
+  export const Nodes: Story = {
+    args: {
+      children: comboboxPlaceholder,
+      options: NodeLabelOptionList,
+    },
+
+    play: async ({ canvasElement }) => {
+      const body = canvasElement.ownerDocument.body;
+      const canvas = within(body);
+
+      await userEvent.click(canvas.getByRole('button'));
+      const firstOption = await canvas.findByText('Text option');
+
+      await expect(firstOption).toBeInTheDocument();
+    },
+  };
 
 export const Sizes: Story = {
   render: () => (

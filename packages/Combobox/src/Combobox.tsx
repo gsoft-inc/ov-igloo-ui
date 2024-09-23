@@ -167,7 +167,7 @@ const Combobox: React.FunctionComponent<ComboboxProps> = ({
         }
     }, [comboboxOptions]);
 
-    const optionText = (option: OptionType | undefined): string | undefined => {
+    const optionText = (option: OptionType | undefined): React.ReactNode | undefined => {
         if (option?.type === "member") {
             return option?.member;
         }
