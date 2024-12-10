@@ -1,5 +1,11 @@
 # @igloo-ui/area-chart
 
+## 1.2.8
+
+### Patch Changes
+
+- 30c350b: Fixed an issue where the wrong month label was shown in rare cases
+
 ## 1.2.7
 
 ### Patch Changes
