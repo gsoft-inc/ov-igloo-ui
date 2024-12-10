@@ -1,31 +1,31 @@
-import * as React from "react";
+import { useLocale } from "@igloo-ui/provider";
 import cx from "classnames";
 import { DateTime, Settings } from "luxon";
+import * as React from "react";
 import {
-    AreaChart as RechartsAreaChart,
     Area,
+    CartesianGrid,
+    AreaChart as RechartsAreaChart,
+    ReferenceArea,
+    ResponsiveContainer,
+    Tooltip,
     XAxis,
     YAxis,
-    Tooltip,
-    ResponsiveContainer,
-    CartesianGrid,
-    type XAxisProps,
-    type YAxisProps,
     type DotProps,
-    ReferenceArea,
-    type LabelProps
+    type LabelProps,
+    type XAxisProps,
+    type YAxisProps
 } from "recharts";
 import type { CurveType } from "recharts/types/shape/Curve";
 import type { CartesianViewBox } from "recharts/types/util/types";
-import { useLocale } from "@igloo-ui/provider";
 
 import ChartTooltip from "./ChartTooltip";
-import useDynamicYAxisWidth from "./hooks/useDynamicYAxisWidth";
 import {
-    getNullSequenceRanges,
     getFakeScore,
+    getNullSequenceRanges,
     getUniqueKeys
 } from "./helper/unavailableData";
+import useDynamicYAxisWidth from "./hooks/useDynamicYAxisWidth";
 
 import "./area-chart.scss";
 
@@ -219,7 +219,7 @@ const AreaChart: React.FunctionComponent<AreaChartProps> = ({
                 monthString = "Sept.";
                 break;
             default:
-                monthString = date.toFormat("MMM.");
+                monthString = utcDate.toFormat("MMM.");
         }
 
         return `${monthString} ${utcDate.day}`;
