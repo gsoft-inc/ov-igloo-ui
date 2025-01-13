@@ -1,8 +1,8 @@
-import * as React from "react";
 import cx from "classnames";
+import * as React from "react";
 
 import Dropdown from "@igloo-ui/dropdown";
-import List, { type OptionType, type Option } from "@igloo-ui/list";
+import List, { type Option, type OptionType } from "@igloo-ui/list";
 
 import SelectInput from "./SelectInput";
 import SelectValue from "./SelectValue";
@@ -55,6 +55,9 @@ export interface SelectProps {
     /** Whether or not to show the icon inside the
    * dropdown list if it's available */
     showListIcon?: boolean;
+    /** Disables the component from appending the dropdown
+   * to the end of the body using ReactPortal */
+    disablePortal?: boolean;
 }
 
 const Select: React.FunctionComponent<SelectProps> = ({
@@ -72,6 +75,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
     options,
     selectedOption,
     showListIcon = true,
+    disablePortal = false,
     ...rest
 }: SelectProps) => {
     const results = React.useMemo(
@@ -290,6 +294,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
                 className={selectDropdownClassname}
                 onClose={() => toggleMenu(true)}
                 isReferenceWidth={!autoWidth}
+                disablePortal={disablePortal}
                 isScrollable
             >
                 <SelectInput isOpen={canShowMenu}>
