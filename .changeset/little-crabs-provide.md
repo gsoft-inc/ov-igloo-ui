@@ -2,4 +2,4 @@
 "@igloo-ui/select": minor
 ---
 
-Add prop to disable dropdown portal and position options absolutely
+Added the `disablePortal` prop to disable dropdown portal, positioning options absolutely instead
