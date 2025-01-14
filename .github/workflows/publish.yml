@@ -43,5 +43,5 @@ jobs:
                   publish: yarn publish-ci
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.npm_token }}
-                  NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+                  NPM_TOKEN: ${{ secrets.WORKLEAP_NPM_TOKEN }}
+                  NODE_AUTH_TOKEN: ${{ secrets.WORKLEAP_NPM_TOKEN }}
