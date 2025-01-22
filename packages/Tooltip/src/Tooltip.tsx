@@ -1,21 +1,21 @@
-import * as React from "react";
-import cx from "classnames";
 import {
     arrow,
-    flip,
-    shift,
-    offset,
-    autoUpdate,
-    useFloating,
-    useDismiss,
-    useInteractions,
-    useTransitionStyles,
     autoPlacement,
-    useHover,
+    autoUpdate,
+    flip,
+    FloatingPortal,
+    offset,
+    shift,
+    useDismiss,
+    useFloating,
     useFocus,
+    useHover,
+    useInteractions,
     useRole,
-    FloatingPortal
+    useTransitionStyles
 } from "@floating-ui/react";
+import cx from "classnames";
+import * as React from "react";
 
 import useDeviceDetect from "./hooks/useDeviceDetect";
 
@@ -168,8 +168,8 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
   return (
       <span ref={refs.setReference} className={classes} {...getReferenceProps()}>
           {children}
-          <FloatingPortal>
-              {isMounted && (
+          {isMounted && (
+              <FloatingPortal>
                   <div
                       ref={refs.setFloating}
                       className={tooltipClasses}
@@ -193,8 +193,8 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
                           style={arrowStyles}
                       />
                   </div>
-              )}
-          </FloatingPortal>
+              </FloatingPortal>
+          )}
       </span>
   );
 };
