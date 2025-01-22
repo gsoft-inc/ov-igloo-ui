@@ -1,5 +1,12 @@
 # @igloo-ui/dropdown
 
+## 1.9.3
+
+### Patch Changes
+
+- bcb9f75: - Updated @floating-ui/react to latest to fix issues with FloatingPortal
+  - Updated Dropdown, Popover, FloatingLinkEditorPlugin, and Tooltip to render portals only when open
+
 ## 1.9.2
 
 ### Patch Changes

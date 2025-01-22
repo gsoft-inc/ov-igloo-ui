@@ -1,5 +1,14 @@
 # @igloo-ui/text-editor
 
+## 0.9.1
+
+### Patch Changes
+
+- bcb9f75: - Updated @floating-ui/react to latest to fix issues with FloatingPortal
+  - Updated Dropdown, Popover, FloatingLinkEditorPlugin, and Tooltip to render portals only when open
+- Updated dependencies [bcb9f75]
+  - @igloo-ui/tooltip@3.5.7
+
 ## 0.9.0
 
 ### Minor Changes
