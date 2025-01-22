@@ -28,7 +28,7 @@
   "dependencies": {
     "@igloo-ui/tokens": "^2.1.0",
     "@hopper-ui/tokens": "^4.3.2",
-    "@floating-ui/react": "^0.24.8",
+    "@floating-ui/react": "^0.27.3",
     "classnames": "^2.3.2"
   },
   "browserslist": [

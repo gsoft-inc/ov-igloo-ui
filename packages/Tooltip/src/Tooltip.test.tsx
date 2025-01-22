@@ -15,7 +15,7 @@ describe('Tooltip', () => {
   const defaultComponentSetup = {
     children: 'children',
     content: 'tooltip copy',
-    dataTest: 'tooltip-id',
+    dataTest: 'tooltip-id'
   };
 
   test('It should render a snapshot', (): void => {

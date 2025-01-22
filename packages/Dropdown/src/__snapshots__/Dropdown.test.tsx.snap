@@ -8,12 +8,19 @@ exports[`Dropdown It should render without error and a snapshot 1`] = `
       aria-expanded="true"
       aria-haspopup="listbox"
       class="ids-dropdown__ref"
+      data-floating-ui-inert=""
       role="combobox"
     >
       <button>
         Settings
       </button>
     </div>
+    <span
+      aria-hidden="true"
+      data-floating-ui-inert=""
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+      tabindex="-1"
+    />
     <span
       data-floating-ui-focus-guard=""
       data-type="outside"
@@ -23,6 +30,7 @@ exports[`Dropdown It should render without error and a snapshot 1`] = `
     />
     <span
       aria-owns=":r2:"
+      data-floating-ui-inert=""
       style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
     />
     <span
@@ -46,12 +54,13 @@ exports[`Dropdown It should render without error and a snapshot 1`] = `
     />
     <div
       class="ids-dropdown ids-dropdown--bottom-start"
+      data-floating-ui-focusable=""
       data-show="true"
       data-test="dropdown1"
       id=":r0:"
       role="listbox"
       style="position: fixed; top: 0px; left: 0px; opacity: 0; transform: translateY(1rem);"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="ids-dropdown__scroll-content"

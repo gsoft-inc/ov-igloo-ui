@@ -1,24 +1,23 @@
-import * as React from "react";
-import cx from "classnames";
 import {
-    flip,
-    shift,
-    offset,
-    autoUpdate,
-    useFloating,
-    useDismiss,
-    useInteractions,
-    useTransitionStyles,
     autoPlacement,
-    useRole,
-    FloatingPortal,
-    useClick,
-    useHover,
+    autoUpdate,
+    flip,
     FloatingFocusManager,
+    FloatingPortal,
+    offset,
     safePolygon,
-    type ReferenceType,
+    shift,
+    useClick,
+    useDismiss,
+    useFloating,
+    useHover,
+    useInteractions,
+    useRole,
+    useTransitionStyles,
     type UseHoverProps
 } from "@floating-ui/react";
+import cx from "classnames";
+import * as React from "react";
 
 import IconButton from "@igloo-ui/icon-button";
 import Close from "@igloo-ui/icons/dist/Close";
@@ -117,7 +116,7 @@ const Popover: React.FunctionComponent<PopoverProps> = ({
         ...floatingUIPlacement
     });
 
-    const useHoverProps: UseHoverProps<ReferenceType> = {
+    const useHoverProps: UseHoverProps = {
         enabled: triggerEvent === "hover",
         restMs: 150
     };
@@ -211,8 +210,8 @@ const Popover: React.FunctionComponent<PopoverProps> = ({
             >
                 {children}
             </span>
-            <FloatingPortal>
-                {isMounted && (
+            {isMounted && (
+                <FloatingPortal>
                     <FloatingFocusManager
                         context={context}
                         modal={false}
@@ -220,8 +219,8 @@ const Popover: React.FunctionComponent<PopoverProps> = ({
                     >
                         {popover}
                     </FloatingFocusManager>
-                )}
-            </FloatingPortal>
+                </FloatingPortal>
+            )}
         </>
     );
 };

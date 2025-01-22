@@ -1,21 +1,21 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import * as React from "react";
-import cx from "classnames";
-import { type Dispatch, useCallback, useEffect, useRef, useState } from "react";
 import {
-    flip,
-    shift,
-    offset,
     autoUpdate,
-    useFloating,
-    useDismiss,
-    useInteractions,
-    useTransitionStyles,
-    hide,
+    flip,
+    FloatingFocusManager,
     FloatingPortal,
+    hide,
+    offset,
+    shift,
     useClick,
-    FloatingFocusManager
+    useDismiss,
+    useFloating,
+    useInteractions,
+    useTransitionStyles
 } from "@floating-ui/react";
+import cx from "classnames";
+import * as React from "react";
+import { type Dispatch, useCallback, useEffect, useRef, useState } from "react";
 
 import {
     $isAutoLinkNode,
@@ -38,12 +38,12 @@ import {
 } from "lexical";
 
 import IconButton from "@igloo-ui/icon-button";
-import Input from "@igloo-ui/input";
 import Checkmark from "@igloo-ui/icons/dist/Checkmark";
-import Delete from "@igloo-ui/icons/dist/Delete";
 import Close from "@igloo-ui/icons/dist/Close";
+import Delete from "@igloo-ui/icons/dist/Delete";
 import Edit from "@igloo-ui/icons/dist/Edit";
 import External from "@igloo-ui/icons/dist/Launch";
+import Input from "@igloo-ui/input";
 
 import type { Messages } from "../TextEditor";
 import { getSelectedNode } from "../utils/getSelectedNode";
@@ -335,8 +335,8 @@ function FloatingLinkEditor({
     });
 
     return (
-        <FloatingPortal>
-            {isMounted && (
+        isMounted ? (
+            <FloatingPortal>
                 <FloatingFocusManager context={context} modal={false} initialFocus={-1}>
                     <div
                         ref={refs.setFloating}
@@ -352,8 +352,8 @@ function FloatingLinkEditor({
                         {!isLink ? null : linkEditorHTML}
                     </div>
                 </FloatingFocusManager>
-            )}
-        </FloatingPortal>
+            </FloatingPortal>
+        ) : null
     );
 }
 

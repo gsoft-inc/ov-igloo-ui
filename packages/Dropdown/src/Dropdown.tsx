@@ -1,20 +1,20 @@
-import * as React from "react";
-import cx from "classnames";
 import {
-    flip,
-    size as fuiSize,
-    useMergeRefs,
-    offset,
-    hide,
     autoUpdate,
-    useFloating,
+    flip,
     FloatingFocusManager,
+    FloatingPortal,
+    size as fuiSize,
+    hide,
+    offset,
     useDismiss,
+    useFloating,
     useInteractions,
-    useTransitionStyles,
+    useMergeRefs,
     useRole,
-    FloatingPortal
+    useTransitionStyles
 } from "@floating-ui/react";
+import cx from "classnames";
+import * as React from "react";
 
 import "./dropdown.scss";
 
@@ -239,6 +239,22 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
             }
         }, [isMounted, onAfterClose, dropdownPreviouslyOpen]);
 
+        const renderFloatingElem = (): React.ReactNode => {
+            if (disablePortal) {
+                return floatingElem;
+            }
+
+            if (isMounted) {
+                return (
+                    <FloatingPortal>
+                        {floatingElem}
+                    </FloatingPortal>
+                );
+            }
+
+            return null;
+        };
+
         return (
             <>
                 {renderReference ? (
@@ -252,11 +268,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = React.forwardRef(
                         {children}
                     </div>
                 )}
-                {disablePortal ? (
-                    floatingElem
-                ) : (
-                    <FloatingPortal>{floatingElem}</FloatingPortal>
-                )}
+                {renderFloatingElem()}
             </>
         );
     }
