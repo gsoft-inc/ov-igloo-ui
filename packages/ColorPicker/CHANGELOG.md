@@ -1,5 +1,11 @@
 # @igloo-ui/color-picker
 
+## 1.0.8
+
+### Patch Changes
+
+- 7c0c1dd: Updating all packages using the update of floating-ui
+
 ## 1.0.7
 
 ### Patch Changes

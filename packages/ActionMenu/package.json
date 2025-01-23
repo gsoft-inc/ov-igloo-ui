@@ -1,6 +1,6 @@
 {
   "name": "@igloo-ui/action-menu",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "main": "dist/ActionMenu.js",
   "module": "dist/ActionMenu.js",
   "types": "dist/ActionMenu.d.ts",

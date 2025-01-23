@@ -1,5 +1,11 @@
 # @igloo-ui/tag-picker
 
+## 0.15.1
+
+### Patch Changes
+
+- 7c0c1dd: Updating all packages using the update of floating-ui
+
 ## 0.15.0
 
 ### Minor Changes
