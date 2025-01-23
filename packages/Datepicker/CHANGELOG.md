@@ -1,5 +1,11 @@
 # @igloo-ui/datepicker
 
+## 0.8.1
+
+### Patch Changes
+
+- 7c0c1dd: Updating all packages using the update of floating-ui
+
 ## 0.8.0
 
 ### Minor Changes

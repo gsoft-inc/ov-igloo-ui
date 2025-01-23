@@ -1,5 +1,11 @@
 # @igloo-ui/combobox
 
+## 2.6.1
+
+### Patch Changes
+
+- 7c0c1dd: Updating all packages using the update of floating-ui
+
 ## 2.6.0
 
 ### Minor Changes

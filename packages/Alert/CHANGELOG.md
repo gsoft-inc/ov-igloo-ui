@@ -1,5 +1,11 @@
 # @igloo-ui/alert
 
+## 0.10.1
+
+### Patch Changes
+
+- 7c0c1dd: Updating all packages using the update of floating-ui
+
 ## 0.10.0
 
 ### Minor Changes

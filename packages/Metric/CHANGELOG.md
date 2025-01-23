@@ -1,5 +1,11 @@
 # @igloo-ui/metric
 
+## 0.4.3
+
+### Patch Changes
+
+- 7c0c1dd: Updating all packages using the update of floating-ui
+
 ## 0.4.2
 
 ### Patch Changes

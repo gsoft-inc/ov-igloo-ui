@@ -1,6 +1,6 @@
 {
     "name": "@igloo-ui/form-group",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "main": "dist/FormGroup.js",
     "module": "dist/FormGroup.js",
     "types": "dist/FormGroup.d.ts",

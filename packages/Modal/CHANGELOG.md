@@ -1,5 +1,11 @@
 # @igloo-ui/modal
 
+## 1.9.1
+
+### Patch Changes
+
+- 7c0c1dd: Updating all packages using the update of floating-ui
+
 ## 1.9.0
 
 ### Minor Changes

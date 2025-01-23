@@ -1,5 +1,11 @@
 # @igloo-ui/button-group
 
+## 0.5.4
+
+### Patch Changes
+
+- 7c0c1dd: Updating all packages using the update of floating-ui
+
 ## 0.5.3
 
 ### Patch Changes

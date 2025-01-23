@@ -1,5 +1,11 @@
 # @igloo-ui/form-group
 
+## 1.2.4
+
+### Patch Changes
+
+- 7c0c1dd: Updating all packages using the update of floating-ui
+
 ## 1.2.3
 
 ### Patch Changes

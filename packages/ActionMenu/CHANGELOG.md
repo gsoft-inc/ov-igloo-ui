@@ -1,5 +1,11 @@
 # @igloo-ui/action-menu
 
+## 1.6.1
+
+### Patch Changes
+
+- 7c0c1dd: Updating all packages using the update of floating-ui
+
 ## 1.6.0
 
 ### Minor Changes
