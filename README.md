@@ -2,7 +2,7 @@
   <h1>Igloo</h1>
 
   <p>Igloo gives a collection of React components for building their products</p>
-  <p><a href="https://github.com/gsoft-inc/ov-igloo-ui/issues/new">Report a Issue</a> . <a href="https://gsoft.slack.com/archives/C02J8004TDK">Ask a Question</a></p>
+  <p><a href="https://github.com/workleap/ov-igloo-ui/issues/new">Report a Issue</a> . <a href="https://gsoft.slack.com/archives/C02J8004TDK">Ask a Question</a></p>
 </div>
 
 ## Documentation
@@ -36,7 +36,7 @@ Before starting make sure [node](https://nodejs.org/en/) and [yarn](https://yarn
 After cloning ov-igloo-ui, run `yarn` to install dependencies.
 
 ```bash
-git clone https://github.com/gsoft-inc/ov-igloo-ui.git
+git clone https://github.com/workleap/ov-igloo-ui.git
 cd ov-igloo-ui
 yarn
 yarn storybook
@@ -55,4 +55,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 
-Copyright © 2019, GSoft inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
+Copyright © 2019, GSoft inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/workleap/gsoft-license/blob/master/LICENSE.

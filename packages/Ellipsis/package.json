@@ -8,7 +8,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "git+https://github.com/gsoft-inc/ov-igloo-ui.git",
+  "repository": "git+https://github.com/workleap/ov-igloo-ui.git",
   "author": "Officevibe Inc.",
   "contributors": [
     "Sylvester sylvester.vuong@gsoft.com"

@@ -61,7 +61,7 @@ export default function Home() {
             icon={<Image src={issue} />}
             title="Report an Issue"
             description="Submit comments or feature requests to grow Igloo"
-            link="https://github.com/gsoft-inc/ov-igloo-ui/issues/new/choose"
+            link="https://github.com/workleap/ov-igloo-ui/issues/new/choose"
             inline
           />
         </div>
