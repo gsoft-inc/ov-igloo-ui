@@ -83,7 +83,7 @@ export default function Icons() {
         <p>
           Not finding an icon that you want?{' '}
           <a
-            href="https://github.com/gsoft-inc/ov-igloo-icons/issues/new"
+            href="https://github.com/workleap/ov-igloo-icons/issues/new"
             target="_blank"
           >
             File an issue
