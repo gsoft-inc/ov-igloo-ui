@@ -12,7 +12,7 @@ export default function ReferenceLinks({ component, version }) {
           <a
             className="reference__link"
             target="_blank"
-            href={`https://github.com/gsoft-inc/ov-igloo-ui/tree/main/packages/${component}`}
+            href={`https://github.com/workleap/ov-igloo-ui/tree/main/packages/${component}`}
           >
             View source
           </a>
@@ -31,7 +31,7 @@ export default function ReferenceLinks({ component, version }) {
           <a
             className="reference__link"
             target="_blank"
-            href={`https://github.com/gsoft-inc/ov-igloo-ui/issues/new?title=${component}`}
+            href={`https://github.com/workleap/ov-igloo-ui/issues/new?title=${component}`}
           >
             Report an Issue
           </a>
