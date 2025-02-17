@@ -164,7 +164,7 @@ export default function Tokens(props) {
 export async function getStaticProps() {
   const fetcher = (path) =>
     fetch(
-      `https://raw.githubusercontent.com/gsoft-inc/ov-igloo-tokens/main${path}`
+      `https://raw.githubusercontent.com/workleap/ov-igloo-tokens/main${path}`
     ).then((res) => res.json());
 
   const tokens = await fetcher('/docs/tokens.json');
