@@ -12,7 +12,7 @@ import darkMode from '../svg/dark-mode.svg';
 export default function Layout({ children, page }) {
   const externalLink = [
     {
-      href: 'https://github.com/gsoft-inc/ov-igloo-ui',
+      href: 'https://github.com/workleap/ov-igloo-ui',
       icon: github,
       label: 'GitHub',
     },
