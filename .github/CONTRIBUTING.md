@@ -16,11 +16,11 @@ To get an overview of the project, read the [README](../README.md).
 
 #### Create a new issue
 
-If you spot a problem with the components, [search if an issue already exists](https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests#search-by-the-title-body-or-comments) on our [issues page](https://github.com/gsoft-inc/ov-igloo-ui/issues). If a related issue doesn't exist, you can [open a new issue](https://github.com/gsoft-inc/ov-igloo-ui/issues/new).
+If you spot a problem with the components, [search if an issue already exists](https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests#search-by-the-title-body-or-comments) on our [issues page](https://github.com/workleap/ov-igloo-ui/issues). If a related issue doesn't exist, you can [open a new issue](https://github.com/workleap/ov-igloo-ui/issues/new).
 
 #### Solve an issue
 
-Scan through our [existing issues](https://github.com/gsoft-inc/ov-igloo-ui/issues) to find one that interests you. As a general rule, we don’t assign issues to anyone. If you find an issue to work on, you are welcome to open a PR with a fix.
+Scan through our [existing issues](https://github.com/workleap/ov-igloo-ui/issues) to find one that interests you. As a general rule, we don’t assign issues to anyone. If you find an issue to work on, you are welcome to open a PR with a fix.
 
 ### Make Changes
 
