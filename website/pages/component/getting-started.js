@@ -72,7 +72,7 @@ export default function GettingStarted(props) {
                   <p>
                     After cloning{' '}
                     <a
-                      href="https://github.com/gsoft-inc/ov-igloo-ui"
+                      href="https://github.com/workleap/ov-igloo-ui"
                       target="_blank"
                     >
                       ov-igloo-ui
